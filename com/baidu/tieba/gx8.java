@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.IdRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ya9;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,26 +20,64 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class gx8 implements ya9.b {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean o;
-    public static boolean p;
-    public static String q;
+public class gx8 {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: e */
+    public static final int obfuscated = 2131232838;
+
+    /* renamed from: f */
+    public static final int obfuscated = 2131232837;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public boolean c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public SurfaceTexture l;
-    public volatile boolean m;
-    public volatile boolean n;
+    public View a;
+    public ImageView b;
+    public b c;
+    public CustomMessageListener d;
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gx8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gx8 gx8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gx8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gx8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                if (this.a.c != null) {
+                    this.a.c.a(booleanValue);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(boolean z);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,77 +94,104 @@ public abstract class gx8 implements ya9.b {
         }
     }
 
-    public gx8() {
+    public gx8(View view2, @IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = -1;
-        this.m = false;
-        this.n = false;
+        this.d = new a(this, 2921647);
+        MessageManager.getInstance().registerListener(this.d);
+        this.a = view2;
+        if (view2 != null) {
+            ImageView imageView = (ImageView) view2.findViewById(i);
+            this.b = imageView;
+            if (imageView != null) {
+                imageView.setVisibility(0);
+            }
+        }
+        j(d());
     }
 
-    @Override // com.baidu.tieba.ya9.b
-    public boolean a() {
+    public static StatisticItem b(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) ? new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()) : (StatisticItem) invokeLLI.objValue;
+    }
+
+    public static String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i == 4 || i == 3) ? "2" : "1" : (String) invokeI.objValue;
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbSingleton.getInstance().isDanmuSwitchOpen() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ya9.b
+    public void e(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            TiebaStatic.log(b("c14474", str, i).param("obj_type", d() ? "1" : "0"));
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+            ImageView imageView = this.b;
+            if (imageView != null) {
+                imageView.setOnClickListener(null);
+            }
+            this.c = null;
+        }
+    }
+
+    public void g(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (imageView = this.b) == null) {
+            return;
+        }
+        imageView.setOnClickListener(onClickListener);
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            boolean z = !d();
+            TbSingleton.getInstance().setDanmuSwitchOpen(z);
+            j(z);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
+        }
+    }
+
     public void j(boolean z) {
+        ImageView imageView;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.n = z;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (imageView = this.b) == null || (view2 = this.a) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.ya9.b
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ya9.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ya9.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ya9.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? p : invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? o : invokeV.booleanValue;
+        imageView.setImageDrawable(view2.getResources().getDrawable(z ? obfuscated : obfuscated));
     }
 }

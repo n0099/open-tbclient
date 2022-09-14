@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.an;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.mg;
-import com.baidu.tieba.tb;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.hc;
+import com.baidu.tieba.kc;
+import com.baidu.tieba.on;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class EmotionShareLoaderProc implements mg<EmotionShare> {
+public class EmotionShareLoaderProc implements ah<EmotionShare> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MemeLoaderProc2 impl;
@@ -27,15 +27,15 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
     public static class EmotionShare {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public an image;
+        public on image;
         public String path;
 
-        public EmotionShare(an anVar, String str) {
+        public EmotionShare(on onVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {anVar, str};
+                Object[] objArr = {onVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,13 +45,13 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
                     return;
                 }
             }
-            this.image = anVar;
+            this.image = onVar;
             this.path = str;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class ForceDeleteFileOperate extends DiskFileOperate implements tb {
+    public static class ForceDeleteFileOperate extends DiskFileOperate implements hc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,7 +76,7 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
             }
         }
 
-        @Override // com.baidu.tieba.tb
+        @Override // com.baidu.tieba.hc
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -105,16 +105,16 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
         memeLoaderProc2.setIsShare(true);
     }
 
-    private DiskFileOperate buildExtractToShareHubDiskOp(an anVar, String str) {
+    private DiskFileOperate buildExtractToShareHubDiskOp(on onVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, anVar, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, onVar, str)) == null) {
             DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
             diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
             diskFileOperate.setSubFolder(true);
             diskFileOperate.setSavedCache(true);
             diskFileOperate.setSdCard(true);
-            diskFileOperate.setData(anVar.k());
+            diskFileOperate.setData(onVar.k());
             return diskFileOperate;
         }
         return (DiskFileOperate) invokeLL.objValue;
@@ -128,7 +128,7 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
             forceDeleteFileOperate.setSubFolder(true);
             forceDeleteFileOperate.setSavedCache(true);
             forceDeleteFileOperate.setSdCard(true);
-            wb.f().call(forceDeleteFileOperate);
+            kc.f().call(forceDeleteFileOperate);
         }
     }
 
@@ -143,14 +143,14 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
         return (EmotionShare) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.ah
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.impl.getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.ah
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.ah
     public EmotionShare getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
         return (EmotionShare) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.ah
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
         }
     }
 
-    @Override // com.baidu.tieba.mg
+    @Override // com.baidu.tieba.ah
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
@@ -195,18 +195,18 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.mg
-    public EmotionShare getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tieba.ah
+    public EmotionShare getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             clearShareHub();
-            an fromLocal = this.impl.getFromLocal(str, str2, i, i2, jgVar, objArr);
+            on fromLocal = this.impl.getFromLocal(str, str2, i, i2, xgVar, objArr);
             if (fromLocal == null || fromLocal.k() == null) {
                 return null;
             }
             DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromLocal, str2);
-            if (!wb.f().call(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
+            if (!kc.f().call(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
                 return null;
             }
             return new EmotionShare(fromLocal, buildExtractToShareHubDiskOp.getFileInfo().getAbsolutePath());
@@ -216,18 +216,18 @@ public class EmotionShareLoaderProc implements mg<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.mg
-    public EmotionShare getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tieba.ah
+    public EmotionShare getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             clearShareHub();
-            an fromRemote = this.impl.getFromRemote(str, str2, i, i2, jgVar, objArr);
+            on fromRemote = this.impl.getFromRemote(str, str2, i, i2, xgVar, objArr);
             if (fromRemote == null || fromRemote.k() == null) {
                 return null;
             }
             DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromRemote, str2);
-            if (!wb.f().call(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
+            if (!kc.f().call(buildExtractToShareHubDiskOp) || buildExtractToShareHubDiskOp.getFileInfo() == null) {
                 return null;
             }
             return new EmotionShare(fromRemote, buildExtractToShareHubDiskOp.getFileInfo().getAbsolutePath());

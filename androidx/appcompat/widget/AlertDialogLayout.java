@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$id;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,11 +105,11 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 View childAt = getChildAt(i7);
                 if (childAt.getVisibility() != 8) {
                     int id = childAt.getId();
-                    if (id == R$id.topPanel) {
+                    if (id == R.id.obfuscated_res_0x7f092287) {
                         view2 = childAt;
-                    } else if (id == R$id.buttonPanel) {
+                    } else if (id == R.id.obfuscated_res_0x7f090481) {
                         view3 = childAt;
-                    } else if ((id != R$id.contentPanel && id != R$id.customPanel) || view4 != null) {
+                    } else if ((id != R.id.obfuscated_res_0x7f0906e6 && id != R.id.obfuscated_res_0x7f09074f) || view4 != null) {
                         return false;
                     } else {
                         view4 = childAt;

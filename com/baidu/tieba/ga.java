@@ -1,107 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseArray;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ga {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ga b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<String> a;
 
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+    public ga() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            b(str, i, -1L, i2, str2, i3, str3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.a = new SparseArray<>();
+    }
+
+    public static ga a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ga.class) {
+                    if (b == null) {
+                        b = new ga();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ga) invokeV.objValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = this.a.get(i);
+            if (str != null) {
+                return str;
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void c(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || !BdBaseApplication.getInst().isDebugMode() || list == null || list.size() == 0) {
+            return;
+        }
+        for (String str : list) {
+            d(str);
         }
     }
 
-    public static void b(String str, int i, long j, int i2, String str2, int i3, String str3) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            StringBuilder sb = new StringBuilder(50);
-            if (i != 0 && i2 != 0) {
-                sb.append("cmd = ");
-                sb.append(i);
-                sb.append("\t");
-                sb.append("sequence = ");
-                sb.append(i2);
-                sb.append("\t");
-            }
-            sb.append(str3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             try {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add("lib");
-                linkedList.add(str);
-                if (i != 0) {
-                    linkedList.add("cmd");
-                    linkedList.add(Integer.valueOf(i));
+                Class<?> loadClass = ga.class.getClassLoader().loadClass(str);
+                Object newInstance = loadClass.newInstance();
+                Field[] fields = loadClass.getFields();
+                if (fields == null || fields.length <= 0) {
+                    return;
                 }
-                if (!TextUtils.isEmpty(str2)) {
-                    linkedList.add("act");
-                    linkedList.add(str2);
+                for (Field field : fields) {
+                    int i = field.getInt(newInstance);
+                    String name = field.getName();
+                    if (this.a.get(i) == null) {
+                        this.a.put(i, name);
+                    } else {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i) + " 重复");
+                    }
                 }
-                if (i3 != 0) {
-                    linkedList.add(TiebaStatic.LogFields.RESULT);
-                    linkedList.add(Integer.valueOf(i3));
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    linkedList.add("comment");
-                    linkedList.add(str3);
-                }
-                BdStatisticsManager.getInstance().newDebug("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void c(String str, Message<?> message, int i, String str2, int i2, String str3) {
-        long j;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, message, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
-            if (message != null) {
-                i3 = message.getCmd();
-                j = message.getClientLogID();
-            } else {
-                j = 0;
-                i3 = 0;
-            }
-            b(str, i3, j, i, str2, i2, str3);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                BdStatisticsManager.getInstance().debug("socket", "url", qj.j().q(), "dns_cost", Long.valueOf(qj.j().h()), TiebaStatic.CON_COST, Long.valueOf(qj.j().g()), "remote_ip", qj.j().o(), ETAG.KEY_LOCAL_DNS, qj.j().m(), "local_dns_bak", qj.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                xg statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-                statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(qj.j().g()));
-                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, bh.a(BdBaseApplication.getInst()));
-                BdStatisticsManager.getInstance().performance("im", statsItem);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+            } catch (IllegalArgumentException e3) {
+                e3.printStackTrace();
+            } catch (InstantiationException e4) {
+                e4.printStackTrace();
             }
         }
     }

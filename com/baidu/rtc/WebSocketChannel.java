@@ -27,6 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.upstream.DefaultDataSource;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -985,13 +986,13 @@ public class WebSocketChannel {
             try {
                 jSONObject2.putOpt("request", "join");
                 jSONObject2.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject2.putOpt("ptype", "listener");
+                jSONObject2.putOpt("ptype", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
                 jSONObject2.putOpt(ExternalTransferSpeedStats.FEED_PAGE, janusHandle.feedId);
                 jSONObject2.putOpt("id", Long.valueOf(this.mUserId));
                 jSONObject2.putOpt("app_id", this.mAppId);
                 jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);
                 jSONObject2.putOpt("token", this.mTokenStr);
-                jSONObject2.putOpt("role", "listener");
+                jSONObject2.putOpt("role", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
                 if (!this.mMixLayoutPosition.isEmpty()) {
                     jSONObject2.putOpt("window_id_in_bypass", this.mMixLayoutPosition);
                 }

@@ -2,103 +2,87 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.wj2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tw2 {
+public class tw2 implements uw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195546, "Lcom/baidu/tieba/tw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948195546, "Lcom/baidu/tieba/tw2;");
-                return;
+    public tw2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = kh1.a;
     }
 
-    public static void a() {
-        String[] list;
+    @Override // com.baidu.tieba.uw2
+    public List<gw2> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (list = wj2.q().list()) == null || list.length <= 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
+            }
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt > 0 && (optJSONObject = jSONObject.optJSONObject("caller")) != null) {
+                b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
+                b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<gw2> list, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) || jSONObject == null || jSONObject.length() <= 0) {
             return;
         }
-        for (String str : list) {
-            if (!TextUtils.isEmpty(str)) {
-                z94 z94Var = new z94();
-                z94Var.g = str;
-                z94Var.i = -1L;
-                v84.i().f(z94Var);
-            }
-        }
-        wj2.e.d();
-    }
-
-    public static void b(String str) {
-        File s;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = wj2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
+        JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
+        if (optJSONArray == null || optJSONArray2 == null) {
             return;
         }
-        List<z94> q = hw2.q(str);
-        for (String str2 : list) {
-            long j = -1;
-            try {
-                j = Long.parseLong(str2);
-            } catch (NumberFormatException e) {
-                if (a) {
-                    sw2.b(Log.getStackTraceString(e));
-                }
-            }
-            if (!c(j, q)) {
-                ch4.L(wj2.t(str, str2));
-                sw2.b("delete plugin name = " + str + " ; version = " + str2);
-            }
-        }
-        z94 z94Var = null;
-        if (q != null) {
-            if (q.size() == 1) {
-                z94Var = q.get(0);
-            } else if (q.size() >= 2) {
-                z94Var = q.get(1);
-            }
-        }
-        if (z94Var != null) {
-            v84.i().f(z94Var);
+        int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+        for (int i2 = 0; i2 < min; i2++) {
+            gw2 gw2Var = new gw2();
+            gw2Var.g(i);
+            gw2Var.f(str);
+            gw2Var.i(optJSONArray.optLong(i2));
+            gw2Var.h(optJSONArray2.optLong(i2));
+            list.add(gw2Var);
         }
     }
 
-    public static boolean c(long j, List<z94> list) {
-        InterceptResult invokeJL;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    z94 z94Var = list.get(i);
-                    if (z94Var != null && (j == z94Var.i || j == pe3.c(z94Var.j))) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && uw2.a) {
+            Log.d("Api-Parser", str);
         }
-        return invokeJL.booleanValue;
     }
 }

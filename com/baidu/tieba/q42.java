@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zb4;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
+import com.baidu.tieba.na2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,87 +14,84 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.facebook.common.internal.Sets;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public final class q42 {
+public class q42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Set<Integer> b;
-    public static final Map<String, Long> c;
-    public static int d;
-    public static final vf3<String, String> e;
-    public static final vf3<zb4.a, String> f;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ga2 a;
+    public qa2 b;
 
     /* loaded from: classes5.dex */
-    public static class a implements vf3<String, String> {
+    public class a extends cb2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ q42 c;
 
-        public a() {
+        public a(@NonNull q42 q42Var, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q42Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.c = q42Var;
+            this.a = str;
+            this.b = str2;
+            if (q42.c) {
+                Log.d("SwanAppV8Daemon", "basePath: " + str + ", jsFile: " + str2);
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.vf3
-        public /* bridge */ /* synthetic */ String a(String str) {
-            String str2 = str;
-            b(str2);
-            return str2;
+        @Override // com.baidu.tieba.db2
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
         }
 
-        public String b(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.cb2, com.baidu.tieba.db2
+        @Nullable
+        public V8EngineConfiguration.CodeCacheSetting b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? str : (String) invokeL.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.b() : (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public static class b implements vf3<zb4.a, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        @Override // com.baidu.tieba.cb2, com.baidu.tieba.db2
+        public void c(ga2 ga2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ga2Var) == null) {
+                if (this.c.b != null) {
+                    this.c.b.a(ga2Var);
                 }
+                ga2Var.y0();
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vf3
-        /* renamed from: b */
-        public String a(zb4.a aVar) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.cb2, com.baidu.tieba.db2
+        public void d(ga2 ga2Var) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? aVar == null ? "" : aVar.b() : (String) invokeL.objValue;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ga2Var) == null) {
+                super.d(ga2Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.db2
+        public String getInitBasePath() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
         }
     }
 
@@ -111,167 +108,62 @@ public final class q42 {
                 return;
             }
         }
-        a = kh1.a;
-        b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
-        c = new ConcurrentHashMap();
-        d = 1800;
-        e = new a();
-        f = new b();
+        c = ij1.a;
     }
 
-    public static <T> T a(String str, T t) {
-        InterceptResult invokeLL;
+    public q42(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, t)) == null) {
-            if (a) {
-                Log.i("PreDownloadUtils", "Recorded=" + c.size() + " # " + str + " => " + t);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return t;
         }
-        return (T) invokeLL.objValue;
+        this.a = ma2.b(c(), new a(this, str, str2), null);
+        this.a.addJavascriptInterface(new p42(this.a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public static boolean b(@NonNull String str) {
-        InterceptResult invokeL;
+    public final na2 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Long l = c.get(str);
-            return l == null || System.currentTimeMillis() - l.longValue() > ((long) (d * 1000));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            na2.b bVar = new na2.b();
+            bVar.c(3);
+            bVar.b(o42.b());
+            return bVar.a();
         }
-        return invokeL.booleanValue;
+        return (na2) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public ga2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? g(str, true) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ga2) invokeV.objValue;
     }
 
-    public static boolean d(@NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            if (str2 != null) {
-                str = str + str2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ga2 ga2Var = this.a;
+            if (ga2Var != null) {
+                ga2Var.k0();
+                this.a = null;
             }
-            return c(str);
+            this.b = null;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public void f(qa2 qa2Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? g(str, false) : invokeL.booleanValue;
-    }
-
-    public static boolean f(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            if (str2 != null && str != null) {
-                str = str + str2;
-            }
-            return e(str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, qa2Var) == null) {
+            this.b = qa2Var;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(@Nullable String str, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
-            String str2 = "shouldDownloadItem app=" + str + " record=" + z + ZeusCrashHandler.NAME_SEPERATOR;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (z) {
-                c.put(str, Long.valueOf(System.currentTimeMillis()));
-                z2 = true;
-            } else {
-                z2 = !c.containsKey(str);
-            }
-            Boolean valueOf = Boolean.valueOf(z2);
-            a(str2 + " should", valueOf);
-            if (!valueOf.booleanValue()) {
-                Boolean valueOf2 = Boolean.valueOf(b(str));
-                a(str2 + " AB", valueOf2);
-                if (!valueOf2.booleanValue()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static List<String> h(Collection<String> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? j(e, collection) : (List) invokeL.objValue;
-    }
-
-    public static List<zb4.a> i(Collection<zb4.a> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? j(f, collection) : (List) invokeL.objValue;
-    }
-
-    public static <SwanItemT> List<SwanItemT> j(@NonNull vf3<SwanItemT, String> vf3Var, Collection<SwanItemT> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, vf3Var, collection)) == null) ? k(vf3Var, collection, false) : (List) invokeLL.objValue;
-    }
-
-    public static <SwanItemT> List<SwanItemT> k(@NonNull vf3<SwanItemT, String> vf3Var, Collection<SwanItemT> collection, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65547, null, vf3Var, collection, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (collection != null) {
-                Iterator<SwanItemT> it = collection.iterator();
-                while (it.hasNext()) {
-                    SwanItemT next = it.next();
-                    if (g(next == null ? "" : vf3Var.a(next), z)) {
-                        arrayList.add(next);
-                    }
-                }
-                a("shouldDownloadSet", "record=" + z + " targets=" + collection.size() + " should=" + arrayList.size());
-            }
-            return arrayList;
-        }
-        return (List) invokeLLZ.objValue;
-    }
-
-    public static boolean l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
-    }
-
-    public static boolean m(s94 s94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, s94Var)) == null) ? s94Var != null && l(s94Var.a) : invokeL.booleanValue;
-    }
-
-    public static boolean n(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            if (str == null) {
-                return false;
-            }
-            Iterator<Map.Entry<String, Long>> it = c.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry<String, Long> next = it.next();
-                if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
-                    it.remove();
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

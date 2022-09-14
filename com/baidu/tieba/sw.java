@@ -1,146 +1,114 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.SharedPreferences;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ThreadCardView;
-import com.baidu.tieba.go4;
-import com.baidu.tieba.py;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.permissionhelper.context.ContextCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public abstract class sw<T extends go4> implements jx, ix<T> {
-    public static /* synthetic */ Interceptable $ic;
+public class sw {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "sw";
     public transient /* synthetic */ FieldHolder $fh;
-    public ey a;
-    public Context b;
-    public Boolean c;
-    public h06<T> d;
-    public a e;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(go4 go4Var);
-    }
-
-    public sw(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = Boolean.FALSE;
-        this.b = context;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    public h06<T> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (h06) invokeV.objValue;
-    }
-
-    public final ThreadCardView f(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view2, i)) == null) {
-            if (view2 == null || view2.getParent() == null || i == 0) {
-                return null;
-            }
-            if (view2.getParent() instanceof ThreadCardView) {
-                return (ThreadCardView) view2.getParent();
-            }
-            return f((View) view2.getParent(), i - 1);
-        }
-        return (ThreadCardView) invokeLI.objValue;
-    }
-
-    public Boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Boolean) invokeV.objValue;
-    }
-
-    public abstract View h();
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public void j(int i, py.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, bVar) == null) {
-            this.a.m(i, bVar);
-        }
-    }
-
-    public void k(ey eyVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eyVar) == null) {
-            this.a = eyVar;
-        }
-    }
-
-    public void l(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i) {
-                marginLayoutParams.topMargin = i;
-                view2.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void m(h06<T> h06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, h06Var) == null) {
-            this.d = h06Var;
-        }
-    }
-
-    public void n(View view2, int i) {
-        ThreadCardView f;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (f = f(view2, i)) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448317385, "Lcom/baidu/tieba/sw;")) == null) {
             return;
         }
-        ns4 d = ns4.d(f);
-        d.n(R.string.J_X06);
-        d.f(R.color.CAM_X0205);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448317385, "Lcom/baidu/tieba/sw;");
+        }
     }
 
-    public void o(Boolean bool) {
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bool) == null) {
-            this.c = bool;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                return !ApiUtil.shouldCheckPermission();
+            }
         }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.p0.h.i) != false) goto L17;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
+            }
+            try {
+                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (Build.VERSION.SDK_INT >= 16) {
+                    if (!checkPermissionGranted) {
+                    }
+                    z = true;
+                    return z;
+                }
+                return checkPermissionGranted;
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                return !ApiUtil.shouldCheckPermission();
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (context == null) {
+                return false;
+            }
+            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
+            if (sharedPreferences == null) {
+                return true;
+            }
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = sharedPreferences.getBoolean(str, true);
+            d(context, str);
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void d(Context context, String str) {
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || context == null || (sharedPreferences = context.getSharedPreferences(a, 0)) == null) {
+            return;
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(str, false);
+        edit.apply();
     }
 }

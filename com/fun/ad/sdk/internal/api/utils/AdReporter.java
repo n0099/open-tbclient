@@ -9,8 +9,9 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.kl9;
-import com.baidu.tieba.qg9;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tieba.op9;
+import com.baidu.tieba.uk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,7 +120,7 @@ public class AdReporter<A> {
                 return;
             }
         }
-        a = kl9.a();
+        a = op9.a();
     }
 
     public AdReporter(String str, String str2, String str3) {
@@ -317,12 +318,12 @@ public class AdReporter<A> {
             int i2 = i + 1;
             objArr[i] = "ab";
             int i3 = i2 + 1;
-            Boolean bool = qg9.a;
+            Boolean bool = uk9.a;
             objArr[i2] = Boolean.valueOf(Settings.Secure.getInt(FunAdSdk.getAppContext().getContentResolver(), "adb_enabled", 0) != 0);
             int i4 = i3 + 1;
             objArr[i3] = "rt";
             int i5 = i4 + 1;
-            if (qg9.a == null) {
+            if (uk9.a == null) {
                 String str2 = null;
                 try {
                     Object invoke = Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, "ro.secure");
@@ -335,7 +336,7 @@ public class AdReporter<A> {
                     String str3 = System.getenv("PATH");
                     if (TextUtils.isEmpty(str3)) {
                         split = new String[]{"/sbin", "/system/bin", "/system/xbin", "/data/local/xbin", "/data/local/bin", "/system/sd/xbin", "/system/bin/failsafe", "/data/local"};
-                    } else if (!qg9.b && str3 == null) {
+                    } else if (!uk9.b && str3 == null) {
                         throw new AssertionError();
                     } else {
                         split = str3.split(":");
@@ -355,13 +356,13 @@ public class AdReporter<A> {
                     }
                     if (!z2) {
                         z = false;
-                        qg9.a = Boolean.valueOf(z);
+                        uk9.a = Boolean.valueOf(z);
                     }
                 }
                 z = true;
-                qg9.a = Boolean.valueOf(z);
+                uk9.a = Boolean.valueOf(z);
             }
-            objArr[i4] = Boolean.valueOf(qg9.a.booleanValue());
+            objArr[i4] = Boolean.valueOf(uk9.a.booleanValue());
             int i7 = i5 + 1;
             objArr[i5] = "vn";
             int i8 = i7 + 1;
@@ -377,7 +378,7 @@ public class AdReporter<A> {
             try {
                 int i10 = Settings.Secure.getInt(appContext.getApplicationContext().getContentResolver(), "accessibility_enabled");
                 TextUtils.SimpleStringSplitter simpleStringSplitter = new TextUtils.SimpleStringSplitter(':');
-                if (i10 == 1 && (string = Settings.Secure.getString(appContext.getApplicationContext().getContentResolver(), "enabled_accessibility_services")) != null) {
+                if (i10 == 1 && (string = ApiReplaceUtil.Overload.getString(appContext.getApplicationContext().getContentResolver(), "enabled_accessibility_services")) != null) {
                     simpleStringSplitter.setString(string);
                     while (simpleStringSplitter.hasNext()) {
                         arrayList.add(simpleStringSplitter.next());

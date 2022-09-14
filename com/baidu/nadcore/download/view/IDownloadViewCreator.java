@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.tieba.ij0;
+import com.baidu.tieba.rk0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +101,7 @@ public interface IDownloadViewCreator {
         }
 
         @Override // com.baidu.nadcore.download.view.IDownloadViewCreator
-        public ij0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
+        public rk0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, viewType)) == null) {
@@ -118,7 +118,7 @@ public interface IDownloadViewCreator {
                     return null;
                 }
             }
-            return (ij0) invokeLL.objValue;
+            return (rk0) invokeLL.objValue;
         }
     }
 
@@ -162,5 +162,5 @@ public interface IDownloadViewCreator {
         }
     }
 
-    ij0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
+    rk0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
 }

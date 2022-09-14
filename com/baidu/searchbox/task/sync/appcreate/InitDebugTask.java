@@ -7,11 +7,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
-import com.baidu.tieba.s9;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.xs4;
-import com.baidu.tieba.y70;
-import com.baidu.tieba.ys4;
+import com.baidu.tieba.a90;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.ga;
+import com.baidu.tieba.gv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,10 +41,10 @@ public class InitDebugTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(ys4.class.getName());
-            arrayList.add(xs4.class.getName());
+            arrayList.add(gv4.class.getName());
+            arrayList.add(fv4.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
-            s9.a().c(arrayList);
+            ga.a().c(arrayList);
         }
     }
 
@@ -58,13 +58,13 @@ public class InitDebugTask extends LaunchTask {
             if (TextUtils.isEmpty(cuid)) {
                 cuid = "";
             }
-            y70.a(inst, branchNameFromFile, commitIdFromFile, cuid);
+            a90.a(inst, branchNameFromFile, commitIdFromFile, cuid);
         }
     }
 
     private void initUETool() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && su4.k().h("key_ue_tool_switch", false)) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && bx4.k().h("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

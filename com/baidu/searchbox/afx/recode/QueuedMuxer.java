@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
@@ -16,6 +17,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class QueuedMuxer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -178,6 +180,7 @@ public class QueuedMuxer {
         this.mSampleInfoList = new ArrayList();
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private int getTrackIndexForSampleType(SampleType sampleType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -214,6 +217,7 @@ public class QueuedMuxer {
         this.mByteBuffer = null;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void setOutputFormat(SampleType sampleType, MediaFormat mediaFormat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sampleType, mediaFormat) == null) {

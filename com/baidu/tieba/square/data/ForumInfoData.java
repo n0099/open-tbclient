@@ -3,11 +3,9 @@ package com.baidu.tieba.square.data;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ForumInfoData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,17 +41,5 @@ public class ForumInfoData extends AbstractImageProvider implements Serializable
         this.thread_count = 0;
         this.is_like = 0;
         this.mbr_inter_rank = 0;
-    }
-
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
-    public ArrayList<String> getForumPhotoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(this.avatar);
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
     }
 }

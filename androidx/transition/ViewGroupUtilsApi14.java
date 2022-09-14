@@ -64,9 +64,9 @@ public class ViewGroupUtilsApi14 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0086  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0091  */
+    /* JADX WARN: Removed duplicated region for block: B:50:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -118,7 +118,7 @@ public class ViewGroupUtilsApi14 {
                         cancelLayoutTransition(layoutTransition3);
                     }
                     if (layoutTransition3 != sEmptyLayoutTransition) {
-                        viewGroup.setTag(R$id.transition_layout_save, layoutTransition3);
+                        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092328, layoutTransition3);
                     }
                 }
                 viewGroup.setLayoutTransition(sEmptyLayoutTransition);
@@ -147,7 +147,7 @@ public class ViewGroupUtilsApi14 {
                             Log.i(TAG, "Failed to get mLayoutSuppressed field by reflection");
                             if (z2) {
                             }
-                            layoutTransition = (LayoutTransition) viewGroup.getTag(R$id.transition_layout_save);
+                            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092328);
                             if (layoutTransition == null) {
                             }
                         }
@@ -159,9 +159,9 @@ public class ViewGroupUtilsApi14 {
             if (z2) {
                 viewGroup.requestLayout();
             }
-            layoutTransition = (LayoutTransition) viewGroup.getTag(R$id.transition_layout_save);
+            layoutTransition = (LayoutTransition) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092328);
             if (layoutTransition == null) {
-                viewGroup.setTag(R$id.transition_layout_save, null);
+                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092328, null);
                 viewGroup.setLayoutTransition(layoutTransition);
             }
         }

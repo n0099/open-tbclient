@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class cq {
@@ -77,7 +76,7 @@ public class cq {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             this.f179a = jSONObject.getLong("cost");
             this.c = jSONObject.getLong("size");
-            this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+            this.b = jSONObject.getLong("ts");
             this.a = jSONObject.getInt("wt");
             this.f180a = jSONObject.optString("expt");
             return this;
@@ -86,14 +85,14 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m241a() {
+    public JSONObject m242a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cost", this.f179a);
             jSONObject.put("size", this.c);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
+            jSONObject.put("ts", this.b);
             jSONObject.put("wt", this.a);
             jSONObject.put("expt", this.f180a);
             return jSONObject;

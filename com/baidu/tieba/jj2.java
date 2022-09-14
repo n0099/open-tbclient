@@ -1,11 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import androidx.annotation.NonNull;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public interface jj2 {
-    void a(String str, String str2);
+public interface jj2 extends kj2 {
 
-    void b(boolean z, HybridUbcFlow hybridUbcFlow);
+    /* loaded from: classes4.dex */
+    public interface a {
+    }
 
-    void c();
+    void D(int i);
+
+    void E();
+
+    void F(long j);
+
+    void I(int i);
+
+    void J(int i);
+
+    void K(int i);
+
+    void M(boolean z);
+
+    void S();
+
+    void V(int i);
+
+    void Y(int i);
+
+    void Z(@NonNull a aVar);
+
+    void a0();
+
+    void d();
+
+    void d0(boolean z);
+
+    void e(int i);
+
+    void e0(long j, boolean z);
+
+    void exitRoom();
+
+    void f();
+
+    void g(boolean z);
+
+    ArrayList<nj2> h();
+
+    void i(boolean z);
+
+    void i0(String str);
+
+    void j(long j);
+
+    void l0(long j);
+
+    void m0(boolean z);
+
+    void n();
+
+    void p(long j, boolean z);
+
+    void r(String str);
+
+    void setCameraFace(boolean z);
+
+    void t(boolean z);
+
+    void u(mj2 mj2Var);
+
+    ArrayList<lj2> v();
+
+    void x(boolean z);
+
+    void y(boolean z);
 }

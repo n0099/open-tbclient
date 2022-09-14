@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum a {
     Single(1),
     DefaultGroup(3),

@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.zm5;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.i25;
+import com.baidu.tieba.k25;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.List;
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zm5 a;
+    public kp5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -34,24 +34,24 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = zm5.d();
+        this.a = kp5.d();
     }
 
     public int A(String str) {
         InterceptResult invokeL;
-        List<zz4> c;
+        List<i25> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (b05.a(str) && (c = this.a.c()) != null) {
-                for (zz4 zz4Var : c) {
-                    if (str.equals(zz4Var.a())) {
-                        return c.indexOf(zz4Var);
+            if (k25.a(str) && (c = this.a.c()) != null) {
+                for (i25 i25Var : c) {
+                    if (str.equals(i25Var.a())) {
+                        return c.indexOf(i25Var);
                     }
                 }
                 return -1;
@@ -68,7 +68,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public List<zz4> C() {
+    public List<i25> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : (List) invokeV.objValue;
@@ -88,21 +88,21 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void F(zm5.a aVar) {
+    public void F(kp5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void G(List<zz4> list) {
+    public void G(List<i25> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void H(zm5.a aVar) {
+    public void H(kp5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.a.h(aVar);
@@ -129,10 +129,10 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void z(zz4 zz4Var) {
+    public void z(i25 i25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, zz4Var) == null) {
-            this.a.a(zz4Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, i25Var) == null) {
+            this.a.a(i25Var);
         }
     }
 }

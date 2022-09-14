@@ -441,7 +441,7 @@ public final class SClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65564, this, j, sClientPacket) == null) {
             LogTo logTo = LogTo.INSTANCE;
-            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m837toStringimpl(sClientPacket.m57getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m63cmd2StrWZ4Q5Ns(sClientPacket.m58getCommandpVg5ArA()));
+            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m838toStringimpl(sClientPacket.m57getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m63cmd2StrWZ4Q5Ns(sClientPacket.m58getCommandpVg5ArA()));
             int m58getCommandpVg5ArA = sClientPacket.m58getCommandpVg5ArA();
             if (m58getCommandpVg5ArA == 0) {
                 byte[] array = sClientPacket.getBody().array();
@@ -496,10 +496,10 @@ public final class SClient {
                 byte[] array2 = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array2, "packet.getBody().array()");
                 byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m57getBodyLengthpVg5ArA() - 1));
-                int m792constructorimpl = UInt.m792constructorimpl(UInt.m792constructorimpl(UInt.m792constructorimpl(UByte.m716constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m792constructorimpl(UByte.m716constructorimpl(sliceArray2[1]) & 255));
-                int m792constructorimpl2 = UInt.m792constructorimpl(UInt.m792constructorimpl(UInt.m792constructorimpl(UByte.m716constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m792constructorimpl(UByte.m716constructorimpl(sliceArray2[3]) & 255));
-                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m792constructorimpl);
-                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m792constructorimpl2);
+                int m793constructorimpl = UInt.m793constructorimpl(UInt.m793constructorimpl(UInt.m793constructorimpl(UByte.m717constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m793constructorimpl(UByte.m717constructorimpl(sliceArray2[1]) & 255));
+                int m793constructorimpl2 = UInt.m793constructorimpl(UInt.m793constructorimpl(UInt.m793constructorimpl(UByte.m717constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m793constructorimpl(UByte.m717constructorimpl(sliceArray2[3]) & 255));
+                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m793constructorimpl);
+                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m793constructorimpl2);
                 int latencyFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient();
                 int lossRateFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient();
                 if (TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() >= 100) {
@@ -517,9 +517,9 @@ public final class SClient {
                 sb.append("[CMD_HEART_BEAT ");
                 sb.append(j);
                 sb.append("] remote_latency:");
-                sb.append((Object) UInt.m837toStringimpl(m792constructorimpl));
+                sb.append((Object) UInt.m838toStringimpl(m793constructorimpl));
                 sb.append(" remote_lossRate:");
-                sb.append((Object) UInt.m837toStringimpl(m792constructorimpl2));
+                sb.append((Object) UInt.m838toStringimpl(m793constructorimpl2));
                 sb.append(" local_latency:");
                 int i2 = i;
                 sb.append(i2);
@@ -614,7 +614,7 @@ public final class SClient {
                         byte[] bytes = str.getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
                         bodyBuffer.put(bytes);
-                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m792constructorimpl(bytes.length), null);
+                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m793constructorimpl(bytes.length), null);
                         sClientPacket.encodeHeader2Buffer(headerBuffer);
                         sClientPacket.writeBodyBuffer(bodyBuffer);
                         write(sClientPacket);
@@ -785,11 +785,11 @@ public final class SClient {
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x002b  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x003c  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0082 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ad, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0098 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ad, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00a0 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ad, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00ab  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0082 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ae, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0098 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ae, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00a0 A[Catch: all -> 0x0031, TryCatch #0 {all -> 0x0031, blocks: (B:13:0x002d, B:29:0x0071, B:32:0x0082, B:34:0x0098, B:39:0x00ae, B:35:0x00a0, B:20:0x003f, B:24:0x0050, B:26:0x0054, B:30:0x0078, B:23:0x0044), top: B:47:0x0029 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00ad  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

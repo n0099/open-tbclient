@@ -1,20 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
+import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.tieba.g93;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class t93 {
+public class t93 extends yy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AshmemFileDescriptor a;
-    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,26 +41,110 @@ public class t93 {
                 return;
             }
         }
-        r93.f();
+        f = ij1.a;
     }
 
-    public AshmemFileDescriptor a() {
-        InterceptResult invokeV;
+    public t93() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AshmemFileDescriptor) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
-    @NonNull
-    public SwanKV b() {
-        InterceptResult invokeV;
+    public static boolean e(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (SwanKV) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TextUtils.isEmpty(str) || TextUtils.equals("0", str) : invokeL.booleanValue;
     }
 
-    public void c(@NonNull SwanKV swanKV) {
+    public static void f(String str, String str2, @Nullable JSONObject jSONObject) {
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.b = swanKV;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, jSONObject) == null) && e(str2)) {
+            JSONObject jSONObject2 = new JSONObject();
+            String str3 = StringUtil.NULL_STRING;
+            if (str2 == null) {
+                str2 = StringUtil.NULL_STRING;
+            }
+            try {
+                jSONObject2.put("version", str2);
+                jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str == null ? StringUtil.NULL_STRING : str);
+                y23 M = y23.M();
+                if (M != null) {
+                    vn2.a Y = M.Y();
+                    jSONObject2.put("launchInfo", Y == null ? StringUtil.NULL_STRING : Y.I1());
+                    SwanAppActivity w = M.w();
+                    vn2 vn2Var = null;
+                    if (w != null && (intent = w.getIntent()) != null) {
+                        vn2Var = vn2.d1(intent);
+                    }
+                    if (vn2Var != null) {
+                        str3 = vn2Var.I1();
+                    }
+                    jSONObject2.put("launchInfoIntent", str3);
+                } else {
+                    jSONObject2.put("swanApp", StringUtil.NULL_STRING);
+                }
+                jSONObject2.put("stackTrace", sg3.y());
+                if (jSONObject != null) {
+                    jSONObject2.put("reportExtInfo", jSONObject);
+                }
+            } catch (JSONException e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+            tz2 y = x23.K().y();
+            if (y != null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key_swan_appid", str);
+                bundle.putString("key_report_info", jSONObject2.toString());
+                y.W(bundle, t93.class);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yy2
+    public void b(@NonNull Bundle bundle) {
+        v92 o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("key_swan_appid", "");
+            String string2 = bundle.getString("key_report_info", "");
+            String str = TextUtils.isEmpty(string2) ? "" : string2;
+            JSONObject jSONObject = null;
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e) {
+                if (f) {
+                    Log.e("VersionBusinessUbc", "execCall: ", e);
+                }
+                e.printStackTrace();
+            }
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            if (!TextUtils.isEmpty(string) && (o = SwanAppDbControl.f(AppRuntime.getAppContext()).o(string)) != null) {
+                try {
+                    jSONObject.put("appDbInfo", o.a());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            if (f) {
+                Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
+            }
+            g93.b bVar = new g93.b(10002);
+            bVar.i(jSONObject.toString());
+            bVar.m();
+            c();
         }
     }
 }

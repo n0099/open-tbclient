@@ -1,104 +1,125 @@
 package com.baidu.tieba;
 
 import android.graphics.Color;
-import androidx.annotation.NonNull;
+import android.graphics.LinearGradient;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.gesture.GestureAR;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mw1 extends ow1 {
+public class mw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String t;
-    public int u;
-    public boolean v;
-    public double w;
-    public int x;
-    public int y;
-    public String z;
+    public String a;
+    public int b;
+    public Shader c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mw1(String str, @NonNull String str2) {
-        super(str, str2);
+    public mw1(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = "";
-        this.v = false;
-        this.z = "";
-        this.A = "";
-        this.B = "";
-        this.C = "";
+        this.a = "";
+        e(jSONArray);
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
-            return;
-        }
-        try {
-            this.u = Color.parseColor(jSONObject.optString("color"));
-            this.v = true;
-        } catch (Exception unused) {
-            ay1.o("Component-Model-TextView", "text color occurs exception");
-            this.v = false;
-        }
-        this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
-        this.x = re3.g((float) this.j.optDouble("lineHeight", 0.0d));
-        this.y = re3.g((float) this.j.optDouble("lineSpace", 0.0d));
-        this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-        this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-        this.B = this.j.optString("whiteSpace");
-        this.C = this.j.optString("lineBreak");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ow1, com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public Shader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("text");
-        i();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Shader) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ow1, com.baidu.tieba.qw1
-    public void g(JSONObject jSONObject) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.t = jSONObject.optString("text", this.t);
-            i();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.equals(this.a, "linearGradient") || TextUtils.equals(this.a, "circularGradient") : invokeV.booleanValue;
     }
 
-    public void j(String str) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+    }
+
+    public void e(JSONArray jSONArray) {
+        float[] fArr;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
+            int i = 0;
+            try {
+                String optString = jSONArray.optString(0);
+                int i2 = 4;
+                int i3 = 1;
+                if (TextUtils.equals(optString, "normal")) {
+                    JSONArray optJSONArray = jSONArray.optJSONArray(1);
+                    if (optJSONArray.length() == 4) {
+                        this.b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.a = "normal";
+                    }
+                } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
+                    JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
+                    int[] iArr = null;
+                    if (optJSONArray2 == null || (length = optJSONArray2.length()) <= 0) {
+                        fArr = null;
+                    } else {
+                        iArr = new int[length];
+                        fArr = new float[length];
+                        int i4 = 0;
+                        while (i4 < length) {
+                            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
+                            JSONArray optJSONArray3 = optJSONObject.optJSONArray("color");
+                            if (optJSONArray3.length() == i2) {
+                                iArr[i4] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(i), optJSONArray3.optInt(i3), optJSONArray3.optInt(2));
+                            }
+                            fArr[i4] = (float) optJSONObject.optDouble(IntentConfig.STOP);
+                            i4++;
+                            i = 0;
+                            i2 = 4;
+                            i3 = 1;
+                        }
+                    }
+                    if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
+                        JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
+                        if (TextUtils.equals(optString, "linearGradient")) {
+                            this.c = new LinearGradient(pg3.g(optJSONObject2.optInt("x0")), pg3.g(optJSONObject2.optInt("y0")), pg3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), pg3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.a = "linearGradient";
+                            return;
+                        }
+                        this.c = new RadialGradient(pg3.g(optJSONObject2.optInt("x")), pg3.g(optJSONObject2.optInt("y")), pg3.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.a = "circularGradient";
+                    }
+                }
+            } catch (Exception e) {
+                if (ij1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

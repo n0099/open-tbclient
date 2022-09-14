@@ -1,19 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.NestedEvent;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class om0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface om0 {
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-        $EnumSwitchMapping$0[NestedEvent.SCROLL_FINISH.ordinal()] = 3;
+    @Autowired
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Singleton
+        @Inject(force = false)
+        public static om0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? bv0.a() : (om0) invokeV.objValue;
+        }
     }
+
+    float getLaunchSpeedScore();
+
+    float getStaticDeviceScore();
 }

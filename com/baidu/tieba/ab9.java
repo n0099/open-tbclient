@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
-import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
-import com.faceunity.gles.GeneratedTexture;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ab9 extends MediaBaseRenderer implements pb9 {
+public final class ab9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int c;
-    public float d;
+    public SQLiteDatabase a;
 
     public ab9() {
         Interceptable interceptable = $ic;
@@ -32,80 +29,42 @@ public class ab9 extends MediaBaseRenderer implements pb9 {
                 return;
             }
         }
-        this.b = new int[1];
+        this.a = xa9.a().c();
     }
 
-    @Override // com.baidu.tieba.pb9
-    public void a(jb9 jb9Var, SurfaceTexture surfaceTexture) {
+    public final List<com.baidu.ubs.analytics.a.l> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jb9Var, surfaceTexture) == null) {
-            int i = this.mSurfaceViewHeight;
-            int i2 = this.mSurfaceViewWidth;
-            float f = this.mRatio;
-            int i3 = i - ((int) (i2 * f));
-            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
-                b();
-                GLES20.glBindFramebuffer(36160, this.c);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(16640);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
-                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                GLES20.glBindFramebuffer(36160, 0);
-                jb9Var.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
-            } else if (this.mTextureMode == 1) {
-                jb9Var.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
-            } else {
-                jb9Var.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
+                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(lVar);
             }
-            jb9Var.f(surfaceTexture);
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
         }
     }
 
-    public final void b() {
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d != this.mRatio) {
-                c();
-            }
-            if (this.a == 0) {
-                this.a = this.mFullScreen2D.createTexture2DObject();
-                int i = this.mSurfaceViewWidth;
-                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
-                GLES20.glBindTexture(3553, 0);
-                GLES20.glGenFramebuffers(1, this.b, 0);
-                this.c = this.b[0];
-                this.d = this.mRatio;
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
-            return;
-        }
-        GLES20.glDeleteFramebuffers(1, this.b, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
-        this.a = 0;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onDestroyInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroyInGlThread();
-            c();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onPauseInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPauseInGlThread();
-            c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
         }
     }
 }

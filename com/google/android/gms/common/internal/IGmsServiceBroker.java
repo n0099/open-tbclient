@@ -8,13 +8,12 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 /* loaded from: classes7.dex */
 public interface IGmsServiceBroker extends IInterface {
 
@@ -41,6 +40,7 @@ public interface IGmsServiceBroker extends IInterface {
 
         @Override // android.os.IInterface
         @NonNull
+        @KeepForSdk
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public interface IGmsServiceBroker extends IInterface {
             InterceptResult invokeCommon;
             IGmsCallbacks zzaaVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
                 if (i > 16777215) {
                     return super.onTransact(i, parcel, parcel2, i2);
                 }
@@ -66,7 +66,7 @@ public interface IGmsServiceBroker extends IInterface {
                 }
                 if (i == 46) {
                     getService(zzaaVar, parcel.readInt() != 0 ? GetServiceRequest.CREATOR.createFromParcel(parcel) : null);
-                    hn9.d(parcel2);
+                    Preconditions.checkNotNull(parcel2);
                     parcel2.writeNoException();
                     return true;
                 } else if (i == 47) {
@@ -135,5 +135,6 @@ public interface IGmsServiceBroker extends IInterface {
         }
     }
 
+    @KeepForSdk
     void getService(@NonNull IGmsCallbacks iGmsCallbacks, @Nullable GetServiceRequest getServiceRequest) throws RemoteException;
 }

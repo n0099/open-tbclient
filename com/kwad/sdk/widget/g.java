@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import com.kwad.sdk.utils.bf;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public final int GD;
     public final bf afk;

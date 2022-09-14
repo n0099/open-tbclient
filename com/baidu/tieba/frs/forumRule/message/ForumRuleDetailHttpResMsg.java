@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.tk6;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tk6 mForumRuleDetailData;
+    public yl6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailHttpResMsg() {
@@ -36,10 +36,10 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public tk6 getmForumRuleDetailData() {
+    public yl6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumRuleDetailData : (tk6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumRuleDetailData : (yl6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
             setErrorString(forumRuleDetailResIdl.error.usermsg);
         }
         if (forumRuleDetailResIdl.data != null) {
-            tk6 tk6Var = new tk6();
-            this.mForumRuleDetailData = tk6Var;
-            tk6Var.q(forumRuleDetailResIdl.data);
+            yl6 yl6Var = new yl6();
+            this.mForumRuleDetailData = yl6Var;
+            yl6Var.q(forumRuleDetailResIdl.data);
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.aa0;
+import com.baidu.tieba.gb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,74 +99,52 @@ public abstract class LiveBaseFragment extends Fragment {
         this.q = "";
     }
 
-    public boolean A1() {
-        InterceptResult invokeV;
+    public void A1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.p = 0;
-            String str = this.q;
-            if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
-                return false;
-            }
-            this.q = this.m + "_" + this.o + "_" + this.p;
-            this.l = "";
-            this.k = 1;
-            RequestUtil.setResource(58);
-            ILiveFeedModel iLiveFeedModel = this.h;
-            if (iLiveFeedModel != null) {
-                iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void B1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             this.f = str;
         }
     }
 
-    public void C1(LiveFeedConfig liveFeedConfig) {
+    public void B1(LiveFeedConfig liveFeedConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveFeedConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedConfig) == null) {
             this.c = liveFeedConfig;
         }
     }
 
-    public void D1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
+    public void C1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, liveFeedReserveWrapData) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveFeedReserveWrapData) == null) {
             this.d = liveFeedReserveWrapData;
         }
     }
 
-    public void E1(LiveFeedWrapData liveFeedWrapData) {
+    public void D1(LiveFeedWrapData liveFeedWrapData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, liveFeedWrapData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, liveFeedWrapData) == null) {
             this.b = liveFeedWrapData;
         }
     }
 
-    public void F1(a aVar) {
+    public void E1(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.r = aVar;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            u1(null);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            t1(null);
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -174,18 +152,18 @@ public abstract class LiveBaseFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             this.b = null;
-            aa0.a().e(this);
+            gb0.a().e(this);
         }
     }
 
-    public int r1() {
+    public int q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RecyclerView.LayoutManager layoutManager = s1().getLayoutManager();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            RecyclerView.LayoutManager layoutManager = r1().getLayoutManager();
             if (layoutManager instanceof LinearLayoutManager) {
                 return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
             }
@@ -198,12 +176,12 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeV.intValue;
     }
 
-    public abstract RecyclerView s1();
+    public abstract RecyclerView r1();
 
-    public boolean t1(String str, String str2, int i) {
+    public boolean s1(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, str, str2, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, str, str2, i)) == null) {
             if (str == null) {
                 str = "";
             }
@@ -215,9 +193,9 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeLLI.booleanValue;
     }
 
-    public void u1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
+    public void t1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onLoadMoreListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, onLoadMoreListener) == null) {
             this.s = onLoadMoreListener;
             this.p = 1;
             String str = this.q;
@@ -234,13 +212,35 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public abstract void v1(boolean z);
+    public abstract void u1(boolean z);
 
-    public void w1(boolean z) {
+    public void v1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            v1(z);
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            u1(z);
         }
+    }
+
+    public boolean w1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            this.p = 0;
+            String str = this.q;
+            if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
+                return false;
+            }
+            this.q = this.m + "_" + this.o + "_" + this.p;
+            this.l = "";
+            this.k = 1;
+            RequestUtil.setResource(40);
+            ILiveFeedModel iLiveFeedModel = this.h;
+            if (iLiveFeedModel != null) {
+                iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean x1() {
@@ -255,7 +255,7 @@ public abstract class LiveBaseFragment extends Fragment {
             this.q = this.m + "_" + this.o + "_" + this.p;
             this.l = "";
             this.k = 1;
-            RequestUtil.setResource(40);
+            RequestUtil.setResource(59);
             ILiveFeedModel iLiveFeedModel = this.h;
             if (iLiveFeedModel != null) {
                 iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);
@@ -277,7 +277,7 @@ public abstract class LiveBaseFragment extends Fragment {
             this.q = this.m + "_" + this.o + "_" + this.p;
             this.l = "";
             this.k = 1;
-            RequestUtil.setResource(59);
+            RequestUtil.setResource(58);
             ILiveFeedModel iLiveFeedModel = this.h;
             if (iLiveFeedModel != null) {
                 iLiveFeedModel.reqSingleData(RequestUtil.getResourceParam(), this.l, this.p, this.m, this.n, this.o, this.k, this.i);

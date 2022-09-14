@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class xq3 {
+public final class xq3 implements ar3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static xq3 b;
+    public static final String[] d;
+    public static final int e;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public yq3 a;
+    public final SQLiteDatabase b;
+    public final SQLiteDatabase c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,136 +37,111 @@ public class xq3 {
                 return;
             }
         }
-        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        b = new xq3();
+        d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
+        e = DownloadState.DOWNLOADED.value();
+        f = DownloadState.DOWNLOAD_PAUSED.value();
     }
 
-    public xq3() {
+    public xq3(Context context, sq3 sq3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, sq3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        yq3 yq3Var = new yq3(context);
+        this.a = yq3Var;
+        this.b = yq3Var.getWritableDatabase();
+        this.c = this.a.getReadableDatabase();
+    }
+
+    @Override // com.baidu.tieba.ar3
+    public void a(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
+            this.b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
         }
     }
 
-    public static xq3 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ar3
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (xq3) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f), Integer.valueOf(e)});
+        }
     }
 
-    public synchronized void a(String str, String str2, long j) {
+    @Override // com.baidu.tieba.ar3
+    public DownloadInfo c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Cursor query = this.c.query("ad_download", d, "_id=?", new String[]{str}, null, null, "createAt desc");
+            if (query.moveToNext()) {
+                DownloadInfo downloadInfo = new DownloadInfo();
+                d(query, downloadInfo);
+                query.close();
+                return downloadInfo;
+            }
+            query.close();
+            return null;
+        }
+        return (DownloadInfo) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar3
+    public synchronized void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
-                    File file = new File(a);
-                    if (!file.exists() && !file.mkdirs()) {
-                        if (kh1.a) {
-                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
-                        }
-                        return;
-                    }
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null && listFiles.length > 0) {
-                        for (File file2 : listFiles) {
-                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
-                                ch4.j(file2);
-                            }
-                        }
-                    }
-                    boolean N = ch4.N(str2, new File(a, b(str, j)));
-                    if (kh1.a) {
-                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
-                    }
+                if (this.a == null) {
                     return;
                 }
-                if (kh1.a) {
-                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
-                }
-            }
-        }
-    }
-
-    public final String b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return str + "_" + j;
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public final boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && file.exists()) {
-                String[] split = file.getName().split("_");
-                if (split.length != 2) {
-                    return true;
-                }
                 try {
-                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    if (kh1.a) {
-                        th.printStackTrace();
-                    }
+                    this.a.close();
+                    this.a = null;
+                } catch (Exception unused) {
                 }
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public synchronized String e(String str) {
-        InterceptResult invokeL;
+    public final void d(Cursor cursor, DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    if (kh1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
-                    }
-                    return null;
-                }
-                File file = new File(a);
-                if (!file.exists()) {
-                    if (kh1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
-                    }
-                    return null;
-                }
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    File file2 = null;
-                    for (File file3 : listFiles) {
-                        if (d(file3)) {
-                            ch4.j(file3);
-                        } else if (file3.getName().startsWith(str)) {
-                            file2 = file3;
-                        }
-                    }
-                    if (file2 == null) {
-                        return null;
-                    }
-                    return ch4.E(file2);
-                }
-                if (kh1.a) {
-                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, cursor, downloadInfo) == null) {
+            int columnIndex = cursor.getColumnIndex("_id");
+            int columnIndex2 = cursor.getColumnIndex("createAt");
+            int columnIndex3 = cursor.getColumnIndex("uri");
+            int columnIndex4 = cursor.getColumnIndex("packagename");
+            int columnIndex5 = cursor.getColumnIndex("path");
+            int columnIndex6 = cursor.getColumnIndex("size");
+            int columnIndex7 = cursor.getColumnIndex("progress");
+            int columnIndex8 = cursor.getColumnIndex("status");
+            downloadInfo.setId(cursor.getString(columnIndex));
+            downloadInfo.setCreateAt(cursor.getLong(columnIndex2));
+            downloadInfo.setUri(cursor.getString(columnIndex3));
+            downloadInfo.setPackageName(cursor.getString(columnIndex4));
+            downloadInfo.setPath(cursor.getString(columnIndex5));
+            downloadInfo.setSize(cursor.getLong(columnIndex6));
+            downloadInfo.setProgress(cursor.getLong(columnIndex7));
+            downloadInfo.setStatus(cursor.getInt(columnIndex8));
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar3
+    public void delete(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
+            this.b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+        }
     }
 }

@@ -31,9 +31,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
-import androidx.coordinatorlayout.R$attr;
-import androidx.coordinatorlayout.R$style;
-import androidx.coordinatorlayout.R$styleable;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.util.ObjectsCompat;
@@ -49,6 +46,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -2056,7 +2054,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.coordinatorLayoutStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04019d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2219,18 +2217,18 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         this.mNestedScrollingV2ConsumedCompat = new int[2];
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, 0, R$style.Widget_Support_CoordinatorLayout);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.coordinatorlayout.R.styleable.CoordinatorLayout, 0, R.style.obfuscated_res_0x7f10039b);
         } else {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, i, 0);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.coordinatorlayout.R.styleable.CoordinatorLayout, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
             if (i == 0) {
-                saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R$style.Widget_Support_CoordinatorLayout);
+                saveAttributeDataForStyleable(context, androidx.coordinatorlayout.R.styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f10039b);
             } else {
-                saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
+                saveAttributeDataForStyleable(context, androidx.coordinatorlayout.R.styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
             }
         }
-        int resourceId = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_keylines, 0);
+        int resourceId = obtainStyledAttributes.getResourceId(0, 0);
         if (resourceId != 0) {
             Resources resources = context.getResources();
             this.mKeylines = resources.getIntArray(resourceId);
@@ -2241,7 +2239,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 iArr[i4] = (int) (iArr[i4] * f);
             }
         }
-        this.mStatusBarBackground = obtainStyledAttributes.getDrawable(R$styleable.CoordinatorLayout_statusBarBackground);
+        this.mStatusBarBackground = obtainStyledAttributes.getDrawable(1);
         obtainStyledAttributes.recycle();
         setupForInsets();
         super.setOnHierarchyChangeListener(new HierarchyChangeListener(this));
@@ -2779,17 +2777,17 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.insetEdge = 0;
             this.dodgeInsetEdges = 0;
             this.mLastChildRect = new Rect();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout_Layout);
-            this.gravity = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_android_layout_gravity, 0);
-            this.mAnchorId = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_Layout_layout_anchor, -1);
-            this.anchorGravity = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_anchorGravity, 0);
-            this.keyline = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_keyline, -1);
-            this.insetEdge = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_insetEdge, 0);
-            this.dodgeInsetEdges = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges, 0);
-            boolean hasValue = obtainStyledAttributes.hasValue(R$styleable.CoordinatorLayout_Layout_layout_behavior);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.coordinatorlayout.R.styleable.CoordinatorLayout_Layout);
+            this.gravity = obtainStyledAttributes.getInteger(0, 0);
+            this.mAnchorId = obtainStyledAttributes.getResourceId(1, -1);
+            this.anchorGravity = obtainStyledAttributes.getInteger(2, 0);
+            this.keyline = obtainStyledAttributes.getInteger(6, -1);
+            this.insetEdge = obtainStyledAttributes.getInt(5, 0);
+            this.dodgeInsetEdges = obtainStyledAttributes.getInt(4, 0);
+            boolean hasValue = obtainStyledAttributes.hasValue(3);
             this.mBehaviorResolved = hasValue;
             if (hasValue) {
-                this.mBehavior = CoordinatorLayout.parseBehavior(context, attributeSet, obtainStyledAttributes.getString(R$styleable.CoordinatorLayout_Layout_layout_behavior));
+                this.mBehavior = CoordinatorLayout.parseBehavior(context, attributeSet, obtainStyledAttributes.getString(3));
             }
             obtainStyledAttributes.recycle();
             Behavior behavior = this.mBehavior;

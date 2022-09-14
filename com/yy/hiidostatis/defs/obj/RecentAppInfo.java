@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -40,7 +39,7 @@ public class RecentAppInfo {
             try {
                 String string = jSONObject.getString("name");
                 String string2 = jSONObject.getString("pkg");
-                Long valueOf = Long.valueOf(jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING));
+                Long valueOf = Long.valueOf(jSONObject.getLong("ts"));
                 int i = jSONObject.getInt("type");
                 if (string2 == null || string2.isEmpty() || valueOf == null) {
                     return null;
@@ -121,7 +120,7 @@ public class RecentAppInfo {
                     jSONObject.put("name", this.name);
                 }
                 jSONObject.put("pkg", this.pkg);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.lastModified);
+                jSONObject.put("ts", this.lastModified);
                 jSONObject.put("type", this.type);
                 return jSONObject;
             } catch (Throwable th) {

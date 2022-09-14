@@ -1,115 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.inputtool.InputView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 /* loaded from: classes4.dex */
-public class i35 extends w25 {
+public class i35 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int u;
-    public static final int[] v;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputView t;
+    public boolean a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802590, "Lcom/baidu/tieba/i35;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802590, "Lcom/baidu/tieba/i35;");
-                return;
-            }
-        }
-        u = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        v = new int[]{4, 17, 24, 3, 9, 6, 44};
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i35(Context context, boolean z) {
-        super(context, (String) null, 3);
+    public i35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(context, z);
+        this.a = false;
+        this.b = 0;
     }
 
-    public final void g(Context context, boolean z) {
+    public void a(String str) {
+        int lastIndexOf;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            this.o = false;
-            this.n = 2;
-            this.p = v;
-            InputView inputView = new InputView(context, z);
-            this.t = inputView;
-            this.m = inputView;
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
-            int i = u;
-            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.m).setLayoutParams(layoutParams);
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ((InputView) this.m).setIsOnlyLocalEmotion(z);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i35(Context context, boolean z, boolean z2) {
-        super(context, (String) null, 3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = false;
+            this.b = 0;
+            if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+                String str3 = null;
+                try {
+                    str2 = str.substring(5, lastIndexOf);
+                } catch (Exception e) {
+                    e = e;
+                    str2 = null;
+                }
+                try {
+                    str3 = str.substring(lastIndexOf + 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    if (TextUtils.isEmpty(str2)) {
+                        return;
+                    }
+                    return;
+                }
+                if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                    return;
+                }
+                int i = 0;
+                int i2 = 0;
+                for (int i3 = 0; i3 < 3; i3++) {
+                    Socket socket = new Socket();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        try {
+                            socket.connect(new InetSocketAddress(str2, dh.e(String.valueOf(str3), 8000)), c());
+                            if (socket.isConnected()) {
+                                i++;
+                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
+                                this.a = true;
+                            }
+                            try {
+                                socket.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.getMessage());
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                socket.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.getMessage());
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e5) {
+                        BdLog.e(e5.getMessage());
+                        socket.close();
+                    }
+                }
+                if (!this.a || i <= 0) {
+                    return;
+                }
+                this.b = i2 / i;
             }
         }
-        g(context, z);
-        InputView inputView = this.t;
-        if (inputView != null) {
-            inputView.setNeedFaceMaxCount(z2);
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                return netType != 2 ? 5000 : 10000;
+            }
+            return 3000;
         }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

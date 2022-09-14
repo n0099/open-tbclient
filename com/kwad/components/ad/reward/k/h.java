@@ -328,7 +328,7 @@ public final class h extends d implements View.OnClickListener {
         KsPriceView ksPriceView = this.nI;
         if (ksPriceView != null) {
             int dimensionPixelSize = ksPriceView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703cd);
-            this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.nI.getResources().getColor(R.color.obfuscated_res_0x7f060767));
+            this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.nI.getResources().getColor(R.color.obfuscated_res_0x7f060779));
             this.nI.d(aVar.iS(), aVar.dB(), true);
         }
         if (this.uM != null) {
@@ -363,17 +363,17 @@ public final class h extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091167);
-            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091162);
-            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091169);
-            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091151);
-            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f091164);
-            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091166);
-            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09114c);
-            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091163);
-            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09114f);
-            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09114e);
-            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091150);
+            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091185);
+            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091180);
+            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091187);
+            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09116f);
+            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f091182);
+            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091184);
+            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09116a);
+            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091181);
+            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09116d);
+            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09116c);
+            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09116e);
             ViewGroup viewGroup = this.pV;
             if (viewGroup != null) {
                 viewGroup.setOnClickListener(this);

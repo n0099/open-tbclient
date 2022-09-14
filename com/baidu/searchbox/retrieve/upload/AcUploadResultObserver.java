@@ -12,7 +12,7 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
-import com.baidu.tieba.fe9;
+import com.baidu.tieba.ii9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes2.dex */
-public class AcUploadResultObserver implements fe9 {
+public class AcUploadResultObserver implements ii9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "FetchAcUploadResult";
@@ -115,14 +115,14 @@ public class AcUploadResultObserver implements fe9 {
         }
     }
 
-    @Override // com.baidu.tieba.fe9
+    @Override // com.baidu.tieba.ii9
     public String getBizType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "acupload" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fe9
+    @Override // com.baidu.tieba.ii9
     public void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2, jSONObject, jSONObject2}) == null) {

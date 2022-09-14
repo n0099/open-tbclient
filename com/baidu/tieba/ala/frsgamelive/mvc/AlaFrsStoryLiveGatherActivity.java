@@ -9,7 +9,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -27,11 +26,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel;
-import com.baidu.tieba.av5;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.cv5;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.ow5;
+import com.baidu.tieba.qw5;
+import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,15 +44,15 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public View a;
     public NavigationBar b;
     public TextView c;
-    public av5 d;
+    public ow5 d;
     public AlaFrsStoryLiveGatherModel e;
     public String f;
     public String g;
     public AlaFrsStoryLiveGatherModel.b h;
-    public kq5 i;
-    public bv4.g j;
+    public ws5 i;
+    public lx4.g j;
     public BdListView.p k;
-    public cv5 l;
+    public qw5 l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -117,7 +116,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem("c12551"));
-                this.a.sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(this.a.getPageContext().getPageActivity())));
+                this.a.sendMessage(new CustomMessage(2913033, new IntentConfig(this.a.getPageContext().getPageActivity())));
             }
         }
     }
@@ -161,7 +160,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.a;
                 alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252));
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.a;
-                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.d.g(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c5a), false);
+                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.d.g(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c73), false);
                 return;
             }
             AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity4 = this.a;
@@ -190,7 +189,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class d implements kq5 {
+    public class d implements ws5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -213,7 +212,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.kq5
+        @Override // com.baidu.tieba.ws5
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
@@ -224,7 +223,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class e implements bv4.g {
+    public class e implements lx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -247,7 +246,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.bv4.g
+        @Override // com.baidu.tieba.lx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.e == null) {
@@ -298,7 +297,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class g implements cv5 {
+    public class g implements qw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -321,7 +320,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.cv5
+        @Override // com.baidu.tieba.qw5
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.e == null || this.a.e.Q() == i) {
@@ -409,19 +408,19 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.b = navigationBar;
             navigationBar.setStatusBarVisibility(8);
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
-            new LinearLayout.LayoutParams(-2, -2).setMargins(0, 0, ri.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
-            this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f0269), new b(this));
+            new LinearLayout.LayoutParams(-2, -2).setMargins(0, 0, ej.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            this.c = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f026d), new b(this));
             if (!StringUtils.isNull(this.g)) {
                 string = this.g + " - 直播";
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f06ea);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f06fd);
             }
             this.b.setCenterTextTitle(string);
             linearLayout.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);
-            av5 av5Var = new av5(getPageContext(), false, false, getUniqueId());
-            this.d = av5Var;
-            av5Var.j();
+            ow5 ow5Var = new ow5(getPageContext(), false, false, getUniqueId());
+            this.d = ow5Var;
+            ow5Var.j();
             this.d.p(1);
             this.d.q(this.i);
             this.d.s(this.j);
@@ -464,9 +463,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
-            av5 av5Var = this.d;
-            if (av5Var != null) {
-                av5Var.l(TbadkCoreApplication.getInst().getSkinType());
+            ow5 ow5Var = this.d;
+            if (ow5Var != null) {
+                ow5Var.l(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

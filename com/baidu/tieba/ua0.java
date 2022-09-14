@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public class ua0 extends va0 {
+public final class ua0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
+    public static final ConcurrentHashMap<String, List<ta0>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,79 +33,68 @@ public class ua0 extends va0 {
                 return;
             }
         }
-        b = new HashMap<>();
+        a = new ConcurrentHashMap<>();
     }
 
-    public ua0() {
+    @JvmStatic
+    @JvmOverloads
+    public static final ta0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (ta0) invokeL.objValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final ta0 b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<ta0> list = a.get(str2);
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (!list.isEmpty() && list.size() >= 2) {
+                ta0 ta0Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (ta0Var.isPlaying()) {
+                    ta0Var.detachFromContainer();
+                    ta0Var.stop();
+                }
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + ta0Var);
+                return ta0Var;
+            }
+            ta0 ta0Var2 = new ta0(new va0(str, 0, null, null, 14, null));
+            list.add(ta0Var2);
+            a.put(str2, list);
+            return ta0Var2;
+        }
+        return (ta0) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ ta0 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
+        }
+        return b(str, str2);
+    }
+
+    @JvmStatic
+    public static final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<ta0> list = a.get(str);
+            if (list == null || list.isEmpty()) {
                 return;
             }
+            for (ta0 ta0Var : list) {
+                ta0Var.detachFromContainer();
+                ta0Var.release();
+            }
+            list.clear();
+            a.remove(str);
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "#666666", "", "#858585", "#E6FFFFFF"});
-        b.put("color_white1", new String[]{"#FFFFFF", "#191919", "", "#161823", "#00000000"});
-        b.put("color_white2", new String[]{"#FFFFFF", "#222222", "", "#1F2337", "#1F2337"});
-        b.put("color_white3", new String[]{"#FFFFFF", "#4DFFFFFF", "", "#FFFFFF", "#E6FFFFFF"});
-        b.put("color_F5F5F51", new String[]{"#F5F5F5", "#191919", "", "#161823", "#00000000"});
-        b.put("color_F5F5F52", new String[]{"#F5F5F5", "#121212", "", "#161823", "#161823"});
-        b.put("color_F5F5F53", new String[]{"#F5F5F5", "#121212", "", "#1AFFFFFF", "#1AFFFFFF"});
-        b.put("color_FF33551", new String[]{"#FF3355", "#80192A", "", "#FF3355", "#FF3355"});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "#1A80192A", "", "#26FF3355", "#26FF3355"});
-        b.put("color_858585", new String[]{"#858585", "#444444", "", "#858585", "#80FFFFFF"});
-        b.put("color_525252", new String[]{"#525252", "#555555", "", "#858585", "#858585"});
-        b.put("color_FF3333", new String[]{"#FF3333", "#7F1919", "", "#FF3333", "#FF3333"});
-        b.put("color_768CAE", new String[]{"#768CAE", "#3A4556", "", "#768CAE", "#768CAE"});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "#263678", "", "#4E6EF2", "#4E6EF2"});
-        b.put("color_8585852", new String[]{"#858585", "#444444", "", "#858585", "#858585"});
-        b.put("color_5252522", new String[]{"#525252", "#555555", "", "#99FFFFFF", "#99FFFFFF"});
-        b.put("color_btn_stroke", new String[]{"#B8B8B8", "#00000000", "", "#00000000", "#00000000"});
-        b.put("color_btn_fill", new String[]{"#00000000", "#303030", "", "#66666666", "#66666666"});
-        b.put("color_sub_tab_normal", new String[]{"#1F1F1F", "#666666", "", "#858585", "#858585"});
-        b.put("color_main_bg", new String[]{"#FFFFFF", "#191919", "", "#161823", "#00000000"});
-        b.put("color_white4", new String[]{"#1F1F1F", "#666666", "", "#FFFFFF", "#E6FFFFFF"});
-        b.put("color_gradient_1", new String[]{"#FFFFFF", "#191919", "", "#161823", "#161823"});
-        b.put("color_gradient_2", new String[]{"#00FFFFFF", "#00191919", "", "#00161823", "#00161823"});
-        b.put("color_E0E0E0", new String[]{"#E0E0E0", "#33ffffff", "", ""});
-        b.put("color_EEEEEE", new String[]{"#eeeeee", "#121212", "", ""});
-    }
-
-    @Override // com.baidu.tieba.va0
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            String[] strArr = b.get(str2);
-            if (strArr == null) {
-                return -16777216;
-            }
-            String str3 = strArr[0];
-            if ("recommend".equals(str)) {
-                return za0.c().a(context, str, str2);
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                str3 = strArr[3];
-            } else if (LiveFeedPageSdk.VIDEO_BAR.equals(str)) {
-                str3 = strArr[4];
-            } else if ("night".equals(this.a)) {
-                str3 = strArr[1];
-            }
-            if (pa0.a(str3)) {
-                return -16777216;
-            }
-            try {
-                return Color.parseColor(str3);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -16777216;
-            }
-        }
-        return invokeLLL.intValue;
     }
 }

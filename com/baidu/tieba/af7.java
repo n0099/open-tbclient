@@ -1,63 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.GetTagList.DataRes;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
-public interface af7 {
+public class af7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<ze7> a;
+    public List<ze7> b;
+    public List<Integer> c;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList<String> c;
-        public ArrayList<String> d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new ArrayList<>();
-            this.d = new ArrayList<>();
-        }
-
-        public void a(JSONObject jSONObject) {
-            JSONArray optJSONArray;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) == null) {
-                return;
-            }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("show_url");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.c.add(optString);
-                    }
-                    String optString2 = optJSONObject.optString("click_url");
-                    if (!TextUtils.isEmpty(optString2)) {
-                        this.d.add(optString2);
-                    }
-                }
+    public af7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    a getParallelCharge();
+    public List<ze7> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public List<ze7> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            d(arrayList, dataRes.sex_taglist);
+        }
+        if (ListUtils.isEmpty(dataRes.taglist)) {
+            return;
+        }
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        d(this.b, dataRes.taglist);
+    }
+
+    public final void d(List<ze7> list, List<ResponseTagInfo> list2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) || list == null || list2 == null) {
+            return;
+        }
+        for (ResponseTagInfo responseTagInfo : list2) {
+            if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
+                ze7 ze7Var = new ze7();
+                ze7Var.a(responseTagInfo);
+                list.add(ze7Var);
+                List<Integer> list3 = this.c;
+                if (list3 != null && ze7Var.c) {
+                    list3.add(Integer.valueOf(ze7Var.a));
+                }
+            }
+        }
+    }
 }

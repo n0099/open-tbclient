@@ -1,50 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.io.File;
 /* loaded from: classes5.dex */
-public class qg8 implements ILooperNeedContext {
+public class qg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qg8() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
             }
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void addLooperPrinter(Printer printer) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, printer) == null) || printer == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
         }
-        Looper.getMainLooper().setMessageLogging(printer);
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void removeLooperPrinter(Printer printer) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
-            Looper.getMainLooper().setMessageLogging(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length <= 0 || path.substring(length).equals(File.separator)) {
+                return path;
+            }
+            return path + File.separator;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            File file = new File(a);
+            return (file.exists() && file.isDirectory()) || file.mkdirs();
+        }
+        return invokeL.booleanValue;
     }
 }

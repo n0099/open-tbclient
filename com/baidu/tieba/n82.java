@@ -6,16 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
-public final class n82 {
+public class n82 implements p82 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile n82 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Lock a;
-    public ArrayList<r82> b;
 
     public n82() {
         Interceptable interceptable = $ic;
@@ -27,117 +21,37 @@ public final class n82 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ReentrantLock();
-        this.b = new ArrayList<>();
     }
 
-    public static n82 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (n82.class) {
-                    if (c == null) {
-                        c = new n82();
-                    }
-                }
-            }
-            return c;
-        }
-        return (n82) invokeV.objValue;
-    }
-
-    public final Object[] a() {
+    @Override // com.baidu.tieba.p82
+    public j82 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.a.lock();
-                return this.b.size() > 0 ? this.b.toArray() : null;
-            } finally {
-                this.a.unlock();
-            }
+            return null;
         }
-        return (Object[]) invokeV.objValue;
+        return (j82) invokeV.objValue;
     }
 
-    public void b(i82 i82Var) {
-        Object[] a;
+    @Override // com.baidu.tieba.p82
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i82Var) == null) || (a = a()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
-        for (Object obj : a) {
-            ((r82) obj).d(i82Var);
-        }
+        return invokeV.booleanValue;
     }
 
-    public void c(i82 i82Var) {
-        Object[] a;
+    @Override // com.baidu.tieba.p82
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i82Var) == null) || (a = a()) == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            return true;
         }
-        for (Object obj : a) {
-            ((r82) obj).b(i82Var);
-        }
-    }
-
-    public void d(i82 i82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, i82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((r82) obj).f(i82Var);
-        }
-    }
-
-    public void e(i82 i82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, i82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((r82) obj).c(i82Var);
-        }
-    }
-
-    public void f(i82 i82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, i82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((r82) obj).g(i82Var);
-        }
-    }
-
-    public void g(i82 i82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, i82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((r82) obj).a(i82Var);
-        }
-    }
-
-    public void h(i82 i82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, i82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((r82) obj).e(i82Var);
-        }
+        return invokeLLL.booleanValue;
     }
 }

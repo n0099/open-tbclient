@@ -1,82 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class hl6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public List<pn> d;
-    public boolean e;
-    public int f;
+public interface hl6 {
+    void a(boolean z);
 
-    public hl6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(boolean z, boolean z2);
 
-    public int a(List<pn> list) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
-            }
-            if (ListUtils.isEmpty(this.d)) {
-                LinkedList linkedList = new LinkedList();
-                this.d = linkedList;
-                linkedList.addAll(list);
-                return list.size();
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                pn pnVar = list.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= this.d.size()) {
-                        z = false;
-                        break;
-                    }
-                    pn pnVar2 = this.d.get(i2);
-                    if (pnVar != null && (pnVar instanceof gl6) && pnVar2 != null && (pnVar2 instanceof gl6)) {
-                        ThreadData threadData = ((gl6) pnVar).getThreadData();
-                        ThreadData threadData2 = ((gl6) pnVar2).getThreadData();
-                        if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    i2++;
-                }
-                if (!z) {
-                    ListUtils.add(linkedList2, pnVar);
-                }
-            }
-            if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.d, 0, linkedList2);
-            }
-            return linkedList2.size();
-        }
-        return invokeL.intValue;
-    }
+    boolean c();
+
+    void onChangeSkinType(int i);
 }

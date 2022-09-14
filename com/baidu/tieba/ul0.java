@@ -1,58 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.ImmersiveVideoDetailActivity;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes6.dex */
-public class ul0 extends og0 {
+public class ul0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object a;
+    public final Class<?> b;
+    public final int c;
+    public final sl0<?> d;
 
-    public ul0() {
+    public ul0(int i, Object obj, Class<?> cls, sl0<?> sl0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), obj, cls, sl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = i;
+        this.a = obj;
+        this.b = cls;
+        this.d = sl0Var;
     }
 
-    @Override // com.baidu.tieba.og0
-    public String a() {
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FunAdSdk.PLATFORM_MAX : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.og0
-    public boolean b(@NonNull Context context, @NonNull sg0 sg0Var, @Nullable Map<String, Object> map, @Nullable wg0 wg0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sg0Var, map, wg0Var)) == null) {
-            super.b(context, sg0Var, map, wg0Var);
-            HashMap<String, String> d = sg0Var.d();
-            Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
-            intent.putExtra("map", d);
-            return k01.d(context, intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SubscribeInfo:{\n    threadMode:" + this.c + "\n    tag:" + this.a + "\n    eventClass:" + this.b + "\n    subscriber:" + this.d + "\n}";
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

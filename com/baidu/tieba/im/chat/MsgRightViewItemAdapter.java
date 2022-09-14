@@ -6,9 +6,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.b18;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.tz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public tz7 n;
+    public b18 n;
     public TbPageContext<MsglistActivity<?>> o;
 
     /* loaded from: classes4.dex */
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tz7 tz7Var = new tz7(this.mContext);
-            this.n = tz7Var;
-            tz7Var.b(this.o.getUniqueId());
+            b18 b18Var = new b18(this.mContext);
+            this.n = b18Var;
+            b18Var.b(this.o.getUniqueId());
         }
     }
 
@@ -96,7 +96,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -115,7 +115,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         }
     }
 
-    public void J(boolean z) {
+    public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.l = z;
@@ -123,7 +123,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -136,21 +136,21 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgrightView a2 = msgViewHolder.a();
-            a2.G(this.g);
-            a2.y(this.l);
-            a2.v(this.h);
+            a2.H(this.g);
+            a2.z(this.l);
+            a2.w(this.h);
             a2.setUpdateListener(this.j);
-            a2.F(this.i);
-            a2.x(this.m);
-            a2.s();
+            a2.G(this.i);
+            a2.y(this.m);
+            a2.t();
             chatMessage.getCacheData().setIs_left(0);
-            a2.B(this.b);
-            a2.C(this.c);
-            a2.D(i);
-            a2.t(this.d);
-            a2.z(chatMessage.getCacheData().getLastMsgTime());
-            a2.E(viewGroup, chatMessage);
-            a2.u(viewGroup, chatMessage);
+            a2.C(this.b);
+            a2.D(this.c);
+            a2.E(i);
+            a2.u(this.d);
+            a2.A(chatMessage.getCacheData().getLastMsgTime());
+            a2.F(viewGroup, chatMessage);
+            a2.v(viewGroup, chatMessage);
             this.o.getLayoutMode().l(false);
             this.o.getLayoutMode().k(view2);
             return view2;

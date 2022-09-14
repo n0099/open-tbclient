@@ -1,327 +1,141 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i84 {
+public class i84 extends ny1<TextureMapView, kp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String i;
+    public String j;
+    public boolean k;
+    @NonNull
+    public TextureMapView l;
+    public Context m;
+    public List<h84> n;
+    public List<g84> o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947807364, "Lcom/baidu/tieba/i84;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947807364, "Lcom/baidu/tieba/i84;");
-        }
-    }
-
-    public i84() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i84(@NonNull Context context, @NonNull kp2 kp2Var) {
+        super(context, kp2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, kp2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (oy1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.n = new ArrayList();
+        this.o = new ArrayList();
+        this.i = kp2Var.c;
+        this.j = kp2Var.b;
+        String str = kp2Var.d;
+        this.m = context;
+        this.l = new TextureMapView(context);
+        this.k = kp2Var.r;
     }
 
-    public static void a(@NonNull JSONObject jSONObject, @Nullable Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, map) == null) || map == null) {
-            return;
-        }
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.put(entry.getKey(), entry.getValue());
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static boolean b(ec4 ec4Var, t84 t84Var) {
+    public static i84 K(Context context, kp2 kp2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, ec4Var, t84Var)) == null) {
-            if (t84Var == null) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, kp2Var)) == null) {
+            if (context == null || kp2Var == null || !kp2Var.isValid()) {
+                return null;
             }
-            if (ec4Var == null) {
-                t84Var.C(new s94(2100, "request对象为空"));
-                return true;
+            return new i84(context, kp2Var);
+        }
+        return (i84) invokeLL.objValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (h84 h84Var : this.n) {
+                this.l.removeView(h84Var.e);
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static synchronized void c(ac4 ac4Var, t84 t84Var) {
-        ha4 M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ac4Var, t84Var) == null) {
-            synchronized (i84.class) {
-                if (b(ac4Var, t84Var)) {
-                    return;
-                }
-                if (TextUtils.isEmpty(ac4Var.g())) {
-                    t84Var.C(new s94(2100, "bundleId为空"));
-                    return;
-                }
-                HashMap<String, String> i = ca4.i(ac4Var);
-                if (t84Var.B() != null) {
-                    i.putAll(t84Var.B());
-                }
-                t84Var.D();
-                if (ac4Var.n() == 1 && ac4Var.h() == 2101) {
-                    M = j84.b().n();
-                } else {
-                    M = j84.b().M();
-                }
-                M.z(ga4.e(), i, t84Var.t(), new nb4(ac4Var.g(), t84Var, ac4Var));
+            this.n.clear();
+            for (g84 g84Var : this.o) {
+                this.l.removeView(g84Var.b);
             }
+            this.o.clear();
+            this.l.getMap().clear();
         }
     }
 
-    public static synchronized void d(xb4 xb4Var, t84 t84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, xb4Var, t84Var) == null) {
-            synchronized (i84.class) {
-                if (b(xb4Var, t84Var)) {
-                    return;
-                }
-                if (xb4Var.f() != null && !xb4Var.f().isEmpty()) {
-                    HashMap<String, String> f = ca4.f(xb4Var);
-                    if (t84Var.B() != null && f != null) {
-                        f.putAll(t84Var.B());
-                    }
-                    JSONObject d = ca4.d(xb4Var);
-                    if (d == null) {
-                        t84Var.C(new s94(2100, "构造请求body失败"));
-                        return;
-                    }
-                    a(d, t84Var.y());
-                    t84Var.D();
-                    j84.b().M().b(ga4.d(), f, t84Var.t(), d, new lb4(t84Var, xb4Var));
-                    return;
-                }
-                t84Var.C(new s94(2100, "pkg List为空"));
-            }
-        }
-    }
-
-    public static void e(List<String> list, @Nullable String str, @Nullable n84 n84Var) {
-        h84 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, null, list, str, n84Var) == null) || (b = j84.b()) == null) {
-            return;
-        }
-        if (PMSConstants.a(b)) {
-            nd4.e().f();
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("appkeys", new JSONArray((Collection) list));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("src_app", str);
-        b.M().b(ga4.c(), hashMap, null, jSONObject, new o84(n84Var));
-    }
-
-    public static synchronized void f(zb4 zb4Var, t84 t84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, zb4Var, t84Var) == null) {
-            synchronized (i84.class) {
-                if (b(zb4Var, t84Var)) {
-                    return;
-                }
-                if (zb4Var.f() != null && !zb4Var.f().isEmpty()) {
-                    HashMap<String, String> f = ca4.f(zb4Var);
-                    if (t84Var.B() != null && f != null) {
-                        f.putAll(t84Var.B());
-                    }
-                    JSONObject e = ca4.e(zb4Var);
-                    if (e == null) {
-                        t84Var.C(new s94(2100, "构造请求body失败"));
-                        return;
-                    }
-                    if (PMSConstants.a(j84.b())) {
-                        nd4.e().f();
-                    }
-                    a(e, t84Var.y());
-                    t84Var.D();
-                    j84.b().M().b(ga4.d(), f, t84Var.t(), e, new mb4(t84Var, zb4Var));
-                    return;
-                }
-                t84Var.C(new s94(2100, "pkg List为空"));
-            }
-        }
-    }
-
-    public static synchronized void g(bc4 bc4Var, t84 t84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, bc4Var, t84Var) == null) {
-            synchronized (i84.class) {
-                if (b(bc4Var, t84Var)) {
-                    return;
-                }
-                HashMap<String, String> j = ca4.j(bc4Var);
-                if (t84Var.B() != null) {
-                    j.putAll(t84Var.B());
-                }
-                t84Var.D();
-                j84.b().M().z(ga4.f(), j, t84Var.t(), new ob4(t84Var, bc4Var));
-            }
-        }
-    }
-
-    public static synchronized void h(dc4 dc4Var, t84 t84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, dc4Var, t84Var) == null) {
-            synchronized (i84.class) {
-                if (b(dc4Var, t84Var)) {
-                    return;
-                }
-                if (TextUtils.isEmpty(dc4Var.f())) {
-                    t84Var.C(new s94(2100, "bundleId为空"));
-                } else if (TextUtils.isEmpty(dc4Var.k())) {
-                    t84Var.C(new s94(2100, "分包名为空"));
-                } else {
-                    HashMap<String, String> k = ca4.k(dc4Var);
-                    if (t84Var.B() != null) {
-                        k.putAll(t84Var.B());
-                    }
-                    t84Var.D();
-                    j84.b().M().z(ga4.e(), k, t84Var.t(), new pb4(dc4Var.f(), t84Var, dc4Var));
-                }
-            }
-        }
-    }
-
-    public static JSONObject i(@Nullable ic4<JSONArray> ic4Var, @Nullable ic4<JSONObject> ic4Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, ic4Var, ic4Var2)) == null) ? lc4.a(ic4Var, ic4Var2) : (JSONObject) invokeLL.objValue;
-    }
-
-    public static synchronized boolean j(String str) {
+    public g84 G(View view2) {
         InterceptResult invokeL;
-        boolean c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            synchronized (i84.class) {
-                c = ya4.b().c(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            for (g84 g84Var : this.o) {
+                if (g84Var.b == view2) {
+                    return g84Var;
+                }
             }
-            return c;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (g84) invokeL.objValue;
     }
 
-    public static synchronized boolean k(String str) {
+    @Nullable
+    public h84 H(Marker marker) {
         InterceptResult invokeL;
-        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            synchronized (i84.class) {
-                d = ya4.b().d(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
+            for (h84 h84Var : this.n) {
+                if (marker == h84Var.b) {
+                    return h84Var;
+                }
             }
-            return d;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (h84) invokeL.objValue;
     }
 
-    public static synchronized void l(fc4 fc4Var, t84 t84Var) {
+    public List<h84> I(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, fc4Var, t84Var) == null) {
-            synchronized (i84.class) {
-                m(fc4Var, t84Var, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            for (h84 h84Var : this.n) {
+                sp2 sp2Var = h84Var.a;
+                if (sp2Var != null && TextUtils.equals(str, sp2Var.a)) {
+                    arrayList.add(h84Var);
+                }
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public static synchronized void m(fc4 fc4Var, t84 t84Var, t84 t84Var2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: J */
+    public TextureMapView v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, fc4Var, t84Var, t84Var2) == null) {
-            synchronized (i84.class) {
-                n(fc4Var, t84Var, t84Var2, null);
-            }
-        }
-    }
-
-    public static synchronized void n(fc4 fc4Var, t84 t84Var, t84 t84Var2, @Nullable vd4 vd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65551, null, fc4Var, t84Var, t84Var2, vd4Var) == null) {
-            synchronized (i84.class) {
-                if (b(fc4Var, t84Var)) {
-                    return;
-                }
-                if (PMSConstants.a(j84.b())) {
-                    nd4.e().f();
-                }
-                ic4<JSONArray> g = vd4Var == null ? null : vd4Var.g();
-                t84 callback = vd4Var == null ? null : vd4Var.getCallback();
-                HashMap hashMap = new HashMap();
-                if (t84Var.B() != null) {
-                    hashMap.putAll(t84Var.B());
-                }
-                t84Var.D();
-                j84.b().M().b(ga4.g(), hashMap, t84Var.t(), i(g, null), new qb4(t84Var, fc4Var, t84Var2, callback));
-            }
-        }
-    }
-
-    public static synchronized void o(vd4 vd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, vd4Var) == null) {
-            synchronized (i84.class) {
-                if (vd4Var == null) {
-                    return;
-                }
-                t84 callback = vd4Var.getCallback();
-                if (callback == null) {
-                    return;
-                }
-                ec4 request = vd4Var.getRequest();
-                if (request == null) {
-                    callback.C(new s94(2100, "request对象为空"));
-                    return;
-                }
-                Map<String, String> B = callback.B();
-                if (callback.B() != null) {
-                    B = new HashMap(B);
-                }
-                callback.D();
-                j84.b().M().b(ga4.g(), B, callback.t(), i(vd4Var.g(), null), new qb4(callback, request, null, callback));
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? this.l : (TextureMapView) invokeL.objValue;
     }
 }

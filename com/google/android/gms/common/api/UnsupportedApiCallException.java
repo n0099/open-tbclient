@@ -7,12 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
+import com.google.android.gms.common.annotation.KeepForSdk;
 /* loaded from: classes7.dex */
 public final class UnsupportedApiCallException extends UnsupportedOperationException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Feature zza;
 
+    @KeepForSdk
     public UnsupportedApiCallException(@NonNull Feature feature) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

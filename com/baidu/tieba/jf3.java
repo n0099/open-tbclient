@@ -1,103 +1,82 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
-public class jf3 {
+public final class jf3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881330, "Lcom/baidu/tieba/jf3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947881330, "Lcom/baidu/tieba/jf3;");
-                return;
-            }
-        }
-        a = kh1.a;
-    }
-
-    public static List<JSONObject> a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONObject jSONObject = new JSONObject(schemesDes);
-                arrayList.add(jSONObject);
-                int i = jSONObject.getInt("totalSlices");
-                for (int i2 = 1; i2 < i; i2++) {
-                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppCompat", "getDescriptions", e);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Nullable
-    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
+    public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<JSONObject> a2 = a(str);
-            if (a2 == null || a2.isEmpty()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                cj4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                cj4.d(null);
+                return false;
+            } catch (Throwable th) {
+                cj4.d(null);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                cj4.d(inputStream2);
+                throw th;
+            }
+            if (inputStream == null) {
+                cj4.d(inputStream);
                 return null;
             }
-            for (JSONObject jSONObject : a2) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            Iterator<pl2> it = ol2.b().iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    pl2 next = it.next();
-                                    String optString = optJSONObject.optString("name");
-                                    if (next.a(str, optString)) {
-                                        try {
-                                            optJSONArray.put(i, next.c(optString, optJSONObject));
-                                            break;
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }
-                            }
-                        }
+            try {
+                try {
+                    str2 = fj4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (ij1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
                     }
+                    cj4.d(inputStream);
+                    return str2;
                 }
+                cj4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                cj4.d(inputStream2);
+                throw th;
             }
-            return a2;
         }
-        return (List) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

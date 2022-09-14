@@ -553,7 +553,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
             }
             Context context2 = getContext();
-            TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f0400b6, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f0404bb});
+            TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.SnackbarLayout);
             if (obtainStyledAttributes.hasValue(6)) {
                 ViewCompat.setElevation(this, obtainStyledAttributes.getDimensionPixelSize(6, 0));
             }
@@ -1500,7 +1500,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public int getSnackbarBaseLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? hasSnackbarStyleAttr() ? R.layout.obfuscated_res_0x7f0d05a2 : R.layout.obfuscated_res_0x7f0d0212 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? hasSnackbarStyleAttr() ? R.layout.obfuscated_res_0x7f0d05b9 : R.layout.obfuscated_res_0x7f0d0216 : invokeV.intValue;
     }
 
     @NonNull

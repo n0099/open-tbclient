@@ -18,7 +18,7 @@ import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceViewRenderer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Callback, VideoSink, RendererCommon.RendererEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceViewRenderer";
@@ -184,7 +184,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             if (i3 == 0 || i3 == 180) {
                 i = i2;
             }
-            postOrRun(new Runnable() { // from class: com.baidu.tieba.eu9
+            postOrRun(new Runnable() { // from class: com.baidu.tieba.wv9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

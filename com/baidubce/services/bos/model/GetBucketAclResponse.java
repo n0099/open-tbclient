@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GetBucketAclResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SUPPORTED_ACL_VERSION = 1;

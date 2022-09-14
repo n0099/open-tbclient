@@ -69,7 +69,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003e5;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003e6;
             return inflate;
         }
         return (View) invokeLLL.objValue;

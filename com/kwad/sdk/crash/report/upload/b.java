@@ -21,7 +21,7 @@ import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static Map<String, String> a(f fVar) {
         HashMap hashMap = new HashMap();

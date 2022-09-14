@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl9;
+import com.baidu.tieba.jp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -133,7 +133,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new fl9(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new jp9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 
@@ -143,12 +143,12 @@ public class KSNativeAdVideoAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f9);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090088);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090086);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090089);
-            this.h = (Button) findViewById(R.id.obfuscated_res_0x7f090085);
+            this.e = (TextView) findViewById(R.id.ad_app_source);
+            this.f = (ImageView) findViewById(R.id.ad_app_icon);
+            this.g = (TextView) findViewById(R.id.ad_app_title);
+            this.h = (Button) findViewById(R.id.ad_app_download);
         }
     }
 

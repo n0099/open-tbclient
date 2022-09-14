@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface c1 {
-    void a(String str, String str2, Throwable th);
+    void a(int i, int i2);
 
-    void b(String str, String str2, Throwable th);
+    void create();
 
-    void debug(String str, String str2);
+    void dispose();
 
-    void error(String str, String str2);
+    void pause();
 
-    void error(String str, String str2, Throwable th);
+    void render();
 
-    void log(String str, String str2);
+    void resume();
 }

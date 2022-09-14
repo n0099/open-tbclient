@@ -17,8 +17,8 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tieba.ev9;
-import com.baidu.tieba.yu9;
+import com.baidu.tieba.qw9;
+import com.baidu.tieba.ww9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,10 +139,10 @@ public final class DelegateUtils implements DelegateDef {
     }
 
     @NonNull
-    public static yu9<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+    public static qw9<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, cls, bundle)) == null) ? yu9.a(new yu9.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, cls, bundle)) == null) ? qw9.a(new qw9.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context val$context;
@@ -170,15 +170,15 @@ public final class DelegateUtils implements DelegateDef {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.yu9.a, com.baidu.tieba.mv9
-            public void call(ev9<? super DelegateResult> ev9Var) {
+            @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
+            public void call(ww9<? super DelegateResult> ww9Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, ev9Var) == null) {
-                    ev9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
-                    ev9Var.onCompleted();
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, ww9Var) == null) {
+                    ww9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
+                    ww9Var.onCompleted();
                 }
             }
-        }) : (yu9) invokeLLL.objValue;
+        }) : (qw9) invokeLLL.objValue;
     }
 
     public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @Nullable Bundle bundle, @NonNull DelegateListener delegateListener) {

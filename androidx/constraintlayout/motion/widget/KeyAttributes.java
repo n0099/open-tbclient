@@ -8,7 +8,7 @@ import android.util.Log;
 import android.util.SparseIntArray;
 import androidx.constraintlayout.motion.widget.SplineSet;
 import androidx.constraintlayout.widget.ConstraintAttribute;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -84,24 +84,24 @@ public class KeyAttributes extends Key {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mAttrMap = sparseIntArray;
-            sparseIntArray.append(R$styleable.KeyAttribute_android_alpha, 1);
-            mAttrMap.append(R$styleable.KeyAttribute_android_elevation, 2);
-            mAttrMap.append(R$styleable.KeyAttribute_android_rotation, 4);
-            mAttrMap.append(R$styleable.KeyAttribute_android_rotationX, 5);
-            mAttrMap.append(R$styleable.KeyAttribute_android_rotationY, 6);
-            mAttrMap.append(R$styleable.KeyAttribute_android_transformPivotX, 19);
-            mAttrMap.append(R$styleable.KeyAttribute_android_transformPivotY, 20);
-            mAttrMap.append(R$styleable.KeyAttribute_android_scaleX, 7);
-            mAttrMap.append(R$styleable.KeyAttribute_transitionPathRotate, 8);
-            mAttrMap.append(R$styleable.KeyAttribute_transitionEasing, 9);
-            mAttrMap.append(R$styleable.KeyAttribute_motionTarget, 10);
-            mAttrMap.append(R$styleable.KeyAttribute_framePosition, 12);
-            mAttrMap.append(R$styleable.KeyAttribute_curveFit, 13);
-            mAttrMap.append(R$styleable.KeyAttribute_android_scaleY, 14);
-            mAttrMap.append(R$styleable.KeyAttribute_android_translationX, 15);
-            mAttrMap.append(R$styleable.KeyAttribute_android_translationY, 16);
-            mAttrMap.append(R$styleable.KeyAttribute_android_translationZ, 17);
-            mAttrMap.append(R$styleable.KeyAttribute_motionProgress, 18);
+            sparseIntArray.append(0, 1);
+            mAttrMap.append(11, 2);
+            mAttrMap.append(7, 4);
+            mAttrMap.append(8, 5);
+            mAttrMap.append(9, 6);
+            mAttrMap.append(1, 19);
+            mAttrMap.append(2, 20);
+            mAttrMap.append(5, 7);
+            mAttrMap.append(17, 8);
+            mAttrMap.append(16, 9);
+            mAttrMap.append(15, 10);
+            mAttrMap.append(13, 12);
+            mAttrMap.append(12, 13);
+            mAttrMap.append(6, 14);
+            mAttrMap.append(3, 15);
+            mAttrMap.append(4, 16);
+            mAttrMap.append(10, 17);
+            mAttrMap.append(14, 18);
         }
 
         public Loader() {
@@ -534,7 +534,7 @@ public class KeyAttributes extends Key {
     public void load(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R$styleable.KeyAttribute));
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyAttribute));
         }
     }
 

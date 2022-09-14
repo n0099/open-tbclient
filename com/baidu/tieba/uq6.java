@@ -1,124 +1,32 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import com.baidu.adp.widget.SwipeBackLayout;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tieba.qq6;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeElement;
 /* loaded from: classes6.dex */
-public class uq6 {
+public abstract class uq6 implements wq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ViewGroup b;
-    public vq6 c;
-    public qq6 d;
-    public za5 e;
-    public qq6.a f;
-    public Runnable g;
+    public FrsFragment a;
+    public Context b;
+    public View c;
 
-    /* loaded from: classes6.dex */
-    public class a implements qq6.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uq6 a;
-
-        public a(uq6 uq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uq6Var;
-        }
-
-        @Override // com.baidu.tieba.qq6.a
-        public void onStateChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 1) {
-                    if (!TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                        return;
-                    }
-                    if (this.a.e == null) {
-                        this.a.e = new za5("anim_switch_trans_frs");
-                    }
-                    this.a.e.b();
-                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
-                } else if (i != 2) {
-                    if (i == 0) {
-                        this.a.j();
-                    }
-                } else {
-                    this.a.k();
-                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                        this.a.e.c();
-                    }
-                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uq6 a;
-
-        public b(uq6 uq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uq6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
-            }
-        }
-    }
-
-    public uq6(Context context, ViewGroup viewGroup, Intent intent) {
+    public uq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,94 +36,98 @@ public class uq6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
-        this.a = context;
-        this.b = viewGroup;
-        vq6 vq6Var = new vq6(context);
-        this.c = vq6Var;
-        qq6 a2 = rq6.a(vq6Var, intent);
-        this.d = a2;
-        a2.b(this.f);
+        zk8.b();
     }
 
-    public static boolean i(Intent intent) {
+    @Override // com.baidu.tieba.wq6
+    @Nullable
+    @CallSuper
+    public <T> T a(@NonNull LogicField logicField) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) ? (intent == null || intent.getIntExtra("transition_type", 0) == 0) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
     }
 
-    public final void f() {
+    @Override // com.baidu.tieba.wq6
+    public void b(@NonNull ThemeElement themeElement) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sg.a().removeCallbacks(this.g);
-            if (this.d.a() == 1) {
-                sg.a().postDelayed(this.g, 10L);
-                return;
-            }
-            k();
-            this.d.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
         }
     }
 
-    public final void g() {
-        View findViewById;
+    @Override // com.baidu.tieba.wq6
+    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ViewGroup viewGroup = this.b;
-            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.b.getChildAt(0).setVisibility(8);
-            }
-            ViewGroup viewGroup2 = this.b;
-            if (viewGroup2 == null || (findViewById = viewGroup2.findViewById(16908290)) == null) {
-                return;
-            }
-            findViewById.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) == null) && this.c == null) {
+            this.a = frsFragment;
+            this.b = view2.getContext();
+            this.c = view2;
+            m();
         }
     }
 
-    public void h() {
+    @Override // com.baidu.tieba.cr6
+    public void d(int i, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == null) {
-            return;
-        }
-        f();
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewParent parent = this.c.a.getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.c.a);
-            }
-            sg.a().removeCallbacks(this.g);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
         }
     }
 
-    public final void k() {
+    @Override // com.baidu.tieba.wq6
+    @NonNull
+    public ar6 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = this.b;
-            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.b.getChildAt(0).setVisibility(0);
-            }
-            ViewGroup viewGroup2 = this.b;
-            if (viewGroup2 == null || viewGroup2.findViewById(16908290) == null) {
-                return;
-            }
-            this.b.findViewById(16908290).setVisibility(0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.j1().g0() : (ar6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wq6
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
     }
 
-    public void l() {
+    @Override // com.baidu.tieba.cr6
+    public void i(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
-        j();
-        this.b.addView(this.c.a);
-        g();
-        this.d.d();
+    }
+
+    @Override // com.baidu.tieba.cr6
+    public void j(@Nullable String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cr6
+    public void k(@NonNull LogicField logicField, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.wq6
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
+            return 8;
+        }
+        return invokeL.intValue;
+    }
+
+    public abstract void m();
+
+    @Override // com.baidu.tieba.cr6
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
     }
 }

@@ -19,6 +19,7 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static final String INTENT_KEY_IS_FROM_PUSH_NOTIFY = "is_from_push";
     public static final String JUMP_PARAMS_PAGE_TYPE = "?page_type=open_full_screen_opacity_web_page";
     public static final String KEY_IS_FROM_SCHEMA = "key_is_from_schema";
+    public static final String KEY_USE_CUSTOM_HISTORY_STACK = "use_custom_history_stack";
     public static final String PAGE_TYPE_BLACK_TRANSLUCENT = "open_full_screen_opacity_web_page";
     public static final String PAGE_TYPE_NORMAL = "normal";
     public static final String PARAMS_KEY_PAGE_FROM = "page_from";
@@ -77,6 +78,15 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
             return;
         }
         intent.putExtra(IntentConfig.KEY_URI, uri);
+    }
+
+    public void setUseCustomHistoryStack(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra(KEY_USE_CUSTOM_HISTORY_STACK, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

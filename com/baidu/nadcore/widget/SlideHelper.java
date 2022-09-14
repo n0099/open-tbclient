@@ -10,8 +10,8 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
-import com.baidu.tieba.j41;
-import com.baidu.tieba.k41;
+import com.baidu.tieba.b61;
+import com.baidu.tieba.d61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public class SlideHelper {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
             CustomSlidingPanelLayout customSlidingPanelLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout = customSlidingPanelLayout;
-            customSlidingPanelLayout.setShadowDrawable(k41.e(context, "sliding_layout_shadow.9.png"));
+            customSlidingPanelLayout.setShadowDrawable(d61.e(context, "sliding_layout_shadow.9.png"));
             this.mSlideLayout.addView(this.mMaskView, layoutParams2);
             this.mSlideLayout.addView(view2, layoutParams2);
             this.mSlideLayout.setSliderFadeColor(0);
@@ -169,13 +169,13 @@ public class SlideHelper {
         }
     }
 
-    public void setOnTransparentListener(j41 j41Var) {
+    public void setOnTransparentListener(b61 b61Var) {
         SlidingPaneLayout slidingPaneLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, j41Var) == null) || (slidingPaneLayout = this.mSlideLayout) == null || !(slidingPaneLayout instanceof CustomSlidingPanelLayout) || j41Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, b61Var) == null) || (slidingPaneLayout = this.mSlideLayout) == null || !(slidingPaneLayout instanceof CustomSlidingPanelLayout) || b61Var == null) {
             return;
         }
-        ((CustomSlidingPanelLayout) slidingPaneLayout).setOnTransparentListener(j41Var);
+        ((CustomSlidingPanelLayout) slidingPaneLayout).setOnTransparentListener(b61Var);
     }
 
     public void setRegionFactor(double d) {
@@ -242,7 +242,7 @@ public class SlideHelper {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             CustomSlidingPanelLayout customSlidingPanelLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout = customSlidingPanelLayout;
-            customSlidingPanelLayout.setShadowDrawable(k41.e(context, "sliding_layout_shadow.9.png"));
+            customSlidingPanelLayout.setShadowDrawable(d61.e(context, "sliding_layout_shadow.9.png"));
             this.mSlideLayout.addView(this.mMaskView, layoutParams);
             this.mSlideLayout.addView(view2, layoutParams);
             if (slideInterceptor != null) {

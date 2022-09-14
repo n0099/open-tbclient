@@ -1,148 +1,84 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class q46 {
+public final class q46 extends k46 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public float b;
-    public boolean c;
-    public float d;
-    public long e;
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final long b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.nanoTime() : invokeV.longValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041910, "Lcom/baidu/tieba/q46;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948041910, "Lcom/baidu/tieba/q46;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
+    public boolean b;
+    public PointF c;
+    public RectF d;
 
     public q46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.c = new PointF();
+        this.d = new RectF();
     }
 
-    public static /* synthetic */ void f(q46 q46Var, long j, float f2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            j = q46Var.a();
-        }
-        if ((i & 2) != 0) {
-            f2 = q46Var.b;
-        }
-        q46Var.e(j, f2);
-    }
-
-    public final long a() {
+    public final PointF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e / 1000000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (PointF) invokeV.objValue;
     }
 
-    public final float b() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public final void e(long j, float f2) {
+    @Override // com.baidu.tieba.k46, com.baidu.tieba.a8.a
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
-            this.c = false;
-            this.e = j * 1000000;
-            this.b = f2;
-            this.a = f.b();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.reset();
+            this.b = false;
+            this.c = new PointF();
+            this.d = new RectF();
         }
     }
 
-    public final void g(Float f2) {
-        long longValue;
+    public final q46 update(boolean z, int i, PointF position, RectF rect, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
-            long b = f.b();
-            if (this.c) {
-                longValue = 0;
-            } else {
-                Long valueOf = f2 == null ? null : Long.valueOf(f2.floatValue() * 1000000000);
-                longValue = valueOf == null ? b - this.a : valueOf.longValue();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
+            Intrinsics.checkNotNullParameter(position, "position");
+            Intrinsics.checkNotNullParameter(rect, "rect");
+            this.b = z;
+            if (!Intrinsics.areEqual(this.c, position)) {
+                this.c.set(position);
             }
-            long j = ((float) longValue) * this.b;
-            this.e += j;
-            this.d = ((float) j) / 1.0E9f;
-            this.a = b;
+            if (!Intrinsics.areEqual(this.d, rect)) {
+                this.d.set(rect);
+            }
+            return this;
         }
+        return (q46) invokeCommon.objValue;
     }
 }

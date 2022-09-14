@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,10 +106,11 @@ public final class ActivityUtils {
                         }
                     }
                 } catch (IllegalArgumentException e) {
-                    if (DEBUG) {
-                        throw e;
+                    if (!DEBUG) {
+                        e.printStackTrace();
+                        return false;
                     }
-                    return false;
+                    throw e;
                 }
             }
             return true;
@@ -155,13 +155,13 @@ public final class ActivityUtils {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(activity, (int) R.string.obfuscated_res_0x7f0f008d, 0).show();
+                    Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
-                    Toast.makeText(activity, (int) R.string.obfuscated_res_0x7f0f008d, 0).show();
+                    Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
                 }
                 if (DEBUG) {
                     Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
@@ -191,13 +191,13 @@ public final class ActivityUtils {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f008d, 0).show();
+                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f008d, 0).show();
+                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
                 }
                 if (DEBUG) {
                     Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);

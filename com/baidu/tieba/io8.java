@@ -1,56 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.GrowthStatsUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.tblauncher.SchemaRouteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class io8 {
+public class io8 extends ho8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
+    public volatile ko8 g;
+    public volatile boolean h;
+    public int i;
 
     /* loaded from: classes4.dex */
-    public class a implements BdUniDispatchSchemeController.b {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Intent a;
+        public int a;
 
-        public a(io8 io8Var, Intent intent) {
+        public a(io8 io8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {io8Var, intent};
+                Object[] objArr = {io8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,42 +46,20 @@ public class io8 {
                     return;
                 }
             }
-            this.a = intent;
+            this.a = 0;
         }
 
-        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap<String, Object> hashMap) {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.a == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable);
+                thread.setName("VideoUploadThread@" + this.a);
+                this.a = this.a + 1;
+                return thread;
             }
-            Object obj = hashMap.get(BdUniDispatchSchemeController.NATIVE_PARAM_MAINTAB_LOCATE);
-            int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : -1;
-            Object obj2 = hashMap.get(BdUniDispatchSchemeController.NATIVE_PARAM_MAINTAB_SUBTAB);
-            String str = obj2 instanceof String ? (String) obj2 : null;
-            Object obj3 = hashMap.get(BdUniDispatchSchemeController.PARAM_TAB_NAME);
-            String str2 = obj3 instanceof String ? (String) obj3 : null;
-            Object obj4 = hashMap.get(BdUniDispatchSchemeController.PARAM_TAB_CODE);
-            String str3 = obj4 instanceof String ? (String) obj4 : null;
-            if (intValue != -1) {
-                this.a.putExtra("is_from_scheme", true);
-                this.a.putExtra("locate_type", intValue);
-                this.a.putExtra("sub_locate_type", str);
-                this.a.putExtra("sub_tab_name", str2);
-                this.a.putExtra("sub_tab_code", str3);
-                nu4.b = intValue;
-                Object obj5 = hashMap.get(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM);
-                String str4 = obj5 instanceof String ? (String) obj5 : null;
-                Object obj6 = hashMap.get(BdUniDispatchSchemeController.PARAM_FIELD_ID);
-                String str5 = obj6 instanceof String ? (String) obj6 : null;
-                this.a.putExtra(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM, str4);
-                this.a.putExtra(BdUniDispatchSchemeController.PARAM_FIELD_ID, str5);
-            }
-            ej4.w().L(true);
-            if (intValue == 1 && "ForumSquare".equals(str)) {
-                nu4.c = nu4.e;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
-            }
+            return (Thread) invokeL.objValue;
         }
     }
 
@@ -103,134 +67,135 @@ public class io8 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ io8 b;
+        public final /* synthetic */ RandomAccessFile a;
+        public final /* synthetic */ ArrayList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ CountDownLatch g;
+        public final /* synthetic */ io8 h;
 
-        public b(io8 io8Var, String str) {
+        public b(io8 io8Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {io8Var, str};
+                Object[] objArr = {io8Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = io8Var;
-            this.a = str;
+            this.h = io8Var;
+            this.a = randomAccessFile;
+            this.b = arrayList;
+            this.c = i;
+            this.d = i2;
+            this.e = str;
+            this.f = i3;
+            this.g = countDownLatch;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sb.b().e();
-                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{this.a});
+                ko8 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
+                if (h != null) {
+                    if (h.b != 0) {
+                        this.h.g.b = h.b;
+                        this.h.g.c = h.c;
+                    }
+                    if (!StringUtils.isNull(h.a)) {
+                        this.h.g.a = h.a;
+                    }
+                    synchronized (this.h) {
+                        io8.k(this.h);
+                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
+                    }
+                }
+                this.g.countDown();
             }
         }
     }
 
-    public io8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public io8(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, sn8Var};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = mainTabActivity;
+        this.g = new ko8();
     }
 
-    public void b(Intent intent) {
+    public static /* synthetic */ int k(io8 io8Var) {
+        int i = io8Var.i;
+        io8Var.i = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.ho8
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
         }
-        String dataString = intent.getDataString();
-        UtilHelper.clearClipBoardBySchemaParam(dataString);
-        if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmaintab://")) {
-            String decode = Uri.decode(intent.getData().getEncodedPath());
-            if (StringUtils.isNull(decode)) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_type", 1).param(TiebaStatic.Params.OBJ_TO, 1).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                xj4.a(param, decode);
-                TiebaStatic.log(param);
-                return;
-            }
-            if (decode.startsWith("//")) {
-                decode = decode.substring(2);
-            }
-            Map<String, String> paramPair = UrlManager.getParamPair(decode);
-            if (paramPair == null) {
-                return;
-            }
-            if ("bpush".equals(paramPair.get("fr"))) {
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                xj4.b(statisticItem, paramPair);
-                statisticItem.param("obj_locate", paramPair.get("obj_locate"));
-                statisticItem.param("obj_type", 1);
-                statisticItem.param("obj_source", paramPair.get("obj_source"));
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
-                statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
-                statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!qi.isEmpty(paramPair.get("ext_log"))) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            statisticItem.param(next, jSONObject.getString(next));
-                        }
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
+    }
+
+    @Override // com.baidu.tieba.ho8
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) ? false : true : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ho8
+    public ko8 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            int size = arrayList.size();
+            CountDownLatch countDownLatch = new CountDownLatch(size);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                for (int i2 = 0; i2 < size; i2++) {
+                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
                 }
-                TiebaStatic.log(statisticItem);
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
-                httpMessage.addParam("call_url", dataString);
-                MessageManager.getInstance().sendMessage(httpMessage);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                threadPoolExecutor.shutdown();
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return this.g;
+            } catch (FileNotFoundException unused) {
+                return this.g;
             }
-            ej4.w().L(true);
-        } else if (!StringUtils.isNull(dataString) && (dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK))) {
-            String dataString2 = intent.getDataString();
-            if (!StringUtils.isNull(dataString2) && PermissionUtil.isAgreePrivacyPolicy()) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{dataString2});
-                ej4.w().L(true);
-            }
-        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(BdUniDispatchSchemeController.SCHEME)) {
-            BdUniDispatchSchemeController.getInstance().parseMainTabScheme(intent.getData(), new a(this, intent));
         }
-        String stringExtra = intent.getStringExtra("target_scheme");
-        if (!StringUtils.isNull(stringExtra)) {
-            sg.a().postDelayed(new b(this, stringExtra), this.b ? 0L : DeviceInfoUtil.getMainTabActJumpOtherDelayTime());
-            this.a.getIntent().removeExtra("target_scheme");
-            this.a.getIntent().putExtra(MainTabActivityConfig.TARGET_SCHEME_BAK, stringExtra);
-            GrowthStatsUtil.statisticChannel("push", stringExtra);
-        } else if (StringUtils.isNull(SchemaRouteActivity.b)) {
-        } else {
-            SchemeActionManager.getInstance().doSchemeAction(this.a.getPageContext(), SchemaRouteActivity.b);
-            SchemaRouteActivity.b = null;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = true;
-        }
+        return (ko8) invokeLLI.objValue;
     }
 }

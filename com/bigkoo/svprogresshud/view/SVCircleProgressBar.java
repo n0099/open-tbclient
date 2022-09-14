@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.bigkoo.svprogresshud.R;
+/* loaded from: classes7.dex */
 public class SVCircleProgressBar extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILL = 1;
@@ -221,7 +221,7 @@ public class SVCircleProgressBar extends View {
             }
         }
         this.paint = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04066e, R.attr.obfuscated_res_0x7f04066f, R.attr.obfuscated_res_0x7f040670, R.attr.obfuscated_res_0x7f040671, R.attr.obfuscated_res_0x7f040672});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SVCircleProgressBar);
         this.roundColor = obtainStyledAttributes.getColor(1, -16776961);
         this.roundProgressColor = obtainStyledAttributes.getColor(2, -7829368);
         this.roundWidth = obtainStyledAttributes.getDimension(3, 5.0f);

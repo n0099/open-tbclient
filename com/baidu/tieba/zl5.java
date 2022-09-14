@@ -1,37 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
+import java.util.TimerTask;
 /* loaded from: classes6.dex */
-public class zl5 {
+public final class zl5 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View.OnClickListener a;
-    public BaseActivity b;
-    public LinearLayout c;
-    public LinearLayout d;
-    public TbSettingTextTipView e;
-    public TbSettingTextTipView f;
-    public TextView g;
+    public float a;
+    public final float b;
+    public final WheelView c;
 
-    public zl5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    public zl5(WheelView wheelView, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
+            Object[] objArr = {wheelView, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,57 +29,55 @@ public class zl5 {
                 return;
             }
         }
-        this.b = baseActivity;
-        this.a = onClickListener;
-        b();
+        this.c = wheelView;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
-            this.c = linearLayout;
-            this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f09033a);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923bd);
-            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090057);
-            this.e.a();
-            this.f.a();
-            this.e.setOnClickListener(this.a);
-            this.f.setOnClickListener(this.a);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.removeAllViews();
-            this.b = null;
-        }
-    }
-
-    public void d(SimpleUser simpleUser) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, simpleUser) == null) || simpleUser == null) {
-            return;
-        }
-        this.f.setTip(simpleUser.block_msg);
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b.getLayoutMode().l(i == 1);
-            this.b.getLayoutMode().k(this.c);
-            ns4 d = ns4.d(this.g);
-            d.v(R.color.CAM_X0109);
-            d.f(R.color.CAM_X0204);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                if (Math.abs(this.b) > 2000.0f) {
+                    this.a = this.b <= 0.0f ? -2000.0f : 2000.0f;
+                } else {
+                    this.a = this.b;
+                }
+            }
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
+                return;
+            }
+            WheelView wheelView = this.c;
+            float f = (int) (this.a / 100.0f);
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f2 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f2) {
+                    f2 = this.c.getTotalScrollY() + f;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f;
+                }
+                if (this.c.getTotalScrollY() <= f2) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f2);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
+                }
+            }
+            float f3 = this.a;
+            if (f3 < 0.0f) {
+                this.a = f3 + 20.0f;
+            } else {
+                this.a = f3 - 20.0f;
+            }
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

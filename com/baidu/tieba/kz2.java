@@ -1,23 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.c33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,385 +15,405 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class kz2 extends Drawable {
+public final class kz2 extends g33 implements iz2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RectF a;
-    public final RectF b;
-    public final RectF c;
-    public final BitmapShader d;
-    public final Paint e;
-    public final int f;
-    public final int g;
-    public final RectF h;
-    public final Paint i;
-    public final Matrix j;
-    public float k;
-    public int l;
-    public int m;
-    public ImageView.ScaleType n;
+    public final HashMap<String, String> b;
+    public final HashMap<String, jz2> c;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public class a implements rh3<c33.a> {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kz2 a;
+
+        public a(kz2 kz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kz2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(c33.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                if (kz2.d) {
+                    kz2 kz2Var = this.a;
+                    kz2Var.T("onEventCallback msg" + aVar);
+                }
+                this.a.V(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements rh3<c33.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kz2 a;
+
+        public b(kz2 kz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kz2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(c33.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                if (kz2.d) {
+                    kz2 kz2Var = this.a;
+                    kz2Var.T("onEventCallback msg" + aVar);
+                }
+                this.a.W(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static kz2 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-644732183, "Lcom/baidu/tieba/kz2$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-644732121, "Lcom/baidu/tieba/kz2$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-644732183, "Lcom/baidu/tieba/kz2$a;");
+                    classClinitInterceptable.invokePostClinit(-644732121, "Lcom/baidu/tieba/kz2$c;");
                     return;
                 }
             }
-            int[] iArr = new int[ImageView.ScaleType.values().length];
-            a = iArr;
-            try {
-                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
+            a = new kz2(x23.K());
         }
     }
 
-    public kz2(Bitmap bitmap, float f, int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947930310, "Lcom/baidu/tieba/kz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947930310, "Lcom/baidu/tieba/kz2;");
+                return;
+            }
+        }
+        d = ij1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kz2(b33 b33Var) {
+        super(b33Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {b33Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((b33) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new RectF();
-        this.b = new RectF();
-        this.c = new RectF();
-        this.h = new RectF();
-        this.j = new Matrix();
-        this.n = ImageView.ScaleType.FIT_XY;
-        this.l = i;
-        this.m = i2;
-        this.f = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        this.g = height;
-        this.c.set(0.0f, 0.0f, this.f, height);
-        this.k = f;
-        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
-        BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
-        this.d = bitmapShader;
-        bitmapShader.setLocalMatrix(this.j);
-        Paint paint = new Paint();
-        this.e = paint;
-        paint.setAntiAlias(true);
-        this.e.setShader(this.d);
-        Paint paint2 = new Paint();
-        this.i = paint2;
-        paint2.setAntiAlias(true);
-        this.i.setColor(this.m);
-        this.i.setStrokeWidth(i);
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        if (d) {
+            T("SwanIpc");
+        }
+        v23 v23Var = new v23();
+        v23Var.f(new b(this), "event_messenger_call_out");
+        v23Var.f(new a(this), "event_messenger_call_in");
+        u(v23Var);
     }
 
-    public static Bitmap a(Drawable drawable) {
+    public static synchronized boolean J(@NonNull Bundle bundle, @NonNull String str) {
+        InterceptResult invokeLL;
+        boolean L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bundle, str)) == null) {
+            synchronized (kz2.class) {
+                L = R().L(Z(bundle), str);
+            }
+            return L;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static synchronized boolean K(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        boolean L;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            synchronized (kz2.class) {
+                L = R().L(a0(str), str2);
+            }
+            return L;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static synchronized jz2 Q(@NonNull String str) {
+        InterceptResult invokeL;
+        jz2 e0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            synchronized (kz2.class) {
+                e0 = R().e0(str);
+            }
+            return e0;
+        }
+        return (jz2) invokeL.objValue;
+    }
+
+    public static kz2 R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.a : (kz2) invokeV.objValue;
+    }
+
+    public static void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            R();
+        }
+    }
+
+    public static synchronized jz2 Z(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
+        jz2 c0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bundle)) == null) {
+            synchronized (kz2.class) {
+                c0 = R().c0(bundle);
+            }
+            return c0;
+        }
+        return (jz2) invokeL.objValue;
+    }
+
+    public static synchronized jz2 a0(@NonNull String str) {
+        InterceptResult invokeL;
+        jz2 d0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            synchronized (kz2.class) {
+                d0 = R().d0(str, null);
+            }
+            return d0;
+        }
+        return (jz2) invokeL.objValue;
+    }
+
+    public final synchronized boolean I(@NonNull jz2 jz2Var, @NonNull Bundle bundle) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jz2Var, bundle)) == null) {
+            synchronized (this) {
+                if (jz2Var.Z()) {
+                    z = L(jz2Var, bundle.getString("ipc_topic", ""));
+                }
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final synchronized boolean L(@NonNull jz2 jz2Var, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jz2Var, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (jz2Var.Z()) {
+                    String Q = jz2Var.Q();
+                    String str2 = this.b.get(Q);
+                    boolean z2 = !TextUtils.isEmpty(str2);
+                    z = (!z2 || TextUtils.equals(str2, str)) ? true : true;
+                    if (z && !z2 && !TextUtils.isEmpty(str)) {
+                        this.b.put(Q, str);
+                    }
+                    return z;
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void T(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && d) {
+            Log.i("SwanIpc", SwanAppProcessInfo.current() + " >> " + str);
+        }
+    }
+
+    public final void U(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            T(str + ": " + str2);
+        }
+    }
+
+    public final void V(c33.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            if (d) {
+                U("onCallIn", "msg=" + aVar);
+            }
+            if (aVar != null) {
+                Bundle D = aVar.D();
+                c33.a aVar2 = new c33.a("event_messenger_call", D);
+                jz2 Z = Z(D);
+                if (I(Z, D) && Z.X(aVar2)) {
+                    return;
+                }
+                x23.K().A(aVar2);
+            }
+        }
+    }
+
+    public final void W(c33.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            if (d) {
+                U("onCallOut", "msg=" + aVar);
+            }
+            if (aVar != null) {
+                Z(aVar.D()).call();
+            }
+        }
+    }
+
+    public String X(@NonNull jz2 jz2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
-            if (drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
-            }
-            int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(createBitmap);
-            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-            drawable.draw(canvas);
-            return createBitmap;
-        }
-        return (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jz2Var)) == null) ? Y(jz2Var.Q()) : (String) invokeL.objValue;
     }
 
-    @SuppressLint({"SwanDebugLog"})
-    public static Drawable b(Drawable drawable, ImageView.ScaleType scaleType, float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public String Y(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{drawable, scaleType, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (drawable != null) {
-                if (drawable instanceof TransitionDrawable) {
-                    TransitionDrawable transitionDrawable = (TransitionDrawable) drawable;
-                    int numberOfLayers = transitionDrawable.getNumberOfLayers();
-                    Drawable[] drawableArr = new Drawable[numberOfLayers];
-                    for (int i3 = 0; i3 < numberOfLayers; i3++) {
-                        Drawable drawable2 = transitionDrawable.getDrawable(i3);
-                        if (drawable2 instanceof ColorDrawable) {
-                            drawableArr[i3] = drawable2;
-                        } else if (drawable2 instanceof kz2) {
-                            drawableArr[i3] = drawable2;
-                        } else {
-                            drawableArr[i3] = new kz2(a(drawable2), f, i, i2);
-                            if (scaleType != null) {
-                                ((kz2) drawableArr[i3]).h(scaleType);
-                            }
-                        }
-                    }
-                    return new TransitionDrawable(drawableArr);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.b.get(str) : (String) invokeL.objValue;
+    }
+
+    public kz2 b0(jz2 jz2Var, Exception exc) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jz2Var, exc)) == null) {
+            if (jz2Var != null) {
+                synchronized (this.c) {
+                    jz2Var.M(exc);
+                    this.c.remove(jz2Var.Q());
                 }
-                Bitmap a2 = a(drawable);
-                if (a2 != null) {
-                    kz2 kz2Var = new kz2(a2, f, i, i2);
-                    if (scaleType != null) {
-                        kz2Var.h(scaleType);
-                    }
-                    return kz2Var;
+            }
+            return this;
+        }
+        return (kz2) invokeLL.objValue;
+    }
+
+    public final synchronized jz2 c0(Bundle bundle) {
+        InterceptResult invokeL;
+        jz2 d0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bundle)) == null) {
+            synchronized (this) {
+                d0 = d0(bundle == null ? null : bundle.getString("ipc_session_id"), bundle);
+            }
+            return d0;
+        }
+        return (jz2) invokeL.objValue;
+    }
+
+    public final synchronized jz2 d0(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        jz2 jz2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, bundle)) == null) {
+            synchronized (this) {
+                jz2Var = TextUtils.isEmpty(str) ? null : this.c.get(str);
+                if (jz2Var == null || !jz2Var.Z()) {
+                    b0(jz2Var, new IllegalStateException("invalid session"));
+                    jz2Var = new jz2(this, str);
+                    this.c.put(jz2Var.Q(), jz2Var);
                 }
-                Log.w("RoundedDrawable", "Failed to create bitmap from drawable!");
-            }
-            return drawable;
-        }
-        return (Drawable) invokeCommon.objValue;
-    }
-
-    public ImageView.ScaleType c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.n : (ImageView.ScaleType) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.m = i;
-            this.i.setColor(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            if (this.l > 0) {
-                RectF rectF = this.h;
-                float f = this.k;
-                canvas.drawRoundRect(rectF, f, f, this.i);
-                canvas.drawRoundRect(this.b, Math.max(this.k - this.l, 0.0f), Math.max(this.k - this.l, 0.0f), this.e);
-                return;
-            }
-            RectF rectF2 = this.b;
-            float f2 = this.k;
-            canvas.drawRoundRect(rectF2, f2, f2, this.e);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.l = i;
-            this.i.setStrokeWidth(i);
-        }
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.k = f;
-        }
-    }
-
-    public final void g() {
-        float width;
-        float height;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h.set(this.a);
-            RectF rectF = this.b;
-            int i = this.l;
-            rectF.set(i + 0, i + 0, this.h.width() - this.l, this.h.height() - this.l);
-            switch (a.a[this.n.ordinal()]) {
-                case 1:
-                    this.h.set(this.a);
-                    RectF rectF2 = this.b;
-                    int i2 = this.l;
-                    rectF2.set(i2 + 0, i2 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    this.j.setTranslate((int) (((this.b.width() - this.f) * 0.5f) + 0.5f), (int) (((this.b.height() - this.g) * 0.5f) + 0.5f));
-                    break;
-                case 2:
-                    this.h.set(this.a);
-                    RectF rectF3 = this.b;
-                    int i3 = this.l;
-                    rectF3.set(i3 + 0, i3 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    float f = 0.0f;
-                    if (this.f * this.b.height() > this.b.width() * this.g) {
-                        width = this.b.height() / this.g;
-                        f = (this.b.width() - (this.f * width)) * 0.5f;
-                        height = 0.0f;
-                    } else {
-                        width = this.b.width() / this.f;
-                        height = (this.b.height() - (this.g * width)) * 0.5f;
+                boolean z = bundle != null && I(jz2Var, bundle);
+                if (z) {
+                    int i = bundle.getInt("ipc_session_repal", SwanAppProcessInfo.UNKNOWN.index);
+                    if (SwanAppProcessInfo.checkProcessId(i)) {
+                        jz2Var.I(i);
+                    } else if (SwanAppProcessInfo.SERVICE.index == i) {
+                        jz2Var.K(true);
                     }
-                    this.j.setScale(width, width);
-                    Matrix matrix = this.j;
-                    int i4 = this.l;
-                    matrix.postTranslate(((int) (f + 0.5f)) + i4, ((int) (height + 0.5f)) + i4);
-                    break;
-                case 3:
-                    this.j.set(null);
-                    float min = (((float) this.f) > this.a.width() || ((float) this.g) > this.a.height()) ? Math.min(this.a.width() / this.f, this.a.height() / this.g) : 1.0f;
-                    this.j.setScale(min, min);
-                    this.j.postTranslate((int) (((this.a.width() - (this.f * min)) * 0.5f) + 0.5f), (int) (((this.a.height() - (this.g * min)) * 0.5f) + 0.5f));
-                    this.h.set(this.c);
-                    this.j.mapRect(this.h);
-                    RectF rectF4 = this.b;
-                    RectF rectF5 = this.h;
-                    float f2 = rectF5.left;
-                    int i5 = this.l;
-                    rectF4.set(f2 + i5, rectF5.top + i5, rectF5.right - i5, rectF5.bottom - i5);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 4:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.CENTER);
-                    this.j.mapRect(this.h);
-                    RectF rectF6 = this.b;
-                    RectF rectF7 = this.h;
-                    float f3 = rectF7.left;
-                    int i6 = this.l;
-                    rectF6.set(f3 + i6, rectF7.top + i6, rectF7.right - i6, rectF7.bottom - i6);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 5:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.END);
-                    this.j.mapRect(this.h);
-                    RectF rectF8 = this.b;
-                    RectF rectF9 = this.h;
-                    float f4 = rectF9.left;
-                    int i7 = this.l;
-                    rectF8.set(f4 + i7, rectF9.top + i7, rectF9.right - i7, rectF9.bottom - i7);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 6:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.START);
-                    this.j.mapRect(this.h);
-                    RectF rectF10 = this.b;
-                    RectF rectF11 = this.h;
-                    float f5 = rectF11.left;
-                    int i8 = this.l;
-                    rectF10.set(f5 + i8, rectF11.top + i8, rectF11.right - i8, rectF11.bottom - i8);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                default:
-                    this.h.set(this.a);
-                    RectF rectF12 = this.b;
-                    int i9 = this.l;
-                    rectF12.set(i9 + 0, i9 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
+                }
+                jz2Var.S(z ? bundle.getLong("ipc_session_timeout") : iz2.n0);
+                if (d) {
+                    U("session", "id=" + str + " session=" + bundle + " session=" + jz2Var);
+                }
             }
-            this.d.setLocalMatrix(this.j);
+            return jz2Var;
         }
+        return (jz2) invokeLL.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
+    public final synchronized jz2 e0(String str) {
+        InterceptResult invokeL;
+        jz2 c0;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, scaleType) == null) {
-            if (scaleType == null) {
-                scaleType = ImageView.ScaleType.FIT_XY;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            synchronized (this) {
+                c0 = c0(null);
+                L(c0, str);
+                if (d) {
+                    U("topic", str + " session=" + c0);
+                }
             }
-            if (this.n != scaleType) {
-                this.n = scaleType;
-                g();
-            }
+            return c0;
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
-            super.onBoundsChange(rect);
-            this.a.set(rect);
-            g();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e.setAlpha(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
-            this.e.setColorFilter(colorFilter);
-        }
+        return (jz2) invokeL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.performance;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh1;
+import com.baidu.tieba.ij1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -104,7 +103,7 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        g = kh1.a;
+        g = ij1.a;
     }
 
     public UbcFlowEvent(String str) {
@@ -205,7 +204,7 @@ public class UbcFlowEvent {
             try {
                 jSONObject.put("id", this.a);
                 jSONObject.put("value", this.c);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
+                jSONObject.put("ts", this.b);
             } catch (JSONException e) {
                 if (g) {
                     Log.w("UbcFlowEvent", "UbcFlowEvent to JSON exception", e);

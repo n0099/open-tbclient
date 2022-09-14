@@ -1,197 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gs4;
-import com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.DelReplyAtMsgResMsg;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class cc7 {
+public final class cc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public es4 a;
-    public gs4 b;
-    public List<cs4> c;
-    public cs4 d;
-    public bc7 e;
-    public c f;
-    public gs4.d g;
 
-    /* loaded from: classes3.dex */
-    public class a implements gs4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cc7 a;
-
-        public a(cc7 cc7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cc7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cc7Var;
-        }
-
-        @Override // com.baidu.tieba.gs4.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements gs4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cc7 a;
-
-        public b(cc7 cc7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cc7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cc7Var;
-        }
-
-        @Override // com.baidu.tieba.gs4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a();
-    }
-
-    public cc7(d9 d9Var) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = new b(this);
-        this.b = new gs4(d9Var.getPageActivity());
-        cs4 cs4Var = new cs4(d9Var.getString(R.string.obfuscated_res_0x7f0f04ac), this.b);
-        this.d = cs4Var;
-        cs4Var.m(this.g);
-        ArrayList arrayList = new ArrayList();
-        this.c = arrayList;
-        arrayList.add(this.d);
-        this.b.m(new a(this));
-        this.b.j(this.c);
-        this.a = new es4(d9Var, this.b);
-        e();
-        f();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == null) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.e.a);
-        httpMessage.addParam("thread_id", this.e.b);
-        httpMessage.addParam("post_id", this.e.c);
-        httpMessage.addParam("ori_ugc_nid", this.e.d);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public void d() {
-        es4 es4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (es4Var = this.a) != null && es4Var.isShowing()) {
-            this.a.dismiss();
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem.make("c14880").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
     }
 
-    public void e() {
-        gs4 gs4Var;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gs4Var = this.b) == null) {
-            return;
-        }
-        gs4Var.i();
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG, TbConfig.SERVER_ADDRESS + TbConfig.URL_DELETE_REPLY_AT_MSG);
-            tbHttpMessageTask.setResponsedClass(DelReplyAtMsgResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem.make("c14879").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
     }
 
-    public void g(bc7 bc7Var) {
+    public static void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bc7Var) == null) {
-            this.e = bc7Var;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            ac7.a("私信链路耗时监控 Tb = " + j + "-x-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14673").param("obj_id", j).param("obj_param1", currentTimeMillis));
         }
     }
 
-    public void h(c cVar) {
+    public static void d(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            ac7.a("私信链路耗时监控 Tc = " + j + "-" + i + "-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14674").param("obj_id", j).param("obj_type", i).param("obj_param1", currentTimeMillis));
         }
     }
 
-    public void i() {
-        es4 es4Var;
+    public static void e(long j, int i, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (es4Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
+            long c = ec7.c(j);
+            ac7.a("私信链路耗时监控 Ta = " + c + "-" + i + "-" + j2);
+            TiebaStatic.log(new StatisticItem("c14672").param("obj_id", c).param("obj_type", i).param("obj_param1", j2));
         }
-        es4Var.show();
     }
 }

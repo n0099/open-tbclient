@@ -1,204 +1,179 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.tieba.s24;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class l44 extends g44 {
+public class l44 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile l44 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int j;
-    public m44 k;
-    public m44 l;
+    public s24 a;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l44 a;
-
-        public a(l44 l44Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892893, "Lcom/baidu/tieba/l44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = l44Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || this.a.j < -1) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947892893, "Lcom/baidu/tieba/l44;");
                 return;
             }
-            if (this.a.j == -1) {
-                this.a.c.o();
-            } else {
-                this.a.c.u(this.a.j);
-            }
         }
+        b = ij1.a;
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l44 a;
-
-        public b(l44 l44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l44Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                l44 l44Var = this.a;
-                RecommendItemModel y = l44Var.y(l44Var.j);
-                this.a.k.b.setImageURI(y.iconUrl);
-                this.a.k.c.setText(y.appName);
-                this.a.k.a.setAlpha(1.0f);
-                l44 l44Var2 = this.a;
-                RecommendItemModel y2 = this.a.y(l44Var2.x(l44Var2.j));
-                this.a.l.b.setImageURI(y2.iconUrl);
-                this.a.l.c.setText(y2.appName);
-                this.a.l.a.setAlpha(0.0f);
-                l44.super.k();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l44(@NonNull Context context, @NonNull j44 j44Var) {
-        super(context, j44Var);
+    public l44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, j44Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (j44) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.j = -2;
-    }
-
-    @Override // com.baidu.tieba.g44, com.baidu.tieba.h44
-    public void e(o44 o44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o44Var) == null) {
-            super.e(o44Var);
-            if (z(o44Var)) {
-                return;
-            }
-            this.j = -2;
-            this.l.b.setImageURI(o44Var.a.iconUrl);
-            this.l.c.setText(o44Var.a.appName);
         }
     }
 
-    @Override // com.baidu.tieba.g44
-    public View i() {
+    public static l44 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            m44 m44Var = new m44(this.a);
-            this.l = m44Var;
-            m44Var.a.setAlpha(0.0f);
-            frameLayout.addView(this.l.a);
-            m44 m44Var2 = new m44(this.a);
-            this.k = m44Var2;
-            m44Var2.a.setAlpha(0.0f);
-            this.k.b.setActualImageResource(17170445);
-            this.k.c.setText((CharSequence) null);
-            frameLayout.addView(this.k.a);
-            this.k.a.setOnClickListener(new a(this));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g44
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.b)) {
-                this.k.a.setAlpha(1.0f);
-                this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080168);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f133a);
-                super.k();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (l44.class) {
+                    if (c == null) {
+                        c = new l44();
+                    }
+                }
             }
-            this.j = x(this.j);
-            this.l.a.animate().setDuration(160L).alpha(1.0f);
-            this.k.a.animate().setDuration(160L).alpha(0.0f).setListener(new b(this));
+            return c;
         }
+        return (l44) invokeV.objValue;
     }
 
-    public final int x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int i2 = i + 1;
-            if (i2 == this.b.b.size()) {
-                return -1;
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public final RecommendItemModel y(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -1 ? this.b.a : this.b.b.get(i) : (RecommendItemModel) invokeI.objValue;
-    }
-
-    public final boolean z(o44 o44Var) {
+    public String a(String str) {
         InterceptResult invokeL;
+        s24 s24Var;
+        s24.c cVar;
+        HashMap<String, String> hashMap;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, o44Var)) == null) ? o44Var == null || o44Var.b == null || o44Var.a == null : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2) || (s24Var = this.a) == null || (cVar = s24Var.d) == null || (hashMap = cVar.a) == null) {
+                return null;
+            }
+            return hashMap.get(c2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(String str, int i) {
+        InterceptResult invokeLI;
+        s24 s24Var;
+        s24.b bVar;
+        List<s24.a> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str) && (s24Var = this.a) != null && (bVar = s24Var.c) != null && (list = bVar.a) != null) {
+                for (s24.a aVar : list) {
+                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
+                        if (i != 0) {
+                            if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 3) {
+                                        return aVar.b;
+                                    }
+                                    return aVar.d;
+                                }
+                                return aVar.c;
+                            }
+                            return aVar.b;
+                        }
+                        return aVar.a;
+                    }
+                    while (r0.hasNext()) {
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        s24.b bVar;
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2)) {
+                return false;
+            }
+            s24 s24Var = this.a;
+            if (s24Var != null && (bVar = s24Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
+                if (b) {
+                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
+                }
+                return this.a.c.b.get(c2).booleanValue();
+            }
+            if (b) {
+                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
+            }
+            String g0 = y23.g0();
+            if (y23.M() == null) {
+                return false;
+            }
+            String k0 = y23.M().k0();
+            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
+                return false;
+            }
+            boolean n = va4.i().n(g0, k0, c2);
+            if (n) {
+                f(c2, true);
+            }
+            return n;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(s24 s24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, s24Var) == null) {
+            this.a = s24Var;
+        }
+    }
+
+    public void f(String str, boolean z) {
+        s24 s24Var;
+        s24.b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (s24Var = this.a) == null || (bVar = s24Var.c) == null || bVar.b == null) {
+            return;
+        }
+        if (b) {
+            Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
+        }
+        this.a.c.b.put(str, Boolean.valueOf(z));
     }
 }

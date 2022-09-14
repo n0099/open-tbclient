@@ -1,62 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.text.TextUtils;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.j87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class m87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.obfuscated_res_0x7f0f0ad2;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b == 4) {
-                        i2 = R.string.obfuscated_res_0x7f0f0ad4;
-                    } else if (b != 5) {
-                        if (b == 6) {
-                            i2 = R.string.obfuscated_res_0x7f0f0ad3;
-                        }
-                        i2 = -1;
-                    } else {
-                        i2 = R.string.obfuscated_res_0x7f0f0ad5;
-                    }
+    /* loaded from: classes5.dex */
+    public static class a implements j87.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return i2 != -1 ? TbadkCoreApplication.getInst().getResources().getString(i2) : str;
         }
-        return (String) invokeIL.objValue;
+
+        @Override // com.baidu.tieba.j87.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(1) && str.equals(ChatStatusManager.getInst().getCurId(1));
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public static short b(int i) {
-        InterceptResult invokeI;
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, j87.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            j87.d(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(4));
         }
-        return invokeI.shortValue;
     }
 }

@@ -1,182 +1,129 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsRewardVideoAd;
-import com.kwad.sdk.api.KsScene;
-import java.util.HashMap;
-import java.util.List;
+import java.io.ObjectInput;
 /* loaded from: classes6.dex */
-public class wk9 extends jk9<KsRewardVideoAd> {
+public class wk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements KsLoadManager.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ wk9 b;
-
-        public a(wk9 wk9Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948273604, "Lcom/baidu/tieba/wk9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wk9Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = wk9Var;
-            this.a = str;
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
-                    onError(0, "No Fill");
-                    return;
-                }
-                KsRewardVideoAd ksRewardVideoAd = list.get(0);
-                wk9 wk9Var = this.b;
-                String str = this.a;
-                wk9Var.getClass();
-                ksRewardVideoAd.setRewardAdInteractionListener(new xk9(wk9Var, ksRewardVideoAd, str));
-                this.b.onAdLoaded((wk9) ksRewardVideoAd);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.RewardVideoAdListener
-        public void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                LogPrinter.d();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wk9(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid, moduleConfigKs);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948273604, "Lcom/baidu/tieba/wk9;");
                 return;
             }
         }
+        a = new Object();
+        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new gl9(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b.getInt("key_sid_c_pre_" + str, 0);
+        }
+        return invokeL.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public static zj9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            KsRewardVideoAd ksRewardVideoAd = (KsRewardVideoAd) obj;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (zj9) fk9.b(b.getString("key_adcfg", null), tj9.a) : (zj9) invokeV.objValue;
+    }
+
+    public static /* synthetic */ zj9 c(ObjectInput objectInput) {
+        return new zj9(objectInput.readInt(), objectInput);
+    }
+
+    public static void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
+            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
+    public static void e(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((KsRewardVideoAd) obj).getECPM() / 100.0d : invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf);
-            HashMap hashMap = new HashMap();
-            hashMap.put("thirdUserId", FunAdSdk.getFunAdConfig().userId);
-            hashMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, buildExtra);
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).rewardCallbackExtraData(hashMap).build();
-            onLoadStart(funAdSlot);
-            KsAdSDK.getLoadManager().loadRewardVideoAd(build, new a(this, tid));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            KsRewardVideoAd ksRewardVideoAd = (KsRewardVideoAd) obj;
-            if (z) {
-                ksRewardVideoAd.setBidEcpm((int) (d2 * 100.0d));
+        if (interceptable == null || interceptable.invokeIII(65541, null, i, i2, i3) == null) {
+            synchronized (a) {
+                int j = j();
+                int k = k();
+                int i4 = i();
+                b.edit().putInt("key_rpt_req_c", ((j - i) - i2) - i3).putInt("key_rpt_fai_c", g() - i).putInt("key_rpt_suc_c", k - i2).putInt("key_rpt_mis_c", i4 - i3).apply();
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static void f(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
-            KsRewardVideoAd ksRewardVideoAd = (KsRewardVideoAd) obj;
-            onShowStart(ksRewardVideoAd);
-            if (ksRewardVideoAd.isAdEnable()) {
-                ksRewardVideoAd.showRewardVideoAd(activity, e());
-                return true;
-            }
-            LogPrinter.e("Ad isn't ready now", new Object[0]);
-            onAdError(ksRewardVideoAd, 0, "F:ad disable");
-            return false;
+        if (interceptable == null || interceptable.invokeLI(65542, null, str, i) == null) {
+            b.edit().putInt(str, i).apply();
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
+    }
+
+    public static /* synthetic */ lk9 h(ObjectInput objectInput) {
+        return new lk9(objectInput.readInt(), objectInput);
+    }
+
+    public static int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
+    }
+
+    public static lk9 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? (lk9) fk9.b(b.getString("key_rptcfg", null), nj9.a) : (lk9) invokeV.objValue;
+    }
+
+    public static double m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            synchronized (a) {
+                f("key_rpt_req_c", j() + 1);
+            }
+        }
     }
 }

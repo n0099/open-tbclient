@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.dm2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.TypeCastException;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public abstract class dm2<SelfT extends dm2<SelfT>> implements wf3<SelfT> {
+public class dm2 extends DataInputStream {
     public static /* synthetic */ Interceptable $ic;
+    public static final cm2<String, byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
 
     /* loaded from: classes3.dex */
-    public static final class a extends dm2<a> {
+    public static class a implements cm2<String, byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,340 +43,204 @@ public abstract class dm2<SelfT extends dm2<SelfT>> implements wf3<SelfT> {
             }
         }
 
-        public a E() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cm2
+        @Nullable
+        public String call(@Nullable byte[] bArr) throws Exception {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                if (bArr == null) {
+                    return null;
+                }
+                return bArr.length == 0 ? "" : new String(bArr);
+            }
+            return (String) invokeL.objValue;
         }
+    }
 
-        @Override // com.baidu.tieba.wf3
-        public /* bridge */ /* synthetic */ wf3 a() {
-            E();
-            return this;
-        }
+    /* loaded from: classes3.dex */
+    public class b implements cm2<Boolean, byte[]> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dm2 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Bundle bundle) {
-            super(bundle);
+        public b(dm2 dm2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bundle};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {dm2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Bundle) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = dm2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cm2
+        @Nullable
+        public Boolean call(@Nullable byte[] bArr) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                return Boolean.valueOf(bArr != null);
+            }
+            return (Boolean) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dm2() {
-        this(null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709280, "Lcom/baidu/tieba/dm2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947709280, "Lcom/baidu/tieba/dm2;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dm2(InputStream inputStream) throws IOException {
+        super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((Bundle) newInitContext.callArgs[0]);
+                super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public static String r(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return str + "." + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public SelfT A(@Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
-            bm2.f.d(this, str, strArr);
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLL.objValue;
-    }
-
-    public SelfT B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (q()) {
-                this.a.remove(str);
-            }
-            return (SelfT) a();
-        }
-        return (SelfT) invokeL.objValue;
-    }
-
-    public Bundle C() {
+    public Map<String, Boolean> a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!q()) {
-                this.a = new Bundle();
-            }
-            return this.a;
-        }
-        return (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f(new b(this)) : (Map) invokeV.objValue;
     }
 
-    public Bundle D() {
+    public byte[] c() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q() ? new Bundle(C()) : new Bundle() : (Bundle) invokeV.objValue;
-    }
-
-    public SelfT b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (q()) {
-                this.a.clear();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int readInt = readInt();
+            if (readInt >= 0) {
+                byte[] bArr = new byte[readInt];
+                if (readInt == read(bArr)) {
+                    return bArr;
+                }
+                return null;
             }
-            return (SelfT) a();
+            return null;
         }
-        return (SelfT) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public boolean c(String str) {
+    public <T> T d(@NonNull cm2<T, byte[]> cm2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? q() && this.a.containsKey(str) : invokeL.booleanValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? bm2.a.a(this, str).booleanValue() : invokeL.booleanValue;
-    }
-
-    public boolean e(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) ? bm2.a.b(this, str, Boolean.valueOf(z)).booleanValue() : invokeLZ.booleanValue;
-    }
-
-    @Nullable
-    public Bundle f(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? bm2.g.a(this, str) : (Bundle) invokeL.objValue;
-    }
-
-    public float g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? bm2.d.a(this, str).floatValue() : invokeL.floatValue;
-    }
-
-    public float h(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048586, this, str, f)) == null) ? bm2.d.b(this, str, Float.valueOf(f)).floatValue() : invokeLF.floatValue;
-    }
-
-    public int i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? bm2.b.a(this, str).intValue() : invokeL.intValue;
-    }
-
-    public int j(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) ? bm2.b.b(this, str, Integer.valueOf(i)).intValue() : invokeLI.intValue;
-    }
-
-    public long k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? bm2.c.a(this, str).longValue() : invokeL.longValue;
-    }
-
-    public long l(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j)) == null) ? bm2.c.b(this, str, Long.valueOf(j)).longValue() : invokeLJ.longValue;
-    }
-
-    @Nullable
-    public <T extends Parcelable> T m(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cm2Var)) == null) {
             try {
-                return (T) bm2.h.a(this, str);
-            } catch (TypeCastException unused) {
+                return cm2Var.call(c());
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
         return (T) invokeL.objValue;
     }
 
-    @Nullable
-    public String n(@Nullable String str) {
+    public <T> List<T> e(cm2<T, byte[]> cm2Var) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? bm2.e.a(this, str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cm2Var)) == null) {
+            int readInt = readInt();
+            if (readInt < 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(readInt);
+            for (int i = 0; i < readInt; i++) {
+                try {
+                    arrayList.add(cm2Var.call(c()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 
-    public String o(@Nullable String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) ? bm2.e.b(this, str, str2) : (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public String[] p(@Nullable String str) {
+    public <T> Map<String, T> f(cm2<T, byte[]> cm2Var) throws IOException {
         InterceptResult invokeL;
+        List<String> j;
+        List<T> e;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? bm2.f.a(this, str) : (String[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cm2Var)) == null) {
+            if (readInt() >= 0 && (j = j()) != null && (e = e(cm2Var)) != null && j.size() == e.size()) {
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < j.size(); i++) {
+                    hashMap.put(j.get(i), e.get(i));
+                }
+                return hashMap;
+            }
+            return null;
+        }
+        return (Map) invokeL.objValue;
     }
 
-    public final boolean q() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public SelfT s(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bundle)) == null) {
-            if (bundle != null && !bundle.isEmpty()) {
-                C().putAll(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return a.call(c());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            return (SelfT) a();
-        }
-        return (SelfT) invokeL.objValue;
-    }
-
-    public SelfT t(@Nullable String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, str, z)) == null) {
-            bm2.a.d(this, str, Boolean.valueOf(z));
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLZ.objValue;
-    }
-
-    public synchronized String toString() {
-        InterceptResult invokeV;
-        String bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            synchronized (this) {
-                bundle = q() ? this.a.toString() : SchemeCollecter.CLASSIFY_EMPTY;
-            }
-            return bundle;
         }
         return (String) invokeV.objValue;
     }
 
-    public SelfT u(@Nullable String str, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
+    public List<String> j() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, bundle)) == null) {
-            bm2.g.d(this, str, bundle);
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e(a) : (List) invokeV.objValue;
     }
 
-    public SelfT update(Bundle bundle) {
+    public List<String> k(List<String> list) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, bundle)) == null) {
-            s(bundle);
-            return (SelfT) a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
+            List<String> j = j();
+            return j == null ? list : j;
         }
-        return (SelfT) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public SelfT v(@Nullable String str, float f) {
-        InterceptResult invokeLF;
+    public Map<String, String> l() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048601, this, str, f)) == null) {
-            bm2.d.d(this, str, Float.valueOf(f));
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLF.objValue;
-    }
-
-    public SelfT w(@Nullable String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, str, i)) == null) {
-            bm2.b.d(this, str, Integer.valueOf(i));
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLI.objValue;
-    }
-
-    public SelfT x(@Nullable String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j)) == null) {
-            bm2.c.d(this, str, Long.valueOf(j));
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLJ.objValue;
-    }
-
-    public SelfT y(@Nullable String str, @Nullable Parcelable parcelable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, parcelable)) == null) {
-            bm2.h.d(this, str, parcelable);
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLL.objValue;
-    }
-
-    public SelfT z(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, str2)) == null) {
-            bm2.e.d(this, str, str2);
-            return (SelfT) a();
-        }
-        return (SelfT) invokeLL.objValue;
-    }
-
-    public dm2(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        new df3();
-        this.a = bundle;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f(a) : (Map) invokeV.objValue;
     }
 }

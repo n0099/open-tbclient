@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes4.dex */
-public interface fo {
-    boolean a(MotionEvent motionEvent);
+public interface fo<V extends ViewGroup> {
+    int getContentViewsCount();
 
-    void b(int i, int i2);
+    int getFooterViewsCount();
 
-    void c(int i);
+    int getHeaderViewsCount();
 
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
+    V getListView();
 
-    void draw(Canvas canvas);
-
-    boolean e(MotionEvent motionEvent);
+    boolean removeHeaderView(View view2);
 }

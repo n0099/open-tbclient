@@ -56,6 +56,7 @@ public class IconPopData extends OrmObject implements Serializable {
                 return;
             }
         }
+        this.icon_id = -1L;
         this.mHadShow = false;
         this.mUid = TbadkCoreApplication.getCurrentAccountId();
     }

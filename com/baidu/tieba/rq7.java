@@ -1,147 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import tbclient.ThreadInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class rq7 extends cn<ar7, InterestedForumStyleAMoreViewHolder> {
+public class rq7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gr7 a;
-    public hr7 b;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public int e;
+    public int f;
+    public boolean g;
+    public ThreadData h;
 
-    /* loaded from: classes5.dex */
-    public class a implements zn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rq7 a;
-
-        public a(rq7 rq7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rq7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rq7Var;
-        }
-
-        @Override // com.baidu.tieba.zn
-        public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof ar7)) {
-                ar7 ar7Var = (ar7) pnVar;
-                if (this.a.a != null) {
-                    this.a.a.d(ar7Var.a(), ar7Var.b(), i);
-                }
-                if (this.a.b != null) {
-                    this.a.b.a();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rq7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public rq7(ThreadInfo threadInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this));
+        b(threadInfo);
+        this.g = z;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ar7 ar7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        v(i, view2, viewGroup, ar7Var, interestedForumStyleAMoreViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03ec, viewGroup, false)) : (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public View v(int i, View view2, ViewGroup viewGroup, ar7 ar7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        InterceptResult invokeCommon;
+    public final void b(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ar7Var, interestedForumStyleAMoreViewHolder})) == null) {
-            z(interestedForumStyleAMoreViewHolder);
-            w(interestedForumStyleAMoreViewHolder, ar7Var);
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) || threadInfo == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void w(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, ar7 ar7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, ar7Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f093c));
-            if (ar7Var.c()) {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
-            } else {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
+        ThreadData threadData = new ThreadData();
+        this.h = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.a = threadInfo.title;
+        this.b = threadInfo.reply_num.intValue();
+        this.c = threadInfo.agree_num.intValue();
+        if (!ListUtils.isEmpty(this.h.getMedias())) {
+            Iterator<MediaData> it = this.h.getMedias().iterator();
+            while (it.hasNext()) {
+                MediaData next = it.next();
+                if (next != null && next.getType() == 3) {
+                    String picUrl = next.getPicUrl();
+                    this.d = picUrl;
+                    if (StringUtils.isNull(picUrl)) {
+                        this.d = next.getSmallUrl();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getThumbnails_url();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getSrc_pic();
+                    }
+                    if (!StringUtils.isNull(this.d)) {
+                        break;
+                    }
+                }
             }
         }
-    }
-
-    public void x(gr7 gr7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gr7Var) == null) {
-            this.a = gr7Var;
+        VideoInfo videoInfo = threadInfo.video_info;
+        if (videoInfo != null) {
+            this.e = videoInfo.video_duration.intValue();
         }
     }
 
-    public void y(hr7 hr7Var) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hr7Var) == null) {
-            this.b = hr7Var;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
         }
     }
 
-    public final void z(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAMoreViewHolder) == null) {
-            ns4 d = ns4.d(interestedForumStyleAMoreViewHolder.c);
-            d.v(R.color.CAM_X0302);
-            d.z(R.dimen.T_X07);
-            ns4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? qq7.a : (BdUniqueId) invokeV.objValue;
     }
 }

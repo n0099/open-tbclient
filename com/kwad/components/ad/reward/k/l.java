@@ -49,20 +49,20 @@ public final class l extends d implements View.OnClickListener {
         }
         this.vf = dialogFragment;
         this.nf = aVar;
-        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d043a, viewGroup, false);
+        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d043e, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f0910d3);
-            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910d8);
-            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910d7);
-            this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910d6);
-            this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f0910d4);
-            this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f0910d5);
-            this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f0910d9);
+            this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f0910f1);
+            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910f5);
+            this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0910f4);
+            this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f0910f2);
+            this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f0910f3);
+            this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f0910f7);
             this.vy.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.vB.setOnClickListener(this);
@@ -73,11 +73,11 @@ public final class l extends d implements View.OnClickListener {
     public final void a(l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf9));
+            KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c16));
             String title = cVar.getTitle();
             if (this.eQ != null && title != null) {
                 SpannableString spannableString = new SpannableString(title);
-                int color = fR().getResources().getColor(R.color.obfuscated_res_0x7f060771);
+                int color = fR().getResources().getColor(R.color.obfuscated_res_0x7f060783);
                 spannableString.setSpan(new ForegroundColorSpan(color), 2, 4, 18);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 int length = title.length();

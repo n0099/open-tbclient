@@ -1,181 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class yc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> c;
-    public static volatile yc4 d;
+    public static yc4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile Set<String> b;
-
-    /* loaded from: classes6.dex */
-    public static class a extends ih4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_nohistoryapps");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948325343, "Lcom/baidu/tieba/yc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948325343, "Lcom/baidu/tieba/yc4;");
-                return;
-            }
-        }
-        c = new HashSet();
-        d = null;
-        c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-        c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
-        c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
-        c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
-    }
+    public oc4 a;
 
     public yc4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = new a();
-        d();
+        this.a = new oc4();
     }
 
-    public static yc4 a() {
+    public static yc4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (yc4.class) {
-                    if (d == null) {
-                        d = new yc4();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yc4 yc4Var = b;
+            if (yc4Var != null) {
+                return yc4Var;
+            }
+            synchronized (yc4.class) {
+                if (b == null) {
+                    b = new yc4();
                 }
             }
-            return d;
+            return b;
         }
         return (yc4) invokeV.objValue;
     }
 
-    public String[] b() {
-        InterceptResult invokeV;
+    public kc4 a(ad4 ad4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> set = c;
-            if (this.b != null) {
-                set = this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ad4Var)) == null) {
+            if (ad4Var == null) {
+                return null;
             }
-            String[] strArr = new String[set.size()];
-            int i = 0;
-            for (String str : set) {
-                strArr[i] = str;
-                i++;
-            }
-            return strArr;
+            return new fd4(ad4Var, false);
         }
-        return (String[]) invokeV.objValue;
+        return (kc4) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("appids", "");
-            if (TextUtils.isEmpty(string)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
             }
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                HashSet hashSet = new HashSet();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    hashSet.add(jSONArray.optString(i));
-                }
-                this.b = hashSet;
-            } catch (JSONException e) {
-                e.printStackTrace();
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(wc4 wc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wc4Var) == null) {
+            synchronized (this) {
+                this.a.c(wc4Var);
             }
         }
     }
 
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
+    public synchronized <T> void f(ad4<T> ad4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ad4Var) == null) {
+            synchronized (this) {
+                ad4Var.s(false);
+                this.a.h(ad4Var);
+            }
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appids")) == null) {
-            return;
-        }
-        f(optJSONArray, optString);
     }
 
-    public final void f(JSONArray jSONArray, String str) {
+    public synchronized void g(wc4 wc4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, jSONArray, str) == null) || jSONArray == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, wc4Var) == null) {
+            synchronized (this) {
+                this.a.i(wc4Var);
+            }
         }
-        HashSet hashSet = new HashSet();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            hashSet.add(jSONArray.optString(i));
-        }
-        this.b = hashSet;
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.clear();
-        edit.putString("version", str);
-        edit.putString("appids", jSONArray.toString());
-        edit.apply();
     }
 }

@@ -1,50 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Type;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ee {
+public class ee implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONObject a;
 
-    public static final boolean a(fc fcVar, ad adVar) {
-        InterceptResult invokeLL;
-        nc a;
+    public ee(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, fcVar, adVar)) == null) {
-            if (fcVar == null || adVar == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (Field field : dc.b(fcVar.getClass())) {
-                if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
-                    String name = field.getName();
-                    if (!TextUtils.isEmpty(name) && (a = ge.a(dc.d(fcVar, name))) != null) {
-                        Object obj = null;
-                        if (adVar instanceof cd) {
-                            obj = a.f(new de(field.getGenericType()));
-                        } else if (adVar instanceof yc) {
-                            obj = a.d(new de(field.getGenericType()));
-                        } else if (adVar instanceof bd) {
-                            obj = a.e(new de(field.getGenericType()));
-                        } else if (adVar instanceof dd) {
-                            obj = a.b(new de(field.getGenericType()));
-                        } else if (adVar instanceof zc) {
-                            obj = a.a(new de(field.getGenericType()));
-                        } else if (adVar instanceof ed) {
-                            obj = a.c(new de(field.getGenericType()));
-                        }
-                        if (obj != null) {
-                            adVar.a(name, obj);
+        }
+        this.a = jSONObject;
+    }
+
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            Class<?> a = reVar.a();
+            Type[] b = reVar.b();
+            if (rc.e(a, Map.class)) {
+                Map<String, Object> b2 = pe.b(reVar, this.a.length());
+                if (b2 != null) {
+                    Iterator<String> keys = this.a.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (next instanceof String) {
+                            String str = next;
+                            Object a2 = ve.a(this.a.opt(str)).a(new re(b[1]));
+                            if (a2 != null) {
+                                b2.put(str, a2);
+                            }
                         }
                     }
                 }
+                return b2;
+            } else if (a == SparseArray.class) {
+                SparseArray sparseArray = new SparseArray(this.a.length());
+                Iterator<String> keys2 = this.a.keys();
+                while (keys2.hasNext()) {
+                    String next2 = keys2.next();
+                    if (next2 instanceof String) {
+                        String str2 = next2;
+                        try {
+                            int parseInt = Integer.parseInt(str2);
+                            Object a3 = ve.a(this.a.opt(String.valueOf(str2))).a(new re(b[0]));
+                            if (a3 != null) {
+                                sparseArray.put(parseInt, a3);
+                            }
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                return sparseArray;
+            } else if (rc.e(a, sc.class)) {
+                return OrmObject.objectWithJson(this.a, a);
+            } else {
+                return null;
             }
-            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeL.objValue;
     }
 }

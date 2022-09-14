@@ -124,7 +124,7 @@ public class b {
                     int i = bundle.getInt("bundle_key_pid");
                     BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
                     if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0160a.a(iBinder));
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0159a.a(iBinder));
                         if (d.size() <= 0) {
                             return a(0);
                         }
@@ -157,7 +157,7 @@ public class b {
     }
 
     /* loaded from: classes2.dex */
-    public static class a extends a.AbstractBinderC0160a {
+    public static class a extends a.AbstractBinderC0159a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

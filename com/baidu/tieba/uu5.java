@@ -1,87 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class uu5 {
+public class uu5 extends qn<vu5, LiveTabAlaRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public BdTypeListView b;
-    public final List<cn> c;
-    public tu5 d;
-    public qu5 e;
-    public ou5 f;
-    public pu5 g;
+    public TbPageContext a;
+    public AlaRecommendLayout b;
+    public int c;
+    public String d;
 
-    public uu5(d9 d9Var, BdTypeListView bdTypeListView, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uu5(TbPageContext tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), vu5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, bdTypeListView, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = d9Var;
-        this.b = bdTypeListView;
-        a(z);
+        this.d = "0";
+        this.a = tbPageContext;
+        this.c = i;
+        this.d = str;
     }
 
-    public final void a(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                qu5 qu5Var = new qu5((TbPageContext) this.a, kv5.c);
-                this.e = qu5Var;
-                this.c.add(qu5Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
+            this.b = alaRecommendLayout;
+            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
+            this.b.setFid(this.d);
+            TiebaStatic.log(y16.e("c13620", this.c, this.d));
+            return new LiveTabAlaRecommendViewHolder(this.b);
+        }
+        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vu5 vu5Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
+        InterceptResult invokeCommon;
+        AlaRecommendLayout alaRecommendLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vu5Var, liveTabAlaRecommendViewHolder})) == null) {
+            if (liveTabAlaRecommendViewHolder == null || (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) == null || vu5Var == null) {
+                return null;
+            }
+            uu4 d = uu4.d(alaRecommendLayout.findViewById(R.id.obfuscated_res_0x7f090227));
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
+            z16 z16Var = vu5Var.a;
+            if (z16Var != null && !ListUtils.isEmpty(z16Var.c())) {
+                liveTabAlaRecommendViewHolder.a.setData(vu5Var.a);
+                liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
+                liveTabAlaRecommendViewHolder.a.setVisibility(0);
             } else {
-                tu5 tu5Var = new tu5((TbPageContext) this.a, kv5.c);
-                this.d = tu5Var;
-                this.c.add(tu5Var);
+                liveTabAlaRecommendViewHolder.a.setVisibility(8);
             }
-            this.f = new ou5((TbPageContext) this.a, wu5.a);
-            this.g = new pu5((TbPageContext) this.a, xu5.a);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.a(this.c);
+            return liveTabAlaRecommendViewHolder.getView();
         }
-    }
-
-    public void b(kq5 kq5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kq5Var) == null) {
-            tu5 tu5Var = this.d;
-            if (tu5Var != null) {
-                tu5Var.u(kq5Var);
-            }
-            qu5 qu5Var = this.e;
-            if (qu5Var != null) {
-                qu5Var.u(kq5Var);
-            }
-        }
-    }
-
-    public void c(List<pn> list) {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
-            return;
-        }
-        bdTypeListView.setData(list);
+        return (View) invokeCommon.objValue;
     }
 }

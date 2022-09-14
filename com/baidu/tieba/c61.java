@@ -1,225 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.main.manager.NPSManager;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.PathClassLoader;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes3.dex */
-public class c61 extends PathClassLoader {
-    public static /* synthetic */ Interceptable $ic;
+public final class c61 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] AdImageView;
+    public static final int AdImageView_adCornerRadius = 0;
+    public static final int AdImageView_borderColor = 1;
+    public static final int AdImageView_borderColorWidth = 2;
+    public static final int AdImageView_circleType = 3;
+    public static final int AdImageView_errorHolder = 4;
+    public static final int AdImageView_holder = 5;
+    public static final int AdImageView_imageScaleType = 6;
+    public static final int AdImageView_leftBottomRadius = 7;
+    public static final int AdImageView_leftTopRadius = 8;
+    public static final int AdImageView_loadingHolder = 9;
+    public static final int AdImageView_rightBottomRadius = 10;
+    public static final int AdImageView_rightTopRadius = 11;
+    public static final int[] ExpandIconView;
+    public static final int ExpandIconView_animationDuration = 0;
+    public static final int ExpandIconView_color = 1;
+    public static final int ExpandIconView_length = 2;
+    public static final int ExpandIconView_thick = 3;
+    public static final int[] NADUnifyTextView;
+    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
+    public static final int NADUnifyTextView_spannable_top_padding = 1;
+    public static final int[] NadBdThumbSeekBar;
+    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
+    public static final int[] NadEnhanceButtonView;
+    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
+    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
+    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
+    public static final int[] NadRoundProgressBar;
+    public static final int NadRoundProgressBar_max = 0;
+    public static final int NadRoundProgressBar_nad_style = 1;
+    public static final int NadRoundProgressBar_reverse = 2;
+    public static final int NadRoundProgressBar_roundColor = 3;
+    public static final int NadRoundProgressBar_roundHintTextSize = 4;
+    public static final int NadRoundProgressBar_roundMax = 5;
+    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
+    public static final int NadRoundProgressBar_roundProgressColor = 7;
+    public static final int NadRoundProgressBar_roundTextColor = 8;
+    public static final int NadRoundProgressBar_roundTextSize = 9;
+    public static final int NadRoundProgressBar_roundWidth = 10;
+    public static final int NadRoundProgressBar_textColor = 11;
+    public static final int NadRoundProgressBar_textIsDisplayable = 12;
+    public static final int NadRoundProgressBar_textSize = 13;
+    public static final int[] NadShadowViewGroup;
+    public static final int NadShadowViewGroup_containerCornerRadius = 0;
+    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
+    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
+    public static final int NadShadowViewGroup_containerShadowColor = 3;
+    public static final int NadShadowViewGroup_containerShadowRadius = 4;
+    public static final int NadShadowViewGroup_deltaX = 5;
+    public static final int NadShadowViewGroup_deltaY = 6;
+    public static final int NadShadowViewGroup_enable = 7;
+    public static final int NadShadowViewGroup_shadowAlpha = 8;
+    public static final int[] NadTextProgressView;
+    public static final int NadTextProgressView_nad_progressGravity = 0;
+    public static final int NadTextProgressView_nad_progressTextColor = 1;
+    public static final int NadTextProgressView_nad_progressTextMode = 2;
+    public static final int NadTextProgressView_nad_progressTextSize = 3;
+    public static final int[] RoundCornerRelativeLayout;
+    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
+    public static final int[] SimpleAdInfoView;
+    public static final int SimpleAdInfoView_layoutId = 0;
+    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ClassLoader a;
-    public Method b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public Set<String> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c61(ClassLoader classLoader, ClassLoader classLoader2) {
-        super("", "", classLoader);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {classLoader, classLoader2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (ClassLoader) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626603, "Lcom/baidu/tieba/c61;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947626603, "Lcom/baidu/tieba/c61;");
                 return;
             }
         }
-        this.f = new HashSet();
-        this.a = classLoader2;
-        b(classLoader2);
-        c(classLoader2);
-        this.f.add("android.widget.ViewStub");
-        this.f.add("android.widget.View");
-        this.f.add("android.webkit.ViewStub");
-        this.f.add("android.webkit.View");
-        this.f.add("android.app.ViewStub");
-        this.f.add("android.app.View");
-        this.f.add("com.google.android.gms.net.PlayServicesCronetProvider");
-        this.f.add("com.google.android.gms.net.GmsCoreCronetProvider");
-        this.f.add("org.chromium.net.impl.JavaCronetProvider");
-    }
-
-    public final void a(String str, ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, classLoader) == null) {
-            try {
-                Field b = o71.b(classLoader.getClass(), str);
-                o71.h(b);
-                o71.l(b, this, o71.g(b, classLoader));
-            } catch (IllegalAccessException unused) {
-            }
-        }
-    }
-
-    public final void b(ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader) == null) {
-            a("pathList", classLoader);
-        }
-    }
-
-    public final void c(ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, classLoader) == null) {
-            Class<?> cls = classLoader.getClass();
-            Method c = o71.c(cls, "findResource", String.class);
-            this.b = c;
-            c.setAccessible(true);
-            Method c2 = o71.c(cls, "findResources", String.class);
-            this.c = c2;
-            c2.setAccessible(true);
-            Method c3 = o71.c(cls, "findLibrary", String.class);
-            this.d = c3;
-            c3.setAccessible(true);
-            Method c4 = o71.c(cls, "getPackage", String.class);
-            this.e = c4;
-            c4.setAccessible(true);
-        }
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Class<?> findClass(String str) throws ClassNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.findClass(str) : (Class) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public String findLibrary(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            try {
-                return (String) this.d.invoke(this.a, str);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return super.findLibrary(str);
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return super.findLibrary(str);
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-                return super.findLibrary(str);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public URL findResource(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            try {
-                return (URL) this.b.invoke(this.a, str);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return super.findResource(str);
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return super.findResource(str);
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-                return super.findResource(str);
-            }
-        }
-        return (URL) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Enumeration<URL> findResources(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            try {
-                return (Enumeration) this.c.invoke(this.a, str);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return super.findResources(str);
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return super.findResources(str);
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-                return super.findResources(str);
-            }
-        }
-        return (Enumeration) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Package getPackage(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Package r0 = null;
-            if (str != null && !str.isEmpty()) {
-                try {
-                    r0 = (Package) this.e.invoke(this.a, str);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (IllegalArgumentException e2) {
-                    e2.printStackTrace();
-                } catch (InvocationTargetException e3) {
-                    e3.printStackTrace();
-                }
-                if (r0 == null) {
-                    r0 = super.getPackage(str);
-                }
-                if (r0 == null) {
-                    return definePackage(str, "Unknown", "0.0", "Unknown", "Unknown", "0.0", "Unknown", null);
-                }
-            }
-            return r0;
-        }
-        return (Package) invokeL.objValue;
-    }
-
-    @Override // java.lang.ClassLoader
-    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        Class<?> loadComponentClass;
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
-            try {
-                return this.a.loadClass(str);
-            } catch (ClassNotFoundException unused) {
-                return (this.f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
-            }
-        }
-        return (Class) invokeLZ.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return c61.class.getName() + "[mBase=" + this.a.toString() + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
+        AdImageView = new int[]{R.attr.obfuscated_res_0x7f040071, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f04028b, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040338, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040427, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c5};
+        ExpandIconView = new int[]{R.attr.animationDuration, R.attr.obfuscated_res_0x7f04016a, R.attr.obfuscated_res_0x7f040429, R.attr.obfuscated_res_0x7f0406fa};
+        NADUnifyTextView = new int[]{R.attr.spannable_bottom_padding, R.attr.spannable_top_padding};
+        NadBdThumbSeekBar = new int[]{R.attr.obfuscated_res_0x7f0404e3};
+        NadEnhanceButtonView = new int[]{R.attr.obfuscated_res_0x7f04010c, R.attr.obfuscated_res_0x7f04010d, R.attr.obfuscated_res_0x7f04010f};
+        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404b9, R.attr.obfuscated_res_0x7f0404f9, R.attr.obfuscated_res_0x7f0405bc, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d0, R.attr.roundProgressColor, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f0406e4, R.attr.textIsDisplayable, R.attr.obfuscated_res_0x7f0406f1};
+        NadShadowViewGroup = new int[]{R.attr.obfuscated_res_0x7f04018c, R.attr.obfuscated_res_0x7f04018d, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f04018f, R.attr.obfuscated_res_0x7f040190, R.attr.obfuscated_res_0x7f04020b, R.attr.obfuscated_res_0x7f04020c, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f040612};
+        NadTextProgressView = new int[]{R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404f6, R.attr.obfuscated_res_0x7f0404f7, R.attr.obfuscated_res_0x7f0404f8};
+        RoundCornerRelativeLayout = new int[]{R.attr.obfuscated_res_0x7f0405d9};
+        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f04040b};
+        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.obfuscated_res_0x7f0404e4, R.attr.obfuscated_res_0x7f0404e5, R.attr.obfuscated_res_0x7f0404e6, R.attr.obfuscated_res_0x7f0404e7};
     }
 }

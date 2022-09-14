@@ -4,12 +4,14 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.c19;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,7 +26,6 @@ import tbclient.AddPost.AddPostResIdl;
 import tbclient.AddPost.DataRes;
 import tbclient.Toast;
 import tbclient.ToastConfig;
-import tbclient.ToastContent;
 /* loaded from: classes6.dex */
 public class AddPostHttpResponse extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -58,19 +58,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, toast) == null) || toast == null) {
             return;
         }
-        BdToastData bdToastData = new BdToastData();
-        bdToastData.setIconType(toast.icon_type.intValue());
-        ArrayList arrayList = new ArrayList();
-        for (ToastContent toastContent : toast.content) {
-            if (toastContent != null) {
-                BdToastData.a aVar = new BdToastData.a();
-                aVar.d(toastContent.text);
-                aVar.c(toastContent.has_color.intValue());
-                arrayList.add(aVar);
-            }
-        }
-        bdToastData.setContent(arrayList);
-        BdToastHelper.toast(bdToastData);
+        BdToastHelper.toast(c19.a(toast));
     }
 
     public JSONObject getResultData() {
@@ -83,6 +71,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         String str;
+        JSONObject json;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             AddPostHttpResponse addPostHttpResponse = this;
@@ -93,7 +82,11 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
             addPostHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addPostResIdl.data;
             if (dataRes != null) {
-                addPostHttpResponse.showToast(dataRes.toast);
+                BdToastData a = c19.a(dataRes.toast);
+                if (a != null && (json = a.toJson()) != null) {
+                    addPostHttpResponse.resultJSON.put(DI.TOAST_NAME, json);
+                }
+                addPostHttpResponse.showToast(addPostResIdl.data.toast);
                 addPostHttpResponse.resultJSON.put("opgroup", addPostResIdl.data.opgroup);
                 addPostHttpResponse.resultJSON.put("tid", addPostResIdl.data.tid);
                 addPostHttpResponse.resultJSON.put("pid", addPostResIdl.data.pid);

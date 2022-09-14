@@ -10,6 +10,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,17 +19,16 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.bc6;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.cc6;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.vb6;
-import com.baidu.tieba.xb6;
-import com.baidu.tieba.zb6;
+import com.baidu.tieba.ld6;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.nd6;
+import com.baidu.tieba.pd6;
+import com.baidu.tieba.rd6;
+import com.baidu.tieba.sd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,16 +39,16 @@ import java.util.ArrayList;
 public class ForumEmotionFragment extends BaseFragment implements ForumEmotionModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cc6 a;
+    public sd6 a;
     public ForumEmotionModel b;
     public boolean c;
     public boolean d;
     public boolean e;
-    public xb6 f;
+    public nd6 f;
     public final CustomMessageListener g;
     public CustomMessageListener h;
-    public final vb6 i;
-    public bv4.g j;
+    public final ld6 i;
+    public lx4.g j;
     public BdListView.p k;
 
     /* loaded from: classes4.dex */
@@ -82,7 +82,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !pi.z() || this.a.b == null || this.a.a == null || this.a.a.c() == null || this.a.a.c().getVisibility() != 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !BdNetTypeUtil.isNetWorkAvailable() || this.a.b == null || this.a.a == null || this.a.a.c() == null || this.a.a.c().getVisibility() != 0) {
                 return;
             }
             this.a.b.D(this.a);
@@ -129,7 +129,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     }
 
     /* loaded from: classes4.dex */
-    public class c implements vb6 {
+    public class c implements ld6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumEmotionFragment a;
@@ -152,7 +152,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             this.a = forumEmotionFragment;
         }
 
-        @Override // com.baidu.tieba.vb6
+        @Override // com.baidu.tieba.ld6
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -161,7 +161,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             }
         }
 
-        @Override // com.baidu.tieba.vb6
+        @Override // com.baidu.tieba.ld6
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -171,7 +171,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     }
 
     /* loaded from: classes4.dex */
-    public class d implements bv4.g {
+    public class d implements lx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumEmotionFragment a;
@@ -194,7 +194,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             this.a = forumEmotionFragment;
         }
 
-        @Override // com.baidu.tieba.bv4.g
+        @Override // com.baidu.tieba.lx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.b == null || this.a.d) {
@@ -304,7 +304,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.b
-    public void f1(ForumEmotionData forumEmotionData) {
+    public void d1(ForumEmotionData forumEmotionData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, forumEmotionData) == null) {
             this.d = false;
@@ -320,12 +320,12 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             if (forumEmotionData.rank_pkg_list != null) {
                 ArrayList arrayList = new ArrayList();
                 for (ForumEmotionPackageData forumEmotionPackageData : forumEmotionData.rank_pkg_list) {
-                    bc6 bc6Var = new bc6();
-                    bc6Var.a = forumEmotionPackageData;
-                    arrayList.add(bc6Var);
+                    rd6 rd6Var = new rd6();
+                    rd6Var.a = forumEmotionPackageData;
+                    arrayList.add(rd6Var);
                 }
                 if (arrayList.isEmpty()) {
-                    arrayList.add(new zb6());
+                    arrayList.add(new pd6());
                 }
                 this.f.e(arrayList);
             }
@@ -338,9 +338,9 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            cc6 cc6Var = this.a;
-            if (cc6Var != null) {
-                cc6Var.l(i);
+            sd6 sd6Var = this.a;
+            if (sd6Var != null) {
+                sd6Var.l(i);
             }
         }
     }
@@ -360,18 +360,18 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
         ForumEmotionModel forumEmotionModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            cc6 cc6Var = new cc6(getPageContext(), getUniqueId());
-            this.a = cc6Var;
-            cc6Var.n(this.j);
+            sd6 sd6Var = new sd6(getPageContext(), getUniqueId());
+            this.a = sd6Var;
+            sd6Var.n(this.j);
             this.a.o(this.k);
             registerListener(this.g);
             registerListener(this.h);
             if (this.b == null) {
                 this.b = new ForumEmotionModel(getPageContext());
             }
-            xb6 xb6Var = new xb6(getPageContext(), this.a.b(), this.b);
-            this.f = xb6Var;
-            xb6Var.f(this.i);
+            nd6 nd6Var = new nd6(getPageContext(), this.a.b(), this.b);
+            this.f = nd6Var;
+            nd6Var.f(this.i);
             Bundle arguments = getArguments();
             if (arguments != null) {
                 this.e = arguments.getBoolean("need_check_login");
@@ -406,9 +406,9 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             this.d = false;
             this.a.a();
             this.a.g();
-            xb6 xb6Var = this.f;
-            if (xb6Var != null && xb6Var.b() > 0) {
-                ri.N(getPageContext().getContext(), str);
+            nd6 nd6Var = this.f;
+            if (nd6Var != null && nd6Var.b() > 0) {
+                ej.N(getPageContext().getContext(), str);
             } else {
                 this.a.r();
             }
@@ -424,7 +424,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.b
-    public void v0(ForumEmotionData forumEmotionData) {
+    public void s0(ForumEmotionData forumEmotionData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, forumEmotionData) == null) {
             this.d = false;
@@ -436,9 +436,9 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             if (!ListUtils.isEmpty(forumEmotionData.rank_pkg_list)) {
                 ArrayList arrayList = new ArrayList();
                 for (ForumEmotionPackageData forumEmotionPackageData : forumEmotionData.rank_pkg_list) {
-                    bc6 bc6Var = new bc6();
-                    bc6Var.a = forumEmotionPackageData;
-                    arrayList.add(bc6Var);
+                    rd6 rd6Var = new rd6();
+                    rd6Var.a = forumEmotionPackageData;
+                    arrayList.add(rd6Var);
                 }
                 this.f.a(arrayList);
             }

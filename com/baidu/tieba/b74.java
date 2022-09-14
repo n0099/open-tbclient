@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import java.util.List;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public interface b74 {
+public class b74 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(int i);
+    public static boolean a(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) ? (obj == null || TextUtils.isEmpty(str)) ? false : true : invokeLL.booleanValue;
     }
 
-    boolean a();
-
-    void b(Activity activity, g74 g74Var);
-
-    void c(int i, List<g74> list);
-
-    void d(int i, List<g74> list);
-
-    void e(int i, List<g74> list);
-
-    void f(int i, List<g74> list, a aVar);
-
-    void g(Activity activity, g74 g74Var);
-
-    void h(Context context, JSONObject jSONObject);
-
-    void i(JSONObject jSONObject);
-
-    boolean j(g74 g74Var);
-
-    boolean k(boolean z, int i);
+    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
+            if (a(obj, str)) {
+                if (a74.g()) {
+                    return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
+                }
+                return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
+            }
+            return null;
+        }
+        return (Method) invokeLLL.objValue;
+    }
 }

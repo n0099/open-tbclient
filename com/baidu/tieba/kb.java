@@ -1,73 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kb extends mb {
+public abstract class kb<T extends ResponsedMessage<?>> extends lb<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static kb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448309046, "Lcom/baidu/tieba/kb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448309046, "Lcom/baidu/tieba/kb;");
-        }
-    }
-
-    public kb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kb(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = new nb(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new nb(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
     }
 
-    public static kb d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (kb.class) {
-                    if (d == null) {
-                        d = new kb();
-                    }
-                }
-            }
-            return d;
-        }
-        return (kb) invokeV.objValue;
-    }
+    public abstract T a(T t);
 
-    public nb c() {
-        InterceptResult invokeV;
+    public T b(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (nb) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) ? t != null ? (getCmd() == 0 || getCmd() == t.getCmd()) ? a(t) : t : t : (T) invokeL.objValue;
     }
 }

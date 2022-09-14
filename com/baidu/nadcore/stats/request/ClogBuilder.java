@@ -12,13 +12,13 @@ import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.a01;
-import com.baidu.tieba.b01;
-import com.baidu.tieba.c01;
-import com.baidu.tieba.e01;
-import com.baidu.tieba.kh0;
-import com.baidu.tieba.ny0;
-import com.baidu.tieba.oy0;
-import com.baidu.tieba.yx0;
+import com.baidu.tieba.kz0;
+import com.baidu.tieba.o11;
+import com.baidu.tieba.p11;
+import com.baidu.tieba.q11;
+import com.baidu.tieba.r11;
+import com.baidu.tieba.si0;
+import com.baidu.tieba.t11;
 import com.baidu.tieba.zz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,7 +31,7 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends ny0 {
+public class ClogBuilder extends zz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -41,8 +41,10 @@ public class ClogBuilder extends ny0 {
     public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
+        public static final Area AD_BTN_DETAIL;
         public static final Area AD_CALL;
         public static final Area AD_DIALOG_SHOW;
+        public static final Area AD_LEAVE;
         public static final Area AD_NOTIFICATION_BTN_CLICK;
         public static final Area AD_NOTIFICATION_ITEM_CLICK;
         public static final Area AD_NOTIFICATION_NOTIFY;
@@ -53,6 +55,7 @@ public class ClogBuilder extends ny0 {
         public static final Area APP_PERMISSION;
         public static final Area APP_PRIVACY;
         public static final Area AUTO_HIDE;
+        public static final Area AVATAR;
         public static final Area BTN_NAGITIVE;
         public static final Area BTN_POSITIVE;
         public static final Area BUTTON;
@@ -72,6 +75,7 @@ public class ClogBuilder extends ny0 {
         public static final Area NAME;
         public static final Area OPEN_BUTTON;
         public static final Area SLIDING_TAG;
+        public static final Area TITTLE;
         public static final Area URL;
         public transient /* synthetic */ FieldHolder $fh;
         public final String type;
@@ -120,9 +124,13 @@ public class ClogBuilder extends ny0 {
             SLIDING_TAG = new Area("SLIDING_TAG", 28, "sliding_tag");
             APP = new Area("APP", 29, "APP");
             URL = new Area("URL", 30, "URL");
-            Area area = new Area("INVALID", 31, "INVALID");
+            AD_BTN_DETAIL = new Area("AD_BTN_DETAIL", 31, "detailbtn");
+            AD_LEAVE = new Area("AD_LEAVE", 32, "leave");
+            AVATAR = new Area("AVATAR", 33, "avatar");
+            TITTLE = new Area("TITTLE", 34, "title");
+            Area area = new Area("INVALID", 35, "INVALID");
             INVALID = area;
-            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, APP, URL, area};
+            $VALUES = new Area[]{ICON, NAME, BUTTON, OPEN_BUTTON, DOWNLOAD_BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, AD_DIALOG_SHOW, BTN_POSITIVE, BTN_NAGITIVE, APP_NOTIFICATION, SLIDING_TAG, APP, URL, AD_BTN_DETAIL, AD_LEAVE, AVATAR, TITTLE, area};
         }
 
         public Area(String str, int i, String str2) {
@@ -272,7 +280,7 @@ public class ClogBuilder extends ny0 {
             DOWNLOAD_RETRY = new LogType("DOWNLOAD_RETRY", 20, "708");
             DOWNLOAD_FAILED = new LogType("DOWNLOAD_FAILED", 21, "709");
             INSTALL_COMPLETE = new LogType("INSTALL_COMPLETE", 22, "710");
-            MINI_PROGRAM = new LogType("MINI_PROGRAM", 23, "711");
+            MINI_PROGRAM = new LogType("MINI_PROGRAM", 23, "717");
             OPEN_APP = new LogType("OPEN_APP", 24, "713");
             AD_CALL = new LogType("AD_CALL", 25, "777");
             VISIBLE_TWO_SEC = new LogType("VISIBLE_TWO_SEC", 26, "213");
@@ -474,7 +482,7 @@ public class ClogBuilder extends ny0 {
                 return;
             }
         }
-        this.c = yx0.c(null);
+        this.c = kz0.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -488,20 +496,20 @@ public class ClogBuilder extends ny0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ly0, com.baidu.tieba.oy0
+    @Override // com.baidu.tieba.xz0, com.baidu.tieba.a01
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            kh0 kh0Var = (kh0) ServiceManager.getService(kh0.a);
-            if (kh0Var != null) {
-                A(kh0Var.a(this.c.optString("extra_param")));
+            si0 si0Var = (si0) ServiceManager.getService(si0.a);
+            if (si0Var != null) {
+                A(si0Var.a(this.c.optString("extra_param")));
             }
         }
     }
 
-    @Override // com.baidu.tieba.ly0, com.baidu.tieba.oy0
-    public <T extends oy0> T b(String str, String str2) {
+    @Override // com.baidu.tieba.xz0, com.baidu.tieba.a01
+    public <T extends a01> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -511,15 +519,15 @@ public class ClogBuilder extends ny0 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ly0
-    public <T extends oy0> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.xz0
+    public <T extends a01> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            yx0.f(this.c, str, obj);
+            kz0.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -527,18 +535,18 @@ public class ClogBuilder extends ny0 {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a01.a) {
-            b01 b01Var = (b01) zz0.a().a(b01.class);
-            if (b01Var != null) {
-                b01Var.a(h());
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && p11.a) {
+            q11 q11Var = (q11) o11.a().a(q11.class);
+            if (q11Var != null) {
+                q11Var.a(h());
             }
-            c01 c01Var = (c01) zz0.a().a(c01.class);
-            if (c01Var != null) {
-                c01Var.a(h());
+            r11 r11Var = (r11) o11.a().a(r11.class);
+            if (r11Var != null) {
+                r11Var.a(h());
             }
-            e01 e01Var = (e01) zz0.a().a(e01.class);
-            if (e01Var != null) {
-                e01Var.a(h());
+            t11 t11Var = (t11) o11.a().a(t11.class);
+            if (t11Var != null) {
+                t11Var.a(h());
             }
         }
     }
@@ -560,7 +568,7 @@ public class ClogBuilder extends ny0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ny0, com.baidu.tieba.oy0
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.a01
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -683,7 +691,7 @@ public class ClogBuilder extends ny0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ny0, com.baidu.tieba.ly0, com.baidu.tieba.oy0
+    @Override // com.baidu.tieba.zz0, com.baidu.tieba.xz0, com.baidu.tieba.a01
     @NonNull
     public String toString() {
         InterceptResult invokeV;

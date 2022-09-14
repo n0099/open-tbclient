@@ -5,6 +5,7 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.data.constant.MixConstants;
 import com.baidu.searchbox.live.data.constant.MixUrlConfigKt;
 import com.baidu.searchbox.live.data.constant.MixYaLogConstants;
@@ -13,14 +14,17 @@ import com.baidu.searchbox.live.data.req.RoomExitParams;
 import com.baidu.searchbox.live.data.resp.LiveRoomEnterRespData;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.searchbox.live.interfaces.data.UserAccount;
+import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.live.interfaces.net.NetStatData;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.searchbox.live.model.net.MixNetCallback;
 import com.baidu.searchbox.live.model.requester.MixRequesterKt;
 import com.baidu.searchbox.live.model.res.MixResult;
 import com.baidu.searchbox.live.model.res.MixResultStatData;
 import com.baidu.searchbox.live.model.res.OnMixDataLoaded;
+import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
 import com.baidu.searchbox.live.service.MixRequestServiceLocator;
 import com.baidu.searchbox.live.service.MixYaLogService;
 import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
@@ -48,7 +52,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010%\n\u0002\u0010!\n\u0002\b\u0007\u0018\u0000B\u0007¢\u0006\u0004\b/\u00100J+\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0014\u0010\u0006\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0018\u00010\u0003¢\u0006\u0004\b\b\u0010\tJ+\u0010\r\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0014\u0010\u0006\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\f0\u0004\u0018\u00010\u0003¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u000f\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0011\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u0019\u0010\u001b\u001a\u00020\u00072\b\u0010\u001a\u001a\u0004\u0018\u00010\u0019H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001e\u001a\u00020\u00072\b\u0010\u001d\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u001e\u0010\u001fJ\u001b\u0010 \u001a\u00020\u0007*\u00020\u00012\u0006\u0010\u001d\u001a\u00020\u0011H\u0002¢\u0006\u0004\b \u0010!R%\u0010(\u001a\n #*\u0004\u0018\u00010\"0\"8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'R?\u0010.\u001a$\u0012\u0004\u0012\u00020\u0011\u0012\u001a\u0012\u0018\u0012\u0012\u0012\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0018\u00010\u0003\u0018\u00010*0)8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b+\u0010%\u001a\u0004\b,\u0010-¨\u00061"}, d2 = {"Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;", "Lcom/baidu/searchbox/live/data/req/RoomEnterParams;", "enterParams", "Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", WebChromeClient.KEY_ARG_CALLBACK, "", "fetchRoomEnter", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/data/req/RoomExitParams;", "exitParams", "", "fetchRoomExit", "(Lcom/baidu/searchbox/live/data/req/RoomExitParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "params", "", "", "genRoomEnterReqParams", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/interfaces/data/UserAccount;", "getAccount", "()Lcom/baidu/searchbox/live/interfaces/data/UserAccount;", "isLogin", "()Z", "Lorg/json/JSONObject;", "extra", "putAudioExtraAppId", "(Lorg/json/JSONObject;)V", ILiveNPSPlugin.PARAMS_ROOM_ID, "removeEnterIdCallbacks", "(Ljava/lang/String;)V", "addAudioExtraParams", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;Ljava/lang/String;)V", "Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "kotlin.jvm.PlatformType", "accountService$delegate", "Lkotlin/Lazy;", "getAccountService", "()Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "accountService", "", "", "enterIdCallbacks$delegate", "getEnterIdCallbacks", "()Ljava/util/Map;", "enterIdCallbacks", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010%\n\u0002\u0010!\n\u0002\b\t\u0018\u0000B\u0007¢\u0006\u0004\b1\u00102J+\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0014\u0010\u0006\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0018\u00010\u0003¢\u0006\u0004\b\b\u0010\tJ+\u0010\r\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0014\u0010\u0006\u001a\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\f0\u0004\u0018\u00010\u0003¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u0012\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u000f\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0011\u0010\u0015\u001a\u0004\u0018\u00010\u0014H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u0019\u0010\u001b\u001a\u00020\u00072\b\u0010\u001a\u001a\u0004\u0018\u00010\u0019H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001e\u001a\u00020\u00072\b\u0010\u001d\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u001e\u0010\u001fJ\u001b\u0010 \u001a\u00020\u0007*\u00020\u00012\u0006\u0010\u001d\u001a\u00020\u0011H\u0002¢\u0006\u0004\b \u0010!R%\u0010(\u001a\n #*\u0004\u0018\u00010\"0\"8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'R?\u0010.\u001a$\u0012\u0004\u0012\u00020\u0011\u0012\u001a\u0012\u0018\u0012\u0012\u0012\u0010\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u0004\u0018\u00010\u0003\u0018\u00010*0)8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b+\u0010%\u001a\u0004\b,\u0010-R\u0016\u0010/\u001a\u00020\f8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b/\u00100¨\u00063"}, d2 = {"Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;", "Lcom/baidu/searchbox/live/data/req/RoomEnterParams;", "enterParams", "Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", WebChromeClient.KEY_ARG_CALLBACK, "", "fetchRoomEnter", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "Lcom/baidu/searchbox/live/data/req/RoomExitParams;", "exitParams", "", "fetchRoomExit", "(Lcom/baidu/searchbox/live/data/req/RoomExitParams;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "params", "", "", "genRoomEnterReqParams", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/interfaces/data/UserAccount;", "getAccount", "()Lcom/baidu/searchbox/live/interfaces/data/UserAccount;", "isLogin", "()Z", "Lorg/json/JSONObject;", "extra", "putAudioExtraAppId", "(Lorg/json/JSONObject;)V", ILiveNPSPlugin.PARAMS_ROOM_ID, "removeEnterIdCallbacks", "(Ljava/lang/String;)V", "addAudioExtraParams", "(Lcom/baidu/searchbox/live/data/req/RoomEnterParams;Ljava/lang/String;)V", "Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "kotlin.jvm.PlatformType", "accountService$delegate", "Lkotlin/Lazy;", "getAccountService", "()Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "accountService", "", "", "enterIdCallbacks$delegate", "getEnterIdCallbacks", "()Ljava/util/Map;", "enterIdCallbacks", "prefetchEnterSwitch", "Z", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class MixRoomRepository {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
@@ -56,6 +60,7 @@ public final class MixRoomRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy accountService$delegate;
     public final Lazy enterIdCallbacks$delegate;
+    public final boolean prefetchEnterSwitch;
 
     static {
         InterceptResult invokeClinit;
@@ -86,6 +91,15 @@ public final class MixRoomRepository {
                 return;
             }
         }
+        AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
+        boolean z = false;
+        if (abConfigService != null ? abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false) {
+            PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+            if ((pluginMgrService != null ? pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps") : 0) >= 603000000) {
+                z = true;
+            }
+        }
+        this.prefetchEnterSwitch = z;
         this.accountService$delegate = LazyKt__LazyJVMKt.lazy(MixRoomRepository$accountService$2.INSTANCE);
         this.enterIdCallbacks$delegate = LazyKt__LazyJVMKt.lazy(MixRoomRepository$enterIdCallbacks$2.INSTANCE);
     }
@@ -320,7 +334,7 @@ public final class MixRoomRepository {
                         }
                         return (JSONObject) invokeL.objValue;
                     }
-                }, (r16 & 8) != 0 ? 0 : 17, (r16 & 16) != 0 ? 0 : 101, (r16 & 32) != 0 ? false : true, (r16 & 64) != 0 ? null : null);
+                }, 17, 101, true, null, this.prefetchEnterSwitch);
             }
         }
     }
@@ -414,7 +428,7 @@ public final class MixRoomRepository {
                     }
                     return (Integer) invokeL.objValue;
                 }
-            }, (r16 & 8) != 0 ? 0 : 17, (r16 & 16) != 0 ? 0 : 102, (r16 & 32) != 0 ? false : true, (r16 & 64) != 0 ? null : null);
+            }, (r19 & 8) != 0 ? 0 : 17, (r19 & 16) != 0 ? 0 : 102, (r19 & 32) != 0 ? false : true, (r19 & 64) != 0 ? null : null, (r19 & 128) != 0 ? false : false);
         }
     }
 

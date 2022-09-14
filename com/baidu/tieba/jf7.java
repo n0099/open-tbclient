@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class jf7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jf7 {
+    void a(List<dh7> list);
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i < 0) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
+    void b();
+
+    void c(long j, String str);
+
+    void d(String str, String str2, String str3, List<eh7> list);
+
+    void e(long j, String str, int i, String str2);
 }

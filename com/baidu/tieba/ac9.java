@@ -1,55 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
+import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes3.dex */
-public class ac9 {
+public final class ac9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610514, "Lcom/baidu/tieba/ac9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947610514, "Lcom/baidu/tieba/ac9;");
-                return;
-            }
-        }
-        a = new DecimalFormat("0.00");
-    }
-
-    public static String a(long j, long j2) {
-        InterceptResult invokeCommon;
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && !str.equals("")) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 79) {
+                    switch (hashCode) {
+                        case 2126:
+                            if (str.equals("C1")) {
+                                c = 5;
+                                break;
+                            }
+                            break;
+                        case 2127:
+                            if (str.equals("C2")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 2128:
+                            if (str.equals("C3")) {
+                                c = 7;
+                                break;
+                            }
+                            break;
+                        default:
+                            switch (hashCode) {
+                                case 2653:
+                                    if (str.equals("T1")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    break;
+                                case 2654:
+                                    if (str.equals("T2")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    break;
+                                case 2655:
+                                    if (str.equals("T3")) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    break;
+                                case 2656:
+                                    if (str.equals("T4")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    break;
+                                case 2657:
+                                    if (str.equals("T5")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    break;
+                            }
+                    }
+                } else if (str.equals("O")) {
+                    c = '\b';
+                }
+                switch (c) {
+                    case 0:
+                        return SampleResult.T1;
+                    case 1:
+                        return SampleResult.T2;
+                    case 2:
+                        return SampleResult.T3;
+                    case 3:
+                        return SampleResult.T4;
+                    case 4:
+                        return SampleResult.T5;
+                    case 5:
+                        return SampleResult.C1;
+                    case 6:
+                        return SampleResult.C2;
+                    case 7:
+                        return SampleResult.C3;
+                    case '\b':
+                        return SampleResult.OTHERE;
+                    default:
+                        return SampleResult.OTHERE;
+                }
             }
+            return SampleResult.OTHERE;
         }
-        return invokeLL.intValue;
+        return (SampleResult) invokeL.objValue;
     }
 }

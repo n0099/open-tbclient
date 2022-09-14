@@ -1,96 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import android.content.Context;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
-public class en2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile en2 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final r93 a;
+public interface en2 {
 
-    public en2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new r93("swan_local_ab_data");
-        if (ProcessUtils.isMainProcess()) {
-            this.a.clear();
-        }
-        c();
+    /* loaded from: classes3.dex */
+    public interface a {
+        void b(en2 en2Var);
     }
 
-    public static en2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (en2.class) {
-                    if (b == null) {
-                        b = new en2();
-                    }
-                }
-            }
-            return b;
-        }
-        return (en2) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public interface b {
+        boolean f(en2 en2Var, int i, int i2);
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("sids", "") : (String) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public interface c {
+        void c(en2 en2Var);
     }
 
-    public final void c() {
-        Object e;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
-            List<fn2> c = new dn2().c();
-            for (fn2 fn2Var : c) {
-                gn2 b2 = fn2Var.b();
-                hn2 c2 = fn2Var.c();
-                if (b2 == null) {
-                    e = c2.d();
-                } else {
-                    e = b2.e();
-                }
-                if (e instanceof Boolean) {
-                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
-                } else if (e instanceof Double) {
-                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
-                } else if (e instanceof Integer) {
-                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
-                } else if (e instanceof Long) {
-                    this.a.writeLong(c2.e(), ((Long) e).longValue());
-                } else if (e instanceof String) {
-                    this.a.writeString(c2.e(), (String) e);
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            for (fn2 fn2Var2 : c) {
-                gn2 b3 = fn2Var2.b();
-                if (b3 != null) {
-                    sb.append(b3.d());
-                    sb.append("-");
-                }
-            }
-            this.a.writeString("sids", sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1));
-        }
+    /* loaded from: classes3.dex */
+    public interface d {
+        void e(en2 en2Var);
     }
+
+    /* loaded from: classes3.dex */
+    public interface e {
+        void a(en2 en2Var);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface f {
+        void d(en2 en2Var);
+    }
+
+    void a(FrameLayout frameLayout);
+
+    void b();
+
+    void c();
+
+    void d(boolean z);
+
+    en2 e(Context context, @NonNull sr2 sr2Var);
+
+    void f();
+
+    void g(a aVar);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    void h(sr2 sr2Var, boolean z);
+
+    void i(String str);
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    void j(e eVar);
+
+    void k(f fVar);
+
+    void l(boolean z, int i);
+
+    void m(d dVar);
+
+    void mute(boolean z);
+
+    void n(sr2 sr2Var);
+
+    void o(sr2 sr2Var);
+
+    boolean onBackPressed();
+
+    void p(b bVar);
+
+    void pause();
+
+    int q(String str);
+
+    void r(c cVar);
+
+    void resume();
+
+    void seekTo(int i);
+
+    void stop();
 }

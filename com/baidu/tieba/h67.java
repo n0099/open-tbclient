@@ -1,298 +1,310 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.PicManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tbadk.gif.GifInfo;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
-import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.widget.ShareFromFrsView;
-import com.baidu.tieba.im.widget.ShareFromGameCenter;
-import com.baidu.tieba.im.widget.ShareFromPBView;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import tbclient.GetTopicRelateThread.DataRes;
+import tbclient.Hottopic.HotThread;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class h67 {
+public class h67 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<c26> a;
+    public ms4 b;
+    public long c;
+    public int d;
+    public List<Cdo> e;
+    @Nullable
+    public Map<String, Object> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775744, "Lcom/baidu/tieba/h67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947775744, "Lcom/baidu/tieba/h67;");
+    public h67() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        pe5.b();
+        this.d = 1;
+        this.e = new ArrayList();
+        this.d = 1;
     }
 
-    public static void a(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
+    public final void c(@NonNull List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, gifView, chatMessage, Boolean.valueOf(z)}) == null) {
-            int i = (context.getResources().getDisplayMetrics().density > 1.5d ? 1 : (context.getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
-            int i2 = i > 0 ? 240 : 160;
-            int i3 = i <= 0 ? 160 : 240;
-            gifView.setVisibility(0);
-            GifInfo gifInfo = chatMessage.getGifInfo();
-            if (chatMessage.getGifInfo() != null) {
-                int i4 = gifInfo.mGifWidth;
-                if (i4 > 0) {
-                    i2 = i4;
-                }
-                gifInfo.mGifWidth = i2;
-                int i5 = gifInfo.mGifHeight;
-                if (i5 > 0) {
-                    i3 = i5;
-                }
-                gifInfo.mGifHeight = i3;
-                gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.mGifWidth, gifInfo.mGifHeight));
-                gifView.i0(gifInfo);
-                gifView.setVisibility(0);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.insertItemToTitleOrAbstractText();
+                this.e.add(threadData);
             }
-            gifView.setVisibility(8);
         }
     }
 
-    public static void b(Context context, View view2, ShareFromPBView shareFromPBView, ShareFromFrsView shareFromFrsView, ShareFromGameCenter shareFromGameCenter, ChatMessage chatMessage, String str) {
+    public ArrayList<Cdo> f(bt4 bt4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, view2, shareFromPBView, shareFromFrsView, shareFromGameCenter, chatMessage, str}) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bt4Var)) == null) {
+            ArrayList<Cdo> arrayList = new ArrayList<>(this.e);
+            l(arrayList, bt4Var);
+            ArrayList<Cdo> arrayList2 = new ArrayList<>();
+            Iterator<Cdo> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                Cdo next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                        ot4 ot4Var = new ot4();
+                        ot4Var.t = threadData;
+                        ot4Var.position = i;
+                        ot4Var.a = true;
+                        arrayList2.add(ot4Var);
+                        ot4 ot4Var2 = new ot4();
+                        ot4Var2.t = threadData;
+                        ot4Var2.position = i;
+                        if (threadData.isBJHNormalThreadType()) {
+                            ot4Var2.f = true;
+                        } else if (threadData.picCount() == 1) {
+                            ot4Var2.d = true;
+                            ot4Var2.u = imageWidthAndHeight[0];
+                            ot4Var2.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            ot4Var2.e = true;
+                        } else {
+                            ot4Var2.b = true;
+                        }
+                        arrayList2.add(ot4Var2);
+                        if (threadData.getItem() != null) {
+                            ot4 ot4Var3 = new ot4();
+                            ot4Var3.n = true;
+                            ot4Var3.t = threadData;
+                            ot4Var3.position = i;
+                            arrayList2.add(ot4Var3);
+                        }
+                        ot4 ot4Var4 = new ot4();
+                        ot4Var4.m = true;
+                        ot4Var4.t = threadData;
+                        ot4Var4.position = i;
+                        arrayList2.add(ot4Var4);
+                        ot4 ot4Var5 = new ot4();
+                        ot4Var5.g = true;
+                        ot4Var5.t = threadData;
+                        ot4Var5.position = i;
+                        arrayList2.add(ot4Var5);
+                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                        ot4 ot4Var6 = new ot4();
+                        ot4Var6.t = threadData;
+                        ot4Var6.position = i;
+                        ot4Var6.a = true;
+                        arrayList2.add(ot4Var6);
+                        ot4 ot4Var7 = new ot4();
+                        ot4Var7.t = threadData;
+                        ot4Var7.position = i;
+                        ot4Var7.i = true;
+                        arrayList2.add(ot4Var7);
+                        if (threadData.getItem() != null) {
+                            ot4 ot4Var8 = new ot4();
+                            ot4Var8.n = true;
+                            ot4Var8.t = threadData;
+                            ot4Var8.position = i;
+                            arrayList2.add(ot4Var8);
+                        }
+                        ot4 ot4Var9 = new ot4();
+                        ot4Var9.m = true;
+                        ot4Var9.t = threadData;
+                        ot4Var9.position = i;
+                        arrayList2.add(ot4Var9);
+                        ot4 ot4Var10 = new ot4();
+                        ot4Var10.g = true;
+                        ot4Var10.t = threadData;
+                        ot4Var10.position = i;
+                        arrayList2.add(ot4Var10);
+                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
+                        threadData.position = i;
+                        arrayList2.add(threadData);
+                    } else if (j26.W(threadData)) {
+                        j26 j26Var = new j26(threadData);
+                        j26Var.g = threadData.getTid();
+                        arrayList2.add(j26Var);
+                    } else {
+                        ot4 ot4Var11 = new ot4();
+                        ot4Var11.t = threadData;
+                        ot4Var11.position = i;
+                        arrayList2.add(ot4Var11);
+                    }
+                } else if (next instanceof BaseCardInfo) {
+                    ((BaseCardInfo) next).position = i;
+                    arrayList2.add(next);
+                } else {
+                    arrayList2.add(next);
+                }
+                i++;
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    @Nullable
+    public Map<String, Object> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (Map) invokeV.objValue;
+    }
+
+    public final void j(List<c26> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        db7 db7Var = new db7();
-        int c = db7Var.c(chatMessage.getContent(), str);
-        if (1 == db7Var.b()) {
-            if (db7Var.a() != null) {
-                if (c == 0) {
-                    shareFromPBView.setVisibility(0);
-                    shareFromPBView.setData(db7Var.a() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) db7Var.a() : null);
-                } else if (c == 1) {
-                    shareFromGameCenter.setVisibility(0);
-                    ShareFromGameCenterMsgData shareFromGameCenterMsgData = db7Var.a() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) db7Var.a() : null;
-                    if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
-                        shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
-                    } else if (TextUtils.isEmpty(str) || !str.endsWith("MsgrightView")) {
-                    } else {
-                        shareFromGameCenter.setData(shareFromGameCenterMsgData, true);
+        c26 c26Var = list.get(list.size() - 1);
+        if (c26Var.getThreadData() != null) {
+            this.c = dh.g(c26Var.getThreadData().getTid(), 0L);
+        }
+    }
+
+    public final void l(ArrayList<Cdo> arrayList, bt4 bt4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, arrayList, bt4Var) == null) || bt4Var == null || ListUtils.isEmpty(bt4Var.h())) {
+            return;
+        }
+        int size = arrayList.size();
+        int i = 0;
+        int i2 = 0;
+        while (true) {
+            if (i >= size) {
+                break;
+            }
+            if (arrayList.get(i) instanceof ThreadData) {
+                if (bt4Var.floorPosition == i2) {
+                    ListUtils.add(arrayList, i, bt4Var);
+                    break;
+                }
+                i2++;
+            }
+            i++;
+        }
+        if (size == 2) {
+            ListUtils.add(arrayList, bt4Var);
+        }
+    }
+
+    public void n(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        this.f = DataExt.toMap(dataRes);
+        if (dataRes.thread_list != null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.setResource(5);
+                    c26 c26Var = null;
+                    if (l26.R(threadData)) {
+                        c26Var = new l26(threadData);
+                    } else if (k26.W(threadData)) {
+                        c26Var = new k26();
+                        c26Var.a = threadData;
+                    }
+                    if (c26Var != null && c26Var.isValid()) {
+                        c26Var.L("c10816");
+                        this.a.add(c26Var);
                     }
                 }
             }
-        } else if (4 == db7Var.b()) {
-            shareFromFrsView.setVisibility(0);
-            shareFromFrsView.setData(db7Var.a() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) db7Var.a() : null);
+            j(this.a);
+            c(dataRes.thread_list);
+        }
+        if (dataRes.page != null) {
+            ms4 ms4Var = new ms4();
+            this.b = ms4Var;
+            ms4Var.j(dataRes.page);
         }
     }
 
-    public static void c(TbPageContext<?> tbPageContext, Context context, View view2, Invite2GroupView invite2GroupView, ChatMessage chatMessage, String str) {
+    public void r(HotThread hotThread) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, context, view2, invite2GroupView, chatMessage, str}) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, hotThread) == null) || hotThread == null) {
             return;
         }
-        invite2GroupView.setVisibility(0);
-        try {
-            JSONObject jSONObject = new JSONObject(chatMessage.getContent());
-            if (jSONObject.getString("portrait") == null) {
-                return;
-            }
-            InviteMsgData inviteMsgData = new InviteMsgData();
-            inviteMsgData.setFromUid(jSONObject.getLong("fromUid"));
-            inviteMsgData.setGroupId(jSONObject.getLong(TbEnum.SystemMessage.KEY_GROUP_ID));
-            inviteMsgData.setNotice(jSONObject.getString("notice"));
-            inviteMsgData.setPortrait(jSONObject.getString("portrait"));
-            inviteMsgData.setText(jSONObject.getString("text"));
-            inviteMsgData.setTitle(jSONObject.getString("title"));
-            inviteMsgData.setToUid(jSONObject.getLong("toUid"));
-            inviteMsgData.setGroupName(jSONObject.getString(TbEnum.SystemMessage.KEY_GROUP_NAME));
-            inviteMsgData.setGroupOwnerId(jSONObject.getLong("groupOwnerId"));
-            invite2GroupView.setData(tbPageContext, inviteMsgData);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public static void d(Context context, View view2, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
-        String optString;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, view2, chatImageWithTailView, chatMessage, Long.valueOf(j), str}) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
-            String j2 = za7.j(jSONObject, false);
-            String optString2 = jSONObject.optString("shareSourceIcon");
-            String optString3 = jSONObject.optString("shareSource");
-            String optString4 = jSONObject.optString("shareSourceUrl");
-            if (j2 == null) {
-                return;
-            }
-            an anVar = null;
-            if (j2.startsWith("http")) {
-                chatImageWithTailView.getImage().j0(j2, 38);
-            } else {
-                try {
-                    an m = m55.k().m(j2);
-                    if (m == null) {
-                        Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(ji.d().c(j2));
-                        if (reSizeBitmap != null) {
-                            an anVar2 = new an(reSizeBitmap, false);
-                            try {
-                                if (chatMessage.getWidth() < 1) {
-                                    chatMessage.setWidth(anVar2.r());
-                                    chatMessage.setHeight(anVar2.m());
-                                }
-                                m55.k().d(j2, anVar2);
-                            } catch (Exception unused) {
-                            }
-                            anVar = anVar2;
-                        }
-                    } else {
-                        try {
-                            if (chatMessage.getWidth() < 1) {
-                                chatMessage.setWidth(m.r());
-                                chatMessage.setHeight(m.m());
-                            }
-                        } catch (Exception unused2) {
-                        }
-                        anVar = m;
+        String str = hotThread.hot_title;
+        if (hotThread.thread_list != null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : hotThread.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.setResource(5);
+                    c26 c26Var = null;
+                    if (threadData.isShareThread) {
+                        c26Var = new k26();
+                        c26Var.a = threadData;
+                    } else if (l26.R(threadData)) {
+                        c26Var = new l26(threadData);
+                    } else if (k26.W(threadData)) {
+                        c26Var = new k26();
+                        c26Var.a = threadData;
                     }
-                } catch (Exception unused3) {
+                    if (c26Var != null && c26Var.isValid()) {
+                        c26Var.L("c10816");
+                        this.a.add(c26Var);
+                    }
                 }
             }
-            if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("bsize")) != null) {
-                String[] split = optString.split(",");
-                if (split.length > 0) {
-                    chatMessage.setWidth(pg.e(split[0], 0));
-                }
-                if (split.length > 1) {
-                    chatMessage.setHeight(pg.e(split[1], 0));
-                }
-            }
-            IMImageSize chatImageSize = PicManager.getInstance().getChatImageSize(chatMessage.getWidth(), chatMessage.getHeight());
-            ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
-            layoutParams.height = chatImageSize.height;
-            layoutParams.width = chatImageSize.width;
-            chatImageWithTailView.getImage().setLayoutParams(layoutParams);
-            if (anVar != null) {
-                chatImageWithTailView.getImage().F();
-                chatImageWithTailView.getImage().Y();
-                anVar.h(chatImageWithTailView.getImage());
-            } else {
-                chatImageWithTailView.getImage().setDefaultResource(SkinManager.getResourceId(R.drawable.icon_pic_im_image_default));
-                chatImageWithTailView.getImage().setTag(j2);
-            }
-            chatImageWithTailView.getImage().setAutoChangeStyle(true);
-            if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString2)) {
-                if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
-                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams2.setMargins(ri.f(context, R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                    layoutParams2.height = ri.f(context, R.dimen.obfuscated_res_0x7f0702cb);
-                    chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
-                }
-                chatImageWithTailView.getIcon().setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
-                chatImageWithTailView.getIcon().K(optString2, 10, false);
-                chatImageWithTailView.getFromSource().setText(optString3);
-                chatImageWithTailView.setVisibility(0);
-                chatImageWithTailView.getTail().setVisibility(0);
-                return;
-            }
-            chatImageWithTailView.setVisibility(0);
-        } catch (Exception e) {
-            e.printStackTrace();
+            j(this.a);
+            c(hotThread.thread_list);
+        }
+        if (hotThread.page != null) {
+            ms4 ms4Var = new ms4();
+            this.b = ms4Var;
+            ms4Var.j(hotThread.page);
         }
     }
 
-    public static void e(TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
+    public h67(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65541, null, tbRichTextView, chatMessage, str, i) == null) || chatMessage == null) {
-            return;
-        }
-        MsgCacheData cacheData = chatMessage.getCacheData();
-        if (cacheData == null) {
-            cacheData = za7.k(chatMessage);
-            chatMessage.setCacheData(cacheData);
-        }
-        if (cacheData.getRich_content() == null) {
-            String content = chatMessage.getContent();
-            if (content == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            TbRichText tbRichText = null;
-            if (StringUtils.isJSONArray(content)) {
-                try {
-                    tbRichText = TbRichTextView.T(new JSONArray(chatMessage.getContent()), 7);
-                } catch (Exception unused) {
-                }
-            }
-            if (tbRichText == null) {
-                tbRichText = new TbRichText(a67.c(chatMessage.getContent(), i));
-            }
-            cacheData.setRich_content(tbRichText);
         }
-        tbRichTextView.setVisibility(0);
-        tbRichTextView.setText(cacheData.getRich_content());
-    }
-
-    public static void f(Context context, ChatVoiceView chatVoiceView, ChatMessage chatMessage, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65542, null, context, chatVoiceView, chatMessage, str) == null) || chatMessage.getContent() == null || chatMessage.getContent().length() <= 0) {
-            return;
-        }
-        try {
-            MsgCacheData cacheData = chatMessage.getCacheData();
-            if (cacheData == null) {
-                cacheData = new MsgCacheData();
-                cacheData.setVoice_status(1);
-                chatMessage.setCacheData(cacheData);
-            } else if (cacheData.getVoice_status() == 0) {
-                cacheData.setVoice_status(1);
-            }
-            VoiceMsgData q = za7.q(chatMessage);
-            if (q != null && q.getDuring_time() != 0.0f && cacheData.getVoice_model() == null) {
-                cacheData.setVoice_model(new VoiceData.VoiceModel());
-                cacheData.getVoice_model().voiceId = q.getVoice_md5();
-                cacheData.getVoice_model().duration = Math.round(q.getDuring_time());
-            }
-            chatVoiceView.setTag(null);
-            chatVoiceView.setData(chatMessage);
-            chatVoiceView.setVisibility(0);
-        } catch (Exception unused) {
-        }
+        this.d = 1;
+        this.e = new ArrayList();
+        this.d = i;
     }
 }

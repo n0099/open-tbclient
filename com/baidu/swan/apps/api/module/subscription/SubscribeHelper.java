@@ -17,21 +17,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.a13;
-import com.baidu.tieba.c83;
-import com.baidu.tieba.ch4;
-import com.baidu.tieba.gz2;
-import com.baidu.tieba.hk2;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.mh1;
-import com.baidu.tieba.nm2;
-import com.baidu.tieba.t73;
-import com.baidu.tieba.ud2;
-import com.baidu.tieba.ud3;
-import com.baidu.tieba.ue3;
-import com.baidu.tieba.vd2;
-import com.baidu.tieba.wd2;
-import com.baidu.tieba.z03;
+import com.baidu.tieba.aa3;
+import com.baidu.tieba.cj4;
+import com.baidu.tieba.e13;
+import com.baidu.tieba.fm2;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.kj1;
+import com.baidu.tieba.lo2;
+import com.baidu.tieba.r93;
+import com.baidu.tieba.sf2;
+import com.baidu.tieba.sf3;
+import com.baidu.tieba.sg3;
+import com.baidu.tieba.tf2;
+import com.baidu.tieba.uf2;
+import com.baidu.tieba.x23;
+import com.baidu.tieba.y23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class SubscribeHelper {
     public String[] a;
     public l b;
     public Context c;
-    public a13 d;
+    public y23 d;
 
     /* loaded from: classes2.dex */
     public class a implements j {
@@ -145,7 +145,7 @@ public class SubscribeHelper {
                     do {
                         hashMap.put(query.getString(query.getColumnIndex("templateId")), Integer.valueOf(query.getInt(query.getColumnIndex(TiebaStatic.LogFields.RESULT))));
                     } while (query.moveToNext());
-                    ch4.d(query);
+                    cj4.d(query);
                 }
                 LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();
                 ArrayList arrayList = new ArrayList();
@@ -207,15 +207,15 @@ public class SubscribeHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     ContentResolver contentResolver = this.c.e.c.getContentResolver();
-                    for (wd2 wd2Var : this.a) {
-                        String str = wd2Var.a;
+                    for (uf2 uf2Var : this.a) {
+                        String str = uf2Var.a;
                         Boolean bool = (Boolean) this.c.b.get(str);
                         if (bool != null && !bool.booleanValue()) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("appKey", this.c.c.a);
                             contentValues.put("templateId", str);
                             contentValues.put(TiebaStatic.LogFields.RESULT, (Integer) 0);
-                            contentValues.put("title", wd2Var.b);
+                            contentValues.put("title", uf2Var.b);
                             contentValues.put("tips", this.b);
                             contentResolver.insert(SwanAppSubscribeMsgProvider.c, contentValues);
                         }
@@ -285,16 +285,16 @@ public class SubscribeHelper {
         }
 
         @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.i
-        public void a(@Nullable String str, List<wd2> list, boolean z) {
+        public void a(@Nullable String str, List<uf2> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, list, z) == null) {
                 if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-                    ud3.k(new a(this, list, str), "createFormDataBase");
+                    sf3.k(new a(this, list, str), "createFormDataBase");
                     if (z && this.c.e) {
                         this.e.m(this.c, str, list, this.d, this.a);
                         return;
                     } else {
-                        ue3.a0(new b(this, str, list));
+                        sg3.a0(new b(this, str, list));
                         return;
                     }
                 }
@@ -304,7 +304,7 @@ public class SubscribeHelper {
     }
 
     /* loaded from: classes2.dex */
-    public class d implements vd2.f {
+    public class d implements tf2.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l a;
@@ -337,8 +337,8 @@ public class SubscribeHelper {
             this.e = kVar;
         }
 
-        @Override // com.baidu.tieba.vd2.f
-        public boolean a(DialogInterface dialogInterface, int i, List<wd2> list) {
+        @Override // com.baidu.tieba.tf2.f
+        public boolean a(DialogInterface dialogInterface, int i, List<uf2> list) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, list)) == null) {
@@ -402,7 +402,7 @@ public class SubscribeHelper {
     }
 
     /* loaded from: classes2.dex */
-    public class f implements mh1 {
+    public class f implements kj1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -437,19 +437,19 @@ public class SubscribeHelper {
             this.f = kVar;
         }
 
-        @Override // com.baidu.tieba.mh1
+        @Override // com.baidu.tieba.kj1
         public void onResult(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
                     if (!this.a && SubscribeHelper.l()) {
-                        t73.S("success", 12, NativeConstants.COMPONENT);
+                        r93.S("success", 12, NativeConstants.COMPONENT);
                     }
                     this.g.v(this.b, this.c, this.d, this.e, this.f);
                     return;
                 }
                 if (!this.a && !SubscribeHelper.l()) {
-                    t73.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
+                    r93.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
                 }
                 this.g.t();
                 this.f.a(500106, "用户未登录", null);
@@ -494,19 +494,19 @@ public class SubscribeHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ContentResolver contentResolver = this.e.c.getContentResolver();
-                for (wd2 wd2Var : this.a) {
+                for (uf2 uf2Var : this.a) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("title", wd2Var.b);
+                    contentValues.put("title", uf2Var.b);
                     contentValues.put("tips", this.b);
                     contentValues.put(TiebaStatic.LogFields.RESULT, Integer.valueOf(this.c ? 1 : -1));
-                    contentResolver.update(SwanAppSubscribeMsgProvider.c, contentValues, "appKey=? and templateId=?", new String[]{this.d, wd2Var.a});
+                    contentResolver.update(SwanAppSubscribeMsgProvider.c, contentValues, "appKey=? and templateId=?", new String[]{this.d, uf2Var.a});
                 }
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class h implements ud2 {
+    public class h implements sf2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -531,21 +531,21 @@ public class SubscribeHelper {
             this.a = kVar;
         }
 
-        @Override // com.baidu.tieba.ez2
+        @Override // com.baidu.tieba.c13
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 this.b.t();
                 this.a.a(0, "调用成功", jSONObject);
-                if (hk2.h0().e(this.b.c)) {
-                    gz2.c.e();
+                if (fm2.h0().e(this.b.c)) {
+                    e13.c.e();
                 } else {
-                    gz2.c.f();
+                    e13.c.f();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ez2
+        @Override // com.baidu.tieba.c13
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -556,7 +556,7 @@ public class SubscribeHelper {
 
     /* loaded from: classes2.dex */
     public interface i {
-        void a(@Nullable String str, @Nullable List<wd2> list, boolean z);
+        void a(@Nullable String str, @Nullable List<uf2> list, boolean z);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -674,7 +674,7 @@ public class SubscribeHelper {
                 return;
             }
         }
-        e = kh1.a;
+        e = ij1.a;
     }
 
     public SubscribeHelper() {
@@ -694,17 +694,17 @@ public class SubscribeHelper {
     public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? z03.K().q().N().e(hk2.c()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? x23.K().q().N().e(fm2.c()) : invokeV.booleanValue;
     }
 
-    public final JSONArray k(List<wd2> list) {
+    public final JSONArray k(List<uf2> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (list != null && list.size() > 0) {
-                for (wd2 wd2Var : list) {
-                    jSONArray.put(wd2Var.b);
+                for (uf2 uf2Var : list) {
+                    jSONArray.put(uf2Var.b);
                 }
             }
             return jSONArray;
@@ -712,7 +712,7 @@ public class SubscribeHelper {
         return (JSONArray) invokeL.objValue;
     }
 
-    public final void m(@NonNull l lVar, String str, @NonNull List<wd2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void m(@NonNull l lVar, String str, @NonNull List<uf2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, str, list, list2, kVar) == null) {
             boolean l2 = l();
@@ -721,18 +721,18 @@ public class SubscribeHelper {
                 return;
             }
             if (!l2) {
-                t73.S("show", 12, NativeConstants.COMPONENT);
+                r93.S("show", 12, NativeConstants.COMPONENT);
             }
-            z03.K().q().N().f(nm2.U().getActivity(), null, new f(this, l2, lVar, str, list, list2, kVar));
+            x23.K().q().N().f(lo2.U().getActivity(), null, new f(this, l2, lVar, str, list, list2, kVar));
         }
     }
 
-    public boolean n(Context context, a13 a13Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
+    public boolean n(Context context, y23 y23Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, a13Var, str, jSONObject, invokesubscribefrom, kVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, y23Var, str, jSONObject, invokesubscribefrom, kVar})) == null) {
             this.c = context;
-            this.d = a13Var;
+            this.d = y23Var;
             String optString = jSONObject.optString("subscribeId");
             if (TextUtils.isEmpty(optString)) {
                 kVar.a(202, "subscribeId is empty", null);
@@ -784,34 +784,34 @@ public class SubscribeHelper {
     public final void p(String str, String[] strArr, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, strArr, jVar) == null) {
-            ud3.k(new b(this, str, strArr, jVar), "querySubscribeInfo");
+            sf3.k(new b(this, str, strArr, jVar), "querySubscribeInfo");
         }
     }
 
-    public final void q(String str, String str2, List<wd2> list, List<wd2> list2) {
+    public final void q(String str, String str2, List<uf2> list, List<uf2> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, list, list2) == null) {
-            c83 c83Var = new c83();
-            c83Var.a = "swan";
-            c83Var.b = str;
-            c83Var.g = str2;
+            aa3 aa3Var = new aa3();
+            aa3Var.a = "swan";
+            aa3Var.b = str;
+            aa3Var.g = str2;
             if (list2 != null) {
-                c83Var.e = String.valueOf(list2.size());
+                aa3Var.e = String.valueOf(list2.size());
             }
-            c83Var.a("appkey", this.d.getAppId());
-            c83Var.a("tpl", k(list));
-            c83Var.a("selected_tpl", k(list2));
+            aa3Var.a("appkey", this.d.getAppId());
+            aa3Var.a("tpl", k(list));
+            aa3Var.a("selected_tpl", k(list2));
             if (e) {
-                Log.d("SubscribeHelper", "event: " + c83Var.f());
+                Log.d("SubscribeHelper", "event: " + aa3Var.f());
             }
-            t73.y("1311", "92", c83Var);
+            r93.y("1311", "92", aa3Var);
         }
     }
 
     public final void r(@NonNull l lVar, @NonNull List<String> list, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, lVar, list, kVar) == null) {
-            hk2.W().d(lVar.a, list, lVar.b, lVar.c, new h(this, kVar));
+            fm2.W().d(lVar.a, list, lVar.b, lVar.c, new h(this, kVar));
         }
     }
 
@@ -819,40 +819,40 @@ public class SubscribeHelper {
     public final void s(@NonNull l lVar, LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048583, this, lVar, linkedHashMap, list, kVar) == null) {
-            hk2.W().b(lVar.a, linkedHashMap.keySet(), new c(this, kVar, linkedHashMap, lVar, list));
+            fm2.W().b(lVar.a, linkedHashMap.keySet(), new c(this, kVar, linkedHashMap, lVar, list));
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            z03.K().q().W().X0("0");
+            x23.K().q().W().X0("0");
         }
     }
 
-    public final void u(@NonNull l lVar, String str, List<wd2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void u(@NonNull l lVar, String str, List<uf2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048585, this, lVar, str, list, list2, kVar) == null) {
-            vd2.a((Activity) this.c, this.d, str, list, new d(this, lVar, list, str, list2, kVar), new e(this, kVar)).show();
+            tf2.a((Activity) this.c, this.d, str, list, new d(this, lVar, list, str, list2, kVar), new e(this, kVar)).show();
             q("show", lVar.d, list, list);
         }
     }
 
-    public final void v(@NonNull l lVar, String str, @NonNull List<wd2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void v(@NonNull l lVar, String str, @NonNull List<uf2> list, @NonNull List<String> list2, @NonNull k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, lVar, str, list, list2, kVar) == null) {
             w(lVar.a, list, str, true);
-            for (wd2 wd2Var : list) {
-                list2.add(wd2Var.a);
+            for (uf2 uf2Var : list) {
+                list2.add(uf2Var.a);
             }
             r(lVar, list2, kVar);
         }
     }
 
-    public final void w(String str, List<wd2> list, String str2, boolean z) {
+    public final void w(String str, List<uf2> list, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, list, str2, Boolean.valueOf(z)}) == null) {
-            ud3.g().execute(new g(this, list, str2, z, str));
+            sf3.g().execute(new g(this, list, str2, z, str));
         }
     }
 }

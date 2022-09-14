@@ -3,8 +3,8 @@ package com.baidu.tieba.newinterest.fragment;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.er7;
-import com.baidu.tieba.xq7;
+import com.baidu.tieba.hs7;
+import com.baidu.tieba.os7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public int a;
     public boolean b;
     public String[] c;
-    public List<xq7> d;
+    public List<hs7> d;
     public View e;
 
     public BaseInterestedForumFragment() {
@@ -41,25 +41,25 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                er7.c(2, this.a);
+                os7.c(2, this.a);
             }
         }
     }
 
-    public int r1() {
+    public int q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void s1() {
+    public void r1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             hideLoadingView(this.e);
         }
     }
 
-    public void t1(String str) {
+    public void s1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             hideLoadingView(this.e);
@@ -67,7 +67,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public void u1(List<xq7> list) {
+    public void t1(List<hs7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.d = list;

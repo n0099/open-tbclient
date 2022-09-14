@@ -20,7 +20,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.logindialog.view.AgreementView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,6 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.kwad.components.core.m.h;
 import com.kwad.components.core.page.AdWebViewActivityProxy;
+import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
@@ -179,12 +179,12 @@ public class ComplianceTextView extends TextView {
     private void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403b2, R.attr.obfuscated_res_0x7f0403b9, R.attr.obfuscated_res_0x7f0403df});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ComplianceTextView);
             this.OH = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
-            this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060765));
+            this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060777));
             this.OK = obtainStyledAttributes.getBoolean(1, true);
             if (getBackground() == null) {
-                setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080be4));
+                setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c01));
             }
             obtainStyledAttributes.recycle();
         }
@@ -227,7 +227,7 @@ public class ComplianceTextView extends TextView {
                     public final void onClick(@NonNull View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0576a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0581a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
@@ -277,7 +277,7 @@ public class ComplianceTextView extends TextView {
                     public final void onClick(@NonNull View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0576a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0581a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
@@ -294,7 +294,7 @@ public class ComplianceTextView extends TextView {
             }
             spannableStringBuilder.append((CharSequence) " ");
             setMovementMethod(LinkMovementMethod.getInstance());
-            setHighlightColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060777));
+            setHighlightColor(ContextCompat.getColor(getContext(), com.baidu.tieba.R.color.obfuscated_res_0x7f060789));
             setText(spannableStringBuilder);
         }
     }

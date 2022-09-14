@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +22,7 @@ public class UrlSchemaHelper {
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
     public static final String AUTO_PAY_MEMBER_SUCC_URL = "tieba.baidu.com/mo/q/tbeanrights?";
     public static final String CHANGE_YINJI_SUCCESS = "/changeyinjisuccess";
-    public static final String FINISH_THIS_WEBVIEW = "https://tieba.baidu.com/?jump=finish_this_page";
+    public static final String FINISH_THIS_WEBVIEW;
     public static final String FROM_ENTER_FORUM = "unidispatch/enterforum";
     public static final String FROM_FORUM_SQUARE = "unidispatch/forumsquare";
     public static final String FROM_YUN_PUSH = "&from_yunpush=1";
@@ -46,7 +50,7 @@ public class UrlSchemaHelper {
     public static final String JUMP_TO_MODIFY_NICKNAME = "/interact/modifyname";
     public static final String JUMP_TO_NEW_PAGE = "jump=open_full_screen_web_page";
     public static final String JUMP_TO_NEW_PAGE_2 = "jump=open_screen_web_page";
-    public static final String JUMP_TO_POST_LIST = "https://tieba.baidu.com/mo/q/myPost";
+    public static final String JUMP_TO_POST_LIST;
     public static final String JUMP_TO_THIS_PAGE = "jump=open_in_this_page";
     public static final String JUMP_TO_VIDEO_SQUARE = "routertovideosquare:";
     public static final String MEMBER_CENTER_URL = "mo/q/hybrid/tbvip";
@@ -167,20 +171,39 @@ public class UrlSchemaHelper {
     public static final String SCHEME_SWAN_GAME_CENTER = "tiebaclient://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/home/index?_baiduboxapp={\"from\":\"tieba\"}";
     public static final String SCHEME_TYPE_ACCOUNT_SAFE = "tieba://accountsafe";
     public static final String SCHEME_TYPE_ID_CARD = "tieba://idcard?";
+    public static final String SIGN_FRS_DIALOG = "https://tieba.baidu.com/mo/q/duxiaoman/modal";
     public static final String TBEAN_TOAST = "pay=1";
+    public static final String UFO_ACCOUNT_MANAGER = "com.baidu.tieba://unidispatch/accountsafe";
     public static final String VIRTUAL_IMAGE_MAIN_URL = "https://tieba.baidu.com/mo/q/hybrid-main-service/virtualAvatar";
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1021242141, "Lcom/baidu/tbadk/core/util/UrlSchemaHelper;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1021242141, "Lcom/baidu/tbadk/core/util/UrlSchemaHelper;");
+                return;
+            }
+        }
+        JUMP_TO_POST_LIST = TbConfig.TIEBA_ADDRESS + "mo/q/myPost";
+        FINISH_THIS_WEBVIEW = TbConfig.TIEBA_ADDRESS + "?" + SCHEMA_TYPE_FINISH_THIS_PAGE;
+    }
 
     public UrlSchemaHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
@@ -188,12 +211,12 @@ public class UrlSchemaHelper {
     public static boolean checkBaiduboxappSwan(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str.startsWith(SCHEMA_TYPE_SWAN_BAIDUBOXAPP) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.startsWith(SCHEMA_TYPE_SWAN_BAIDUBOXAPP) : invokeL.booleanValue;
     }
 
     public static void goToNewPageByScheme(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         if (str.startsWith(SCHEMA_TYPE_SWAN)) {
@@ -211,6 +234,6 @@ public class UrlSchemaHelper {
     public static String replaceSwanBaiduboxapp2Tiebaclient(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN) : (String) invokeL.objValue;
     }
 }

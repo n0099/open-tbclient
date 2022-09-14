@@ -101,8 +101,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                 com.kwad.sdk.core.e.b.d("LandPageOpenTaskPresenter", "initBottomActionBar screen is horizontal");
                 return;
             }
-            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091141)).inflate();
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091138);
+            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09115f)).inflate();
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091156);
             kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a7));
             int size = com.kwad.sdk.core.response.a.c.bH(this.nM.mAdTemplate).size();
             kSFrameLayout.setRatio(0.0f);
@@ -114,7 +114,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                 f = 155.0f;
             }
             com.kwad.sdk.b.kwai.a.h(kSFrameLayout, com.kwad.sdk.b.kwai.a.a(context, f));
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091137);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091155);
             this.tw = viewGroup;
             viewGroup.setClickable(true);
             new f(this.tw, this);
@@ -122,7 +122,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
             this.ty = cVar;
             cVar.a(this);
             this.ty.c(this.nM.mAdTemplate, true);
-            e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091136), this.tw, null, this);
+            e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091154), this.tw, null, this);
             this.tx = eVar;
             eVar.a(this.nM.mAdTemplate, adBaseFrameLayout);
         }
@@ -132,7 +132,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, z) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091137 || id == R.id.obfuscated_res_0x7f091027) {
+            if (id == R.id.obfuscated_res_0x7f091155 || id == R.id.obfuscated_res_0x7f091045) {
                 d(z, 2);
             }
         }
@@ -163,8 +163,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                 this.mL = iA;
                 this.nM.mL = iA;
                 com.kwad.components.ad.reward.c.eZ().a(this.mRewardVerifyListener);
-                AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
-                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091027);
+                AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6);
+                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091045);
                 this.f1081tv = viewGroup;
                 if (viewGroup != null) {
                     viewGroup.setClickable(true);
@@ -174,8 +174,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                     this.tz = cVar;
                     cVar.a(this);
                     this.tz.c(this.nM.mAdTemplate, false);
-                    ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b5)).setWidthBasedRatio(false);
-                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911b4), this.f1081tv, null, this);
+                    ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d3)).setWidthBasedRatio(false);
+                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911d2), this.f1081tv, null, this);
                     this.sV = tVar;
                     tVar.a(this.nM.mAdTemplate, adBaseFrameLayout);
                 }

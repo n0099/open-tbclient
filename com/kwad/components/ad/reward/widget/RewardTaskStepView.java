@@ -122,7 +122,7 @@ public class RewardTaskStepView extends LinearLayout {
     private void a(int i, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d0460 : R.layout.obfuscated_res_0x7f0d0461, (ViewGroup) this, false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d0464 : R.layout.obfuscated_res_0x7f0d0465, (ViewGroup) this, false);
             if (z) {
                 a(viewGroup, str);
             } else {
@@ -135,25 +135,25 @@ public class RewardTaskStepView extends LinearLayout {
     private void a(ViewGroup viewGroup, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65541, this, viewGroup, i, str) == null) {
-            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ab)).setText(String.format(str, this.no));
-            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911aa)).setText(String.valueOf(i));
+            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911c9)).setText(String.format(str, this.no));
+            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911c8)).setText(String.valueOf(i));
         }
     }
 
     public static void a(ViewGroup viewGroup, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, viewGroup, str) == null) {
-            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ab)).setText(str);
+            ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911c9)).setText(str);
         }
     }
 
     private void ac(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
-            DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d045e, (ViewGroup) this, false);
+            DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0462, (ViewGroup) this, false);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a8);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a6);
-            dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f060771 : R.color.obfuscated_res_0x7f060773));
+            dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f060783 : R.color.obfuscated_res_0x7f060785));
             addView(dividerView, dimensionPixelSize, dimensionPixelSize2);
         }
     }

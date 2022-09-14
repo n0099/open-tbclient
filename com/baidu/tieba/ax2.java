@@ -1,26 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ax2 {
+public class ax2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
-    public int b;
-    public String c;
-    public Bundle d;
 
     static {
         InterceptResult invokeClinit;
@@ -35,49 +27,37 @@ public abstract class ax2 {
                 return;
             }
         }
-        e = kh1.a;
-    }
-
-    public ax2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new Bundle();
-        this.c = "";
-        this.d = new Bundle();
-    }
-
-    public abstract void b(@NonNull Bundle bundle);
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.d);
+        a = ij1.a;
+        b = c("swan_perf_stat_rectify", 0);
+        c = c("swan_perf_stat_overlay_rectify", 0);
+        if (a) {
+            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
+            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
         }
     }
 
-    public void d(@Nullable Bundle bundle) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish");
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c : invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            fm2.g0().getSwitch(str, i);
+            if (a) {
+                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
             }
-            if (ix2.a(this.c)) {
-                return;
-            }
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
-            }
-            bx2.c(this.b, this.c, bundle);
+            return i == 1;
         }
+        return invokeLI.booleanValue;
     }
 }

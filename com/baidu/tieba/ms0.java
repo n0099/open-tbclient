@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.al0;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class ms0 implements el0 {
+public class ms0 extends is0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View b;
+    public View c;
+    public View d;
+    public boolean e;
 
     public ms0() {
         Interceptable interceptable = $ic;
@@ -25,26 +31,94 @@ public class ms0 implements el0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = true;
+    }
+
+    @Override // com.baidu.tieba.js0
+    @NonNull
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cs0
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d8, (ViewGroup) null);
+            this.b = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090c31);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f090c26);
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.cs0
+    public void k(@NonNull ht0 ht0Var) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ht0Var) == null) {
+            String c2 = ht0Var.c();
+            switch (c2.hashCode()) {
+                case -1043170264:
+                    if (c2.equals(PlayerEvent.ACTION_PLAYER_ATTACH)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552580917:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -56310521:
+                    if (c2.equals(LayerEvent.ACTION_VIDEO_VIEW_CHANGED)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c == 0) {
+                this.b.setVisibility(0);
+            } else if (c == 1 || c == 2 || c == 3) {
+                this.b.setVisibility(8);
             }
         }
     }
 
-    @Override // com.baidu.tieba.el0
-    public void a(@NonNull Application application) {
+    @Override // com.baidu.tieba.is0
+    public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            al0.a.a().a(application);
-            ap0.g(application);
-            ap0.e(false);
-            ap0.i("CyberSysPlayer");
-            ap0.j(new gu0());
-        }
-    }
-
-    @Override // com.baidu.tieba.el0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                if (this.e) {
+                    this.b.setVisibility(0);
+                    this.c.setVisibility(0);
+                    this.d.setVisibility(0);
+                    return;
+                }
+                this.b.setVisibility(8);
+                return;
+            }
+            this.b.setVisibility(8);
         }
     }
 }

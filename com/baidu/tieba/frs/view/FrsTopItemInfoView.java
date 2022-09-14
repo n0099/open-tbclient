@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.vr4;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -112,17 +112,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes4.dex */
-        public class a implements vr4.e {
+        public class a implements au4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ vr4 a;
+            public final /* synthetic */ au4 a;
 
-            public a(b bVar, vr4 vr4Var) {
+            public a(b bVar, au4 au4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, vr4Var};
+                    Object[] objArr = {bVar, au4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -132,13 +132,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = vr4Var;
+                this.a = au4Var;
             }
 
-            @Override // com.baidu.tieba.vr4.e
-            public void onClick(vr4 vr4Var) {
+            @Override // com.baidu.tieba.au4.e
+            public void onClick(au4 au4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -166,10 +166,10 @@ public class FrsTopItemInfoView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof FrsActivity)) {
-                vr4 vr4Var = new vr4((FrsActivity) this.a.a);
-                vr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f040e));
-                vr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f040d, new a(this, vr4Var));
-                vr4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+                au4 au4Var = new au4((FrsActivity) this.a.a);
+                au4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0412));
+                au4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0411, new a(this, au4Var));
+                au4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
             }
         }
     }
@@ -187,12 +187,12 @@ public class FrsTopItemInfoView extends LinearLayout {
                 return;
             }
         }
-        u = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06db);
-        v = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f071c);
-        w = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-        x = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        y = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
-        z = ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        u = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ee);
+        v = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f072f);
+        w = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
+        x = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        y = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
+        z = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -226,32 +226,32 @@ public class FrsTopItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034d, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0352, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090fc4);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090fb8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fc6);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e16);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090fdf);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090fd3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fe1);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e31);
             this.e = imageView;
             imageView.setOnClickListener(this.t);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090385);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09188e);
-            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090fbc);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092194);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090923);
-            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092442);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090639);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091f1f);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091be5);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0903e2);
-            this.b.setText(R.string.obfuscated_res_0x7f0f06d9);
-            this.l.setText(R.string.obfuscated_res_0x7f0f06d7);
-            this.f.setText(R.string.obfuscated_res_0x7f0f06d8);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090390);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c4);
+            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090fd7);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e8);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090939);
+            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09249d);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09064c);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091f6f);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2c);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0903ee);
+            this.b.setText(R.string.obfuscated_res_0x7f0f06ec);
+            this.l.setText(R.string.obfuscated_res_0x7f0f06ea);
+            this.f.setText(R.string.obfuscated_res_0x7f0f06eb);
             if (DeviceInfoUtil.isXiaoMi()) {
                 this.f.setPadding(0, -w, 0, 0);
             }
             this.k.setPlaceHolder(1);
-            this.m.setStarSpacing(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
+            this.m.setStarSpacing(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
             this.j.setOnClickListener(this.s);
         }
     }
@@ -259,31 +259,31 @@ public class FrsTopItemInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ns4 d = ns4.d(this);
+            uu4 d = uu4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            ns4 d2 = ns4.d(this.b);
+            uu4 d2 = uu4.d(this.b);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0109);
-            ns4 d3 = ns4.d(this.d);
+            uu4 d3 = uu4.d(this.d);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            ns4 d4 = ns4.d(this.f);
+            uu4 d4 = uu4.d(this.f);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            ns4 d5 = ns4.d(this.i);
+            uu4 d5 = uu4.d(this.i);
             d5.v(R.color.CAM_X0109);
             d5.A(R.string.F_X01);
-            ns4 d6 = ns4.d(this.l);
+            uu4 d6 = uu4.d(this.l);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0105);
             this.h.d();
             this.m.f();
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f0805ea, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f0805ff, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0210);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080616, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08062b, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -318,7 +318,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             double d = this.q;
             if (d > 0.0d && d <= 10.0d) {
                 this.f.setText(String.valueOf(d));
-                this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06da, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
+                this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ed, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
                 if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
                     this.m.setStarCount(itemTable.comment_star.intValue());
                 }
@@ -328,7 +328,7 @@ public class FrsTopItemInfoView extends LinearLayout {
                 this.h.setData(itemTable.item_plot, intValue);
                 return;
             }
-            this.f.setText(R.string.obfuscated_res_0x7f0f06d8);
+            this.f.setText(R.string.obfuscated_res_0x7f0f06eb);
             this.f.setTextSize(0, z);
             layoutParams.topMargin = y;
             layoutParams.height = z;
@@ -336,7 +336,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             layoutParams2.topMargin = x;
             this.g.setGravity(17);
             this.g.setLayoutParams(layoutParams2);
-            this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06da, new Object[]{"0"}));
+            this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ed, new Object[]{"0"}));
             this.m.setStarCount(0.0f);
             this.i.setVisibility(8);
             this.c.setVisibility(8);

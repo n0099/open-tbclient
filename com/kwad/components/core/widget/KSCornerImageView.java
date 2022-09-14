@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.R;
 import com.kwad.sdk.widget.h;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
@@ -115,7 +115,7 @@ public class KSCornerImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
             h.a aVar = new h.a();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040394, R.attr.obfuscated_res_0x7f0403ac, R.attr.obfuscated_res_0x7f0403b6, R.attr.obfuscated_res_0x7f0403db});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KSCornerImageView);
             aVar.bt(obtainStyledAttributes.getBoolean(1, true));
             aVar.bu(obtainStyledAttributes.getBoolean(3, true));
             aVar.bv(obtainStyledAttributes.getBoolean(2, true));

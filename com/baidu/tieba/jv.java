@@ -1,58 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class jv {
+public class jv implements kv {
     public static /* synthetic */ Interceptable $ic;
-    public static final jv a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308705, "Lcom/baidu/tieba/jv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448308705, "Lcom/baidu/tieba/jv;");
-                return;
-            }
-        }
-        a = new jv();
-    }
 
     public jv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final TaskStatus a(TaskStatus taskStatus) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kv
+    @CallSuper
+    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
+        us b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskStatus)) == null) {
-            TaskStatus deepCopy = taskStatus.deepCopy();
-            deepCopy.setCurStatus(22);
-            deepCopy.getTaskStatusRuntime().setDuplicated(true);
-            return deepCopy;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
+            if (view2.getParent() != null) {
+                view2.setVisibility(8);
+            }
+            ou v = BDPTask.m.v();
+            if (v == null || (b = v.b()) == null) {
+                return;
+            }
+            b.a(taskBuoyViewData.getScheme(), 3);
         }
-        return (TaskStatus) invokeL.objValue;
     }
 }

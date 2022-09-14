@@ -12,7 +12,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ImShareThreadInfo extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Long DEFAULT_ID;
@@ -49,7 +49,7 @@ public final class ImShareThreadInfo extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 11)
     public final List<Voice> voiceInfo;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<ImShareThreadInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public final class ImShareThreadInfo extends Message {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

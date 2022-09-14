@@ -1,46 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.switchs.CheckShowNameDialogSwitch;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.tn4;
-import com.baidu.tieba.xn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class an7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h a;
+    public c b;
+    public b c;
 
     /* loaded from: classes3.dex */
-    public static class a implements xn4.b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ tn4.a b;
-        public final /* synthetic */ String c;
+        public List<e> a;
+        public List<g> b;
+        public String c;
 
-        public a(b bVar, tn4.a aVar, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, aVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,92 +37,57 @@ public class an7 {
                     return;
                 }
             }
-            this.a = bVar;
-            this.b = aVar;
-            this.c = str;
+            this.a = new ArrayList();
+            this.b = new ArrayList();
         }
 
-        @Override // com.baidu.tieba.xn4.b
-        public void onFailed() {
-            tn4.a aVar;
+        public void a(JSONObject jSONObject) throws Exception {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            aVar.a(this.c, 1, null);
-        }
-
-        @Override // com.baidu.tieba.xn4.b
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.d(str);
-                this.a.execute(new String[0]);
+            this.c = jSONObject.optString("content");
+            jSONObject.optString("tip_text");
+            jSONObject.optString("img");
+            JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
+            if (optJSONArray == null) {
+                return;
+            }
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                e eVar = new e();
+                eVar.a(jSONObject2);
+                if (1 == eVar.g) {
+                    eVar.i = true;
+                } else {
+                    eVar.i = false;
+                }
+                this.a.add(eVar);
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
+            if (optJSONArray2 == null) {
+                return;
+            }
+            int length2 = optJSONArray2.length();
+            for (int i2 = 0; i2 < length2; i2++) {
+                g gVar = new g();
+                gVar.a(optJSONArray2.optJSONObject(i2));
+                this.b.add(gVar);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends BdAsyncTask<String, Integer, AccountData> {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public final String b;
-        public final String c;
-        public final String d;
-        public String e;
-        public final tn4.a f;
-        public final boolean g;
+        public ArrayList<i> a;
 
-        /* loaded from: classes3.dex */
-        public class a implements tn4.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.tn4.a
-            public void a(String str, int i, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.tn4.a
-            public void b(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                }
-            }
-
-            @Override // com.baidu.tieba.tn4.a
-            public void c(AccountData accountData) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                }
-            }
-        }
-
-        public b(String str, String str2, String str3, tn4.a aVar, boolean z) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, aVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -145,181 +97,334 @@ public class an7 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.g = z;
-            this.f = aVar == null ? new a(this) : aVar;
-            setPriority(3);
+            this.a = new ArrayList<>();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:51:0x01ca  */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public AccountData doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            AccountData accountData;
-            int i;
-            int i2;
-            tn4.b d;
+        public void a(JSONArray jSONArray) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.a = new NetWork(TbConfig.LOGIN_FULL_ADDRESS);
-                this.a.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                this.a.addPostData("bdusstoken", this.c + "|" + this.d);
-                if (!StringUtils.isNull(this.e)) {
-                    this.a.addPostData("stoken", this.e);
-                }
-                this.a.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
-                this.a.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-                this.a.addPostData("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
-                this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                String postNetData = this.a.postNetData();
-                if (!this.a.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
-                    accountData = null;
-                } else {
-                    zp4 zp4Var = new zp4();
-                    zp4Var.d(postNetData);
-                    accountData = new AccountData();
-                    accountData.setAccount(zp4Var.c().getUserName());
-                    accountData.setPassword("");
-                    accountData.setID(zp4Var.c().getUserId());
-                    String str = this.c;
-                    if (this.g && (d = dn7.d(tn4.b().c(str))) != null) {
-                        str = d.a + "|" + d.b;
-                    }
-                    accountData.setBDUSS(str);
-                    accountData.setPortrait(zp4Var.c().getPortrait());
-                    accountData.setStoken(this.e);
-                    accountData.setIsActive(1);
-                    if (zp4Var.a() != null) {
-                        accountData.setTbs(zp4Var.a().getTbs());
-                    }
-                    accountData.setGrowthSwitch(zp4Var.b());
-                }
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
-                netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                if (accountData != null) {
-                    netWork.addPostData(HttpRequest.BDUSS, accountData.getBDUSS());
-                    netWork.addPostData("stoken", xn4.a(accountData));
-                }
-                String postNetData2 = netWork.postNetData();
-                if (!netWork.getNetContext().getResponse().isRequestSuccess() || postNetData2 == null) {
-                    i = 0;
-                } else {
-                    try {
-                        JSONObject jSONObject = new JSONObject(postNetData2);
-                        JSONArray optJSONArray = jSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH);
-                        if (optJSONArray != null) {
-                            int length = optJSONArray.length();
-                            for (int i3 = 0; i3 < length; i3++) {
-                                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                                if (optJSONObject != null && CheckShowNameDialogSwitch.KEY.equals(optJSONObject.optString("name"))) {
-                                    i = optJSONObject.optInt("type", 0);
-                                    break;
-                                }
-                            }
-                        }
-                        i = 0;
-                        try {
-                            JSONObject jSONObject2 = jSONObject.getJSONObject("user_info");
-                            if (accountData != null && jSONObject2 != null) {
-                                accountData.setNameShow(jSONObject2.optString("name_show"));
-                            }
-                        } catch (JSONException e) {
-                            i2 = i;
-                            e = e;
-                            e.printStackTrace();
-                            i = i2;
-                            TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
-                            return accountData;
-                        }
-                    } catch (JSONException e2) {
-                        e = e2;
-                        i2 = 0;
-                    }
-                }
-                TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
-                return accountData;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null) {
+                return;
             }
-            return (AccountData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-                super.onPostExecute(accountData);
-                int i = 0;
-                ReloginManager.g().o(false);
-                hu4.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
-                if (accountData != null && accountData.getBDUSS() != null) {
-                    this.f.c(accountData);
-                    return;
-                }
-                String str = null;
-                if (this.a != null) {
-                    str = this.a.getErrorString();
-                    i = this.a.getServerErrorCode();
-                }
-                if (str == null) {
-                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0488);
-                }
-                this.f.a(this.b, i, str);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.cancel(true);
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                }
-            }
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.e = str;
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f.b(this.b);
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                i iVar = new i();
+                iVar.a(jSONObject);
+                this.a.add(iVar);
             }
         }
     }
 
-    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, tn4.a aVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, aVar)) == null) {
-            xn4 xn4Var = new xn4();
-            b bVar = new b(str, str2, str3, aVar, false);
-            if (xn4.b() && StringUtils.isNull(str4)) {
-                xn4Var.c(str2, new a(bVar, aVar, str));
-            } else {
-                if (xn4.b()) {
-                    bVar.d(str4);
+    /* loaded from: classes3.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public d a;
+        public a b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                bVar.execute(new String[0]);
             }
-            return bVar;
+            this.a = new d();
+            this.b = new a();
         }
-        return (BdAsyncTask) invokeLLLLL.objValue;
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a.a(jSONObject.optJSONObject("member"));
+            this.b.a(jSONObject.optJSONObject("adv_member"));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<e> a;
+        public List<g> b;
+        public String c;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new ArrayList();
+            this.b = new ArrayList();
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.c = jSONObject.optString("content");
+            jSONObject.optString("tip_text");
+            jSONObject.optString("img");
+            JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
+            if (optJSONArray == null) {
+                return;
+            }
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                e eVar = new e();
+                eVar.a(jSONObject2);
+                if (1 == eVar.g) {
+                    eVar.i = true;
+                } else {
+                    eVar.i = false;
+                }
+                this.a.add(eVar);
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
+            if (optJSONArray2 == null) {
+                return;
+            }
+            int length2 = optJSONArray2.length();
+            for (int i2 = 0; i2 < length2; i2++) {
+                JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
+                g gVar = new g();
+                gVar.a(jSONObject3);
+                this.b.add(gVar);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public long e;
+        public long f;
+        public long g;
+        public long h;
+        public boolean i;
+        public int j;
+        public boolean k;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("productId");
+            this.b = jSONObject.optString("title");
+            jSONObject.optString("desc");
+            this.c = jSONObject.optString("discount");
+            jSONObject.optString("original_cost");
+            jSONObject.optString("icon");
+            this.e = jSONObject.optLong("props_id");
+            this.f = jSONObject.optLong("money");
+            this.h = jSONObject.optLong("months");
+            this.g = jSONObject.optLong("default");
+            jSONObject.optString("packet_text");
+            this.j = jSONObject.optInt("is_autopay");
+            this.k = false;
+            jSONObject.optString("payment_pos_key");
+            this.d = jSONObject.optString("tag_name");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optLong("props_id");
+            jSONObject.optLong("end_time");
+            jSONObject.optString("pic_url");
+            jSONObject.optLong("upgrade_month");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            jSONObject.optString("name");
+            jSONObject.optLong("num");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public f a;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new f();
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            jSONObject.optLong("id");
+            jSONObject.optString("name");
+            jSONObject.optString("name_show");
+            jSONObject.optString("portrait");
+            jSONObject.optLong("user_type");
+            jSONObject.optLong("is_verify");
+            this.a.a(jSONObject.optJSONObject("pay_member_info"));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("equity_id");
+            this.b = jSONObject.optString("title");
+            this.c = jSONObject.optString("icon_url");
+            this.d = jSONObject.optString("link_url");
+        }
+    }
+
+    public an7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new h();
+        this.b = new c();
+        this.c = new b();
+    }
+
+    public void a(JSONObject jSONObject) throws Exception {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optInt("have_autopay", 0);
+        this.a.a(jSONObject.optJSONObject("user"));
+        this.b.a(jSONObject.optJSONObject("goods_info"));
+        jSONObject.optString("equal_cost");
+        this.c.a(jSONObject.optJSONArray("equity"));
     }
 }

@@ -1,67 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbChildTitleViewHolder;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.ew7;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes3.dex */
-public class dw7 extends gw7<jt7, PbChildTitleViewHolder> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dw7<V extends ew7, D extends IBaseDialogData> {
+    int a();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dw7(y08 y08Var, BdUniqueId bdUniqueId) {
-        super(y08Var, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y08Var, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((y08) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    boolean b();
 
-    @Override // com.baidu.tieba.gw7, com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (jt7) obj, (PbChildTitleViewHolder) viewHolder);
-        return view2;
-    }
+    boolean c();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public PbChildTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbChildTitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06a3, viewGroup, false)) : (PbChildTitleViewHolder) invokeL.objValue;
-    }
+    void dismiss();
 
-    public View v(int i, View view2, ViewGroup viewGroup, jt7 jt7Var, PbChildTitleViewHolder pbChildTitleViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jt7Var, pbChildTitleViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, jt7Var, pbChildTitleViewHolder);
-            pbChildTitleViewHolder.a(jt7Var);
-            pbChildTitleViewHolder.c();
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
+    void show();
 }

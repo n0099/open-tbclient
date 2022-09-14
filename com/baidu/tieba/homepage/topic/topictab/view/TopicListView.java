@@ -5,6 +5,7 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,17 +13,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.cv4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.k65;
-import com.baidu.tieba.l65;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.r37;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.s37;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.s85;
+import com.baidu.tieba.t85;
+import com.baidu.tieba.y47;
+import com.baidu.tieba.z47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,17 +35,17 @@ public class TopicListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public r37 c;
+    public y47 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public s37 f;
-    public cv4 g;
-    public k65 h;
-    public l65 i;
+    public z47 f;
+    public mx4 g;
+    public s85 h;
+    public t85 i;
     public ScrollFragmentTabHost j;
     public PbListView k;
     public RecyclerView.OnScrollListener l;
-    public ScrollFragmentTabHost.y m;
+    public ScrollFragmentTabHost.x m;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -74,7 +74,7 @@ public class TopicListView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && pi.A() && this.a.c != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately() && this.a.c != null) {
                 this.a.e.setVisibility(0);
                 this.a.c.a();
             }
@@ -96,22 +96,22 @@ public class TopicListView extends FrameLayout {
     }
 
     public void d() {
-        k65 k65Var;
+        s85 s85Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (k65Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (s85Var = this.h) == null) {
             return;
         }
-        k65Var.dettachView(this);
+        s85Var.dettachView(this);
         this.h = null;
     }
 
     public void e() {
-        l65 l65Var;
+        t85 t85Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (l65Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (t85Var = this.i) == null) {
             return;
         }
-        l65Var.dettachView(this);
+        t85Var.dettachView(this);
         this.i = null;
     }
 
@@ -127,9 +127,9 @@ public class TopicListView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            k65 k65Var = this.h;
-            if (k65Var != null) {
-                return k65Var.isViewAttached();
+            s85 s85Var = this.h;
+            if (s85Var != null) {
+                return s85Var.isViewAttached();
             }
             return false;
         }
@@ -140,9 +140,9 @@ public class TopicListView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            l65 l65Var = this.i;
-            if (l65Var != null) {
-                return l65Var.isViewAttached();
+            t85 t85Var = this.i;
+            if (t85Var != null) {
+                return t85Var.isViewAttached();
             }
             return false;
         }
@@ -156,21 +156,21 @@ public class TopicListView extends FrameLayout {
             return;
         }
         this.a = skinType;
-        cv4 cv4Var = this.g;
-        if (cv4Var != null) {
-            cv4Var.H(skinType);
+        mx4 mx4Var = this.g;
+        if (mx4Var != null) {
+            mx4Var.H(skinType);
         }
-        k65 k65Var = this.h;
-        if (k65Var != null) {
-            k65Var.onChangeSkinType();
+        s85 s85Var = this.h;
+        if (s85Var != null) {
+            s85Var.onChangeSkinType();
         }
-        l65 l65Var = this.i;
-        if (l65Var != null) {
-            l65Var.onChangeSkinType();
+        t85 t85Var = this.i;
+        if (t85Var != null) {
+            t85Var.onChangeSkinType();
         }
-        s37 s37Var = this.f;
-        if (s37Var != null) {
-            s37Var.a();
+        z47 z47Var = this.f;
+        if (z47Var != null) {
+            z47Var.a();
         }
         PbListView pbListView = this.k;
         if (pbListView != null) {
@@ -184,9 +184,9 @@ public class TopicListView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e.setSelection(0);
             o();
-            ScrollFragmentTabHost.y yVar = this.m;
-            if (yVar != null) {
-                yVar.c();
+            ScrollFragmentTabHost.x xVar = this.m;
+            if (xVar != null) {
+                xVar.c();
             }
         }
     }
@@ -206,8 +206,8 @@ public class TopicListView extends FrameLayout {
             return;
         }
         if (this.h == null) {
-            this.h = new k65(getContext());
-            int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - ri.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
+            this.h = new s85(getContext());
+            int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - ej.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
             this.h.i();
             this.h.s(height);
             this.h.onChangeSkinType();
@@ -221,7 +221,7 @@ public class TopicListView extends FrameLayout {
             return;
         }
         if (this.i == null) {
-            this.i = new l65(getContext(), new a(this));
+            this.i = new t85(getContext(), new a(this));
         }
         this.i.attachView(this, z);
         this.i.p();
@@ -233,9 +233,9 @@ public class TopicListView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.e.setNextPage(this.k);
             this.k.f();
-            this.k.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.k.t(ri.f(this.b.getPageActivity(), R.dimen.tbds150));
-            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
+            this.k.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.k.t(ej.f(this.b.getPageActivity(), R.dimen.tbds150));
+            this.k.D(getResources().getString(R.string.obfuscated_res_0x7f0f0fa1));
         }
     }
 
@@ -262,7 +262,7 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void setData(List<pn> list) {
+    public void setData(List<Cdo> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048591, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
@@ -270,33 +270,33 @@ public class TopicListView extends FrameLayout {
         this.f.b(list);
     }
 
-    public void setListPullRefreshListener(bv4.g gVar) {
-        cv4 cv4Var;
+    public void setListPullRefreshListener(lx4.g gVar) {
+        mx4 mx4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (cv4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (mx4Var = this.g) == null) {
             return;
         }
-        cv4Var.f(gVar);
+        mx4Var.f(gVar);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            s37 s37Var = this.f;
-            if (s37Var != null) {
-                s37Var.c(bdUniqueId);
+            z47 z47Var = this.f;
+            if (z47Var != null) {
+                z47Var.c(bdUniqueId);
             }
-            cv4 cv4Var = this.g;
-            if (cv4Var != null) {
-                cv4Var.b0(bdUniqueId);
+            mx4 mx4Var = this.g;
+            if (mx4Var != null) {
+                mx4Var.b0(bdUniqueId);
             }
         }
     }
 
-    public void setPresenter(r37 r37Var) {
+    public void setPresenter(y47 y47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, r37Var) == null) {
-            this.c = r37Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, y47Var) == null) {
+            this.c = y47Var;
         }
     }
 

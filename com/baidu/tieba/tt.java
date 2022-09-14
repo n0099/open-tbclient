@@ -1,95 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public final class tt extends lt<TaskResponseData> {
+public class tt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nt a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt(nt ntVar) {
-        super(ntVar);
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ntVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nt) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
-        this.a = ntVar;
+        return (String) invokeLLZ.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "response" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lt
-    /* renamed from: c */
-    public TaskResponseData a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        int optInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
             try {
-                jSONObject = new JSONObject(str);
-                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-            } catch (Exception e) {
-                e = e;
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
             }
-            try {
-                lt a = this.a.a("ui");
-                String optString = jSONObject.optString("ui");
-                Intrinsics.checkExpressionValueIsNotNull(optString, "responseObj.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData == null) {
-                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("progress");
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
-                }
-                int optInt2 = optJSONObject.optInt("total");
-                int optInt3 = optJSONObject.optInt(TaskProcessData.keyComplete);
-                boolean optBoolean = optJSONObject.optBoolean("done");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject(TaskResponseData.keyNextActive);
-                if (optJSONObject2 == null) {
-                    optJSONObject2 = new JSONObject();
-                }
-                long optLong = optJSONObject2.optLong(NextActive.keyUtil, 0L);
-                String taskInfo = optJSONObject2.optString(NextActive.keyTaskInfo, "");
-                TaskProcessData taskProcessData = new TaskProcessData(optInt2, optInt3, optBoolean);
-                Intrinsics.checkExpressionValueIsNotNull(taskInfo, "taskInfo");
-                return new TaskResponseData(optInt, taskProcessData, taskUIData, new NextActive(optLong, taskInfo));
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return new TaskResponseData(0, null, null, null, 15, null);
-            }
+            return a(bArr, "", z);
         }
-        return (TaskResponseData) invokeL.objValue;
+        return (String) invokeLZ.objValue;
     }
 }

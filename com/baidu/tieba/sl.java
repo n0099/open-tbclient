@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class sl {
+public class sl implements DownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public IPackageDownloadCallback a;
 
-    public sl() {
+    public sl(IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iPackageDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,78 +31,67 @@ public abstract class sl {
                 return;
             }
         }
-        this.a = false;
+        this.a = iPackageDownloadCallback;
     }
 
-    public abstract String a();
-
-    public void b(int i) {
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onBulkDownloaded(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        if (TextUtils.isEmpty(a())) {
-            return;
-        }
-        try {
-            new JSONObject().put("version", i);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, list3) == null) {
         }
     }
 
-    public void c(int i, long j) {
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadCancel(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
-            String str = a + "_download";
-            if (i == 0) {
-                rl.c(str, arrayList);
-            } else {
-                rl.b(str, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo) == null) {
         }
     }
 
-    public void d(int i, int i2) {
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_install";
-            if (i == 13) {
-                rl.c(str, arrayList);
-            } else {
-                rl.b(str, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
+            this.a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
+            dm.b(packageInfo.packageName, 1, packageInfo.version);
         }
     }
 
-    public void e(int i, int i2) {
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadPause(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_launch";
-            if (i == 14) {
-                rl.c(str, arrayList);
-            } else {
-                rl.b(str, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.a.onProgress(j, j2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadResume(PackageInfo packageInfo, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadStart(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, packageInfo) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, packageInfo, errorInfo) == null) {
+            this.a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
+            dm.b(packageInfo.packageName, 0, packageInfo.version);
         }
     }
 }

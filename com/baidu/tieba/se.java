@@ -1,69 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
-public class se extends l9 {
+public class se {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se(Context context, String str) {
-        super(context, str, 1);
+    public static final boolean a(tc tcVar, od odVar) {
+        InterceptResult invokeLL;
+        bd a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tcVar, odVar)) == null) {
+            if (tcVar == null || odVar == null) {
+                return false;
             }
+            for (Field field : rc.b(tcVar.getClass())) {
+                if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
+                    String name = field.getName();
+                    if (!TextUtils.isEmpty(name) && (a = ue.a(rc.d(tcVar, name))) != null) {
+                        Object obj = null;
+                        if (odVar instanceof qd) {
+                            obj = a.f(new re(field.getGenericType()));
+                        } else if (odVar instanceof md) {
+                            obj = a.d(new re(field.getGenericType()));
+                        } else if (odVar instanceof pd) {
+                            obj = a.e(new re(field.getGenericType()));
+                        } else if (odVar instanceof rd) {
+                            obj = a.b(new re(field.getGenericType()));
+                        } else if (odVar instanceof nd) {
+                            obj = a.a(new re(field.getGenericType()));
+                        } else if (odVar instanceof sd) {
+                            obj = a.c(new re(field.getGenericType()));
+                        }
+                        if (obj != null) {
+                            odVar.a(name, obj);
+                        }
+                    }
+                }
+            }
+            return true;
         }
-    }
-
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
-        }
-    }
-
-    @Override // com.baidu.tieba.l9
-    public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.l9
-    public void createAllTables(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.j9
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) || i >= 1) {
-            return;
-        }
-        a(sQLiteDatabase);
+        return invokeLL.booleanValue;
     }
 }

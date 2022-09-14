@@ -1,49 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
+import android.net.Uri;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class aa2 implements z92 {
+public class aa2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
-    public aa2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947608375, "Lcom/baidu/tieba/aa2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947608375, "Lcom/baidu/tieba/aa2;");
                 return;
             }
         }
-        this.a = new String[]{hk2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), hk2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
+        a = "content://" + x92.b + "/history_with_app";
+        b = "content://" + x92.b + "/history";
+        c = "content://" + x92.b + "/history_with_aps_pms";
     }
 
-    @Override // com.baidu.tieba.z92
-    public ArraySet<String> a() {
+    public static Uri a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = ch4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
-            }
-            ay1.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(b) : (Uri) invokeV.objValue;
+    }
+
+    public static Uri b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(a) : (Uri) invokeV.objValue;
+    }
+
+    public static Uri c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(c) : (Uri) invokeV.objValue;
     }
 }

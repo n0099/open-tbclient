@@ -2,7 +2,6 @@ package com.google.android.gms.common.internal;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public abstract class DowngradeableSafeParcel extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -50,6 +51,7 @@ public abstract class DowngradeableSafeParcel extends AbstractSafeParcelable imp
         this.zzb = false;
     }
 
+    @KeepForSdk
     public static boolean canUnparcelSafely(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -62,6 +64,7 @@ public abstract class DowngradeableSafeParcel extends AbstractSafeParcelable imp
     }
 
     @Nullable
+    @KeepForSdk
     public static Integer getUnparcelClientVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,18 +76,21 @@ public abstract class DowngradeableSafeParcel extends AbstractSafeParcelable imp
         return (Integer) invokeV.objValue;
     }
 
+    @KeepForSdk
     public abstract boolean prepareForClientVersion(int i);
 
+    @KeepForSdk
     public void setShouldDowngrade(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             this.zzb = z;
         }
     }
 
+    @KeepForSdk
     public boolean shouldDowngrade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzb : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzb : invokeV.booleanValue;
     }
 }

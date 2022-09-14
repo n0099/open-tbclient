@@ -1,33 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class au1 extends xt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(au1 au1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {au1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                h22 V = lo2.U().V();
+                if (V == null) {
+                    yz1.c("CloseAppApi", "close fail by getSwanAppFragmentManager() return null");
+                    return;
+                }
+                g22 o = V.o();
+                if (o == null) {
+                    yz1.c("CloseAppApi", "close fail by getTopFragment() return null");
+                } else {
+                    o.m2();
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au1(x13 x13Var) {
-        super(x13Var, "/swanAPI/canvas/insert");
+    public au1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((x13) objArr2[0], (String) objArr2[1]);
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,37 +74,38 @@ public class au1 extends xt1 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.br1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            xv1 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                ay1.c("SwanAppCanvas", "insert action parse model is null");
-                return false;
-            } else if (context == null) {
-                ay1.c("SwanAppCanvas", "context is null");
-                unitedSchemeEntity.result = l(1001);
-                return false;
-            } else {
-                String str = k.b;
-                gr2 gr2Var = k.h;
-                if (!TextUtils.isEmpty(str) && gr2Var != null && gr2Var.h()) {
-                    rw1 insert = new ax1(context, k).insert();
-                    boolean a = insert.a();
-                    if (!a) {
-                        ay1.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
-                    }
-                    j(unitedSchemeEntity, callbackHandler, a);
-                    return a;
-                }
-                ay1.c("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = l(202);
-                return false;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CloseAppApi" : (String) invokeV.objValue;
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            sg3.e0(new a(this));
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public yu1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#hasCloseHandler", false);
+            Pair<yu1, JSONObject> s = s(str);
+            yu1 yu1Var = (yu1) s.first;
+            if (!yu1Var.isSuccess()) {
+                x();
+                return yu1Var;
+            }
+            if (((JSONObject) s.second).optBoolean("hasCloseHandler", false)) {
+                df4.a().c();
+            } else {
+                x();
+            }
+            return yu1.f();
+        }
+        return (yu1) invokeL.objValue;
     }
 }

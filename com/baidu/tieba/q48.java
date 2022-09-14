@@ -1,285 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishGuideActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tieba.personCenter.model.PersonCreatorModel;
-import com.baidu.tieba.personCenter.view.PersonCreatorCenterDataView;
-import com.baidu.tieba.personCenter.view.PersonCreatorCenterFunView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CreationData;
 /* loaded from: classes5.dex */
-public class q48 extends hz5<a48> {
+public class q48 extends qn<e58, CardViewHolder<u58>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PersonCreatorCenterDataView A;
-    public LinearLayout B;
-    public LinearLayout C;
-    public LinearLayout D;
-    public LinearLayout E;
-    public FrameLayout F;
-    public TextView G;
-    public TextView H;
-    public TextView I;
-    public View J;
-    public View K;
-    public View L;
-    public PersonCreatorCenterFunView M;
-    public PersonCreatorCenterFunView N;
-    public PersonCreatorCenterFunView O;
-    public PersonCreatorCenterFunView P;
-    public PersonCreatorModel i;
-    public TbPageContext j;
-    public LinearLayout k;
-    public LinearLayout l;
-    public LinearLayout m;
-    public TBSpecificationBtn n;
-    public TBSpecificationBtn o;
-    public PersonCreatorCenterFunView p;
-    public PersonCreatorCenterFunView q;
-    public PersonCreatorCenterFunView r;
-    public PersonCreatorCenterDataView s;
-    public PersonCreatorCenterDataView t;
-    public PersonCreatorCenterDataView u;
-    public ImageView v;
-    public PersonCreatorCenterFunView w;
-    public PersonCreatorCenterFunView x;
-    public PersonCreatorCenterDataView y;
-    public PersonCreatorCenterDataView z;
+    public TbPageContext a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q48(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public q48(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = tbPageContext;
-        this.i = new PersonCreatorModel(tbPageContext);
-        View h = h();
-        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918d8);
-        this.B = linearLayout;
-        linearLayout.setOnClickListener(this);
-        LinearLayout linearLayout2 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918d3);
-        this.C = linearLayout2;
-        linearLayout2.setOnClickListener(this);
-        LinearLayout linearLayout3 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918d9);
-        this.D = linearLayout3;
-        linearLayout3.setOnClickListener(this);
-        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09101c);
-        this.F = frameLayout;
-        frameLayout.setOnClickListener(this);
-        this.G = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0918d7);
-        this.I = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0918d2);
-        this.J = h.findViewById(R.id.obfuscated_res_0x7f0903a0);
-        this.K = h.findViewById(R.id.obfuscated_res_0x7f0903a2);
-        this.L = h.findViewById(R.id.obfuscated_res_0x7f0903a1);
-        this.l = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091900);
-        this.m = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918ff);
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f0906e5);
-        this.n = tBSpecificationBtn;
-        tBSpecificationBtn.setText("投稿");
-        this.H = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09071d);
-        TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f0912dc);
-        this.o = tBSpecificationBtn2;
-        tBSpecificationBtn2.setText("立即开通");
-        PersonCreatorCenterFunView personCreatorCenterFunView = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f8);
-        this.p = personCreatorCenterFunView;
-        personCreatorCenterFunView.a(R.drawable.obfuscated_res_0x7f080830, "创作首页");
-        PersonCreatorCenterFunView personCreatorCenterFunView2 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f9);
-        this.q = personCreatorCenterFunView2;
-        personCreatorCenterFunView2.a(R.drawable.obfuscated_res_0x7f080829, "视频管理");
-        PersonCreatorCenterFunView personCreatorCenterFunView3 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f7);
-        this.r = personCreatorCenterFunView3;
-        personCreatorCenterFunView3.a(R.drawable.obfuscated_res_0x7f08082c, "视频数据");
-        this.s = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09267f);
-        this.t = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09267e);
-        this.u = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09267c);
-        this.k = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918fd);
-        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0918d1);
-        PersonCreatorCenterFunView personCreatorCenterFunView4 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f6);
-        this.w = personCreatorCenterFunView4;
-        personCreatorCenterFunView4.a(R.drawable.obfuscated_res_0x7f0807ff, "大神认证");
-        PersonCreatorCenterFunView personCreatorCenterFunView5 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918fa);
-        this.x = personCreatorCenterFunView5;
-        personCreatorCenterFunView5.a(R.drawable.obfuscated_res_0x7f08082c, "贴子数据");
-        this.y = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092681);
-        this.z = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092680);
-        this.A = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f09267d);
-        PersonCreatorCenterFunView personCreatorCenterFunView6 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918fe);
-        this.M = personCreatorCenterFunView6;
-        personCreatorCenterFunView6.a(R.drawable.obfuscated_res_0x7f080863, "全新发布体验");
-        PersonCreatorCenterFunView personCreatorCenterFunView7 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918fc);
-        this.N = personCreatorCenterFunView7;
-        personCreatorCenterFunView7.a(R.drawable.obfuscated_res_0x7f080b13, "个人主页升级");
-        PersonCreatorCenterFunView personCreatorCenterFunView8 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f5);
-        this.O = personCreatorCenterFunView8;
-        personCreatorCenterFunView8.a(R.drawable.obfuscated_res_0x7f0808f3, "专属流量扶持");
-        PersonCreatorCenterFunView personCreatorCenterFunView9 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918fb);
-        this.P = personCreatorCenterFunView9;
-        personCreatorCenterFunView9.a(R.drawable.obfuscated_res_0x7f080770, "百万现金激励");
-        if (Build.VERSION.SDK_INT < 24) {
-            LinearLayout linearLayout4 = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091957);
-            this.E = linearLayout4;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout4.getLayoutParams();
-            layoutParams.bottomMargin = ri.f(this.c, R.dimen.tbds37);
-            this.E.setLayoutParams(layoutParams);
-        }
-        j(tbPageContext, this.a);
-    }
-
-    @Override // com.baidu.tieba.hz5
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f4 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hz5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.J, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.K, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.L, R.color.CAM_X0204);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.v, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            ns4 d = ns4.d(this.l);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            ns4 d2 = ns4.d(this.k);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0205);
-            ns4 d3 = ns4.d(this.m);
-            d3.n(R.string.J_X06);
-            d3.f(R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.G, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.I, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.p.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.q.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.r.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.w.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.x.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.s.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.s.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.t.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.t.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.u.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.u.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.y.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.y.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.z.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.z.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.A.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.A.h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0105);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (R.id.obfuscated_res_0x7f0918d8 == view2.getId()) {
-                mz8 mz8Var = new mz8(g(), (ViewGroup) h(), "person", 3, null);
-                mz8Var.E("5");
-                mz8Var.v(WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_PERSON);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", "9"));
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-            } else if (R.id.obfuscated_res_0x7f0918d3 == view2.getId()) {
-                s(TbConfig.URL_CREATE_CENTER);
-                TiebaStatic.log(new StatisticItem("c14149").param("obj_locate", "2"));
-                TiebaStatic.log(new StatisticItem("c14149").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-            } else if (R.id.obfuscated_res_0x7f0918d9 == view2.getId()) {
-                this.i.A(true);
-            } else if (R.id.obfuscated_res_0x7f09101c == view2.getId()) {
-                WorkPublishGuideActivityConfig workPublishGuideActivityConfig = new WorkPublishGuideActivityConfig(getContext());
-                workPublishGuideActivityConfig.setRequestCode(25064);
-                workPublishGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishGuideActivityConfig));
-            }
-        }
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
-    /* renamed from: r */
-    public void i(a48 a48Var) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public CardViewHolder<u58> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, a48Var) == null) {
-            if (a48Var == null) {
-                q(8);
-                return;
-            }
-            CreationData f = a48Var.f();
-            if (f == null) {
-                this.l.setVisibility(8);
-                this.m.setVisibility(0);
-            } else {
-                this.l.setVisibility(0);
-                this.m.setVisibility(8);
-                this.s.a(f.view_count.intValue(), "昨日播放", f.view_count_trend.intValue());
-                this.t.a(f.valid_play_count.intValue(), "昨日有效播放", f.valid_play_count_trend.intValue());
-                this.u.a(f.agree_count.intValue(), "昨日视频点赞", f.agree_count_trend.intValue());
-            }
-            if (TbSingleton.getInstance().getNewGodData() != null) {
-                NewGodData newGodData = TbSingleton.getInstance().getNewGodData();
-                if (!StringUtils.isNull(newGodData.getFieldName()) && newGodData.getStatus() == 3) {
-                    this.x.a(R.drawable.obfuscated_res_0x7f08082c, "创作数据");
-                    this.w.a(R.drawable.obfuscated_res_0x7f0807ff, "大神考核");
-                }
-            }
-            CreationData c = a48Var.c();
-            this.y.a(c.view_count.intValue(), "昨日新增浏览", c.view_count_trend.intValue());
-            this.z.a(c.agree_count.intValue(), "昨日新增点赞", c.agree_count_trend.intValue());
-            this.A.a(c.comment_count.intValue(), "昨日新增评论", c.comment_trend.intValue());
-            j(this.j, this.a);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new u58(this.a)) : (CardViewHolder) invokeL.objValue;
     }
 
-    public final void s(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e58 e58Var, CardViewHolder<u58> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getContext(), "", str, true);
-            tbWebViewActivityConfig.setFixTitle(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e58Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(e58Var);
+            return cardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

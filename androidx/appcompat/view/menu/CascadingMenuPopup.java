@@ -23,8 +23,6 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$dimen;
-import androidx.appcompat.R$layout;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.MenuItemHoverListener;
 import androidx.appcompat.widget.MenuPopupWindow;
@@ -32,6 +30,7 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +47,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HORIZ_POSITION_LEFT = 0;
     public static final int HORIZ_POSITION_RIGHT = 1;
-    public static final int ITEM_LAYOUT;
+    public static final int ITEM_LAYOUT = 2131558411;
     public static final int SUBMENU_TIMEOUT_MS = 200;
     public transient /* synthetic */ FieldHolder $fh;
     public View mAnchorView;
@@ -121,17 +120,16 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1230074893, "Landroidx/appcompat/view/menu/CascadingMenuPopup;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1230074893, "Landroidx/appcompat/view/menu/CascadingMenuPopup;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1230074893, "Landroidx/appcompat/view/menu/CascadingMenuPopup;")) == null) {
+            return;
         }
-        ITEM_LAYOUT = R$layout.abc_cascading_menu_item_layout;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1230074893, "Landroidx/appcompat/view/menu/CascadingMenuPopup;");
+        }
     }
 
     public CascadingMenuPopup(@NonNull Context context, @NonNull View view2, @AttrRes int i, @StyleRes int i2, boolean z) {
@@ -346,7 +344,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         this.mForceShowIcon = false;
         this.mLastPosition = getInitialMenuPosition();
         Resources resources = context.getResources();
-        this.mMenuMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R$dimen.abc_config_prefDialogWidth));
+        this.mMenuMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700a2));
         this.mSubMenuHoverHandler = new Handler();
     }
 
@@ -541,7 +539,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
             ListView listView = createPopupWindow.getListView();
             listView.setOnKeyListener(this);
             if (cascadingMenuInfo == null && this.mShowTitle && menuBuilder.getHeaderTitle() != null) {
-                FrameLayout frameLayout = (FrameLayout) from.inflate(R$layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
+                FrameLayout frameLayout = (FrameLayout) from.inflate(R.layout.obfuscated_res_0x7f0d0012, (ViewGroup) listView, false);
                 frameLayout.setEnabled(false);
                 ((TextView) frameLayout.findViewById(16908310)).setText(menuBuilder.getHeaderTitle());
                 listView.addHeaderView(frameLayout, null, false);

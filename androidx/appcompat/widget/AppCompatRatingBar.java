@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.RatingBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R$attr;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +55,7 @@ public class AppCompatRatingBar extends RatingBar {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.ratingBarStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

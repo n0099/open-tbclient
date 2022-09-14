@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.t17;
+import com.baidu.tieba.a37;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PostAnimateFloatView extends FrameLayout implements jx {
+public class PostAnimateFloatView extends FrameLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements jx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                t17.g();
+                a37.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -280,7 +280,7 @@ public class PostAnimateFloatView extends FrameLayout implements jx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.d) {
                 this.a.e = false;
-                sg.a().postDelayed(this.a.i, 5000L);
+                gh.a().postDelayed(this.a.i, 5000L);
             }
         }
 
@@ -356,19 +356,19 @@ public class PostAnimateFloatView extends FrameLayout implements jx {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            sg.a().removeCallbacks(this.i);
+            gh.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b8, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c1c);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a05);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a1c);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c5, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6a);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a43);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a5b);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ee0));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0efd));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -412,13 +412,13 @@ public class PostAnimateFloatView extends FrameLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.xx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08094d, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080969, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements jx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                ns4 d2 = ns4.d(linearLayout);
+                uu4 d2 = uu4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

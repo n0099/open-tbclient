@@ -1,53 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class p72 {
+public final class p72 implements t72.a {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<m72> a;
+    public String b;
+    public Map<String, String> c;
+    public int d;
+    public boolean e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948014878, "Lcom/baidu/tieba/p72;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public p72(CopyOnWriteArrayList<m72> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948014878, "Lcom/baidu/tieba/p72;");
+        this.a = copyOnWriteArrayList;
+        this.b = str;
+        this.c = map;
+        this.d = i;
+        this.e = z;
+    }
+
+    @Override // com.baidu.tieba.t72.a
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public static int a(@NonNull xl2 xl2Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.t72.a
+    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xl2Var)) == null) {
-            int i = a;
-            return i != 0 ? i : xl2Var.j("preAppReadyState", 0);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
+            if (this.d >= this.a.size()) {
+                return null;
+            }
+            return this.a.get(this.d).a(new p72(this.a, this.b, this.c, this.d + 1, z));
         }
-        return invokeL.intValue;
+        return (WebResourceResponse) invokeLLZ.objValue;
     }
 
-    public static void b() {
+    @Override // com.baidu.tieba.t72.a
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
-    public static void c(int i) {
+    @Override // com.baidu.tieba.t72.a
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t72.a
+    public String getMimeType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.f)) {
+                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
+            }
+            return this.f;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t72.a
+    public Map<String, String> getRequestHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (Map) invokeV.objValue;
     }
 }

@@ -43,7 +43,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
-import androidx.appcompat.R$styleable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.TooltipCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -93,9 +92,7 @@ public class TabLayout extends HorizontalScrollView {
     public static final int DEFAULT_HEIGHT = 48;
     @Dimension(unit = 0)
     public static final int DEFAULT_HEIGHT_WITH_TEXT_ICON = 72;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100337 = 2131755831;
+    public static final int DEF_STYLE_RES = 2131755832;
     @Dimension(unit = 0)
     public static final int FIXED_WRAP_GUTTER_MIN = 16;
     public static final int GRAVITY_CENTER = 1;
@@ -978,7 +975,7 @@ public class TabLayout extends HorizontalScrollView {
                 } else {
                     frameLayout = this;
                 }
-                ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) frameLayout, false);
+                ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0218, (ViewGroup) frameLayout, false);
                 this.iconView = imageView;
                 frameLayout.addView(imageView, 0);
             }
@@ -996,7 +993,7 @@ public class TabLayout extends HorizontalScrollView {
                 } else {
                     frameLayout = this;
                 }
-                TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0215, (ViewGroup) frameLayout, false);
+                TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0219, (ViewGroup) frameLayout, false);
                 this.textView = textView;
                 frameLayout.addView(textView);
             }
@@ -2864,7 +2861,7 @@ public class TabLayout extends HorizontalScrollView {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100337), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2891,7 +2888,7 @@ public class TabLayout extends HorizontalScrollView {
         SlidingTabIndicator slidingTabIndicator = new SlidingTabIndicator(this, context2);
         this.slidingTabIndicator = slidingTabIndicator;
         super.addView(slidingTabIndicator, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067b, R.attr.obfuscated_res_0x7f04067c, R.attr.obfuscated_res_0x7f04067d, R.attr.obfuscated_res_0x7f04067e, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040680, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f040682, R.attr.obfuscated_res_0x7f040683, R.attr.obfuscated_res_0x7f040684, R.attr.obfuscated_res_0x7f040686, R.attr.obfuscated_res_0x7f040687, R.attr.obfuscated_res_0x7f040688, R.attr.obfuscated_res_0x7f040689, R.attr.obfuscated_res_0x7f04068a, R.attr.obfuscated_res_0x7f04068b, R.attr.obfuscated_res_0x7f04068c, R.attr.obfuscated_res_0x7f04068d, R.attr.obfuscated_res_0x7f04068e, R.attr.obfuscated_res_0x7f04068f, R.attr.obfuscated_res_0x7f040690, R.attr.obfuscated_res_0x7f040692, R.attr.obfuscated_res_0x7f040693, R.attr.obfuscated_res_0x7f040694}, i, obfuscated_res_0x7f100337, 22);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.TabLayout, i, DEF_STYLE_RES, 22);
         if (getBackground() instanceof ColorDrawable) {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(((ColorDrawable) getBackground()).getColor()));
@@ -2915,10 +2912,10 @@ public class TabLayout extends HorizontalScrollView {
         this.tabPaddingBottom = obtainStyledAttributes.getDimensionPixelSize(16, this.tabPaddingBottom);
         int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f100205);
         this.tabTextAppearance = resourceId;
-        TypedArray obtainStyledAttributes2 = context2.obtainStyledAttributes(resourceId, R$styleable.TextAppearance);
+        TypedArray obtainStyledAttributes2 = context2.obtainStyledAttributes(resourceId, androidx.appcompat.R.styleable.TextAppearance);
         try {
-            this.tabTextSize = obtainStyledAttributes2.getDimensionPixelSize(R$styleable.TextAppearance_android_textSize, 0);
-            this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes2, R$styleable.TextAppearance_android_textColor);
+            this.tabTextSize = obtainStyledAttributes2.getDimensionPixelSize(0, 0);
+            this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes2, 3);
             obtainStyledAttributes2.recycle();
             if (obtainStyledAttributes.hasValue(23)) {
                 this.tabTextColors = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 23);

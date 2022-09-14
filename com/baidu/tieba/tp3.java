@@ -1,50 +1,103 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import java.io.File;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes6.dex */
-public interface tp3 {
-    String a();
+public final class tp3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    /* loaded from: classes6.dex */
+    public static class a implements a92 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    String c();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull ap3 ap3Var);
+        @Override // com.baidu.tieba.a92
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
-    String e();
+        @Override // com.baidu.tieba.a92
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+    }
 
-    String f(String str);
+    /* loaded from: classes6.dex */
+    public interface b {
+        xf4 a();
 
-    String g();
+        void b(boolean z, a92 a92Var);
 
-    String getAppId();
+        boolean c();
 
-    String getAppKey();
+        Bitmap d();
+    }
 
-    String getScene();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948188850, "Lcom/baidu/tieba/tp3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948188850, "Lcom/baidu/tieba/tp3;");
+        }
+    }
 
-    String getSdkVersion();
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && ProcessUtils.isMainProcess() && !fm2.w0().d()) {
+            synchronized (SwanAppInitHelper.class) {
+                if (SwanAppInitHelper.isDelayInit()) {
+                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
+                }
+            }
+            c92 c92Var = new c92();
+            c92Var.a = "by_silent";
+            fm2.w0().b(c92Var, new a());
+        }
+    }
 
-    int h();
-
-    String i(String str);
-
-    int j();
-
-    int k();
-
-    Uri l(@NonNull Context context, @NonNull File file);
-
-    String m();
-
-    JSONObject n();
-
-    boolean o(View view2);
+    @Inject(force = false)
+    public static b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ms5.a() : (b) invokeV.objValue;
+    }
 }

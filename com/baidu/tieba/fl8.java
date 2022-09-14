@@ -2,25 +2,37 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.FrsPage.BusinessPromot;
 /* loaded from: classes4.dex */
 public class fl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public boolean c;
-    public boolean d;
+    public String c;
+    public int d;
     public String e;
-    public Object f;
-    public AgreeData g;
-    public int h;
+    public String f;
+    public String g;
+    public String h;
     public int i;
+    public long j;
+    public List<gl8> k;
+    public int l;
+    public List<String> m;
+    public boolean n;
+    public boolean o;
+    public wl8 p;
+    public String q;
+    public String r;
+    public boolean s;
 
     public fl8() {
         Interceptable interceptable = $ic;
@@ -35,28 +47,25 @@ public class fl8 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.e = "";
-        this.i = 0;
+        this.n = false;
     }
 
-    public int a() {
+    public List<gl8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (List) invokeV.objValue;
     }
 
-    public AgreeData b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (AgreeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.q : (String) invokeV.objValue;
     }
 
-    public String c() {
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.longValue;
     }
 
     public String d() {
@@ -65,96 +74,130 @@ public class fl8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public Object e() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public int f() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.o : invokeV.booleanValue;
     }
 
-    public String g() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.s : invokeV.booleanValue;
     }
 
-    public boolean h() {
+    public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public boolean i() {
+    public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    public void j(int i) {
+    public wl8 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.p : (wl8) invokeV.objValue;
     }
 
-    public void k(AgreeData agreeData) {
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, agreeData) == null) {
-            this.g = agreeData;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (String) invokeV.objValue;
     }
 
-    public void l(String str) {
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.e = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
-    public void m(String str) {
+    public List<String> l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.b = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.m : (List) invokeV.objValue;
     }
 
-    public void n(boolean z) {
+    public String m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.c = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public void o(Object obj) {
+    public int n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
-            this.f = obj;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.l : invokeV.intValue;
     }
 
-    public void p(boolean z) {
+    public String o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.d = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void q(int i) {
+    public String p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.i = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public void r(String str) {
+    public String q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.a = str;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.r : (String) invokeV.objValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.n : invokeV.booleanValue;
+    }
+
+    public void s(BusinessPromot businessPromot) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, businessPromot) == null) || businessPromot == null) {
+            return;
         }
+        this.a = businessPromot.title;
+        this.b = businessPromot.img;
+        this.c = businessPromot.img_popup;
+        this.d = businessPromot.type.intValue();
+        this.e = businessPromot.thread_id;
+        this.f = businessPromot.url;
+        this.g = businessPromot.schema;
+        this.i = businessPromot.join_num.intValue();
+        this.j = businessPromot.id.longValue();
+        this.n = businessPromot.is_allow_shake.booleanValue();
+        this.o = businessPromot.is_ad.booleanValue();
+        this.h = businessPromot.package_name;
+        this.q = businessPromot.cover_url;
+        this.r = businessPromot.video_url;
+        this.s = businessPromot.ban_dialog.intValue() == 1;
+        if (businessPromot.comment_list != null) {
+            this.k = new LinkedList();
+            for (int i = 0; i < businessPromot.comment_list.size(); i++) {
+                if (businessPromot.comment_list.get(i) != null) {
+                    gl8 gl8Var = new gl8();
+                    gl8Var.c(businessPromot.comment_list.get(i));
+                    this.k.add(gl8Var);
+                }
+            }
+        }
+        this.l = businessPromot.thread_type.intValue();
+        this.m = businessPromot.third_statistics_url;
+        wl8 wl8Var = new wl8();
+        this.p = wl8Var;
+        wl8Var.c(businessPromot);
     }
 }

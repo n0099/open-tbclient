@@ -14,6 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.x11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -123,13 +124,13 @@ public class BannerDownloadView extends AppCompatTextView {
     public final void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e8, R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404ea, R.attr.obfuscated_res_0x7f0404eb, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f0404ed, R.attr.obfuscated_res_0x7f0404ee, R.attr.obfuscated_res_0x7f0404ef, R.attr.obfuscated_res_0x7f0404f0, R.attr.obfuscated_res_0x7f0404f1, R.attr.obfuscated_res_0x7f0404f2, R.attr.obfuscated_res_0x7f0404f3, R.attr.obfuscated_res_0x7f0404f4});
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f06082c);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06082b);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, x11.nad_progress);
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f06083e);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f06083d);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070563);
             this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070562);
             this.d = obtainStyledAttributes.getInteger(0, color2);
-            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06082a));
+            this.e = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06083c));
             this.b = obtainStyledAttributes.getColor(8, color);
             this.g = obtainStyledAttributes.getFloat(2, this.g);
             this.a = obtainStyledAttributes.getFloat(4, 0.0f);

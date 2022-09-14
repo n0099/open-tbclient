@@ -35,7 +35,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
-            super(R.layout.obfuscated_res_0x7f0d047e);
+            super(R.layout.obfuscated_res_0x7f0d0482);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b() {
-            super(R.layout.obfuscated_res_0x7f0d047f);
+            super(R.layout.obfuscated_res_0x7f0d0483);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,9 +101,9 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091219);
-                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09121a);
-                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09121b);
+                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091237);
+                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091238);
+                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091239);
             }
         }
 
@@ -125,7 +125,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c() {
-            super(R.layout.obfuscated_res_0x7f0d0480);
+            super(R.layout.obfuscated_res_0x7f0d0484);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0924bb);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092516);
             }
         }
 
@@ -173,7 +173,7 @@ public class TailFrameView extends KSFrameLayout {
                     this.xi.setVisibility(8);
                     this.bq.setVisibility(8);
                     View view2 = this.wU;
-                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060777));
+                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060789));
                 }
                 jm();
             }
@@ -187,7 +187,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d0481);
+            super(R.layout.obfuscated_res_0x7f0d0485);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,7 +210,7 @@ public class TailFrameView extends KSFrameLayout {
                 super.a(adTemplate, jSONObject, bVar);
                 if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
                     View view2 = this.wU;
-                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060777));
+                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060789));
                     this.wV.setVisibility(8);
                     this.bq.setVisibility(8);
                 }

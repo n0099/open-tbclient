@@ -1,193 +1,522 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.util.MaskView;
+import com.baidu.tbadk.widget.layout.FlowLayout;
+import com.baidu.tieba.pb.view.TextSizeSeekBar;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gy7 {
+public class gy7 extends p9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int x;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public mu7 b;
-    public View c;
-    public View d;
-    public TextView e;
-    public View f;
-    public View g;
-    public View h;
-    public Button i;
+    public BaseFragment a;
+    public View b;
+    public FlowLayout c;
+    public EMTextView d;
+    public EMTextView e;
+    public EMTextView f;
+    public EMTextView g;
+    public EMTextView h;
+    public EMTextView i;
+    public EMTextView j;
+    public EMTextView k;
+    public EMTextView l;
+    public EMTextView m;
+    public EMTextView n;
+    public EMTextView o;
+    public EMTextView p;
+    public EMTextView q;
+    public LinearLayout r;
+    public TextSizeSeekBar s;
+    public EMTextView t;
+    public View u;
+    public View.OnClickListener v;
+    public boolean w;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(gy7 gy7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810340, "Lcom/baidu/tieba/gy7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947810340, "Lcom/baidu/tieba/gy7;");
+                return;
             }
         }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
+        x = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds78);
     }
 
-    public gy7(PbFragment pbFragment, mu7 mu7Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gy7(BaseFragment baseFragment, View.OnClickListener onClickListener) {
+        super(baseFragment.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, mu7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {baseFragment, onClickListener};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.a = pbFragment;
-        this.b = mu7Var;
-        d();
+        this.n = null;
+        this.v = null;
+        this.a = baseFragment;
+        this.v = onClickListener;
+        z();
     }
 
-    public void a(BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) {
-            bdTypeListView.addHeaderView(this.c);
-        }
-    }
-
-    public boolean b(boolean z) {
-        InterceptResult invokeZ;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            Button button = this.i;
-            if (button != null && button.getVisibility() == 0) {
-                View view2 = this.f;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-                z2 = true;
-            } else {
-                View view3 = this.f;
-                if (view3 != null) {
-                    view3.setVisibility(8);
-                }
-                z2 = false;
-            }
-            View view4 = this.h;
-            if ((view4 == null || view4.getVisibility() == 8) && z2 && z) {
-                this.g.setVisibility(0);
-            } else {
-                this.g.setVisibility(8);
-            }
-            return z2;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public View c() {
+    public final boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) this.a.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            int i = displayMetrics.densityDpi;
+            return i % 160 == 0 || ((double) ((((float) i) * 1.0f) / 160.0f)) == 1.5d;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final void d() {
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d062c, (ViewGroup) null);
-            this.c = inflate;
-            inflate.setOnTouchListener(this.b);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0917ed);
-            this.d = findViewById;
-            findViewById.setVisibility(8);
-            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917ec);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f09165c);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f09165d);
-            this.c.setOnLongClickListener(new a(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public void e(int i) {
+    public void C() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a.getBaseFragmentActivity().getLayoutMode().k(this.c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0213);
+            uu4 d = uu4.d(this.r);
+            d.n(R.string.J_X14);
+            d.f(R.color.CAM_X0213);
+            SkinManager.setBackgroundResource(this.u, R.color.CAM_X0213);
+            SkinManager.setBackgroundResource(this.t, R.color.CAM_X0213);
+            SkinManager.setViewTextColorSelector(this.t, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.n, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.o, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.p, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.q, R.color.CAM_X0107, 1);
+            int width = ((WindowManager) this.a.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getWidth() - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            if (A()) {
+                i = (width - (UtilHelper.getDimenPixelSize(R.dimen.tbds201) * 5)) / 4;
+            } else {
+                i = (width - 1005) / 4;
+            }
+            this.c.setHorizontalSpacing(i);
+            T(this.d, R.drawable.obfuscated_res_0x7f080999);
+            EMTextView eMTextView = this.n;
+            int i2 = R.drawable.obfuscated_res_0x7f0809a1;
+            T(eMTextView, R.drawable.obfuscated_res_0x7f0809a1);
+            T(this.e, R.drawable.obfuscated_res_0x7f080998);
+            T(this.f, R.drawable.obfuscated_res_0x7f080994);
+            this.f.setAlpha(TbSingleton.getInstance().mCanCallFans ? 1.0f : 0.33f);
+            T(this.g, R.drawable.obfuscated_res_0x7f0809a9);
+            EMTextView eMTextView2 = this.h;
+            if (!this.w) {
+                i2 = R.drawable.obfuscated_res_0x7f080990;
+            }
+            T(eMTextView2, i2);
+            T(this.i, R.drawable.obfuscated_res_0x7f08098a);
+            T(this.p, R.drawable.obfuscated_res_0x7f0809a0);
+            T(this.q, R.drawable.obfuscated_res_0x7f080995);
+            T(this.k, R.drawable.obfuscated_res_0x7f0809a4);
+            TextSizeSeekBar textSizeSeekBar = this.s;
+            if (textSizeSeekBar != null) {
+                textSizeSeekBar.e();
+            }
         }
     }
 
-    public void f(BdTypeListView bdTypeListView) {
+    public void D(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bdTypeListView) == null) || bdTypeListView == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.i.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void H(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.q.setVisibility(z ? 0 : 8);
+            if (z2) {
+                this.q.setText(R.string.obfuscated_res_0x7f0f0854);
+            } else {
+                this.q.setText(R.string.obfuscated_res_0x7f0f0855);
+            }
+        }
+    }
+
+    public void I(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.o.setVisibility(z ? 0 : 8);
+            if (z2) {
+                this.o.setText(R.string.obfuscated_res_0x7f0f0816);
+                T(this.o, R.drawable.obfuscated_res_0x7f080987);
+                return;
+            }
+            this.o.setText(R.string.obfuscated_res_0x7f0f1565);
+            T(this.o, R.drawable.obfuscated_res_0x7f080997);
+        }
+    }
+
+    public final void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.o.getLayoutParams().width = 201;
+            this.k.getLayoutParams().width = 201;
+            this.d.getLayoutParams().width = 201;
+            this.l.getLayoutParams().width = 201;
+            this.e.getLayoutParams().width = 201;
+            this.f.getLayoutParams().width = 201;
+            this.n.getLayoutParams().width = 201;
+            this.g.getLayoutParams().width = 201;
+            this.h.getLayoutParams().width = 201;
+            this.i.getLayoutParams().width = 201;
+            this.j.getLayoutParams().width = 201;
+            this.m.getLayoutParams().width = 201;
+            this.p.getLayoutParams().width = 201;
+            this.q.getLayoutParams().width = 201;
+        }
+    }
+
+    public void L(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.e.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void M(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.m.setVisibility(z ? 0 : 8);
+            if (z2) {
+                this.m.setText(R.string.obfuscated_res_0x7f0f0de0);
+                T(this.m, R.drawable.obfuscated_res_0x7f080989);
+                return;
+            }
+            this.m.setText(R.string.obfuscated_res_0x7f0f0414);
+            T(this.m, R.drawable.obfuscated_res_0x7f080988);
+        }
+    }
+
+    public void N(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.j.setVisibility(z ? 0 : 8);
+            if (z2) {
+                this.j.setText(R.string.obfuscated_res_0x7f0f0de1);
+                T(this.j, R.drawable.obfuscated_res_0x7f0809a6);
+                return;
+            }
+            this.j.setText(R.string.obfuscated_res_0x7f0f1457);
+            T(this.j, R.drawable.obfuscated_res_0x7f0809a5);
+        }
+    }
+
+    public void O(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001281, String.class);
+            if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
+                this.l.setVisibility(z ? 0 : 8);
+                if (z2) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0cb3);
+                    T(this.l, R.drawable.obfuscated_res_0x7f08098f);
+                    return;
+                }
+                this.l.setText(R.string.obfuscated_res_0x7f0f05ef);
+                T(this.l, R.drawable.obfuscated_res_0x7f08099c);
+                return;
+            }
+            this.l.setVisibility(8);
+        }
+    }
+
+    public void P(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.p.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void Q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.n.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void R(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.k.setVisibility(z ? 0 : 8);
+            if (z2) {
+                this.k.setText(R.string.obfuscated_res_0x7f0f156c);
+            } else {
+                this.k.setText(R.string.obfuscated_res_0x7f0f04a0);
+            }
+            this.k.setText(R.string.obfuscated_res_0x7f0f11ce);
+        }
+    }
+
+    public void S(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.d.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public final void T(TextView textView, int i) {
+        Drawable pureDrawable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, textView, i) == null) || textView == null || (pureDrawable = WebPManager.getPureDrawable(i, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS)) == null) {
             return;
         }
-        bdTypeListView.removeHeaderView(this.c);
+        int i2 = x;
+        pureDrawable.setBounds(0, 0, i2, i2);
+        textView.setCompoundDrawables(null, pureDrawable, null, null);
     }
 
-    public void g(kt7 kt7Var) {
+    public void U(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kt7Var) == null) {
-            ArrayList<ho4> actDatas = kt7Var.O().getActDatas();
-            if (actDatas != null && actDatas.size() > 0) {
-                this.e.setText(String.valueOf(actDatas.get(0).f()));
-                this.d.setVisibility(0);
-            } else {
-                this.d.setVisibility(8);
-            }
-            SkinManager.setBackgroundResource(this.d, R.drawable.activity_join_num_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0305, 1);
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.s.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void h(kt7 kt7Var, boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, kt7Var, z) == null) {
-            boolean b = b(z);
-            if (kt7Var == null || kt7Var.y() == null || kt7Var.y().c() != 0 || !z) {
-                this.g.setVisibility(8);
-            } else if (b) {
-                this.g.setVisibility(0);
-            } else {
-                this.g.setVisibility(8);
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            MaskView.d(this.m, z);
+            MaskView.d(this.j, z);
+            MaskView.d(this.f, z);
+        }
+    }
+
+    public TextView j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.g : (TextView) invokeV.objValue;
+    }
+
+    public TextView k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f : (TextView) invokeV.objValue;
+    }
+
+    public TextView l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.t : (TextView) invokeV.objValue;
+    }
+
+    public TextView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.h : (TextView) invokeV.objValue;
+    }
+
+    public TextView n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.i : (TextView) invokeV.objValue;
+    }
+
+    public TextView o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.q : (TextView) invokeV.objValue;
+    }
+
+    public TextView p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.o : (TextView) invokeV.objValue;
+    }
+
+    public TextView q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.d : (TextView) invokeV.objValue;
+    }
+
+    public TextView r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.e : (TextView) invokeV.objValue;
+    }
+
+    public TextView s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.m : (TextView) invokeV.objValue;
+    }
+
+    public TextView t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.j : (TextView) invokeV.objValue;
+    }
+
+    public TextView u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.l : (TextView) invokeV.objValue;
+    }
+
+    public TextView v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.p : (TextView) invokeV.objValue;
+    }
+
+    public TextView w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.n : (TextView) invokeV.objValue;
+    }
+
+    public TextView x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.k : (TextView) invokeV.objValue;
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06d7, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (FlowLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091843);
+            EMTextView eMTextView = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184f);
+            this.o = eMTextView;
+            eMTextView.setOnClickListener(this.v);
+            EMTextView eMTextView2 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091856);
+            this.k = eMTextView2;
+            eMTextView2.setOnClickListener(this.v);
+            EMTextView eMTextView3 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091850);
+            this.d = eMTextView3;
+            eMTextView3.setOnClickListener(this.v);
+            EMTextView eMTextView4 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091853);
+            this.l = eMTextView4;
+            eMTextView4.setOnClickListener(this.v);
+            EMTextView eMTextView5 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091851);
+            this.e = eMTextView5;
+            eMTextView5.setOnClickListener(this.v);
+            EMTextView eMTextView6 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184b);
+            this.f = eMTextView6;
+            eMTextView6.setOnClickListener(this.v);
+            EMTextView eMTextView7 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091855);
+            this.n = eMTextView7;
+            eMTextView7.setOnClickListener(this.v);
+            EMTextView eMTextView8 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184a);
+            this.g = eMTextView8;
+            eMTextView8.setOnClickListener(this.v);
+            EMTextView eMTextView9 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184c);
+            this.h = eMTextView9;
+            eMTextView9.setOnClickListener(this.v);
+            EMTextView eMTextView10 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184d);
+            this.i = eMTextView10;
+            eMTextView10.setOnClickListener(this.v);
+            EMTextView eMTextView11 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091852);
+            this.j = eMTextView11;
+            eMTextView11.setOnClickListener(this.v);
+            EMTextView eMTextView12 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091849);
+            this.m = eMTextView12;
+            eMTextView12.setOnClickListener(this.v);
+            EMTextView eMTextView13 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091854);
+            this.p = eMTextView13;
+            eMTextView13.setOnClickListener(this.v);
+            EMTextView eMTextView14 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184e);
+            this.q = eMTextView14;
+            eMTextView14.setOnClickListener(this.v);
+            this.s = (TextSizeSeekBar) this.b.findViewById(R.id.obfuscated_res_0x7f091846);
+            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091efe);
+            EMTextView eMTextView15 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091842);
+            this.t = eMTextView15;
+            eMTextView15.setOnClickListener(this.v);
+            this.u = this.b.findViewById(R.id.obfuscated_res_0x7f091841);
+            if (A()) {
+                return;
             }
+            K();
         }
     }
 }

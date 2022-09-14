@@ -1,5 +1,19 @@
 package com.baidu.tieba;
+
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface xn1 {
-    void onScrollChanged(int i, int i2, int i3, int i4);
+public interface xn1 extends pw2 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

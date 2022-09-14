@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.v11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmStatic;
+@Autowired
 /* loaded from: classes5.dex */
-public class o11 {
+public final class o11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,26 +32,13 @@ public class o11 {
         }
     }
 
-    public static boolean a(Context context, int i) {
-        InterceptResult invokeLI;
+    @NonNull
+    @JvmStatic
+    @Singleton
+    @Inject(force = false)
+    public static final v11 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
-                return false;
-            }
-            String str = "permission_request_code=" + String.valueOf(i);
-            boolean z = fy0.a().b("nad_permission_sp").getBoolean(str, true);
-            b(context, str);
-            return z;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) || context == null) {
-            return;
-        }
-        fy0.a().b("nad_permission_sp").e(str, false);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new v11.a() : (v11) invokeV.objValue;
     }
 }

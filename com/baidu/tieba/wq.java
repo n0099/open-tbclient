@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class wq extends qq {
+public final class wq extends yq {
     public static /* synthetic */ Interceptable $ic;
-    public static final UniqueId b;
-    public static final a c;
+    public static final a g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public int e;
+    public final int f;
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -37,10 +38,10 @@ public final class wq extends qq {
             }
         }
 
-        public final UniqueId a() {
-            InterceptResult invokeV;
+        public final wq a(TaskInfo taskInfo, int i) {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? wq.b : (UniqueId) invokeV.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) ? new wq(taskInfo, null, 50, i, null, null, 50, null) : (wq) invokeLI.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -61,38 +62,60 @@ public final class wq extends qq {
                 return;
             }
         }
-        c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskBackFlowEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowEvent\")");
-        b = gen;
+        g = new a(null);
+    }
+
+    public /* synthetic */ wq(TaskInfo taskInfo, String str, int i, int i2, Integer num, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, (i3 & 2) != 0 ? taskInfo.getSingleKey() : str, (i3 & 4) != 0 ? 50 : i, (i3 & 8) != 0 ? 0 : i2, (i3 & 16) != 0 ? null : num, (i3 & 32) != 0 ? null : str2);
+    }
+
+    @Override // com.baidu.tieba.mr
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskInterruptAction" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yq
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wq(TaskInfo taskInfo) {
-        super(taskInfo);
+    public wq(TaskInfo taskInfo, String str, int i, int i2, Integer num, String str2) {
+        super(str, num, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
+            Object[] objArr = {taskInfo, str, Integer.valueOf(i), Integer.valueOf(i2), num, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + c.a().getAlias() + ':' + a().toJson();
-        }
-        return (String) invokeV.objValue;
+        this.d = str;
+        this.e = i;
+        this.f = i2;
     }
 }

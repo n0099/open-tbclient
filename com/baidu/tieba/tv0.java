@@ -1,100 +1,121 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class tv0 {
+public abstract class tv0 extends cw0 implements ju0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final tv0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194523, "Lcom/baidu/tieba/tv0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948194523, "Lcom/baidu/tieba/tv0;");
-                return;
-            }
-        }
-        a = new tv0();
-    }
+    public FrameLayout e;
+    public zt0 f;
 
     public tv0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = new FrameLayout(this.c);
+        P(8);
+    }
+
+    @Override // com.baidu.tieba.uv0
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            H(this);
         }
     }
 
-    @JvmStatic
-    public static final JSONArray b(String str) {
+    public void L(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.e.addView(view2);
+        }
+    }
+
+    public boolean M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e.getVisibility() == 0 : invokeV.booleanValue;
+    }
+
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.e.removeAllViews();
+        }
+    }
+
+    public void O(zt0 zt0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zt0Var) == null) {
+            this.f = zt0Var;
+        }
+    }
+
+    public void P(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ju0
+    public boolean e(@NonNull ht0 ht0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            zv0 c = a.c(str);
-            if (c != null) {
-                JSONArray jSONArray = new JSONArray();
-                uv0.a(c, jSONArray);
-                sv0.a(c, jSONArray);
-                return jSONArray;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ht0Var)) == null) {
+            zt0 zt0Var = this.f;
+            if (zt0Var == null) {
+                return false;
             }
-            return null;
+            return zt0Var.b(ht0Var.c());
         }
-        return (JSONArray) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.hw0
+    @NonNull
+    public View getContentView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (View) invokeV.objValue;
     }
 
-    public final zv0 c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ju0
+    public iu0 getInterceptorLayer() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    int optInt = jSONObject.optInt("version", -1);
-                    if (a.a(optInt)) {
-                        zv0 zv0Var = new zv0();
-                        zv0Var.e(optInt);
-                        zv0Var.d(jSONObject.optString("mode"));
-                        uv0.b(zv0Var, jSONObject);
-                        sv0.b(zv0Var, jSONObject);
-                        Unit unit = Unit.INSTANCE;
-                        return zv0Var;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (iu0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cw0, com.baidu.tieba.uv0, com.baidu.tieba.hw0
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onLayerRelease();
+            H(null);
+            zt0 zt0Var = this.f;
+            if (zt0Var != null) {
+                zt0Var.onLayerRelease();
+                this.f = null;
             }
-            return null;
         }
-        return (zv0) invokeL.objValue;
     }
 }

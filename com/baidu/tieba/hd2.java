@@ -2,125 +2,136 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class hd2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819795, "Lcom/baidu/tieba/hd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947819795, "Lcom/baidu/tieba/hd2;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) ? Long.compare(file.lastModified(), file2.lastModified()) : invokeLL.intValue;
-        }
+        a = ij1.a;
     }
 
     public static void a() {
-        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            String y = kd2.y(AppRuntime.getAppContext());
-            if (TextUtils.isEmpty(y)) {
-                return;
-            }
-            File file = new File(y);
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
-                        File file3 = new File(str);
-                        if (file3.exists() && file3.isDirectory()) {
-                            String str2 = y + File.separator + "swangame/anonymous/sandbox";
-                            if (!file3.renameTo(new File(str2))) {
-                                kd2.e(str, str2);
-                                kd2.j(str);
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f(0).f().c();
+            f(0).e().f();
+            if (f(1) != null) {
+                f(1).f().c();
+                f(1).e().f();
             }
         }
     }
 
-    public static void b() {
-        File[] d;
+    public static <T extends ee2> Exception b(int i, T t) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (d = ik2.m().d()) == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (File file : d) {
-            String name = file.getName();
-            if (name.startsWith("aigame_storage_") && !name.endsWith("_anonymous.xml")) {
-                arrayList.add(file);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
+            kd2 f = f(i);
+            if (f == null) {
+                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
             }
+            return f.a(t);
         }
-        Collections.sort(arrayList, new a());
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            File file2 = (File) it.next();
-            String absolutePath = file2.getAbsolutePath();
-            int lastIndexOf = absolutePath.lastIndexOf("_");
-            String str = absolutePath.substring(0, lastIndexOf) + "_anonymous.xml";
-            if (!absolutePath.equals(str)) {
-                File file3 = new File(str);
-                if (file3.exists()) {
-                    ch4.L(file3);
+        return (Exception) invokeIL.objValue;
+    }
+
+    public static ExtensionCore c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            kd2 f = f(i);
+            if (f == null) {
+                return null;
+            }
+            return f.c();
+        }
+        return (ExtensionCore) invokeI.objValue;
+    }
+
+    public static long d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null) {
+                return c.extensionCoreVersionCode;
+            }
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            ExtensionCore c = c(i);
+            return (c == null || TextUtils.isEmpty(c.extensionCoreVersionName)) ? "0" : c.extensionCoreVersionName;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static kd2 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 1) {
+                kd2 t = gm2.i().t();
+                if (t == null && ij1.a) {
+                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
                 }
-                if (!file2.renameTo(file3)) {
-                    ch4.f(file2, file3);
-                    ch4.L(file2);
-                }
+                return t;
+            }
+            return gd2.k();
+        }
+        return (kd2) invokeI.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            if (a) {
+                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
+                a();
+                pe2.i(0, true);
+                pe2.i(1, true);
             }
         }
     }
 
-    public static void c() {
+    public static void h(int i, @Nullable rh3<Exception> rh3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && o93.a().getBoolean("swan_game_data_migration", true)) {
-            o93.a().putBoolean("swan_game_data_migration", false);
-            if (dk2.a) {
-                Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
-            }
-            a();
-            if (dk2.a) {
-                Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
-            }
-            b();
-            if (dk2.a) {
-                Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, rh3Var) == null) {
+            kd2 f = f(i);
+            if (f != null) {
+                f.g(rh3Var);
+            } else if (rh3Var != null) {
+                rh3Var.a(null);
             }
         }
     }

@@ -15,7 +15,7 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
-import com.baidu.tieba.kc1;
+import com.baidu.tieba.he1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,7 +85,7 @@ public class LogSystemServiceUtil {
             }
             Intent intent = new Intent();
             intent.setClass(context, LokiService.class);
-            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, kc1.b());
+            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, he1.b());
             intent.putExtra("logtype", logType);
             if (str != null) {
                 intent.putExtra(LokiService.Constant.LOG_BASIC_DATA, str);
@@ -110,7 +110,7 @@ public class LogSystemServiceUtil {
     public static void tranLogHandlerAction(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, context, logType, str, file, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(kc1.b());
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(he1.b());
             if (!obtainFileDirWithProcessName.exists()) {
                 obtainFileDirWithProcessName.mkdirs();
             }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.gl;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLDebugHelper;
@@ -112,6 +113,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLConfigChooser
+        @SuppressLint({"BDThrowableCheck"})
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -365,6 +367,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return (GL) invokeV.objValue;
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public boolean createSurface() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -426,6 +429,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public void start() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -463,6 +467,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? !this.mEgl.eglSwapBuffers(this.mEglDisplay, this.mEglSurface) ? this.mEgl.eglGetError() : CommandMessage.COMMAND_BASE : invokeV.intValue;
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public static void throwEglException(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(65541, null, str, i) == null) {
@@ -809,6 +814,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public void queueEvent(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
@@ -876,6 +882,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
+        @SuppressLint({"BDThrowableCheck"})
         public void setRenderMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -1218,6 +1225,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         init();
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void checkRenderThreadState() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mGLThread != null) {
@@ -1232,9 +1240,18 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
+    public void destroy() {
+        GLThread gLThread;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gLThread = this.mGLThread) == null) {
+            return;
+        }
+        gLThread.requestExitAndWait();
+    }
+
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (this.mGLThread != null) {
                     this.mGLThread.requestExitAndWait();
@@ -1248,25 +1265,25 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public int getDebugFlags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDebugFlags : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDebugFlags : invokeV.intValue;
     }
 
     public boolean getPreserveEGLContextOnPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPreserveEGLContextOnPause : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPreserveEGLContextOnPause : invokeV.booleanValue;
     }
 
     public int getRenderMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mGLThread.getRenderMode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mGLThread.getRenderMode() : invokeV.intValue;
     }
 
     @Override // android.view.TextureView, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
         }
     }
@@ -1274,7 +1291,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
         }
     }
@@ -1282,21 +1299,21 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.View.OnLayoutChangeListener
     public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
             surfaceChanged(getSurfaceTexture(), 0, i3 - i, i4 - i2);
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mGLThread.onPause();
         }
     }
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.mGLThread.onResume();
         }
     }
@@ -1304,7 +1321,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048586, this, surfaceTexture, i, i2) == null) {
             surfaceCreated(surfaceTexture);
             surfaceChanged(surfaceTexture, 0, i, i2);
         }
@@ -1314,7 +1331,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, surfaceTexture)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, surfaceTexture)) == null) {
             surfaceDestroyed(surfaceTexture);
             return true;
         }
@@ -1324,7 +1341,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048587, this, surfaceTexture, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048588, this, surfaceTexture, i, i2) == null) {
             surfaceChanged(surfaceTexture, 0, i, i2);
         }
     }
@@ -1332,34 +1349,34 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, surfaceTexture) == null) {
         }
     }
 
     public void queueEvent(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, runnable) == null) {
             this.mGLThread.queueEvent(runnable);
         }
     }
 
     public void requestRender() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.mGLThread.requestRender();
         }
     }
 
     public void setDebugFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.mDebugFlags = i;
         }
     }
 
     public void setEGLConfigChooser(EGLConfigChooser eGLConfigChooser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, eGLConfigChooser) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, eGLConfigChooser) == null) {
             checkRenderThreadState();
             this.mEGLConfigChooser = eGLConfigChooser;
         }
@@ -1367,7 +1384,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setEGLContextClientVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             checkRenderThreadState();
             this.mEGLContextClientVersion = i;
         }
@@ -1375,7 +1392,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setEGLContextFactory(EGLContextFactory eGLContextFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, eGLContextFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, eGLContextFactory) == null) {
             checkRenderThreadState();
             this.mEGLContextFactory = eGLContextFactory;
         }
@@ -1383,7 +1400,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setEGLWindowSurfaceFactory(EGLWindowSurfaceFactory eGLWindowSurfaceFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, eGLWindowSurfaceFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, eGLWindowSurfaceFactory) == null) {
             checkRenderThreadState();
             this.mEGLWindowSurfaceFactory = eGLWindowSurfaceFactory;
         }
@@ -1391,28 +1408,28 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setGLWrapper(GLWrapper gLWrapper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, gLWrapper) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, gLWrapper) == null) {
             this.mGLWrapper = gLWrapper;
         }
     }
 
     public void setPreserveEGLContextOnPause(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             this.mPreserveEGLContextOnPause = z;
         }
     }
 
     public void setRenderMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             this.mGLThread.setRenderMode(i);
         }
     }
 
     public void setRenderer(Renderer renderer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, renderer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, renderer) == null) {
             checkRenderThreadState();
             if (this.mEGLConfigChooser == null) {
                 this.mEGLConfigChooser = new SimpleEGLConfigChooser(this, true);
@@ -1432,21 +1449,21 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void surfaceChanged(SurfaceTexture surfaceTexture, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048602, this, surfaceTexture, i, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048603, this, surfaceTexture, i, i2, i3) == null) {
             this.mGLThread.onWindowResize(i2, i3);
         }
     }
 
     public void surfaceCreated(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, surfaceTexture) == null) {
             this.mGLThread.surfaceCreated();
         }
     }
 
     public void surfaceDestroyed(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, surfaceTexture) == null) {
             this.mGLThread.surfaceDestroyed();
         }
     }
@@ -1509,7 +1526,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setEGLConfigChooser(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             setEGLConfigChooser(new SimpleEGLConfigChooser(this, z));
         }
     }
@@ -1539,7 +1556,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setEGLConfigChooser(int i, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             setEGLConfigChooser(new ComponentSizeChooser(this, i, i2, i3, i4, i5, i6));
         }
     }

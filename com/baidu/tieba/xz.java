@@ -1,43 +1,511 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.system.Os;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.mz;
+import com.baidu.tieba.vz;
+import com.baidu.tieba.w00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.Base64;
-import com.bumptech.glide.disklrucache.StrictLineReader;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xz {
+public class xz extends vz {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
-    public static final byte[] c;
-    public static final byte[] d;
-    public static final byte[] e;
     public transient /* synthetic */ FieldHolder $fh;
+    public w00.a f;
+    public b g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322283, "Lcom/baidu/tieba/xz;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static boolean a(w00.a aVar, w00 w00Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aVar, w00Var)) == null) {
+                if (Build.VERSION.SDK_INT < 23) {
+                    while (aVar != null && !aVar.g().equals(w00Var.a())) {
+                        aVar.g().setExecutable(true, false);
+                        aVar = aVar.i();
+                    }
+                    return true;
+                }
+                while (aVar != null) {
+                    if (!b(aVar.g())) {
+                        return false;
+                    }
+                    aVar = aVar.i();
+                }
+                return b(w00Var.a());
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322283, "Lcom/baidu/tieba/xz;");
+            return invokeLL.booleanValue;
+        }
+
+        public static boolean b(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    try {
+                        int i = Os.stat(file.getAbsolutePath()).st_mode;
+                        if ((i & 1) == 0) {
+                            Os.chmod(file.getAbsolutePath(), i | 1);
+                        }
+                        return true;
+                    } catch (Throwable unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public y00 a;
+        public long b;
+        public mz.a c;
+        public boolean d;
+        public boolean e;
+        public final /* synthetic */ xz f;
+
+        public b(xz xzVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xzVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = xzVar;
+            this.a = new y00();
+            this.e = true;
+        }
+
+        public mz.a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (mz.a) invokeV.objValue;
+        }
+
+        public void b(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.a.a(j, j2)) {
+                this.d = true;
+            }
+        }
+
+        public void c(mz.a aVar) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar.equals(this.c)) {
+                return;
+            }
+            this.c = aVar;
+            this.d = true;
+        }
+
+        public boolean d(PackageInfo packageInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, packageInfo)) == null) {
+                String c = this.f.f.a(new File(packageInfo.applicationInfo.dataDir)).c("pub.dat", true);
+                this.e = false;
+                return e(c);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public final boolean e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(str);
+                        this.b = jSONObject.getLong("pub_lst_ts");
+                        this.c = mz.l(jSONObject.getString("pub_info"));
+                        jSONObject.getInt("d_form_ver");
+                        this.d = false;
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public long f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.longValue;
+        }
+
+        public void g(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(1048582, this, j) == null) || this.b == j) {
+                return;
+            }
+            this.b = j;
+            this.d = true;
+        }
+
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? xz.i(this.f.f.b("pub.dat"), true) : invokeV.booleanValue;
+        }
+
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (this.e) {
+                    if (this.d) {
+                        try {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("pub_info", this.c.x());
+                            jSONObject.put("pub_lst_ts", this.b);
+                            jSONObject.put("d_form_ver", 1);
+                            this.f.f.e("pub.dat", jSONObject.toString(), true);
+                            this.d = false;
+                            return true;
+                        } catch (Exception unused) {
+                        }
+                    }
+                    return false;
+                }
+                throw new IllegalStateException();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? e(this.f.f.c("pub.dat", true)) : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends vz.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String d;
+        public long e;
+        public long f;
+        public long g;
+        public mz.a h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(xz xzVar, String str) {
+            super(xzVar.f, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xzVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((w00.a) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vz.c
+        public void a(JSONObject jSONObject) throws JSONException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.d = jSONObject.getString("pkg");
+                this.f = jSONObject.getInt("tar_pkg_lst_pub_ts");
+                this.e = jSONObject.getLong("last_fe_ts");
+                this.h = mz.l(jSONObject.getString("info"));
+                this.g = jSONObject.getLong("tar_pkg_lst_up_ts");
+                jSONObject.getInt("d_form_ver");
+            }
+        }
+
+        @Override // com.baidu.tieba.vz.c
+        public void d(JSONObject jSONObject) throws JSONException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                jSONObject.put("pkg", this.d);
+                jSONObject.put("last_fe_ts", this.e);
+                jSONObject.put("tar_pkg_lst_pub_ts", this.f);
+                jSONObject.put("info", this.h.x());
+                jSONObject.put("tar_pkg_lst_up_ts", this.g);
+                jSONObject.put("d_form_ver", 1);
+            }
+        }
+
+        public void f(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+                h(bVar.a());
+                j(bVar.f());
+            }
+        }
+
+        public boolean g(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                if (this.e != j) {
+                    this.e = j;
+                    b(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public boolean h(mz.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+                if (aVar.equals(this.h)) {
+                    return false;
+                }
+                this.h = aVar;
+                b(true);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean i(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                if (str.equals(this.d)) {
+                    return false;
+                }
+                this.d = str;
+                b(true);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean j(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                if (this.f != j) {
+                    this.f = j;
+                    b(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public mz.a k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (mz.a) invokeV.objValue;
+        }
+
+        public boolean l(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+                if (this.g != j) {
+                    this.g = j;
+                    b(true);
+                    return true;
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public long m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.longValue;
+        }
+
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz() {
+        super("isc", 8000000L);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Long) objArr[1]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[]{34, 60, 59, -95, -15, -17, -46, -67, -61, -54, 110, 95, -4, -38, 9, 45, 102, -33, -108, -58, -101, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 120, 49, 68, 73, -1, -83, 120, -3, -47, 114, 86, -20, -105, 30, -33, -29, 24, -18, -19, -21, 115, 3, -99, -48, 77, -54, -80, 58, -113, 52, Cea608Decoder.CTRL_END_OF_CAPTION, -93, 93, -115, 48, -6, -65, 22, 98, -120, 109, -6, -88, 75, -92, 10, 65, Constants.SHORT_PING_CMD_TYPE, -55, -87, 113, -109, -40, -81, -125, -40, -98, Base64.INTERNAL_PADDING, -3, -97, 75, -65, 62, 100, 25, -19, -57, 125, -89, -86, -120, -79, -104, 26, Byte.MIN_VALUE, 4, -82, 81, -109, 91, -7, -118, -76, -58, -105, -61, -85, 87, 85, Byte.MIN_VALUE, -36, -75, 49, -10, Byte.MIN_VALUE, -78, -42, 85, -116, 106, -69, 108, -65, 115, -113, -118, 97, 5, 65, -24, 19, 92, 22, -7, Constants.GZIP_CAST_TYPE, 14, 91, -10, 125, 24, -41, 55, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 62, -28, 50, -46, BaseNCodec.PAD_DEFAULT, 94, 113, -59, -120, -124, StrictLineReader.CR, -38, 95, -60, -43, 115, 71, -2, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 8, -22, -107, -78, 62, -75, 83, 17, -50, 97, -39, 10, 126, 77, -113, -87, -116, 92, -14, 23, -41, 75, 125, -110, -18, -103, 9, 99, -73, 54, -75, 91, -19, 3, 58, 81, -31, 60, -37, 48, Constants.GZIP_CAST_TYPE, -18, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -66, 78, 68, -57, -115, 110, BaseNCodec.PAD_DEFAULT, -2, -26, -55, 111, 91, 43, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -112, -19, -25, StrictLineReader.CR, -101, 0, 93, -60, 120, -18, 12, -76, -116, 70, -70, -99, 16, 5, -76, 67, -44, 50, -121, StrictLineReader.CR, 119, 105, -99, -7, -119, BaseNCodec.PAD_DEFAULT, 30, 32, 43, 55, -51};
-        b = new byte[]{0, -95, 74, 123, 19, 115, BaseNCodec.PAD_DEFAULT, Base64.INTERNAL_PADDING, -89, 25, -82, 82, -76, -19, 10, -101, -51, 58, -96, -54, Constants.GZIP_CAST_TYPE, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -84, -1, 93, 63, -66, -34, -48, -15, 57, -28, -112, -49, -41, 27, 24, -84, -95, -33, -17, -16, 91, -22, -15, -21, 8, -57, 69, 57, -13, Base64.INTERNAL_PADDING, 23, 96, -25, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, -58, BaseNCodec.PAD_DEFAULT, -94, 87, -122, Cea608Decoder.CTRL_END_OF_CAPTION, -72, -22, 71, -9, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 19, 55, 91, -16, 24, -53, -12, 76, 48, Base64.INTERNAL_PADDING, ByteCompanionObject.MAX_VALUE, -115, 6, 126, 24, -76, -6, 103, -3, -59, -15, 73, -64, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -92, -66, -114, 8, 97, -53, 49, -114, -31, -37, -119, -44, -115, 96, -115, 63, -123, 6, -41, 86, -2, 16, 84, 34, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 83, -127, -23, -83, 9, 75, -45, -127, -81, -90, 120, -17};
-        c = new byte[]{34, 120, 93, 28, 86, 125, 58, -72, 104, -79, 40, 125, 82, -26, -85, 124, -100, -25, 25, 17, 88, -127, -116, -8, 0, 33, 70, -4, -1, -110, -69, -85, 5, 81, -70, -27, -98, -7, 42, 124, -74, Cea608Decoder.CTRL_END_OF_CAPTION, -120, 124, 20, -14, 74, -107, -69, 116, -101, -8, -89, -71, 99, -124, 9, 55, 107, -18, -114, 5, -79, 58, 64, -110, -51, 78, -29, 69, -51, 63, -77, -73, 106, 43, 10, -95, -98, -112, -50, -87, -98, -91, -61, -39, 57, -75, -31, -85, 80, 89, 42, -25, 45, -119, -18, -90, -56, -101, -23, 59, -91, -52, 124, 83, BaseNCodec.PAD_DEFAULT, -20, 119, -105, -74, 102, -27, 86, 17, -15, -110, 75, -59, 123, -24, 42, 117, 48, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, -127, 9, 12, -57, 93, -92, -30, -47, -4, 109, -67, Constants.SHORT_PING_CMD_TYPE, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -91, -73, -75, -25, 66, -41, -43, -28, -84, -50, 33, -65, 10, -94, 5, -49, -36, 64, -101, 87, -12, 78, Base64.INTERNAL_PADDING, -44, 94, -53, -28, 115, 107, 117, -81, -6, 51, 86, 40, -108, -80, 110, -71, -30, -9, 49, -49, 100, 50, -41, 20, -97, 32, -34, -14, 60, -25, 53, -97, Base64.INTERNAL_PADDING, -37, -122, -122, -80, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 54, 0, -9, -111, 55, 90, 17, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 82, -49, -73, 51, 9, 56, 92, 97, -126, 85, 4, -114, -48, 109, -57, 96, -31, -102, -71, -87, -76, -77, -52, 58, 107, 66, -103, Base64.INTERNAL_PADDING, 5, Cea608Decoder.CTRL_END_OF_CAPTION, -112, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -58, Constants.SHORT_PING_CMD_TYPE, 77, -21, 4, -59, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -3, Base64.INTERNAL_PADDING, -36, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 109, 40, -111, 115, 23};
-        d = new byte[]{0, -70, 42, -20, -46, -12, -1, -114, 74, -47, 126, -90, 23, -7, -79, -117, -90, 82, 94, 22, -56, 34, -71, -22, 52, 103, -86, -90, -58, -3, 60, -16, 92, 55, 73, -24, Cea608Decoder.CTRL_END_OF_CAPTION, -125, 16, 17, -96, -42, 96, 93, BaseNCodec.PAD_DEFAULT, -90, 43, -72, -47, 68, 59, -106, -59, 67, 103, 34, 69, -88, -92, -19, -15, -112, 58, 17, 94, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -48, Base64.INTERNAL_PADDING, -62, 23, -56, -65, -2, 43, 65, -119, -50, -59, -90, -119, 17, -66, -99, 90, -71, -111, -64, 10, -30, -64, 70, 52, 97, 33, 114, -15, 63, 71, -54, -54, -76, -6, 79, -53, 24, 79, -81, 24, -48, 1, 23, -63, 89, -86, -83, -121, -1, 42, ByteCompanionObject.MAX_VALUE, -46, 93, 3, 77, -39, -81, 123, 114, 20, 89};
-        e = new byte[]{0, -113, 121, 53, -39, -71, -86, -23, -65, -85, -19, -120, 122, -49, 73, 81, -74, -13, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, -59, -98, 59, -81, 55, 24, -24, -22, -60, -106, 31, 62, -3, 54, 6, -25, 67, 81, -87, -60, 24, 51, 57, -72, 9, -25, -62, -82, 28, 83, -101, -89, 71, 91, -123, -48, 17, -83, -72, -76, 121, -121, 117, 73, -124, 105, 92, -84, 14, -113, 20, -77, 54, 8, 40, -94, Cea608Decoder.CTRL_END_OF_CAPTION, -6, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 17, 10, BaseNCodec.PAD_DEFAULT, 98, -87, -109, 69, 52, 9, -96, -2, 105, 108, 70, 88, -8, 75, -35, 32, -127, -100, 55, 9, -96, 16, 87, -79, -107, -83, -51, 0, Base64.INTERNAL_PADDING, BaseNCodec.PAD_DEFAULT, -70, 84, -124, -74, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 31, -99, 100, -114, -8, -125, 68, -122, 119, -105, -100, -20, 4, -76, 52, -90, -84, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 117, -23, -104, 93, -30, BaseNCodec.PAD_DEFAULT, -80, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, Cea608Decoder.CTRL_END_OF_CAPTION, -63, 17, -116, -97, -6, -99, -127, -127, -25, 51, -115, -73, -110, -73, 48, -41, -71, -29, 73, 89, Cea608Decoder.CTRL_END_OF_CAPTION, 104, 9, -104, 114, 21, 57, 21, -22, BaseNCodec.PAD_DEFAULT, 107, -117, 70, 83, -58, 51, 69, -113, Byte.MIN_VALUE, 59, 50, -92, -62, -32, -14, 114, -112, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 110, 78, 63, -118, 59, 8, 56, -95, -60, 80, -28, -31, -116, 26, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -93, 125, -33, 94, -95, 67, -34, 75, 102, -1, 4, -112, 62, -43, -49, 22, Base64.INTERNAL_PADDING, -31, 88, -44, -121, -58, 8, -23, ByteCompanionObject.MAX_VALUE, 33, 28, -40, 29, -54, Base64.INTERNAL_PADDING, -53, 110, 56, 7, Constants.SHORT_PING_CMD_TYPE, -8, 34, -29, 66, -66, 72, 76, 5, 118, 57, 57, 96, 28, -42, 103};
+        this.g = new b(this);
+    }
+
+    public static boolean i(File file, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, file, z)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                try {
+                    Os.chmod(file.getAbsolutePath(), z ? 436 : 432);
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            try {
+                if (z) {
+                    return file.setReadable(true, false);
+                }
+                return file.setReadable(false, false) && file.setReadable(true, true);
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vz
+    public vz.f a(vz.e eVar, mz.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eVar, aVar)) == null) {
+            Context context = this.a.a;
+            if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
+                this.g.j();
+                try {
+                    return h(eVar, aVar);
+                } finally {
+                    this.g.i();
+                    j();
+                    this.g.i();
+                    this.g.h();
+                }
+            }
+            return vz.f.b(-100);
+        }
+        return (vz.f) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vz
+    public vz.h b(String str, vz.g gVar) {
+        InterceptResult invokeLL;
+        PackageInfo packageInfo;
+        mz.a a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, gVar)) == null) {
+            c cVar = null;
+            boolean z = false;
+            try {
+                packageInfo = this.a.a.getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null) {
+                return vz.h.b(-2);
+            }
+            if (gVar.a) {
+                cVar = new c(this, str);
+                cVar.e();
+                if (str.equals(cVar.n())) {
+                    mz.a k = cVar.k();
+                    boolean z2 = packageInfo.lastUpdateTime == cVar.m();
+                    if (k != null && k.m() && !TextUtils.isEmpty(k.u())) {
+                        z = true;
+                    }
+                    if (z2 && z) {
+                        a2 = cVar.k();
+                        return vz.h.c(a2);
+                    }
+                }
+            }
+            b bVar = new b(this);
+            if (bVar.d(packageInfo)) {
+                if (gVar.a && cVar != null) {
+                    cVar.f(bVar);
+                    cVar.g(System.currentTimeMillis());
+                    cVar.l(packageInfo.lastUpdateTime);
+                    cVar.i(str);
+                    cVar.c();
+                }
+                a2 = bVar.a();
+                return vz.h.c(a2);
+            }
+            return vz.h.b(-2);
+        }
+        return (vz.h) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vz
+    public void e(vz.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.f = this.b.f("isc");
+        }
+    }
+
+    public final vz.f h(vz.e eVar, mz.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, eVar, aVar)) == null) {
+            this.g.j();
+            this.f.d();
+            if (aVar.equals(this.g.a())) {
+                return vz.f.c();
+            }
+            this.g.c(aVar);
+            this.g.g(System.currentTimeMillis());
+            return vz.f.c();
+        }
+        return (vz.f) invokeLL.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.b(a.a(this.f, this.a.b) ? 1 : 2, 3L);
+        }
     }
 }

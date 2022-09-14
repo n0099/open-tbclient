@@ -1,19 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.pm.Signature;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.pyramid.annotation.Service;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class nl implements ISignatureVerifier {
+public abstract class nl extends gl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path t;
+    public Paint u;
+    public a v;
+    public boolean w;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        Path a(RectF rectF);
+
+        void b(Canvas canvas);
+    }
 
     public nl() {
         Interceptable interceptable = $ic;
@@ -25,22 +36,76 @@ public class nl implements ISignatureVerifier {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.t = new Path();
+        this.u = null;
+        this.w = false;
+    }
+
+    @Override // com.baidu.tieba.el
+    public void c(hl hlVar, ImageView imageView, ImageView.ScaleType scaleType) {
+        Path a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hlVar, imageView, scaleType) == null) {
+            super.c(hlVar, imageView, scaleType);
+            a aVar = this.v;
+            if (aVar == null || (a2 = aVar.a(j())) == null) {
+                return;
+            }
+            this.t.set(a2);
+            if (this.u == null) {
+                Paint paint = new Paint();
+                this.u = paint;
+                paint.setStyle(Paint.Style.STROKE);
+                this.u.setAntiAlias(true);
+                this.u.setColor(637534208);
+                this.u.setDither(true);
+                this.u.setStrokeWidth(2.0f);
+            }
+            t();
+        }
+    }
+
+    @Override // com.baidu.tieba.el
+    public void g(Canvas canvas, hl hlVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, hlVar, imageView) == null) {
+            super.g(canvas, hlVar, imageView);
+            if (this.w) {
+                canvas.drawPath(this.t, this.u);
+                a aVar = this.v;
+                if (aVar != null) {
+                    aVar.b(canvas);
+                }
             }
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISignatureVerifier
-    public boolean checkSignature(String str, Signature[] signatureArr) {
-        InterceptResult invokeLL;
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, signatureArr)) == null) {
-            if (BdLog.isDebugMode()) {
-                return true;
-            }
-            String c = ml.c(signatureArr);
-            BdLog.e("new signature: " + c);
-            return "YvigAa51R7YgCp8eDveR1g==".equals(c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void v(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.v = aVar;
+        }
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.w = z;
+        }
     }
 }

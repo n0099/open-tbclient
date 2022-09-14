@@ -51,7 +51,7 @@ import kotlin.jvm.internal.Ref;
 import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010$\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\bO\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J!\u0010\n\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bJ=\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014JQ\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0013\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\r\u0010\u001b\u001a\u00020\u0004¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u001d\u0010\u001eJ!\u0010\"\u001a\u00020\u00012\b\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010!\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u0001H\u0002¢\u0006\u0004\b$\u0010\u0003J#\u0010'\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00040&2\u0006\u0010%\u001a\u00020\u0004H\u0002¢\u0006\u0004\b'\u0010(J\u000f\u0010)\u001a\u00020\u0001H\u0002¢\u0006\u0004\b)\u0010\u0003JU\u0010*\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b*\u0010+JQ\u0010,\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b,\u0010\u0018J\u001d\u0010-\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\u0006\u0010%\u001a\u00020\u0004¢\u0006\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00101\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b1\u00100R\u0016\u00102\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b2\u00100R\u0016\u00103\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b3\u00100R\u001e\u00106\u001a\n 5*\u0004\u0018\u000104048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107R\u0018\u00109\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b9\u0010:R\u0018\u0010;\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b;\u0010:R\u0016\u0010!\u001a\u00020\u00158\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010<R6\u0010@\u001a\"\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020>\u0018\u00010=j\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020>\u0018\u0001`?8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010B\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bB\u00100R\u0018\u0010C\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010:R\u001e\u0010E\u001a\n 5*\u0004\u0018\u00010D0D8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010FR$\u0010 \u001a\u0004\u0018\u00010\u001f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010G\u001a\u0004\bH\u0010I\"\u0004\bJ\u0010KR\u001e\u0010M\u001a\n 5*\u0004\u0018\u00010L0L8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bM\u0010N¨\u0006P"}, d2 = {"Lcom/baidu/searchbox/live/mix/proxy/LiveMixShellManager;", "", "enterFlowEnd", "()V", "", "slot", "enterFlowEndSlot", "(Ljava/lang/String;)V", "Lorg/json/JSONObject;", "jsonObject", "enterFlowStartSlot", "(Ljava/lang/String;Lorg/json/JSONObject;)V", "Landroid/content/Context;", "context", ILiveNPSPlugin.PARAMS_ROOM_ID, "source", "params", "Landroid/net/Uri;", "uri", "enterLiveRoom", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V", "", "isYYMixLive", "preStartPlayer", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;ZZ)V", "entranceSupportPlayerReuse", "()Z", "getCurrentLoadRoomId", "()Ljava/lang/String;", "jumpToOuterWebView", "(Ljava/lang/String;)Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "stat", FlowInfoHelper.KEY_IS_COLDLAUNCH, "logPluginFlowEnd", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;Z)V", "npsLoadChainYYMixLive", "url", "", "parseYYLiveParamMap", "(Ljava/lang/String;)Ljava/util/Map;", "preloadMediaPlugin", "startLiveActivity", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Z)V", "startMixLiveActivity", LiveYYPluginManager.USE_FROM_START_YY_LIVE_PAGE, "(Landroid/content/Context;Ljava/lang/String;)V", "KEY_ID_AUDIO_ENTER_AUDIO_ROOM_PERF_FLOW", "Ljava/lang/String;", "KEY_ID_AUDIO_RTC_JOIN", "UBC_ID_PLUGIN_PAGE_FLOW", "USE_FROM_START_LIVE_PAGE", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "Lcom/baidu/ubc/Flow;", "audioFlow", "Lcom/baidu/ubc/Flow;", "audioRtcFlow", "Z", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "mLaunchInfo", "Ljava/util/HashMap;", "mRoomId", "pageFlow", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartService", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "getStat", "()Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "setStat", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;)V", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010$\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\bO\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J!\u0010\n\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bJ=\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014JQ\u0010\u0013\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0013\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\r\u0010\u001b\u001a\u00020\u0004¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u001d\u0010\u001eJ!\u0010\"\u001a\u00020\u00012\b\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010!\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u0001H\u0002¢\u0006\u0004\b$\u0010\u0003J#\u0010'\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00040&2\u0006\u0010%\u001a\u00020\u0004H\u0002¢\u0006\u0004\b'\u0010(J\u000f\u0010)\u001a\u00020\u0001H\u0002¢\u0006\u0004\b)\u0010\u0003JU\u0010*\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\n\b\u0002\u0010\u0016\u001a\u0004\u0018\u00010\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b*\u0010+JQ\u0010,\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\b\u0010\u000e\u001a\u0004\u0018\u00010\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u00042\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0016\u001a\u00020\u00152\b\b\u0002\u0010\u0017\u001a\u00020\u0015H\u0002¢\u0006\u0004\b,\u0010\u0018J\u001d\u0010-\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\u0006\u0010%\u001a\u00020\u0004¢\u0006\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00101\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b1\u00100R\u0016\u00102\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b2\u00100R\u0016\u00103\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b3\u00100R\u001e\u00106\u001a\n 5*\u0004\u0018\u000104048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107R\u0018\u00109\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b9\u0010:R\u0018\u0010;\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b;\u0010:R\u0016\u0010!\u001a\u00020\u00158\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010<R6\u0010@\u001a\"\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020>\u0018\u00010=j\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020>\u0018\u0001`?8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010B\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bB\u00100R\u0018\u0010C\u001a\u0004\u0018\u0001088\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010:R\u001e\u0010E\u001a\n 5*\u0004\u0018\u00010D0D8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010FR$\u0010 \u001a\u0004\u0018\u00010\u001f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010G\u001a\u0004\bH\u0010I\"\u0004\bJ\u0010KR\u001e\u0010M\u001a\n 5*\u0004\u0018\u00010L0L8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bM\u0010N¨\u0006P"}, d2 = {"Lcom/baidu/searchbox/live/mix/proxy/LiveMixShellManager;", "", "enterFlowEnd", "()V", "", "slot", "enterFlowEndSlot", "(Ljava/lang/String;)V", "Lorg/json/JSONObject;", "jsonObject", "enterFlowStartSlot", "(Ljava/lang/String;Lorg/json/JSONObject;)V", "Landroid/content/Context;", "context", ILiveNPSPlugin.PARAMS_ROOM_ID, "source", "params", "Landroid/net/Uri;", "uri", "enterLiveRoom", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V", "", "isYYMixLive", "preStartPlayer", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;ZZ)V", "entranceSupportPlayerReuse", "()Z", "getCurrentLoadRoomId", "()Ljava/lang/String;", "jumpToOuterWebView", "(Ljava/lang/String;)Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "stat", FlowInfoHelper.KEY_IS_COLDLAUNCH, "logPluginFlowEnd", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;Z)V", "npsLoadChainYYMixLive", "url", "", "parseYYLiveParamMap", "(Ljava/lang/String;)Ljava/util/Map;", "preloadMediaPlugin", "startLiveActivity", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Z)V", "startMixLiveActivity", LiveYYPluginManager.USE_FROM_START_YY_LIVE_PAGE, "(Landroid/content/Context;Ljava/lang/String;)V", "KEY_ID_AUDIO_ENTER_AUDIO_ROOM_PERF_FLOW", "Ljava/lang/String;", "KEY_ID_AUDIO_RTC_JOIN", "UBC_ID_PLUGIN_PAGE_FLOW", "USE_FROM_START_LIVE_PAGE", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "Lcom/baidu/ubc/Flow;", "audioFlow", "Lcom/baidu/ubc/Flow;", "audioRtcFlow", "Z", "Ljava/util/HashMap;", "", "Lkotlin/collections/HashMap;", "mLaunchInfo", "Ljava/util/HashMap;", "mRoomId", "pageFlow", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartService", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "getStat", "()Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "setStat", "(Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;)V", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveMixShellManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -266,86 +266,131 @@ public final class LiveMixShellManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x010f  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0116  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0127  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0158  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x015b  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x016e  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x018a  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0191  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void startLiveActivity(Context context, String str, String str2, String str3, Uri uri, Boolean bool, boolean z) {
+        String optString;
         Class cls;
         Uri uri2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65560, this, new Object[]{context, str, str2, str3, uri, bool, Boolean.valueOf(z)}) == null) {
-            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
-            npsLoadChainLog.dLog("LiveMixShellManager startLiveActivity，isYYMixLive " + bool);
+            NpsLoadChainLog.getInstance().dLog("LiveMixShellManager startLiveActivity，isYYMixLive " + bool);
             boolean z2 = true;
             if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
                 preloadMediaPlugin();
             }
             AbConfigService abConfigService = abService;
             Boolean valueOf = abConfigService != null ? Boolean.valueOf(abConfigService.getSwitch(MiniPluginManager.LIVE_MEDIA_KERNAL_REUSE_SWITCH, false)) : null;
-            NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
-            npsLoadChainLog2.dLog("LiveMixShellManager startLiveActivity 泛知识内核复用开关：" + valueOf);
+            NpsLoadChainLog.getInstance().dLog("LiveMixShellManager startLiveActivity 泛知识内核复用开关：" + valueOf);
             PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
             boolean z3 = (pluginMgrService != null ? pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps") : 0) >= 601500000 && Intrinsics.areEqual(valueOf, Boolean.TRUE);
-            NpsLoadChainLog npsLoadChainLog3 = NpsLoadChainLog.getInstance();
+            NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
             StringBuilder sb = new StringBuilder();
             sb.append("LiveMixShellManager npsVersion：");
             PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
             sb.append(pluginMgrService2 != null ? Integer.valueOf(pluginMgrService2.getPluginVersionCode("com.baidu.searchbox.livenps")) : null);
-            npsLoadChainLog3.dLog(sb.toString());
+            npsLoadChainLog.dLog(sb.toString());
             if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
                 z3 = z3 && entranceSupportPlayerReuse();
             }
-            NpsLoadChainLog npsLoadChainLog4 = NpsLoadChainLog.getInstance();
-            npsLoadChainLog4.dLog("LiveMixShellManager isPluginSupportKernalReuse：" + z3);
+            NpsLoadChainLog.getInstance().dLog("LiveMixShellManager isPluginSupportKernalReuse：" + z3);
             String str4 = str3 != null ? str3 : "";
             boolean z4 = StringsKt__StringsKt.contains$default((CharSequence) str4, (CharSequence) "playUrl", false, 2, (Object) null) || StringsKt__StringsKt.contains$default((CharSequence) str4, (CharSequence) "play_url", false, 2, (Object) null);
-            String optString = !TextUtils.isEmpty(str4) ? new JSONObject(str4).optString("playerIdentifier") : null;
-            Ref.BooleanRef booleanRef = new Ref.BooleanRef();
-            YYStatInfo yYStatInfo = stat;
-            booleanRef.element = Intrinsics.areEqual(yYStatInfo != null ? Boolean.valueOf(yYStatInfo.isColdLaunch) : null, Boolean.TRUE);
-            MediaLivePluginLogger.Companion.getInstance().updateStartPageInfo(str != null ? str : "", str2, z4, booleanRef.element);
+            if (!TextUtils.isEmpty(str4)) {
+                try {
+                    optString = new JSONObject(str4).optString("playerIdentifier");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Ref.BooleanRef booleanRef = new Ref.BooleanRef();
+                YYStatInfo yYStatInfo = stat;
+                booleanRef.element = Intrinsics.areEqual(yYStatInfo == null ? Boolean.valueOf(yYStatInfo.isColdLaunch) : null, Boolean.TRUE);
+                MediaLivePluginLogger.Companion.getInstance().updateStartPageInfo(str != null ? str : "", str2, z4, booleanRef.element);
+                MediaLivePluginLogger.Companion.getInstance().logLiveRoomStartPage();
+                MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartPage();
+                LiveComponentLoadLogger.Companion.getInstance().externalLiveLaunchMediaCompLoadFlow(stat);
+                z2 = (z3 || TextUtils.isEmpty(optString)) ? false : false;
+                if (!z2) {
+                    cls = MixLiveTranslucentActivity.class;
+                } else {
+                    cls = MixLiveActivity.class;
+                }
+                Intent intent = new Intent(context, cls);
+                intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                intent.addFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                if (context instanceof Activity) {
+                    intent.addFlags(134217728);
+                }
+                intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str);
+                if (!TextUtils.isEmpty(str2)) {
+                    intent.putExtra("source", str2);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    intent.putExtra("params", str4);
+                }
+                if (uri != null) {
+                    if (z2) {
+                        Uri.Builder path = new Uri.Builder().scheme(uri.getScheme()).authority(uri.getAuthority()).path(uri.getPath());
+                        Set<String> queryParameterNames = uri.getQueryParameterNames();
+                        if (queryParameterNames != null) {
+                            for (String str5 : queryParameterNames) {
+                                path.appendQueryParameter(str5, uri.getQueryParameter(str5));
+                            }
+                        }
+                        uri2 = path.appendQueryParameter(MiniPluginManager.PLAY_AB_SWITCH, "true").build();
+                        Intrinsics.checkExpressionValueIsNotNull(uri2, "builder.appendQueryParam…B_SWITCH, \"true\").build()");
+                    } else {
+                        uri2 = uri;
+                    }
+                    intent.putExtra("scheme", uri2.toString());
+                }
+                intent.putExtra("translucent", z2);
+                intent.putExtra("preStartPlayer", z);
+                NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z2);
+                stat = null;
+                NpsLoadChainLog.getInstance().dLog("LiveMixShellManager 启动混排 Activity");
+                LiveActivityUtil.startActivitySafely(context, intent);
+            }
+            optString = null;
+            Ref.BooleanRef booleanRef2 = new Ref.BooleanRef();
+            YYStatInfo yYStatInfo2 = stat;
+            booleanRef2.element = Intrinsics.areEqual(yYStatInfo2 == null ? Boolean.valueOf(yYStatInfo2.isColdLaunch) : null, Boolean.TRUE);
+            MediaLivePluginLogger.Companion.getInstance().updateStartPageInfo(str != null ? str : "", str2, z4, booleanRef2.element);
             MediaLivePluginLogger.Companion.getInstance().logLiveRoomStartPage();
             MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartPage();
             LiveComponentLoadLogger.Companion.getInstance().externalLiveLaunchMediaCompLoadFlow(stat);
-            z2 = (!z3 || TextUtils.isEmpty(optString)) ? false : false;
-            if (z2) {
-                cls = MixLiveTranslucentActivity.class;
-            } else {
-                cls = MixLiveActivity.class;
+            if (z3) {
             }
-            Intent intent = new Intent(context, cls);
-            intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            intent.addFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+            if (!z2) {
+            }
+            Intent intent2 = new Intent(context, cls);
+            intent2.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            intent2.addFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
             if (context instanceof Activity) {
-                intent.addFlags(134217728);
             }
-            intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str);
+            intent2.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str);
             if (!TextUtils.isEmpty(str2)) {
-                intent.putExtra("source", str2);
             }
             if (!TextUtils.isEmpty(str4)) {
-                intent.putExtra("params", str4);
             }
             if (uri != null) {
-                if (z2) {
-                    Uri.Builder path = new Uri.Builder().scheme(uri.getScheme()).authority(uri.getAuthority()).path(uri.getPath());
-                    Set<String> queryParameterNames = uri.getQueryParameterNames();
-                    if (queryParameterNames != null) {
-                        for (String str5 : queryParameterNames) {
-                            path.appendQueryParameter(str5, uri.getQueryParameter(str5));
-                        }
-                    }
-                    uri2 = path.appendQueryParameter(MiniPluginManager.PLAY_AB_SWITCH, "true").build();
-                    Intrinsics.checkExpressionValueIsNotNull(uri2, "builder.appendQueryParam…B_SWITCH, \"true\").build()");
-                } else {
-                    uri2 = uri;
-                }
-                intent.putExtra("scheme", uri2.toString());
             }
-            intent.putExtra("translucent", z2);
-            intent.putExtra("preStartPlayer", z);
-            NpsLoadChainLog npsLoadChainLog5 = NpsLoadChainLog.getInstance();
-            npsLoadChainLog5.dLog("LiveMixShellManager translucent " + z2);
+            intent2.putExtra("translucent", z2);
+            intent2.putExtra("preStartPlayer", z);
+            NpsLoadChainLog.getInstance().dLog("LiveMixShellManager translucent " + z2);
             stat = null;
             NpsLoadChainLog.getInstance().dLog("LiveMixShellManager 启动混排 Activity");
-            LiveActivityUtil.startActivitySafely(context, intent);
+            LiveActivityUtil.startActivitySafely(context, intent2);
         }
     }
 

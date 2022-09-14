@@ -1086,7 +1086,7 @@ public class SapiJsInterpreters {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x007a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
             if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L10;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -5921,8 +5921,8 @@ public class SapiJsInterpreters {
             this.this$0 = sapiJsInterpreters;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:18:0x0055  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0072  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x0056  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0073  */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.

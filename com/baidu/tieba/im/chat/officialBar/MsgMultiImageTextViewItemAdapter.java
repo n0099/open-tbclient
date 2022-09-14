@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ba7;
+import com.baidu.tieba.ib7;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -68,7 +68,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: E */
     public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -81,7 +81,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -94,15 +94,16 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgMultiImageTextView a2 = msgViewHolder.a();
-            a2.C(this.c);
-            a2.D(i);
-            a2.t(this.d);
-            a2.z(chatMessage.getCacheData().getLastMsgTime());
-            a2.U(this.a, chatMessage, viewGroup);
+            a2.D(this.c);
+            a2.E(i);
+            a2.u(this.d);
+            a2.A(chatMessage.getCacheData().getLastMsgTime());
+            a2.V(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
-            ba7.c().d(chatMessage, this.a.getPageActivity());
-            ba7.c().e(chatMessage, this.a.getPageActivity());
+            ib7.c().e(chatMessage, this.a.getPageActivity());
+            ib7.c().f(chatMessage, this.a.getPageActivity());
+            ib7.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -41,9 +41,9 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onNetRefreshButtonClicked();
-            r1();
+            q1();
         }
     }
 
-    public abstract void r1();
+    public abstract void q1();
 }

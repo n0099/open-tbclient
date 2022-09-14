@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.hk2;
+import com.baidu.tieba.fm2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        b = hk2.c().getPackageName() + ".swan.subscribe_msg";
+        b = fm2.c().getPackageName() + ".swan.subscribe_msg";
         c = Uri.parse("content://" + b);
     }
 
@@ -65,7 +65,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 if (this.a != null) {
                     return false;
                 }
-                SQLiteOpenHelper h = SwanAppDbControl.f(hk2.c()).h();
+                SQLiteOpenHelper h = SwanAppDbControl.f(fm2.c()).h();
                 if (h != null) {
                     SQLiteDatabase writableDatabase = h.getWritableDatabase();
                     this.a = writableDatabase;

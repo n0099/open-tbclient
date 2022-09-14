@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k06;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.b26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class PostForumData extends k06 implements Serializable {
+public class PostForumData extends b26 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_POST_FORUM;
     public static final long serialVersionUID = -2078662294751243784L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pn> mRelateForumDataList;
+    public List<Cdo> mRelateForumDataList;
 
     static {
         InterceptResult invokeClinit;
@@ -65,13 +65,13 @@ public class PostForumData extends k06 implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.mRelateForumDataList) : invokeV.intValue;
     }
 
-    public pn getForumData(int i) {
+    public Cdo getForumData(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (pn) ListUtils.getItem(this.mRelateForumDataList, i) : (pn) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (Cdo) ListUtils.getItem(this.mRelateForumDataList, i) : (Cdo) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class PostForumData extends k06 implements Serializable {
             return;
         }
         this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb2);
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fce);
         this.mRelateForumDataList = new ArrayList();
         for (RelateForum relateForum : list) {
             if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {

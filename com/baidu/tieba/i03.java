@@ -1,48 +1,41 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.res.ui.BdShimmerView;
-import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
-import com.baidu.tieba.h03;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
+import com.baidu.tieba.c23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.WeakHashMap;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class i03 {
+public class i03 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final WeakHashMap<ViewGroup, j03> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements a03 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h03 a;
-        public final /* synthetic */ Context b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
 
-        public a(h03 h03Var, Context context, String str, boolean z) {
+        public a(i03 i03Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h03Var, context, str, Boolean.valueOf(z)};
+                Object[] objArr = {i03Var, callbackHandler, unitedSchemeEntity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,267 +45,127 @@ public final class i03 {
                     return;
                 }
             }
-            this.a = h03Var;
-            this.b = context;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
             this.c = str;
-            this.d = z;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            LoadingView loadingView;
+        @Override // com.baidu.tieba.a03
+        public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View d = this.a.d();
-                if (d instanceof LoadingView) {
-                    loadingView = (LoadingView) d;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.c);
                 } else {
-                    loadingView = new LoadingView(this.b);
-                    FrameLayout frameLayout = new FrameLayout(this.b);
-                    frameLayout.setPadding(0, 0, 0, re3.g(160.0f));
-                    frameLayout.addView(loadingView);
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams.gravity = 17;
-                    this.a.o(frameLayout, layoutParams);
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
                 }
-                if (!TextUtils.isEmpty(this.c)) {
-                    loadingView.setMsg(this.c);
-                }
-                this.a.k(this.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.a03
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.c);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g02 a;
 
-        public b(g02 g02Var) {
+        public b(i03 i03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g02Var};
+                Object[] objArr = {i03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = g02Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            h03 d;
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (d = ((h03.a) this.a).d()) != null && (d.d() instanceof FrameLayout) && (((FrameLayout) d.d()).getChildAt(0) instanceof LoadingView)) {
-                d.g();
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947799645, "Lcom/baidu/tieba/i03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947799645, "Lcom/baidu/tieba/i03;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i03(v33 v33Var) {
+        super(v33Var, "/swanAPI/community/openReplyEditor");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a & true;
-        b = new WeakHashMap<>();
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            for (ViewGroup viewGroup : b.keySet()) {
-                j03 j03Var = b.get(viewGroup);
-                if (j03Var != null && j03Var.getLoadingView() != null) {
-                    viewGroup.removeView(j03Var.getLoadingView());
-                }
-            }
-            b.clear();
-        }
-    }
-
-    public static boolean b(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        j03 j03Var;
-        View loadingView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewGroup)) == null) {
-            if (viewGroup == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
                 return false;
-            }
-            j03 j03Var2 = b.get(viewGroup);
-            if (j03Var2 != null && j03Var2.getLoadingView() != null) {
-                j03Var2.getLoadingView().setVisibility(8);
-                return true;
-            }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                if ((viewGroup.getChildAt(i) instanceof j03) && (loadingView = (j03Var = (j03) viewGroup.getChildAt(i)).getLoadingView()) != null) {
-                    loadingView.setVisibility(8);
-                    b.put(viewGroup, j03Var);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
-                    return true;
+            } else if (y23Var.n0()) {
+                if (v43.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void c(@NonNull g02 g02Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, g02Var) == null) && (g02Var instanceof h03.a)) {
-            ue3.e0(new b(g02Var));
-        }
-    }
-
-    public static boolean d(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        j03 j03Var;
-        View loadingView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) {
-            if (viewGroup == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
-            }
-            j03 j03Var2 = b.get(viewGroup);
-            if (j03Var2 != null) {
-                View loadingView2 = j03Var2.getLoadingView();
-                if (loadingView2 != null) {
-                    if (loadingView2 instanceof BdShimmerView) {
-                        ((BdShimmerView) loadingView2).p();
-                    }
-                    loadingView2.setVisibility(8);
-                    viewGroup.removeView(loadingView2);
-                    b.remove(viewGroup);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
-                }
-                return true;
-            }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                if ((viewGroup.getChildAt(i) instanceof j03) && (loadingView = (j03Var = (j03) viewGroup.getChildAt(i)).getLoadingView()) != null) {
-                    loadingView.setVisibility(8);
-                    viewGroup.removeView((View) j03Var);
-                    b.remove(viewGroup);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        j03 j03Var;
-        View loadingView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) {
-            if (viewGroup == null) {
-                return false;
-            }
-            j03 j03Var2 = b.get(viewGroup);
-            if (j03Var2 != null && j03Var2.getLoadingView() != null) {
-                j03Var2.getLoadingView().setVisibility(0);
-                return true;
-            }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                if ((viewGroup.getChildAt(i) instanceof j03) && (loadingView = (j03Var = (j03) viewGroup.getChildAt(i)).getLoadingView()) != null) {
-                    loadingView.setVisibility(0);
-                    b.put(viewGroup, j03Var);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(@NonNull h03 h03Var, @NonNull Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{h03Var, context, str, Boolean.valueOf(z)}) == null) {
-            ue3.e0(new a(h03Var, context, str, z));
-        }
-    }
-
-    public static boolean g(Context context, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, viewGroup)) == null) ? h(context, viewGroup, "") : invokeLL.booleanValue;
-    }
-
-    public static boolean h(Context context, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, viewGroup, str)) == null) {
-            if (context != null && viewGroup != null) {
-                if (e(viewGroup)) {
-                    return true;
-                }
-                LoadingView loadingView = new LoadingView(context);
-                LoadingView loadingView2 = loadingView.getLoadingView();
-                if (loadingView2 == null) {
+            } else {
+                JSONObject d = yf3.d(unitedSchemeEntity.getParam("params"));
+                String optString = d.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                if (!TextUtils.isEmpty(str)) {
-                    loadingView2.setMsg(str);
+                a aVar = new a(this, callbackHandler, unitedSchemeEntity, optString);
+                ReplyEditorParams fromJson = ReplyEditorParams.fromJson(d);
+                if (fromJson == null) {
+                    j(context);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params info");
+                    return false;
                 }
-                ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
-                if (viewGroup2 != null) {
-                    viewGroup2.removeView(loadingView2);
-                }
-                if (viewGroup instanceof RelativeLayout) {
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams.addRule(13);
-                    viewGroup.addView(loadingView2, layoutParams);
-                } else if (viewGroup instanceof LinearLayout) {
-                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams2.gravity = 17;
-                    viewGroup.addView(loadingView2, layoutParams2);
-                } else if (viewGroup instanceof FrameLayout) {
-                    FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams3.gravity = 17;
-                    viewGroup.addView(loadingView2, layoutParams3);
-                }
-                b.put(viewGroup, loadingView);
-                loadingView2.setVisibility(0);
-                if (a) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                }
+                e03.c().e(y23Var, fromJson, aVar);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            c23.a aVar = new c23.a(context);
+            aVar.m(false);
+            aVar.U(R.string.obfuscated_res_0x7f0f12ff);
+            aVar.v(R.string.obfuscated_res_0x7f0f1303);
+            aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this));
+            aVar.X();
+        }
     }
 }

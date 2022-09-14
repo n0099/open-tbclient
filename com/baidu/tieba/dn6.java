@@ -1,81 +1,134 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
+import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class dn6 extends af6<sn6, ThreadCardViewHolder<sn6>> {
+public class dn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<qn> c;
+    public String d;
+    public String e;
+    public v16 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dn6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes3.dex */
+    public class a extends v16 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dn6 b;
+
+        public a(dn6 dn6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dn6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dn6Var;
+        }
+
+        @Override // com.baidu.tieba.v16
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
+                super.a(view2, baseCardInfo);
+                this.b.b();
+            }
+        }
+    }
+
+    public dn6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
+        this.f = new a(this);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.d = str;
+        this.e = str2;
+        this.c = new ArrayList();
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: E */
-    public ThreadCardViewHolder<sn6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.c.getPageActivity(), true);
-            bVar.n(new ln6(this.c.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder<sn6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
-            threadCardViewHolder.i(this.mPageId);
-            return threadCardViewHolder;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            en6 en6Var = new en6(this.a, this.d, this.e);
+            en6Var.x(this.f);
+            this.c.add(en6Var);
+            fn6 fn6Var = new fn6(this.a, this.d);
+            fn6Var.x(this.f);
+            this.c.add(fn6Var);
+            this.c.add(new in6(this.a, this.d));
+            this.c.add(new hn6(this.a, this.d));
+            List<qn> list = this.c;
+            TbPageContext tbPageContext = this.a;
+            list.add(new GameSpecialTopicAdapter(tbPageContext, t66.b, tbPageContext.getUniqueId(), this.d));
+            gn6 gn6Var = new gn6(this.a, this.d);
+            gn6Var.v(this.f);
+            this.c.add(gn6Var);
+            List<qn> list2 = this.c;
+            TbPageContext tbPageContext2 = this.a;
+            list2.add(new GameCompetitionAdapter(tbPageContext2, o66.b, tbPageContext2.getUniqueId(), this.d));
+            List<qn> list3 = this.c;
+            TbPageContext tbPageContext3 = this.a;
+            list3.add(new GameRecommendGameAdapter(tbPageContext3, r66.b, tbPageContext3.getUniqueId(), this.d));
+            TbPageContext tbPageContext4 = this.a;
+            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, dh6.e, tbPageContext4.getUniqueId());
+            frsUserRecommendAdapter.I();
+            frsUserRecommendAdapter.H(this.d);
+            this.c.add(frsUserRecommendAdapter);
+            this.b.a(this.c);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.af6, com.baidu.tieba.cn
-    /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sn6 sn6Var, ThreadCardViewHolder<sn6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sn6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(sn6Var);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof un)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(List<Cdo> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
+            return;
+        }
+        bdTypeListView.setData(list);
     }
 }

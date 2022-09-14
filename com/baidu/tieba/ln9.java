@@ -1,70 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.concurrent.GuardedBy;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.NativeExpressADView;
+import com.qq.e.ads.nativ.NativeExpressMediaListener;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes4.dex */
-public final class ln9 {
+public class ln9 implements NativeExpressMediaListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    @GuardedBy("sLock")
-    public static boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948786, "Lcom/baidu/tieba/ln9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948786, "Lcom/baidu/tieba/ln9;");
-                return;
+    public ln9(kn9 kn9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kn9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new Object();
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoCached(NativeExpressADView nativeExpressADView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            b(context);
-            return c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
+            LogPrinter.d();
         }
-        return invokeL.intValue;
     }
 
-    public static void b(Context context) {
-        Bundle bundle;
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (a) {
-                if (b) {
-                    return;
-                }
-                b = true;
-                try {
-                    bundle = do9.a(context).a(context.getPackageName(), 128).metaData;
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.wtf("MetadataValueReader", "This should never happen.", e);
-                }
-                if (bundle == null) {
-                    return;
-                }
-                bundle.getString("com.google.app.id");
-                c = bundle.getInt("com.google.android.gms.version");
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoInit(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoPause(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
+    public void onVideoStart(NativeExpressADView nativeExpressADView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
+            LogPrinter.d();
         }
     }
 }

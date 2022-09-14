@@ -1,508 +1,415 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.ClipData;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.os.Parcelable;
-import android.provider.MediaStore;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.FileProvider;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.nadcore.webarch.permission.NadPermissionActivity;
-import com.baidu.tieba.k11;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 /* loaded from: classes4.dex */
 public class j21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ValueCallback<Uri> a;
-    public String b;
-    public ValueCallback<Uri[]> c;
-    public WebChromeClient.FileChooserParams d;
-    public boolean e;
-    public boolean f;
-    public Activity g;
-    public boolean h;
 
-    /* loaded from: classes4.dex */
-    public class a implements k11.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ j21 b;
-
-        public a(j21 j21Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j21Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = j21Var;
-            this.a = i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947831296, "Lcom/baidu/tieba/j21;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.k11.b
-        @RequiresApi(api = 21)
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == this.a) {
-                boolean z = iArr.length != 0;
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.b.h = false;
-                    j21 j21Var = this.b;
-                    j21Var.startActivityForResult(j21Var.k(), 11);
-                } else if (this.b.c != null) {
-                    this.b.c.onReceiveValue(null);
-                }
-                n11.b().d(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements k11.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j21 a;
-
-        public b(j21 j21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j21Var;
-        }
-
-        @Override // com.baidu.tieba.k11.b
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
-                boolean z = iArr.length != 0;
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.a.h = true;
-                    j21 j21Var = this.a;
-                    j21Var.startActivityForResult(j21Var.j(), 11);
-                }
-                n11.b().d(4099);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements k11.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j21 a;
-
-        public c(j21 j21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j21Var;
-        }
-
-        @Override // com.baidu.tieba.k11.b
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
-                boolean z = iArr.length != 0;
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.a.h = true;
-                    this.a.g.startActivityForResult(this.a.h(), 11);
-                }
-                n11.b().d(4099);
-            }
-        }
-    }
-
-    public j21(Activity activity) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.h = false;
-        this.g = activity;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947831296, "Lcom/baidu/tieba/j21;");
+        }
     }
 
-    private void requestPermissions(int i, String[] strArr) {
+    public static long a(File file, File file2) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65543, this, i, strArr) == null) {
-            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
-            intent.putExtra("request_code", i);
-            intent.putExtra("permissions", strArr);
-            n11.b().a(i, new a(this, i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
+            long j = 0;
+            if (file == null || file2 == null || !file.exists()) {
+                return 0L;
+            }
+            FileInputStream fileInputStream2 = null;
             try {
-                k01.c(this.g, intent);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ValueCallback<Uri> valueCallback = this.a;
-            if (valueCallback != null) {
-                valueCallback.onReceiveValue(null);
-            }
-            ValueCallback<Uri[]> valueCallback2 = this.c;
-            if (valueCallback2 != null) {
-                valueCallback2.onReceiveValue(null);
-            }
-        }
-    }
-
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (Activity) invokeV.objValue;
-    }
-
-    public final Intent h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (m21.a(this.g)) {
-                return new Intent("android.media.action.VIDEO_CAPTURE");
-            }
-            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
-            intent.putExtra("request_code", 4099);
-            intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-            n11.b().a(4099, new c(this));
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public Intent i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (m21.a(this.g) && m21.b(this.g)) {
-                return j();
-            }
-            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
-            intent.putExtra("request_code", 4099);
-            String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"};
-            if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
-                strArr = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
-            }
-            intent.putExtra("permissions", strArr);
-            n11.b().a(4099, new b(this));
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @SuppressLint({"NewApi", "ObsoleteSdkInt"})
-    public final Intent j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-            File externalFilesDir = eh0.b().getExternalFilesDir(Environment.DIRECTORY_DCIM);
-            File file = new File(externalFilesDir.getAbsolutePath() + File.separator + "nad-browser-photos");
-            file.mkdirs();
-            this.b = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
-            if (Build.VERSION.SDK_INT >= 24) {
-                intent.putExtra("output", FileProvider.getUriForFile(eh0.b(), eh0.c().a().r(), new File(this.b)));
-            } else {
-                intent.putExtra("output", Uri.fromFile(new File(this.b)));
-            }
-            if (Build.VERSION.SDK_INT >= 19) {
-                intent.setFlags(3);
-            }
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 21)
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final Intent k() {
-        InterceptResult invokeV;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            WebChromeClient.FileChooserParams fileChooserParams = this.d;
-            String[] acceptTypes = fileChooserParams != null ? fileChooserParams.getAcceptTypes() : null;
-            String str = "*/*";
-            String str2 = (acceptTypes == null || acceptTypes.length <= 0) ? "*/*" : acceptTypes[0];
-            if (str2 != null && !str2.trim().isEmpty()) {
-                str = str2;
-            }
-            ArrayList arrayList = new ArrayList();
-            boolean z = this.d.getMode() == 1;
-            if (str.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
-                arrayList.add(j());
-            } else if (str.equals(BdUploadHandler.VIDEO_MIME_TYPE)) {
-                arrayList.add(new Intent("android.media.action.VIDEO_CAPTURE"));
-            } else if (str.equals(BdUploadHandler.AUDIO_MIME_TYPE)) {
-                arrayList.add(n());
-            }
-            if (arrayList.isEmpty()) {
-                arrayList.add(j());
-                arrayList.add(h());
-                arrayList.add(n());
-            }
-            if (str.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
-                intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BdUploadHandler.IMAGE_MIME_TYPE);
-                if (Build.VERSION.SDK_INT >= 18 && z) {
-                    intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
-                }
-            } else {
-                Intent intent2 = new Intent("android.intent.action.GET_CONTENT");
-                if (Build.VERSION.SDK_INT >= 18 && z) {
-                    intent2.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
-                }
-                intent2.setType(str);
-                intent = intent2;
-            }
-            Intent intent3 = new Intent("android.intent.action.CHOOSER");
-            if (!arrayList.isEmpty()) {
-                intent3.putExtra("android.intent.extra.INITIAL_INTENTS", (Parcelable[]) arrayList.toArray(new Intent[0]));
-            }
-            intent3.putExtra("android.intent.extra.INTENT", intent);
-            return intent3;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public final Intent l(Intent... intentArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intentArr)) == null) {
-            Intent intent = new Intent("android.intent.action.CHOOSER");
-            intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", eh0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b77));
-            return intent;
-        }
-        return (Intent) invokeL.objValue;
-    }
-
-    public final Intent m() {
-        InterceptResult invokeV;
-        WebChromeClient.FileChooserParams fileChooserParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.addCategory("android.intent.category.OPENABLE");
-            intent.setType("*/*");
-            Intent l = l(i(), h(), n());
-            l.putExtra("android.intent.extra.INTENT", intent);
-            if (Build.VERSION.SDK_INT >= 21 && (fileChooserParams = this.d) != null) {
-                l.putExtra("android.intent.extra.INTENT", fileChooserParams.createIntent());
-            }
-            return l;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public final Intent n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new Intent("android.provider.MediaStore.RECORD_SOUND") : (Intent) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: android.webkit.ValueCallback<android.net.Uri[]> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void p(int i, Intent intent) {
-        Uri uri;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, intent) == null) {
-            if (this.h) {
-                this.h = false;
-                return;
-            }
-            if (i == -1 && intent == null && this.b == null) {
-                i = 0;
-            }
-            if (i == 0 && this.f) {
-                this.f = false;
-                return;
-            }
-            if (intent == null || i != -1) {
-                uri = null;
-            } else {
+                fileInputStream = new FileInputStream(file);
                 try {
-                    uri = intent.getData();
+                    fileOutputStream = new FileOutputStream(file2);
+                } catch (Exception e) {
+                    e = e;
+                    fileOutputStream = null;
                 } catch (Throwable th) {
-                    th.printStackTrace();
-                    return;
+                    th = th;
+                    fileOutputStream = null;
                 }
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
             }
-            if (uri == null && intent == null && i == -1) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        fromFile = FileProvider.getUriForFile(eh0.b(), eh0.c().a().r(), file);
-                    } else {
-                        fromFile = Uri.fromFile(file);
-                    }
-                    uri = fromFile;
-                    eh0.b().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", uri));
+            try {
+                j = b(fileInputStream, fileOutputStream);
+                pi0.a(fileInputStream);
+            } catch (Exception e3) {
+                e = e3;
+                fileInputStream2 = fileInputStream;
+                try {
+                    e.printStackTrace();
+                    pi0.a(fileInputStream2);
+                    pi0.a(fileOutputStream);
+                    return j;
+                } catch (Throwable th3) {
+                    th = th3;
+                    pi0.a(fileInputStream2);
+                    pi0.a(fileOutputStream);
+                    throw th;
                 }
+            } catch (Throwable th4) {
+                th = th4;
+                fileInputStream2 = fileInputStream;
+                pi0.a(fileInputStream2);
+                pi0.a(fileOutputStream);
+                throw th;
             }
-            if (this.c != null) {
-                ArrayList arrayList = new ArrayList();
-                if (uri != null) {
-                    arrayList.add(uri);
-                } else if (intent != null && intent.getClipData() != null) {
-                    ClipData clipData = intent.getClipData();
-                    for (int i2 = 0; i2 < clipData.getItemCount(); i2++) {
-                        arrayList.add(clipData.getItemAt(i2).getUri());
-                    }
-                }
-                this.c.onReceiveValue(arrayList.toArray(new Uri[0]));
-            }
-            if (this.a != null) {
-                this.a.onReceiveValue(uri);
-            }
-            this.e = true;
-            this.f = false;
+            pi0.a(fileOutputStream);
+            return j;
         }
+        return invokeLL.longValue;
     }
 
-    @RequiresApi(api = 21)
-    public boolean q(@NonNull ValueCallback<Uri[]> valueCallback, @NonNull WebChromeClient.FileChooserParams fileChooserParams) {
+    public static long b(InputStream inputStream, FileOutputStream fileOutputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, valueCallback, fileChooserParams)) == null) {
-            this.c = valueCallback;
-            this.d = fileChooserParams;
-            String[] acceptTypes = fileChooserParams.getAcceptTypes();
-            String str = (acceptTypes == null || acceptTypes.length <= 0) ? "*/*" : acceptTypes[0];
-            ArrayList arrayList = new ArrayList();
-            if (str.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
-                if (!m21.a(this.g)) {
-                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-                }
-                boolean z = Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy();
-                if (!m21.b(this.g) && z) {
-                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
-                }
-            } else if (str.equals(BdUploadHandler.VIDEO_MIME_TYPE) && !m21.a(this.g)) {
-                arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            }
-            if (arrayList.isEmpty()) {
-                if (!m21.a(this.g)) {
-                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-                }
-                if (!m21.b(this.g)) {
-                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, fileOutputStream)) == null) {
+            if (inputStream != null && fileOutputStream != null) {
+                try {
+                    byte[] bArr = new byte[3072];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            fileOutputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            fileOutputStream.flush();
+                            return j;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-            if (arrayList.size() > 0) {
-                requestPermissions(4099, (String[]) arrayList.toArray(new String[0]));
-                return true;
-            }
-            try {
-                return startActivityForResult(k(), 11);
-            } catch (Exception unused) {
-                return false;
-            }
+            return 0L;
         }
-        return invokeLL.booleanValue;
+        return invokeLL.longValue;
     }
 
-    public boolean startActivityForResult(Intent intent, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0026 */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v2, types: [int] */
+    /* JADX WARN: Type inference failed for: r4v4, types: [boolean] */
+    public static int c(@NonNull File file) {
+        InterceptResult invokeL;
+        int c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, intent, i)) == null) {
-            try {
-                try {
-                    this.g.startActivityForResult(intent, i);
-                    return true;
-                } catch (ActivityNotFoundException unused) {
-                    g();
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            int i = 0;
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    int length = listFiles.length;
+                    int i2 = 0;
+                    while (i < length) {
+                        File file2 = listFiles[i];
+                        if (file2.isFile()) {
+                            c = file2.delete();
+                        } else {
+                            c = c(file2);
+                        }
+                        i2 += c;
+                        i++;
+                    }
+                    i = i2;
                 }
-            } catch (ActivityNotFoundException unused2) {
-                this.f = true;
-                this.g.startActivityForResult(m(), i);
-                return true;
+                file.delete();
             }
+            return i;
         }
-        return invokeLI.booleanValue;
+        return invokeL.intValue;
+    }
+
+    @Nullable
+    public static String d(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String decode = Uri.decode(str);
+            if (decode != null) {
+                int indexOf = decode.indexOf(63);
+                if (indexOf > 0) {
+                    decode = decode.substring(0, indexOf);
+                }
+                if (!decode.endsWith("/") && (lastIndexOf = decode.lastIndexOf(47) + 1) > 0) {
+                    return decode.substring(lastIndexOf);
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String e(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Throwable th;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
+            String str = null;
+            if (file == null) {
+                return null;
+            }
+            System.currentTimeMillis();
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    try {
+                        StringBuilder sb = new StringBuilder();
+                        while (true) {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                            sb.append("\n");
+                        }
+                        str = sb.toString();
+                    } catch (IOException unused) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        h(fileInputStream);
+                        h(bufferedReader);
+                        throw th;
+                    }
+                } catch (IOException unused2) {
+                    bufferedReader = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader = null;
+                }
+            } catch (IOException unused3) {
+                bufferedReader = null;
+                fileInputStream = null;
+            } catch (Throwable th4) {
+                fileInputStream = null;
+                th = th4;
+                bufferedReader = null;
+            }
+            h(fileInputStream);
+            h(bufferedReader);
+            System.currentTimeMillis();
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return e(mi0.b().getFileStreamPath(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static byte[] g(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        if (file == null) {
+            return new byte[0];
+        }
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        try {
+            if (!file.exists()) {
+                byte[] bArr = new byte[0];
+                pi0.a(null);
+                pi0.a(null);
+                return bArr;
+            }
+            fileInputStream = new FileInputStream(file);
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+            } catch (IOException | OutOfMemoryError unused) {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr2 = new byte[32768];
+                while (true) {
+                    int read = fileInputStream.read(bArr2);
+                    if (read != -1) {
+                        byteArrayOutputStream.write(bArr2, 0, read);
+                    } else {
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        pi0.a(byteArrayOutputStream);
+                        pi0.a(fileInputStream);
+                        return byteArray;
+                    }
+                }
+            } catch (IOException | OutOfMemoryError unused2) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                pi0.a(byteArrayOutputStream2);
+                pi0.a(fileInputStream);
+                return new byte[0];
+            } catch (Throwable th2) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                th = th2;
+                pi0.a(byteArrayOutputStream2);
+                pi0.a(fileInputStream);
+                throw th;
+            }
+        } catch (IOException | OutOfMemoryError unused3) {
+            fileInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
+        }
+    }
+
+    public static void h(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+        }
+    }
+
+    public static boolean i(byte[] bArr, File file) {
+        InterceptResult invokeLL;
+        BufferedOutputStream bufferedOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65545, null, bArr, file)) != null) {
+            return invokeLL.booleanValue;
+        }
+        if (file == null) {
+            return false;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            if (!file.exists() && !file.createNewFile()) {
+                pi0.a(null);
+                pi0.a(null);
+                return false;
+            }
+            FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+            try {
+                bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
+            } catch (Throwable unused) {
+                bufferedOutputStream = null;
+            }
+            try {
+                bufferedOutputStream.write(bArr);
+                fileOutputStream2.flush();
+                bufferedOutputStream.flush();
+                pi0.a(fileOutputStream2);
+                pi0.a(bufferedOutputStream);
+                return true;
+            } catch (Throwable unused2) {
+                fileOutputStream = fileOutputStream2;
+                pi0.a(fileOutputStream);
+                pi0.a(bufferedOutputStream);
+                return false;
+            }
+        } catch (Throwable unused3) {
+            bufferedOutputStream = null;
+        }
+    }
+
+    public static boolean j(String str, String str2) {
+        InterceptResult invokeLL;
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream = null;
+                try {
+                    FileOutputStream openFileOutput = mi0.b().openFileOutput(str2, 0);
+                    try {
+                        bufferedWriter = new BufferedWriter(new OutputStreamWriter(openFileOutput));
+                    } catch (IOException unused) {
+                        bufferedWriter = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedWriter = null;
+                    }
+                    try {
+                        bufferedWriter.write(str);
+                        bufferedWriter.flush();
+                        h(openFileOutput);
+                        h(bufferedWriter);
+                        return true;
+                    } catch (IOException unused2) {
+                        fileOutputStream = openFileOutput;
+                        h(fileOutputStream);
+                        h(bufferedWriter);
+                        return false;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = openFileOutput;
+                        h(fileOutputStream);
+                        h(bufferedWriter);
+                        throw th;
+                    }
+                } catch (IOException unused3) {
+                    bufferedWriter = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedWriter = null;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

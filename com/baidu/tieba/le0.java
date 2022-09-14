@@ -1,42 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import java.util.List;
-import java.util.Map;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface le0 {
-    long a();
+public class le0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public boolean c;
 
-    void b(int i, int i2);
+    public le0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = true;
+        this.b = true;
+        this.c = true;
+    }
 
-    @Deprecated
-    int c(int i, int i2, Map<String, float[]> map);
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b = z;
+        }
+    }
 
-    int d(MediaTrack mediaTrack, int i, Map<String, float[]> map);
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
+        }
+    }
 
-    void e(List<MediaTrack> list, Map<String, ShaderConfig> map);
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
+    }
 
-    int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map);
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
 
-    void g(int i, long j);
-
-    int h(MediaSegment mediaSegment, int i, Map<String, float[]> map);
-
-    int i(MediaTrack mediaTrack, int i, Map<String, float[]> map);
-
-    void j(Context context);
-
-    int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f);
-
-    List<MediaTrack> l();
-
-    @Deprecated
-    int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map);
-
-    void n(List<MediaTrack> list);
-
-    void release();
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (!super.equals(obj)) {
+                if (obj instanceof le0) {
+                    le0 le0Var = (le0) obj;
+                    if (le0Var.b != this.b || le0Var.c != this.c || le0Var.a != this.a) {
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

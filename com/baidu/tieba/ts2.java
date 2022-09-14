@@ -1,40 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.util.Log;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ts2 implements Interceptor {
+public class ts2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ts2() {
+    public static void a(Integer num, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(PollingModel.LEVEL, String.valueOf(num));
+            hashMap.put("percentage", str + "%");
+            lo2.U().u(new zc2("text-size-adjust", hashMap));
+            iu1.d(num.intValue());
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
+    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            return chain.proceed(chain.request().newBuilder().header("User-Agent", SwanAppNetworkUtils.g()).build());
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
+            ed2 ed2Var = new ed2();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "text-size-adjust");
+                jSONObject.put("percentage", str3 + "%");
+                jSONObject.put(PollingModel.LEVEL, str2);
+            } catch (JSONException e) {
+                qy2.b(Log.getStackTraceString(e));
+            }
+            ed2Var.c = jSONObject;
+            lo2.U().m(str, ed2Var);
         }
-        return (Response) invokeL.objValue;
     }
 }

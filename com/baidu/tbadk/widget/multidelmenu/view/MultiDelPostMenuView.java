@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.ik5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MultiDelPostMenuView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yh5 a;
+    public ik5 a;
     public View b;
     public final Activity c;
     public TextView d;
@@ -133,13 +133,13 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiDelPostMenuView(TbPageContext tbPageContext, yh5 yh5Var) {
+    public MultiDelPostMenuView(TbPageContext tbPageContext, ik5 ik5Var) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, yh5Var};
+            Object[] objArr = {tbPageContext, ik5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,35 +153,35 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         this.g = State.UNSELECTED;
         this.i = new a(this, 2001304);
         this.c = tbPageContext.getPageActivity();
-        this.a = yh5Var;
+        this.a = ik5Var;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05af, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091584);
+            LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05c6, this);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0915ad);
             this.b = findViewById;
             if (findViewById == null) {
                 return;
             }
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091580);
+            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f0915a9);
             this.d = textView;
             if (textView != null) {
-                textView.setText(R.string.obfuscated_res_0x7f0f0371);
+                textView.setText(R.string.obfuscated_res_0x7f0f0375);
                 this.d.setOnClickListener(this);
             }
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09157f);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915a8);
             this.e = textView2;
             if (textView2 != null) {
-                textView2.setText(R.string.obfuscated_res_0x7f0f04ac);
+                textView2.setText(R.string.obfuscated_res_0x7f0f04b0);
                 this.e.setOnClickListener(this);
             }
-            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091581);
+            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915aa);
             this.f = textView3;
             if (textView3 != null) {
-                textView3.setText(R.string.obfuscated_res_0x7f0f04af);
+                textView3.setText(R.string.obfuscated_res_0x7f0f04b3);
                 this.f.setOnClickListener(this);
             }
             b();
@@ -232,19 +232,19 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        yh5 yh5Var;
+        ik5 ik5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (yh5Var = this.a) == null || yh5Var.c() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (ik5Var = this.a) == null || ik5Var.c() == null) {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091580) {
+        if (id == R.id.obfuscated_res_0x7f0915a9) {
             this.a.c().e();
         }
-        if (id == R.id.obfuscated_res_0x7f09157f) {
+        if (id == R.id.obfuscated_res_0x7f0915a8) {
             this.a.c().f();
         }
-        if (id == R.id.obfuscated_res_0x7f091581) {
+        if (id == R.id.obfuscated_res_0x7f0915aa) {
             this.a.c().g();
         }
     }
@@ -255,8 +255,8 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             MessageManager.getInstance().unRegisterListener(this.i);
-            yh5 yh5Var = this.a;
-            if (yh5Var == null || yh5Var.c() == null) {
+            ik5 ik5Var = this.a;
+            if (ik5Var == null || ik5Var.c() == null) {
                 return;
             }
             this.a.c().dismiss();
@@ -272,7 +272,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
             } else {
                 this.g = State.SELECTED;
             }
-            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04ac);
+            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04b0);
             TextView textView = this.e;
             if (textView != null) {
                 if (this.g == State.SELECTED) {

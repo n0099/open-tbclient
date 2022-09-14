@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +10,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class ec0 extends fc0 {
+public class ec0 extends bc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long l;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947729399, "Lcom/baidu/tieba/ec0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729399, "Lcom/baidu/tieba/ec0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947729399, "Lcom/baidu/tieba/ec0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947729399, "Lcom/baidu/tieba/ec0;");
-        }
+        b = new HashMap<>();
     }
 
     public ec0() {
@@ -46,74 +46,51 @@ public class ec0 extends fc0 {
                 return;
             }
         }
-        this.l = 0L;
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
+        b.put("color_858585", new String[]{"#858585", "", "", ""});
+        b.put("color_525252", new String[]{"#525252", "", "", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
     }
 
-    @Override // com.baidu.tieba.fc0
-    public void j() {
+    @Override // com.baidu.tieba.bc0
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h == 0) {
-                this.h = this.e.presentationTimeUs;
-            }
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            long j = bufferInfo.presentationTimeUs - this.h;
-            bufferInfo.presentationTimeUs = j;
-            long j2 = this.l;
-            if (j < j2) {
-                long j3 = j2 + 10000;
-                this.l = j3;
-                bufferInfo.presentationTimeUs = j3;
-            }
-            MediaCodec.BufferInfo bufferInfo2 = this.e;
-            long j4 = bufferInfo2.presentationTimeUs;
-            long j5 = fc0.j;
-            if (j4 > j5 + 500000) {
-                long j6 = this.l;
-                if (j5 > j6) {
-                    bufferInfo2.presentationTimeUs = j5 + 5000;
-                } else {
-                    bufferInfo2.presentationTimeUs = j6 + 5000;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (b.containsKey(str2)) {
+                String str3 = b.get(str2)[0];
+                if ("recommend".equals(str)) {
+                    return fc0.c().a(context, str, str2);
                 }
-            }
-            if (fc0.j > this.e.presentationTimeUs + 500000) {
-                fc0.k = 1200;
-            }
-            this.l = this.e.presentationTimeUs;
-        }
-    }
-
-    public void k(hc0 hc0Var, ic0 ic0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hc0Var, ic0Var) == null) {
-            boolean z = false;
-            if (hc0Var != null && ic0Var != null) {
-                this.c = ic0Var;
-                MediaFormat mediaFormat = new MediaFormat();
-                mediaFormat.setString("mime", hc0Var.c());
-                mediaFormat.setInteger("aac-profile", 2);
-                mediaFormat.setInteger("sample-rate", hc0Var.e());
-                mediaFormat.setInteger("channel-count", hc0Var.b());
-                mediaFormat.setInteger("bitrate", hc0Var.a());
-                mediaFormat.setInteger("max-input-size", hc0Var.d());
+                if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                    str3 = b.get(str2)[3];
+                }
+                if (vb0.a(str3)) {
+                    return -16777216;
+                }
                 try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(hc0Var.c());
-                    this.d = createEncoderByType;
-                    createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-                    if (!hc0Var.p()) {
-                        this.g = true;
-                    } else {
-                        this.g = false;
-                    }
-                    z = true;
+                    return Color.parseColor(str3);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    return -16777216;
                 }
             }
-            gc0 gc0Var = this.f;
-            if (gc0Var != null) {
-                gc0Var.b(z);
-            }
+            return -16777216;
         }
+        return invokeLLL.intValue;
     }
 }

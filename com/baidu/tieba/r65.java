@@ -1,59 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes5.dex */
 public class r65 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int j = 1;
-    public static int k = 2;
-    public static int l = 3;
-    public static int m = 4;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public int b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public u65 h;
-    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948073592, "Lcom/baidu/tieba/r65;")) == null) {
-            return;
+    @TargetApi(16)
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+            }
+            return false;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948073592, "Lcom/baidu/tieba/r65;");
-        }
+        return invokeL.booleanValue;
     }
 
-    public r65() {
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? (activity.getWindow().getAttributes().flags & 1024) != 0 : invokeL.booleanValue;
+    }
+
+    @TargetApi(19)
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) ? Build.VERSION.SDK_INT >= 19 && (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 : invokeL.booleanValue;
+    }
+
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == q65.a(view2.getContext())) {
+                return false;
             }
+            int h = p65.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
         }
-        this.i = j;
+        return invokeLI.booleanValue;
     }
 }

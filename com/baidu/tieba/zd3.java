@@ -1,189 +1,136 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.android.IntentUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class zd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356064, "Lcom/baidu/tieba/zd3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948356064, "Lcom/baidu/tieba/zd3;");
-                return;
-            }
-        }
-        a = kh1.a;
-    }
-
-    public static boolean a(Activity activity) {
+    public static WifiConfiguration a(wd3 wd3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity == null || !b(activity.getIntent())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wd3Var)) == null) {
+            int b = ae3.b(wd3Var);
+            if (f(wd3Var.a)) {
+                WifiConfiguration wifiConfiguration = new WifiConfiguration();
+                wifiConfiguration.SSID = "\"" + wd3Var.a + "\"";
+                if (!TextUtils.isEmpty(wd3Var.b)) {
+                    wifiConfiguration.BSSID = wd3Var.b;
+                }
+                if (b == 0) {
+                    ae3.d(wifiConfiguration, 0);
+                } else if (b == 1) {
+                    ae3.d(wifiConfiguration, 1);
+                    String[] strArr = wifiConfiguration.wepKeys;
+                    strArr[0] = "\"" + wd3Var.d + "\"";
+                } else if (b == 2) {
+                    ae3.d(wifiConfiguration, 2);
+                    wifiConfiguration.preSharedKey = "\"" + wd3Var.d + "\"";
+                } else if (b == 3) {
+                    ae3.d(wifiConfiguration, 3);
+                    WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
+                    wifiEnterpriseConfig.setEapMethod(0);
+                    wifiEnterpriseConfig.setIdentity(wd3Var.c);
+                    wifiEnterpriseConfig.setPassword(wd3Var.d);
+                    wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
+                }
+                return wifiConfiguration;
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeL.objValue;
+    }
+
+    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
+            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
+                        return wifiConfiguration;
+                    }
+                }
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static WifiConfiguration c(Context context, WifiManager wifiManager, wd3 wd3Var) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, wd3Var)) == null) {
+            if (wd3Var != null && f(wd3Var.a) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), wd3Var.a)) {
+                        return wifiConfiguration;
+                    }
+                }
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
+            if (wifiManager == null) {
+                return null;
+            }
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
+                    return null;
+                }
+                return wifiManager.getConfiguredNetworks();
+            } catch (Exception e) {
+                yz1.b("SwanWifiUtils", Log.getStackTraceString(e));
+                return null;
+            }
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (length = str.length()) <= 1 || str.charAt(0) != '\"') {
+                return str;
+            }
+            int i = length - 1;
+            return str.charAt(i) == '\"' ? str.substring(1, i) : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.equals("<unknown ssid>")) {
                 return false;
             }
-            try {
-                jd3.j(activity);
-            } catch (Exception unused) {
-            }
-            return true;
+            return StandardCharsets.UTF_8.newEncoder().canEncode(str);
         }
         return invokeL.booleanValue;
-    }
-
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent != null) {
-                try {
-                    Bundle extras = intent.getExtras();
-                    if (extras != null) {
-                        extras.isEmpty();
-                        return false;
-                    }
-                    return false;
-                } catch (Throwable unused) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Bundle bundle, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
-            try {
-                return bundle.getBoolean(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
-                }
-                return z;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static Bundle d(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
-            try {
-                return bundle.getBundle(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Bundle e(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
-            try {
-                return intent.getBundleExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static int f(Bundle bundle, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
-            try {
-                return bundle.getInt(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
-                }
-                return i;
-            }
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static String g(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String h(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
-            try {
-                return intent.getStringExtra(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String i(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
-            try {
-                return bundle.getString(str);
-            } catch (Throwable unused) {
-                if (a) {
-                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
     }
 }

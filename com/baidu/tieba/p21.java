@@ -1,56 +1,71 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.container.BaseNativeBrowserContainer;
-import com.baidu.nadcore.webview.container.base.AbsContainer;
-import com.baidu.tieba.n21;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class p21 implements n21.a {
-    public static /* synthetic */ Interceptable $ic;
+public class p21 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p21() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948010042, "Lcom/baidu/tieba/p21;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948010042, "Lcom/baidu/tieba/p21;");
+        }
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                return Build.VERSION.SDK_INT >= 23 ? context.checkSelfPermission(str) == 0 : context.checkCallingOrSelfPermission(str) == 0;
+            } catch (Throwable unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.n21.a
-    public AbsContainer a(t21 t21Var, u21 u21Var, int i) {
-        InterceptResult invokeLLI;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, t21Var, u21Var, i)) == null) ? new BaseNativeBrowserContainer(t21Var, u21Var) : (AbsContainer) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.n21.a
-    public boolean b(HashMap<String, String> hashMap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if ("permission_location".equalsIgnoreCase(str)) {
+                return b;
+            }
+            if ("permission_storage".equalsIgnoreCase(str)) {
+                return c;
+            }
+            if ("permission_app_list".equalsIgnoreCase(str)) {
+                return d;
+            }
+            if ("permission_read_phone_state".equalsIgnoreCase(str)) {
+                return a;
+            }
+            return false;
         }
-        return invokeLI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.n21.a
-    public void c(Context context, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-        }
+        return invokeL.booleanValue;
     }
 }

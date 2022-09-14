@@ -83,12 +83,12 @@ public final class d extends com.kwad.sdk.core.download.kwai.b {
         };
     }
 
-    public static int a(a.C0569a c0569a, int i) {
+    public static int a(a.C0574a c0574a, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, c0569a, i)) == null) {
-            Context context = c0569a.getContext();
-            AdTemplate adTemplate = c0569a.getAdTemplate();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, c0574a, i)) == null) {
+            Context context = c0574a.getContext();
+            AdTemplate adTemplate = c0574a.getAdTemplate();
             if (adTemplate == null || context == null) {
                 return 0;
             }
@@ -97,7 +97,7 @@ public final class d extends com.kwad.sdk.core.download.kwai.b {
             com.kwad.sdk.core.c.b.a(Eq);
             int s = com.kwad.sdk.core.download.kwai.b.s(context, com.kwad.sdk.core.response.a.a.bM(com.kwad.sdk.core.response.a.d.bQ(adTemplate)));
             if (s == 1) {
-                com.kwad.sdk.core.report.a.a(adTemplate, 1, c0569a.getClientParams());
+                com.kwad.sdk.core.report.a.a(adTemplate, 1, c0574a.getClientParams());
                 c(adTemplate, 1);
             } else if (s == -1) {
                 com.kwad.sdk.core.report.a.k(adTemplate, 1);

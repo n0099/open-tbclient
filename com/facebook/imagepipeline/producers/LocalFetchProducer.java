@@ -11,6 +11,7 @@ import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
+import com.google.android.gms.common.internal.ImagesContract;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
@@ -79,7 +80,7 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
         if (interceptable == null || interceptable.invokeLL(1048580, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
-            producerContext.putOriginExtra("local", "fetch");
+            producerContext.putOriginExtra(ImagesContract.LOCAL, "fetch");
             StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, getProducerName(), imageRequest, producerListener, producerContext) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -132,12 +133,12 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
                         EncodedImage encodedImage = this.this$0.getEncodedImage(this.val$imageRequest);
                         if (encodedImage == null) {
                             this.val$listener.onUltimateProducerReached(this.val$producerContext, this.this$0.getProducerName(), false);
-                            this.val$producerContext.putOriginExtra("local");
+                            this.val$producerContext.putOriginExtra(ImagesContract.LOCAL);
                             return null;
                         }
                         encodedImage.parseMetaData();
                         this.val$listener.onUltimateProducerReached(this.val$producerContext, this.this$0.getProducerName(), true);
-                        this.val$producerContext.putOriginExtra("local");
+                        this.val$producerContext.putOriginExtra(ImagesContract.LOCAL);
                         return encodedImage;
                     }
                     return (EncodedImage) invokeV.objValue;

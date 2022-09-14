@@ -476,10 +476,10 @@ public class YYLiveNPSPluginManager {
                             if (this.val$showLoading) {
                                 if (i == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a34, 0);
+                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a4a, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                 }
                             }
                             if (this.this$0.isDebug()) {
@@ -695,7 +695,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -802,7 +802,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -896,7 +896,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -990,7 +990,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -1176,7 +1176,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -1275,7 +1275,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -1367,7 +1367,7 @@ public class YYLiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -1459,7 +1459,7 @@ public class YYLiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {
@@ -1560,7 +1560,7 @@ public class YYLiveNPSPluginManager {
                                                 this.this$1.this$0.ubcManager.flowEnd(this.this$1.this$0.pageFlow);
                                                 this.this$1.this$0.pageFlow = null;
                                             }
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a33, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a49, 0);
                                             return;
                                         }
                                         try {

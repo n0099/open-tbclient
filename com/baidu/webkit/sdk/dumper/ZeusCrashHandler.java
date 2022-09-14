@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -377,7 +378,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
                 try {
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enableIMEI");
-                    return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") || (deviceId = ((TelephonyManager) WebViewFactory.getContext().getSystemService("phone")).getDeviceId()) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
+                    return (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase(Locale.getDefault()).equals("true") || (deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) WebViewFactory.getContext().getSystemService("phone"))) == null) ? "0" : deviceId.length() > 0 ? deviceId : "0";
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return "0";

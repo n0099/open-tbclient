@@ -2,7 +2,6 @@ package com.cmic.sso.sdk.c.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -209,7 +208,7 @@ public class f extends g {
                 jSONObject2.put("appid", this.a.a());
                 jSONObject2.put("version", this.a.c());
                 jSONObject.put("header", jSONObject2);
-                jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.b.a());
+                jSONObject3.put("log", this.b.a());
                 jSONObject.put(TtmlNode.TAG_BODY, jSONObject3);
             } catch (JSONException e) {
                 e.printStackTrace();

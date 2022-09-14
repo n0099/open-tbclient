@@ -31,6 +31,6 @@ public final class ProduceKt$awaitClose$4$1 extends Lambda implements Function1<
         CancellableContinuation cancellableContinuation = this.$cont;
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        cancellableContinuation.resumeWith(Result.m698constructorimpl(unit));
+        cancellableContinuation.resumeWith(Result.m699constructorimpl(unit));
     }
 }

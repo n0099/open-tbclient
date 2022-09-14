@@ -11,15 +11,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
-@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u0006\u0010\u0016\u001a\u00020\u0017R\u000e\u0010\b\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\u000b\u001a\u0004\u0018\u00010\n2\b\u0010\t\u001a\u0004\u0018\u00010\n@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/homepage/personalize/view/HomePageBrowseModelTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "contentContainer", "value", "Landroid/view/View$OnClickListener;", "listener", "getListener", "()Landroid/view/View$OnClickListener;", "setListener", "(Landroid/view/View$OnClickListener;)V", "placeHolder", "Landroid/view/View;", "tipBtn", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "tipText", "Landroid/widget/TextView;", "onChangeSkinType", "", "recommendfrs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u0006\u0010\u0016\u001a\u00020\u0017R\u000e\u0010\b\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\u000b\u001a\u0004\u0018\u00010\n2\b\u0010\t\u001a\u0004\u0018\u00010\n@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/homepage/personalize/view/HomePageBrowseModelTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "contentContainer", "value", "Landroid/view/View$OnClickListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "getListener", "()Landroid/view/View$OnClickListener;", "setListener", "(Landroid/view/View$OnClickListener;)V", "placeHolder", "Landroid/view/View;", "tipBtn", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "tipText", "Landroid/widget/TextView;", "onChangeSkinType", "", "recommendfrs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
 public final class HomePageBrowseModelTipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +55,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ns4 d = ns4.d(this.d);
+            uu4 d = uu4.d(this.d);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
@@ -112,7 +113,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams.height = -2;
         this.d.setLayoutParams(layoutParams);
         this.d.setOrientation(0);
-        ns4 d = ns4.d(this.d);
+        uu4 d = uu4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
         this.d.addView(this.a);
@@ -123,10 +124,10 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams2.rightMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams2.gravity = 16;
         this.b.setLayoutParams(layoutParams2);
-        rv4 rv4Var = new rv4();
-        rv4Var.p(R.color.CAM_X0304);
-        this.b.setConfig(rv4Var);
-        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0343));
+        by4 by4Var = new by4();
+        by4Var.p(R.color.CAM_X0304);
+        this.b.setConfig(by4Var);
+        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0347));
         this.b.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams3.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
@@ -134,10 +135,10 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
         this.a.setLayoutParams(layoutParams3);
-        ns4 d2 = ns4.d(this.a);
+        uu4 d2 = uu4.d(this.a);
         d2.z(R.dimen.T_X06);
         d2.v(R.color.CAM_X0105);
-        this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0344));
+        this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0348));
         this.a.setSingleLine();
         this.a.setEllipsize(TextUtils.TruncateAt.END);
     }

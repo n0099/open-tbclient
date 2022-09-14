@@ -1,5 +1,6 @@
 package com.baidu.searchbox.live.ubc;
 
+import android.os.Handler;
 import android.view.View;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,9 +25,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010#\n\u0002\b\u0006\u0018\u0000 \":\u0002\"#B\u0007¢\u0006\u0004\b!\u0010\u0012J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\b\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\b\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\f\u0010\u0010J\r\u0010\u0011\u001a\u00020\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\u0003¢\u0006\u0004\b\u0013\u0010\u0012J\u000f\u0010\u0014\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0014\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\u0015\u0010\tJ\r\u0010\u0016\u001a\u00020\u000e¢\u0006\u0004\b\u0016\u0010\u0017J\r\u0010\u0018\u001a\u00020\u0003¢\u0006\u0004\b\u0018\u0010\u0012J\u0015\u0010\u0019\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0019\u0010\u0005R\u001c\u0010\u001b\u001a\b\u0012\u0004\u0012\u00020\u00010\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR\u0016\u0010\u0016\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0016\u0010\u001dR\u001c\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\u00060\u001e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001f\u0010 ¨\u0006$"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;", "Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish;", WebChromeClient.KEY_ARG_CALLBACK, "", "addComponentFinishCallback", "(Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish;)V", "", "componentName", "addComponentFinished", "(Ljava/lang/String;)V", "Landroid/view/View;", "renderView", "addComponentLoadedEvent", "(Landroid/view/View;Ljava/lang/String;)V", "", "post", "(Landroid/view/View;Ljava/lang/String;Z)V", "attach", "()V", "clean", "dispatchCoresFinished", "dispatchSingleFinished", "hasCoreFinished", "()Z", "release", "removeComponentFinishCallback", "", "callbacks", "Ljava/util/List;", "Z", "", "mCoreComponents", "Ljava/util/Set;", "<init>", "Companion", "ILiveComponentLoadFinish", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010#\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u0000 (:\u0002()B\u0007¢\u0006\u0004\b'\u0010\u0012J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\b\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\b\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\b\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\f\u0010\u0010J\r\u0010\u0011\u001a\u00020\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\u0003¢\u0006\u0004\b\u0013\u0010\u0012J\u000f\u0010\u0014\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0014\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\u0015\u0010\tJ\r\u0010\u0016\u001a\u00020\u000e¢\u0006\u0004\b\u0016\u0010\u0017J\r\u0010\u0018\u001a\u00020\u0003¢\u0006\u0004\b\u0018\u0010\u0012J\u0015\u0010\u0019\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0019\u0010\u0005R\u001c\u0010\u001b\u001a\b\u0012\u0004\u0012\u00020\u00010\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR\u0016\u0010\u0016\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0016\u0010\u001dR\u001c\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\u00060\u001e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u001d\u0010&\u001a\u00020!8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%¨\u0006*"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;", "Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish;", WebChromeClient.KEY_ARG_CALLBACK, "", "addComponentFinishCallback", "(Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish;)V", "", "componentName", "addComponentFinished", "(Ljava/lang/String;)V", "Landroid/view/View;", "renderView", "addComponentLoadedEvent", "(Landroid/view/View;Ljava/lang/String;)V", "", "post", "(Landroid/view/View;Ljava/lang/String;Z)V", "attach", "()V", "clean", "dispatchCoresFinished", "dispatchSingleFinished", "hasCoreFinished", "()Z", "release", "removeComponentFinishCallback", "", "callbacks", "Ljava/util/List;", "Z", "", "mCoreComponents", "Ljava/util/Set;", "Landroid/os/Handler;", "sMainHandler$delegate", "Lkotlin/Lazy;", "getSMainHandler", "()Landroid/os/Handler;", "sMainHandler", "<init>", "Companion", "ILiveComponentLoadFinish", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveComponentStatusHelper {
+    public static final /* synthetic */ KProperty[] $$delegatedProperties;
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOTTOM_LIVE_COMPONENT = "bottom_component_finish";
     public static final Companion Companion;
@@ -38,6 +40,7 @@ public final class LiveComponentStatusHelper {
     public List<ILiveComponentLoadFinish> callbacks;
     public boolean hasCoreFinished;
     public Set<String> mCoreComponents;
+    public final Lazy sMainHandler$delegate;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000f\u0010\u0010R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u001d\u0010\u000e\u001a\u00020\t8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r¨\u0006\u0011"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$Companion;", "", "BOTTOM_LIVE_COMPONENT", "Ljava/lang/String;", "IM_LIVE_COMPONENT", "", "MATCH_MAIN_COMPONENT", "I", "TOPBAR_LIVE_COMPONENT", "Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;", "instance$delegate", "Lkotlin/Lazy;", "getInstance", "()Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -114,6 +117,7 @@ public final class LiveComponentStatusHelper {
                 return;
             }
         }
+        $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LiveComponentStatusHelper.class), "sMainHandler", "getSMainHandler()Landroid/os/Handler;"))};
         Companion = new Companion(null);
         instance$delegate = LazyKt__LazyJVMKt.lazy(LiveComponentStatusHelper$Companion$instance$2.INSTANCE);
     }
@@ -133,6 +137,7 @@ public final class LiveComponentStatusHelper {
         }
         this.mCoreComponents = new LinkedHashSet();
         this.callbacks = new ArrayList();
+        this.sMainHandler$delegate = LazyKt__LazyJVMKt.lazy(LiveComponentStatusHelper$sMainHandler$2.INSTANCE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -174,6 +179,17 @@ public final class LiveComponentStatusHelper {
                 arrayList.add(Unit.INSTANCE);
             }
         }
+    }
+
+    private final Handler getSMainHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            Lazy lazy = this.sMainHandler$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (Handler) lazy.getValue();
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public final void addComponentFinishCallback(ILiveComponentLoadFinish iLiveComponentLoadFinish) {
@@ -274,10 +290,8 @@ public final class LiveComponentStatusHelper {
     public final void addComponentLoadedEvent(View view2, final String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, view2, str, z) == null) {
-            if (!z) {
-                addComponentFinished(str);
-            } else if (view2 != null) {
-                view2.post(new Runnable(this, str) { // from class: com.baidu.searchbox.live.ubc.LiveComponentStatusHelper$addComponentLoadedEvent$2
+            if (z) {
+                getSMainHandler().postAtFrontOfQueue(new Runnable(this, str) { // from class: com.baidu.searchbox.live.ubc.LiveComponentStatusHelper$addComponentLoadedEvent$2
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ String $componentName;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -310,6 +324,8 @@ public final class LiveComponentStatusHelper {
                         }
                     }
                 });
+            } else {
+                addComponentFinished(str);
             }
         }
     }

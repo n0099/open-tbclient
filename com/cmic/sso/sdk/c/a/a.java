@@ -35,16 +35,16 @@ public class a implements b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:106:0x01f7  */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x01fb  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0206  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x0229  */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x022c  */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x023e  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x025c  */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x027f  */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x0282  */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x0294  */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x01fc  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0200  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x020b  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x022e  */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0231  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x0243  */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x0261  */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0284  */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x0287  */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x0299  */
     @Override // com.cmic.sso.sdk.c.a.b
     @TargetApi(21)
     /*
@@ -340,15 +340,15 @@ public class a implements b {
                         i = responseCode;
                         inputStream = null;
                     }
-                } catch (Throwable th7) {
-                    th = th7;
-                    str = "";
-                    inputStream = null;
-                    sb = null;
-                    closeable = null;
+                } catch (Exception e8) {
+                    e = e8;
                 }
-            } catch (Exception e8) {
-                e = e8;
+            } catch (Throwable th7) {
+                th = th7;
+                str = "";
+                inputStream = null;
+                sb = null;
+                closeable = null;
             }
         } catch (Exception e9) {
             e = e9;

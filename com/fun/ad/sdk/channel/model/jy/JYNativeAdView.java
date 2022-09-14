@@ -103,7 +103,7 @@ public final class JYNativeAdView extends LinearLayout {
             PBMediaView pBMediaView = new PBMediaView(getContext());
             this.c = pBMediaView;
             this.b.addView(pBMediaView, layoutParams);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f9);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
             this.f = (Button) findViewById(R.id.obfuscated_res_0x7f09009d);
         }

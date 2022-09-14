@@ -1,82 +1,112 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.view.FrsTopItemInfoView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ItemInfo;
+import java.util.ArrayList;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class yf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public FrsTopItemInfoView b;
 
-    public yf6(BaseFragment baseFragment) {
-        FrsViewData frsViewData;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            bx4.k().y(bx4.o("search_forum_history"), "");
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String q = bx4.k().q(bx4.o("search_forum_history"), "");
+        if (StringUtils.isNull(q)) {
+            return;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(q);
+            if (jSONArray.length() <= 0) {
                 return;
             }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Object obj = jSONArray.get(i);
+                if (!str.equals(obj)) {
+                    arrayList.add((String) obj);
+                }
+            }
+            bx4.k().y(bx4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        if (baseFragment == null) {
-            return;
-        }
-        this.a = baseFragment;
-        this.b = new FrsTopItemInfoView(baseFragment.getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.b.setLayoutParams(layoutParams);
-        b();
-        BaseFragment baseFragment2 = this.a;
-        if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) == null || frsViewData.getForum() == null) {
-            return;
-        }
-        ForumData forum = frsViewData.getForum();
-        this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
     }
 
-    public View a() {
+    public static ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
+            return (ArrayList) invokeV.objValue;
+        }
+        String q = bx4.k().q(bx4.o("search_forum_history"), "");
+        ArrayList<String> arrayList = null;
+        if (StringUtils.isNull(q)) {
+            return null;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(q);
+            if (jSONArray.length() <= 0) {
+                return null;
+            }
+            ArrayList<String> arrayList2 = new ArrayList<>();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    Object obj = jSONArray.get(i);
+                    if (obj instanceof String) {
+                        arrayList2.add((String) obj);
+                    }
+                } catch (JSONException e) {
+                    e = e;
+                    arrayList = arrayList2;
+                    e.printStackTrace();
+                    return arrayList;
+                }
+            }
+            return arrayList2;
+        } catch (JSONException e2) {
+            e = e2;
+        }
     }
 
-    public void b() {
-        FrsTopItemInfoView frsTopItemInfoView;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsTopItemInfoView = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        frsTopItemInfoView.e();
-    }
-
-    public void c(ItemInfo itemInfo) {
-        FrsTopItemInfoView frsTopItemInfoView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) || (frsTopItemInfoView = this.b) == null) {
-            return;
+        String q = bx4.k().q(bx4.o("search_forum_history"), "");
+        try {
+            JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            int i = 1;
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if ((obj instanceof String) && !str.equals(obj)) {
+                    arrayList.add((String) obj);
+                    i++;
+                }
+                if (i == 6) {
+                    break;
+                }
+            }
+            bx4.k().y(bx4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        frsTopItemInfoView.setData(itemInfo);
     }
 }

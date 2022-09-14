@@ -1,37 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.i64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.games.view.button.base.ApiButton;
+import com.baidu.tieba.u54;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v54 extends l54<pn2> {
+public class v54 extends EventTargetImpl implements u54.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ApiButton a;
+    @V8JavascriptField
+    public String image;
+    @V8JavascriptField
+    public u54 style;
+    @V8JavascriptField
+    public String text;
+    @V8JavascriptField
+    public String type;
 
     /* loaded from: classes6.dex */
-    public class a implements i64.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pn2 a;
-        public final /* synthetic */ jn2 b;
+        public final /* synthetic */ v54 a;
 
-        public a(v54 v54Var, pn2 pn2Var, jn2 jn2Var) {
+        public a(v54 v54Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v54Var, pn2Var, jn2Var};
+                Object[] objArr = {v54Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,106 +51,317 @@ public class v54 extends l54<pn2> {
                     return;
                 }
             }
-            this.a = pn2Var;
-            this.b = jn2Var;
+            this.a = v54Var;
         }
 
-        @Override // com.baidu.tieba.i64.b
-        public void onAnimationEnd() {
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a.y)) {
-                    this.b.c(this.a.y, null);
-                }
-                ay1.i("map", "TranslateMarkerAction animation end");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191764, "Lcom/baidu/tieba/v54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948191764, "Lcom/baidu/tieba/v54;");
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.a.a) == null) {
                 return;
             }
+            s54.d(apiButton);
+            this.a.a = null;
         }
-        boolean z = kh1.a;
     }
 
-    public v54() {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public b(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.a.a) == null) {
+                return;
+            }
+            apiButton.hide();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public c(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ApiButton apiButton;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (apiButton = this.a.a) == null) {
+                return;
+            }
+            apiButton.show();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ v54 b;
+
+        public d(v54 v54Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = v54Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ij1.a) {
+                    Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + this.a);
+                }
+                if (this.b.a == null) {
+                    return;
+                }
+                String str = this.a;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 3556653) {
+                    if (hashCode == 100313435 && str.equals("image")) {
+                        c = 1;
+                    }
+                } else if (str.equals("text")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    v54 v54Var = this.b;
+                    v54Var.a.setButtonText(v54Var.text);
+                } else if (c != 1) {
+                } else {
+                    v54 v54Var2 = this.b;
+                    v54Var2.a.setImageUrl(v54Var2.image);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v54 a;
+
+        public e(v54 v54Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v54Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v54Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                v54 v54Var = this.a;
+                if (v54Var.a == null || v54Var.B()) {
+                    return;
+                }
+                this.a.a.h();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v54(JsObject jsObject, ia2 ia2Var) {
+        super(ia2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject, ia2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.type = "text";
+        this.text = fm2.c().getString(R.string.obfuscated_res_0x7f0f0106);
+        A(jsObject);
+    }
+
+    public final void A(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            fv1 F = fv1.F(jsObject);
+            if (ij1.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("parse jsObject = ");
+                sb.append(F);
+                Log.d("BaseButtonProxy", sb.toString() != null ? F.toString() : null);
+            }
+            if (F == null) {
+                return;
+            }
+            this.type = F.C("type", this.type);
+            this.text = F.C("text", this.text);
+            this.image = F.C("image", this.image);
+            fv1 x = F.x("style", null);
+            this.style = x == null ? this.style : new u54(x);
         }
     }
 
-    public static v54 e() {
+    public final boolean B() {
+        InterceptResult invokeV;
+        et2 z;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.a == null || this.style == null || (z = z()) == null || !s54.f(this.a, z)) ? false : true : invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            sg3.e0(new a(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            sg3.e0(new b(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            sg3.e0(new d(this, str));
+        }
+    }
+
+    @Override // com.baidu.tieba.u54.a
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            sg3.e0(new e(this));
+        }
+    }
+
+    @JavascriptInterface
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            sg3.e0(new c(this));
+        }
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        u54 u54Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a == null || (u54Var = this.style) == null) {
+                return false;
+            }
+            u54Var.b(this);
+            et2 z = z();
+            return z != null && s54.a(this.a, z);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final et2 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new v54() : (v54) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l54
-    /* renamed from: d */
-    public boolean b(Context context, pn2 pn2Var, jn2 jn2Var, a13 a13Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pn2Var, jn2Var, a13Var, jSONObject)) == null) ? f(context, pn2Var, jn2Var, a13Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean f(Context context, pn2 pn2Var, jn2 jn2Var, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, pn2Var, jn2Var, a13Var)) == null) {
-            ay1.i("map", "TranslateMarkerAction start");
-            in1 A = nm2.U().A(pn2Var.c);
-            if (!(A instanceof gn1)) {
-                ay1.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            u54 u54Var = this.style;
+            if (u54Var == null || this.a == null) {
+                return null;
             }
-            j64 d = i54.b().c((gn1) A).d(pn2Var.b);
-            if (d == null) {
-                ay1.c("map", "can not find map by id " + pn2Var.b);
-                return false;
+            int g = pg3.g(u54Var.width);
+            int g2 = pg3.g(this.style.height);
+            int g3 = pg3.g(this.style.left);
+            int g4 = pg3.g(this.style.top);
+            int g5 = pg3.g(this.style.borderWidth) * 2;
+            if (g < g5) {
+                g = g5;
             }
-            return g(pn2Var, d, jn2Var);
+            if (g2 < g5) {
+                g2 = g5;
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            if (layoutParams != null && layoutParams.width == g && layoutParams.height == g2 && layoutParams.leftMargin == g3 && layoutParams.topMargin == g4) {
+                return null;
+            }
+            return new et2(g3, g4, g, g2);
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean g(pn2 pn2Var, j64 j64Var, jn2 jn2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, pn2Var, j64Var, jn2Var)) == null) {
-            if (pn2Var.isValid()) {
-                tn2 tn2Var = pn2Var.A;
-                LatLng latLng = new LatLng(tn2Var.a, tn2Var.b);
-                List<i64> I = j64Var.I(pn2Var.z);
-                ay1.i("map", "TranslateMarkerAction animation start");
-                if (I != null) {
-                    for (i64 i64Var : I) {
-                        i64Var.c(j64Var, latLng, pn2Var, new a(this, pn2Var, jn2Var));
-                    }
-                }
-                ay1.i("map", "TranslateMarkerAction end");
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
+        return (et2) invokeV.objValue;
     }
 }

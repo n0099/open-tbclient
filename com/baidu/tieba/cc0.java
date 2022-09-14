@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,118 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class cc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String f = "cc0";
+public class cc0 extends bc0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public ec0 c;
-    public ic0 d;
-    public volatile boolean e;
-
-    /* loaded from: classes3.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ByteBuffer a;
-        public int b;
-        public long c;
-
-        public a(cc0 cc0Var, ByteBuffer byteBuffer, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cc0Var, byteBuffer, Integer.valueOf(i), Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = byteBuffer;
-            this.b = i;
-            this.c = j;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cc0 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cc0 cc0Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cc0Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cc0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                switch (message.what) {
-                    case 1001:
-                        this.a.k((hc0) message.obj);
-                        return;
-                    case 1002:
-                        this.a.l();
-                        return;
-                    case 1003:
-                        a aVar = (a) message.obj;
-                        this.a.h(aVar.a, aVar.b, aVar.c);
-                        return;
-                    case 1004:
-                        this.a.m();
-                        return;
-                    case 1005:
-                        this.a.j();
-                        return;
-                    case 1006:
-                        this.a.i();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947669817, "Lcom/baidu/tieba/cc0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669817, "Lcom/baidu/tieba/cc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947669817, "Lcom/baidu/tieba/cc0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947669817, "Lcom/baidu/tieba/cc0;");
-        }
+        b = new HashMap<>();
     }
 
     public cc0() {
@@ -142,163 +47,66 @@ public class cc0 {
                 return;
             }
         }
-        this.e = false;
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "#333333", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "#1C1C1C", ""});
+        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "#000000", ""});
+        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "#292929", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "#F63B68", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "#26F63B68", ""});
+        b.put("color_858585", new String[]{"#858585", "", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "", "#80FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "#66FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "#1AFFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "#00FFFFFF", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "#1AFFFFFF", ""});
+        b.put("color_sub_tab_normal", new String[]{"#888888", "", "#CCFFFFFF", ""});
+        b.put("color_main_bg", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white4", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_gradient_1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_gradient_2", new String[]{"#00FFFFFF", "", "#001C1C1C", ""});
+        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
+        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
     }
 
-    public void g(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || byteBuffer == null || i <= 0) {
-            return;
-        }
-        a aVar = new a(this, byteBuffer, i, j);
-        if (this.b == null || !this.e) {
-            return;
-        }
-        Handler handler = this.b;
-        handler.sendMessage(handler.obtainMessage(1003, aVar));
-    }
-
-    public final void h(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || Build.VERSION.SDK_INT < 18) {
-            return;
-        }
-        this.c.a(false, byteBuffer, i, j);
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-                this.b = null;
-            }
-            HandlerThread handlerThread = this.a;
-            if (handlerThread != null) {
-                handlerThread.quit();
-                this.a = null;
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 18) {
-            return;
-        }
-        ec0 ec0Var = this.c;
-        if (ec0Var != null) {
-            ec0Var.i();
-            this.c.e();
-        }
-        this.c = null;
-        this.d = null;
-    }
-
-    public final void k(hc0 hc0Var) {
-        ec0 ec0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, hc0Var) == null) || Build.VERSION.SDK_INT < 18 || (ec0Var = this.c) == null) {
-            return;
-        }
-        ec0Var.k(hc0Var, this.d);
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || Build.VERSION.SDK_INT < 18) {
-            return;
-        }
-        this.c.h();
-    }
-
-    public final void m() {
-        ec0 ec0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Build.VERSION.SDK_INT < 18 || (ec0Var = this.c) == null) {
-            return;
-        }
-        ec0Var.a(true, null, 0, 0L);
-    }
-
-    public final void n(ic0 ic0Var, gc0 gc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, ic0Var, gc0Var) == null) {
-            HandlerThread handlerThread = new HandlerThread("AudioRecorderThread");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.b = new b(this, this.a.getLooper());
-            try {
-                this.c = new ec0();
-            } catch (VerifyError unused) {
-                Log.e(f, "initRecorder verifyError");
-                if (this.c == null) {
-                    return;
-                }
-            }
-            this.d = ic0Var;
-            if (Build.VERSION.SDK_INT >= 18) {
-                this.c.f(gc0Var);
-            }
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HandlerThread handlerThread = this.a;
-            return handlerThread != null && handlerThread.isAlive();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (handler = this.b) == null) {
-            return;
-        }
-        handler.removeCallbacksAndMessages(null);
-        Handler handler2 = this.b;
-        handler2.sendMessage(handler2.obtainMessage(1005));
-        Handler handler3 = this.b;
-        handler3.sendMessage(handler3.obtainMessage(1006));
-    }
-
-    public boolean q(hc0 hc0Var, ic0 ic0Var, gc0 gc0Var) {
+    @Override // com.baidu.tieba.bc0
+    @SuppressLint({"Range"})
+    public int a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, hc0Var, ic0Var, gc0Var)) == null) {
-            if (o()) {
-                Log.e(f, "setupRecorder error! As last audio recorder thread is alive!");
-                return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (b.containsKey(str2)) {
+                String str3 = "";
+                try {
+                    str3 = b.get(str2)[0];
+                } catch (Exception e) {
+                    LiveFeedPageSdk.liveLog("getColor Exception: " + e.getMessage());
+                }
+                if ("recommend".equals(str)) {
+                    return fc0.c().a(context, str, str2);
+                }
+                if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                    str3 = b.get(str2)[3];
+                } else if ("dark".equals(this.a)) {
+                    str3 = b.get(str2)[2];
+                }
+                if (vb0.a(str3)) {
+                    return -16777216;
+                }
+                try {
+                    return Color.parseColor(str3);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return -16777216;
+                }
             }
-            n(ic0Var, gc0Var);
-            Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1001, hc0Var));
-            this.e = true;
-            return true;
+            return -16777216;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public void r() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (handler = this.b) == null) {
-            return;
-        }
-        handler.sendMessage(handler.obtainMessage(1002));
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && this.e) {
-            this.e = false;
-            Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1004));
-        }
+        return invokeLLL.intValue;
     }
 }

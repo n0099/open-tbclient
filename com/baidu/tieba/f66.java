@@ -1,59 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.Comparable;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.properties.ReadWriteProperty;
+import kotlin.reflect.KProperty;
 /* loaded from: classes4.dex */
-public final class f66 {
+public final class f66<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
-    public static Map<String, String> b;
-    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<T, Unit> a;
+    public T b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716131, "Lcom/baidu/tieba/f66;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947716131, "Lcom/baidu/tieba/f66;");
+    public f66(T initial, Function1<? super T, Unit> onChange) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {initial, onChange};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
-        a.put("CAM_X0906", "CAM_X0906");
-        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
-        c.put("CAM_X0906", "testMethod");
+        Intrinsics.checkNotNullParameter(initial, "initial");
+        Intrinsics.checkNotNullParameter(onChange, "onChange");
+        this.a = onChange;
+        this.b = initial;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
+    /* renamed from: a */
+    public T getValue(Object thisRef, KProperty<?> property) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (b.containsKey(str)) {
-                try {
-                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    Object invoke = declaredMethod.invoke(null, new Object[0]);
-                    return ((invoke instanceof Boolean) && ((Boolean) invoke).booleanValue()) ? a.get(str) : str;
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-            }
-            return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return (T) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty
+    /* renamed from: b */
+    public void setValue(Object thisRef, KProperty<?> property, T value) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            Intrinsics.checkNotNullParameter(value, "value");
+            T t = this.b;
+            this.b = value;
+            if (Intrinsics.areEqual(t, value)) {
+                return;
+            }
+            this.a.invoke(value);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
     }
 }

@@ -1,25 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes4.dex */
-public final class h00 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface h00 {
+    int a(int i);
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            try {
-                return MessageDigest.getInstance("SHA-1").digest(bArr);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
+    int a(byte[] bArr, int i, int i2);
+
+    void b(byte[] bArr, int i, int i2) throws ShortBufferException;
 }

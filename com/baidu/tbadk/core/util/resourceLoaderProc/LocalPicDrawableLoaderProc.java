@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.an;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.on;
+import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,24 +75,24 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public an getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
-            an m = m55.k().m(str3);
+            on m = u75.k().m(str3);
             if (m == null) {
-                Bitmap bitmap = SkinManager.getBitmap(pg.e(str2, 0));
+                Bitmap bitmap = SkinManager.getBitmap(dh.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                an anVar = new an(bitmap, false, str2);
-                m55.k().d(str3, anVar);
-                return anVar;
+                on onVar = new on(bitmap, false, str2);
+                u75.k().d(str3, onVar);
+                return onVar;
             }
             return m;
         }
-        return (an) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 }

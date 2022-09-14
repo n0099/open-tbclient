@@ -38,7 +38,6 @@ import androidx.core.view.TintableBackgroundView;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TintableImageSourceView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,6 +45,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.animation.TransformationCallback;
 import com.google.android.material.appbar.AppBarLayout;
@@ -70,9 +70,7 @@ import java.util.List;
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100333 = 2131755827;
+    public static final int DEF_STYLE_RES = 2131755828;
     public static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
     public static final String LOG_TAG = "FloatingActionButton";
     public static final int NO_CUSTOM_SIZE = 0;
@@ -324,7 +322,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d2});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton_Behavior_Layout);
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         }
@@ -1408,7 +1406,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402bc);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402bc);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1438,9 +1436,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             Resources resources = getResources();
             if (i != -1) {
                 if (i != 1) {
-                    return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070206);
+                    return resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070206);
                 }
-                return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070205);
+                return resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070205);
             } else if (Math.max(resources.getConfiguration().screenWidthDp, resources.getConfiguration().screenHeightDp) < 470) {
                 return getSizeDimension(1);
             } else {
@@ -1475,7 +1473,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100333), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1495,7 +1493,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f0402a4, R.attr.obfuscated_res_0x7f0402a5, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f0404c2, R.attr.obfuscated_res_0x7f040567, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f04074d}, i, obfuscated_res_0x7f100333, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, R.styleable.FloatingActionButton, i, DEF_STYLE_RES, new int[0]);
         this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
         this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
         this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);
@@ -1506,11 +1504,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
         this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049c);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07049c);
         this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);
-        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100333, ShapeAppearanceModel.PILL).build();
+        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES, ShapeAppearanceModel.PILL).build();
         boolean z = obtainStyledAttributes.getBoolean(5, false);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();

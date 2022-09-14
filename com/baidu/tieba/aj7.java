@@ -1,106 +1,109 @@
 package com.baidu.tieba;
 
-import android.location.Address;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.location.LocationCallback;
-import com.baidu.searchbox.live.interfaces.location.LocationInfo;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
-import com.baidu.tieba.lf;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
-public class aj7 implements LiveLocationService {
+public class aj7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public String b;
+    public String c;
+    public Integer d;
+    public Integer e;
+    public String f;
 
-    /* loaded from: classes3.dex */
-    public class a implements lf.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LocationCallback a;
-        public final /* synthetic */ aj7 b;
-
-        public a(aj7 aj7Var, LocationCallback locationCallback) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947617179, "Lcom/baidu/tieba/aj7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aj7Var, locationCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = aj7Var;
-            this.a = locationCallback;
-        }
-
-        @Override // com.baidu.tieba.lf.c
-        public void a(int i, String str, Address address) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
-                try {
-                    if (this.a == null || address == null) {
-                        return;
-                    }
-                    this.a.onReceiveLocation(this.b.b(address));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947617179, "Lcom/baidu/tieba/aj7;");
+                return;
             }
         }
+        g = BdUniqueId.gen();
     }
 
     public aj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final LocationInfo b(Address address) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
-            LocationInfo locationInfo = new LocationInfo();
-            if (address != null) {
-                locationInfo.setCity(address.getLocality());
-                locationInfo.setLatitude(address.getLatitude());
-                locationInfo.setLongitude(address.getLongitude());
-                locationInfo.setProvince(address.getAdminArea());
-                locationInfo.setCounty(address.getCountryName());
-            }
-            return locationInfo;
-        }
-        return (LocationInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public LocationInfo getLocationInfo() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(lf.n().k(false, null)) : (LocationInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public void requestLocate(LocationCallback locationCallback) {
+    public Long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
-            lf.n().k(false, new a(this, locationCallback));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public Integer f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Integer) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+    }
+
+    public Integer h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Integer) invokeV.objValue;
+    }
+
+    public void j(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, recommendForumInfo) == null) {
+            this.c = recommendForumInfo.avatar;
+            this.a = recommendForumInfo.forum_id;
+            this.b = recommendForumInfo.forum_name;
+            this.d = recommendForumInfo.thread_count;
+            this.e = recommendForumInfo.member_count;
+            this.f = recommendForumInfo.slogan;
         }
     }
 }

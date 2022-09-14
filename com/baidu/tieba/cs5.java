@@ -1,91 +1,94 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cs5 extends hz5<kt5> {
+public class cs5 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ImageView j;
-    public View k;
-    public View l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cs5(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public cs5(v33 v33Var) {
+        super(v33Var, "/swan/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092338);
-        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090feb);
-        this.l = h().findViewById(R.id.obfuscated_res_0x7f090e39);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.hz5
-    public int d() {
-        InterceptResult invokeV;
+    public static boolean j(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0833 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hz5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
-            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
-    /* renamed from: r */
-    public void i(kt5 kt5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kt5Var) == null) {
-            if (kt5Var.a == 1) {
-                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a18));
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
-            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a17));
-            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("path");
+                if (StringUtils.isNull(optString)) {
+                    String optString2 = jSONObject.optString("appid");
+                    if (StringUtils.isNull(optString2)) {
+                        return false;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, zq5.a(optString2, "", "", 0)));
+                    return true;
+                }
+                String substring = optString.substring(39);
+                if (StringUtils.isNull(substring)) {
+                    return false;
+                }
+                JSONObject jSONObject2 = new JSONObject(dj.getUrlDecode(substring));
+                String optString3 = jSONObject2.optString("third_app_id");
+                String optString4 = jSONObject2.optString("third_app_name");
+                String optString5 = jSONObject2.optString("third_app_pic");
+                String optString6 = jSONObject2.optString("third_app_link");
+                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
+                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            j(context, unitedSchemeEntity.getParam("params"));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

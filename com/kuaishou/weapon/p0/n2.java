@@ -1,10 +1,10 @@
 package com.kuaishou.weapon.p0;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,7 +69,7 @@ public class n2 {
                 boolean b = a.b("a1_p_s_p_s");
                 boolean b2 = a.b("a1_p_s_p_s_c_b");
                 if (b || b2) {
-                    String str2 = "ANDROID_" + Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                    String str2 = "ANDROID_" + ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                     if (!TextUtils.isEmpty(str2)) {
                         i1.t = 3;
                         return str2;

@@ -1,15 +1,82 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface tp2 {
-    void a(gl2 gl2Var);
+public class tp2 implements xs2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<rp2> a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    void b(gl2 gl2Var);
+    public tp2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 1;
+        this.c = -16777216;
+        this.d = 0;
+        this.e = 0;
+    }
 
-    void c(gl2 gl2Var);
+    @Override // com.baidu.tieba.xs2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("points");
+            int length = optJSONArray == null ? 0 : optJSONArray.length();
+            if (length > 0) {
+                this.a = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        rp2 rp2Var = new rp2();
+                        rp2Var.a(optJSONObject);
+                        if (rp2Var.isValid()) {
+                            this.a.add(rp2Var);
+                        }
+                    }
+                }
+            }
+            ArrayList<rp2> arrayList = this.a;
+            if (arrayList == null || arrayList.size() <= 0) {
+                return;
+            }
+            this.b = (int) Math.abs(lp2.b(jSONObject.optInt("strokeWidth", 1)));
+            this.c = lp2.a(jSONObject.optString("strokeColor"), -16777216);
+            this.d = lp2.a(jSONObject.optString("fillColor"), 0);
+            this.e = jSONObject.optInt("zIndex", 0);
+        }
+    }
 
-    void d(gl2 gl2Var);
-
-    void e(gl2 gl2Var);
-
-    boolean f(gl2 gl2Var, int i, int i2);
+    @Override // com.baidu.tieba.xs2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<rp2> arrayList = this.a;
+            return (arrayList == null || arrayList.isEmpty()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
 }

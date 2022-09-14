@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
-import com.baidu.tieba.wm5;
-import com.baidu.tieba.x57;
-import com.baidu.tieba.xm5;
+import com.baidu.tieba.e77;
+import com.baidu.tieba.hp5;
+import com.baidu.tieba.ip5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class TaskRegisterStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001322, new wm5()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001322, new hp5()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -66,8 +66,8 @@ public class TaskRegisterStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);
-        x57.b(304101, ResponsePassFriendMessage.class, false);
-        MessageManager.getInstance().addResponsedMessageRule(new xm5());
+        e77.b(304101, ResponsePassFriendMessage.class, false);
+        MessageManager.getInstance().addResponsedMessageRule(new ip5());
         CustomMessageTask customMessageTask = new CustomMessageTask(2001322, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

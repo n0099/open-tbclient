@@ -128,8 +128,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ebd);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091ebc);
+            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f0d);
+            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091f0c);
         }
     }
 
@@ -207,7 +207,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843039, R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f0400b6, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f0404bb});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.SnackbarLayout);
         this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
         this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
         obtainStyledAttributes.recycle();

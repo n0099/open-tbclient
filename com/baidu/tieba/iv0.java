@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class iv0 extends tu0 {
+public abstract class iv0 extends hv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final kv0 f;
 
     public iv0() {
         Interceptable interceptable = $ic;
@@ -24,30 +23,17 @@ public class iv0 extends tu0 {
                 return;
             }
         }
-        getContentView().setClickable(false);
+        this.f = new kv0();
     }
 
-    @Override // com.baidu.tieba.tu0
-    public void N() {
+    @Override // com.baidu.tieba.hv0
+    public void F(pv0 pv0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.N();
-            LinearLayout linearLayout = this.i;
-            if (linearLayout != null) {
-                linearLayout.setClickable(false);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, pv0Var) == null) {
+            this.f.a(pv0Var);
+            V(this.f);
         }
     }
 
-    @Override // com.baidu.tieba.tu0
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.O();
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setClickable(false);
-            }
-        }
-    }
+    public abstract void V(kv0 kv0Var);
 }

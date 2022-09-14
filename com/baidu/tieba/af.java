@@ -1,146 +1,297 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class af extends me<String> {
+public abstract class af<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String h;
+    public final y9 a;
+    public String b;
+    public cf.b c;
+    public cf.a d;
+    public int e;
+    public LinkedList<String> f;
+    public Object g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(k9 k9Var, String str) {
-        super(k9Var);
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ af a;
+
+        public a(af afVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {afVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = afVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.m();
+            }
+        }
+    }
+
+    public af(y9 y9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k9Var, str};
+            Object[] objArr = {y9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = str;
+        this.f = new LinkedList<>();
+        this.g = new Object();
+        this.a = y9Var;
     }
 
-    @Override // com.baidu.tieba.me
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    public synchronized void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                this.a.f().delete(this.b, "m_ns = ?", new String[]{str});
-                return true;
-            } catch (Throwable th) {
-                this.a.i(th, "clearData");
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.me
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v14, types: [T, java.lang.String] */
-    @Override // com.baidu.tieba.me
-    public qe<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) != null) {
-            return (qe) invokeLL.objValue;
-        }
-        Cursor cursor = null;
-        try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
-            try {
-                if (!rawQuery.moveToNext()) {
-                    og.a(rawQuery);
-                    return null;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            synchronized (this) {
+                synchronized (this.g) {
+                    if (this.f.contains(str)) {
+                        return;
+                    }
+                    this.f.addLast(str);
+                    if (z) {
+                        j();
+                    }
                 }
-                qe<String> qeVar = new qe<>();
-                qeVar.a = rawQuery.getString(0);
-                qeVar.c = rawQuery.getString(1);
-                qeVar.d = rawQuery.getLong(2);
-                qeVar.e = rawQuery.getLong(3);
-                qeVar.f = rawQuery.getLong(4);
-                qeVar.b = rawQuery.getString(5);
-                og.a(rawQuery);
-                return qeVar;
-            } catch (Throwable th) {
-                th = th;
-                cursor = rawQuery;
-                og.a(cursor);
-                throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 
-    @Override // com.baidu.tieba.me
-    public void k(String str, String str2, int i, int i2) {
+    public void b(ef<T> efVar) {
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, efVar) == null) {
+            try {
+                synchronized (this.g) {
+                    this.f.remove(efVar.a);
+                }
+                ContentValues p = p(efVar);
+                SQLiteDatabase f = this.a.f();
+                if (f.update(this.b, p, "m_key = ?", new String[]{efVar.a}) == 0) {
+                    f.insert(this.b, null, p);
+                    if (this.d != null) {
+                        j();
+                    }
+                }
+                if (this.c == null || (d = this.c.d(efVar)) == null) {
+                    return;
+                }
+                e(d);
+            } catch (Throwable th) {
+                this.a.i(th, "addOrUpdateTextCacheItem");
+            }
         }
     }
 
-    @Override // com.baidu.tieba.me
-    public String l(String str) {
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = 0;
+            synchronized (this.g) {
+                this.f.clear();
+            }
+            if (d(str)) {
+                BdCacheService.k().f().delete(str);
+            }
+        }
+    }
+
+    public abstract boolean d(String str);
+
+    public int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.a.d("CREATE TABLE IF NOT EXISTS " + this.h + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            this.a.d("CREATE INDEX if not exists idx_mi_ns ON " + this.h + "(m_ns)");
-            return this.h;
+            try {
+                return this.a.f().delete(this.b, "m_key = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "deleteCacheItem");
+                return 0;
+            }
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.me
-    public ContentValues p(qe<String> qeVar) {
+    public ef<T> f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qeVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", qeVar.a);
-            contentValues.put("m_ns", qeVar.c);
-            contentValues.put("m_value", qeVar.b);
-            contentValues.put("saveTime", Long.valueOf(qeVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(qeVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(qeVar.f));
-            return contentValues;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                return i(this.a.f(), str);
+            } catch (Throwable th) {
+                this.a.i(th, "get");
+                return null;
+            }
         }
-        return (ContentValues) invokeL.objValue;
+        return (ef) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.me
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
+    public abstract int g();
+
+    public y9 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (y9) invokeV.objValue;
+    }
+
+    public abstract ef<T> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable;
+
+    public void j() {
+        cf.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (aVar = this.d) == null) {
+            return;
         }
-        return (Cursor) invokeLL.objValue;
+        this.e++;
+        if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
+            this.e = 0;
+            jh.a().b(new a(this));
+        }
+    }
+
+    public abstract void k(String str, String str2, int i, int i2);
+
+    public abstract String l(String str);
+
+    public void m() {
+        String removeFirst;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f.isEmpty()) {
+            return;
+        }
+        SQLiteDatabase f = this.a.f();
+        f.beginTransaction();
+        while (true) {
+            try {
+                synchronized (this.g) {
+                    if (this.f.isEmpty()) {
+                        break;
+                    }
+                    removeFirst = this.f.removeFirst();
+                }
+                f.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+            } finally {
+                try {
+                } finally {
+                }
+            }
+        }
+        f.setTransactionSuccessful();
+        this.e = 0;
+    }
+
+    @SuppressLint({"Range"})
+    public void n(String str) {
+        cf.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (aVar = this.d) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            aVar.c();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                ef<?> efVar = new ef<>();
+                efVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                efVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                efVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                efVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String h = this.d.h(efVar);
+                if (h != null) {
+                    a(h, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
+    }
+
+    @SuppressLint({"Range"})
+    public void o(String str) {
+        cf.b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (bVar = this.c) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            bVar.e();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                ef<?> efVar = new ef<>();
+                efVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                efVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                efVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                efVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String g = this.c.g(efVar);
+                if (g != null) {
+                    a(g, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
+    }
+
+    public abstract ContentValues p(ef<T> efVar);
+
+    public abstract Cursor q(SQLiteDatabase sQLiteDatabase, String str);
+
+    public void r(cf cfVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, cfVar, str) == null) {
+            this.b = str;
+            if (cfVar instanceof cf.b) {
+                this.c = (cf.b) cfVar;
+            }
+            if (cfVar instanceof cf.a) {
+                this.d = (cf.a) cfVar;
+            }
+        }
     }
 }

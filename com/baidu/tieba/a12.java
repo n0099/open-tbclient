@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.annotation.SuppressLint;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,125 +10,99 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a12 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public static volatile int b;
+    public static final boolean h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a12.c(this.a, this.b);
-            }
-        }
-    }
+    public String a;
+    @SuppressLint({"BDOfflineUrl"})
+    public String b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public boolean g;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947562247, "Lcom/baidu/tieba/a12;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562247, "Lcom/baidu/tieba/a12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947562247, "Lcom/baidu/tieba/a12;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947562247, "Lcom/baidu/tieba/a12;");
-        }
+        h = ij1.a;
+        i = "V8Master";
+        j = "page";
+        k = "runtime/index.js";
+        l = "ws://localhost:4000";
     }
 
-    public static boolean b() {
+    public a12() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = String.valueOf(System.currentTimeMillis());
+        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
+        this.c = false;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = true;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b < 2 : invokeV.booleanValue;
-    }
-
-    public static void c(@StringRes int i, int i2) {
-        SwanAppActivity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) || (activity = nm2.U().getActivity()) == null || activity.isFinishing()) {
-            return;
-        }
-        if (i2 != 1) {
-            s03.f(activity, i).G();
-        } else {
-            s03.f(activity, i).I();
-        }
-    }
-
-    public static void d(@StringRes int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
-            if (Looper.getMainLooper() == Looper.myLooper()) {
-                c(i, i2);
-            } else {
-                ue3.a0(new a(i, i2));
-            }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            b = 0;
-            a = 0L;
-        }
-    }
-
-    public static void f(@StringRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            g(i, 0);
-        }
-    }
-
-    public static synchronized void g(@StringRes int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
-            synchronized (a12.class) {
-                int i3 = b;
-                if (i3 != 0) {
-                    if (i3 == 1 && (a + 5000) - System.currentTimeMillis() < 0) {
-                        b = 2;
-                        d(i, i2);
-                        c12.g("toast提示个数已达2个");
-                    }
-                } else {
-                    b = 1;
-                    a = System.currentTimeMillis();
-                    d(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("title", i);
+                jSONObject.putOpt("type", j);
+                jSONObject.putOpt("url", k);
+                jSONObject.putOpt("webSocketDebuggerUrl", l);
+                jSONObject.putOpt("id", this.a);
+                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
+                jSONObject.putOpt("swanJsVersion", dc3.h(0));
+                jSONObject.putOpt("appVersion", sg3.D());
+                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
+                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
+                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
+                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
+                jSONObject2.putOpt("visible", Boolean.valueOf(this.g));
+                jSONObject.putOpt("description", jSONObject2.toString());
+                jSONArray.put(jSONObject);
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("V8Module", "Build V8 module fail", e);
                 }
             }
+            return jSONArray.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

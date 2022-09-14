@@ -10,9 +10,9 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.bn;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,16 +142,16 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof bn) {
-            bn bnVar = (bn) drawable;
-            bnVar.g(this.h);
-            bnVar.e((this.d || !z) ? this.a : 0.0f);
+        if (drawable instanceof pn) {
+            pn pnVar = (pn) drawable;
+            pnVar.g(this.h);
+            pnVar.e((this.d || !z) ? this.a : 0.0f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            bnVar.d(i2);
-            bnVar.c(this.c);
-            bnVar.f(this.e);
+            pnVar.d(i2);
+            pnVar.c(this.c);
+            pnVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -211,7 +211,7 @@ public class BdRoundedImageView extends AppCompatImageView {
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = bn.b(drawable);
+            this.g = pn.b(drawable);
             g();
             super.setBackgroundDrawable(this.g);
         }
@@ -266,7 +266,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new bn(bitmap);
+                this.f = new pn(bitmap);
                 k();
             } else {
                 this.f = null;
@@ -280,7 +280,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             if (drawable != null) {
-                this.f = bn.b(drawable);
+                this.f = pn.b(drawable);
                 k();
             } else {
                 this.f = null;
@@ -395,7 +395,7 @@ public class BdRoundedImageView extends AppCompatImageView {
         this.c = ColorStateList.valueOf(0);
         this.d = false;
         this.e = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f04035b, R.attr.obfuscated_res_0x7f0405d8}, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.BdRoundedImageView, i2, 0);
         int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setScaleType(i[i5]);

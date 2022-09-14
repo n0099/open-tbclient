@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c9;
+import com.baidu.tieba.dj;
 import com.baidu.tieba.faceshop.FaceBuyData;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.va6;
-import com.baidu.tieba.ya6;
+import com.baidu.tieba.lc6;
+import com.baidu.tieba.oc6;
+import com.baidu.tieba.q9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FacePackageDetailModel a;
-    public ya6 b;
+    public oc6 b;
     public FacePackageDownloadModel c;
     public FaceBuyModel d;
     public float e;
@@ -139,19 +139,19 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             this.a.showToast(str);
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                             return;
                         }
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends c9 {
+    public class c extends q9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadData a;
@@ -176,7 +176,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             this.a = downloadData;
         }
 
-        @Override // com.baidu.tieba.c9
+        @Override // com.baidu.tieba.q9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -197,17 +197,17 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.b.showToast(str2);
                         return;
                     } else {
-                        va6.f().i(this.a);
+                        lc6.f().i(this.a);
                         return;
                     }
                 }
-                va6.f().i(this.a);
+                lc6.f().i(this.a);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends c9 {
+    public class d extends q9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePackageDetailActivity a;
@@ -230,7 +230,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             this.a = facePackageDetailActivity;
         }
 
-        @Override // com.baidu.tieba.c9
+        @Override // com.baidu.tieba.q9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -246,12 +246,12 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             IntentConfig intentConfig = new IntentConfig(this.a.getActivity());
                             intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_URL, str);
                             intentConfig.getIntent().putExtra("tag_hook_url", str2);
-                            intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_TITLE, this.a.getString(R.string.obfuscated_res_0x7f0f0357));
+                            intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_TITLE, this.a.getString(R.string.obfuscated_res_0x7f0f035b));
                             intentConfig.getIntent().putExtra("tag_position", 0);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2902013, intentConfig));
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f082c);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f083f);
                         FacePackageData facePackageData = this.a.a.H().faces_list;
                         facePackageData.buy_status = 1;
                         facePackageData.can_download = 1;
@@ -264,17 +264,17 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.a.showToast(str3);
                         return;
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                         return;
                     }
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends c9 {
+    public class e extends q9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePackageDetailActivity a;
@@ -297,7 +297,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             this.a = facePackageDetailActivity;
         }
 
-        @Override // com.baidu.tieba.c9
+        @Override // com.baidu.tieba.q9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -363,7 +363,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                     facePackageData.downloaded = 1;
                     facePackageData.downloading = 0;
                 } else if (status == 2 || status == 4) {
-                    if (!qi.isEmpty(downloadData.getStatusMsg())) {
+                    if (!dj.isEmpty(downloadData.getStatusMsg())) {
                         this.a.showToast(downloadData.getStatusMsg());
                     }
                     if (this.a.c != null) {
@@ -425,7 +425,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void F1(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            va6.f().j(str, str2, str3);
+            lc6.f().j(str, str2, str3);
         }
     }
 
@@ -438,7 +438,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             DownloadData downloadData = new DownloadData(this.a.getPid());
             downloadData.setType(11);
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c40));
+            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c59));
             this.c.setLoadDataCallBack(new c(this, downloadData));
         }
     }
@@ -465,10 +465,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = new ya6(getPageContext());
+            this.b = new oc6(getPageContext());
             D1();
             registerListener(this.k);
-            va6.f();
+            lc6.f();
         }
     }
 
@@ -534,11 +534,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 this.e = motionEvent.getX();
                 this.f = motionEvent.getY();
             }
-            ya6 ya6Var = this.b;
-            if (ya6Var == null) {
+            oc6 oc6Var = this.b;
+            if (oc6Var == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            if (ya6Var.j()) {
+            if (oc6Var.j()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action == 2) {
@@ -591,7 +591,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             if (this.a.H().faces_list == null) {
                 return;
             }
-            if (qi.isEmpty(stringExtra)) {
+            if (dj.isEmpty(stringExtra)) {
                 stringExtra = this.a.K();
             }
             this.b.y();
@@ -607,21 +607,21 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
-            ya6 ya6Var = this.b;
-            if (ya6Var != null) {
-                ya6Var.l(i);
+            oc6 oc6Var = this.b;
+            if (oc6Var != null) {
+                oc6Var.l(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        ya6 ya6Var;
+        oc6 oc6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, view2) == null) || this.a == null || (ya6Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, view2) == null) || this.a == null || (oc6Var = this.b) == null) {
             return;
         }
-        if (view2 == ya6Var.e()) {
+        if (view2 == oc6Var.e()) {
             if (!TbadkCoreApplication.isLogin()) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                 return;
@@ -636,8 +636,8 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                     downloadData.setStatus(1);
                     downloadData.setStatusMsg(null);
                     downloadData.setType(11);
-                    va6.f().i(downloadData);
-                    if (!qi.isEmpty(I)) {
+                    lc6.f().i(downloadData);
+                    if (!dj.isEmpty(I)) {
                         if (this.a.H() == null || this.a.H().faces_list == null) {
                             return;
                         }
@@ -655,9 +655,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             downloadData2.setStatus(4);
             downloadData2.setStatusMsg(null);
             downloadData2.setType(11);
-            va6.f().i(downloadData2);
+            lc6.f().i(downloadData2);
             this.a.N(false);
-            va6.f().e(this.a.getPid());
+            lc6.f().e(this.a.getPid());
         }
         super.onClick(view2);
     }
@@ -699,9 +699,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDetachedFromWindow();
-            ya6 ya6Var = this.b;
-            if (ya6Var != null) {
-                ya6Var.p();
+            oc6 oc6Var = this.b;
+            if (oc6Var != null) {
+                oc6Var.p();
             }
         }
     }
@@ -721,9 +721,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ya6 ya6Var = this.b;
-            if (ya6Var != null) {
-                ya6Var.m();
+            oc6 oc6Var = this.b;
+            if (oc6Var != null) {
+                oc6Var.m();
             }
             super.onResume();
         }

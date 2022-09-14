@@ -29,7 +29,8 @@ import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u90;
+import com.baidu.tieba.ab0;
+import com.baidu.tieba.ca0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -280,7 +281,7 @@ public class AppBarLayout extends LinearLayout {
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040448});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ca0.LiveScrollingViewBehavior_Layout);
             if (obtainStyledAttributes.hasValue(0)) {
                 O(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             }
@@ -729,7 +730,7 @@ public class AppBarLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeF(1048609, this, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        u90.b(this, f);
+        ab0.b(this, f);
     }
 
     /* loaded from: classes2.dex */
@@ -1522,15 +1523,15 @@ public class AppBarLayout extends LinearLayout {
         this.e = 0;
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            u90.a(this);
-            u90.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100120);
+            ab0.a(this);
+            ab0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100120);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842964, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f04044a, R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f04048d, R.attr.obfuscated_res_0x7f04048e, R.attr.obfuscated_res_0x7f040494, R.attr.obfuscated_res_0x7f040495}, 0, R.style.obfuscated_res_0x7f100120);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ca0.LiveAppBarLayout, 0, R.style.obfuscated_res_0x7f100120);
         if (obtainStyledAttributes.hasValue(2)) {
             l(obtainStyledAttributes.getBoolean(2, false), false, false);
         }
         if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(1)) {
-            u90.b(this, obtainStyledAttributes.getDimensionPixelSize(1, 0));
+            ab0.b(this, obtainStyledAttributes.getDimensionPixelSize(1, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
             if (obtainStyledAttributes.hasValue(3)) {
@@ -1574,7 +1575,7 @@ public class AppBarLayout extends LinearLayout {
                 }
             }
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04048b, R.attr.obfuscated_res_0x7f04048c});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ca0.LiveAppBarLayout_Layout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));

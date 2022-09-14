@@ -1,134 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class t71 {
+public final class t71 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile t71 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948134011, "Lcom/baidu/tieba/t71;")) == null) {
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) || context == null || drawable == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        b(context, drawable, mode, i, e(context));
+    }
+
+    public static void b(Context context, Drawable drawable, PorterDuff.Mode mode, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, drawable, mode, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || context == null || drawable == null) {
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948134011, "Lcom/baidu/tieba/t71;");
+        if (i >= 0 && i < 255) {
+            i2 = Color.argb((Color.alpha(i2) * i) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
+        }
+        drawable.setColorFilter(i2, mode);
+    }
+
+    public static void c(Context context, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
+            d(context, drawable, 255);
         }
     }
 
-    public t71() {
+    public static void d(Context context, Drawable drawable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
         }
     }
 
-    public static synchronized t71 f() {
-        InterceptResult invokeV;
-        t71 t71Var;
+    public static int e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (t71.class) {
-                if (a == null) {
-                    synchronized (t71.class) {
-                        if (a == null) {
-                            a = new t71();
-                        }
-                    }
-                }
-                t71Var = a;
-            }
-            return t71Var;
-        }
-        return (t71) invokeV.objValue;
-    }
-
-    public boolean a(Activity activity, String str, x71 x71Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, x71Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            s71.a().c(activity, str, x71Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean b(Activity activity, String str, x71 x71Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, x71Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            s71.a().e(activity, str, x71Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean c(Activity activity, JSONObject jSONObject, x71 x71Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, jSONObject, x71Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            s71.a().i(activity, jSONObject, x71Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean d(Context context, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            s71.a().f(context, jSONObject);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean e(Context context, JSONObject jSONObject, x71 x71Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, jSONObject, x71Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            s71.a().d(context, jSONObject, x71Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? context.getResources().getColor(R.color.obfuscated_res_0x7f060878) : invokeL.intValue;
     }
 }

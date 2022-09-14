@@ -13,7 +13,6 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 /* loaded from: classes7.dex */
 public class ShapeAppearanceModel {
     public static /* synthetic */ Interceptable $ic;
@@ -674,7 +674,7 @@ public class ShapeAppearanceModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), cornerSize})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialShape, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             int resourceId2 = obtainStyledAttributes.getResourceId(1, 0);
             obtainStyledAttributes.recycle();
@@ -707,7 +707,7 @@ public class ShapeAppearanceModel {
                 i = i2;
                 context = contextThemeWrapper;
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{R.attr.obfuscated_res_0x7f04019e, R.attr.obfuscated_res_0x7f04019f, R.attr.obfuscated_res_0x7f0401a0, R.attr.obfuscated_res_0x7f0401a1, R.attr.obfuscated_res_0x7f0401a2, R.attr.obfuscated_res_0x7f0401a4, R.attr.obfuscated_res_0x7f0401a5, R.attr.obfuscated_res_0x7f0401a6, R.attr.obfuscated_res_0x7f0401a7, R.attr.obfuscated_res_0x7f0401a8});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, R.styleable.ShapeAppearance);
             try {
                 int i3 = obtainStyledAttributes.getInt(0, 0);
                 int i4 = obtainStyledAttributes.getInt(3, i3);

@@ -1,172 +1,163 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class xw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pn> a;
-    public List<pn> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
 
-    public xw4(List<pn> list, boolean z, int i) {
+    public xw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(AgreeData agreeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            aa5.i(agreeEvent);
+        }
+    }
+
+    public void b(Context context, rq4 rq4Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rq4Var, agreeData, threadData) == null) || rq4Var == null || agreeData == null) {
+            return;
+        }
+        BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", rq4Var.g).param("obj_locate", rq4Var.h).param("obj_id", rq4Var.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        if (threadData != null) {
+            param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+            if (threadData.getBaijiahaoData() != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+            }
+            if (threadData.isBjhDynamicThread()) {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+            } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                int i = threadData.threadType;
+                if (i == 0 || i == 40) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                }
+            } else {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            }
+        } else {
+            param.param("tid", agreeData.threadId);
+            param.param("nid", agreeData.nid);
+            param.param("fid", agreeData.forumId);
+            param.param("card_type", agreeData.cardType);
+            param.param("ab_tag", agreeData.recomAbTag);
+            param.param("recom_source", agreeData.recomSource);
+            param.param("weight", agreeData.recomWeight);
+            param.param("extra", agreeData.recomExtra);
+            BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+            if (baijiahaoData2 != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+            }
+        }
+        if (context != null) {
+            gc5.b(context, param);
+        }
+        TiebaStatic.log(param);
+    }
+
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
+            if (agreeData == null) {
+                ov4.a(3, -1);
                 return;
             }
-        }
-        this.e = 2;
-        this.f = 2;
-        this.g = 1;
-        this.a = list;
-        this.d = z;
-        this.f = i;
-        j(list);
-    }
-
-    public int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.c) {
-                int size = this.b.size();
-                if (i == 0) {
-                    return (size - 1) - this.g;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+            httpMessage.addParam("thread_id", agreeData.threadId);
+            httpMessage.addParam("op_type", i);
+            if (agreeData.objType == 0) {
+                agreeData.objType = 3;
+            }
+            httpMessage.addParam("obj_type", agreeData.objType);
+            httpMessage.addParam("agree_type", agreeData.agreeType);
+            httpMessage.addParam("forum_id", agreeData.forumId);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
+            if (!TextUtils.isEmpty(agreeData.postId)) {
+                httpMessage.addParam("post_id", agreeData.postId);
+            }
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+            }
+            httpMessage.setTag(bdUniqueId);
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addHeader("needSig", "1");
+            if (z) {
+                if (!TextUtils.isEmpty(y95.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, y95.b());
                 }
-                int i2 = this.g;
-                return i == size - i2 ? i2 : i;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<pn> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.c ? i - this.g : i : invokeI.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c) {
-                return this.g;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<pn> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public final List<pn> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<pn> list = this.a;
-            if (list != null) {
-                if (this.c) {
-                    if (list.size() > this.f && this.a.size() >= this.g) {
-                        arrayList.addAll(this.a.subList(0, this.f));
-                        List<pn> list2 = this.a;
-                        int i = this.f;
-                        arrayList.addAll(0, list2.subList(i - this.g, i));
-                        arrayList.addAll(this.a.subList(0, this.g));
-                    } else {
-                        arrayList.addAll(this.a);
-                        List<pn> list3 = this.a;
-                        arrayList.addAll(0, list3.subList(list3.size() - this.g, this.a.size()));
-                        arrayList.addAll(this.a.subList(0, this.g));
-                    }
-                } else if (list != null && list.size() > 0) {
-                    int size = this.a.size();
-                    int i2 = this.g;
-                    if (size >= i2) {
-                        arrayList.addAll(this.a.subList(0, i2));
-                    }
+                if (!TextUtils.isEmpty(y95.f())) {
+                    httpMessage.addParam(HttpRequest.TBS, y95.f());
+                }
+                if (!TextUtils.isEmpty(y95.e())) {
+                    httpMessage.addParam("stoken", y95.e());
                 }
             }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.g = i;
-            j(this.a);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void h(int i) {
+    public void d(AgreeData agreeData, lm8 lm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.f = i;
-            j(this.a);
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-            j(this.a);
-        }
-    }
-
-    public void j(List<pn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            if (list != null && list.size() >= this.e && list.size() <= this.f) {
-                this.c = true;
-            } else if (list.size() > this.f && this.d) {
-                this.c = true;
-            } else {
-                this.c = false;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, lm8Var) == null) {
+            lm8Var.b = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, lm8Var));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, lm8Var));
+                a(agreeData, AgreeEvent.IS_POST);
             }
-            this.b = f();
         }
     }
 }

@@ -213,8 +213,6 @@ public class PayChannelEntity implements Serializable {
         String str;
         JSONArray optJSONArray;
         String str2;
-        JSONObject jSONObject2;
-        PayChannelEntity payChannelEntity;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -293,25 +291,25 @@ public class PayChannelEntity implements Serializable {
                 int i4 = 0;
                 while (i4 < optJSONArray.length()) {
                     try {
-                        jSONObject2 = optJSONArray.getJSONObject(i4);
-                        payChannelEntity = new PayChannelEntity();
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i4);
+                        PayChannelEntity payChannelEntity = new PayChannelEntity();
                         payChannelEntity.display_name = jSONObject2.optString("display_name");
                         payChannelEntity.pay_channel = jSONObject2.optString(DI.PAY_CHANNEL);
                         payChannelEntity.pay_text = jSONObject2.optString("pay_text");
                         payChannelEntity.icon = jSONObject2.optString("icon");
                         str2 = str;
-                    } catch (JSONException e) {
-                        e = e;
-                        str2 = str;
-                    }
-                    try {
-                        payChannelEntity.is_selected = jSONObject2.optInt(str2);
-                        arrayList2.add(payChannelEntity);
+                        try {
+                            payChannelEntity.is_selected = jSONObject2.optInt(str2);
+                            arrayList2.add(payChannelEntity);
+                        } catch (JSONException e) {
+                            e = e;
+                            e.printStackTrace();
+                            i4++;
+                            str = str2;
+                        }
                     } catch (JSONException e2) {
                         e = e2;
-                        e.printStackTrace();
-                        i4++;
-                        str = str2;
+                        str2 = str;
                     }
                     i4++;
                     str = str2;

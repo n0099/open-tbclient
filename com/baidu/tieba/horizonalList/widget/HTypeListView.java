@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,10 +42,10 @@ public class HTypeListView extends HListView {
         b();
     }
 
-    public void a(List<cn> list) {
+    public void a(List<qn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator<cn> it = list.iterator();
+            Iterator<qn> it = list.iterator();
             while (it.hasNext()) {
                 this.a.a(it.next());
             }
@@ -60,13 +60,13 @@ public class HTypeListView extends HListView {
         }
     }
 
-    public List<pn> getData() {
+    public List<Cdo> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.d() : (List) invokeV.objValue;
     }
 
-    public void setData(List<? extends pn> list) {
+    public void setData(List<? extends Cdo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.h(list);

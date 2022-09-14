@@ -1,305 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xr8 {
     public static /* synthetic */ Interceptable $ic;
-    public static xr8 a;
+    public static xr8 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xr8 a;
+    public interface a {
+        void a(Context context);
 
-        public a(xr8 xr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xr8Var;
-        }
+        void b(Context context, WebView webView, WebChromeClient webChromeClient);
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List h = xr8.h();
-                int size = h.size();
-                for (int i = 0; i < size; i++) {
-                    wr8 wr8Var = (wr8) h.get(i);
-                    this.a.j(wr8Var.a, wr8Var.b);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<wr8, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xr8 a;
-
-        public b(xr8 xr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xr8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(wr8... wr8VarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wr8VarArr)) == null) {
-                if (wr8VarArr != null && wr8VarArr.length == 1 && wr8VarArr[0] != null) {
-                    this.a.c(wr8VarArr[0]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310091, "Lcom/baidu/tieba/xr8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310091, "Lcom/baidu/tieba/xr8;");
-                return;
-            }
-        }
-        a = new xr8();
+        void c(Context context, String str, boolean z);
     }
 
     public xr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = c();
     }
 
-    public static xr8 d() {
+    public static xr8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (xr8) invokeV.objValue;
-    }
-
-    public static JSONObject e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!StringUtils.isNull(str) && new File(str).exists()) {
-                try {
-                    return new JSONObject().put("running", l(hn7.d(str)));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject f(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                try {
-                    jSONObject = new JSONObject(hn7.e(file));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (m(jSONObject)) {
-                    return jSONObject;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static File[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(jn7.e);
-            if (file.exists()) {
-                return file.listFiles();
-            }
-            return null;
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static List<wr8> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] g = g();
-            if (g == null) {
-                return arrayList;
-            }
-            for (File file : g) {
-                String name = file.getName();
-                JSONObject f = f(file.getAbsolutePath() + jn7.a + "kpi");
-                if (f == null) {
-                    hn7.b(name);
-                } else {
-                    JSONObject e = e(file.getAbsolutePath() + jn7.a + "debug");
-                    if (e == null) {
-                        hn7.b(name);
-                    } else {
-                        arrayList.add(new wr8(name, i(VideoPlatformStatic.c(), f, e)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (xr8.class) {
+                    if (b == null) {
+                        b = new xr8();
                     }
                 }
             }
-            return arrayList;
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (xr8) invokeV.objValue;
     }
 
-    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
-        InterceptResult invokeLLL;
+    public void a(Context context) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
-            try {
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("kpiInfo", jSONObject2);
-                jSONObject4.put("baseInfo", jSONObject);
-                jSONObject4.put("debugInfo", jSONObject3);
-                return jSONObject4;
-            } catch (Exception e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.a(context);
+        }
+    }
+
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!d() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
                 return null;
             }
+            return (a) runTask.getData();
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public static JSONArray l(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        int optInt;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            int length = jSONArray.length();
-            boolean z = false;
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
-                    z = true;
-                    break;
-                }
-            }
-            if (!z) {
-                jSONArray.put(new q98(502, "unknown", -4399, "").a());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? bx4.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
     }
 
-    public static boolean m(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void e(Context context, String str, boolean z) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            int optInt = jSONObject.optInt("errorTimes", -1);
-            int optInt2 = jSONObject.optInt("postSuccess", -1);
-            int optInt3 = jSONObject.optInt("posted", -1);
-            return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(wr8 wr8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wr8Var) == null) {
-            try {
-                byte[] b2 = yr8.b(wr8Var.b);
-                yr8.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-                hn7.b(wr8Var.a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if ((interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.c(context, str, z);
         }
     }
 
-    public void j(String str, JSONObject jSONObject) {
+    public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            new b(this).execute(new wr8(str, jSONObject));
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && li.c()) {
-            new a(this).execute(new Void[0]);
+        if ((interceptable == null || interceptable.invokeLLL(1048580, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.b(context, webView, webChromeClient);
         }
     }
 }

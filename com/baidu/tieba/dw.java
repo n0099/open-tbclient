@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
+import kotlin.TypeCastException;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes3.dex */
-public class dw {
+public final class dw {
     public static /* synthetic */ Interceptable $ic;
-    public static dw b;
+    public static final dw a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +34,7 @@ public class dw {
                 return;
             }
         }
-        b = new dw();
+        a = new dw();
     }
 
     public dw() {
@@ -44,52 +47,113 @@ public class dw {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap();
     }
 
-    public static dw b() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final int a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (dw) invokeV.objValue;
-    }
-
-    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) == null) || this.a == null) {
-            return;
-        }
-        synchronized (dw.class) {
-            if (this.a.containsKey(Integer.valueOf(i))) {
-                this.a.remove(Integer.valueOf(i));
-            }
-            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
-        }
-    }
-
-    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
-            if (map == null || !map.containsKey(Integer.valueOf(i))) {
-                return null;
-            }
-            return this.a.get(Integer.valueOf(i));
-        }
-        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (dw.class) {
-                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
-                    this.a.remove(Integer.valueOf(i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
+            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            for (String str3 : split$default) {
+                if (str3 != null) {
+                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
+                    if (!Intrinsics.areEqual(obj, "")) {
+                        linkedList.add(obj);
+                    }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
                 }
             }
+            for (String str4 : split$default2) {
+                if (str4 != null) {
+                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
+                    if (!Intrinsics.areEqual(obj2, "")) {
+                        linkedList2.add(obj2);
+                    }
+                } else {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
+                }
+            }
+            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
+                dw dwVar = a;
+                Object pollFirst = linkedList.pollFirst();
+                if (pollFirst == null) {
+                    Intrinsics.throwNpe();
+                }
+                int e = dwVar.e((String) pollFirst);
+                dw dwVar2 = a;
+                Object pollFirst2 = linkedList2.pollFirst();
+                if (pollFirst2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                int e2 = dwVar2.e((String) pollFirst2);
+                if (e > e2) {
+                    return 1;
+                }
+                if (e < e2) {
+                    return -1;
+                }
+            }
+            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
+                return 0;
+            }
+            while (!linkedList.isEmpty()) {
+                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
+                    return 1;
+                }
+            }
+            while (!linkedList2.isEmpty()) {
+                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
+                    return -1;
+                }
+            }
+            return 0;
         }
+        return invokeLL.intValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Intrinsics.areEqual(qr.c.h().getAppVersion(), "")) {
+                String b = ot.b();
+                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
+                return b;
+            }
+            return qr.c.h().getAppVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? cw.a.a() <= j : invokeJ.booleanValue;
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? a(b(), str) >= 0 : invokeL.booleanValue;
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

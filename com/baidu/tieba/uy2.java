@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Rect;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,15 +10,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uy2 {
+public class uy2 extends ty2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final l33<uy2> h;
+    public static final m33<uy2> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public cz2 c;
-    public Context d;
+    public String g;
+
+    /* loaded from: classes6.dex */
+    public static class a extends l33<uy2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.l33
+        /* renamed from: b */
+        public uy2 a(@NonNull dm2 dm2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dm2Var)) == null) {
+                uy2 uy2Var = new uy2();
+                uy2Var.g = dm2Var.g();
+                uy2Var.b = dm2Var.g();
+                uy2Var.c = dm2Var.readLong();
+                uy2Var.a = dm2Var.g();
+                uy2Var.d = dm2Var.readInt();
+                uy2Var.e = dm2Var.g();
+                uy2Var.f = dm2Var.g();
+                return uy2Var;
+            }
+            return (uy2) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends m33<uy2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.m33
+        /* renamed from: b */
+        public void a(@NonNull uy2 uy2Var, @NonNull em2 em2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uy2Var, em2Var) == null) {
+                em2Var.f(uy2Var.g);
+                em2Var.f(uy2Var.b);
+                em2Var.writeLong(uy2Var.c);
+                em2Var.f(uy2Var.a);
+                em2Var.writeInt(uy2Var.d);
+                em2Var.f(uy2Var.e);
+                em2Var.f(uy2Var.f);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,135 +108,68 @@ public class uy2 {
                 return;
             }
         }
-        e = kh1.a;
+        h = new a();
+        i = new b();
     }
 
-    public uy2(View view2) {
+    public uy2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b)) : invokeV.booleanValue;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.clone() : invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public uy2(JSONObject jSONObject, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
-    }
-
-    public final cz2 a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            cz2 cz2Var = this.c;
-            if (cz2Var != null) {
-                return cz2Var;
-            }
-            if (view2 instanceof cz2) {
-                cz2 cz2Var2 = (cz2) view2;
-                this.c = cz2Var2;
-                return cz2Var2;
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    cz2 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
-                    }
-                }
-                return null;
-            } else {
-                return null;
-            }
+        if (jSONObject == null) {
+            return;
         }
-        return (cz2) invokeL.objValue;
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (bz2.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-                if (bz2.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-            }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
-            }
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
-            }
-            this.a = i2;
-            cz2 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
-            }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < zy2.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > zy2.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
-            } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
-            }
-        }
+        this.b = jSONObject.optString("version");
+        this.c = jSONObject.optLong("version_code", -1L);
+        this.a = jSONObject.optString("provider");
+        this.e = jSONObject.optString("path");
+        this.f = jSONObject.optString("config");
+        this.d = i2;
     }
 }

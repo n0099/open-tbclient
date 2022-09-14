@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.DownloadListener;
 import android.widget.Toast;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +47,7 @@ public class l2 implements DownloadListener {
         Context context = m2Var.a;
         Info info2 = m2Var.c;
         if (!M.e(context)) {
-            Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f15b3) + info2.getDl_name(), 0).show();
+            Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d3) + info2.getDl_name(), 0).show();
             e1.a(context).c(new f1(info2), 1).a();
             return;
         }

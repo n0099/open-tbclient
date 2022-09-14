@@ -74,14 +74,14 @@ public class bn {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m644a() {
+    public Uri m645a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Settings.Global.getUriFor("device_provisioned") : (Uri) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m645a() {
+    public boolean m646a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ae.f93a.contains("xmsf") || com.xiaomi.push.ae.f93a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ae.f93a.contains("miui") : invokeV.booleanValue;

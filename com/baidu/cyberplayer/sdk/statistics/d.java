@@ -10,7 +10,6 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +112,7 @@ public class d {
         }
         try {
             try {
-                randomAccessFile = new RandomAccessFile(str, rw.c);
+                randomAccessFile = new RandomAccessFile(str, "rw");
             } catch (Exception e) {
                 CyberLog.e("DpStatFileWriter", "file close fail", e);
             }

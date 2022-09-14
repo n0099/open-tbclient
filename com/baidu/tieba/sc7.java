@@ -1,98 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.InvatateAnswerSettingActivity;
+import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sc7 extends cn<oc7, CardViewHolder<tc7>> {
+public class sc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public h06 b;
-    public String c;
+    public final InvatateAnswerSettingActivity a;
+    public final NavigationBar b;
+    public final View c;
+    public final HeadImageView d;
+    public final TextView e;
+    public final UserIconBox f;
+    public final TextView g;
+    public ImageView h;
+    public TbSettingTextTipView i;
+    public TbSettingTextTipView j;
+    public TbSettingTextTipView k;
+    public RelativeLayout l;
+    public View m;
+    public PersonalTalkSettingViewSettingView n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sc7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    public sc7(InvatateAnswerSettingActivity invatateAnswerSettingActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {invatateAnswerSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = invatateAnswerSettingActivity;
+        invatateAnswerSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0697);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091987);
+        this.c = findViewById;
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0925c2);
+        this.b = navigationBar;
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1390));
+        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091e6a);
+        this.n = personalTalkSettingViewSettingView;
+        personalTalkSettingViewSettingView.a.setVisibility(0);
+        c(bx4.k().h("key_question_msg_no_remind", false));
+        this.n.b.setVisibility(8);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0924ac);
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f65);
+        this.j = tbSettingTextTipView;
+        tbSettingTextTipView.setVisibility(8);
+        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090125);
+        this.k = tbSettingTextTipView2;
+        tbSettingTextTipView2.setVisibility(8);
+        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f64);
+        this.i = tbSettingTextTipView3;
+        tbSettingTextTipView3.setVisibility(8);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0919bc);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setGodIconWidth(R.dimen.tbds47);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090e6f);
+        this.e = textView;
+        textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0966));
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e6d);
+        this.h = imageView;
+        imageView.setVisibility(8);
+        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f0924a5);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09248e);
+        this.g = textView2;
+        textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0cf2));
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f090821);
     }
 
-    @Override // com.baidu.tieba.cn
-    public zn getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.getOnAdapterItemClickListener() : (zn) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.getLayoutMode().k(this.c);
+            this.b.onChangeSkinType(this.a.getPageContext(), i);
+            this.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0807fd));
+            uu4 d = uu4.d(this.e);
+            d.A(R.string.F_X02);
+            d.z(R.dimen.T_X04);
+            d.v(R.color.CAM_X0105);
+            uu4 d2 = uu4.d(this.g);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X08);
+            d2.v(R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public CardViewHolder<tc7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b(BdSwitchView.b bVar) {
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            tc7 tc7Var = new tc7(this.a, viewGroup);
-            h06 h06Var = this.b;
-            if (h06Var != null) {
-                tc7Var.n(h06Var);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (personalTalkSettingViewSettingView = this.n) == null) {
+            return;
+        }
+        personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                this.n.a.g();
+            } else {
+                this.n.a.e();
             }
-            return new CardViewHolder<>(tc7Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oc7 oc7Var, CardViewHolder<tc7> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oc7Var, cardViewHolder})) == null) {
-            if (oc7Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
-                return null;
-            }
-            cardViewHolder.a().x(this.c);
-            cardViewHolder.a().i(oc7Var);
-            return cardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void v(h06 h06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, h06Var) == null) {
-            this.b = h06Var;
         }
     }
 }

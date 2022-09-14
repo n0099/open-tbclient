@@ -1,157 +1,100 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.tieba.j02;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class m02 extends g02 implements View.OnClickListener {
+/* loaded from: classes4.dex */
+public class m02 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout F0;
-    public RelativeLayout G0;
 
-    public m02() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m02(v33 v33Var) {
+        super(v33Var, "/swanAPI/remoteDebug");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static m02 V2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new m02() : (m02) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g02
-    public boolean J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.g02
-    public void U1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            V1(view2);
-            t2(-1);
-            C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f124c));
-            x2(true);
-            J2(false);
-        }
-    }
-
-    public final void U2(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914fc);
-            this.F0 = relativeLayout;
-            relativeLayout.setOnClickListener(this);
-            if (hk2.y0().d() || !ue3.G()) {
-                this.F0.setVisibility(8);
-            }
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902ef);
-            this.G0 = relativeLayout2;
-            relativeLayout2.setOnClickListener(this);
-        }
-    }
-
-    public final void W2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (g02.E0) {
-                Log.d("SwanAppBaseFragment", "startSettingFragment");
-            }
-            j02 M1 = M1();
-            if (M1 == null) {
-                s03.f(getContext(), R.string.obfuscated_res_0x7f0f01a4).G();
                 return;
             }
-            j02.b i = M1.i("navigateTo");
-            i.n(j02.g, j02.i);
-            i.k("authority", null).a();
-            qq2.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
         }
     }
 
-    @Override // com.baidu.tieba.g02
-    public boolean c2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            yz1.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g02
-    public boolean e2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, y23 y23Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.g02
-    public void j2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0914fc) {
-                hk2.t0().a();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902ef) {
-                W2();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, y23Var)) == null) {
+            yz1.i("RemoteDebugAction", "handleSubAction subAction: " + str);
+            if (!p02.d()) {
+                yz1.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            SwanAppActivity w = x23.K().w();
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -279631955) {
+                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
+                    c = 0;
+                }
+            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
+                c = 1;
+            }
+            if (c == 0) {
+                yz1.i("RemoteDebugAction", "Remote Debug reload");
+                if (w != null) {
+                    Intent intent = w.getIntent();
+                    p02.f();
+                    x23.K().n(new String[0]);
+                    x23.K().l(intent.getExtras(), "update_tag_by_remote_debug");
+                }
+                return true;
+            } else if (c != 1) {
+                return super.i(context, unitedSchemeEntity, callbackHandler, str, y23Var);
+            } else {
+                if (w != null) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        w.finishAndRemoveTask();
+                    } else {
+                        w.finish();
+                    }
+                    System.exit(0);
+                }
+                return true;
             }
         }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    @Nullable
-    public View x0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0802, viewGroup, false);
-            U1(inflate);
-            U2(inflate);
-            if (T1()) {
-                inflate = W1(inflate);
-            }
-            return D1(inflate, this);
-        }
-        return (View) invokeLLL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

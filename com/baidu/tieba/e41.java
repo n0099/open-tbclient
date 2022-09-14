@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.jp0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes3.dex */
-public final class e41 {
+public class e41 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jp0.a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684263, "Lcom/baidu/tieba/e41;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684263, "Lcom/baidu/tieba/e41;");
-                return;
-            }
+            return p21.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         }
-        a = new ep0();
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
+            }
+            boolean a = p21.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (Build.VERSION.SDK_INT >= 16) {
+                return (a || p21.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
+            }
+            return a;
+        }
+        return invokeL.booleanValue;
     }
 }

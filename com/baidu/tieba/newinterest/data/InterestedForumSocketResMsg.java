@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yq7;
+import com.baidu.tieba.is7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yq7 pageData;
+    public is7 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumSocketResMsg() {
@@ -54,17 +54,17 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getVerticalForumListResIdl.error.usermsg);
             }
-            yq7 yq7Var = new yq7();
-            this.pageData = yq7Var;
-            yq7Var.a(getVerticalForumListResIdl.data);
+            is7 is7Var = new is7();
+            this.pageData = is7Var;
+            is7Var.a(getVerticalForumListResIdl.data);
             return getVerticalForumListResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public yq7 getPageData() {
+    public is7 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (yq7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (is7) invokeV.objValue;
     }
 }

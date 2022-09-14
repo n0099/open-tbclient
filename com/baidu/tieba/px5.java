@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class px5 {
+public class px5 extends y85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<ox5> c;
+    public AlaPersonCenterFragment c;
 
     public px5() {
         Interceptable interceptable = $ic;
@@ -31,42 +31,87 @@ public class px5 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.c = new AlaPersonCenterFragment();
+        b().a = this.c;
     }
 
-    public List<ox5> a() {
+    @Override // com.baidu.tieba.y85
+    public z85 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new ArrayList();
-            }
-            return this.c;
+            z85 z85Var = new z85();
+            z85Var.e = 5;
+            z85Var.b = R.string.obfuscated_res_0x7f0f0226;
+            z85Var.i = z85.k;
+            return z85Var;
         }
-        return (List) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
-    public String b() {
+    @Override // com.baidu.tieba.y85
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.y85
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public void g(qh6 qh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.a = jSONObject.optString("mark_type_name");
-            this.b = jSONObject.optInt("mark_type_wear");
-            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ox5 ox5Var = new ox5();
-                    ox5Var.n(optJSONArray.optJSONObject(i));
-                    ox5Var.o(this.a);
-                    ox5Var.p(this.b);
-                    this.c.add(ox5Var);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, qh6Var) == null) && qh6Var != null && qh6Var.h(5)) {
+            qh6Var.a(this);
         }
+    }
+
+    public void h(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaPersonCenterFragment = this.c) == null) {
+            return;
+        }
+        alaPersonCenterFragment.q1(str);
+    }
+
+    public void i(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (alaPersonCenterFragment = this.c) == null) {
+            return;
+        }
+        alaPersonCenterFragment.r1(str);
+    }
+
+    public void j(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (alaPersonCenterFragment = this.c) == null) {
+            return;
+        }
+        alaPersonCenterFragment.s1(str);
+    }
+
+    public void k(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (alaPersonCenterFragment = this.c) == null) {
+            return;
+        }
+        alaPersonCenterFragment.t1(str);
     }
 }

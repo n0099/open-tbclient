@@ -22,9 +22,6 @@ import android.view.animation.Interpolator;
 import android.widget.SpinnerAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$id;
-import androidx.appcompat.R$styleable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ActionBarPolicy;
@@ -50,6 +47,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -808,14 +806,14 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     private void init(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, view2) == null) {
-            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R$id.decor_content_parent);
+            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f09077a);
             this.mOverlayLayout = actionBarOverlayLayout;
             if (actionBarOverlayLayout != null) {
                 actionBarOverlayLayout.setActionBarVisibilityCallback(this);
             }
-            this.mDecorToolbar = getDecorToolbar(view2.findViewById(R$id.action_bar));
-            this.mContextView = (ActionBarContextView) view2.findViewById(R$id.action_context_bar);
-            ActionBarContainer actionBarContainer = (ActionBarContainer) view2.findViewById(R$id.action_bar_container);
+            this.mDecorToolbar = getDecorToolbar(view2.findViewById(R.id.obfuscated_res_0x7f09005b));
+            this.mContextView = (ActionBarContextView) view2.findViewById(R.id.obfuscated_res_0x7f090064);
+            ActionBarContainer actionBarContainer = (ActionBarContainer) view2.findViewById(R.id.obfuscated_res_0x7f09005d);
             this.mContainerView = actionBarContainer;
             DecorToolbar decorToolbar = this.mDecorToolbar;
             if (decorToolbar != null && this.mContextView != null && actionBarContainer != null) {
@@ -827,11 +825,11 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                 ActionBarPolicy actionBarPolicy = ActionBarPolicy.get(this.mContext);
                 setHomeButtonEnabled(actionBarPolicy.enableHomeButtonByDefault() || z);
                 setHasEmbeddedTabs(actionBarPolicy.hasEmbeddedTabs());
-                TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(null, R$styleable.ActionBar, R$attr.actionBarStyle, 0);
-                if (obtainStyledAttributes.getBoolean(R$styleable.ActionBar_hideOnContentScroll, false)) {
+                TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(null, androidx.appcompat.R.styleable.ActionBar, R.attr.obfuscated_res_0x7f04004f, 0);
+                if (obtainStyledAttributes.getBoolean(14, false)) {
                     setHideOnContentScrollEnabled(true);
                 }
-                int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ActionBar_elevation, 0);
+                int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(12, 0);
                 if (dimensionPixelSize != 0) {
                     setElevation(dimensionPixelSize);
                 }
@@ -1197,7 +1195,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             if (this.mThemedContext == null) {
                 TypedValue typedValue = new TypedValue();
-                this.mContext.getTheme().resolveAttribute(R$attr.actionBarWidgetTheme, typedValue, true);
+                this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040054, typedValue, true);
                 int i = typedValue.resourceId;
                 if (i != 0) {
                     this.mThemedContext = new ContextThemeWrapper(this.mContext, i);

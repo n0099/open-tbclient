@@ -382,7 +382,7 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) && this.mIsMainProcess) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (i == 1000) {
                 this.mAppCreateStartTimeStamp = j;
                 setStageStatus(1);

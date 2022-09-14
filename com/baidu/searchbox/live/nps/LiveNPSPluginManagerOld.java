@@ -34,9 +34,9 @@ import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q61;
-import com.baidu.tieba.s61;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.l81;
+import com.baidu.tieba.n81;
+import com.baidu.tieba.o81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -225,7 +225,7 @@ public class LiveNPSPluginManagerOld {
                 return;
             }
             if (z) {
-                NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new q61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
+                NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new l81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -248,20 +248,20 @@ public class LiveNPSPluginManagerOld {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.q61
+                    @Override // com.baidu.tieba.l81
                     public void onProgress(long j, long j2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                         }
                     }
 
-                    @Override // com.baidu.tieba.q61
+                    @Override // com.baidu.tieba.l81
                     public void onResult(int i, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                         }
                     }
-                }, new s61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
+                }, new n81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -284,18 +284,18 @@ public class LiveNPSPluginManagerOld {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.s61
-                    public void checkAuthorization(IBundleInfo iBundleInfo, int i, t61 t61Var) {
+                    @Override // com.baidu.tieba.n81
+                    public void checkAuthorization(IBundleInfo iBundleInfo, int i, o81 o81Var) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, t61Var) == null) || t61Var == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, o81Var) == null) || o81Var == null) {
                             return;
                         }
-                        t61Var.onResult(1);
+                        o81Var.onResult(1);
                     }
                 }, 1);
                 return;
             } else {
-                NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new q61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
+                NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new l81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -318,14 +318,14 @@ public class LiveNPSPluginManagerOld {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.q61
+                    @Override // com.baidu.tieba.l81
                     public void onProgress(long j, long j2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                         }
                     }
 
-                    @Override // com.baidu.tieba.q61
+                    @Override // com.baidu.tieba.l81
                     public void onResult(int i, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -424,7 +424,7 @@ public class LiveNPSPluginManagerOld {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65570, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new q61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new l81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -447,20 +447,20 @@ public class LiveNPSPluginManagerOld {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.q61
+                @Override // com.baidu.tieba.l81
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.q61
+                @Override // com.baidu.tieba.l81
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                     }
                 }
-            }, new s61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
+            }, new n81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -483,13 +483,13 @@ public class LiveNPSPluginManagerOld {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.s61
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, t61 t61Var) {
+                @Override // com.baidu.tieba.n81
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, o81 o81Var) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, t61Var) == null) || t61Var == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, o81Var) == null) || o81Var == null) {
                         return;
                     }
-                    t61Var.onResult(1);
+                    o81Var.onResult(1);
                 }
             }, 1);
         }
@@ -895,7 +895,7 @@ public class LiveNPSPluginManagerOld {
                 pluginLoadCallback2.onResult(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, "old arch can not install", null, "download");
                 this.mCurrentCallback = null;
             }
-            showNormalToast(R.string.obfuscated_res_0x7f0f0a31, 0);
+            showNormalToast(R.string.obfuscated_res_0x7f0f0a47, 0);
         }
     }
 

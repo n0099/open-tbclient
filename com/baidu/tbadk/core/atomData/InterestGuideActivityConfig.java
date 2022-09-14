@@ -19,6 +19,7 @@ public class InterestGuideActivityConfig extends IntentConfig {
     public static final int INTEREST_GUID_SHOW_SCENE_Y_DAY = 10;
     public static final String KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM = "KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM";
     public static final String KEY_CUSTOM_TITLE = "key_custom_title";
+    public static final String KEY_INTEREST_BACK_TO_MAINTAB = "interest_back_to_maintab";
     public static final String KEY_INTEREST_GUID_SHOW_SCENE = "interest_guid_show_scene";
     public static final String KEY_ONLY_SHOW_INTERESTED_FORUM = "key_only_show_interested_forum";
     public static final int SCENE_HOME_RECOMMEND_INTEREST_CARD = 5;
@@ -52,9 +53,16 @@ public class InterestGuideActivityConfig extends IntentConfig {
         getIntent().putExtra(KEY_CUSTOM_TITLE, strArr);
     }
 
+    public void setIsBackToMainTab(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            getIntent().putExtra(KEY_INTEREST_BACK_TO_MAINTAB, z);
+        }
+    }
+
     public void setOnlyShowInterestedForum(boolean z, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, arrayList) == null) {
             getIntent().putExtra(KEY_ONLY_SHOW_INTERESTED_FORUM, z);
             getIntent().putExtra(KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM, arrayList);
         }
@@ -62,7 +70,7 @@ public class InterestGuideActivityConfig extends IntentConfig {
 
     public void setScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
         }
     }

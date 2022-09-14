@@ -28,9 +28,9 @@ import com.baidu.searchbox.live.interfaces.multiplugin.MultiPluginLoadCallback;
 import com.baidu.searchbox.live.interfaces.multiplugin.SubPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService;
-import com.baidu.tieba.q61;
-import com.baidu.tieba.s61;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.l81;
+import com.baidu.tieba.n81;
+import com.baidu.tieba.o81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -444,7 +444,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
     public void downloadUpdatePackage(String str, final MultiPluginDownloadCallback multiPluginDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, multiPluginDownloadCallback) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(str, new q61(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
+            NPSPackageManager.getInstance().downloadUpdatePackage(str, new l81(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ MultiPluginDownloadCallback $downloadCallback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -467,7 +467,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     this.$downloadCallback = multiPluginDownloadCallback;
                 }
 
-                @Override // com.baidu.tieba.q61
+                @Override // com.baidu.tieba.l81
                 public void onProgress(long j, long j2) {
                     MultiPluginDownloadCallback multiPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -477,7 +477,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     multiPluginDownloadCallback2.onProgress(j, j2);
                 }
 
-                @Override // com.baidu.tieba.q61
+                @Override // com.baidu.tieba.l81
                 public void onResult(int i, String str2) {
                     MultiPluginDownloadCallback multiPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
@@ -486,7 +486,7 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     }
                     multiPluginDownloadCallback2.onResult(i, str2);
                 }
-            }, new s61() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
+            }, new n81() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -504,13 +504,13 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                     }
                 }
 
-                @Override // com.baidu.tieba.s61
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, t61 t61Var) {
+                @Override // com.baidu.tieba.n81
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, o81 o81Var) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, t61Var) == null) || t61Var == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, o81Var) == null) || o81Var == null) {
                         return;
                     }
-                    t61Var.onResult(1);
+                    o81Var.onResult(1);
                 }
             }, 1, true);
         }

@@ -1,36 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class kk8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public NewStyleStampDialogView a;
+    public yg<on> b;
+    public d c;
 
     /* loaded from: classes4.dex */
-    public static class a extends BdAsyncTask<Void, Void, Void> {
+    public class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ jt4 a;
+        public final /* synthetic */ kk8 b;
 
-        public a(WriteData writeData, String str) {
+        public a(kk8 kk8Var, jt4 jt4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, str};
+                Object[] objArr = {kk8Var, jt4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,44 +57,37 @@ public class kk8 {
                     return;
                 }
             }
-            this.a = writeData;
-            this.b = str;
+            this.b = kk8Var;
+            this.a = jt4Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ur4.f();
-                ve<String> g = ur4.g("tb.pb_editor");
-                WriteData writeData = this.a;
-                if (writeData != null && writeData.hasContentToSave()) {
-                    g.e(kk8.f(this.b), this.a.toDraftString(), 604800000L);
-                    return null;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
+                super.onLoaded((a) onVar, str, i);
+                if (onVar == null || !onVar.w()) {
+                    return;
                 }
-                g.remove(kk8.f(this.b));
-                return null;
+                this.b.l(this.a);
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends BdAsyncTask<Void, Void, Void> {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ bu4 a;
+        public final /* synthetic */ kk8 b;
 
-        public b(WriteData writeData, boolean z, String str) {
+        public b(kk8 kk8Var, bu4 bu4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, Boolean.valueOf(z), str};
+                Object[] objArr = {kk8Var, bu4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,56 +97,37 @@ public class kk8 {
                     return;
                 }
             }
-            this.a = writeData;
-            this.b = z;
-            this.c = str;
+            this.b = kk8Var;
+            this.a = bu4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            WriteData writeData;
-            WriteData writeData2;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ur4.f();
-                ve<String> g = ur4.g("tb.pb_editor");
-                WriteData writeData3 = this.a;
-                if (writeData3 != null && writeData3.hasContentToSave() && !this.b) {
-                    String draftString = this.a.toDraftString();
-                    g.e(kk8.b(this.c), draftString, 604800000L);
-                    if ("0".equals(this.c) || (writeData2 = this.a) == null || writeData2.getStatisticFrom() != 1) {
-                        return null;
-                    }
-                    g.e(kk8.b("0"), draftString, 604800000L);
-                    return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.b.c != null) {
+                    this.b.c.a();
                 }
-                g.remove(kk8.b(this.c));
-                if ("0".equals(this.c) || (writeData = this.a) == null || writeData.getStatisticFrom() != 1) {
-                    return null;
-                }
-                g.remove(kk8.b("0"));
-                return null;
+                this.a.a();
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends BdAsyncTask<Void, Void, Void> {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ bu4 a;
+        public final /* synthetic */ jk8 b;
+        public final /* synthetic */ Activity c;
+        public final /* synthetic */ kk8 d;
 
-        public c(WriteData writeData, boolean z, String str) {
+        public c(kk8 kk8Var, bu4 bu4Var, jk8 jk8Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, Boolean.valueOf(z), str};
+                Object[] objArr = {kk8Var, bu4Var, jk8Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -146,582 +137,253 @@ public class kk8 {
                     return;
                 }
             }
-            this.a = writeData;
-            this.b = z;
-            this.c = str;
+            this.d = kk8Var;
+            this.a = bu4Var;
+            this.b = jk8Var;
+            this.c = activity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            WriteData writeData;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ur4.f();
-                ve<String> g = ur4.g("tb.pb_editor");
-                if (g == null) {
-                    return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a();
+                mk8 mk8Var = new mk8();
+                jk8 jk8Var = this.b;
+                if (jk8Var != null) {
+                    mk8Var.g(jk8Var.a());
+                    mk8Var.h(this.b.b());
                 }
-                WriteData writeData2 = this.a;
-                if (writeData2 != null && writeData2.hasContentToSave() && !this.b) {
-                    String draftString = this.a.toDraftString();
-                    g.e(kk8.g(this.c), draftString, 604800000L);
-                    if (!"0".equals(this.c) && this.a.getStatisticFrom() == 1) {
-                        g.e(kk8.g("0"), draftString, 604800000L);
-                    }
-                } else {
-                    g.remove(kk8.g(this.c));
-                    if (!"0".equals(this.c) && (writeData = this.a) != null && writeData.getStatisticFrom() == 1) {
-                        g.remove(kk8.g("0"));
-                    }
+                new lk8(this.c, mk8Var).a();
+                this.d.p();
+                if (this.d.c != null) {
+                    this.d.c.c();
                 }
-                return null;
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
+    public interface d {
+        void a();
 
-        public d(String str, String str2) {
-            Interceptable interceptable = $ic;
+        void b();
+
+        void c();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947916081, "Lcom/baidu/tieba/kk8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str;
-            this.b = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ur4.f();
-                ve<String> g = ur4.g("tb.pb_editor");
-                if (!TextUtils.isEmpty(this.a)) {
-                    g.e(kk8.d(this.b), this.a, 604800000L);
-                    return null;
-                }
-                g.remove(kk8.d(this.b));
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947916081, "Lcom/baidu/tieba/kk8;");
+                return;
             }
-            return (Void) invokeL.objValue;
         }
+        d = BdUniqueId.gen();
     }
 
-    /* loaded from: classes4.dex */
-    public static class e extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ String b;
-
-        public e(WriteData writeData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = writeData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ur4.f();
-                ve<String> g = ur4.g("tb.pb_editor");
-                WriteData writeData = this.a;
-                if (writeData != null && writeData.hasContentToSave()) {
-                    g.e(kk8.h(this.b), this.a.toDraftString(), 604800000L);
-                    return null;
-                }
-                g.remove(kk8.h(this.b));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class f extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ur4.f();
-                ve<String> g = ur4.g("tb.pb_editor");
-                if (!TextUtils.isEmpty(this.a)) {
-                    g.e(kk8.e(), this.a, 604800000L);
-                    return null;
-                }
-                g.remove(kk8.e());
-                FileHelper.deleteFileOrDir(new File(ws8.e));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface g {
-        void h0(WriteData writeData);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface h {
-        void a(String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public static class i extends BdAsyncTask<String, String, WriteData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final g a;
-        public final String b;
-
-        public i(String str, g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            setPriority(3);
-            this.a = gVar;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public WriteData doInBackground(String... strArr) {
-            String str;
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    ur4.f();
-                    str = ur4.g("tb.pb_editor").get(this.b);
-                } catch (Exception unused) {
-                    str = null;
-                }
-                return WriteData.fromDraftString(str);
-            }
-            return (WriteData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-                super.onPostExecute(writeData);
-                g gVar = this.a;
-                if (gVar != null) {
-                    gVar.h0(writeData);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class j extends BdAsyncTask<String, String, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final h a;
-        public final String b;
-
-        public j(String str, h hVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, hVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            setPriority(3);
-            this.a = hVar;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                try {
-                    ur4.f();
-                    return ur4.g("tb.pb_editor").get(this.b);
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((j) str);
-                if (this.a == null || TextUtils.isEmpty(str)) {
-                    return;
-                }
-                this.a.a(str);
-            }
-        }
-    }
-
-    public static void A(String str, WriteData writeData) {
+    public kk8() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, writeData) == null) || qi.isEmpty(str)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new NewStyleStampDialogView(TbadkCoreApplication.getInst().getContext());
+    }
+
+    public static /* synthetic */ void e(bu4 bu4Var, TbPageContext tbPageContext, View view2) {
+        bu4Var.a();
+        if (tbPageContext != null) {
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
+            n();
+        }
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 1).param("obj_locate", 1));
+        }
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 1).param("obj_locate", 1));
+        }
+    }
+
+    public /* synthetic */ void f(bu4 bu4Var, jt4 jt4Var, Activity activity, View view2) {
+        jt4.a i;
+        bu4Var.a();
+        mk8 mk8Var = new mk8();
+        NewStyleStampDialogView newStyleStampDialogView = this.a;
+        if (newStyleStampDialogView != null && jt4Var != null && (i = newStyleStampDialogView.i(jt4Var.a())) != null) {
+            mk8Var.g(i.c());
+            mk8Var.h(i.b());
+        }
+        new lk8(activity, mk8Var).a();
+        p();
+    }
+
+    public /* synthetic */ void g(bu4 bu4Var, TbPageContext tbPageContext, View view2) {
+        bu4Var.a();
+        if (tbPageContext != null) {
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
+            n();
+            d dVar = this.c;
+            if (dVar != null) {
+                dVar.b();
+            }
+        }
+    }
+
+    public final void h(jt4 jt4Var) {
+        List<jt4.a> a2;
+        on onVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jt4Var) == null) || (a2 = jt4Var.a()) == null || a2.size() <= 0) {
             return;
         }
-        new e(writeData, str).execute(new Void[0]);
+        for (jt4.a aVar : a2) {
+            if (!StringUtils.isNull(aVar.c()) && ((onVar = (on) zg.h().n(aVar.c(), 10, new Object[0])) == null || !onVar.w())) {
+                zg.h().m(aVar.c(), 10, null, d);
+            }
+        }
     }
 
-    public static void B(String str, WriteData writeData) {
+    public void i(IconPopData iconPopData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, writeData) == null) || qi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, iconPopData) == null) || iconPopData == null || iconPopData.getPic160() == null || iconPopData.getTitle() == null) {
             return;
         }
-        ur4.f();
-        ve<String> g2 = ur4.g("tb.pb_editor");
-        if (writeData != null && writeData.hasContentToSave()) {
-            g2.i(i(str), writeData.toDraftString(), 604800000L);
-        } else {
-            g2.d(i(str));
-        }
+        jk8 jk8Var = new jk8();
+        String pic160 = iconPopData.getPic160();
+        jk8Var.d(iconPopData.getTitle());
+        jk8Var.c(pic160);
+        m(jk8Var);
+        PollingModel.V(iconPopData, true);
     }
 
-    public static String C() {
-        InterceptResult invokeV;
+    public void j(jt4 jt4Var) {
+        jt4.a i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String e2 = e();
-            ur4.f();
-            return ur4.g("tb.pb_editor").get(e2);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@evaluate" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@frs" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@localchannel";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@localchannelhi" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@newvideo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@questionthread@fid" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@topic" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void j(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, gVar) == null) {
-            if (str != null) {
-                new i(a(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.h0(null);
-            }
-        }
-    }
-
-    public static void k(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, str, gVar) == null) {
-            if (!qi.isEmpty(str)) {
-                new i(b(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.h0(null);
-            }
-        }
-    }
-
-    public static void l(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, gVar) == null) {
-            new i(c(), gVar).execute(new String[0]);
-        }
-    }
-
-    public static void m(String str, h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, hVar) == null) {
-            if (!qi.isEmpty(str)) {
-                new j(d(str), hVar).execute(new String[0]);
-            } else if (hVar != null) {
-                hVar.a(null);
-            }
-        }
-    }
-
-    public static void n(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, hVar) == null) {
-            new j(e(), hVar).execute(new String[0]);
-        }
-    }
-
-    public static void o(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, str, gVar) == null) {
-            if (!qi.isEmpty(str)) {
-                new i(f(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.h0(null);
-            }
-        }
-    }
-
-    public static void p(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, str, gVar) == null) {
-            if (!qi.isEmpty(str)) {
-                new i(g(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.h0(null);
-            }
-        }
-    }
-
-    public static void q(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, str, gVar) == null) {
-            if (!qi.isEmpty(str)) {
-                new i(h(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.h0(null);
-            }
-        }
-    }
-
-    public static void r(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, str, gVar) == null) {
-            if (!qi.isEmpty(str)) {
-                new i(i(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.h0(null);
-            }
-        }
-    }
-
-    public static void s(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65557, null, str, writeData) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jt4Var) == null) || (i = this.a.i(jt4Var.a())) == null) {
             return;
         }
-        ur4.f();
-        ve<String> g2 = ur4.g("tb.pb_editor");
-        if (writeData != null && writeData.hasContentToSave()) {
-            g2.e(a(str), writeData.toDraftString(), 604800000L);
-            g2.e(a(""), writeData.toDraftString(), 604800000L);
+        this.b = new a(this, jt4Var);
+        on onVar = (on) zg.h().n(i.c(), 10, new Object[0]);
+        if (onVar != null && onVar.w()) {
+            l(jt4Var);
+            h(jt4Var);
             return;
         }
-        g2.remove(a(str));
-        g2.remove(a(""));
+        zg.h().m(i.c(), 10, this.b, d);
     }
 
-    public static void t(String str, WriteData writeData) {
+    public void k(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, null, str, writeData) == null) {
-            u(str, writeData, false);
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.c = dVar;
         }
     }
 
-    public static void u(String str, WriteData writeData, boolean z) {
+    public final void l(final jt4 jt4Var) {
+        final Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65559, null, str, writeData, z) == null) || qi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jt4Var) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
             return;
         }
-        new b(writeData, z, str).execute(new Void[0]);
-    }
+        final TbPageContext pageContext = currentActivity instanceof TbPageContextSupport ? ((TbPageContextSupport) currentActivity).getPageContext() : null;
+        this.a.setStampData(jt4Var);
+        final bu4 bu4Var = new bu4(currentActivity);
+        bu4Var.c(this.a);
+        bu4Var.d();
+        this.a.getImgStampDialogCancelView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ik8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public static void v(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, writeData) == null) {
-            ur4.f();
-            ve<String> g2 = ur4.g("tb.pb_editor");
-            if (writeData != null && writeData.hasContentToSave()) {
-                g2.e(c(), writeData.toDraftString(), 604800000L);
-            } else {
-                g2.remove(c());
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    bu4.this.a();
+                }
             }
-        }
+        });
+        this.a.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fk8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    kk8.e(bu4.this, pageContext, view2);
+                }
+            }
+        });
+        this.a.getStampDialogShareView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hk8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    kk8.this.f(bu4Var, jt4Var, currentActivity, view2);
+                }
+            }
+        });
+        o();
     }
 
-    public static void w(String str, String str2) {
+    public final void m(jk8 jk8Var) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65561, null, str, str2) == null) || qi.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, jk8Var) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
             return;
         }
-        new d(str2, str).execute(new Void[0]);
+        final TbPageContext pageContext = currentActivity instanceof TbPageContextSupport ? ((TbPageContextSupport) currentActivity).getPageContext() : null;
+        NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(currentActivity);
+        newStyleStampDialogView.setStampData(jk8Var);
+        final bu4 bu4Var = new bu4(currentActivity);
+        bu4Var.c(newStyleStampDialogView);
+        bu4Var.d();
+        o();
+        newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, bu4Var));
+        newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gk8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    kk8.this.g(bu4Var, pageContext, view2);
+                }
+            }
+        });
+        newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new c(this, bu4Var, jk8Var, currentActivity));
     }
 
-    public static void x(String str) {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, str) == null) {
-            new f(str).execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
         }
-    }
-
-    public static void y(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65563, null, str, writeData) == null) || qi.isEmpty(str)) {
-            return;
-        }
-        new a(writeData, str).execute(new Void[0]);
-    }
-
-    public static void z(String str, WriteData writeData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65564, null, str, writeData, z) == null) || qi.isEmpty(str)) {
-            return;
-        }
-        new c(writeData, z, str).execute(new Void[0]);
     }
 }

@@ -133,7 +133,7 @@ public class ao {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo265c() {
+        public void mo266c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }

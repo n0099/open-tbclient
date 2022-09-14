@@ -1,80 +1,153 @@
 package com.baidu.tieba;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class wf4 implements Comparable<wf4> {
+public class wf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, wf4> d;
+    public static Map<String, Map<String, wf4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
-    public long e;
-    public MethodInfo f;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
-    public wf4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268644, "Lcom/baidu/tieba/wf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948268644, "Lcom/baidu/tieba/wf4;");
+                return;
+            }
+        }
+        d = new HashMap();
+        e = new HashMap();
+    }
+
+    public wf4(@NonNull String str, @NonNull AbiType abiType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = TextUtils.isEmpty(str) ? "" : str;
+        this.c = abiType;
+        this.b = a(str, abiType);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(wf4 wf4Var) {
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, wf4> b(@NonNull String str) {
         InterceptResult invokeL;
+        HashMap hashMap;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wf4Var)) == null) ? (int) (this.e - wf4Var.e()) : invokeL.intValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.c - this.b;
-            if (j < 0) {
-                return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (wf4.class) {
+                hashMap = new HashMap(c(str));
             }
-            return j;
+            return hashMap;
         }
-        return invokeV.longValue;
+        return (Map) invokeL.objValue;
     }
 
-    public MethodInfo c() {
-        InterceptResult invokeV;
+    public static synchronized Map<String, wf4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, wf4> map;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (MethodInfo) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (wf4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            wf4 wf4Var = new wf4(str, abiType);
+                            map.put(wf4Var.b, wf4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
+                    }
+                }
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    @Nullable
+    public static synchronized wf4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        wf4 e2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (wf4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (wf4) invokeLL.objValue;
     }
 
-    public long e() {
-        InterceptResult invokeV;
+    @Nullable
+    public static synchronized wf4 e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (wf4.class) {
+                wf4 wf4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    wf4 wf4Var2 = d.get(str2);
+                    if (wf4Var2 != null) {
+                        if (TextUtils.equals(str, wf4Var2.a)) {
+                            wf4Var = wf4Var2;
+                        }
+                    }
+                    return wf4Var;
+                }
+                return null;
+            }
+        }
+        return (wf4) invokeLL.objValue;
     }
 
-    public String f() {
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

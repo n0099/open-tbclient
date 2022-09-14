@@ -1,38 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
+import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
+import com.baidu.searchbox.live.interfaces.sharechennel.IShareCallback;
+import com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel;
+import com.baidu.searchbox.live.interfaces.sharechennel.ShareEntity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class kl7 extends BaseAdapter {
+public class kl7 implements ShareChannelService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hl7> a;
-    public MemberTaskCenterActivity b;
-    public View.OnClickListener c;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public class a implements IShareChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public View d;
+        public final /* synthetic */ kl7 a;
 
         public a(kl7 kl7Var) {
             Interceptable interceptable = $ic;
@@ -46,138 +38,117 @@ public class kl7 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kl7Var;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
+        public void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i, iShareCallback) == null) {
+                if (i == 1) {
+                    this.a.c(6, shareEntity, iShareCallback);
+                } else if (i == 3) {
+                    this.a.c(2, shareEntity, iShareCallback);
+                } else if (i == 2) {
+                    this.a.c(3, shareEntity, iShareCallback);
+                } else if (i == 4) {
+                    this.a.c(8, shareEntity, iShareCallback);
                 }
             }
         }
     }
 
-    public kl7(MemberTaskCenterActivity memberTaskCenterActivity) {
+    public kl7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = memberTaskCenterActivity;
     }
 
-    public final SpannableString a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), str.length(), spannableString.length(), 33);
-            return spannableString;
-        }
-        return (SpannableString) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public hl7 getItem(int i) {
+    public final boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<hl7> list = this.a;
-            if (list == null || list.size() <= i) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 2 || i == 3) {
+                boolean b = zl8.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
+                if (b) {
+                    return b;
+                }
+                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1190));
+                return b;
+            } else if (i == 6) {
+                boolean b2 = zl8.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
+                if (b2) {
+                    return b2;
+                }
+                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1189));
+                return b2;
+            } else if (i != 8) {
+                return false;
+            } else {
+                boolean b3 = zl8.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
+                if (b3) {
+                    return b3;
+                }
+                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f116a));
+                return b3;
             }
-            return this.a.get(i);
         }
-        return (hl7) invokeI.objValue;
+        return invokeI.booleanValue;
     }
 
-    public void c(List<hl7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            if (list != null) {
-                this.a.addAll(list);
-            }
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService
+    public IShareChannel buildShareChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<hl7> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (IShareChannel) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public final void c(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
+        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, shareEntity, iShareCallback) == null) || shareEntity == null) {
+            return;
         }
-        return invokeI.longValue;
+        if (!b(i)) {
+            if (iShareCallback != null) {
+                iShareCallback.onShare(0, 0, "");
+                return;
+            }
+            return;
+        }
+        ShareItem d = d(shareEntity);
+        if (d == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), d, i, 2)));
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
+    public final ShareItem d(ShareEntity shareEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d056d, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09207c);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09207d);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09207e);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
+            if (shareEntity != null) {
+                ShareItem shareItem = new ShareItem();
+                shareItem.v = shareEntity.title;
+                shareItem.w = shareEntity.content;
+                shareItem.A = shareEntity.imageUrl;
+                shareItem.x = shareEntity.linkUrl;
+                shareItem.u = String.valueOf(shareEntity.liveId);
+                shareItem.x0 = String.valueOf(shareEntity.userId);
+                return shareItem;
             }
-            hl7 item = getItem(i);
-            if (item != null) {
-                aVar.a.setText(item.f());
-                aVar.b.setText(a(String.valueOf(item.a()), item.b()));
-                if (item.d()) {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f08eb), TextView.BufferType.EDITABLE);
-                    aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    aVar.c.setBackgroundDrawable(null);
-                    aVar.c.setOnClickListener(null);
-                } else {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0495), TextView.BufferType.EDITABLE);
-                    SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
-                    aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
-                    aVar.c.setTag(item);
-                    aVar.c.setOnClickListener(this.c);
-                }
-                SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0109);
-                SkinManager.setViewTextColor(aVar.a, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
-            }
-            view2.setTag(aVar);
-            return view2;
+            return null;
         }
-        return (View) invokeILL.objValue;
+        return (ShareItem) invokeL.objValue;
     }
 }

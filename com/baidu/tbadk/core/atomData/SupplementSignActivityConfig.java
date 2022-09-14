@@ -16,7 +16,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CONTINUOUS_SIGN_ALL_DAYS = "continuous_sign_all_days";
     public static String FORUM_ID = "forum_id";
-    public static String JUMP_URL = "https://tieba.baidu.com/mo/q/resign/index";
+    public static String JUMP_URL = null;
     public static String SIGN_BONUS_POINT = "signBonusPoint";
     public static String SUPPLEMENT_SIGN_DAYS = "supplement_sign_days";
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,16 +24,17 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1828004781, "Lcom/baidu/tbadk/core/atomData/SupplementSignActivityConfig;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1828004781, "Lcom/baidu/tbadk/core/atomData/SupplementSignActivityConfig;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1828004781, "Lcom/baidu/tbadk/core/atomData/SupplementSignActivityConfig;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1828004781, "Lcom/baidu/tbadk/core/atomData/SupplementSignActivityConfig;");
-        }
+        JUMP_URL = TbConfig.TIEBA_ADDRESS + "mo/q/resign/index";
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -58,7 +59,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
                 return;
             }
         }
-        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f100e);
+        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f102a);
         getIntent().putExtra(FORUM_ID, i);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

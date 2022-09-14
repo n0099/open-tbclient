@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface k82 extends JSRuntime, yz1, TypedCallbackHandler {
-    JsSerializeValue A(byte[] bArr, boolean z);
+public class k82 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
 
-    byte[] I(JsSerializeValue jsSerializeValue, boolean z);
-
-    void Z(String str, String str2);
-
-    x82 d0();
-
-    boolean dispatchEvent(JSEvent jSEvent);
-
-    String getInitBasePath();
-
-    int getInvokeSourceType();
-
-    EventTarget m();
-
-    boolean post(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void postOnJSThread(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void runOnJSThread(Runnable runnable);
-
-    void setPreferredFramesPerSecond(short s);
-
-    void throwJSException(JSExceptionType jSExceptionType, String str);
-
-    EventTarget w();
-
-    t82 x();
+    public k82() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

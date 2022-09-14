@@ -13,7 +13,6 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.tieba.R;
@@ -89,8 +88,8 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdc);
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0925f5);
+            this.a = (ImageView) findViewById(R.id.iv_back);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092651);
             this.b = webView;
             webView.setWebChromeClient(new WebChromeClient());
             this.b.setWebViewClient(new WebViewClient());
@@ -150,11 +149,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
             }
             getWindow().addFlags(128);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04ac);
+            setContentView(R.layout.layout_pass_liveness_protocol);
             b();
             a();
             newLoginStatusBarTint(this);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

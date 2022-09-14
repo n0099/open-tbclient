@@ -1,137 +1,116 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.px3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
+import com.baidu.tieba.c23;
+import com.baidu.tieba.oz3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.HttpUrl;
 /* loaded from: classes5.dex */
 public class nz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile nz3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, fz3> a;
+    public FullScreenFloatView a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948019714, "Lcom/baidu/tieba/nz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements FullScreenFloatView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ nz3 b;
+
+        public a(nz3 nz3Var, Activity activity) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz3Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948019714, "Lcom/baidu/tieba/nz3;");
-                return;
+            this.b = nz3Var;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
-        b = kh1.a;
+
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.d(this.a);
+            }
+        }
     }
 
     public nz3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static void a(k82 k82Var, String str) {
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, k82Var, str) == null) || k82Var == null || k82Var.x() == null || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            FullScreenFloatView a2 = h13.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+            this.a = a2;
+            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f0175));
+            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f08015d);
+            this.a.setAutoAttachEnable(false);
+            this.a.setDragImageListener(new a(this, activity));
+            this.a.setVisibility(0);
+        }
+    }
+
+    public void c(oz3.c cVar, Activity activity) {
+        s24 s24Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
+            if (mz3.f((cVar == null || (s24Var = cVar.c) == null) ? null : s24Var.f).b()) {
+                b(activity);
+            }
+        }
+    }
+
+    public final void d(Activity activity) {
+        y23 M;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (M = y23.M()) == null || M.Y() == null) {
             return;
         }
-        k82Var.x().b(str);
-    }
-
-    public static nz3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (nz3.class) {
-                    if (c == null) {
-                        c = new nz3();
-                    }
-                }
-            }
-            return c;
-        }
-        return (nz3) invokeV.objValue;
-    }
-
-    public final String c(String str, int i) {
-        InterceptResult invokeLI;
-        HttpUrl parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
-                return null;
-            }
-            return parse.url().toString() + i;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public synchronized fz3 d(k82 k82Var, ht1 ht1Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k82Var, ht1Var, i)) == null) {
-            synchronized (this) {
-                if (ht1Var == null) {
-                    return null;
-                }
-                String B = ht1Var.B("url");
-                String c2 = c(B, i);
-                if (TextUtils.isEmpty(c2)) {
-                    return null;
-                }
-                fz3 remove = this.a.remove(c2);
-                if (remove != null) {
-                    a(k82Var, "preload used, url = " + B);
-                }
-                if (b) {
-                    Log.d("SwanGamePreloadManager", "obtainRequestTask requestType:" + i + ";url:" + B + ";task:" + remove);
-                }
-                return remove;
-            }
-        }
-        return (fz3) invokeLLI.objValue;
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
-        }
-    }
-
-    public void f(k82 k82Var, px3.c cVar) {
-        t04 t04Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, k82Var, cVar) == null) || k82Var == null || cVar == null || (t04Var = cVar.c) == null || t04Var.g == null) {
-            return;
-        }
-        e();
-        hk2.g0().getSwitch("swan_game_resource_preload", 0);
+        Resources resources = activity.getResources();
+        String u = SwanInspectorEndpoint.v().u(resources);
+        c23.a aVar = new c23.a(activity);
+        aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f01db));
+        aVar.x(u);
+        aVar.n(new gi3());
+        aVar.m(false);
+        aVar.O(R.string.obfuscated_res_0x7f0f01a2, null);
+        aVar.X();
     }
 }

@@ -1,58 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qe3 implements View.OnTouchListener {
+public class qe3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
 
-    public qe3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qe3(v33 v33Var) {
+        super(v33Var, "/swanAPI/updateTextarea");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                View view3 = this.a;
-                if (view3 == null) {
-                    view2.setAlpha(hk2.M().a() ? 0.5f : 0.2f);
-                    return false;
-                }
-                view3.setAlpha(hk2.M().a() ? 0.5f : 0.2f);
-                return false;
-            } else if (action != 2) {
-                View view4 = this.a;
-                if (view4 == null) {
-                    view2.setAlpha(1.0f);
-                    return false;
-                }
-                view4.setAlpha(1.0f);
-                return false;
-            } else {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
+            yz1.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
+            String optString = optParamsAsJo.optString("slaveId");
+            String optString2 = optParamsAsJo.optString("componentId");
+            jz1 jz1Var = (jz1) lz1.b(optString, optString2);
+            if (jz1Var == null) {
+                String str = "can't find textarea component:#" + optString2;
+                yz1.c("UpdateTextAreaAction", str);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+                return false;
+            }
+            kz1 kz1Var = (kz1) jz1Var.l();
+            kz1Var.g(optParamsAsJo);
+            py1 update = jz1Var.update((jz1) kz1Var);
+            if (!update.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            jz1Var.U0(optString2);
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

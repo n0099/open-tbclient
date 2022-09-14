@@ -1,217 +1,273 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class wh5 extends vh5 {
+public class wh5 {
     public static /* synthetic */ Interceptable $ic;
+    public static TextView a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext c;
-    public xh5 d;
-    public int e;
 
-    public wh5(TbPageContext tbPageContext, nh5 nh5Var) {
+    public static int a(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, nh5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = nh5Var;
-        this.c = tbPageContext;
-        nh5Var.a(this);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Character.valueOf(c)})) == null) ? f(c) ? 1 : 2 : invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.uh5
-    public boolean a(String str) {
+    public static int b(String str) {
         InterceptResult invokeL;
-        nh5 nh5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            nh5 nh5Var2 = this.b;
-            if (nh5Var2 != null) {
-                nh5Var2.i(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            yh5 yh5Var = this.a;
-            if (yh5Var == null || (nh5Var = this.b) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = f(str.charAt(i2)) ? i + 1 : i + 2;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
+                i++;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
+                i = substring.length() >= 2 ? i + 2 : i + b(substring);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String e(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            if (b(str) > i) {
+                return k(str, 0, i - 2) + StringHelper.STRING_MORE;
+            }
+            return str;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static boolean f(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'a' || c > 'z') {
+                if (c < 'A' || c > 'Z') {
+                    return (c >= '0' && c <= '9') || c == ' ';
+                }
                 return true;
             }
-            yh5Var.d(nh5Var.c());
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uh5
-    public void b(int i) {
+    public static boolean g(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'a' || c > 'z') {
+                return (c >= '0' && c <= '9') || c == ' ';
+            }
+            return true;
         }
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uh5
-    public boolean c(qh5 qh5Var) {
+    public static boolean h(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
+    }
+
+    public static Pair<Integer, Integer> i(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
+            try {
+                if (a == null) {
+                    a = new TextView(TbadkCoreApplication.getInst().getContext());
+                }
+                TextView textView = a;
+                if (textView.getLayoutParams() == null) {
+                    textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                }
+                textView.setText(str);
+                textView.setTextSize(0, i);
+                textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+                return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Pair) invokeLII.objValue;
+    }
+
+    public static int j(String str) {
         InterceptResult invokeL;
-        nh5 nh5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh5Var)) == null) {
-            nh5 nh5Var2 = this.b;
-            if (nh5Var2 != null && nh5Var2.c() >= 30) {
-                j(this.c.getPageActivity(), false, String.format(this.c.getString(R.string.obfuscated_res_0x7f0f02fd), 30));
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0;
             }
-            nh5 nh5Var3 = this.b;
-            if (nh5Var3 != null) {
-                nh5Var3.f(qh5Var);
-            }
-            yh5 yh5Var = this.a;
-            if (yh5Var != null && (nh5Var = this.b) != null) {
-                yh5Var.d(nh5Var.c());
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vh5, com.baidu.tieba.uh5
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            yh5 yh5Var = this.a;
-            if (yh5Var != null) {
-                yh5Var.a();
-            }
-            nh5 nh5Var = this.b;
-            if (nh5Var == null || nh5Var.b() == null || this.b.b().g() == null) {
-                return;
-            }
-            this.b.b().g().a();
-        }
-    }
-
-    @Override // com.baidu.tieba.vh5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            dismiss();
-        }
-    }
-
-    @Override // com.baidu.tieba.vh5
-    public void f() {
-        nh5 nh5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (nh5Var = this.b) == null || nh5Var.c() == 0) {
-            return;
-        }
-        this.b.h("1");
-        i();
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "1").param("obj_source", this.e == 3 ? "3" : "2"));
-    }
-
-    @Override // com.baidu.tieba.vh5
-    public void g() {
-        nh5 nh5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (nh5Var = this.b) == null || nh5Var.c() == 0) {
-            return;
-        }
-        this.b.h("2");
-        i();
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "2").param("obj_source", this.e == 3 ? "3" : "2"));
-    }
-
-    @Override // com.baidu.tieba.vh5
-    public void h(sh5 sh5Var) {
-        String str;
-        th5 th5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sh5Var) == null) {
-            List<String> list = null;
-            int i = -1;
-            if (sh5Var == null) {
-                str = "";
-            } else if (sh5Var.a && (th5Var = sh5Var.c) != null) {
-                list = th5Var.a;
-                i = th5Var.c;
-                str = th5Var.d;
-            } else {
-                str = sh5Var.b;
-            }
-            xh5 xh5Var = this.d;
-            if (xh5Var != null) {
-                xh5Var.b();
-            }
-            j(this.c.getPageActivity(), i == 0, str);
-            nh5 nh5Var = this.b;
-            if (nh5Var != null && nh5Var.b() != null && this.b.b().g() != null) {
-                this.b.b().g().b(list);
-            }
-            if (i == 0) {
-                dismiss();
-            } else if (!ListUtils.isEmpty(list)) {
-                for (String str2 : list) {
-                    a(str2);
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (' ' == str.charAt(i2)) {
+                    i++;
                 }
             }
+            return i;
         }
+        return invokeL.intValue;
     }
 
-    public final void i() {
+    public static String k(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            xh5 xh5Var = new xh5(this.c, this.b);
-            this.d = xh5Var;
-            xh5Var.c(this.e);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(str) && i <= i2) {
+                if (i >= 0 && i2 >= 0) {
+                    int i3 = 0;
+                    for (int i4 = 0; i4 < str.length(); i4++) {
+                        char charAt = str.charAt(i4);
+                        if (i3 >= i2) {
+                            if (i3 == i2) {
+                                if (h(sb.charAt(sb.length() - 1))) {
+                                    sb.append(charAt);
+                                    return sb.toString();
+                                }
+                                return sb.toString();
+                            } else if (sb.length() > 2 && h(sb.charAt(sb.length() - 2))) {
+                                return sb.toString();
+                            } else {
+                                return sb.deleteCharAt(sb.length() - 1).toString();
+                            }
+                        }
+                        if (i3 >= i) {
+                            sb.append(charAt);
+                        }
+                        i3 = f(charAt) ? i3 + 1 : i3 + 2;
+                    }
+                }
+                return sb.toString();
+            }
+            return sb.toString();
         }
+        return (String) invokeLII.objValue;
     }
 
-    public final void j(Activity activity, boolean z, String str) {
+    public static String l(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{activity, Boolean.valueOf(z), str}) == null) || activity == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(str)) {
+                return sb.toString();
+            }
+            if (i > 0) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < str.length(); i3++) {
+                    char charAt = str.charAt(i3);
+                    if (i2 >= i) {
+                        if (i2 == i) {
+                            return sb.toString();
+                        }
+                        return sb.deleteCharAt(sb.length() - 1).toString();
+                    }
+                    if (i2 >= 0) {
+                        sb.append(charAt);
+                    }
+                    i2 = g(charAt) ? i2 + 1 : i2 + 2;
+                }
+            }
+            return sb.toString();
         }
-        View findViewById = activity.findViewById(16908290);
-        if (findViewById instanceof ViewGroup) {
-            BdTopToast bdTopToast = new BdTopToast(activity, 3000);
-            bdTopToast.h(z);
-            bdTopToast.g(str);
-            bdTopToast.i((ViewGroup) findViewById);
-        }
+        return (String) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.uh5
-    public void show() {
-        yh5 yh5Var;
+    public static String m(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (yh5Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (c(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
         }
-        yh5Var.e();
+        return (String) invokeLI.objValue;
+    }
+
+    public static String n(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (d(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
+        }
+        return (String) invokeLI.objValue;
     }
 }

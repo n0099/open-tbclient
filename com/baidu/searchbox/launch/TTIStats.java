@@ -139,7 +139,7 @@ public class TTIStats {
                         this.val$jsonObject = jSONObject;
                     }
 
-                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x009e -> B:40:0x00a1). Please submit an issue!!! */
+                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x00a0 -> B:39:0x00a3). Please submit an issue!!! */
                     @Override // java.lang.Runnable
                     public void run() {
                         BufferedWriter bufferedWriter;
@@ -154,14 +154,14 @@ public class TTIStats {
                                             file.createNewFile();
                                         }
                                         bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                                    } catch (Throwable th) {
-                                        th = th;
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (IOException e) {
-                                    e = e;
+                                } catch (IOException e2) {
+                                    e = e2;
                                 }
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                            } catch (Throwable th) {
+                                th = th;
                             }
                             try {
                                 bufferedWriter.write("starttime：" + System.currentTimeMillis() + "\n");

@@ -1,51 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public interface h21 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final h21 b = new a();
+public final class h21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements h21 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static final String a(JSONObject optStringCheckNonNull, String key) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, optStringCheckNonNull, key)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            return b(optStringCheckNonNull, key, "");
         }
-
-        @Override // com.baidu.tieba.h21
-        public void a(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || Build.VERSION.SDK_INT < 21) {
-                return;
-            }
-            Window window = activity.getWindow();
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.addFlags(Integer.MIN_VALUE);
-            window.setStatusBarColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f060886));
-        }
+        return (String) invokeLL.objValue;
     }
 
-    void a(@NonNull Activity activity);
+    public static final String b(JSONObject optStringCheckNonNull, String key, String fallback) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, optStringCheckNonNull, key, fallback)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(fallback, "fallback");
+            if (optStringCheckNonNull.isNull(key)) {
+                return fallback;
+            }
+            String optString = optStringCheckNonNull.optString(key, fallback);
+            Intrinsics.checkNotNullExpressionValue(optString, "optString(key, fallback)");
+            return optString;
+        }
+        return (String) invokeLLL.objValue;
+    }
 }

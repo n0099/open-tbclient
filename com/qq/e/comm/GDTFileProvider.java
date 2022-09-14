@@ -17,7 +17,6 @@ import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -353,7 +352,7 @@ public class GDTFileProvider extends ContentProvider {
                 i = 738197504;
             } else if ("wa".equals(str)) {
                 i = 704643072;
-            } else if (rw.c.equals(str)) {
+            } else if ("rw".equals(str)) {
                 i = 939524096;
             } else if (!"rwt".equals(str)) {
                 throw new IllegalArgumentException("Invalid mode: " + str);

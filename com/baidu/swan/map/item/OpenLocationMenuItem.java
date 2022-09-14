@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.pg3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,7 +148,7 @@ public class OpenLocationMenuItem {
                 return;
             }
         }
-        e = re3.g(45.0f);
+        e = pg3.g(45.0f);
     }
 
     public OpenLocationMenuItem(Context context, String str, MenuItemType menuItemType) {
@@ -167,10 +167,10 @@ public class OpenLocationMenuItem {
             }
         }
         this.c = new TextView(context);
-        this.d = re3.g(1.0f);
+        this.d = pg3.g(1.0f);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e54));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e7b));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

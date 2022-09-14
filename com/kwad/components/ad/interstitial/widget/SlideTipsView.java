@@ -7,11 +7,11 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.R;
 /* loaded from: classes7.dex */
 public class SlideTipsView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -79,9 +79,9 @@ public class SlideTipsView extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403aa}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_SlideTipsView, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
-        FrameLayout.inflate(context, z ? R.layout.obfuscated_res_0x7f0d0431 : R.layout.obfuscated_res_0x7f0d0436, this);
+        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0435 : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d043a, this);
     }
 }

@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.yy.gslbsdk.util.LogTools;
 import com.yy.gslbsdk.util.StringTools;
 import java.util.LinkedHashMap;
@@ -92,7 +91,7 @@ public class StatisticInfo {
                 linkedHashMap.put("rsIpV4", this.rsIpV4.toString());
                 linkedHashMap.put("rsIpV6", this.rsIpV6.toString());
                 linkedHashMap.put("cacheType", String.valueOf(this.cacheType));
-                linkedHashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, String.valueOf(this.ts));
+                linkedHashMap.put("ts", String.valueOf(this.ts));
                 synchronized (this.srvIp) {
                     linkedHashMap.put("srvIp", this.srvIp.toString());
                 }

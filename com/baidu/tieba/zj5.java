@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import android.util.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.cm4;
+import com.baidu.tbadk.widget.multidelmenu.model.MultiDelPostNetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class zj5 {
+public class zj5 extends xj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public cm4 b;
-    public b c;
-    public MarkData d;
-    public final cm4.a e;
+    public Map<String, ak5> b;
+    public yj5 c;
+    public String d;
+    public String e;
 
     /* loaded from: classes6.dex */
-    public class a implements cm4.a {
+    public class a extends q9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zj5 a;
@@ -47,44 +43,21 @@ public class zj5 {
             this.a = zj5Var;
         }
 
-        @Override // com.baidu.tieba.cm4.a
-        public void a(boolean z, boolean z2, String str) {
+        @Override // com.baidu.tieba.q9
+        public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                if (z) {
-                    if (z2) {
-                        ri.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d0));
-                    } else {
-                        ri.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0fd5));
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(z2);
-                    }
-                    if (this.a.d != null) {
-                        dl8 dl8Var = new dl8();
-                        dl8Var.a = this.a.d.getThreadId();
-                        dl8Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, dl8Var));
-                        return;
-                    }
-                    return;
-                }
-                ri.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14c5));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ck5)) {
+                this.a.j((ck5) obj);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    public zj5(Context context) {
+    public zj5(yj5 yj5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {yj5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,76 +67,82 @@ public class zj5 {
                 return;
             }
         }
-        this.b = null;
-        this.e = new a(this);
-        this.a = context;
-        if (context instanceof BaseActivity) {
-            this.b = cm4.b((BaseActivity) context);
-        } else if (context instanceof BaseFragmentActivity) {
-            this.b = cm4.c((BaseFragmentActivity) context);
-        }
-        cm4 cm4Var = this.b;
-        if (cm4Var != null) {
-            cm4Var.j(this.e);
-        }
+        this.b = new ArrayMap();
+        this.c = yj5Var;
     }
 
-    public void d() {
-        cm4 cm4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cm4Var = this.b) == null) {
-            return;
-        }
-        cm4Var.a();
-        this.b.h(true);
-    }
-
-    public void e() {
-        cm4 cm4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cm4Var = this.b) != null && cm4Var.e()) {
-            this.b.d();
-            this.b.h(false);
-        }
-    }
-
-    public boolean f() {
+    @Override // com.baidu.tieba.xj5
+    public yj5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            cm4 cm4Var = this.b;
-            if (cm4Var != null) {
-                return cm4Var.e();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (yj5) invokeV.objValue;
     }
 
-    public void g(boolean z) {
-        cm4 cm4Var;
+    @Override // com.baidu.tieba.xj5
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (cm4Var = this.b) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.size() : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.xj5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MultiDelPostNetModel multiDelPostNetModel = new MultiDelPostNetModel();
+            bk5 bk5Var = new bk5();
+            for (ak5 ak5Var : this.b.values()) {
+                bk5Var.d(ak5Var.a());
+                bk5Var.e(ak5Var.c());
+                bk5Var.b(this.d);
+                bk5Var.c(this.e);
+                bk5Var.a(ak5Var.b());
+            }
+            multiDelPostNetModel.G(bk5Var);
+            multiDelPostNetModel.setLoadDataCallBack(new a(this));
+            multiDelPostNetModel.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.xj5
+    public void f(ak5 ak5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, ak5Var) == null) || ak5Var == null || TextUtils.isEmpty(ak5Var.b())) {
             return;
         }
-        cm4Var.h(z);
+        this.b.put(ak5Var.b(), ak5Var);
     }
 
-    public void h(MarkData markData) {
+    @Override // com.baidu.tieba.xj5
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
-            this.d = markData;
-            cm4 cm4Var = this.b;
-            if (cm4Var != null) {
-                cm4Var.i(markData);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void i(b bVar) {
+    @Override // com.baidu.tieba.xj5
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
         }
+    }
+
+    @Override // com.baidu.tieba.xj5
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.b.remove(str);
+    }
+
+    public void j(ck5 ck5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, ck5Var) == null) || d() == null) {
+            return;
+        }
+        d().h(ck5Var);
     }
 }

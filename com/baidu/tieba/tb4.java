@@ -1,21 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class tb4 {
+public class tb4 extends wb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x94 a;
-    public List<y94> b;
-    public List<z94> c;
-    public v94 d;
-    public PMSAppInfo e;
-    public t94 f;
 
     public tb4() {
         Interceptable interceptable = $ic;

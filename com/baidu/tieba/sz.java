@@ -1,84 +1,133 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cesium.i.i;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public final class sz implements tz {
+public final class sz extends rz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public b d;
 
-    public sz(int i) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Class<?> a;
+        public Method b;
+        public Method c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            d();
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public final long b(Object obj) throws i.a {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                try {
+                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
+                } catch (Exception unused) {
+                    throw new i.a("");
+                }
+            }
+            return invokeL.longValue;
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a = Class.forName(com.baidu.cesium.i.i.a(pz.b()), true, Object.class.getClassLoader());
+                    this.b = com.baidu.cesium.i.i.b(this.a, com.baidu.cesium.i.i.a(pz.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.c = com.baidu.cesium.i.i.b(this.a, com.baidu.cesium.i.i.a(pz.c()), null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public final void f(Object obj, byte[] bArr, int i, int i2) throws i.a {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
+                try {
+                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
+                } catch (Exception unused) {
+                    throw new i.a("");
+                }
+            }
+        }
+
+        public final Object g() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
+        }
+    }
+
+    public sz(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
+        this.d = new b(null);
     }
 
-    @Override // com.baidu.tieba.tz
-    public int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.tieba.tz
-    public int a(byte[] bArr, int i, int i2) {
+    @Override // com.baidu.tieba.rz
+    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
+        long j;
         InterceptResult invokeLII;
-        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            try {
+                Object g = this.d.g();
+                this.d.f(g, bArr, i, i2);
+                j = this.d.b(g);
+            } catch (Exception unused) {
+                j = 4294967295L;
             }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
-            }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
-                }
-            }
-            return i3;
+            return com.baidu.cesium.i.b.a(new long[]{j});
         }
-        return invokeLII.intValue;
-    }
-
-    @Override // com.baidu.tieba.tz
-    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
-            return;
-        }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
+        return (com.baidu.cesium.i.b) invokeLII.objValue;
     }
 }

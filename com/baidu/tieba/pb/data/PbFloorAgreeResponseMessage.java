@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ks7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.ut7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
                 this.mScore = optJSONObject2.optInt("score");
                 this.isFirstAgree = optJSONObject2.optInt("is_first_agree") == 1;
             }
-            this.mActDialogData = ks7.a(optJSONObject);
+            this.mActDialogData = ut7.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;

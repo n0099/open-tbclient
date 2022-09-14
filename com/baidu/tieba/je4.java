@@ -1,17 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class je4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface je4 {
+    void a(JSONArray jSONArray, ta4 ta4Var, @Nullable ta4 ta4Var2, @Nullable ta4 ta4Var3);
 
-    public static void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            activity.finishAfterTransition();
-        }
-    }
+    void b(JSONObject jSONObject, ta4 ta4Var, @Nullable ta4 ta4Var2, @Nullable ta4 ta4Var3);
 }

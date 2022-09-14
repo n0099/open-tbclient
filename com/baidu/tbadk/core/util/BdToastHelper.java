@@ -8,14 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BdToastHelper {
@@ -25,6 +24,7 @@ public class BdToastHelper {
     public static final int ICON_TYPE_DEFAULT_SUCCESS = 1;
     public static final int ICON_TYPE_PRAISE = 3;
     public static final int ICON_TYPE_USER_GROW = 4;
+    public static final int ICON_TYPE_VIP_DOUBLE = 5;
     public static BdToastData mBdToastData;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,22 +55,22 @@ public class BdToastHelper {
             if (bdToastData == null || bdToastData.getContent() == null) {
                 return null;
             }
-            List<BdToastData.a> content = bdToastData.getContent();
+            List<BdToastData.ContentBean> content = bdToastData.getContent();
             StringBuilder sb = new StringBuilder();
-            for (BdToastData.a aVar : content) {
-                if (aVar != null && !StringUtils.isNull(aVar.b())) {
-                    sb.append(aVar.b());
+            for (BdToastData.ContentBean contentBean : content) {
+                if (contentBean != null && !StringUtils.isNull(contentBean.getText())) {
+                    sb.append(contentBean.getText());
                 }
             }
             SpannableString spannableString = new SpannableString(sb);
             StringBuilder sb2 = new StringBuilder();
-            for (BdToastData.a aVar2 : content) {
-                if (aVar2 != null) {
-                    if (aVar2.a() == 1) {
-                        spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), sb2.length(), sb2.length() + aVar2.b().length(), 33);
+            for (BdToastData.ContentBean contentBean2 : content) {
+                if (contentBean2 != null) {
+                    if (contentBean2.getHasColor() == 1) {
+                        spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), sb2.length(), sb2.length() + contentBean2.getText().length(), 33);
                     }
-                    if (!StringUtils.isNull(aVar2.b())) {
-                        sb2.append(aVar2.b());
+                    if (!StringUtils.isNull(contentBean2.getText())) {
+                        sb2.append(contentBean2.getText());
                     }
                 }
             }
@@ -79,38 +79,9 @@ public class BdToastHelper {
         return (SpannableString) invokeL.objValue;
     }
 
-    public static BdToastData make() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            BdToastData bdToastData = new BdToastData();
-            bdToastData.setIconType(3);
-            ArrayList arrayList = new ArrayList();
-            BdToastData.a aVar = new BdToastData.a();
-            aVar.d("每日首赞");
-            aVar.c(0);
-            BdToastData.a aVar2 = new BdToastData.a();
-            aVar2.d("经验加3");
-            aVar2.c(1);
-            BdToastData.a aVar3 = new BdToastData.a();
-            aVar3.d("，成长任务");
-            aVar3.c(0);
-            BdToastData.a aVar4 = new BdToastData.a();
-            aVar4.d("经验加3");
-            aVar4.c(1);
-            arrayList.add(aVar);
-            arrayList.add(aVar2);
-            arrayList.add(aVar3);
-            arrayList.add(aVar4);
-            bdToastData.setContent(arrayList);
-            return bdToastData;
-        }
-        return (BdToastData) invokeV.objValue;
-    }
-
     public static void setToastIcon(BdToast bdToast, BdToastData bdToastData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdToast, bdToastData) == null) || bdToast == null || bdToastData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, bdToast, bdToastData) == null) || bdToast == null || bdToastData == null) {
             return;
         }
         if (bdToastData.getIconType() == 1) {
@@ -118,26 +89,28 @@ public class BdToastHelper {
         } else if (bdToastData.getIconType() == 2) {
             bdToast.f(BdToast.ToastIcon.FAILURE);
         } else if (bdToastData.getIconType() == 3) {
-            bdToast.e(R.drawable.obfuscated_res_0x7f0807d1);
+            bdToast.e(R.drawable.obfuscated_res_0x7f0807eb);
         } else if (bdToastData.getIconType() == 4) {
-            bdToast.g(R.drawable.obfuscated_res_0x7f080821, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+            bdToast.g(R.drawable.obfuscated_res_0x7f08083b, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+        } else if (bdToastData.getIconType() == 5) {
+            bdToast.g(R.drawable.obfuscated_res_0x7f080843, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
         }
     }
 
     public static void toast(BdToastData bdToastData) {
         SpannableString toastSpannableString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, bdToastData) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdToastData) == null) {
             mBdToastData = bdToastData;
             if (bdToastData == null || (toastSpannableString = getToastSpannableString(bdToastData)) == null) {
                 return;
             }
             BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
             setToastIcon(b, bdToastData);
-            if (ri.C()) {
+            if (ej.C()) {
                 b.i();
             } else {
-                sg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                gh.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BdToast val$bdToast;

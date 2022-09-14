@@ -12,7 +12,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -1549,26 +1549,26 @@ public class LinearLayoutCompat extends ViewGroup {
         this.mBaselineAlignedChildIndex = -1;
         this.mBaselineChildTop = 0;
         this.mGravity = BadgeDrawable.TOP_START;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.LinearLayoutCompat, i, 0);
-        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.LinearLayoutCompat, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
-        int i4 = obtainStyledAttributes.getInt(R$styleable.LinearLayoutCompat_android_orientation, -1);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.LinearLayoutCompat, i, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, R.styleable.LinearLayoutCompat, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+        int i4 = obtainStyledAttributes.getInt(1, -1);
         if (i4 >= 0) {
             setOrientation(i4);
         }
-        int i5 = obtainStyledAttributes.getInt(R$styleable.LinearLayoutCompat_android_gravity, -1);
+        int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setGravity(i5);
         }
-        boolean z = obtainStyledAttributes.getBoolean(R$styleable.LinearLayoutCompat_android_baselineAligned, true);
+        boolean z = obtainStyledAttributes.getBoolean(2, true);
         if (!z) {
             setBaselineAligned(z);
         }
-        this.mWeightSum = obtainStyledAttributes.getFloat(R$styleable.LinearLayoutCompat_android_weightSum, -1.0f);
-        this.mBaselineAlignedChildIndex = obtainStyledAttributes.getInt(R$styleable.LinearLayoutCompat_android_baselineAlignedChildIndex, -1);
-        this.mUseLargestChild = obtainStyledAttributes.getBoolean(R$styleable.LinearLayoutCompat_measureWithLargestChild, false);
-        setDividerDrawable(obtainStyledAttributes.getDrawable(R$styleable.LinearLayoutCompat_divider));
-        this.mShowDividers = obtainStyledAttributes.getInt(R$styleable.LinearLayoutCompat_showDividers, 0);
-        this.mDividerPadding = obtainStyledAttributes.getDimensionPixelSize(R$styleable.LinearLayoutCompat_dividerPadding, 0);
+        this.mWeightSum = obtainStyledAttributes.getFloat(4, -1.0f);
+        this.mBaselineAlignedChildIndex = obtainStyledAttributes.getInt(3, -1);
+        this.mUseLargestChild = obtainStyledAttributes.getBoolean(7, false);
+        setDividerDrawable(obtainStyledAttributes.getDrawable(5));
+        this.mShowDividers = obtainStyledAttributes.getInt(8, 0);
+        this.mDividerPadding = obtainStyledAttributes.getDimensionPixelSize(6, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -1615,9 +1615,9 @@ public class LinearLayoutCompat extends ViewGroup {
                 }
             }
             this.gravity = -1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.LinearLayoutCompat_Layout);
-            this.weight = obtainStyledAttributes.getFloat(R$styleable.LinearLayoutCompat_Layout_android_layout_weight, 0.0f);
-            this.gravity = obtainStyledAttributes.getInt(R$styleable.LinearLayoutCompat_Layout_android_layout_gravity, -1);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.LinearLayoutCompat_Layout);
+            this.weight = obtainStyledAttributes.getFloat(3, 0.0f);
+            this.gravity = obtainStyledAttributes.getInt(0, -1);
             obtainStyledAttributes.recycle();
         }
 

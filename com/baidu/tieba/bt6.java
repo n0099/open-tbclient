@@ -1,206 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.util.PageType;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes3.dex */
 public class bt6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bt6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ArrayList<FunAdHistoryData>> a;
 
-    public bt6() {
+    /* loaded from: classes3.dex */
+    public static class a implements au4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                au4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ FrsViewData b;
+
+        public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, frsViewData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = frsViewData;
+        }
+
+        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
+        public void onPermissionsGranted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
+                zf.n().j(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.a.getPageActivity(), this.b.getForum().getName(), this.b.getForum().getId(), this.b.getUserData().getUserId(), this.b.getForum().getSpecialForumType())));
+            }
+        }
+    }
+
+    public static void a(TbPageContext tbPageContext, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, frsViewData) == null) || tbPageContext == null) {
+            return;
+        }
+        PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+        permissionJudgePolicy.clearRequestPermissionList();
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+        permissionJudgePolicy.setOnPermissionsGrantedListener(new b(tbPageContext, frsViewData));
+        permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
+    }
+
+    public static void b(FrsViewData frsViewData, TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, frsViewData, tbPageContext) == null) {
+            TiebaStatic.log(new StatisticItem("c11839").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            if (tbPageContext == null || frsViewData == null || frsViewData.getForum() == null) {
                 return;
             }
-        }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(d());
-    }
-
-    public static bt6 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (bt6.class) {
-                    if (b == null) {
-                        b = new bt6();
+            if (Build.VERSION.SDK_INT < 21) {
+                au4 au4Var = new au4(tbPageContext.getPageActivity());
+                au4Var.setAutoNight(false);
+                au4Var.setTitle(R.string.obfuscated_res_0x7f0f0f4c);
+                au4Var.setMessage(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f04ff));
+                au4Var.setTitleShowCenter(true);
+                au4Var.setMessageShowCenter(true);
+                au4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09b7, new a());
+                au4Var.create(tbPageContext).show();
+            } else if (!TbadkCoreApplication.isLogin()) {
+                if (frsViewData != null && frsViewData.getAnti() != null) {
+                    frsViewData.getAnti().setIfpost(1);
+                }
+                ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
+            } else {
+                AntiData anti = frsViewData.getAnti();
+                if (anti != null && (AntiHelper.n(anti) || AntiHelper.g(anti) || AntiHelper.h(anti))) {
+                    anti.setBlock_forum_name(frsViewData.getForum().getName());
+                    anti.setBlock_forum_id(frsViewData.getForum().getId());
+                    anti.setUser_name(frsViewData.getUserData().getUserName());
+                    anti.setUser_id(frsViewData.getUserData().getUserId());
+                    if (AntiHelper.x(tbPageContext.getPageActivity(), anti, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
+                        return;
                     }
                 }
-            }
-            return b;
-        }
-        return (bt6) invokeV.objValue;
-    }
-
-    public void a(String str, FunAdHistoryData funAdHistoryData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) || !UbsABTestHelper.isDuplicateRemovalFunAdABTest() || TextUtils.isEmpty(str) || funAdHistoryData == null) {
-            return;
-        }
-        ArrayList<FunAdHistoryData> c = c(str);
-        if (c == null) {
-            c = new ArrayList<>();
-        }
-        c.add(funAdHistoryData);
-        g(c);
-        dt6.e().a(str);
-        j(str);
-    }
-
-    public final ArrayList<FunAdHistoryData> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList<FunAdHistoryData> arrayList = new ArrayList<>();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
-                try {
-                    funAdHistoryData.parserJson(jSONArray.getJSONObject(i));
-                    arrayList.add(funAdHistoryData);
-                } catch (JSONException e) {
-                    BdLog.detailException(e);
+                if (frsViewData.getUserData() != null) {
+                    a(tbPageContext, frsViewData);
                 }
             }
-            return arrayList;
         }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public ArrayList<FunAdHistoryData> c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
-                return null;
-            }
-            return this.a.get(str);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final Map<String, ArrayList<FunAdHistoryData>> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : dt6.e().c()) {
-                if (!TextUtils.isEmpty(str)) {
-                    ArrayList<FunAdHistoryData> e = e(str);
-                    if (e == null) {
-                        e = new ArrayList<>();
-                    }
-                    hashMap.put(str, e);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final ArrayList<FunAdHistoryData> e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            SharedPreferences g = dt6.g();
-            String string = g.getString(str + "_fun_ad_history_key_suffix", "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONArray = new JSONArray(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return b(jSONArray);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void g(ArrayList<FunAdHistoryData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        h(arrayList);
-        i(arrayList);
-    }
-
-    public final void h(ArrayList<FunAdHistoryData> arrayList) {
-        int size;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 600) {
-            return;
-        }
-        ListUtils.removeSubList(arrayList, 0, size - 600);
-    }
-
-    public final void i(ArrayList<FunAdHistoryData> arrayList) {
-        FunAdHistoryData next;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        Iterator<FunAdHistoryData> it = arrayList.iterator();
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        while (it.hasNext() && (next = it.next()) != null && currentTimeMillis - next.getShowTime() > 86400) {
-            it.remove();
-        }
-    }
-
-    public final void j(String str) {
-        ArrayList<FunAdHistoryData> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (arrayList = this.a.get(str)) == null) {
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        Iterator<FunAdHistoryData> it = arrayList.iterator();
-        while (it.hasNext()) {
-            JSONObject json = it.next().toJson();
-            if (json != null) {
-                jSONArray.put(json);
-            }
-        }
-        SharedPreferences g = dt6.g();
-        EditorHelper.putString(g, str + "_fun_ad_history_key_suffix", jSONArray.toString());
     }
 }

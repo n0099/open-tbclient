@@ -1,35 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes3.dex */
-public class cg {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cg {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1000;
-            }
-            if (str.contains("/excellent/personalized")) {
-                return 1002;
-            }
-            if (str.contains("/frs/generalTabList") || str.contains("/frs/page") || str.contains("/frs/threadlist")) {
-                return 1003;
-            }
-            if (str.contains("/pb/page")) {
-                return 1004;
-            }
-            if (str.contains("/thread/add")) {
-                return 1005;
-            }
-            return str.contains("/post/add") ? 1008 : 1000;
-        }
-        return invokeL.intValue;
-    }
+    boolean netABTest();
+
+    boolean netBdABTest();
+
+    boolean qaHttpsTest();
 }

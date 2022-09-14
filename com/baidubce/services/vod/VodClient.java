@@ -29,7 +29,7 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VodClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SOURCE_EXTENSION_LENGTH = 10;

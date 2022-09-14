@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.id5;
-import com.baidu.tieba.id5.e;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ed5<T extends e65, D extends id5.e> {
+public class ed5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ViewType b;
-    public T c;
-    public D d;
+    public String a;
 
     public ed5() {
         Interceptable interceptable = $ic;
@@ -34,66 +25,12 @@ public abstract class ed5<T extends e65, D extends id5.e> {
                 return;
             }
         }
-        this.a = 3;
+        this.a = null;
     }
 
-    public final void a(View view2) {
-        T t;
+    public static lh a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (t = this.c) == null) {
-            return;
-        }
-        t.attachView(view2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? BdStatisticsManager.getInstance().getStatsItem("pfmonitor") : (lh) invokeV.objValue;
     }
-
-    public final void b(View view2) {
-        T t;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (t = this.c) == null) {
-            return;
-        }
-        t.dettachView(view2);
-    }
-
-    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
-            this.b = viewType;
-            this.d = d;
-            if (this.c == null) {
-                this.c = f(viewType, viewGroup);
-            }
-            View view2 = this.c.getView();
-            if (viewGroup.indexOfChild(view2) < 0) {
-                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.width = -1;
-                    layoutParams.height = -1;
-                }
-                a(viewGroup);
-            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
-                view2.bringToFront();
-            }
-            d(viewType, this.c, d);
-            return view2;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public abstract void d(ViewType viewType, T t, D d);
-
-    public void e(int i) {
-        ViewType viewType;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
-                d(viewType, t, this.d);
-            }
-            this.a = i;
-        }
-    }
-
-    public abstract T f(ViewType viewType, ViewGroup viewGroup);
 }

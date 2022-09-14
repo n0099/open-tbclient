@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hd4 {
+public class hd4 implements id4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hd4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public hd4() {
         Interceptable interceptable = $ic;
@@ -29,52 +24,10 @@ public class hd4 {
         }
     }
 
-    public static hd4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.id4
+    public uc4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (hd4.class) {
-                    if (b == null) {
-                        b = new hd4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (hd4) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = j84.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j84.b().i().getString("tts_node_version", "0") : (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
-            return;
-        }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        j84.b().i().putString("tts_node_version", optString);
-        j84.b().i().putString("extract_js_url", optString2);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? sc4.a(str, i) : (uc4) invokeLI.objValue;
     }
 }

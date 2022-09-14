@@ -1,59 +1,63 @@
 package com.baidu.tieba;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-import com.google.android.gms.common.zzq;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class ko9 implements Parcelable.Creator<zzq> {
+public class ko9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ko9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ko9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ zzq createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        boolean z = false;
-        String str = null;
-        int i = 0;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            int h = SafeParcelReader.h(k);
-            if (h == 1) {
-                z = SafeParcelReader.i(parcel, k);
-            } else if (h == 2) {
-                str = SafeParcelReader.d(parcel, k);
-            } else if (h != 3) {
-                SafeParcelReader.p(parcel, k);
-            } else {
-                i = SafeParcelReader.m(parcel, k);
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        List<AdInfo> list;
+        AdInfo adInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("b");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                    return null;
+                }
+                return po9.a(adInfo);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-        SafeParcelReader.g(parcel, q);
-        return new zzq(z, str, i);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ zzq[] newArray(int i) {
-        return new zzq[i];
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -1,76 +1,48 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class jm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public gm4 b;
-    public hm4 c;
-    public final boolean d;
-    public final long e;
 
-    public jm4(boolean z, long j) {
+    public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
+            if (i != 0 && i2 != 0 && !dj.isEmpty(str)) {
+                if (jSONObject == null) {
+                    jSONObject = new JSONObject();
+                }
+                try {
+                    jSONObject.put(i + "-" + i2, str);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
             }
+            return jSONObject;
         }
-        this.d = z;
-        this.e = j;
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public gm4 a() {
-        InterceptResult invokeV;
+    public static void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (gm4) invokeV.objValue;
-    }
-
-    public ViewGroup b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ViewGroup) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void e(gm4 gm4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gm4Var) == null) {
-            this.b = gm4Var;
+        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
+            new StatisticItem("c13318").param("obj_source", i).param("obj_type", i2).eventStat();
         }
     }
 
-    public void f(ViewGroup viewGroup) {
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, viewGroup) == null) {
-            this.a = viewGroup;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            new StatisticItem("c13317").param("obj_source", i).param("obj_type", i2).eventStat();
         }
     }
 }

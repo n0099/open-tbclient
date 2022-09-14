@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.w7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y1 extends o1<l6, a> {
+public class y1 extends p1<y5, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public String c;
 
     /* loaded from: classes6.dex */
-    public static class a extends k1<l6> {
+    public static class a extends l1<y5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String b;
-        public final w7<String, Object> c;
+        public String b;
+        public String c;
+        public boolean d;
+        public String e;
+        public String f;
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
-            this(null, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,120 +30,106 @@ public class y1 extends o1<l6, a> {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr = newInitContext.callArgs;
-                    this((String) objArr[0], (w7) objArr[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-        }
-
-        public a(String str, w7<String, Object> w7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, w7Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = str;
-            this.c = w7Var;
+            this.d = true;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y1(r1 r1Var) {
-        super(r1Var);
+    public y1(s1 s1Var) {
+        super(s1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r1Var};
+            Object[] objArr = {s1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r1) newInitContext.callArgs[0]);
+                super((s1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = ".vert";
+        this.c = ".frag";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n1
+    @Override // com.baidu.tieba.o1
     /* renamed from: f */
-    public a7<i1> a(String str, j3 j3Var, a aVar) {
+    public b7<j1> a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
+            return null;
+        }
+        return (b7) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p1
+    /* renamed from: g */
+    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p1
+    /* renamed from: h */
+    public y5 d(n1 n1Var, String str, k3 k3Var, a aVar) {
+        InterceptResult invokeLLLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, j3Var, aVar)) == null) {
-            a7<i1> a7Var = new a7<>();
-            if (aVar == null || (str2 = aVar.b) == null) {
-                a7Var.a(new i1(j3Var.k() + ".atlas", b4.class));
-            } else if (str2 != null) {
-                a7Var.a(new i1(str2, b4.class));
-            }
-            return a7Var;
-        }
-        return (a7) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o1
-    /* renamed from: g */
-    public void c(m1 m1Var, String str, j3 j3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, m1Var, str, j3Var, aVar) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o1
-    /* renamed from: h */
-    public l6 d(m1 m1Var, String str, j3 j3Var, a aVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, m1Var, str, j3Var, aVar)) == null) {
-            String str2 = j3Var.k() + ".atlas";
-            w7<String, Object> w7Var = null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, n1Var, str, k3Var, aVar)) == null) {
+            String str3 = null;
             if (aVar != null) {
-                String str3 = aVar.b;
-                if (str3 != null) {
-                    str2 = str3;
+                String str4 = aVar.b;
+                if (str4 == null) {
+                    str4 = null;
                 }
-                w7<String, Object> w7Var2 = aVar.c;
-                if (w7Var2 != null) {
-                    w7Var = w7Var2;
+                str2 = aVar.c;
+                if (str2 == null) {
+                    str2 = null;
+                }
+                str3 = str4;
+            } else {
+                str2 = null;
+            }
+            if (str3 == null && str.endsWith(this.c)) {
+                str3 = str.substring(0, str.length() - this.c.length()) + this.b;
+            }
+            if (str2 == null && str.endsWith(this.b)) {
+                str2 = str.substring(0, str.length() - this.b.length()) + this.c;
+            }
+            k3 b = str3 == null ? k3Var : b(str3);
+            if (str2 != null) {
+                k3Var = b(str2);
+            }
+            String o = b.o();
+            String o2 = b.equals(k3Var) ? o : k3Var.o();
+            if (aVar != null) {
+                if (aVar.e != null) {
+                    o = aVar.e + o;
+                }
+                if (aVar.f != null) {
+                    o2 = aVar.f + o2;
                 }
             }
-            l6 i = i((b4) m1Var.j(str2, b4.class));
-            if (w7Var != null) {
-                w7.a<String, Object> b = w7Var.b();
-                b.c();
-                while (b.hasNext()) {
-                    w7.b next = b.next();
-                    i.a((String) next.a, next.b);
-                }
+            y5 y5Var = new y5(o, o2);
+            if ((aVar == null || aVar.d) && !y5Var.o()) {
+                n1Var.p().b("ShaderProgram " + str + " failed to compile:\n" + y5Var.l());
             }
-            i.o(j3Var);
-            return i;
+            return y5Var;
         }
-        return (l6) invokeLLLL.objValue;
-    }
-
-    public l6 i(b4 b4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, b4Var)) == null) ? new l6(b4Var) : (l6) invokeL.objValue;
+        return (y5) invokeLLLL.objValue;
     }
 }

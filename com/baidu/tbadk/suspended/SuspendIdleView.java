@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class SuspendIdleView extends SusPendedView {
             setIsFinish(false);
             setRatio(0.0f);
             if (getTranAnim() != null) {
-                getTranAnim().setIntValues(ri.i(getContext()), 0);
+                getTranAnim().setIntValues(ej.i(getContext()), 0);
             }
             super.i();
         }

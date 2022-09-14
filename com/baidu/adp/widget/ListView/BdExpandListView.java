@@ -10,8 +10,8 @@ import android.view.ViewConfiguration;
 import android.widget.AbsListView;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,7 +134,7 @@ public class BdExpandListView extends BdListView {
         this.G = context;
         this.H = new Scroller(this.G);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f040292});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
         this.R = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         obtainStyledAttributes.recycle();
     }

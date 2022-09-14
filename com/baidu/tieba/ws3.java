@@ -1,243 +1,168 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
+import android.os.SystemClock;
 import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.down.manage.Download;
-import com.baidu.down.manage.DownloadManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Calendar;
-import java.util.Collection;
 /* loaded from: classes6.dex */
 public class ws3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ws3 c;
+    public static final String a;
+    public static ws3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public String b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281106, "Lcom/baidu/tieba/ws3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281106, "Lcom/baidu/tieba/ws3;");
+                return;
+            }
+        }
+        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
+        b = new ws3();
+    }
 
     public ws3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = "com.baidu.gamenow";
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
     }
 
-    public static ws3 f() {
+    public static ws3 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ws3.class) {
-                    if (c == null) {
-                        c = new ws3();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (ws3) invokeV.objValue;
+    }
+
+    public synchronized void a(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
+                    File file = new File(a);
+                    if (!file.exists() && !file.mkdirs()) {
+                        if (ij1.a) {
+                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
+                        }
+                        return;
+                    }
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null && listFiles.length > 0) {
+                        for (File file2 : listFiles) {
+                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
+                                cj4.j(file2);
+                            }
+                        }
+                    }
+                    boolean N = cj4.N(str2, new File(a, b(str, j)));
+                    if (ij1.a) {
+                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
+                    }
+                    return;
+                }
+                if (ij1.a) {
+                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
+                }
+            }
+        }
+    }
+
+    public final String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return str + "_" + j;
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            if (file != null && file.exists()) {
+                String[] split = file.getName().split("_");
+                if (split.length != 2) {
+                    return true;
+                }
+                try {
+                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    if (ij1.a) {
+                        th.printStackTrace();
                     }
                 }
             }
-            return c;
+            return true;
         }
-        return (ws3) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void a(Download download) {
+    public synchronized String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, download) == null) {
-            xs3.a(AppRuntime.getAppContext(), Long.valueOf(download.getId().longValue()).intValue());
-        }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? od3.f(Long.valueOf(g()), Long.valueOf(System.currentTimeMillis())) : invokeV.booleanValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    if (ij1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
+                    }
+                    return null;
+                }
+                File file = new File(a);
+                if (!file.exists()) {
+                    if (ij1.a) {
+                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
+                    }
+                    return null;
+                }
+                File[] listFiles = file.listFiles();
+                if (listFiles != null && listFiles.length > 0) {
+                    File file2 = null;
+                    for (File file3 : listFiles) {
+                        if (d(file3)) {
+                            cj4.j(file3);
+                        } else if (file3.getName().startsWith(str)) {
+                            file2 = file3;
+                        }
+                    }
+                    if (file2 == null) {
+                        return null;
+                    }
+                    return cj4.E(file2);
+                }
+                if (ij1.a) {
+                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
+                }
                 return null;
             }
-            if (d()) {
-                return "todayfirst";
-            }
-            if (e()) {
-                return "pushregularly";
-            }
-            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (System.currentTimeMillis() / 86400000) - (g() / 86400000) > 1 : invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? i() <= System.currentTimeMillis() : invokeV.booleanValue;
-    }
-
-    public final long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getLong("key_notification_time", 0L) : invokeV.longValue;
-    }
-
-    public final long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long i = i();
-            return i >= System.currentTimeMillis() ? i : i + 86400000;
-        }
-        return invokeV.longValue;
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(11, 19);
-            calendar.set(12, 30);
-            return calendar.getTimeInMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || TextUtils.isEmpty(c())) {
-            return;
-        }
-        n(c());
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putLong("key_notification_time", System.currentTimeMillis());
-            edit.apply();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ((AlarmManager) AppRuntime.getAppContext().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, h(), PendingIntent.getBroadcast(AppRuntime.getAppContext(), 2147483646, InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ALARM), 0));
-        }
-    }
-
-    public void m(Download download, boolean z, String str) {
-        String format;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{download, Boolean.valueOf(z), str}) != null) {
-            return;
-        }
-        try {
-            String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
-            PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
-            PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str2, 1);
-            if (packageArchiveInfo == null) {
-                return;
-            }
-            Context appContext = AppRuntime.getAppContext();
-            ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
-            applicationInfo.sourceDir = str2;
-            applicationInfo.publicSourceDir = str2;
-            Drawable applicationIcon = packageManager.getApplicationIcon(applicationInfo);
-            String charSequence = packageManager.getApplicationLabel(applicationInfo).toString();
-            PendingIntent broadcast = PendingIntent.getBroadcast(appContext, Long.valueOf(download.getId().longValue()).intValue(), InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ONE, download.getKeyByUser(), str), 134217728);
-            if (z) {
-                l();
-                format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e3), charSequence);
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f011b);
-            } else {
-                format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e3), charSequence);
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f011b);
-            }
-            try {
-                xs3.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.b) ? appContext.getString(R.string.obfuscated_res_0x7f0f018b) : string, xs3.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
-            } catch (Exception e) {
-                e = e;
-                if (kh1.a) {
-                    e.printStackTrace();
-                }
-            }
-        } catch (Exception e2) {
-            e = e2;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || b()) {
-            return;
-        }
-        try {
-            Collection<Download> t = new ks3(DownloadManager.getInstance(AppRuntime.getAppContext())).t();
-            if (t != null && t.size() != 0) {
-                k();
-                Download download = null;
-                for (Download download2 : t) {
-                    if (download2 != null) {
-                        download = download2;
-                    }
-                }
-                if (1 == t.size()) {
-                    m(download, false, str);
-                    return;
-                }
-                String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
-                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
-                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str2, 1);
-                if (packageArchiveInfo == null) {
-                    return;
-                }
-                Context appContext = AppRuntime.getAppContext();
-                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
-                applicationInfo.sourceDir = str2;
-                applicationInfo.publicSourceDir = str2;
-                xs3.c(appContext, 0, String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e4), Integer.valueOf(t.size())), appContext.getString(R.string.obfuscated_res_0x7f0f011b), xs3.b(packageManager.getApplicationIcon(applicationInfo)), System.currentTimeMillis(), PendingIntent.getBroadcast(appContext, Integer.MAX_VALUE, InstallNotifyReceiver.createToDownloadPageIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_MULTIPLE).putExtra(InstallNotifyReceiver.OPPORTUNITY, str), 134217728), str, download.getKeyByUser());
-            }
-        } catch (Exception e) {
-            if (kh1.a) {
-                e.printStackTrace();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

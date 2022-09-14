@@ -1,76 +1,127 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public class kh9 {
+public class kh9 extends jh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static com.fun.module.csj.g0 a(TTNativeAd tTNativeAd) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
-            int imageMode = tTNativeAd.getImageMode();
-            if (imageMode == 15) {
-                i = R.layout.obfuscated_res_0x7f0d0362;
-            } else if (imageMode != 16) {
-                if (imageMode != 166) {
-                    if (imageMode == 2) {
-                        i = R.layout.obfuscated_res_0x7f0d0360;
-                    } else if (imageMode == 3) {
-                        i = R.layout.obfuscated_res_0x7f0d035e;
-                    } else if (imageMode == 4) {
-                        i = R.layout.obfuscated_res_0x7f0d035d;
-                    } else if (imageMode != 5) {
-                        return null;
-                    }
+    /* loaded from: classes4.dex */
+    public class a implements rr9.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ kh9 c;
+
+        public a(kh9 kh9Var, AtomicBoolean atomicBoolean, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kh9Var, atomicBoolean, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                i = R.layout.obfuscated_res_0x7f0d035f;
-            } else {
-                i = R.layout.obfuscated_res_0x7f0d0361;
             }
-            com.fun.module.csj.g0 g0Var = (com.fun.module.csj.g0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
-            g0Var.a(tTNativeAd);
-            return g0Var;
+            this.c = kh9Var;
+            this.a = atomicBoolean;
+            this.b = obj;
         }
-        return (com.fun.module.csj.g0) invokeL.objValue;
+
+        @Override // com.baidu.tieba.rr9.c
+        public void a(int i, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+                this.c.g = i;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.rr9.c
+        public void b(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+                this.c.d = str;
+                this.c.b = z;
+                this.c.c = true;
+                this.c.g = 0;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
     }
 
-    public static String b(boolean z) {
-        InterceptResult invokeZ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kh9(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("personal_ads_type", z ? "1" : "0");
-            if (hashMap.isEmpty()) {
-                return "";
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("name", entry.getKey());
-                    jSONObject.put("value", entry.getValue());
-                    jSONArray.put(jSONObject);
-                }
-                return jSONArray.toString();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeZ.objValue;
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public ih9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n();
+            return this;
+        }
+        return (ih9) invokeV.objValue;
+    }
+
+    public ih9 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = new Object();
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            rr9.d(this.a, new a(this, atomicBoolean, obj));
+            synchronized (obj) {
+                if (!atomicBoolean.get()) {
+                    try {
+                        obj.wait(4000L);
+                    } catch (InterruptedException unused) {
+                    }
+                }
+            }
+            return this;
+        }
+        return (ih9) invokeV.objValue;
     }
 }

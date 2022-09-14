@@ -1,14 +1,28 @@
 package com.baidu.tieba;
 
+import android.media.MediaRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OperatorPublish$InnerProducer;
+import org.webrtc.CameraVideoCapturer;
+/* compiled from: CameraVideoCapturer.java */
 /* loaded from: classes4.dex */
-public final class hw9<T> extends ev9<T> implements fv9 {
+public final /* synthetic */ class hw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void g();
+    @Deprecated
+    public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cameraVideoCapturer, mediaRecorder, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        }
+    }
 
-    public abstract void h(OperatorPublish$InnerProducer<T> operatorPublish$InnerProducer);
+    @Deprecated
+    public static void $default$removeMediaRecorderFromCamera(CameraVideoCapturer cameraVideoCapturer, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, cameraVideoCapturer, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        }
+    }
 }

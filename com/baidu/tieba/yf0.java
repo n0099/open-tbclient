@@ -1,62 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-@Service
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class yf0 extends og0 {
+public class yf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yf0() {
+    public static MediaOneAEffect a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
+            mediaOneAEffect.start = 0L;
+            mediaOneAEffect.end = j;
+            ArrayList arrayList = new ArrayList();
+            mediaOneAEffect.aParams = arrayList;
+            arrayList.add(c());
+            return mediaOneAEffect;
         }
+        return (MediaOneAEffect) invokeJ.objValue;
     }
 
-    @Override // com.baidu.tieba.og0
-    public String a() {
+    public static MediaAEffect b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            MediaAEffect mediaAEffect = new MediaAEffect();
+            mediaAEffect.name = "defaultScene";
+            mediaAEffect.duration = j;
+            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
+            mediaAEffect.effectType = "scene";
+            mediaAEffect.shaderConfigKey = zf0.b;
+            ArrayList arrayList = new ArrayList();
+            mediaAEffect.mediaOneAEffects = arrayList;
+            arrayList.add(a(j));
+            return mediaAEffect;
+        }
+        return (MediaAEffect) invokeJ.objValue;
+    }
+
+    public static ShaderParams c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.og0
-    public boolean b(@NonNull Context context, @NonNull sg0 sg0Var, @Nullable Map<String, Object> map, @Nullable wg0 wg0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sg0Var, map, wg0Var)) == null) {
-            super.b(context, sg0Var, map, wg0Var);
-            HashMap<String, String> d = sg0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                d(wg0Var, sg0Var, zf0.a().b(str), 0, true);
-                return true;
-            }
-            c(wg0Var, sg0Var, 202, false);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ShaderParams shaderParams = new ShaderParams();
+            shaderParams.name = "scale";
+            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
+            shaderParams.values = new float[]{1.0f, 1.2f};
+            return shaderParams;
         }
-        return invokeLLLL.booleanValue;
+        return (ShaderParams) invokeV.objValue;
     }
 }

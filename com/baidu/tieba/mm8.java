@@ -1,110 +1,119 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.util.SparseIntArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class mm8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseIntArray a;
+    public final int[] b;
 
-    public static void a() {
-        k9 mainDBDatabaseManager;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947977585, "Lcom/baidu/tieba/mm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947977585, "Lcom/baidu/tieba/mm8;");
+                return;
+            }
+        }
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
+    }
+
+    public mm8(String str, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = iArr;
+        this.a = new SparseIntArray();
+    }
+
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i2 < 0 || (sparseIntArray = this.a) == null) {
             return;
         }
-        mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+        sparseIntArray.append(i2, i);
     }
 
-    public static void b(String str) {
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            BdLog.e("deleteVieoChunkUploadData Called");
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && (sparseIntArray = this.a) != null) {
+                return sparseIntArray.get(i, -1);
             }
-            k9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str == null || mainDBDatabaseManager == null) {
-                return;
-            }
-            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (sparseIntArray = this.a) == null) {
+            return;
+        }
+        sparseIntArray.delete(i);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
         }
     }
 
-    public static nm8 c(String str) {
-        InterceptResult invokeL;
-        nm8 nm8Var;
-        Exception e;
-        Cursor cursor;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (nm8) invokeL.objValue;
-        }
-        Cursor cursor2 = null;
-        nm8 nm8Var2 = null;
-        if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
-            return null;
-        }
-        k9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        try {
-            cursor = mainDBDatabaseManager.j("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-            try {
-                try {
-                    if (cursor.moveToFirst()) {
-                        nm8Var = new nm8();
-                        try {
-                            nm8Var.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            nm8Var.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
-                            nm8Var2 = nm8Var;
-                        } catch (Exception e2) {
-                            e = e2;
-                            mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
-                            og.a(cursor);
-                            return nm8Var;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
                         }
                     }
-                    og.a(cursor);
-                    return nm8Var2;
-                } catch (Exception e3) {
-                    nm8Var = null;
-                    e = e3;
                 }
-            } catch (Throwable th) {
-                th = th;
-                cursor2 = cursor;
-                og.a(cursor2);
-                throw th;
             }
-        } catch (Exception e4) {
-            nm8Var = null;
-            e = e4;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            og.a(cursor2);
-            throw th;
         }
-    }
-
-    public static boolean d(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        k9 mainDBDatabaseManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
-            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
-                return false;
-            }
-            Date date = new Date();
-            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
-            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
-        }
-        return invokeLLI.booleanValue;
     }
 }

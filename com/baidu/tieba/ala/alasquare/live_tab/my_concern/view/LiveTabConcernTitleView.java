@@ -10,15 +10,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hz5;
-import com.baidu.tieba.mt5;
+import com.baidu.tieba.jv5;
+import com.baidu.tieba.v06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LiveTabConcernTitleView extends hz5<mt5> {
+public class LiveTabConcernTitleView extends v06<jv5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -52,7 +52,7 @@ public class LiveTabConcernTitleView extends hz5<mt5> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fcd);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09201d);
         }
     }
 
@@ -79,14 +79,14 @@ public class LiveTabConcernTitleView extends hz5<mt5> {
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d083a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0854 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -103,14 +103,14 @@ public class LiveTabConcernTitleView extends hz5<mt5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     /* renamed from: r */
-    public void i(mt5 mt5Var) {
+    public void i(jv5 jv5Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, mt5Var) == null) || mt5Var == null || StringUtils.isNull(mt5Var.b) || (viewHolder = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jv5Var) == null) || jv5Var == null || StringUtils.isNull(jv5Var.a) || (viewHolder = this.i) == null) {
             return;
         }
-        viewHolder.c.setText(mt5Var.b);
+        viewHolder.c.setText(jv5Var.a);
     }
 }

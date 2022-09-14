@@ -21,21 +21,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg0;
-import com.baidu.tieba.c41;
-import com.baidu.tieba.cj0;
-import com.baidu.tieba.cn0;
-import com.baidu.tieba.eh0;
-import com.baidu.tieba.jn0;
-import com.baidu.tieba.on0;
-import com.baidu.tieba.pi0;
-import com.baidu.tieba.q01;
-import com.baidu.tieba.vm0;
-import com.baidu.tieba.w51;
-import com.baidu.tieba.xx0;
-import com.baidu.tieba.y51;
-import com.baidu.tieba.ym0;
-import com.baidu.tieba.zm0;
+import com.baidu.tieba.ap0;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.g21;
+import com.baidu.tieba.ho0;
+import com.baidu.tieba.jh0;
+import com.baidu.tieba.jz0;
+import com.baidu.tieba.ko0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.lo0;
+import com.baidu.tieba.mi0;
+import com.baidu.tieba.oo0;
+import com.baidu.tieba.p71;
+import com.baidu.tieba.r71;
+import com.baidu.tieba.u51;
+import com.baidu.tieba.vo0;
+import com.baidu.tieba.yj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +47,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
+public class AdEnhanceButtonView extends FrameLayout implements r71<View> {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
     public static final int r;
@@ -60,12 +61,12 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     public LinearLayout c;
     public TextView d;
     public AdImageView e;
-    public cj0 f;
-    public List<c41> g;
+    public lk0 f;
+    public List<u51> g;
     public int h;
     public int i;
     public View j;
-    public w51 k;
+    public p71 k;
     public SimpleAdInfoView l;
     public boolean m;
     public int n;
@@ -73,7 +74,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     public int p;
 
     /* loaded from: classes2.dex */
-    public class a extends c41 {
+    public class a extends u51 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdEnhanceButtonView c;
@@ -100,14 +101,14 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             this.c = adEnhanceButtonView;
         }
 
-        @Override // com.baidu.tieba.c41
+        @Override // com.baidu.tieba.u51
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.c41
+        @Override // com.baidu.tieba.u51
         public void d() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c.k == null) {
@@ -172,7 +173,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     }
 
     /* loaded from: classes2.dex */
-    public class c extends c41 {
+    public class c extends u51 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ValueAnimator c;
@@ -205,7 +206,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             this.e = view2;
         }
 
-        @Override // com.baidu.tieba.c41
+        @Override // com.baidu.tieba.u51
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -215,7 +216,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             }
         }
 
-        @Override // com.baidu.tieba.c41
+        @Override // com.baidu.tieba.u51
         public void d() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c.isRunning()) {
@@ -263,7 +264,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
                 View view2 = this.a.x() ? this.a.b : this.a.c;
                 if (view2.getBackground() instanceof GradientDrawable) {
                     GradientDrawable gradientDrawable = (GradientDrawable) view2.getBackground();
-                    gradientDrawable.setColor(bg0.c(animatedFraction, this.a.o, this.a.getBtnFinalColor()));
+                    gradientDrawable.setColor(jh0.b(animatedFraction, this.a.o, this.a.getBtnFinalColor()));
                     gradientDrawable.setCornerRadius(this.a.n);
                 }
             }
@@ -271,7 +272,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     }
 
     /* loaded from: classes2.dex */
-    public class e extends c41 {
+    public class e extends u51 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ValueAnimator c;
@@ -300,7 +301,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             this.c = valueAnimator;
         }
 
-        @Override // com.baidu.tieba.c41
+        @Override // com.baidu.tieba.u51
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -308,7 +309,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             }
         }
 
-        @Override // com.baidu.tieba.c41
+        @Override // com.baidu.tieba.u51
         public void d() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c.isRunning()) {
@@ -392,15 +393,15 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zm0 a;
+        public final /* synthetic */ lo0 a;
         public final /* synthetic */ AdEnhanceButtonView b;
 
-        public h(AdEnhanceButtonView adEnhanceButtonView, zm0 zm0Var) {
+        public h(AdEnhanceButtonView adEnhanceButtonView, lo0 lo0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {adEnhanceButtonView, zm0Var};
+                Object[] objArr = {adEnhanceButtonView, lo0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -411,7 +412,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
                 }
             }
             this.b = adEnhanceButtonView;
-            this.a = zm0Var;
+            this.a = lo0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -420,10 +421,10 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.k == null) {
                 return;
             }
-            jn0 jn0Var = new jn0();
-            jn0Var.c = true;
-            jn0Var.a = this.a.i;
-            this.b.k.b(jn0Var);
+            vo0 vo0Var = new vo0();
+            vo0Var.c = true;
+            vo0Var.a = this.a.i;
+            this.b.k.b(vo0Var);
         }
     }
 
@@ -440,13 +441,13 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
                 return;
             }
         }
-        q01.c.a(eh0.b(), 8.0f);
-        q = q01.c.a(eh0.b(), 12.0f);
-        r = q01.c.a(eh0.b(), 33.0f);
-        s = q01.c.a(eh0.b(), 9.0f);
-        t = q01.c.a(eh0.b(), 28.0f);
-        u = q01.c.a(eh0.b(), 11.0f);
-        v = q01.c.a(eh0.b(), 7.0f);
+        g21.c.a(mi0.b(), 8.0f);
+        q = g21.c.a(mi0.b(), 12.0f);
+        r = g21.c.a(mi0.b(), 33.0f);
+        s = g21.c.a(mi0.b(), 9.0f);
+        t = g21.c.a(mi0.b(), 28.0f);
+        u = g21.c.a(mi0.b(), 11.0f);
+        v = g21.c.a(mi0.b(), 7.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -472,14 +473,14 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         setBtnPlaceholder(view2);
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.r71
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            List<c41> list = this.g;
+            List<u51> list = this.g;
             if (list != null) {
-                for (c41 c41Var : list) {
-                    c41Var.c();
+                for (u51 u51Var : list) {
+                    u51Var.c();
                 }
             }
             this.h = 0;
@@ -491,8 +492,8 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if ((getTag() instanceof zm0) && !TextUtils.isEmpty(((zm0) getTag()).g)) {
-                return bg0.e(((zm0) getTag()).g, R.color.obfuscated_res_0x7f06082d);
+            if ((getTag() instanceof lo0) && !TextUtils.isEmpty(((lo0) getTag()).g)) {
+                return jh0.d(((lo0) getTag()).g, R.color.obfuscated_res_0x7f06083f);
             }
             return this.p;
         }
@@ -502,40 +503,40 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d5, this);
-            this.b = (NadEnhanceButtonDownloadView) findViewById(R.id.obfuscated_res_0x7f0900fb);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090684);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090686);
-            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090685);
-            this.l = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f090296);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ec, this);
+            this.b = (NadEnhanceButtonDownloadView) findViewById(R.id.obfuscated_res_0x7f0900ff);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090697);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090699);
+            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090698);
+            this.l = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f09029e);
         }
     }
 
-    public final void o(@NonNull zm0 zm0Var) {
-        List<cn0> list;
+    public final void o(@NonNull lo0 lo0Var) {
+        List<oo0> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, zm0Var) == null) || (list = zm0Var.d) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, lo0Var) == null) || (list = lo0Var.d) == null || list.size() <= 0) {
             return;
         }
         this.g = new ArrayList();
-        for (cn0 cn0Var : list) {
-            if (cn0Var != null) {
-                w(cn0Var);
+        for (oo0 oo0Var : list) {
+            if (oo0Var != null) {
+                w(oo0Var);
             }
         }
     }
 
-    public final void p(@Nullable on0 on0Var) {
+    public final void p(@Nullable ap0 ap0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, on0Var) == null) {
-            if (!bg0.a(on0Var)) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, ap0Var) == null) {
+            if (!jh0.a(ap0Var)) {
                 this.m = false;
                 this.l.setVisibility(8);
                 return;
             }
             this.m = true;
             this.l.setVisibility(0);
-            this.l.setAdInfo(on0Var);
+            this.l.setAdInfo(ap0Var);
             this.l.setAfterListener(new f(this));
             this.a = this.l.getHeight();
             this.l.measure(-2, -2);
@@ -557,19 +558,19 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             gradientDrawable.setCornerRadius(this.n);
             (x() ? this.b : this.c).setBackground(gradientDrawable);
             if (x()) {
-                this.b.setProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f060847));
+                this.b.setProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f060859));
             }
         }
     }
 
-    public final void r(@NonNull cn0 cn0Var) {
+    public final void r(@NonNull oo0 oo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cn0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oo0Var) == null) {
             z();
-            if (cn0Var.c <= 0) {
+            if (oo0Var.c <= 0) {
                 return;
             }
-            ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(cn0Var.c);
+            ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(oo0Var.c);
             ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
             ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
             if (this.j != null && (layoutParams instanceof ViewGroup.MarginLayoutParams) && (layoutParams2 instanceof ViewGroup.MarginLayoutParams)) {
@@ -592,25 +593,25 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
             }
             View realView = getRealView();
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100a9);
-            loadAnimation.setDuration(cn0Var.c);
+            loadAnimation.setDuration(oo0Var.c);
             realView.setVisibility(8);
             realView.setAnimation(loadAnimation);
-            xx0.b(this.g, new c(this, cn0Var.b, cn0Var.c, duration, loadAnimation, realView));
+            jz0.b(this.g, new c(this, oo0Var.b, oo0Var.c, duration, loadAnimation, realView));
         }
     }
 
-    public final void s(@NonNull cn0 cn0Var) {
+    public final void s(@NonNull oo0 oo0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, cn0Var) == null) || cn0Var.c <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, oo0Var) == null) || oo0Var.c <= 0) {
             return;
         }
         q(true);
-        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(cn0Var.c);
+        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(oo0Var.c);
         duration.addUpdateListener(new d(this));
-        xx0.b(this.g, new e(this, cn0Var.b, cn0Var.c, duration));
+        jz0.b(this.g, new e(this, oo0Var.b, oo0Var.c, duration));
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.r71
     public void setBtnIconNightModeEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -628,35 +629,35 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         }
     }
 
-    @Override // com.baidu.tieba.y51
-    public void setData(@NonNull zm0 zm0Var) {
+    @Override // com.baidu.tieba.r71
+    public void setData(@NonNull lo0 lo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, zm0Var) == null) {
-            if (!zm0Var.b()) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, lo0Var) == null) {
+            if (!lo0Var.b()) {
                 setVisibility(8);
                 return;
             }
-            setTag(zm0Var);
+            setTag(lo0Var);
             setVisibility(0);
-            p(zm0Var.h);
-            if (!u(zm0Var)) {
-                t(zm0Var);
+            p(lo0Var.h);
+            if (!u(lo0Var)) {
+                t(lo0Var);
             }
             v();
             q(false);
-            o(zm0Var);
+            o(lo0Var);
         }
     }
 
-    @Override // com.baidu.tieba.y51
-    public void setEnhanceBtnListener(@NonNull w51 w51Var) {
+    @Override // com.baidu.tieba.r71
+    public void setEnhanceBtnListener(@NonNull p71 p71Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, w51Var) == null) {
-            this.k = w51Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, p71Var) == null) {
+            this.k = p71Var;
         }
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.r71
     public void setVisible(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -664,35 +665,35 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         }
     }
 
-    public final void t(@NonNull zm0 zm0Var) {
+    public final void t(@NonNull lo0 lo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, zm0Var) == null) {
-            if (!TextUtils.isEmpty(zm0Var.c)) {
-                this.e.g(zm0Var.c);
+        if (interceptable == null || interceptable.invokeL(1048593, this, lo0Var) == null) {
+            if (!TextUtils.isEmpty(lo0Var.c)) {
+                this.e.g(lo0Var.c);
             } else {
-                this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da6));
+                this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc5));
             }
-            if (!TextUtils.isEmpty(zm0Var.b)) {
-                this.d.setText(zm0Var.b);
+            if (!TextUtils.isEmpty(lo0Var.b)) {
+                this.d.setText(lo0Var.b);
             } else {
-                this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b7c));
+                this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b95));
             }
-            this.d.setTextColor(bg0.e("", R.color.obfuscated_res_0x7f060886));
-            this.c.setOnClickListener(new h(this, zm0Var));
+            this.d.setTextColor(jh0.d("", R.color.obfuscated_res_0x7f060898));
+            this.c.setOnClickListener(new h(this, lo0Var));
             this.b.setVisibility(8);
             this.c.setVisibility(0);
         }
     }
 
-    public final boolean u(@NonNull zm0 zm0Var) {
+    public final boolean u(@NonNull lo0 lo0Var) {
         InterceptResult invokeL;
-        vm0 vm0Var;
-        ym0 ym0Var;
+        ho0 ho0Var;
+        ko0 ko0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, zm0Var)) == null) {
-            if (x() && (vm0Var = zm0Var.e) != null && (ym0Var = zm0Var.f) != null) {
-                zm0Var.a = 2;
-                this.f = new cj0(pi0.d(vm0Var, ym0Var.d, zm0Var.i), this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, lo0Var)) == null) {
+            if (x() && (ho0Var = lo0Var.e) != null && (ko0Var = lo0Var.f) != null) {
+                lo0Var.a = 2;
+                this.f = new lk0(yj0.d(ho0Var, ko0Var.d, lo0Var.i), this.b);
                 this.b.setCornerRadius(this.n);
                 this.b.setTextSize(12.0f);
                 NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = this.b;
@@ -701,6 +702,11 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
                 this.c.setVisibility(8);
                 this.b.setVisibility(0);
                 this.b.setOnClickListener(new g(this));
+                if (!TextUtils.isEmpty(lo0Var.c)) {
+                    this.b.setStateImageIcon(lo0Var.c);
+                    return true;
+                }
+                this.b.setStateImageRes(R.drawable.obfuscated_res_0x7f080dc5);
                 return true;
             }
             if (this.f != null) {
@@ -712,24 +718,24 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.r71
     public void update(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            List<c41> list = this.g;
-            if (list != null && this.h < xx0.k(list)) {
-                c41 c41Var = (c41) xx0.d(this.g, this.h);
-                if (c41Var != null && i * 1000 >= this.i) {
-                    c41Var.d();
-                    this.i = (int) (this.i + c41Var.b() + c41Var.a());
+            List<u51> list = this.g;
+            if (list != null && this.h < jz0.l(list)) {
+                u51 u51Var = (u51) jz0.d(this.g, this.h);
+                if (u51Var != null && i * 1000 >= this.i) {
+                    u51Var.d();
+                    this.i = (int) (this.i + u51Var.b() + u51Var.a());
                     this.h++;
                     return;
                 }
                 return;
             }
-            w51 w51Var = this.k;
-            if (w51Var != null) {
-                w51Var.d();
+            p71 p71Var = this.k;
+            if (p71Var != null) {
+                p71Var.d();
             }
         }
     }
@@ -762,26 +768,26 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         }
     }
 
-    public final void w(@NonNull cn0 cn0Var) {
+    public final void w(@NonNull oo0 oo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, cn0Var) == null) {
-            int i = cn0Var.a;
+        if (interceptable == null || interceptable.invokeL(1048597, this, oo0Var) == null) {
+            int i = oo0Var.a;
             if (i == 0) {
-                xx0.b(this.g, new a(this, cn0Var.b, cn0Var.c));
+                jz0.b(this.g, new a(this, oo0Var.b, oo0Var.c));
             } else if (i == 1) {
-                r(cn0Var);
+                r(oo0Var);
             } else if (i != 2) {
             } else {
-                s(cn0Var);
+                s(oo0Var);
             }
         }
     }
 
     public final boolean x() {
         InterceptResult invokeV;
-        zm0 zm0Var;
+        lo0 lo0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (!(getTag() instanceof zm0) || (zm0Var = (zm0) getTag()) == null || zm0Var.h == null || zm0Var.e == null || zm0Var.a != 2) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (!(getTag() instanceof lo0) || (lo0Var = (lo0) getTag()) == null || lo0Var.h == null || lo0Var.e == null || lo0Var.a != 2) ? false : true : invokeV.booleanValue;
     }
 
     public final void y(AttributeSet attributeSet) {
@@ -789,10 +795,10 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         if (!(interceptable == null || interceptable.invokeL(1048599, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04010c, R.attr.obfuscated_res_0x7f04010d, R.attr.obfuscated_res_0x7f04010f});
-        this.n = obtainStyledAttributes.getDimensionPixelSize(2, q01.c.a(eh0.b(), 8.0f));
-        this.o = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f06082e));
-        this.p = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06082d));
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, eg0.NadEnhanceButtonView);
+        this.n = obtainStyledAttributes.getDimensionPixelSize(2, g21.c.a(mi0.b(), 8.0f));
+        this.o = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.obfuscated_res_0x7f060840));
+        this.p = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06083f));
         obtainStyledAttributes.recycle();
     }
 
@@ -811,15 +817,15 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.r71
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!(getTag() instanceof zm0)) {
+            if (!(getTag() instanceof lo0)) {
                 return this.c;
             }
-            if (((zm0) getTag()).a != 2) {
+            if (((lo0) getTag()).a != 2) {
                 return this.c;
             }
             return this.b;
@@ -828,7 +834,7 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.r71
     public void setBtnPlaceholder(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
@@ -881,9 +887,9 @@ public class AdEnhanceButtonView extends FrameLayout implements y51<View> {
         this.i = 0;
         this.k = null;
         this.m = false;
-        this.n = q01.c.a(eh0.b(), 8.0f);
-        this.o = getResources().getColor(R.color.obfuscated_res_0x7f06082e);
-        this.p = getResources().getColor(R.color.obfuscated_res_0x7f06082d);
+        this.n = g21.c.a(mi0.b(), 17.0f);
+        this.o = getResources().getColor(R.color.obfuscated_res_0x7f060840);
+        this.p = getResources().getColor(R.color.obfuscated_res_0x7f06083f);
         n(context);
         y(attributeSet);
     }

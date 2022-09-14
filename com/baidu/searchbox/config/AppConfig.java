@@ -396,7 +396,7 @@ public class AppConfig {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0035 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x004b */
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x004e */
-    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0078 */
+    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0079 */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x004b, code lost:
         if (r2 != 0) goto L19;
      */

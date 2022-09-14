@@ -137,7 +137,7 @@ public class AdTagTextView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0800c7);
+            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0800c8);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
             spannableStringBuilder.append((CharSequence) " ").append((CharSequence) c);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds83), UtilHelper.getDimenPixelSize(R.dimen.tbds47));
@@ -150,14 +150,14 @@ public class AdTagTextView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f09078a);
+            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f0907a1);
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d006e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0070 : invokeV.intValue;
     }
 
     public void onChangeSkinType() {

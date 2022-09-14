@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,9 +9,9 @@ public class uh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public static boolean a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) ? Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0 : invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? view2.hasOverlappingRendering() : invokeL.booleanValue;
     }
 }

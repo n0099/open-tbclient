@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vg5;
+import com.baidu.tieba.fj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RefreshView extends FrameLayout implements vg5 {
+public class RefreshView extends FrameLayout implements fj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -51,7 +51,7 @@ public class RefreshView extends FrameLayout implements vg5 {
         }
     }
 
-    @Override // com.baidu.tieba.vg5
+    @Override // com.baidu.tieba.fj5
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.d == 2) {
@@ -59,10 +59,10 @@ public class RefreshView extends FrameLayout implements vg5 {
         }
         this.d = 2;
         this.b.setText("释放跳转");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805f9, R.color.CAM_X0109, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08060e, R.color.CAM_X0109, null);
     }
 
-    @Override // com.baidu.tieba.vg5
+    @Override // com.baidu.tieba.fj5
     public void b(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.d == 1) {
@@ -70,15 +70,15 @@ public class RefreshView extends FrameLayout implements vg5 {
         }
         this.d = 1;
         this.b.setText("查看更多");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805fa, R.color.CAM_X0109, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08060f, R.color.CAM_X0109, null);
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0740, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b6);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ac);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d075a, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
         }
     }
 
@@ -93,7 +93,7 @@ public class RefreshView extends FrameLayout implements vg5 {
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
     }
 
-    @Override // com.baidu.tieba.vg5
+    @Override // com.baidu.tieba.fj5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

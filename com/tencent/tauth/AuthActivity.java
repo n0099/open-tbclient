@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -192,7 +191,6 @@ public class AuthActivity extends Activity {
             if (getIntent() == null) {
                 SLog.w("openSDK_LOG.AuthActivity", "-->onCreate, getIntent() return null");
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             Uri uri = null;
@@ -208,7 +206,6 @@ public class AuthActivity extends Activity {
                 e2.printStackTrace();
                 finish();
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectStreamField;
@@ -20,7 +19,7 @@ import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
-public class a implements Cloneable, Serializable {
+public class a implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final /* synthetic */ boolean a;
     public static final int b = 6;
@@ -177,7 +176,7 @@ public class a implements Cloneable, Serializable {
         return (a) invokeL.objValue;
     }
 
-    private void a(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+    private void a(ObjectInputStream objectInputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, objectInputStream) == null) {
             long[] jArr = (long[]) objectInputStream.readFields().get("bits", (Object) null);
@@ -191,7 +190,7 @@ public class a implements Cloneable, Serializable {
         }
     }
 
-    private void a(ObjectOutputStream objectOutputStream) throws IOException {
+    private void a(ObjectOutputStream objectOutputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, objectOutputStream) == null) {
             h();
@@ -600,8 +599,7 @@ public class a implements Cloneable, Serializable {
             if (i == 0) {
                 return 0;
             }
-            int i2 = i - 1;
-            return (i2 * 64) + (64 - Long.numberOfLeadingZeros(this.g[i2]));
+            return ((i - 1) * 64) + (64 - Long.numberOfLeadingZeros(this.g[i - 1]));
         }
         return invokeV.intValue;
     }

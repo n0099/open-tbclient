@@ -16,7 +16,7 @@ import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.j10;
+import com.baidu.tieba.x10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -313,7 +313,7 @@ public class CommonUtils {
     public static String getNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new j10().a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new x10().a() : (String) invokeV.objValue;
     }
 
     public static String getOSVersion() {

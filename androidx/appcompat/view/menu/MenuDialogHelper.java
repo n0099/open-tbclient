@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
-import androidx.appcompat.R$layout;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -136,7 +136,7 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
         if (interceptable == null || interceptable.invokeL(1048583, this, iBinder) == null) {
             MenuBuilder menuBuilder = this.mMenu;
             AlertDialog.Builder builder = new AlertDialog.Builder(menuBuilder.getContext());
-            ListMenuPresenter listMenuPresenter = new ListMenuPresenter(builder.getContext(), R$layout.abc_list_menu_item_layout);
+            ListMenuPresenter listMenuPresenter = new ListMenuPresenter(builder.getContext(), (int) R.layout.obfuscated_res_0x7f0d0010);
             this.mPresenter = listMenuPresenter;
             listMenuPresenter.setCallback(this);
             this.mMenu.addMenuPresenter(this.mPresenter);

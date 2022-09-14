@@ -201,7 +201,7 @@ public class MixLiveActivity extends LiveBaseActivity {
                 eventDispatcherService.onEvent("onActivityClose", null);
             }
             this.isInnerJump = false;
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010081, R.anim.obfuscated_res_0x7f010082);
+            overridePendingTransition(R.anim.liveshow_slide_no_anim, R.anim.liveshow_slide_out_left);
             ListController listController = this.mListController;
             if (listController != null) {
                 listController.finish();
@@ -557,7 +557,7 @@ public class MixLiveActivity extends LiveBaseActivity {
     public void overrideEnterAnim() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && isAnimation() == 0) {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010080, R.anim.obfuscated_res_0x7f010081);
+            overridePendingTransition(R.anim.liveshow_slide_in_right, R.anim.liveshow_slide_no_anim);
         }
     }
 

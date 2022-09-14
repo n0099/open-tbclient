@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.LoadErrorCode;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes4.dex */
-public class fx {
+public class fx implements WebKitFactory.WebkitInstallListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 3;
-    public static int c = 1;
-    public static int d = 2;
+    public static final String c = "fx";
     public transient /* synthetic */ FieldHolder $fh;
+    public byte a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,18 +36,75 @@ public class fx {
         }
     }
 
-    public static void a(int i, String str, int i2, int i3, String str2) {
+    public fx() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
-            statisticItem.param("obj_type", i);
-            statisticItem.param("tid", str);
-            statisticItem.param("obj_locate", i2);
-            statisticItem.param("obj_source", i3);
-            if (i3 == c) {
-                statisticItem.param("obj_name", str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void c(LoadErrorCode loadErrorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
+            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
+        }
+    }
+
+    public final void a(LoadErrorCode loadErrorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
+            WebKitFactory.setEngine(0);
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = (byte) 0;
+        if (!str.startsWith("file://")) {
+            str = "file://".concat(String.valueOf(str));
+        }
+        BdZeusUtil.printKernellog("install plugin from download");
+        WebKitFactory.installAsync(str, this);
+        this.b = System.currentTimeMillis();
+        Log.i(c, "full update started!");
+    }
+
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallFinish(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            System.currentTimeMillis();
+            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
+            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
+            if (i == 0) {
+                Log.d(c, "install success!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
+            } else {
+                Log.d(c, "install failed!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
+            }
+            BdSailorPlatform.getWebkitManager().enableBdWebkit();
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            String str2 = c;
+            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 }

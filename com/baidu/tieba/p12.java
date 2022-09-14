@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,44 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public final class p12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
+    public static volatile p12 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l12 a;
-    public boolean b;
-    public boolean c;
-    public c22 d;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final p12 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-569003430, "Lcom/baidu/tieba/p12$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-569003430, "Lcom/baidu/tieba/p12$b;");
-                    return;
-                }
-            }
-            a = new p12(null);
-        }
-    }
+    public boolean a;
+    public HashMap<String, Long> b;
 
     static {
         InterceptResult invokeClinit;
@@ -62,89 +33,7 @@ public final class p12 {
                 return;
             }
         }
-        e = kh1.a;
-    }
-
-    public /* synthetic */ p12(a aVar) {
-        this();
-    }
-
-    public static p12 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (p12) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                ay1.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
-            }
-            c22 c22Var = this.d;
-            if (c22Var != null) {
-                c22Var.a();
-                this.d = null;
-            }
-        }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            i(j);
-            j(false);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-        }
-    }
-
-    public void g(c22 c22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c22Var) == null) {
-            this.d = c22Var;
-        }
-    }
-
-    public void h(k12 k12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, k12Var) == null) {
-            this.a.b(k12Var);
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            if (e) {
-                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
-            }
-            this.b = j < 3000 && j > 0;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c = z;
-        }
+        c = ij1.a;
     }
 
     public p12() {
@@ -160,8 +49,58 @@ public final class p12 {
                 return;
             }
         }
-        m12 m12Var = new m12();
-        this.a = m12Var;
-        m12Var.a(new o12(this.a.getLooper()));
+        this.a = false;
+        this.b = new HashMap<>();
+    }
+
+    public static p12 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (p12.class) {
+                    if (d == null) {
+                        d = new p12();
+                    }
+                }
+            }
+            return d;
+        }
+        return (p12) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            HashMap<String, Long> hashMap = this.b;
+            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
+                if (c) {
+                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
+                    return true;
+                }
+                return true;
+            }
+            if (c) {
+                HashMap<String, Long> hashMap2 = this.b;
+                if (hashMap2 != null && hashMap2.containsKey(str)) {
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
+                } else {
+                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

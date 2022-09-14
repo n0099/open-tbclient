@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ne1;
-import com.baidu.tieba.oe1;
+import com.baidu.tieba.kg1;
+import com.baidu.tieba.lg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,10 +21,10 @@ public abstract class AbsCountDownView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public b b;
-    public ne1 c;
+    public kg1 c;
 
     /* loaded from: classes2.dex */
-    public class a extends ne1 {
+    public class a extends kg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsCountDownView c;
@@ -47,7 +47,7 @@ public abstract class AbsCountDownView extends TextView {
             this.c = absCountDownView;
         }
 
-        @Override // com.baidu.tieba.ne1
+        @Override // com.baidu.tieba.kg1
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public abstract class AbsCountDownView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new a(this);
-            oe1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            lg1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -104,12 +104,12 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        ne1 ne1Var;
+        kg1 kg1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (ne1Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (kg1Var = this.c) == null) {
             return;
         }
-        ne1Var.cancel();
+        kg1Var.cancel();
         this.c = null;
     }
 

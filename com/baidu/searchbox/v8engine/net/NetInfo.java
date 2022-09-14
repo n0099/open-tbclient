@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.util.BaiduActiveStatistic;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,7 +55,7 @@ public class NetInfo {
             if (jSONObject != null) {
                 this.mJSONObject = jSONObject;
                 this.mNetType = JSONObjectUtils.getInt(jSONObject, FpsTracer.UBC_KEY_NET_TYPE);
-                this.mRequestStart = JSONObjectUtils.getDouble(this.mJSONObject, "request_start");
+                this.mRequestStart = JSONObjectUtils.getDouble(this.mJSONObject, BaiduActiveStatistic.UBC_VALUE_REQUEST_START);
                 this.mStatus = JSONObjectUtils.getInt(this.mJSONObject, "status");
                 this.mUrl = JSONObjectUtils.getString(this.mJSONObject, "url");
             }

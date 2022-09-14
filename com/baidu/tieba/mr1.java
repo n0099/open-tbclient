@@ -1,34 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.URLConnection;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mr1 extends gr1 {
+public class mr1 extends br1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public tf3<Integer> g;
 
     /* loaded from: classes5.dex */
-    public class a implements tf3<Integer> {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mr1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mr1 b;
 
-        public a(mr1 mr1Var) {
+        public a(mr1 mr1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mr1Var};
+                Object[] objArr = {mr1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,78 +45,122 @@ public class mr1 extends gr1 {
                     return;
                 }
             }
-            this.a = mr1Var;
+            this.b = mr1Var;
+            this.a = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(Integer num) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-                if (num.intValue() == 1 || num.intValue() == 0) {
-                    this.a.z();
-                }
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new yu1(0));
+                return true;
             }
+            return invokeLIL.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mr1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    public mr1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new a(this);
     }
 
-    @Override // com.baidu.tieba.dp1
+    @Override // com.baidu.tieba.br1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.br1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
     }
 
-    public at1 y(String str) {
+    public final String x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#exitFullScreen", false);
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                this.f = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    return new at1(201);
-                }
-                rr1.e().v(this.g);
-                rr1.e().m();
-                return at1.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                return !TextUtils.isEmpty(contentTypeFor) ? contentTypeFor : "*/*";
             }
-            return at1Var;
+            return "*/*";
         }
-        return (at1) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void z() {
+    public yu1 y(String str) {
+        InterceptResult invokeL;
+        Uri fromFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rr1.e().w();
-            rr1.e().p();
-            d(this.f, new at1(0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#shareFile", false);
+            if (n()) {
+                yz1.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new yu1(1001, "FileApi does not supported when app is invisible.");
+            }
+            Pair<yu1, JSONObject> s = s(str);
+            yu1 yu1Var = (yu1) s.first;
+            if (yu1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("filePath");
+                String M = ga3.M(optString, y23.g0());
+                if (!TextUtils.isEmpty(optString) && ga3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                    String optString2 = jSONObject.optString("cb");
+                    if (TextUtils.isEmpty(optString2)) {
+                        yz1.c("FileApi", "cb is required");
+                        return new yu1(202, "cb is required");
+                    }
+                    File file = new File(M);
+                    if (file.exists() && !file.isDirectory()) {
+                        SwanAppActivity activity = lo2.U().getActivity();
+                        if (activity == null) {
+                            yz1.c("FileApi", "activity null");
+                            return new yu1(1001, "activity null");
+                        }
+                        ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                        Intent intent = new Intent();
+                        if (ff3.i()) {
+                            fromFile = vg3.a(activity, file);
+                            intent.setFlags(3);
+                        } else {
+                            fromFile = Uri.fromFile(file);
+                        }
+                        intent.setAction("android.intent.action.SEND");
+                        intent.putExtra("android.intent.extra.STREAM", fromFile);
+                        intent.setType(x(M));
+                        resultDispatcher.addConsumer(new a(this, optString2));
+                        resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                        return yu1.f();
+                    }
+                    yz1.c("FileApi", "file not exists");
+                    return new yu1(1001, "file not exists");
+                }
+                yz1.c("FileApi", "a valid filePath is required");
+                return new yu1(202, "a valid filePath is required");
+            }
+            return yu1Var;
         }
+        return (yu1) invokeL.objValue;
     }
 }

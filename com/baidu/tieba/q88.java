@@ -1,38 +1,25 @@
 package com.baidu.tieba;
 
-import android.widget.MediaController;
-import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface q88 extends MediaController.MediaPlayerControl {
-    void a(long j, long j2, long j3);
+public class q88 extends eb6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int getCurrentPositionSync();
-
-    r88 getMediaProgressObserver();
-
-    int getPcdnState();
-
-    int getPlayerHeight();
-
-    int getPlayerWidth();
-
-    void setLooping(boolean z);
-
-    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
-
-    void setOperableVideoContainer(j98 j98Var);
-
-    void setPlayMode(String str);
-
-    void setStageType(String str);
-
-    void setVideoPath(String str);
-
-    void setVideoPath(String str, String str2);
-
-    void setVideoStatData(e98 e98Var);
-
-    void setVolume(float f, float f2);
-
-    void stopPlayback();
+    public q88() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

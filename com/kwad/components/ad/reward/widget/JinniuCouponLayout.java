@@ -17,11 +17,11 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.R;
 /* loaded from: classes7.dex */
 public class JinniuCouponLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -175,7 +175,7 @@ public class JinniuCouponLayout extends LinearLayout {
     private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403af, R.attr.obfuscated_res_0x7f0403de}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_JinniuCouponLayout, i, 0);
             this.wm = obtainStyledAttributes.getDimension(0, 4.0f);
             this.wl = obtainStyledAttributes.getDimension(1, 10.0f);
             obtainStyledAttributes.recycle();

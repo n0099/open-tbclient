@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.business.refresh.LoadAnimStrategy;
+import com.baidu.live.business.view.emotion.EmotionStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,23 +18,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static hc0 d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public long c;
-    public boolean d;
-    public int e;
-    public int f;
-    public String g;
-    public int h;
-    public int i;
-    public int j;
-    public boolean k;
-    public String l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
+    public String b;
+    public bc0 c;
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hc0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-751920201, "Lcom/baidu/tieba/hc0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-751920201, "Lcom/baidu/tieba/hc0$a;");
+                    return;
+                }
+            }
+            a = new hc0();
+        }
+    }
 
     public hc0() {
         Interceptable interceptable = $ic;
@@ -42,174 +60,352 @@ public class hc0 {
                 return;
             }
         }
-        this.a = "/sdcard/AR/video/arvideo.mp4";
-        this.b = 0;
-        this.c = 0L;
-        this.d = true;
-        this.e = 720;
-        this.f = 1280;
-        this.g = "video/avc";
-        this.h = 8294400;
-        this.i = 30;
-        this.j = 1;
-        this.k = false;
-        this.l = "audio/mp4a-latm";
-        this.m = 1;
-        this.n = EncoderParams.AUDIO_BIT_RATE;
-        this.o = 16000;
-        this.p = 1024;
+        this.b = "day";
     }
 
-    public int a() {
+    public static hc0 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.n : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                d = a.a;
+            }
+            return d;
+        }
+        return (hc0) invokeV.objValue;
     }
 
-    public int b() {
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        bc0 bc0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (TextUtils.isEmpty(str2) || (bc0Var = this.c) == null) {
+                return -16777216;
+            }
+            return bc0Var.a(context, str, str2);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return EmotionStrategy.getInstance().recEmptyImageRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return EmotionStrategy.getInstance().emptyImageRes3;
+            }
+            if ("night".equals(this.b)) {
+                return EmotionStrategy.getInstance().emptyImageRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return EmotionStrategy.getInstance().emptyImageRes2;
+            }
+            return EmotionStrategy.getInstance().emptyImageRes;
+        }
+        return invokeL.intValue;
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return EmotionStrategy.getInstance().recErrorImageRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return EmotionStrategy.getInstance().errorImageRes3;
+            }
+            if ("night".equals(this.b)) {
+                return EmotionStrategy.getInstance().errorImageRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return EmotionStrategy.getInstance().errorImageRes2;
+            }
+            return EmotionStrategy.getInstance().errorImageRes;
+        }
+        return invokeL.intValue;
+    }
+
+    public int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return EmotionStrategy.getInstance().recNetworkImageRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return EmotionStrategy.getInstance().networkImageRes3;
+            }
+            if ("night".equals(this.b)) {
+                return EmotionStrategy.getInstance().networkImageRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return EmotionStrategy.getInstance().networkImageRes2;
+            }
+            return EmotionStrategy.getInstance().networkImageRes;
+        }
+        return invokeL.intValue;
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? "recommend".equals(str) ? R.drawable.obfuscated_res_0x7f080d3c : (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) ? R.drawable.obfuscated_res_0x7f080d3d : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d3e : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d3d : R.drawable.obfuscated_res_0x7f080d3c : invokeL.intValue;
+    }
+
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieRecRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieRes3;
+            }
+            if ("night".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieRes2;
+            }
+            return LoadAnimStrategy.getInstance().loadMoreLottieRes;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieResRecId;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieResId3;
+            }
+            if ("night".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieResId1;
+            }
+            if ("dark".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadMoreLottieResId2;
+            }
+            return LoadAnimStrategy.getInstance().loadMoreLottieResId;
+        }
+        return invokeL.intValue;
+    }
+
+    public int i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return EmotionStrategy.getInstance().recEmptyImageRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return EmotionStrategy.getInstance().minorImageRes3;
+            }
+            if ("night".equals(this.b)) {
+                return EmotionStrategy.getInstance().minorImageRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return EmotionStrategy.getInstance().minorImageRes2;
+            }
+            return EmotionStrategy.getInstance().minorImageRes;
+        }
+        return invokeL.intValue;
+    }
+
+    public String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return LoadAnimStrategy.getInstance().loadingLottieRecRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return LoadAnimStrategy.getInstance().loadingLottieRes3;
+            }
+            if ("night".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadingLottieRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadingLottieRes2;
+            }
+            return LoadAnimStrategy.getInstance().loadingLottieRes;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return LoadAnimStrategy.getInstance().loadingLottieRecResId;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return LoadAnimStrategy.getInstance().loadingLottieResId3;
+            }
+            if ("night".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadingLottieResId1;
+            }
+            if ("dark".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().loadingLottieResId2;
+            }
+            return LoadAnimStrategy.getInstance().loadingLottieResId;
+        }
+        return invokeL.intValue;
+    }
+
+    public int l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (!LiveFeedPageSdk.VIDEO_BAR.equals(str) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
+                if ("recommend".equals(str)) {
+                    return EmotionStrategy.getInstance().recPlaceHolderRes;
+                }
+                if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                    return EmotionStrategy.getInstance().placeHolderRes3;
+                }
+                if ("night".equals(this.b)) {
+                    return EmotionStrategy.getInstance().placeHolderRes1;
+                }
+                if ("dark".equals(this.b)) {
+                    return EmotionStrategy.getInstance().placeHolderRes2;
+                }
+                return EmotionStrategy.getInstance().placeHolderRes;
+            }
+            return EmotionStrategy.getInstance().videoBarPlaceHolderRes;
+        }
+        return invokeL.intValue;
+    }
+
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieRecRes;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieRes3;
+            }
+            if ("night".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieRes1;
+            }
+            if ("dark".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieRes2;
+            }
+            return LoadAnimStrategy.getInstance().pullDownLottieRes;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if ("recommend".equals(str)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieRecResId;
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieResId3;
+            }
+            if ("night".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieResId1;
+            }
+            if ("dark".equals(this.b)) {
+                return LoadAnimStrategy.getInstance().pullDownLottieResId2;
+            }
+            return LoadAnimStrategy.getInstance().pullDownLottieResId;
+        }
+        return invokeL.intValue;
+    }
+
+    public GradientDrawable o(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, context, str)) == null) {
+            float b = q90.b(context, 18.0f);
+            float[] fArr = {b, b, b, b, b, b, b, b};
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadii(fArr);
+            gradientDrawable.setColor(a(context, str, "color_btn_fill"));
+            gradientDrawable.setStroke(1, a(context, str, "color_btn_stroke"));
+            return gradientDrawable;
+        }
+        return (GradientDrawable) invokeLL.objValue;
+    }
+
+    public int p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) ? R.drawable.obfuscated_res_0x7f080cef : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cf0 : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cef : R.drawable.obfuscated_res_0x7f080cee : invokeL.intValue;
+    }
+
+    public int q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
+                return R.drawable.obfuscated_res_0x7f080d00;
+            }
+            if ("night".equals(this.b)) {
+                return R.drawable.obfuscated_res_0x7f080d01;
+            }
+            if ("dark".equals(this.b)) {
+            }
+            return R.drawable.obfuscated_res_0x7f080cff;
+        }
+        return invokeL.intValue;
+    }
+
+    public String r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void s(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.p : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.o : invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.k : invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.m = i;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
+            this.a = str;
+            if (t(str2)) {
+                this.b = str2;
+            }
+            if ("baidu".equals(this.a)) {
+                this.c = new ac0();
+            } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(this.a)) {
+                this.c = new cc0();
+            } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(this.a)) {
+                this.c = new ec0();
+            } else if ("tieba".equals(this.a)) {
+                this.c = new gc0();
+            }
+            this.c.b(str2);
         }
     }
 
-    public void r(int i) {
+    public final boolean t(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.o = i;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? "day".equals(str) || "night".equals(str) || "dark".equals(str) : invokeL.booleanValue;
     }
 
     public void u(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || str == null || str.isEmpty()) {
-            return;
-        }
-        this.a = str;
-    }
-
-    public void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.e = i;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && t(str)) {
+            this.b = str;
+            bc0 bc0Var = this.c;
+            if (bc0Var != null) {
+                bc0Var.b(str);
+            }
         }
     }
 }

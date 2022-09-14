@@ -20,10 +20,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.io4;
-import com.baidu.tieba.iy0;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.nd8;
+import com.baidu.tieba.nq4;
+import com.baidu.tieba.un5;
+import com.baidu.tieba.uz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public io4 i;
+    public nq4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -73,7 +74,7 @@ public class AdAppInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04040b});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, un5.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -84,13 +85,13 @@ public class AdAppInfoView extends FrameLayout {
             setLayoutByAttrs(attributeSet);
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900da);
-            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900e0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f8);
+            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900e4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fc);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09008d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900df);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0900dc);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ed);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09081c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e0);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f1);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090831);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -159,7 +160,7 @@ public class AdAppInfoView extends FrameLayout {
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-        iy0.b(clogBuilder);
+        uz0.b(clogBuilder);
     }
 
     public RelativeLayout getDownloadButtonContainer() {
@@ -193,60 +194,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(io4 io4Var) {
+    public void setAppInfo(nq4 nq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, io4Var) == null) {
-            if (io4Var != null && io4.c(io4Var)) {
-                this.i = io4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, nq4Var) == null) {
+            if (nq4Var != null && nq4.c(nq4Var)) {
+                this.i = nq4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(io4Var.c)) {
+                    if (!TextUtils.isEmpty(nq4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(io4Var.c);
+                        this.a.setText(nq4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = io4Var.e;
+                    float f = nq4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(io4Var.e);
+                        this.b.setRating(nq4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(io4Var.f)) {
+                    if (!TextUtils.isEmpty(nq4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(io4Var.f);
+                        this.c.setText(nq4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(io4Var.d)) {
+                    if (!TextUtils.isEmpty(nq4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(io4Var.d);
+                        this.d.setText(nq4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    io4.b bVar = io4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(io4Var.g.a)) {
+                    nq4.b bVar = nq4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(nq4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(io4Var.g.a);
+                        this.e.setText(nq4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    io4.a aVar = io4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(io4Var.h.a)) {
+                    nq4.a aVar = nq4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(nq4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(io4Var.h.a);
+                        this.f.setText(nq4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
@@ -317,7 +318,7 @@ public class AdAppInfoView extends FrameLayout {
                 return;
             }
         }
-        this.k = R.layout.obfuscated_res_0x7f0d0063;
+        this.k = R.layout.obfuscated_res_0x7f0d0064;
         this.l = R.color.CAM_X0109;
         this.m = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
             public static /* synthetic */ Interceptable $ic;
@@ -352,8 +353,8 @@ public class AdAppInfoView extends FrameLayout {
                 }
                 int id = view2.getId();
                 String str3 = "";
-                if (id == R.id.obfuscated_res_0x7f0900df) {
-                    io4.b bVar = this.a.i.g;
+                if (id == R.id.obfuscated_res_0x7f0900e3) {
+                    nq4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -362,21 +363,21 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f0900dc) {
-                        io4.a aVar = this.a.i.h;
+                    if (id == R.id.obfuscated_res_0x7f0900e0) {
+                        nq4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
                             str2 = "app_permission";
                         }
                     } else if (id == R.id.obfuscated_res_0x7f09008d) {
-                        ri.N(this.a.getContext(), this.a.i.d);
+                        ej.N(this.a.getContext(), this.a.i.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                fc8.a(this.a.getContext(), str3, null, null, str);
+                nd8.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

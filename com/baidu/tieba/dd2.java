@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class dd2 {
+public class dd2 extends yc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ed2> a;
+    public final yu1 c;
 
-    public dd2() {
+    public dd2(@NonNull String str, @NonNull yu1 yu1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, yu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,61 +27,17 @@ public class dd2 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = str;
+        this.c = yu1Var;
     }
 
-    public void a(ed2 ed2Var, String... strArr) {
+    @Override // com.baidu.tieba.yc2
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ed2Var, strArr) == null) || strArr == null || strArr.length == 0) {
-            return;
-        }
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.put(str, ed2Var);
-            }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public ArrayList<ed2> c(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            ArrayList<ed2> arrayList = null;
-            if (strArr != null && strArr.length != 0) {
-                for (String str : strArr) {
-                    if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.a.keySet()) {
-                            if (str2.startsWith(str) || str.startsWith(str2)) {
-                                if (arrayList == null) {
-                                    arrayList = new ArrayList<>();
-                                }
-                                arrayList.add(this.a.get(str2));
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public void d(ed2 ed2Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, ed2Var, strArr) == null) || strArr == null || strArr.length == 0) {
-            return;
-        }
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.a.get(str) == ed2Var) {
-                this.a.remove(str);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("status", Integer.valueOf(this.c.b));
+            map.put("data", this.c.d);
+            map.put("message", this.c.c);
         }
     }
 }

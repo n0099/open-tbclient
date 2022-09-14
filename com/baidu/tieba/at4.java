@@ -1,141 +1,153 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
-public class at4 {
+public class at4 extends jr4 implements za5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long d;
+    public String e;
+    public String f;
+    public boolean g;
+    public int h;
+    public int i;
+    public String j;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TiebaStaticClassesArray b;
-
-        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tiebaStaticClassesArray;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a) {
-                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
-                        return;
-                    }
-                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
-                    if (this.b.loadStaticClasses()) {
-                        return;
-                    }
-                    MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626696, "Lcom/baidu/tieba/at4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626696, "Lcom/baidu/tieba/at4;");
+    public at4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic"};
+        f(8);
     }
 
-    public static void a() {
+    public void A(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            try {
-                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
-                boolean z = true;
-                try {
-                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
-                    Object newInstance = cls.newInstance();
-                    Field declaredField = cls.getDeclaredField("staticClassesArray");
-                    declaredField.setAccessible(true);
-                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
-                if (su4.k().l("static_opt_open", 0) <= 0) {
-                    z = false;
-                }
-                b = z;
-                long currentTimeMillis = System.currentTimeMillis();
-                if (b) {
-                    sb.b().a("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
-                } else if (!tiebaStaticClassesArray.loadStaticClasses()) {
-                    MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
-                }
-                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.j = str;
         }
     }
 
-    public static boolean b() {
+    public void B(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void D(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public void E(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.lq4
+    public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String[] strArr = a;
-            try {
-                if (strArr.length <= 0) {
-                    return false;
-                }
-                for (String str : strArr) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Class.forName(str);
-                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-                return false;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public void t(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, recommendForumInfo) == null) || recommendForumInfo == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        try {
+            this.d = recommendForumInfo.forum_id.longValue();
+            this.e = recommendForumInfo.avatar;
+            this.f = recommendForumInfo.forum_name;
+            boolean z = true;
+            if (recommendForumInfo.is_like.intValue() != 1) {
+                z = false;
+            }
+            this.g = z;
+            this.h = recommendForumInfo.member_count.intValue();
+            this.i = recommendForumInfo.thread_count.intValue();
+            this.j = recommendForumInfo.recom_reason;
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.h = i;
+        }
     }
 }

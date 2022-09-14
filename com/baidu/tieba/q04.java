@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.e03;
-import com.baidu.tieba.xl2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class q04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public e03 a;
+    public ia2 a;
+    public c64 b;
+    public Context c;
+    public fv1 d;
+    public fv1 e;
+    public fv1 f;
+    public s04 g;
+    public v04 h;
+    public u04 i;
+    public u04 j;
+    public r04 k;
+    public f l;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ht1 c;
-        public final /* synthetic */ xl2 d;
-        public final /* synthetic */ q04 e;
+        public final /* synthetic */ q04 a;
 
-        public a(q04 q04Var, SwanAppActivity swanAppActivity, String str, ht1 ht1Var, xl2 xl2Var) {
+        public a(q04 q04Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q04Var, swanAppActivity, str, ht1Var, xl2Var};
+                Object[] objArr = {q04Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,34 +47,106 @@ public class q04 {
                     return;
                 }
             }
-            this.e = q04Var;
-            this.a = swanAppActivity;
-            this.b = str;
-            this.c = ht1Var;
-            this.d = xl2Var;
+            this.a = q04Var;
+        }
+
+        @Override // com.baidu.tieba.q04.f
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.j();
+            }
+        }
+
+        @Override // com.baidu.tieba.q04.f
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                v04 v04Var = new v04();
+                v04Var.errMsg = "showKeyboard:ok";
+                v04Var.height = i;
+                k54.call(this.a.d, true, v04Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.q04.f
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a.k == null) {
+                return;
+            }
+            this.a.k.c(str);
+        }
+
+        @Override // com.baidu.tieba.q04.f
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.a.k == null) {
+                return;
+            }
+            this.a.k.b(str);
+        }
+
+        @Override // com.baidu.tieba.q04.f
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.a.k == null) {
+                return;
+            }
+            this.a.k.d(str);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q04 a;
+
+        public b(q04 q04Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q04Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q04Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.f(this.a, this.b, this.c, this.d);
+                if (!d64.p().n(this.a.b)) {
+                    this.a.h.errMsg = "showKeyboard:fail";
+                    k54.call(this.a.d, false, this.a.h);
+                    return;
+                }
+                this.a.b.j(this.a.g);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnClickListener {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ht1 a;
+        public final /* synthetic */ q04 a;
 
-        public b(q04 q04Var, ht1 ht1Var) {
+        public c(q04 q04Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q04Var, ht1Var};
+                Object[] objArr = {q04Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,32 +156,36 @@ public class q04 {
                     return;
                 }
             }
-            this.a = ht1Var;
+            this.a = q04Var;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                l34.call(this.a, true, new s04(false));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (d64.p().s(this.a.b)) {
+                    this.a.i.errMsg = "hideKeyboard:ok";
+                    k54.call(this.a.e, true, this.a.i);
+                    return;
+                }
+                this.a.i.errMsg = "hideKeyboard:fail";
+                k54.call(this.a.e, false, this.a.i);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ht1 a;
-        public final /* synthetic */ xl2 b;
-        public final /* synthetic */ q04 c;
+        public final /* synthetic */ q04 a;
 
-        public c(q04 q04Var, ht1 ht1Var, xl2 xl2Var) {
+        public d(q04 q04Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q04Var, ht1Var, xl2Var};
+                Object[] objArr = {q04Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -124,120 +195,175 @@ public class q04 {
                     return;
                 }
             }
-            this.c = q04Var;
-            this.a = ht1Var;
-            this.b = xl2Var;
+            this.a = q04Var;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                l34.call(this.a, true, new s04(true));
-                this.c.e(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d64.p().s(this.a.b);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038004, "Lcom/baidu/tieba/q04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ q04 b;
+
+        public e(q04 q04Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q04Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948038004, "Lcom/baidu/tieba/q04;");
-                return;
+            this.b = q04Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.b.m(this.a)) {
+                    this.b.j.errMsg = "updateKeyboard:ok";
+                    k54.call(this.b.f, true, this.b.j);
+                    return;
+                }
+                this.b.j.errMsg = "updateKeyboard:fail";
+                k54.call(this.b.f, false, this.b.j);
             }
         }
-        b = kh1.a;
     }
 
-    public q04() {
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a();
+
+        void b(int i);
+
+        void c(String str);
+
+        void d(String str);
+
+        void e(String str);
+    }
+
+    public q04(ia2 ia2Var, r04 r04Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ia2Var, r04Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = null;
+        this.l = new a(this);
+        this.a = ia2Var;
+        Context appContext = AppRuntime.getAppContext();
+        this.c = appContext;
+        c64 c64Var = new c64(appContext);
+        this.b = c64Var;
+        c64Var.i(this.l);
+        this.k = r04Var;
     }
 
-    public final void c(ht1 ht1Var, String str) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ht1Var, str) == null) {
-            iv3 iv3Var = new iv3();
-            iv3Var.errMsg = str;
-            l34.call(ht1Var, false, iv3Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sg3.e0(new d(this));
         }
     }
 
-    public void d(JsObject jsObject) {
+    public void k(JsObject jsObject) {
+        c64 c64Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            ht1 F = ht1.F(jsObject);
+            this.i = new u04();
+            fv1 F = fv1.F(jsObject);
+            this.e = F;
             if (F == null) {
-                F = new ht1();
+                this.e = new fv1();
             }
-            ht1 ht1Var = F;
-            a13 q = z03.K().q();
-            if (!q.I()) {
-                c(ht1Var, "reload failed, api internal error.");
+            if (this.a != null && (c64Var = this.b) != null && c64Var.g()) {
+                sg3.e0(new c(this));
                 return;
             }
-            SwanAppActivity w = q.w();
-            xl2.a W = q.W();
-            if (w == null) {
-                c(ht1Var, "reload failed, api internal error.");
-                return;
-            }
-            String B = ht1Var.B("content");
-            if (TextUtils.isEmpty(B)) {
-                B = w.getString(R.string.obfuscated_res_0x7f0f0180);
-            }
-            ue3.e0(new a(this, w, B, ht1Var, W));
+            u04 u04Var = this.i;
+            u04Var.errMsg = "hideKeyboard:fail";
+            k54.call(this.e, false, u04Var);
         }
     }
 
-    public final void e(@NonNull xl2 xl2Var) {
+    public void l(JsObject jsObject) {
+        c64 c64Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xl2Var) == null) {
-            String H = xl2Var.H();
-            String h1 = yl2.h1(xl2Var.H(), xl2Var.T(), xl2Var.G());
-            Bundle bundle = new Bundle();
-            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
-            bundle.putString("scheme", h1);
-            bundle.putInt("target", SwanAppProcessInfo.current().index);
-            if (b) {
-                Log.d("SwanGameReloadApi", "reload-appid:" + xl2Var.H());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+            this.h = new v04();
+            fv1 F = fv1.F(jsObject);
+            this.d = F;
+            if (F == null) {
+                this.d = new fv1();
             }
-            vx2.Q().W(bundle, r04.class);
+            if (this.a != null && (c64Var = this.b) != null && !c64Var.g()) {
+                s04 s04Var = new s04();
+                this.g = s04Var;
+                try {
+                    if (s04Var.a(this.d)) {
+                        sg3.f0(new b(this), 500L);
+                    } else {
+                        this.h.errMsg = "showKeyboard:fail";
+                        k54.call(this.d, false, this.h);
+                    }
+                    return;
+                } catch (JSTypeMismatchException unused) {
+                    v04 v04Var = this.h;
+                    v04Var.errMsg = "showKeyboard:fail";
+                    k54.call(this.d, false, v04Var);
+                    return;
+                }
+            }
+            v04 v04Var2 = this.h;
+            v04Var2.errMsg = "showKeyboard:fail";
+            k54.call(this.d, false, v04Var2);
         }
     }
 
-    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull ht1 ht1Var, @NonNull xl2 xl2Var) {
+    public void m(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, ht1Var, xl2Var) == null) {
-            e03 e03Var = this.a;
-            if (e03Var != null && e03Var.isShowing()) {
-                c(ht1Var, "reload failed, the reload dialog has been displayed.");
+        if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+            this.j = new u04();
+            fv1 F = fv1.F(jsObject);
+            this.f = F;
+            if (F == null) {
+                this.f = new fv1();
+            }
+            if (this.a != null && this.b != null) {
+                sg3.e0(new e(this, this.f.B("value")));
                 return;
             }
-            e03.a aVar = new e03.a(activity);
-            aVar.U(R.string.obfuscated_res_0x7f0f0181);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new ig3());
-            aVar.m(false);
-            aVar.B(R.string.obfuscated_res_0x7f0f0110, new b(this, ht1Var));
-            aVar.O(R.string.obfuscated_res_0x7f0f01a0, new c(this, ht1Var, xl2Var));
-            this.a = aVar.X();
+            u04 u04Var = this.j;
+            u04Var.errMsg = "updateKeyboard:fail";
+            k54.call(this.f, false, u04Var);
         }
     }
 }

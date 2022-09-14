@@ -1,216 +1,202 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.AnyThread;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
-import com.baidu.tieba.np1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class j33 extends x23 implements np1.j {
+public final class j33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public CallbackHandler d;
-    public long e;
-    public long f;
-    public long g;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final m33<a> e;
+        public static final l33<a> f;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ a13 d;
-        public final /* synthetic */ j33 e;
+        public int a;
+        public int b;
+        public int c;
+        public int d;
 
         /* renamed from: com.baidu.tieba.j33$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0304a implements Runnable {
+        public static class C0304a extends m33<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
 
-            public RunnableC0304a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public C0304a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, guideType, str};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
-                        return;
                     }
                 }
-                this.c = aVar;
-                this.a = guideType;
-                this.b = str;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.m33
+            /* renamed from: b */
+            public void a(@NonNull a aVar, @NonNull em2 em2Var) throws Exception {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    np1 l = np1.l();
-                    a aVar = this.c;
-                    a13 a13Var = aVar.d;
-                    l.p(aVar.e, (Activity) aVar.b, a13Var, this.a, this.b, a13Var.W().Q(), this.c.e.e);
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, em2Var) == null) {
+                    em2Var.writeInt(aVar.a);
+                    em2Var.writeInt(aVar.b);
+                    em2Var.writeInt(aVar.c);
+                    em2Var.writeInt(aVar.d);
                 }
             }
         }
 
-        public a(j33 j33Var, String str, Context context, JSONObject jSONObject, a13 a13Var) {
+        /* loaded from: classes4.dex */
+        public static class b extends l33<a> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.l33
+            /* renamed from: b */
+            public a a(@NonNull dm2 dm2Var) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dm2Var)) == null) {
+                    a aVar = new a();
+                    aVar.a = dm2Var.readInt();
+                    aVar.b = dm2Var.readInt();
+                    aVar.c = dm2Var.readInt();
+                    aVar.d = dm2Var.readInt();
+                    return aVar;
+                }
+                return (a) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-738901534, "Lcom/baidu/tieba/j33$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-738901534, "Lcom/baidu/tieba/j33$a;");
+                    return;
+                }
+            }
+            e = new C0304a();
+            f = new b();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j33Var, str, context, jSONObject, a13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.e = j33Var;
-            this.a = str;
-            this.b = context;
-            this.c = jSONObject;
-            this.d = a13Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i93 a = o93.a();
-                ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(this.a);
-                String string = this.b.getString(parse.defaultText);
-                this.e.c = this.c.optString("cb");
-                String str = this.d.b;
-                String str2 = "favorite_guide_count_" + str;
-                if (y72.n(str)) {
-                    ay1.i("ShowFavoriteGuideAction", "favorite already");
-                    o93.a().putString(str2, "-1");
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return b();
                 }
-                String string2 = o93.a().getString(str2, "");
-                if (TextUtils.equals("-1", string2)) {
-                    ay1.i("ShowFavoriteGuideAction", "favorite at one time");
-                    return;
+                JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
+                if (optJSONObject == null) {
+                    return b();
                 }
-                String[] split = string2.split("#");
-                long j = 0;
-                int i = 0;
-                if (split.length == 2 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1])) {
-                    i = Integer.parseInt(split[0]);
-                    j = Long.parseLong(split[1]);
+                a aVar = new a();
+                if (optJSONObject.optInt("request") > 0 && optJSONObject.optInt("request") <= 60000) {
+                    aVar.a = optJSONObject.optInt("request", 10000);
+                } else {
+                    aVar.a = 10000;
                 }
-                long currentTimeMillis = System.currentTimeMillis();
-                int i2 = i;
-                this.e.e = a.getLong("swan_favorite_guide_duration", 3L);
-                this.e.f = a.getLong("swan_favorite_guide_intervalDays", 3L);
-                this.e.g = a.getLong("swan_favorite_guide_maxTimes", 3L);
-                ay1.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
-                if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
-                    o93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    ue3.e0(new RunnableC0304a(this, parse, string));
-                    return;
-                }
-                ay1.i("ShowFavoriteGuideAction", "Not satisfying display conditions");
+                aVar.b = optJSONObject.optInt("connectSocket", 60000);
+                aVar.c = optJSONObject.optInt("uploadFile");
+                aVar.d = optJSONObject.optInt("downloadFile");
+                return aVar;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public static a b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (j33.a) {
+                    Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
+                }
+                a aVar = new a();
+                aVar.a = 10000;
+                aVar.b = 60000;
+                return aVar;
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public static int c(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
+                if (aVar != null && aVar.a > 0) {
+                    return aVar.a;
+                }
+                return 10000;
+            }
+            return invokeL.intValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j33(x13 x13Var) {
-        super(x13Var, "/swanAPI/showFavoriteGuide");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832319, "Lcom/baidu/tieba/j33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832319, "Lcom/baidu/tieba/j33;");
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            ay1.i("ShowFavoriteGuideAction", "call ShowFavoriteGuideAction pid=" + Process.myPid() + ", Thread=" + Thread.currentThread().getName());
-            if (!ue3.G()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support outside baiduboxapp");
-                ay1.i("ShowFavoriteGuideAction", "not support outside baiduboxapp");
-                return false;
-            }
-            this.d = callbackHandler;
-            JSONObject a2 = x23.a(unitedSchemeEntity, "params");
-            if (a2 != null && a13Var != null && (context instanceof Activity)) {
-                String optString = a2.optString("type");
-                if (np1.l().n(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                ud3.g().execute(new a(this, optString, context, a2, a13Var), "ShowFavoriteGuideAction");
-                JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                unitedSchemeEntity.result = wrapCallbackParams;
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-            ay1.i("ShowFavoriteGuideAction", "params parse error");
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.np1.j
-    @AnyThread
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.c == null || this.d == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("action", z ? 1 : 0);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        this.d.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
+        a = ij1.a;
     }
 }

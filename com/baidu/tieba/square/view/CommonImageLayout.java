@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.km4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.lo4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class CommonImageLayout extends ViewGroup {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                km4.o(this.b.g, this.a.getVideoUrl());
+                lo4.o(this.b.g, this.a.getVideoUrl());
             }
         }
     }
@@ -124,7 +124,7 @@ public class CommonImageLayout extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || m >= 0.0f) {
             return;
         }
-        m = ri.k(this.g) / 320.0f;
+        m = ej.k(this.g) / 320.0f;
         int i2 = 0;
         while (true) {
             float[] fArr = h;

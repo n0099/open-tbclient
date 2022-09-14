@@ -1,260 +1,133 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class jh9 extends ph9<wh9> {
+public abstract class jh9 implements ih9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<wh9, TTNativeAd.AdInteractionListener> f;
+    public Context a;
+    public boolean b;
+    public boolean c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
 
-    /* loaded from: classes4.dex */
-    public class a implements TTAdNative.NativeAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jh9 a;
-
-        public a(jh9 jh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jh9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
-        public void onNativeAdLoad(List<TTNativeAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d("onNativeAdLoad", new Object[0]);
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onNativeAdLoad error: list is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTNativeAd tTNativeAd : list) {
-                    arrayList.add(new wh9(tTNativeAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements TTNativeAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final wh9 a;
-        public final /* synthetic */ jh9 b;
-
-        public b(jh9 jh9Var, wh9 wh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jh9Var, wh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jh9Var;
-            this.a = wh9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdClick(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdClick(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdShow(TTNativeAd tTNativeAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdShow(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jh9(FunAdType funAdType, Ssp.Pid pid) {
-        super(funAdType, pid, true);
+    public jh9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new FunNativeAdListenerHelper<>(this);
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            this.f.destroy((wh9) obj);
+        this.g = -200;
+        if (context != null) {
+            this.a = context.getApplicationContext();
         }
     }
 
-    public void f(Activity activity, wh9 wh9Var, ViewGroup viewGroup, com.fun.module.csj.g0 g0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
+    @Override // com.baidu.tieba.ih9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, wh9Var, viewGroup, g0Var, adInteractionListener) == null) {
-            ((TTNativeAd) wh9Var.a).setActivityForDownloadApp(activity);
-            ((TTNativeAd) wh9Var.a).registerViewForInteraction(viewGroup, g0Var.getClickViews(), g0Var.getCreativeViews(), adInteractionListener);
-            ((TTNativeAd) wh9Var.a).setDownloadListener(g0Var.getDownloadListener());
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.g = i;
         }
     }
 
-    public final void g(Context context, wh9 wh9Var, String str, ViewGroup viewGroup, List<View> list, List<View> list2, TTNativeAd.AdInteractionListener adInteractionListener, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.ih9
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, wh9Var, str, viewGroup, list, list2, adInteractionListener, funAdInteractionListener}) == null) {
-            if (viewGroup instanceof FunNativeView) {
-                viewGroup = ((FunNativeView) viewGroup).getRoot();
-            }
-            this.f.startShow(wh9Var, str, this.mPid, adInteractionListener, funAdInteractionListener);
-            if (context instanceof Activity) {
-                ((TTNativeAd) wh9Var.a).setActivityForDownloadApp((Activity) context);
-            }
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            ((TTNativeAd) wh9Var.a).registerViewForInteraction(viewGroup, list, list2, adInteractionListener);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f = str;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ih9
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) ? new mh9((wh9) obj, str, this.mPid, this) : (FunNativeAd) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ih9
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
-            wh9 wh9Var = (wh9) obj;
-            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, wh9Var, new mh9(wh9Var, str, this.mPid, this), new nh9(this, this, wh9Var));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    public void h(FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, funAdSlot) == null) {
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
-            Ssp.Pid pid = this.mPid;
-            this.e.loadNativeAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    /* renamed from: l */
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, wh9 wh9Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.ih9
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, wh9Var)) == null) {
-            onShowStart(wh9Var);
-            com.fun.module.csj.g0 a2 = kh9.a((TTNativeAd) wh9Var.a);
-            if (a2 == null) {
-                onAdError(wh9Var, 0, "AdView present failed");
-                return false;
-            }
-            viewGroup.removeAllViews();
-            viewGroup.addView(a2);
-            f(activity, wh9Var, viewGroup, a2, new lh9(this, wh9Var, null, str));
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    @Override // com.baidu.tieba.ih9
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            onLoadStart(funAdSlot);
-            h(funAdSlot);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
         }
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public String getAAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public String getOAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public int getStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public String getVAID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.ih9
+    public boolean isSupport() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.booleanValue;
     }
 }

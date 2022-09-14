@@ -1,131 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vc7 {
+public class vc7 extends lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public View b;
-    public ImageView c;
-    public TextView d;
-    public TBSpecificationBtn e;
-    public b f;
-    public View.OnClickListener g;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vc7 a;
-
-        public a(vc7 vc7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vc7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == this.a.e.getId()) {
-                    j05.e(this.a.a);
-                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
-                } else if (view2.getId() == this.a.c.getId()) {
-                    su4.k().x("key_im_open_notification_close_time", System.currentTimeMillis());
-                    if (this.a.f != null) {
-                        this.a.f.onClose();
-                    }
-                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onClose();
-    }
-
-    public vc7(d9 d9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vc7() {
+        super(k97.w(), 2001146);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((y87) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-        this.g = new a(this);
-        this.a = d9Var;
-        View inflate = LayoutInflater.from(d9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0677, (ViewGroup) null);
-        this.b = inflate;
-        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ebd);
-        this.c = imageView;
-        imageView.setOnClickListener(this.g);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09170c);
-        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09043d);
-        this.e.setConfig(new qv4());
-        this.e.setText(d9Var.getString(R.string.obfuscated_res_0x7f0f07d8));
-        this.e.setOnClickListener(this.g);
-        TiebaStatic.log("c13704");
-        f(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0206);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08091f, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
-        }
-    }
-
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f = bVar;
         }
     }
 }

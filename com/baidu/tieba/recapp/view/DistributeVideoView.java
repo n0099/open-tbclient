@@ -24,6 +24,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -41,29 +42,28 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.play.VideoControllerView;
-import com.baidu.tieba.ah0;
-import com.baidu.tieba.bh0;
-import com.baidu.tieba.c98;
-import com.baidu.tieba.e98;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.gd8;
-import com.baidu.tieba.gk8;
-import com.baidu.tieba.hd8;
-import com.baidu.tieba.id8;
-import com.baidu.tieba.iy0;
-import com.baidu.tieba.j98;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.af8;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.ci5;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ef8;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ff8;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.ji0;
+import com.baidu.tieba.ka8;
+import com.baidu.tieba.ma8;
+import com.baidu.tieba.nd8;
+import com.baidu.tieba.oe8;
+import com.baidu.tieba.pe8;
 import com.baidu.tieba.play.TbVideoViewContainer;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.qe8;
+import com.baidu.tieba.ra8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sd8;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.tf5;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.wd8;
-import com.baidu.tieba.xd8;
-import com.baidu.tieba.xj5;
+import com.baidu.tieba.ul8;
+import com.baidu.tieba.uz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
     public View.OnClickListener R;
     @NonNull
     public Handler S;
-    public j98 T;
+    public ra8 T;
     public TbVideoViewContainer.a U;
     public Runnable V;
     public Runnable W;
@@ -112,9 +112,9 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
     public CustomMessageListener d0;
     public VideoInfo e;
     public Runnable e0;
-    public hd8 f;
-    public wd8 g;
-    public xd8 h;
+    public pe8 f;
+    public ef8 g;
+    public ff8 h;
     public ViewGroup i;
     public AdvertAppInfo j;
     public String k;
@@ -202,7 +202,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         } else {
                             int jump2DownloadDetailPage = this.a.jump2DownloadDetailPage();
                             this.a.T();
-                            if (fc8.h(jump2DownloadDetailPage)) {
+                            if (nd8.h(jump2DownloadDetailPage)) {
                                 this.a.U(jump2DownloadDetailPage);
                             }
                         }
@@ -257,18 +257,18 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         }
                     } else if (this.a.A == 1) {
                     } else {
-                        if (!xj5.a().k() ? this.a.l.getControl().getCurrentPosition() <= 0 : !this.a.l.getControl().isPlaying()) {
+                        if (!gm5.a().k() ? this.a.l.getControl().getCurrentPosition() <= 0 : !this.a.l.getControl().isPlaying()) {
                             this.a.S.sendEmptyMessageDelayed(1001, TimeUnit.MILLISECONDS.toMillis(500L));
                             return;
                         }
                         this.a.A = 1;
                         this.a.W();
-                        sg.a().removeCallbacks(this.a.e0);
+                        gh.a().removeCallbacks(this.a.e0);
                     }
                 }
             }
         };
-        this.T = new j98(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
+        this.T = new ra8(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DistributeVideoView a;
@@ -291,14 +291,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 this.a = this;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void changeRenderViewMode(int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public int getCurrentPosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -308,7 +308,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public View getMainView() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -318,7 +318,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return (View) invokeV.objValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean isFullScreen() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -328,7 +328,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean isPlaying() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -338,7 +338,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onBackPress() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -348,7 +348,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onBackground(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable2 = $ic;
@@ -438,7 +438,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void onScroll() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048588, this) == null) {
@@ -468,7 +468,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onVolumeUp() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -478,63 +478,63 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setAfterClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048593, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setData(ThreadData threadData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048594, this, threadData) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setFrom(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048595, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048596, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setStageType(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048597, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
-            public void setStatistic(e98 e98Var) {
+            @Override // com.baidu.tieba.ra8
+            public void setStatistic(ma8 ma8Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048598, this, e98Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048598, this, ma8Var) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setUniqueId(BdUniqueId bdUniqueId) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048599, this, bdUniqueId) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void startPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048600, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void stopPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048601, this) == null) {
@@ -840,12 +840,12 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (UbsABTestHelper.isNativeVideoAdsAutoPlayABTestA()) {
-                return pi.z();
+                return BdNetTypeUtil.isNetWorkAvailable();
             }
             if (this.E == 1) {
-                return gk8.a();
+                return ul8.a();
             }
-            return pi.z();
+            return BdNetTypeUtil.isNetWorkAvailable();
         }
         return invokeV.booleanValue;
     }
@@ -872,14 +872,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             clogBuilder.l(String.valueOf(i));
         }
         clogBuilder.v("DEEPLINK");
-        iy0.b(clogBuilder);
+        uz0.b(clogBuilder);
     }
 
     public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sg.a().removeCallbacks(this.a0);
-            sg.a().postDelayed(this.a0, 5000L);
+            gh.a().removeCallbacks(this.a0);
+            gh.a().postDelayed(this.a0, 5000L);
         }
     }
 
@@ -938,8 +938,8 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         this.a.w.m(0, (int) TimeUnit.SECONDS.toMillis(this.a.e.video_duration.intValue()));
                         this.a.w.p();
                         this.a.e0(true);
-                        sg.a().removeCallbacks(this.a.W);
-                        sg.a().postDelayed(this.a.W, TimeUnit.SECONDS.toMillis(3L));
+                        gh.a().removeCallbacks(this.a.W);
+                        gh.a().postDelayed(this.a.W, TimeUnit.SECONDS.toMillis(3L));
                     }
                     DistributeVideoView distributeVideoView2 = this.a;
                     distributeVideoView2.B = distributeVideoView2.l.getControl().getCurrentPosition();
@@ -987,36 +987,36 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             return;
         }
         this.b = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0234, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0238, (ViewGroup) this, true);
         this.d = inflate;
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f0907d5);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f0907ea);
         this.l = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
         this.l.getControl().setNoBussinessStats();
         this.l.getControl().setLooping(false);
-        this.m = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f0924f9);
-        this.n = (ForeDrawableImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0907d6);
-        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0907d0);
-        this.p = this.d.findViewById(R.id.obfuscated_res_0x7f090399);
-        this.s = this.d.findViewById(R.id.obfuscated_res_0x7f0907d1);
-        this.t = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0907d2);
-        this.q = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0907d8);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f0907cf);
+        this.m = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f092554);
+        this.n = (ForeDrawableImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0907eb);
+        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0907e5);
+        this.p = this.d.findViewById(R.id.obfuscated_res_0x7f0903a4);
+        this.s = this.d.findViewById(R.id.obfuscated_res_0x7f0907e6);
+        this.t = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0907e7);
+        this.q = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0907ed);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f0907e4);
         this.u = findViewById;
-        this.v = (ImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f0907d3);
-        this.r = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f0907d7);
-        this.w = (VideoControllerView) this.u.findViewById(R.id.obfuscated_res_0x7f0907d4);
-        FrameLayout frameLayout = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09205b);
+        this.v = (ImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f0907e8);
+        this.r = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f0907ec);
+        this.w = (VideoControllerView) this.u.findViewById(R.id.obfuscated_res_0x7f0907e9);
+        FrameLayout frameLayout = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0920ab);
         this.i = frameLayout;
-        this.g = new wd8(context, frameLayout);
-        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0903e8);
+        this.g = new ef8(context, frameLayout);
+        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0903f4);
         this.x = tbImageView;
         tbImageView.setVisibility(8);
-        this.y = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0924b8);
+        this.y = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092513);
         this.m.setAnimation(R.raw.obfuscated_res_0x7f11001b);
         this.m.setMinFrame(0);
         this.m.setFrame(0);
-        HomeGroupUbsUIHelper.handleImgMask(this.p, R.drawable.obfuscated_res_0x7f081244);
+        HomeGroupUbsUIHelper.handleImgMask(this.p, R.drawable.obfuscated_res_0x7f081283);
     }
 
     public final void a0() {
@@ -1083,7 +1083,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         continuePlay(1);
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public void autoPlay(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && S()) {
@@ -1091,8 +1091,8 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 h0(1);
                 return;
             }
-            sg.a().removeCallbacks(this.V);
-            sg.a().postDelayed(this.V, TimeUnit.SECONDS.toMillis(i));
+            gh.a().removeCallbacks(this.V);
+            gh.a().postDelayed(this.V, TimeUnit.SECONDS.toMillis(i));
         }
     }
 
@@ -1107,13 +1107,13 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             if (TextUtils.isEmpty(str) || this.b == null) {
                 return 0;
             }
-            if (bh0.n(this.j.q) ? false : ah0.b(this.b, this.j.p)) {
+            if (ji0.n(this.j.q) ? false : ii0.b(this.b, this.j.p)) {
                 return 3;
             }
-            if (isPlaying() && xj5.a().j()) {
-                return fc8.a(this.b, str, this.j.getDownloadId(), this.j.g, this.F.cmdScheme);
+            if (isPlaying() && gm5.a().j()) {
+                return nd8.a(this.b, str, this.j.getDownloadId(), this.j.g, this.F.cmdScheme);
             }
-            return fc8.c(this.b, str, this.j, this.F.playCmdScheme);
+            return nd8.c(this.b, str, this.j, this.F.playCmdScheme);
         }
         return invokeV.intValue;
     }
@@ -1125,12 +1125,12 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             int i = this.A;
             if (i == -1) {
-                if (!pi.z() && (tbPageContext2 = this.a) != null) {
-                    tbPageContext2.showToast((int) R.string.obfuscated_res_0x7f0f0c40);
-                } else if (!pi.H() && (tbPageContext = this.a) != null) {
-                    vr4 vr4Var = new vr4(tbPageContext.getPageActivity());
-                    vr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0e8d);
-                    vr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0266, new vr4.e(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
+                if (!BdNetTypeUtil.isNetWorkAvailable() && (tbPageContext2 = this.a) != null) {
+                    tbPageContext2.showToast((int) R.string.obfuscated_res_0x7f0f0c59);
+                } else if (!BdNetTypeUtil.isWifiNet() && (tbPageContext = this.a) != null) {
+                    au4 au4Var = new au4(tbPageContext.getPageActivity());
+                    au4Var.setMessageId(R.string.obfuscated_res_0x7f0f0eaa);
+                    au4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f026a, new au4.e(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DistributeVideoView a;
@@ -1153,16 +1153,16 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                             this.a = this;
                         }
 
-                        @Override // com.baidu.tieba.vr4.e
-                        public void onClick(vr4 vr4Var2) {
+                        @Override // com.baidu.tieba.au4.e
+                        public void onClick(au4 au4Var2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, vr4Var2) == null) {
-                                vr4Var2.dismiss();
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, au4Var2) == null) {
+                                au4Var2.dismiss();
                                 this.a.performPlay();
                             }
                         }
                     });
-                    vr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new vr4.e(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
+                    au4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new au4.e(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DistributeVideoView a;
@@ -1185,15 +1185,15 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                             this.a = this;
                         }
 
-                        @Override // com.baidu.tieba.vr4.e
-                        public void onClick(vr4 vr4Var2) {
+                        @Override // com.baidu.tieba.au4.e
+                        public void onClick(au4 au4Var2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, vr4Var2) == null) {
-                                vr4Var2.dismiss();
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, au4Var2) == null) {
+                                au4Var2.dismiss();
                             }
                         }
                     });
-                    vr4Var.create(this.a).show();
+                    au4Var.create(this.a).show();
                 } else {
                     performPlay();
                 }
@@ -1210,21 +1210,21 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 this.J = false;
                 continuePlay(2);
                 if (this.E == 2) {
-                    sg.a().removeCallbacks(this.W);
-                    sg.a().postDelayed(this.W, TimeUnit.SECONDS.toMillis(3L));
+                    gh.a().removeCallbacks(this.W);
+                    gh.a().postDelayed(this.W, TimeUnit.SECONDS.toMillis(3L));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public boolean canPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             int[] iArr = new int[2];
             getLocationInWindow(iArr);
-            return !(iArr[0] == 0 && iArr[1] == 0) && (iArr[1] + getHeight()) + (-120) > 0 && iArr[1] <= ri.i(this.b);
+            return !(iArr[0] == 0 && iArr[1] == 0) && (iArr[1] + getHeight()) + (-120) > 0 && iArr[1] <= ej.i(this.b);
         }
         return invokeV.booleanValue;
     }
@@ -1237,10 +1237,10 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.l.getControl().getCurrentPosition();
             this.l.getControl().start();
             if (this.C) {
-                tf5.e(this.z, true);
+                ci5.e(this.z, true);
             }
             setLoadingAnimShow(false);
-            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b06);
+            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b23);
             this.A = 1;
         }
     }
@@ -1260,17 +1260,17 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             if (z) {
-                sg.a().removeCallbacks(this.W);
+                gh.a().removeCallbacks(this.W);
                 Animation animation = this.H;
                 if (animation != null) {
                     animation.cancel();
                 }
                 this.u.setVisibility(0);
                 if (this.A == 1) {
-                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b06);
+                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b23);
                     return;
                 } else {
-                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b05);
+                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b22);
                     return;
                 }
             }
@@ -1304,7 +1304,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         this.m.playAnimation();
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public long getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1317,14 +1317,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.e : (VideoInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public int getPlayStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.A : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1335,7 +1335,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1350,21 +1350,21 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 if (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - this.D) < TimeUnit.SECONDS.toSeconds(3L)) {
                     return;
                 }
-                xd8 xd8Var = this.h;
-                if (xd8Var != null) {
-                    xd8Var.e();
+                ff8 ff8Var = this.h;
+                if (ff8Var != null) {
+                    ff8Var.e();
                 }
-                c98 c98Var = new c98();
-                c98Var.e = "ad_feed";
-                c98Var.d = c98Var.a("ad_feed");
-                c98Var.f = c98Var.c("1");
-                this.l.getControl().setVideoModel(c98Var);
+                ka8 ka8Var = new ka8();
+                ka8Var.e = "ad_feed";
+                ka8Var.d = ka8Var.a("ad_feed");
+                ka8Var.f = ka8Var.c("1");
+                this.l.getControl().setVideoModel(ka8Var);
                 this.l.getControl().setVideoPath(this.e.video_url);
                 this.l.getControl().setVideoScalingMode(this.Q);
                 this.l.getControl().start();
                 this.l.getControl().getCurrentPosition();
-                SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b06);
-                sg.a().postDelayed(this.e0, 100L);
+                SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b23);
+                gh.a().postDelayed(this.e0, 100L);
                 this.s.setVisibility(8);
                 this.n.setForegroundDrawable(0);
                 this.A = 0;
@@ -1400,9 +1400,9 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
             if (z) {
-                int k = ri.k(getContext());
-                int c = id8.c(k);
-                layoutParams.width = ri.k(getContext());
+                int k = ej.k(getContext());
+                int c = qe8.c(k);
+                layoutParams.width = ej.k(getContext());
                 layoutParams.height = k;
                 layoutParams2.width = c;
                 layoutParams2.height = k;
@@ -1423,14 +1423,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? getPlayStatus() != -1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1463,7 +1463,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         if (i == 102) {
             clogBuilder.j("replaybtn");
         }
-        iy0.b(clogBuilder);
+        uz0.b(clogBuilder);
     }
 
     @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView
@@ -1476,19 +1476,19 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
     public final void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            sg.a().removeCallbacks(this.V);
-            sg.a().removeCallbacks(this.W);
-            sg.a().removeCallbacks(this.a0);
+            gh.a().removeCallbacks(this.V);
+            gh.a().removeCallbacks(this.W);
+            gh.a().removeCallbacks(this.a0);
             this.S.removeMessages(1001);
             this.S.removeMessages(1003);
             this.l.getControl().stopPlayback();
             this.A = -1;
-            tf5.e(this.z, false);
+            ci5.e(this.z, false);
             f0(false);
             this.n.setForegroundDrawable(0);
             this.n.setVisibility(0);
             setLoadingAnimShow(true);
-            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b05);
+            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b22);
             this.w.n();
             this.s.setVisibility(8);
             VideoInfo videoInfo = this.e;
@@ -1513,9 +1513,9 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                     this.l.getControl().setVolume(1.0f, 1.0f);
                 }
                 SkinManager.setImageResource(this.r, R.drawable.obfuscated_res_0x7f0800c3);
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080ae5);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b02);
                 if (this.A == 1) {
-                    tf5.e(this.z, true);
+                    ci5.e(this.z, true);
                 }
             } else {
                 TbVideoViewContainer tbVideoViewContainer2 = this.l;
@@ -1523,8 +1523,8 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                     this.l.getControl().setVolume(0.0f, 0.0f);
                 }
                 SkinManager.setImageResource(this.r, R.drawable.obfuscated_res_0x7f0800c2);
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080ae3);
-                tf5.e(this.z, false);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b00);
+                ci5.e(this.z, false);
             }
             this.C = z;
         }
@@ -1552,9 +1552,9 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         if ((interceptable == null || interceptable.invokeI(1048611, this, i) == null) && this.A == 1) {
             j0(32, X(this.O), this.l.getControl().getCurrentPosition(), i);
             this.l.getControl().pause();
-            tf5.e(this.z, false);
+            ci5.e(this.z, false);
             setLoadingAnimShow(true);
-            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b05);
+            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b22);
             this.A = 2;
         }
     }
@@ -1566,7 +1566,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
@@ -1648,14 +1648,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
     }
 
     @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView
-    public void setVideoTailFrameData(hd8 hd8Var) {
+    public void setVideoTailFrameData(pe8 pe8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, hd8Var) == null) {
-            this.f = hd8Var;
+        if (interceptable == null || interceptable.invokeL(1048624, this, pe8Var) == null) {
+            this.f = pe8Var;
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
@@ -1663,7 +1663,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ub8
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.cd8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
@@ -1678,14 +1678,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             if (advertAppInfo == null) {
                 advertAppInfo = this.j;
             }
-            xd8 b = this.g.b(this.f, this.h);
+            ff8 b = this.g.b(this.f, this.h);
             this.h = b;
             if (b != null) {
                 b.h(this.a);
                 this.h.g(this.F);
-                xd8 xd8Var = this.h;
-                if (xd8Var instanceof sd8) {
-                    ((sd8) xd8Var).m(this.P);
+                ff8 ff8Var = this.h;
+                if (ff8Var instanceof af8) {
+                    ((af8) ff8Var).m(this.P);
                 }
                 this.h.f(advertAppInfo);
                 this.h.c(this.f);
@@ -1716,9 +1716,9 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.z = new WeakReference<>(this.b.getApplicationContext());
             k0();
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            int k = ri.k(this.b) - ri.f(this.b, R.dimen.obfuscated_res_0x7f07024a);
+            int k = ej.k(this.b) - ej.f(this.b, R.dimen.obfuscated_res_0x7f07024a);
             if (this.E == 2) {
-                k = ri.k(this.b);
+                k = ej.k(this.b);
             }
             int intValue = this.e.video_width.intValue() > 0 ? (this.e.video_height.intValue() * k) / this.e.video_width.intValue() : k;
             ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
@@ -1730,16 +1730,16 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             setOnClickListener(this.R);
             this.n.setDefaultResource(0);
             this.n.setDefaultBgResource(R.drawable.pic_use_header_40_n);
-            if (!qi.isEmpty(videoInfo.thumbnail_url)) {
+            if (!dj.isEmpty(videoInfo.thumbnail_url)) {
                 this.n.K(videoInfo.thumbnail_url, 10, false);
             }
             this.l.getControl().setOperableVideoContainer(this.T);
-            if (xj5.a().k()) {
-                c98 c98Var = new c98();
-                c98Var.e = "ad_feed";
-                c98Var.d = c98Var.a("ad_feed");
-                c98Var.f = c98Var.c("1");
-                this.l.getControl().setVideoModel(c98Var);
+            if (gm5.a().k()) {
+                ka8 ka8Var = new ka8();
+                ka8Var.e = "ad_feed";
+                ka8Var.d = ka8Var.a("ad_feed");
+                ka8Var.f = ka8Var.c("1");
+                this.l.getControl().setVideoModel(ka8Var);
                 this.l.getControl().setVideoPath(videoInfo.video_url);
                 CyberPlayerManager.prefetch(videoInfo.video_url, null, null, PreLoadVideoSwitchManager.getInstance().getSize(), null);
             }
@@ -1748,7 +1748,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.o.setText(StringUtils.translateSecondsToString(this.e.video_duration.intValue()));
             if (this.E == 1) {
                 this.C = false;
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080ae3);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b00);
                 this.q.setVisibility(8);
             } else {
                 this.C = true;
@@ -1842,7 +1842,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         } else {
                             int jump2DownloadDetailPage = this.a.jump2DownloadDetailPage();
                             this.a.T();
-                            if (fc8.h(jump2DownloadDetailPage)) {
+                            if (nd8.h(jump2DownloadDetailPage)) {
                                 this.a.U(jump2DownloadDetailPage);
                             }
                         }
@@ -1897,18 +1897,18 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         }
                     } else if (this.a.A == 1) {
                     } else {
-                        if (!xj5.a().k() ? this.a.l.getControl().getCurrentPosition() <= 0 : !this.a.l.getControl().isPlaying()) {
+                        if (!gm5.a().k() ? this.a.l.getControl().getCurrentPosition() <= 0 : !this.a.l.getControl().isPlaying()) {
                             this.a.S.sendEmptyMessageDelayed(1001, TimeUnit.MILLISECONDS.toMillis(500L));
                             return;
                         }
                         this.a.A = 1;
                         this.a.W();
-                        sg.a().removeCallbacks(this.a.e0);
+                        gh.a().removeCallbacks(this.a.e0);
                     }
                 }
             }
         };
-        this.T = new j98(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
+        this.T = new ra8(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DistributeVideoView a;
@@ -1931,14 +1931,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 this.a = this;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void changeRenderViewMode(int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public int getCurrentPosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1948,7 +1948,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public View getMainView() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1958,7 +1958,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return (View) invokeV.objValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean isFullScreen() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1968,7 +1968,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean isPlaying() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1978,7 +1978,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onBackPress() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1988,7 +1988,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onBackground(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable2 = $ic;
@@ -2078,7 +2078,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void onScroll() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048588, this) == null) {
@@ -2108,7 +2108,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onVolumeUp() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2118,63 +2118,63 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setAfterClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048593, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setData(ThreadData threadData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048594, this, threadData) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setFrom(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048595, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048596, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setStageType(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048597, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
-            public void setStatistic(e98 e98Var) {
+            @Override // com.baidu.tieba.ra8
+            public void setStatistic(ma8 ma8Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048598, this, e98Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048598, this, ma8Var) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setUniqueId(BdUniqueId bdUniqueId) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048599, this, bdUniqueId) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void startPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048600, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void stopPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048601, this) == null) {
@@ -2530,7 +2530,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         } else {
                             int jump2DownloadDetailPage = this.a.jump2DownloadDetailPage();
                             this.a.T();
-                            if (fc8.h(jump2DownloadDetailPage)) {
+                            if (nd8.h(jump2DownloadDetailPage)) {
                                 this.a.U(jump2DownloadDetailPage);
                             }
                         }
@@ -2585,18 +2585,18 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                         }
                     } else if (this.a.A == 1) {
                     } else {
-                        if (!xj5.a().k() ? this.a.l.getControl().getCurrentPosition() <= 0 : !this.a.l.getControl().isPlaying()) {
+                        if (!gm5.a().k() ? this.a.l.getControl().getCurrentPosition() <= 0 : !this.a.l.getControl().isPlaying()) {
                             this.a.S.sendEmptyMessageDelayed(1001, TimeUnit.MILLISECONDS.toMillis(500L));
                             return;
                         }
                         this.a.A = 1;
                         this.a.W();
-                        sg.a().removeCallbacks(this.a.e0);
+                        gh.a().removeCallbacks(this.a.e0);
                     }
                 }
             }
         };
-        this.T = new j98(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
+        this.T = new ra8(this) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DistributeVideoView a;
@@ -2619,14 +2619,14 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 this.a = this;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void changeRenderViewMode(int i32) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i32) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public int getCurrentPosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2636,7 +2636,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public View getMainView() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2646,7 +2646,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return (View) invokeV.objValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean isFullScreen() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2656,7 +2656,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean isPlaying() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2666,7 +2666,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onBackPress() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2676,7 +2676,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onBackground(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable2 = $ic;
@@ -2766,7 +2766,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void onScroll() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048588, this) == null) {
@@ -2796,7 +2796,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public boolean onVolumeUp() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -2806,63 +2806,63 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 return invokeV.booleanValue;
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setAfterClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048593, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setData(ThreadData threadData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048594, this, threadData) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setFrom(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048595, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048596, this, onClickListener) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setStageType(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048597, this, str) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
-            public void setStatistic(e98 e98Var) {
+            @Override // com.baidu.tieba.ra8
+            public void setStatistic(ma8 ma8Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048598, this, e98Var) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048598, this, ma8Var) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void setUniqueId(BdUniqueId bdUniqueId) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048599, this, bdUniqueId) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void startPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048600, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.j98
+            @Override // com.baidu.tieba.ra8
             public void stopPlay() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048601, this) == null) {
@@ -3150,10 +3150,10 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
     }
 
     @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView
-    public void setData(VideoInfo videoInfo, gd8 gd8Var, int i, int i2, int i3, int i4) {
+    public void setData(VideoInfo videoInfo, oe8 oe8Var, int i, int i2, int i3, int i4) {
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{videoInfo, gd8Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{videoInfo, oe8Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (videoInfo == null) {
                 setVisibility(8);
                 return;
@@ -3167,18 +3167,18 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             layoutParams.height = i4;
             setOnClickListener(this.R);
             int i6 = 13;
-            if (gd8Var != null && gd8Var.a()) {
+            if (oe8Var != null && oe8Var.a()) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.x.getLayoutParams();
                 layoutParams2.width = i3;
                 layoutParams2.height = i4;
-                this.x.K(gd8Var.a, 30, false);
+                this.x.K(oe8Var.a, 30, false);
                 this.x.setVisibility(0);
-                double d = gd8Var.b;
+                double d = oe8Var.b;
                 if (d > 0.0d) {
                     i = (int) (i3 * d);
-                    i2 = id8.b(i);
+                    i2 = qe8.b(i);
                 }
-                double d2 = gd8Var.c;
+                double d2 = oe8Var.c;
                 i5 = d2 > 0.0d ? Math.min((int) (i3 * d2), i3 - i) : 0;
                 i6 = 11;
             } else {
@@ -3198,16 +3198,16 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             layoutParams5.height = i2;
             this.n.setDefaultResource(0);
             this.n.setDefaultBgResource(R.drawable.pic_use_header_40_n);
-            if (!qi.isEmpty(videoInfo.thumbnail_url)) {
+            if (!dj.isEmpty(videoInfo.thumbnail_url)) {
                 this.n.K(videoInfo.thumbnail_url, 10, false);
             }
             this.l.getControl().setOperableVideoContainer(this.T);
-            if (xj5.a().k()) {
-                c98 c98Var = new c98();
-                c98Var.e = "ad_feed";
-                c98Var.d = c98Var.a("ad_feed");
-                c98Var.f = c98Var.c("1");
-                this.l.getControl().setVideoModel(c98Var);
+            if (gm5.a().k()) {
+                ka8 ka8Var = new ka8();
+                ka8Var.e = "ad_feed";
+                ka8Var.d = ka8Var.a("ad_feed");
+                ka8Var.f = ka8Var.c("1");
+                this.l.getControl().setVideoModel(ka8Var);
                 this.l.getControl().setVideoPath(videoInfo.video_url);
                 CyberPlayerManager.prefetch(videoInfo.video_url, null, null, PreLoadVideoSwitchManager.getInstance().getSize(), null);
             }
@@ -3216,7 +3216,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.o.setText(StringUtils.translateSecondsToString(this.e.video_duration.intValue()));
             if (this.E == 1) {
                 this.C = false;
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080ae3);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b00);
                 this.q.setVisibility(8);
             } else {
                 this.C = true;

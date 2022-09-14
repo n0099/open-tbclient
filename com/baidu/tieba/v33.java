@@ -1,376 +1,193 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class v33 extends x23 {
+public class v33 extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, v43> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-
-        public a(v33 v33Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v33Var, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-
-        public b(v33 v33Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v33Var, callbackHandler, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BaseAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-
-        public c(v33 v33Var, List list, Context context, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v33Var, list, context, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
-            this.b = context;
-            this.c = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public String getItem(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (String) this.a.get(i) : (String) invokeI.objValue;
-        }
-
-        public final void b(@NonNull View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-                if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113d));
-                } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08113c));
-                }
-            }
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.size() : invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00cc, null);
-                }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ac);
-                textView.setTextColor(this.c);
-                textView.setText(getItem(i));
-                b(view2, i);
-                return view2;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ e03 c;
-
-        public d(v33 v33Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, e03 e03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v33Var, callbackHandler, unitedSchemeEntity, e03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = e03Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("tapIndex", i);
-                    UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    this.c.dismiss();
-                } catch (JSONException e) {
-                    if (x23.b) {
-                        e.printStackTrace();
-                    }
-                    UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(201));
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v33(x13 x13Var) {
-        super(x13Var, "/swanAPI/showActionSheet");
+    public v33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
+        a();
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public void a() {
+        List<v43> c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var != null && a13Var.n0()) {
-                if (x23.b) {
-                    Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            } else if (context != null && a13Var != null) {
-                return l(context, unitedSchemeEntity, callbackHandler);
-            } else {
-                ay1.c("ShowActionSheet", "aiapp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            b(new p43(this));
+            b(new iu2(this));
+            b(new y43(this));
+            b(new b43(this));
+            b(new bu2(this));
+            b(new k43(this));
+            b(new ua3(this));
+            b(new va3(this));
+            b(new oa3(this));
+            b(new pa3(this));
+            b(new wa3(this));
+            b(new xa3(this));
+            b(new ra3(this));
+            b(new sa3(this));
+            b(new ja3(this));
+            b(new ka3(this));
+            b(new p73(this));
+            b(new o73(this));
+            b(new m73(this));
+            b(new k73(this));
+            b(new j73(this));
+            b(new i73(this));
+            b(new l73(this));
+            b(new s73(this));
+            b(new e43(this));
+            b(new t43(this));
+            b(new u92(this));
+            b(new x43(this));
+            b(new m43(this));
+            b(new l43(this));
+            b(new yc3(this));
+            b(new zc3(this));
+            b(new lc3(this));
+            b(new mc3(this));
+            b(new lr2(this));
+            b(new o43(this));
+            b(new tr2(this));
+            b(new nu2(this));
+            b(new f43(this));
+            b(new v53(this));
+            b(new s53(this));
+            b(new dv1(this));
+            b(new s43(this));
+            b(new SwanAppDownloadAction(this));
+            b(new w43(this));
+            b(new t53(this));
+            b(new q53(this));
+            b(new p53(this));
+            b(new hd3(this));
+            b(new id3(this));
+            b(new uc3(this));
+            b(new sc3(this));
+            b(new nc3(this));
+            b(new kd3(this));
+            b(new oc3(this));
+            b(new pc3(this));
+            b(new jd3(this));
+            b(new pq1(this));
+            b(new q73(this));
+            b(new rj2(this));
+            b(new qq1(this));
+            b(new h03(this));
+            b(new f03(this));
+            b(new i03(this));
+            b(new g03(this));
+            dk1 d = gm2.d();
+            if (d == null || (c = d.c(this)) == null || c.isEmpty()) {
+                return;
+            }
+            for (v43 v43Var : c) {
+                b(v43Var);
             }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final int k(Context context, int i) {
-        InterceptResult invokeLI;
-        int s;
+    @SuppressLint({"BDThrowableCheck"})
+    public void b(v43 v43Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i)) == null) {
-            Resources resources = context.getResources();
-            int dimensionPixelSize = ((((i + 1) * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f5)) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3)) + i) - 1;
-            return (!re3.J() || dimensionPixelSize <= (s = re3.s(context) - re3.t())) ? dimensionPixelSize : s;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v43Var) == null) {
+            this.a.put(v43Var.a, v43Var);
         }
-        return invokeLI.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0073  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x007a  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public String getDispatcherName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swanAPI" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return null;
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         InterceptResult invokeLLL;
-        int i;
-        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) != null) {
-            return invokeLLL.booleanValue;
-        }
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (optParamsAsJo == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        ArrayList arrayList = new ArrayList();
-        try {
-            JSONArray jSONArray = optParamsAsJo.getJSONArray("itemList");
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                String string = jSONArray.getString(i2);
-                if (TextUtils.isEmpty(string)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty url");
+                return false;
+            } else if (uri.getPathSegments() != null && !uri.getPathSegments().isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("swanAPI");
+                arrayList.addAll(uri.getPathSegments());
+                String str = "/swanAPI" + uri.getPath();
+                if (!TextUtils.isEmpty(str) && str.startsWith("/")) {
+                    for (int size = arrayList.size(); size > 0; size--) {
+                        String str2 = "/" + ((String) arrayList.get(size - 1));
+                        if (str.isEmpty() || str.length() < str2.length()) {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
+                            return false;
+                        }
+                        v43 v43Var = this.a.get(str);
+                        if (v43Var != null) {
+                            if (unitedSchemeEntity.isOnlyVerify()) {
+                                return true;
+                            }
+                            return v43Var.h(context, unitedSchemeEntity, callbackHandler, "/swanAPI" + uri.getPath());
+                        }
+                        str = str.substring(0, str.length() - str2.length());
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "not support such action ：" + uri.getPath());
                     return false;
                 }
-                arrayList.add(string);
-            }
-            optString = optParamsAsJo.optString("itemColor");
-        } catch (IllegalArgumentException | JSONException e) {
-            if (x23.b) {
-                e.printStackTrace();
-            }
-        }
-        if (!TextUtils.isEmpty(optString)) {
-            if (optString.length() == 4 && optString.charAt(0) == '#') {
-                optString = SwanAppConfigData.d(optString);
-            }
-            i = Color.parseColor(optString);
-            if (!arrayList.isEmpty()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str);
+                return false;
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty Segment");
                 return false;
             }
-            if (i == -1) {
-                i = context.getResources().getColor(R.color.obfuscated_res_0x7f060394);
-            }
-            d03 d03Var = new d03(context);
-            d03Var.f(true);
-            d03Var.i(true);
-            d03Var.k(true);
-            d03Var.T(false);
-            d03Var.m(true);
-            d03Var.n(new ig3());
-            d03Var.s(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3));
-            d03Var.p(R.drawable.obfuscated_res_0x7f080124);
-            d03Var.F(R.color.obfuscated_res_0x7f060a37);
-            d03Var.B(R.string.obfuscated_res_0x7f0f0110, new b(this, callbackHandler, unitedSchemeEntity));
-            d03Var.K(new a(this, callbackHandler, unitedSchemeEntity));
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00cb, null);
-            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09130a);
-            listView.setSelector(new ColorDrawable(0));
-            listView.setAdapter((ListAdapter) new c(this, arrayList, context, i));
-            d03Var.W(inflate);
-            d03Var.j();
-            d03Var.q(k(context, arrayList.size()));
-            e03 c2 = d03Var.c();
-            Window window = c2.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setDimAmount(0.65f);
-                window.setLayout(re3.s(context), -2);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039b);
-            }
-            c2.a(false);
-            c2.setCanceledOnTouchOutside(true);
-            listView.setOnItemClickListener(new d(this, callbackHandler, unitedSchemeEntity, c2));
-            c2.show();
-            return true;
         }
-        i = -1;
-        if (!arrayList.isEmpty()) {
-        }
+        return invokeLLL.booleanValue;
     }
 }

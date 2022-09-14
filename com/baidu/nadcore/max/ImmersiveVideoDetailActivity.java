@@ -21,7 +21,7 @@ import com.baidu.nadcore.max.uicomponent.WebViewComponent;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gm0;
+import com.baidu.tieba.sn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,16 +52,16 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void P0(Bundle bundle) {
+    public void Z0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.P0(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05e4);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c34);
+            super.Z0(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d05fb);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c82);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.v = (FrameLayout) findViewById;
             getWindow().setFormat(-3);
-            q1();
+            w1();
             ComponentArchManager componentArchManager = this.u;
             if (componentArchManager == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
@@ -77,26 +77,26 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (frameLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("rootView");
             }
-            componentArchManager2.f(frameLayout);
+            componentArchManager2.h(frameLayout);
             ComponentArchManager componentArchManager3 = this.u;
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            gm0 gm0Var = (gm0) componentArchManager3.p(gm0.class);
-            if (gm0Var != null) {
+            sn0 sn0Var = (sn0) componentArchManager3.p(sn0.class);
+            if (sn0Var != null) {
                 String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                gm0Var.a(str, "");
+                sn0Var.a(str, "");
             }
-            n1(false);
+            t1(false);
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void T0(Intent intent) {
+    public void b1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            super.T0(intent);
+            super.b1(intent);
             if (intent != null) {
                 ComponentArchManager componentArchManager = this.u;
                 if (componentArchManager == null) {
@@ -108,11 +108,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean c1(Bundle bundle) {
+    public boolean k1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            if (super.c1(bundle)) {
+            if (super.k1(bundle)) {
                 getWindow().setSoftInputMode(19);
                 requestWindowFeature(1);
                 if (Build.VERSION.SDK_INT == 26) {
@@ -120,7 +120,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                     setCurrentActivityNoTransparent();
                 } else {
                     setEnableSliding(true);
-                    n1(true);
+                    t1(true);
                 }
                 return true;
             }
@@ -145,7 +145,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         return invokeIL.booleanValue;
     }
 
-    public final void q1() {
+    public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Lifecycle lifecycle = getLifecycle();

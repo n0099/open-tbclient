@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v81;
+import com.baidu.tieba.sa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,9 +58,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d8, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921b7);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921bc);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f7, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09220a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09220f);
         }
     }
 
@@ -93,7 +93,7 @@ public class TipView extends LinearLayout {
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            v81.b().a(this.a, str);
+            sa1.b().a(this.a, str);
             this.b.setText(str2);
         }
     }

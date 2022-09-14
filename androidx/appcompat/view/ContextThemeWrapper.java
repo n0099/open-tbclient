@@ -8,9 +8,9 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.view.LayoutInflater;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$style;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,7 +143,7 @@ public class ContextThemeWrapper extends ContextWrapper {
                 return theme;
             }
             if (this.mThemeResource == 0) {
-                this.mThemeResource = R$style.obfuscated_res_0x7f100228;
+                this.mThemeResource = R.style.obfuscated_res_0x7f100228;
             }
             initializeTheme();
             return this.mTheme;

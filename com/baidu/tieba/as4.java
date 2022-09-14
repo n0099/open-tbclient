@@ -1,119 +1,118 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.NativeEmotionManagerActivityConfig;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class as4 extends zr4 {
+public class as4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView l;
-    public TextView m;
-    public View.OnClickListener n;
-    public int o;
-    public int p;
+    public int a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public String g;
+    public String h;
+    public int i;
+    public int j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as4(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public as4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = R.color.CAM_X0304;
-        this.p = R.color.CAM_X0107;
-        this.l = (TextView) e().findViewById(R.id.obfuscated_res_0x7f0921e3);
-        this.m = (TextView) e().findViewById(R.id.obfuscated_res_0x7f0921d1);
-        i(true);
+        this.b = "";
+        this.g = "";
+        this.h = "";
     }
 
-    @Override // com.baidu.tieba.zr4
-    public void b(d9<?> d9Var) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d9Var) == null) {
-            super.b(d9Var);
-            o();
-        }
-    }
-
-    @Override // com.baidu.tieba.zr4
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zr4
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            j(i);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ns4.d(this.l).x(this.o);
-            ns4.d(this.m).x(this.p);
-        }
-    }
-
-    public as4 p(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
-            this.m.setText(i);
-            this.m.setOnClickListener(onClickListener);
-            this.m.setVisibility(0);
-            return this;
-        }
-        return (as4) invokeIL.objValue;
-    }
-
-    public as4 q(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
-            this.l.setText(i);
-            this.l.setOnClickListener(onClickListener);
-            this.l.setVisibility(0);
-            this.n = onClickListener;
-            return this;
-        }
-        return (as4) invokeIL.objValue;
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.o = R.color.CAM_X0304;
-                this.l.setEnabled(true);
-                this.l.setOnClickListener(this.n);
-            } else {
-                this.o = R.color.CAM_X0110;
-                this.l.setEnabled(false);
-                this.l.setOnClickListener(null);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.optInt("is_business_account", 0);
+                this.b = jSONObject.optString("auth_desc");
+                this.c = jSONObject.optInt("auth_type", 0);
+                this.d = jSONObject.optInt("is_original_author", 0);
+                this.e = jSONObject.optInt("god_status", 0);
+                this.f = jSONObject.optInt("is_god", 0);
+                this.g = jSONObject.optString("bazhu_desc");
+                this.h = jSONObject.optString("bazhu_level");
+                this.i = jSONObject.optInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, 0);
+                this.j = jSONObject.optInt(NativeEmotionManagerActivityConfig.KEY, 0);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            o();
         }
+    }
+
+    public void b(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userData) == null) || userData == null) {
+            return;
+        }
+        if (userData.getBusinessAccountData() != null) {
+            this.a = userData.getBusinessAccountData().isBusinessAccount ? 1 : 0;
+        }
+        if (userData.getCreatorInfo() != null) {
+            this.b = userData.getCreatorInfo().authDesc;
+        }
+        this.c = userData.getAuthType();
+        this.d = userData.getIsOriginalAuthor();
+        if (userData.getNewGodData() != null) {
+            this.e = userData.getNewGodData().getStatus();
+        }
+        this.f = userData.isGod() ? 1 : 0;
+        if (userData.getBazhuGradeData() != null) {
+            this.g = userData.getBazhuGradeData().getDesc();
+            this.h = userData.getBazhuGradeData().getLevel();
+        }
+        if (userData.getPrivSetsData() != null) {
+            this.i = userData.getPrivSetsData().getBazhuShowOutside();
+        }
+        this.j = userData.getIsBaZhu();
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("is_business_account", this.a);
+                jSONObject.put("auth_desc", this.b);
+                jSONObject.put("auth_type", this.c);
+                jSONObject.put("is_original_author", this.d);
+                jSONObject.put("god_status", this.e);
+                jSONObject.put("is_god", this.f);
+                jSONObject.put("bazhu_desc", this.g);
+                jSONObject.put("bazhu_level", this.h);
+                jSONObject.put(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, this.i);
+                jSONObject.put(NativeEmotionManagerActivityConfig.KEY, this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

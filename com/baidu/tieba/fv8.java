@@ -1,157 +1,187 @@
 package com.baidu.tieba;
 
-import android.widget.CompoundButton;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.util.Log;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.searchbox.afx.recode.OutputSurface;
+import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.faceunity.FaceUnityUtils;
+import com.faceunity.gles.FullFrameRect;
+import com.faceunity.gles.Texture2dProgram;
+import com.faceunity.wrapper.faceunity;
 /* loaded from: classes4.dex */
-public class fv8 {
+public class fv8 implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
+    public static int m;
+    public static int n;
+    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public bl5 b;
-    public NEGFeedBackView.b c;
+    public SurfaceTexture a;
+    public Surface b;
+    public Object c;
+    public boolean d;
+    public Context e;
+    public String f;
+    public int g;
+    public int h;
+    public FullFrameRect i;
+    public FullFrameRect j;
+    public int k;
+    public final float[] l;
 
-    /* loaded from: classes4.dex */
-    public class a implements NEGFeedBackView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fv8 a;
-
-        public a(fv8 fv8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777697, "Lcom/baidu/tieba/fv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = fv8Var;
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, dq4 dq4Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, dq4Var) == null) || arrayList == null || dq4Var == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947777697, "Lcom/baidu/tieba/fv8;");
                 return;
             }
-            StringBuilder sb = new StringBuilder();
-            int size = arrayList.size();
-            int i = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                sb.append(arrayList.get(i2));
-                sb.append(",");
-            }
-            if (sb.length() > 0) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            int i3 = dq4Var.n;
-            int i4 = 3;
-            if (i3 == 0) {
-                i = 1;
-            } else if (i3 == 40) {
-                i = 2;
-            } else if (i3 == 49 || i3 == 69) {
-                i = 3;
-            }
-            boolean z = dq4Var.r;
-            if (!this.a.a) {
-                i4 = z ? 5 : 4;
-            } else if (!z) {
-                i4 = 2;
-            }
-            StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", dq4Var.f()).param("nid", dq4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dq4Var.c()).param("obj_param1", dq4Var.k).param("obj_source", dq4Var.l).param("obj_id", dq4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
         }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(dq4 dq4Var, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dq4Var, compoundButton, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(dq4 dq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dq4Var) == null) {
-            }
-        }
+        o = new int[]{0, 0, 0};
     }
 
-    public fv8() {
+    public fv8(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this);
+        this.c = new Object();
+        this.f = "normal";
+        this.l = new float[16];
+        this.e = context;
+        this.f = str;
+        this.g = i;
+        this.h = i2;
+        f();
     }
 
-    public void b() {
-        bl5 bl5Var;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bl5Var = this.b) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                while (!this.d) {
+                    try {
+                        this.c.wait(500L);
+                        if (!this.d) {
+                            throw new RuntimeException("Surface frame wait timed out");
+                        }
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                this.d = false;
+            }
+            b("before updateTexImage");
+            this.a.updateTexImage();
+        }
+    }
+
+    public void b(String str) {
+        int glGetError;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        bl5Var.h();
+        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
+        throw new RuntimeException(str + ": glError " + glGetError);
     }
 
-    public void c(boolean z) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.updateTexImage();
+            this.a.getTransformMatrix(this.l);
+            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
+            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
+            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
+            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
         }
     }
 
-    public void d(TbPageContext tbPageContext, VideoItemData videoItemData, boolean z) {
+    public Surface d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) == null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Surface) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.release();
+            this.b = null;
+            this.a = null;
+            FullFrameRect fullFrameRect = this.i;
+            if (fullFrameRect != null) {
+                fullFrameRect.release(false);
+                this.i = null;
+            }
+            faceunity.fuDestroyItem(n);
+            int[] iArr = o;
+            n = 0;
+            iArr[1] = 0;
+            faceunity.fuDestroyItem(m);
+            int[] iArr2 = o;
+            m = 0;
+            iArr2[0] = 0;
+            faceunity.fuOnDeviceLost();
         }
-        if (this.b == null) {
-            this.b = new bl5(tbPageContext);
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
+            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.j = fullFrameRect;
+            this.k = fullFrameRect.createTextureObject();
+            this.a = new SurfaceTexture(this.k);
+            this.b = new Surface(this.a);
+            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
+            m = upFaceUnity;
+            o[0] = upFaceUnity;
+            this.a.setOnFrameAvailableListener(this);
         }
-        dq4 negFeedBackData = videoItemData.getNegFeedBackData();
-        if (negFeedBackData == null) {
-            negFeedBackData = new dq4();
+    }
+
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            Log.d(OutputSurface.TAG, "new frame available");
+            synchronized (this.c) {
+                if (!this.d) {
+                    this.d = true;
+                    this.c.notifyAll();
+                } else {
+                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+                }
+            }
         }
-        String str = videoItemData.thread_id;
-        String str2 = videoItemData.forum_id;
-        negFeedBackData.r = z;
-        negFeedBackData.o(str);
-        negFeedBackData.l(str2);
-        this.b.r(this.a);
-        this.b.p(this.c);
-        this.b.o(negFeedBackData);
-        this.b.q(true);
-        this.b.h();
-        this.b.s();
-        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", this.a ? z ? 3 : 2 : z ? 5 : 4).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
     }
 }

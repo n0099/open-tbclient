@@ -54,9 +54,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static final String DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX = "+";
     public static final int DEFAULT_MAX_BADGE_CHARACTER_COUNT = 4;
     @StyleRes
-
-    /* renamed from: DEFAULT_STYLE */
-    public static final int obfuscated_res_0x7f100345 = 2131755845;
+    public static final int DEFAULT_STYLE = 2131755846;
     @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130968769;
     public static final int MAX_CIRCULAR_BADGE_NUMBER_COUNT = 9;
@@ -171,7 +169,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static BadgeDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100345) : (BadgeDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (BadgeDrawable) invokeL.objValue;
     }
 
     @NonNull
@@ -194,7 +192,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i, "badge");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = obfuscated_res_0x7f100345;
+                styleAttribute = DEFAULT_STYLE;
             }
             return createFromAttributes(context, parseDrawableXml, DEFAULT_THEME_ATTR, styleAttribute);
         }
@@ -232,7 +230,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                 return Integer.toString(getNumber());
             }
             Context context = this.contextRef.get();
-            return context == null ? "" : context.getString(R.string.obfuscated_res_0x7f0f0b06, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+            return context == null ? "" : context.getString(R.string.obfuscated_res_0x7f0f0b1c, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
         }
         return (String) invokeV.objValue;
     }
@@ -240,7 +238,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65545, this, context, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b1, R.attr.obfuscated_res_0x7f0400c0, R.attr.obfuscated_res_0x7f0400c2, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f0404bd, R.attr.obfuscated_res_0x7f040507, R.attr.obfuscated_res_0x7f04075d}, i, i2, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, com.google.android.material.R.styleable.Badge, i, i2, new int[0]);
             setMaxCharacterCount(obtainStyledAttributes.getInt(4, 4));
             if (obtainStyledAttributes.hasValue(5)) {
                 setNumber(obtainStyledAttributes.getInt(5, 0));
@@ -726,9 +724,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             this.alpha = 255;
             this.number = -1;
             this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f100206).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0b03);
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0b19);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0b05;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0b1b;
         }
 
         @Override // android.os.Parcelable

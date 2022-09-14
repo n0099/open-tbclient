@@ -1,105 +1,105 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.ab1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public class ya1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Toast a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ab1 a;
 
-    public static View a(Context context, String str) {
-        InterceptResult invokeLL;
+    public ya1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b7, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919dc)).setText(str);
-            return inflate;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            a = toast;
-            toast.setGravity(17, 0, 0);
-            a.setDuration(0);
-        }
-    }
-
-    public static View c(Context context, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b6, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919db);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919dc);
-            if (-1 == i) {
-                imageView.setVisibility(8);
-            } else {
-                imageView.setVisibility(0);
-                imageView.setImageResource(i);
-                if (z) {
-                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010098));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            textView.setText(str);
-            return inflate;
         }
-        return (View) invokeCommon.objValue;
+        File b = b(context, "bitmap");
+        if (!b.exists()) {
+            b.mkdirs();
+        }
+        try {
+            this.a = ab1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void d(Context context, int i, String str) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, null, context, i, str) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a == null) {
             return;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+        try {
+            ab1.c m = this.a.m(eb1.b(str));
+            if (m == null) {
+                return;
+            }
+            if (ua1.b(str, m.f(0))) {
+                m.e();
+            } else {
+                m.a();
+            }
+            this.a.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        b(context);
-        a.setView(c(context, i, str, false));
-        a.show();
     }
 
-    public static void e(Context context, int i, String str) {
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        String path;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) == null) || context == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
+                path = context.getExternalCacheDir().getPath();
+            } else {
+                path = context.getCacheDir().getPath();
+            }
+            return new File(path + File.separator + str);
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(c(context, i, str, true));
-        a.show();
+        return (File) invokeLL.objValue;
     }
 
-    public static void f(Context context, String str) {
+    public Bitmap c(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) || context == null) {
-            return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            if (this.a == null) {
+                return null;
+            }
+            ab1.e o = this.a.o(eb1.b(str));
+            if (o != null) {
+                FileInputStream fileInputStream = (FileInputStream) o.a(0);
+                if (i > 0 && i2 > 0) {
+                    return db1.b(fileInputStream.getFD(), i, i2);
+                }
+                return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
+            }
+            return null;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(a(context, str));
-        a.show();
+        return (Bitmap) invokeLII.objValue;
     }
 }

@@ -16,7 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.un5;
 import com.baidu.tieba.view.widget.mediaedit.RangeSlider;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
@@ -713,7 +714,7 @@ public class VideoClipLayout extends FrameLayout {
     public final void G(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040761});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, un5.VideoClipLayout);
             this.u = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
         }
@@ -743,7 +744,7 @@ public class VideoClipLayout extends FrameLayout {
             this.g = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
             this.n = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
             this.m = UtilHelper.getDimenPixelSize(R.dimen.tbds89);
-            double k = ((ri.k(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
+            double k = ((ej.k(getContext()) - UtilHelper.getDimenPixelSize(R.dimen.tbds187)) - this.g) - (UtilHelper.getDimenPixelSize(R.dimen.tbds31) * 2);
             this.h = k;
             double d3 = k / I;
             this.i = d3;
@@ -778,9 +779,9 @@ public class VideoClipLayout extends FrameLayout {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d088e, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092406);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092405);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ae, (ViewGroup) null);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092461);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f092460);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;

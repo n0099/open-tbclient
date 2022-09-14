@@ -1,16 +1,50 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface hm0 extends dh0 {
-    WebViewContainer b();
+public interface hm0 {
+    public static final hm0 a = new a();
 
-    void f(boolean z, boolean z2, boolean z3, int i);
+    /* loaded from: classes4.dex */
+    public static class a implements hm0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean g();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void i(MotionEvent motionEvent);
+        @Override // com.baidu.tieba.hm0
+        public int a(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? i : invokeLI.intValue;
+        }
 
-    void j(boolean z, boolean z2, boolean z3);
+        @Override // com.baidu.tieba.hm0
+        public double b(String str, double d) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) ? d : invokeCommon.doubleValue;
+        }
+    }
+
+    int a(String str, int i);
+
+    double b(String str, double d);
 }

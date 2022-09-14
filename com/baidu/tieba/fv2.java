@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fv2 implements tf3<HybridUbcFlow> {
+public class fv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ev2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fv2() {
+    public static synchronized ev2 a() {
+        InterceptResult invokeV;
+        ev2 ev2Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (fv2.class) {
+                if (a == null) {
+                    a = new ev2();
+                }
+                ev2Var = a;
             }
+            return ev2Var;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tf3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("967");
-            hybridUbcFlow.H("component_reporter", new cu2());
-            hybridUbcFlow.H("component_reporter", new yt2());
-        }
+        return (ev2) invokeV.objValue;
     }
 }

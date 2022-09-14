@@ -1,33 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
+import android.opengl.Matrix;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.minivideo.arface.bean.Sticker;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes3.dex */
 public class cd0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static Sticker f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
+    public static final String a = "cd0";
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-894142435, "Lcom/baidu/tieba/cd0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-894142435, "Lcom/baidu/tieba/cd0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[ScaleType.values().length];
+            a = iArr;
+            try {
+                iArr[ScaleType.FIT_XY.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[ScaleType.FIT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ScaleType.CENTER_CROP.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,115 +71,93 @@ public class cd0 {
         }
     }
 
-    public cd0(String str) {
+    public static void a(float[] fArr, MirrorType mirrorType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
+            if (fArr == null) {
+                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            }
+            if (mirrorType == MirrorType.HORIZONTALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
+            } else if (mirrorType == MirrorType.VERTICALLY) {
+                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
+                fArr[6] = 0.0f;
+                fArr[9] = 0.0f;
             }
         }
-        h(str);
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static void b(float[] fArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
+            Matrix.setIdentityM(fArr, 0);
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void c(float[] fArr, float f) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "/filter_config.json" : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? g : (String) invokeV.objValue;
-    }
-
-    public static String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z ? j : k : (String) invokeZ.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? h : (String) invokeV.objValue;
-    }
-
-    public static Sticker f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f : (Sticker) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? d : (String) invokeV.objValue;
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            if (bd0.m()) {
-                Log.d("DuAr_DuArResConfig", "setPath: " + str);
+        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
+            if (fArr == null) {
+                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
             }
-            String str2 = str + "/";
-            b = str2;
-            c = str2;
-            r0 = b + "ext/";
-            d = c + "faceModels/";
-            if (TextUtils.isEmpty(str)) {
-                g = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-                d = "file:///android_asset/arsource/faceModels/";
-                String str3 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-                h = str3 + "/makeup";
-                i = str3 + "/beauty";
-                j = str3 + "/arFilterInit";
-                k = str3 + "/arFilterEditInit";
-                String str4 = i + "/liveVideoFace/live_face_knead.json";
-                String str5 = i + "/liveVideoFace/goddess_face_knead.json";
-                String str6 = i + "/liveVideoFace/baby_face_knead.json";
-            } else {
-                g = c + "filters/yuantu/yuantu.png";
-                String str7 = c + "filter/beauty_skin_stream.png";
-                String str8 = c + "filter/beauty_skin_small_video.png";
-                h = b + "makeup/";
-                i = b + "beauty/";
-                j = b + "arFilterInit/";
-                k = b + "arFilterEditInit/";
-                r0 = i + "liveVideoFace/live_face_knead.json";
-                String str9 = i + "liveVideoFace/goddess_face_knead.json";
-                String str10 = i + "liveVideoFace/baby_face_knead.json";
-                if (f == null) {
-                    Sticker sticker = new Sticker();
-                    sticker.setArTyp(10);
-                    sticker.setFile(new File(b + "sticker/none_effect"));
-                    sticker.setId("-1");
-                    sticker.setMiniVersion(480);
-                    sticker.setMaxVersion(Integer.MAX_VALUE);
-                    f = sticker;
+            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
+        if (r0 > r5) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
+        if (r0 > r5) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
+        r5 = r5 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
+        r8 = r0 / r5;
+        r5 = 1.0f;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(float[] fArr, xc0 xc0Var, wc0 wc0Var, ScaleType scaleType, float f) {
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, xc0Var, wc0Var, scaleType, Float.valueOf(f)}) == null) {
+            if (fArr == null) {
+                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
+            } else if (xc0Var != null && xc0Var.d() > 0 && xc0Var.b() > 0) {
+                if (wc0Var != null && wc0Var.c() > 0 && wc0Var.b() > 0) {
+                    float d = (xc0Var.d() * 1.0f) / xc0Var.b();
+                    float c = (wc0Var.c() * 1.0f) / wc0Var.b();
+                    int i = a.a[scaleType.ordinal()];
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i == 4) {
+                                    f2 = f;
+                                }
+                            }
+                        }
+                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                        return;
+                    }
+                    f2 = 1.0f;
+                    f = 1.0f;
+                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
+                    return;
                 }
+                Log.e(a, "scaleDraw2DMVP draw target error!!!");
+            } else {
+                Log.e(a, "scaleDraw2DMVP source texture error!!!");
             }
-            r0 = c + "global";
-            String str11 = c + "vip_list.json";
-            e = c + "filters";
-            r0 = c + "dlModels/";
-            String str12 = e + "/all";
-            r0 = c + "global/res/filter";
+        }
+    }
+
+    public static void e(float[] fArr, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            Matrix.translateM(fArr, 0, f, f2, 1.0f);
         }
     }
 }

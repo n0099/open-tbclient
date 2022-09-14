@@ -1,187 +1,173 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Xml;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class fh4 {
+public class fh4<K, V> extends kh4<K, V> implements Map<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jh4<K, V> h;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    public static boolean a(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        int read;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
-            boolean z = false;
-            if (inputStream == null || file == null) {
-                return false;
-            }
-            File parentFile = file.getParentFile();
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            FileOutputStream fileOutputStream3 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
+    /* loaded from: classes4.dex */
+    public class a extends jh4<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fh4 d;
+
+        public a(fh4 fh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (Exception e) {
-                e = e;
             }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                fileOutputStream.flush();
-                z = true;
-                ch4.d(fileOutputStream);
-                fileOutputStream2 = read;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream3 = fileOutputStream;
-                e.printStackTrace();
-                ch4.d(fileOutputStream3);
-                fileOutputStream2 = fileOutputStream3;
-                ch4.d(inputStream);
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                ch4.d(fileOutputStream2);
-                ch4.d(inputStream);
-                throw th;
-            }
-            ch4.d(inputStream);
-            return z;
+            this.d = fh4Var;
         }
-        return invokeLL.booleanValue;
+
+        @Override // com.baidu.tieba.jh4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.clear();
+            }
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public Object b(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.d.b[(i << 1) + i2] : invokeII.objValue;
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public Map<K, V> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Map) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public int d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d.c : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public int e(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.d.e(obj) : invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public int f(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.d.g(obj) : invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public void g(K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
+                this.d.put(k, v);
+            }
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public void h(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.d.i(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.jh4
+        public V i(int i, V v) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) ? this.d.j(i, v) : (V) invokeIL.objValue;
+        }
     }
 
-    public static String b(InputStream inputStream) {
+    public fh4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // java.util.Map
+    public Set<Map.Entry<K, V>> entrySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l().l() : (Set) invokeV.objValue;
+    }
+
+    @Override // java.util.Map
+    public Set<K> keySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l().m() : (Set) invokeV.objValue;
+    }
+
+    public final jh4<K, V> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.h == null) {
+                this.h = new a(this);
+            }
+            return this.h;
+        }
+        return (jh4) invokeV.objValue;
+    }
+
+    public boolean m(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? c(inputStream, Xml.Encoding.UTF_8.toString()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) ? jh4.p(this, collection) : invokeL.booleanValue;
     }
 
-    public static String c(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
+    @Override // java.util.Map
+    public void putAll(Map<? extends K, ? extends V> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            b(this.c + map.size());
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
             }
-            StringBuilder sb = new StringBuilder();
-            try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    }
-                } catch (Throwable th) {
-                    ch4.d(inputStream);
-                    throw th;
-                }
-            } catch (Exception | OutOfMemoryError e) {
-                e.printStackTrace();
-            }
-            ch4.d(inputStream);
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean d(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
+    @Override // java.util.Map
+    public Collection<V> values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
-            boolean z = false;
-            if (inputStream != null && !TextUtils.isEmpty(str)) {
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                byte[] bArr = new byte[8192];
-                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
-                while (true) {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            z = true;
-                            break;
-                        }
-                        String str2 = str + "/" + nextEntry.getName();
-                        if (ch4.x(str2)) {
-                            ch4.d(zipInputStream);
-                            return false;
-                        } else if (nextEntry.isDirectory()) {
-                            File file2 = new File(str2);
-                            if (!file2.exists()) {
-                                file2.mkdirs();
-                            }
-                        } else {
-                            File parentFile = new File(str2).getParentFile();
-                            if (!parentFile.exists()) {
-                                parentFile.mkdirs();
-                            }
-                            if (!parentFile.isDirectory()) {
-                                parentFile.delete();
-                                parentFile.mkdirs();
-                            }
-                            FileOutputStream fileOutputStream = new FileOutputStream(str2);
-                            while (true) {
-                                try {
-                                    int read = zipInputStream.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    fileOutputStream.write(bArr, 0, read);
-                                } finally {
-                                }
-                            }
-                            ch4.d(fileOutputStream);
-                        }
-                    } catch (IOException unused) {
-                    } catch (Throwable th) {
-                        ch4.d(zipInputStream);
-                        throw th;
-                    }
-                }
-                ch4.d(zipInputStream);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l().n() : (Collection) invokeV.objValue;
     }
 }

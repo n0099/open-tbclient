@@ -1,20 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface w0a {
-    IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, s0a s0aVar);
+public abstract class w0a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    g3a b(Activity activity);
+    public w0a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    f3a c(Activity activity);
+    @Deprecated
+    public void a(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        }
+    }
 
-    h3a d(Activity activity);
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                cx9.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 
-    IYYPayWayView e(Activity activity, IYYPayWayView.b bVar, s0a s0aVar);
-
-    IYYPayResultView f(Activity activity, IYYPayResultView.c cVar, s0a s0aVar);
+    public String c(Object obj) throws InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
 }

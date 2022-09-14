@@ -2,28 +2,27 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgSingleVerticalLayout;
+import com.baidu.card.view.ForumGoodsEnterLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.py;
+import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rx extends sw<go4> {
+public class rx extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgSingleVerticalLayout f;
-    public go4 g;
-    public int h;
-    public String i;
+    public lq4 h;
+    public ForumGoodsEnterLayout i;
+    public int j;
+    public final View.OnClickListener k;
 
     /* loaded from: classes5.dex */
-    public class a implements py.b {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rx a;
@@ -46,21 +45,13 @@ public class rx extends sw<go4> {
             this.a = rxVar;
         }
 
-        @Override // com.baidu.tieba.py.b
-        public boolean a(py.a aVar) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    sz5.a(this.a.g.getThreadData().getId());
-                    rx rxVar = this.a;
-                    sz5.l(rxVar.f.a, rxVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    rx rxVar2 = this.a;
-                    sz5.l(rxVar2.f.b, rxVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                }
-                return false;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e() == null) {
+                return;
             }
-            return invokeL.booleanValue;
+            this.a.e().a(view2, this.a.h);
         }
     }
 
@@ -82,77 +73,71 @@ public class rx extends sw<go4> {
                 return;
             }
         }
-        this.h = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().h instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().h.getParent() == null) {
-            MutiImgSingleVerticalLayout mutiImgSingleVerticalLayout = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().h;
-            this.f = mutiImgSingleVerticalLayout;
-            mutiImgSingleVerticalLayout.setRealContext(context);
-            return;
-        }
-        this.f = new MutiImgSingleVerticalLayout(context);
+        this.k = new a(this);
+        int f = ej.f(context, R.dimen.M_H_X003);
+        int f2 = ej.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+        s(f);
+        r(f2);
+        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
+        this.i = forumGoodsEnterLayout;
+        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
     }
 
-    @Override // com.baidu.tieba.sw
+    @Override // com.baidu.tieba.gx
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sw
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(1, new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.sw
-    public void m(h06<go4> h06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, h06Var) == null) {
-            this.f.setSubClickListener(h06Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.xx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.h = i;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.d(tbPageContext, i);
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int f = ej.f(this.b, R.dimen.M_H_X003);
+            s(f);
+            r(0);
+            x(this.i, f, 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: q */
-    public void a(go4 go4Var) {
+    @Override // com.baidu.tieba.wx
+    /* renamed from: v */
+    public void a(lq4 lq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
-            this.g = go4Var;
-            this.f.setFrom(this.i);
-            this.f.a(go4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) {
+            this.h = lq4Var;
+            this.i.setSourceForPb(this.a.i());
+            this.i.setFrstype(this.j);
+            this.i.setData(lq4Var);
         }
     }
 
-    public void r(String str) {
+    public void w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.j = i;
         }
     }
 
-    public void s(boolean z) {
+    public void x(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setNeedFrsTabName(z);
+        if ((interceptable == null || interceptable.invokeLII(1048582, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
+                return;
+            }
+            marginLayoutParams.topMargin = i;
+            marginLayoutParams.bottomMargin = i2;
+            view2.setLayoutParams(marginLayoutParams);
         }
     }
 }

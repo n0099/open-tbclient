@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.ui.mvvm.IViewData;
 import com.baidu.bdtask.model.ui.TaskUIData;
-import com.baidu.tieba.ys;
+import com.baidu.tieba.mt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class ToastViewData implements IViewData {
     public final String message;
     public final int showType;
     public final String taskInfoSingleKey;
-    public final ys toastLayoutParams;
+    public final mt toastLayoutParams;
     public final String txtColor;
 
     /* loaded from: classes.dex */
@@ -76,12 +76,12 @@ public class ToastViewData implements IViewData {
         TYPE = new a(null);
     }
 
-    public ToastViewData(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7, String str8, String str9, String str10, ys ysVar) {
+    public ToastViewData(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7, String str8, String str9, String str10, mt mtVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), str5, str6, str7, str8, str9, str10, ysVar};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), str5, str6, str7, str8, str9, str10, mtVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -103,7 +103,7 @@ public class ToastViewData implements IViewData {
         this.backBtnBgUrl = str8;
         this.backBtnTxtColor = str9;
         this.backBtnSchema = str10;
-        this.toastLayoutParams = ysVar;
+        this.toastLayoutParams = mtVar;
     }
 
     public final String getBackBtnBgUrl() {
@@ -172,10 +172,10 @@ public class ToastViewData implements IViewData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.taskInfoSingleKey : (String) invokeV.objValue;
     }
 
-    public final ys getToastLayoutParams() {
+    public final mt getToastLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.toastLayoutParams : (ys) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.toastLayoutParams : (mt) invokeV.objValue;
     }
 
     public final String getTxtColor() {
@@ -184,7 +184,7 @@ public class ToastViewData implements IViewData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.txtColor : (String) invokeV.objValue;
     }
 
-    public /* synthetic */ ToastViewData(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7, String str8, String str9, String str10, ys ysVar, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, i, str2, str3, str4, i2, str5, str6, str7, str8, str9, str10, (i3 & 4096) != 0 ? null : ysVar);
+    public /* synthetic */ ToastViewData(String str, int i, String str2, String str3, String str4, int i2, String str5, String str6, String str7, String str8, String str9, String str10, mt mtVar, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i, str2, str3, str4, i2, str5, str6, str7, str8, str9, str10, (i3 & 4096) != 0 ? null : mtVar);
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.po;
-import com.baidu.tieba.ro;
-import com.baidu.tieba.so;
-import com.baidu.tieba.to;
-import com.baidu.tieba.w25;
-import com.baidu.tieba.xm8;
+import com.baidu.tieba.dp;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.fp;
+import com.baidu.tieba.gp;
+import com.baidu.tieba.hp;
+import com.baidu.tieba.lo8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,10 +44,10 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<xm8> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<lo8> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, po.o()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, dp.o()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -71,14 +71,14 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<w25> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<f55> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001272, new to(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001272, new hp(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -158,14 +158,14 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<w25> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<f55> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001301, new ro(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001301, new fp(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -191,14 +191,14 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<w25> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<f55> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001448, new so(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001448, new gp(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

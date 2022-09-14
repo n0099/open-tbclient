@@ -7,21 +7,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ev5;
-import com.baidu.tieba.hz5;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.yu5;
+import com.baidu.tieba.mw5;
+import com.baidu.tieba.sw5;
+import com.baidu.tieba.v06;
+import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveNormalCardView extends hz5<yu5> {
+public class AlaGameFrsLiveNormalCardView extends v06<mw5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public ev5 j;
+    public sw5 j;
 
     /* loaded from: classes3.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
@@ -73,21 +73,21 @@ public class AlaGameFrsLiveNormalCardView extends hz5<yu5> {
         r();
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010e : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public void j(TbPageContext<?> tbPageContext, int i) {
-        ev5 ev5Var;
+        sw5 sw5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (ev5Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (sw5Var = this.j) == null) {
             return;
         }
-        ev5Var.e(tbPageContext, i);
+        sw5Var.e(tbPageContext, i);
     }
 
     @Override // android.view.View.OnClickListener
@@ -100,30 +100,30 @@ public class AlaGameFrsLiveNormalCardView extends hz5<yu5> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new ev5(this.i);
+            this.j = new sw5(this.i);
             ((ViewGroup) h()).addView(this.j.c());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     /* renamed from: s */
-    public void i(yu5 yu5Var) {
+    public void i(mw5 mw5Var) {
         ThreadData threadData;
-        ev5 ev5Var;
+        sw5 sw5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, yu5Var) == null) || yu5Var == null || (threadData = yu5Var.a) == null || (ev5Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, mw5Var) == null) || mw5Var == null || (threadData = mw5Var.a) == null || (sw5Var = this.j) == null) {
             return;
         }
-        ev5Var.d(threadData);
+        sw5Var.d(threadData);
     }
 
-    public void t(kq5 kq5Var) {
-        ev5 ev5Var;
+    public void t(ws5 ws5Var) {
+        sw5 sw5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, kq5Var) == null) || (ev5Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, ws5Var) == null) || (sw5Var = this.j) == null) {
             return;
         }
-        ev5Var.g(kq5Var);
+        sw5Var.g(ws5Var);
     }
 }

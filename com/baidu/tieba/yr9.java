@@ -1,45 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class yr9 {
+public class yr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final int[] b;
-    public static final int[] c;
-    public static final int[] d;
-    public static final int[] e;
-    public static final int[] f;
-    public static final int[] g;
-    public static final int[] h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ls9 a;
+    public final SVGAVideoEntity b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948339913, "Lcom/baidu/tieba/yr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final gs9 b;
+
+        public a(yr9 yr9Var, String str, gs9 gs9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yr9Var, str, gs9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948339913, "Lcom/baidu/tieba/yr9;");
+            this.a = str;
+            this.b = gs9Var;
+        }
+
+        public final gs9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (gs9) invokeV.objValue;
+        }
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        }
+    }
+
+    public yr9(SVGAVideoEntity sVGAVideoEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sVGAVideoEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new int[]{1, 5, 9, 13, 17, 25, 33, 41, 49, 65, 81, 97, 113, Cea708Decoder.COMMAND_SPC, 177, 209, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, 305, 369, 497, 753, 1265, 2289, 4337, 8433, 16625};
-        b = new int[]{2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
-        c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, 130, 194, 322, 578, 1090, 2114, 6210, 22594};
-        d = new int[]{0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
-        e = new int[]{2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, 198, 326, 582, 1094, 2118};
-        f = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
-        g = new int[]{0, 0, 8, 8, 0, 16, 8, 16, 16};
-        h = new int[]{0, 8, 0, 8, 16, 0, 16, 8, 16};
+        this.b = sVGAVideoEntity;
+        this.a = new ls9();
+    }
+
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        }
+    }
+
+    public final ls9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ls9) invokeV.objValue;
+    }
+
+    public final SVGAVideoEntity c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SVGAVideoEntity) invokeV.objValue;
+    }
+
+    public final List<a> d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            List<fs9> g = this.b.g();
+            ArrayList arrayList = new ArrayList();
+            for (fs9 fs9Var : g) {
+                a aVar = null;
+                if (i >= 0 && i < fs9Var.a().size() && fs9Var.a().get(i).a() > 0.0d) {
+                    aVar = new a(this, fs9Var.b(), fs9Var.a().get(i));
+                }
+                if (aVar != null) {
+                    arrayList.add(aVar);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
     }
 }

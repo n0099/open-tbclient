@@ -1,22 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class oe4 extends Activity {
+public class oe4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile oe4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+
+    /* loaded from: classes5.dex */
+    public static class a extends ij4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_ceres");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public oe4() {
         Interceptable interceptable = $ic;
@@ -28,32 +50,65 @@ public abstract class oe4 extends Activity {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
     }
 
-    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public static oe4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
-                getLayoutInflater().setFactory(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (oe4.class) {
+                    if (b == null) {
+                        b = new oe4();
+                    }
+                }
             }
-            super.onCreate(bundle);
-            LogUtil.logActivity(this, "onCreate");
+            return b;
         }
+        return (oe4) invokeV.objValue;
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
-            View h = h(null, str, context, attributeSet);
-            return h == null ? super.onCreateView(str, context, attributeSet) : h;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("ceres_info", "0") : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("global_info", "0") : (String) invokeV.objValue;
+    }
+
+    public ne4 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
+            }
+            String optString = optJSONObject.optString("version");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
+                return null;
+            }
+            String optString2 = optJSONObject2.optString("version");
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
+                return null;
+            }
+            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            return new ne4(optJSONArray, optJSONObject3);
         }
-        return (View) invokeLLL.objValue;
+        return (ne4) invokeL.objValue;
     }
 }

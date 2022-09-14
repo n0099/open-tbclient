@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.dh;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
@@ -203,7 +203,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.author.portrait = (String) map2.get("portrait");
             this.author.hasFocus = "1".equals(map2.get("has_concerned"));
             if (map2.get("god_data") instanceof Map) {
-                int e = pg.e((String) ((Map) map2.get("god_data")).get("type"), 0);
+                int e = dh.e((String) ((Map) map2.get("god_data")).get("type"), 0);
                 this.author.isBigV = e == 2 || e == 1;
                 this.author.isGod = e == 2;
             }
@@ -212,7 +212,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 this.author.baijiahaoData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
                 this.author.baijiahaoData.name = (String) map3.get("name");
                 this.author.baijiahaoData.avatar = (String) map3.get("avatar");
-                this.author.baijiahaoData.auth_id = Integer.valueOf(pg.e((String) map3.get("auth_id"), 0));
+                this.author.baijiahaoData.auth_id = Integer.valueOf(dh.e((String) map3.get("auth_id"), 0));
                 this.author.baijiahaoData.auth_desc = (String) map3.get("auth_desc");
                 this.author.baijiahaoData.brief = (String) map3.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
             }
@@ -222,7 +222,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             BaijiahaoData baijiahaoData = new BaijiahaoData();
             baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
             baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
-            baijiahaoData.oriUgcType = pg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
+            baijiahaoData.oriUgcType = dh.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
             baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
             baijiahaoData.forwardUrl = (String) map4.get("forward_url");
             this.mBaijiahaoData = baijiahaoData;
@@ -234,32 +234,32 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             videoAggregationVideoData.thumbnailHeight = String.valueOf(map5.get("thumbnail_height"));
             videoAggregationVideoData.videoMd5 = (String) map5.get(VideoFinishResult.KEY_VIDEO_MD5);
             videoAggregationVideoData.videoUrl = (String) map5.get("video_url");
-            videoAggregationVideoData.videoDuration = pg.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
+            videoAggregationVideoData.videoDuration = dh.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
             videoAggregationVideoData.videoWidth = String.valueOf(map5.get("video_width"));
             videoAggregationVideoData.videoHeight = String.valueOf(map5.get("video_height"));
-            videoAggregationVideoData.videoSize = pg.e((String) map5.get("video_length"), 0);
+            videoAggregationVideoData.videoSize = dh.e((String) map5.get("video_length"), 0);
             videoAggregationVideoData.thumbnailUrl = (String) map5.get("thumbnail_url");
-            this.playCount = pg.e((String) map5.get("play_count"), 0);
+            this.playCount = dh.e((String) map5.get("play_count"), 0);
         }
         this.video = videoAggregationVideoData;
         this.forumId = String.valueOf(map.get("fid"));
         this.threadId = (String) map.get("tid");
         this.firstPostId = (String) map.get("first_post_id");
         this.createTime = (String) map.get("create_time");
-        this.postNum = pg.g((String) map.get("reply_num"), 0L);
-        this.shareNum = pg.g((String) map.get("share_num"), 0L);
+        this.postNum = dh.g((String) map.get("reply_num"), 0L);
+        this.shareNum = dh.g((String) map.get("share_num"), 0L);
         this.title = (String) map.get("title");
         if (map.get("agree") instanceof Map) {
             Map map6 = (Map) map.get("agree");
-            this.agreeNum = pg.g((String) map6.get("agree_num"), 0L);
-            this.disAgreeNum = pg.g((String) map6.get("disagree_num"), 0L);
-            this.agreeType = pg.e((String) map6.get("agree_type"), 0);
+            this.agreeNum = dh.g((String) map6.get("agree_num"), 0L);
+            this.disAgreeNum = dh.g((String) map6.get("disagree_num"), 0L);
+            this.agreeType = dh.e((String) map6.get("agree_type"), 0);
             this.hasAgree = "1".equals(map6.get("has_agree"));
             AgreeData agreeData = new AgreeData();
             this.mAgreeData = agreeData;
             agreeData.threadId = this.threadId;
             agreeData.agreeNum = this.agreeNum;
-            agreeData.diffAgreeNum = pg.g((String) map6.get("diff_agree_num"), 0L);
+            agreeData.diffAgreeNum = dh.g((String) map6.get("diff_agree_num"), 0L);
             AgreeData agreeData2 = this.mAgreeData;
             agreeData2.disAgreeNum = this.disAgreeNum;
             agreeData2.agreeType = this.agreeType;

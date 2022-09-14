@@ -1,64 +1,39 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.SearchEmotionModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class uy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public SearchEmotionModel b;
-    public String c;
-    public SearchEmotionModel.b d;
-    public Runnable e;
+    public final int a;
+    public BdTypeListView b;
+    public boolean c;
+    public int d;
+    public int e;
+    public a f;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uy7 a;
-
-        public a(uy7 uy7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uy7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uy7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.c) || this.a.d == null) {
-                return;
-            }
-            if (this.a.b == null) {
-                this.a.b = new SearchEmotionModel();
-            }
-            this.a.b.A(this.a.c, 0, 30, this.a.d);
-        }
+    public interface a {
+        void a();
     }
 
-    public uy7() {
+    public uy7(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,38 +43,71 @@ public class uy7 {
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = new Handler();
+        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.d = -1;
+        this.e = -1;
+        this.b = bdTypeListView;
     }
 
-    public void e() {
+    public final int a(List<Cdo> list, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SearchEmotionModel searchEmotionModel = this.b;
-            if (searchEmotionModel != null) {
-                searchEmotionModel.cancelLoadData();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return -1;
             }
-            this.a.removeCallbacks(this.e);
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if ((list.get(i2) instanceof PostData) && ((PostData) list.get(i2)).getType() == PostData.K0 && (i = i + 1) == 5) {
+                    return i2;
+                }
+            }
+            if (z) {
+                return -1;
+            }
+            return list.size() - 1;
+        }
+        return invokeLZ.intValue;
+    }
+
+    public void b(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || i == 3) {
+            return;
+        }
+        this.e = a(this.b.getData(), z);
+    }
+
+    public void c(int i, int i2) {
+        BdTypeListView bdTypeListView;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (bdTypeListView = this.b) == null || this.c || this.e < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.d <= 0) {
+            this.d = this.b.getHeight() - this.a;
+        }
+        if (this.d <= 0) {
+            return;
+        }
+        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
+                a aVar = this.f;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                this.c = true;
+            }
         }
     }
 
-    public void f(String str) {
+    public void d(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.c = "";
-                return;
-            }
-            this.a.removeCallbacks(this.e);
-            this.a.postDelayed(this.e, 300L);
-            this.c = str;
-        }
-    }
-
-    public void g(SearchEmotionModel.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f = aVar;
         }
     }
 }

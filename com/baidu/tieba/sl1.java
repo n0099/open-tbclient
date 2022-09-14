@@ -1,14 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface sl1 {
-    void a();
+public class sl1 implements do1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, qp1 qp1Var);
+    public sl1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(SwanAppActivity swanAppActivity, String str, qp1 qp1Var);
-
-    void d(String str, String str2, JSONObject jSONObject, qp1 qp1Var);
+    @Override // com.baidu.tieba.do1
+    public void b(y23 y23Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, y23Var, jSONObject) == null) {
+            hv2.e().b(y23Var, jSONObject);
+        }
+    }
 }

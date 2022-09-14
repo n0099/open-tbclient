@@ -1,37 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pa5 extends ta5 {
+public class pa5 implements u95<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int F;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pa5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        super(i, z, responsedMessage, j, j2, j3, z2, 0L, 0L, j4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (ResponsedMessage) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue(), ((Boolean) objArr2[6]).booleanValue(), ((Long) objArr2[7]).longValue(), ((Long) objArr2[8]).longValue(), ((Long) objArr2[9]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.F = 0;
-    }
 
     public pa5() {
         Interceptable interceptable = $ic;
@@ -43,9 +22,36 @@ public class pa5 extends ta5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.F = 0;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.u95
+    /* renamed from: a */
+    public boolean onEvent(MissionEvent missionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                int i = missionEvent.pageId;
+                int i2 = missionEvent.pageType;
+                long j = missionEvent.tid;
+                String str = missionEvent.actionType;
+                if ("onResume".equals(str)) {
+                    el4.w().K(i, j);
+                    el4.w().P(i2, j);
+                } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                    el4.w().E();
+                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                    el4.w().F();
+                } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                    el4.w().K(i, j);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

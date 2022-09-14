@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Parcelable;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class md implements nd {
+public class md implements od {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Float a;
+    public Bundle a;
 
-    public md(float f) {
+    public md(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,55 +35,113 @@ public class md implements nd {
                 return;
             }
         }
-        this.a = Float.valueOf(f);
+        this.a = bundle;
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.od
+    public void a(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            if (obj instanceof Boolean) {
+                this.a.putBoolean(str, ((Boolean) obj).booleanValue());
+            } else if (obj instanceof Byte) {
+                this.a.putByte(str, ((Byte) obj).byteValue());
+            } else if (obj instanceof Short) {
+                this.a.putShort(str, ((Short) obj).shortValue());
+            } else if (obj instanceof Integer) {
+                this.a.putInt(str, ((Integer) obj).intValue());
+            } else if (obj instanceof Character) {
+                this.a.putChar(str, ((Character) obj).charValue());
+            } else if (obj instanceof Long) {
+                this.a.putLong(str, ((Long) obj).longValue());
+            } else if (obj instanceof Float) {
+                this.a.putFloat(str, ((Float) obj).floatValue());
+            } else if (obj instanceof Double) {
+                this.a.putDouble(str, ((Double) obj).doubleValue());
+            } else if (obj instanceof String) {
+                this.a.putString(str, (String) obj);
+            } else if (obj instanceof Bundle) {
+                this.a.putBundle(str, (Bundle) obj);
+            } else if (obj instanceof ArrayList) {
+                ArrayList<String> arrayList = (ArrayList) obj;
+                if (arrayList == null || arrayList.size() <= 0) {
+                    return;
+                }
+                String str2 = arrayList.get(0);
+                if (str2 instanceof String) {
+                    this.a.putStringArrayList(str, arrayList);
+                } else if (str2 instanceof Integer) {
+                    this.a.putIntegerArrayList(str, arrayList);
+                } else if (str2 instanceof Parcelable) {
+                    this.a.putParcelableArrayList(str, arrayList);
+                }
+            } else if (obj instanceof SparseArray) {
+                this.a.putSparseParcelableArray(str, (SparseArray) obj);
+            } else if (obj.getClass().isArray()) {
+                Class<?> componentType = obj.getClass().getComponentType();
+                if (componentType == Boolean.TYPE) {
+                    this.a.putBooleanArray(str, (boolean[]) obj);
+                } else if (componentType == Byte.TYPE) {
+                    this.a.putByteArray(str, (byte[]) obj);
+                } else if (componentType == Character.TYPE) {
+                    this.a.putCharArray(str, (char[]) obj);
+                } else if (componentType == Double.TYPE) {
+                    this.a.putDoubleArray(str, (double[]) obj);
+                } else if (componentType == Float.TYPE) {
+                    this.a.putFloatArray(str, (float[]) obj);
+                } else if (componentType == Integer.TYPE) {
+                    this.a.putIntArray(str, (int[]) obj);
+                } else if (componentType == Long.TYPE) {
+                    this.a.putLongArray(str, (long[]) obj);
+                } else if (componentType == Short.TYPE) {
+                    this.a.putShortArray(str, (short[]) obj);
+                } else if (componentType == String.class) {
+                    this.a.putStringArray(str, (String[]) obj);
+                } else if (rc.e(componentType, Parcelable.class)) {
+                    this.a.putParcelableArray(str, (Parcelable[]) obj);
+                }
+            } else if (obj instanceof CharSequence) {
+                this.a.putCharSequence(str, (CharSequence) obj);
+            } else if (obj instanceof IBinder) {
+            } else {
+                if (obj instanceof Parcelable) {
+                    this.a.putParcelable(str, (Parcelable) obj);
+                } else if (obj instanceof Serializable) {
+                    this.a.putSerializable(str, (Serializable) obj);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.od
+    public Object b(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c = c(str);
+            if (c != null) {
+                re reVar = new re(type);
+                be a = ve.a(c);
+                if (a != null) {
+                    return a.a(reVar);
+                }
+                return null;
+            }
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
+    public Object c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) {
-            Class<?> a = deVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        if (a == Boolean.class || a == Boolean.TYPE) {
-                                            return Boolean.valueOf(this.a.byteValue() == 0);
-                                        } else if (a == String.class) {
-                                            return String.valueOf(this.a);
-                                        } else {
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return ii.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                    }
-                                    return Character.valueOf((char) this.a.intValue());
-                                }
-                                return Double.valueOf(this.a.doubleValue());
-                            }
-                            return Float.valueOf(this.a.floatValue());
-                        }
-                        return Long.valueOf(this.a.longValue());
-                    }
-                    return Integer.valueOf(this.a.intValue());
-                }
-                return Short.valueOf(this.a.shortValue());
-            }
-            return Byte.valueOf(this.a.byteValue());
-        }
-        return invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.a.get(str) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.od
+    public Set<String> getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.keySet() : (Set) invokeV.objValue;
     }
 }

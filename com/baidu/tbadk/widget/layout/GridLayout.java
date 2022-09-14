@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.ap8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,7 +143,7 @@ public class GridLayout extends ViewGroup {
     public final void d(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048580, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f0402f5});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.GridLayout);
             boolean z = true;
             try {
                 this.c = obtainStyledAttributes.getDimensionPixelSize(1, 0);

@@ -1,101 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tieba.t85;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes4.dex */
-public class h95<T extends t85> extends e95<T> {
+public final class h95 {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static final h95 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, g95> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h95(int i, String str, Class<T> cls) {
-        super(i, str, cls);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778565, "Lcom/baidu/tieba/h95;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947778565, "Lcom/baidu/tieba/h95;");
                 return;
             }
         }
+        b = new h95();
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
-        InterceptResult invokeL;
-        String k;
+    public h95() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof WriteCacheMessage)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
-            WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            t85 t85Var = (t85) a();
-            if (t85Var != null) {
-                if (t85Var instanceof s85) {
-                    ur4.f();
-                    ve<byte[]> e = ur4.e(this.b, currentAccount);
-                    if (writeCacheMessage.isClear()) {
-                        t85 t85Var2 = (t85) writeCacheMessage.getData();
-                        if (t85Var2 == null) {
-                            BdCacheService.k().j(e);
-                        } else {
-                            e.remove(t85Var2.getCacheKey());
-                        }
-                        writeCacheRespMsg.setSuccess(true);
-                    } else {
-                        t85 t85Var3 = (t85) writeCacheMessage.getData();
-                        if (t85Var3 == null) {
-                            return writeCacheRespMsg;
-                        }
-                        e.g(t85Var3.getCacheKey(), ((s85) t85Var3).toCacheByteArray());
-                        writeCacheRespMsg.setSuccess(true);
-                    }
-                } else if (t85Var instanceof v85) {
-                    ur4.f();
-                    ve<String> h = ur4.h(this.b, currentAccount);
-                    if (writeCacheMessage.isClear()) {
-                        t85 t85Var4 = (t85) writeCacheMessage.getData();
-                        if (t85Var4 == null) {
-                            BdCacheService.k().j(h);
-                        } else {
-                            h.remove(t85Var4.getCacheKey());
-                        }
-                        writeCacheRespMsg.setSuccess(true);
-                    } else {
-                        t85 t85Var5 = (t85) writeCacheMessage.getData();
-                        if (t85Var5 != null && (k = ((v85) t85Var5).k()) != null) {
-                            h.g(t85Var5.getCacheKey(), k);
-                            writeCacheRespMsg.setSuccess(true);
-                        }
-                    }
-                }
-            }
-            return writeCacheRespMsg;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = new HashMap();
+    }
+
+    public static void a(@NonNull String str, @NonNull g95 g95Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, g95Var) == null) {
+            b.a.put(str, g95Var);
+        }
+    }
+
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) b.a.get(str) : (T) invokeL.objValue;
+    }
+
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (T) Objects.requireNonNull(b(str)) : (T) invokeL.objValue;
     }
 }

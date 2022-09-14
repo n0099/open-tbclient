@@ -1,85 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.LeadingMarginSpan;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity;
-import com.baidu.tieba.personPolymeric.tab.view.AlignTextView;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.im.model.BlackListModel;
+import com.baidu.tieba.m38;
+import com.baidu.tieba.personPolymeric.event.PersonPolymericEventController;
+import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.tieba.s78;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BaijiahaoInfo;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.Profile.NicknameInfo;
 /* loaded from: classes5.dex */
-public class t78 {
+public class t78 extends r78 implements v88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView A;
-    public UserData B;
-    public q68 C;
-    public boolean D;
-    public NoDataView E;
-    public String F;
-    public View.OnClickListener G;
-    public TbPageContext a;
-    public View b;
-    public TextView c;
-    public AlignTextView d;
-    public TextView e;
-    public LinearLayout f;
-    public TextView g;
-    public TextView h;
-    public LinearLayout i;
-    public TextView j;
-    public AlignTextView k;
-    public AlignTextView l;
-    public TextView m;
-    public ImageView n;
-    public RelativeLayout o;
-    public RelativeLayout p;
-    public TextView q;
-    public ImageView r;
-    public TextView s;
-    public View t;
-    public ImageView u;
-    public TextView v;
-    public RoundRelativeLayout w;
-    public TextView x;
-    public TextView y;
-    public ImageView z;
+    public final BaseFragmentActivity b;
+    public BaseFragment c;
+    public TbPageContext d;
+    public final View e;
+    public final BdUniqueId f;
+    public long g;
+    public String h;
+    public s78 i;
+    public final PersonPolymericModel j;
+    public final q78 k;
+    public final BlackListModel l;
+    public x78 m;
+    public o36 n;
+    public PersonPolymericEventController o;
+    public u78 p;
+    public int q;
+    public boolean r;
+    public final s78.e s;
+    public CustomMessageListener t;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements s78.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t78 a;
@@ -102,31 +81,59 @@ public class t78 {
             this.a = t78Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Layout layout;
+        @Override // com.baidu.tieba.s78.e
+        public void a(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (layout = this.a.m.getLayout()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a();
             }
-            int lineCount = layout.getLineCount();
-            if (lineCount <= 0 || layout.getEllipsisCount(lineCount - 1) <= 0) {
-                this.a.o.setOnClickListener(null);
-                this.a.n.setVisibility(8);
-                return;
-            }
-            this.a.o.setOnClickListener(this.a.G);
-            this.a.n.setVisibility(0);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t78 a;
 
-        public b(t78 t78Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(t78 t78Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t78Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements m38.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t78 a;
+
+        public c(t78 t78Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,318 +151,286 @@ public class t78 {
             this.a = t78Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.m38.c
+        public void a(int i, String str, ImageUploadResult imageUploadResult) {
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.o || view2 == this.a.n) {
-                    if (this.a.D) {
-                        this.a.q();
-                    } else {
-                        PersonIntroductionActivity.z1(this.a.a.getPageActivity(), this.a.B.getIntro());
-                    }
-                } else if (view2 == this.a.q) {
-                    this.a.q();
-                } else if (view2 == this.a.r) {
-                    this.a.q();
-                } else if (view2 == this.a.w) {
-                    if (StringUtils.isNull(this.a.F)) {
-                        BdToast.b(this.a.a.getPageActivity(), this.a.a.getPageActivity().getText(R.string.obfuscated_res_0x7f0f07e1)).i();
-                    } else {
-                        HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.a.a.getPageActivity());
-                        hotUserRankActivityConfig.setCategory(this.a.F);
-                        hotUserRankActivityConfig.setIsGod(true);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-                    }
-                    TiebaStatic.log(new StatisticItem("c13899").param("uid", this.a.B.getUserId()));
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, imageUploadResult) == null) && i == 0 && imageUploadResult != null) {
+                String str2 = null;
+                ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
+                if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null) {
+                    str2 = picDetailedInfo.picUrl;
                 }
+                w78.a(str2, this.a.q());
             }
         }
     }
 
-    public t78(TbPageContext tbPageContext, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t78(BaseFragment baseFragment, View view2, BdUniqueId bdUniqueId, long j, boolean z, boolean z2, String str) {
+        super(z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {baseFragment, view2, bdUniqueId, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.G = new b(this);
-        this.a = tbPageContext;
-        this.D = z;
-        p();
+        this.q = 3;
+        this.r = false;
+        this.s = new a(this);
+        this.t = new b(this, 2921424);
+        this.c = baseFragment;
+        BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
+        this.b = baseFragmentActivity;
+        this.e = view2;
+        this.f = bdUniqueId;
+        this.g = j;
+        this.h = str;
+        this.d = baseFragmentActivity.getPageContext();
+        MessageManager.getInstance().registerListener(this.t);
+        this.k = new q78(this.c.getPageContext(), bdUniqueId);
+        s78 s78Var = new s78(this.c.getPageContext(), view2, z);
+        this.i = s78Var;
+        s78Var.s(this.s);
+        this.o = new PersonPolymericEventController(this.d, this);
+        PersonPolymericModel personPolymericModel = new PersonPolymericModel(this.b, bdUniqueId, z);
+        this.j = personPolymericModel;
+        personPolymericModel.Q(new n88(z));
+        this.j.O(this);
+        this.j.P(this.k);
+        this.l = new BlackListModel(this.b.getPageContext(), bdUniqueId);
+        if (StringUtils.isNull(this.h)) {
+            x78 x78Var = new x78(this.c, this, this.f, this.g, z);
+            this.m = x78Var;
+            x78Var.j(TbadkCoreApplication.getInst().getSkinType());
+            this.m.i(this.o);
+        }
+        this.p = new u78(this.d, this.k, this.l, bdUniqueId);
+        a();
     }
 
-    public void m(q68 q68Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, q68Var) == null) || q68Var == null || q68Var.j() == null) {
-            return;
-        }
-        this.C = q68Var;
-        this.B = q68Var.j();
-        this.b.setVisibility(0);
-        ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new RecyclerView.LayoutParams(-1, -2);
-        } else {
-            layoutParams.width = -1;
-        }
-        this.b.setLayoutParams(layoutParams);
-        if (this.B.getAlaUserData() != null && this.B.getAlaUserData().ala_id > 0) {
-            this.i.setVisibility(0);
-            this.h.setVisibility(0);
-            this.h.setText(String.valueOf(this.B.getAlaUserData().ala_id));
-        } else {
-            this.i.setVisibility(8);
-            this.h.setVisibility(8);
-        }
-        String tb_age = this.B.getTb_age();
-        if (qi.isEmpty(tb_age)) {
-            tb_age = "0";
-        }
-        this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e42, tb_age));
-        nr4 birthdayInfo = this.B.getBirthdayInfo();
-        if (birthdayInfo != null && !qi.isEmpty(birthdayInfo.b)) {
-            if (birthdayInfo.c < 0) {
-                birthdayInfo.c = 0;
-            }
-            if (birthdayInfo.d == 2) {
-                this.e.setVisibility(0);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e53, Integer.valueOf(birthdayInfo.c)));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!TbadkCoreApplication.isLogin() && this.a) {
+                this.i.z();
+            } else if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                n68.d().m(System.currentTimeMillis());
+                this.i.v(false, -1);
+                this.i.A(true);
+                this.j.M(this.g);
+                this.j.L(this.g, this.h);
             } else {
-                this.e.setVisibility(8);
+                this.i.m();
+                this.i.r(8);
+                this.i.w(this.c.getString(R.string.obfuscated_res_0x7f0f0c59), true);
             }
-            this.c.setVisibility(0);
-            this.c.setText(birthdayInfo.b);
-            this.f.setVisibility(0);
-        } else {
-            this.f.setVisibility(8);
-            this.c.setVisibility(8);
-            this.e.setVisibility(8);
         }
-        if (this.D) {
-            this.r.setVisibility(0);
-        } else {
-            this.r.setVisibility(8);
-        }
-        String intro = this.B.getIntro();
-        BaijiahaoInfo baijiahaoInfo = this.B.getBaijiahaoInfo();
-        if (baijiahaoInfo != null && !qi.isEmpty(baijiahaoInfo.auth_desc)) {
-            if (!qi.isEmpty(intro)) {
-                SpannableString spannableString = new SpannableString(intro);
-                spannableString.setSpan(new LeadingMarginSpan.Standard(this.j.getLeft(), 0), 0, spannableString.length(), 18);
-                this.m.setText(spannableString);
-                sg.a().post(new a(this));
-                this.p.setVisibility(8);
-                this.t.setVisibility(0);
-            } else {
-                this.o.setVisibility(8);
-                if (this.D) {
-                    this.p.setVisibility(0);
-                    this.r.setVisibility(8);
-                    this.t.setVisibility(8);
-                } else {
-                    this.p.setVisibility(8);
-                    this.t.setVisibility(0);
-                }
-            }
-        } else if (qi.isEmpty(intro)) {
-            this.o.setVisibility(8);
-            if (this.D) {
-                this.p.setVisibility(0);
-                this.r.setVisibility(8);
-                this.t.setVisibility(8);
-            } else {
-                this.p.setVisibility(8);
-                this.t.setVisibility(0);
-            }
-        } else {
-            this.p.setVisibility(8);
-            this.o.setVisibility(8);
-            this.t.setVisibility(0);
-        }
-        if (q68Var.E != null) {
-            this.w.setVisibility(0);
-            String str = q68Var.E.module_name;
-            this.F = str;
-            if (TextUtils.isEmpty(str)) {
-                this.F = "";
-            }
-            this.x.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f07df), this.F));
-            if (q68Var.E.is_in_rank.booleanValue()) {
-                Integer num = q68Var.E.today_rank;
-                if (num != null && num.intValue() > 0 && q68Var.E.today_rank.intValue() <= 500) {
-                    this.y.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f07de), q68Var.E.today_rank));
-                } else {
-                    this.y.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07dd));
-                }
-            } else {
-                this.y.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07dd));
-            }
-            TiebaStatic.log(new StatisticItem("c13898").param("uid", this.B.getUserId()));
-            return;
-        }
-        this.w.setVisibility(8);
     }
 
-    public void n(boolean z, boolean z2) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (!z2 && z) {
-                this.E.setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!TbadkCoreApplication.isLogin() && this.a) {
+                this.i.z();
+            } else if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                this.j.L(this.g, this.h);
             } else {
-                this.E.setVisibility(8);
+                this.i.m();
+                ej.N(this.d.getContext(), this.d.getString(R.string.obfuscated_res_0x7f0f048c));
+                ArrayList arrayList = new ArrayList();
+                g88 g88Var = new g88();
+                g88Var.a = this.a;
+                arrayList.add(g88Var);
+                this.i.l();
+                this.i.u(arrayList);
+                this.i.x();
             }
         }
     }
 
-    public View o() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v88
+    public void d(y78 y78Var) {
+        NicknameInfo nicknameInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y78Var) == null) {
+            if (y78Var != null && y78Var.j() != null && !StringUtils.isNull(this.h)) {
+                this.g = y78Var.j().getUserIdLong();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921443, Long.valueOf(this.g)));
+                this.a = this.g == dh.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            this.i.m();
+            u78 u78Var = this.p;
+            if (u78Var != null) {
+                u78Var.h(y78Var);
+            }
+            if (y78Var != null) {
+                this.i.j(y78Var);
+            }
+            x78 x78Var = this.m;
+            if (x78Var != null) {
+                x78Var.n(y78Var);
+            } else {
+                x78 x78Var2 = new x78(this.c, this, this.f, this.g, this.a);
+                this.m = x78Var2;
+                x78Var2.j(TbadkCoreApplication.getInst().getSkinType());
+                this.m.i(this.o);
+                this.m.n(y78Var);
+            }
+            if (!this.r || y78Var == null || (nicknameInfo = y78Var.A) == null || nicknameInfo.left_days == null || y78Var.j() == null) {
+                return;
+            }
+            PersonChangeData personChangeData = new PersonChangeData();
+            personChangeData.setMem(y78Var.j().getIsMem());
+            personChangeData.setNickNameLeftDays(y78Var.A.left_days.intValue());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
+        }
     }
 
-    public final void p() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06fe, (ViewGroup) null);
-            this.b = inflate;
-            inflate.setVisibility(8);
-            this.s = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193f);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091931);
-            AlignTextView alignTextView = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091932);
-            this.d = alignTextView;
-            alignTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09192d);
-            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091933);
-            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f091ecf);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09192f);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09192e);
-            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091930);
-            AlignTextView alignTextView2 = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091936);
-            this.k = alignTextView2;
-            alignTextView2.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091935);
-            AlignTextView alignTextView3 = (AlignTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091938);
-            this.l = alignTextView3;
-            alignTextView3.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091937);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09193a);
-            this.n = imageView;
-            imageView.setOnClickListener(this.G);
-            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091939);
-            this.o = relativeLayout;
-            relativeLayout.setOnClickListener(this.G);
-            this.p = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09193b);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193c);
-            this.q = textView;
-            textView.setOnClickListener(this.G);
-            this.u = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09193d);
-            this.v = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193e);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090cb6);
-            this.w = roundRelativeLayout;
-            roundRelativeLayout.setOnClickListener(this.G);
-            this.A = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cb4);
-            this.z = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cb7);
-            this.y = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cb8);
-            this.x = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cc0);
-            ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091934);
-            this.r = imageView2;
-            imageView2.setOnClickListener(this.G);
-            int measureText = (int) this.g.getPaint().measureText(this.a.getString(R.string.obfuscated_res_0x7f0f0e13));
-            ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = measureText;
-                this.d.setLayoutParams(layoutParams);
-            }
-            ViewGroup.LayoutParams layoutParams2 = this.k.getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = measureText;
-                this.k.setLayoutParams(layoutParams2);
-            }
-            ViewGroup.LayoutParams layoutParams3 = this.l.getLayoutParams();
-            if (layoutParams3 != null) {
-                layoutParams3.width = measureText;
-                this.l.setLayoutParams(layoutParams3);
-            }
-            NoDataView a2 = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230)), NoDataViewFactory.e.d(null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c59)), null);
-            this.E = a2;
-            View view2 = this.b;
-            if (view2 instanceof ViewGroup) {
-                ((ViewGroup) view2).addView(a2);
-            }
-            r(TbadkCoreApplication.getInst().getSkinType());
+            new m38().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new c(this));
         }
     }
 
-    public final void q() {
+    public boolean j(PostWriteCallBackData postWriteCallBackData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || TbadkCoreApplication.getCurrentAccountInfo() == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, postWriteCallBackData)) == null) {
+            if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || dj.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
+                return false;
+            }
+            if (bx4.k().h(bx4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.b).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+                return true;
+            }
+            return false;
         }
-        PersonChangeData personChangeData = new PersonChangeData();
-        UserData userData = this.B;
-        if (userData != null) {
-            personChangeData.setPortrait(userData.getPortrait());
-            personChangeData.setName(this.B.getUserName());
-            personChangeData.setSex(this.B.getSex());
-            personChangeData.setIntro(this.B.getIntro());
-            personChangeData.setNameShow(this.B.getName_show());
-            personChangeData.setMem(this.B.getIsMem());
-            personChangeData.setForumAge(this.B.getTb_age());
-            personChangeData.setCanModifyAvatar(this.B.canModifyAvatar());
-            personChangeData.setCantModifyAvatarDesc(this.B.getCantModifyAvatarDesc());
-            personChangeData.setTiebaId(this.B.getmTiebaUid());
-            AlaUserInfoData alaUserInfoData = this.B.alaUserData;
-            if (alaUserInfoData != null) {
-                personChangeData.setAlaId(alaUserInfoData.ala_id);
-            }
-            NicknameInfo nicknameInfo = this.C.A;
-            if (nicknameInfo != null) {
-                personChangeData.setNickNameLeftDays(nicknameInfo.left_days.intValue());
-            }
-            if (this.B.getBirthdayInfo() != null) {
-                personChangeData.setUserAge(this.B.getBirthdayInfo().c);
-                personChangeData.setBirthdayTime(this.B.getBirthdayInfo().a);
-                personChangeData.setBirthdayShowStatus(this.B.getBirthdayInfo().d);
-            }
+        return invokeL.booleanValue;
+    }
+
+    public s78 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (s78) invokeV.objValue;
+    }
+
+    public u78 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (u78) invokeV.objValue;
+    }
+
+    public o78 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.m : (o78) invokeV.objValue;
+    }
+
+    public v78 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
+        return (v78) invokeV.objValue;
+    }
+
+    public y78 o(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            if (z) {
+                this.r = z;
+                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                    this.j.L(this.g, this.h);
+                }
+            }
+            return this.j.K();
+        }
+        return (y78) invokeZ.objValue;
+    }
+
+    public PersonPolymericModel p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (PersonPolymericModel) invokeV.objValue;
+    }
+
+    public List<Cdo> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.j.K() == null) {
+                return null;
+            }
+            return this.j.K().k();
+        }
+        return (List) invokeV.objValue;
     }
 
     public void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, R.drawable.icon_pure_personalba_edit24_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0108, 1, i);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.g, R.color.CAM_X0108, 1, i);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1, i);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0108, 1, i);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.v, R.color.CAM_X0105, 1, i);
-            SkinManager.setBackgroundColor(this.w, R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.x, (int) R.color.CAM_X0311);
-            SkinManager.setViewTextColor(this.y, (int) R.color.CAM_X0311);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.z, R.drawable.obfuscated_res_0x7f0805dd, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.A, R.drawable.ic_icon_pure_common_arrow16_n_svg, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
-            NoDataView noDataView = this.E;
-            if (noDataView != null) {
-                noDataView.f(this.a, i);
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || this.q == i) {
+            return;
+        }
+        x78 x78Var = this.m;
+        if (x78Var != null) {
+            x78Var.j(i);
+        }
+        this.q = i;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.t);
+            x78 x78Var = this.m;
+            if (x78Var != null) {
+                x78Var.k();
             }
+            PersonPolymericModel personPolymericModel = this.j;
+            if (personPolymericModel != null) {
+                personPolymericModel.destroy();
+            }
+        }
+    }
+
+    public void t(boolean z) {
+        x78 x78Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (x78Var = this.m) == null) {
+            return;
+        }
+        x78Var.l(z);
+    }
+
+    public void u() {
+        x78 x78Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (x78Var = this.m) == null) {
+            return;
+        }
+        x78Var.m();
+    }
+
+    public void v(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) {
+            if (this.n == null) {
+                this.n = new o36(this.b.getPageContext(), (NavigationBarCoverTip) this.b.findViewById(R.id.obfuscated_res_0x7f091663));
+            }
+            this.n.l(postWriteCallBackData);
         }
     }
 }

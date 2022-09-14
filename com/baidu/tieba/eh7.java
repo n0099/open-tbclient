@@ -1,59 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.HotTopicList;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class eh7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, eh7> f;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public String b;
-    public int c;
+    public String c;
+    public int d;
+    public String e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947734421, "Lcom/baidu/tieba/eh7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947734421, "Lcom/baidu/tieba/eh7;");
+                return;
+            }
+        }
+        f = new HashMap<>();
+    }
 
     public eh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "";
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static eh7 a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public void d(HotTopicList hotTopicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
-            return;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(j);
+            sb.append("_");
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            sb.append(str);
+            return f.get(sb.toString());
         }
-        this.a = hotTopicList.topic_id.longValue();
-        this.b = hotTopicList.topic_name;
-        this.c = hotTopicList.tag.intValue();
+        return (eh7) invokeJL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append("_");
+            sb.append(TextUtils.isEmpty(this.b) ? "" : this.b);
+            f.put(sb.toString(), this);
+        }
     }
 }

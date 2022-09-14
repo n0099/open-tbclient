@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an4;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.bp4;
+import com.baidu.tieba.dh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData S0;
     public boolean T0;
     public View.OnClickListener U0;
-    public an4 V0;
+    public bp4 V0;
     public View.OnClickListener W0;
 
     /* loaded from: classes3.dex */
@@ -57,14 +57,14 @@ public class ClickableHeaderImageView extends HeadImageView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                an4 an4Var = this.a.V0;
-                if ((an4Var == null || !an4Var.a(view2)) && this.a.S0 != null) {
+                bp4 bp4Var = this.a.V0;
+                if ((bp4Var == null || !bp4Var.a(view2)) && this.a.S0 != null) {
                     MetaData s = this.a.T0 ? this.a.S0.getTopAgreePost().s() : this.a.S0.getAuthor();
                     if (s == null || StringUtils.isNull(s.getName_show()) || StringUtils.isNull(s.getUserId())) {
                         return;
                     }
-                    long g = pg.g(s.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g, g == pg.g(TbadkCoreApplication.getCurrentAccount(), 0L), s.isBigV());
+                    long g = dh.g(s.getUserId(), 0L);
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g, g == dh.g(TbadkCoreApplication.getCurrentAccount(), 0L), s.isBigV());
                     createNormalConfig.setSourceTid(this.a.S0.getTid());
                     createNormalConfig.setSourceNid(this.a.S0.getNid());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
@@ -118,7 +118,7 @@ public class ClickableHeaderImageView extends HeadImageView {
         } else {
             author = threadData.getAuthor();
         }
-        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11af));
+        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11cc));
         setUserId(author.getUserId());
         setUserName(author.getUserName());
         if (threadData.getThreadAlaInfo() != null && (this.S0.getThreadType() == 49 || this.S0.getThreadType() == 69)) {
@@ -135,10 +135,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         UtilHelper.showHeadImageViewBigV(this, author);
     }
 
-    public void setOnInterceptClickEventListener(an4 an4Var) {
+    public void setOnInterceptClickEventListener(bp4 bp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, an4Var) == null) {
-            this.V0 = an4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bp4Var) == null) {
+            this.V0 = bp4Var;
         }
     }
 

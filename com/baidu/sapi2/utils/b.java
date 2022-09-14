@@ -152,7 +152,7 @@ public class b {
             try {
                 ProgressBar progressBar = new ProgressBar(context, null, 16842872);
                 progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609c4));
+                progressBar.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609de));
                 sapiWebView.setProgressBar(progressBar);
             } catch (Throwable th) {
                 Log.e(th);
@@ -187,16 +187,16 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, webView)) == null) {
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04ee, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09044a);
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d0500, (ViewGroup) null);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090458);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d09)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609c4));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d0b)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609c7));
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d0a)).setImageResource(R.drawable.obfuscated_res_0x7f08103d);
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f081009);
+                ((LinearLayout) inflate.findViewById(R.id.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609de));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d59)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609e1));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d58)).setImageResource(R.drawable.obfuscated_res_0x7f081061);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08102d);
                 Resources resources = context.getResources();
                 if (resources != null) {
-                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a0f));
+                    button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a29));
                 }
             }
             button.setOnClickListener(new a(webView, inflate));

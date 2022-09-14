@@ -1,33 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.res.ColorStateList;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.auth.NTLMEngineImpl;
 /* loaded from: classes5.dex */
-public class pa1 {
+public final class pa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ColorStateList a(int i) {
-        InterceptResult invokeI;
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            int i2 = i - (-805306368);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return h() + "/cps/user/recordBatch/sapp";
         }
-        return (ColorStateList) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static ColorStateList b(int i) {
-        InterceptResult invokeI;
+    public static final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = i - (-1728053248);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h() + "/cashier/calcMoney";
         }
-        return (ColorStateList) invokeI.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/cashier/channelAllInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (ma1.a() != 2) {
+                return h() + "/cashier/innerChannelAllInfo";
+            }
+            return h() + "/cashier/innerChannelAllInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/cashier/order/orderInfo";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/cps/user/record/sapp";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/cashier/drmb/drmbPay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? ma1.a() != 1 ? "https://trade.baidu-int.com/sandbox/tradegateway" : "https://etrade-api.baidu.com" : (String) invokeV.objValue;
+    }
+
+    public static final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (ma1.a() != 1) {
+                return h() + "/cashier/agreement/judgeGuideSign";
+            }
+            return h() + "/cashier/agreement/judgeGuideSign";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return h() + "/cashier/launchpayment";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (ma1.a() != 1) {
+                return h() + "/cashier/agreement/guideApplySign";
+            }
+            return h() + "/cashier/agreement/guideApplySign";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return h() + "/cashier/pay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return h() + "/cashier/sdkAdaptH5QueryPay";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return h() + "/cashier/drmb/reqCode";
+        }
+        return (String) invokeV.objValue;
     }
 }

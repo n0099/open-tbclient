@@ -1,21 +1,66 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pf8 extends mf8 {
+public class pf8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public List<qf8> b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public TbImageView c;
+        public View d;
+
+        public b(pf8 pf8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(pf8 pf8Var, a aVar) {
+            this(pf8Var);
+        }
+    }
+
     public pf8(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,47 +70,119 @@ public class pf8 extends mf8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = true;
+        this.a = context;
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.sf8
-    public void a(ShareEntity shareEntity, tf8 tf8Var) {
-        String str;
+    public void a(List<qf8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, tf8Var) == null) {
-            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
-                if (TextUtils.isEmpty(shareEntity.getContent())) {
-                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
-                } else {
-                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
-                }
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.SEND");
-                intent.putExtra("android.intent.extra.TEXT", str);
-                intent.setType("text/plain");
-                Context context = this.b;
-                if (uf8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1162)))) {
-                    if (tf8Var != null) {
-                        tf8Var.d1(0, 1);
-                        return;
-                    }
-                    return;
-                } else if (tf8Var != null) {
-                    tf8Var.d1(0, 2);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            ri.M(d(), R.string.obfuscated_res_0x7f0f1134);
-            if (tf8Var != null) {
-                tf8Var.d1(0, 2);
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.size() == 0) {
+            return;
         }
+        this.b.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    public final b b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            b bVar = new b(this, null);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b18);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b16);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b17);
+            bVar.c = tbImageView;
+            tbImageView.setAutoChangeStyle(false);
+            bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091306);
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public qf8 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<qf8> list = this.b;
+            if (list == null || i >= list.size()) {
+                return null;
+            }
+            return this.b.get(i);
+        }
+        return (qf8) invokeI.objValue;
+    }
+
+    public View d(qf8 qf8Var, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLLL;
+        b b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, qf8Var, view2, viewGroup)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof b)) {
+                b2 = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0790, viewGroup, false);
+                b2 = b(view2);
+                view2.setTag(b2);
+            }
+            if (qf8Var == null) {
+                return view2;
+            }
+            b2.a.setText(qf8Var.d);
+            b2.b.setText(qf8Var.e);
+            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0810a1);
+            b2.c.G(qf8Var.f, 10, 0, 0, false);
+            return view2;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<qf8> list = this.b;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) ? d(this.b.get(i), view2, viewGroup) : (View) invokeILL.objValue;
     }
 }

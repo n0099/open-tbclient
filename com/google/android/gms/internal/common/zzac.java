@@ -2,7 +2,6 @@ package com.google.android.gms.internal.common;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +161,7 @@ public abstract class zzac<E> extends AbstractCollection<E> implements Serializa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     /* renamed from: zze */
-    public abstract wo9<E> iterator();
+    public abstract zzaj<E> iterator();
 
     public abstract boolean zzf();
 

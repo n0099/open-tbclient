@@ -1,228 +1,188 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.l03;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.swan.bdtls.Certificate;
+import com.baidu.swan.bdtls.DH;
+import com.baidu.swan.bdtls.RSA;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ApplicationData;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Extension;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import com.google.protobuf.ByteString;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes4.dex */
-public class km3 implements tm1 {
+public class km3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ng3 a;
 
-    /* loaded from: classes4.dex */
-    public class a implements l03.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
+    public static gm3 a(jm3 jm3Var, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, jm3Var, bArr)) != null) {
+            return (gm3) invokeLL.objValue;
+        }
+        gm3 gm3Var = null;
+        if (jm3Var == null || bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            if (bArr[0] != 2) {
+                return null;
+            }
+            gm3 gm3Var2 = new gm3();
+            try {
+                Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
+                if (parseFrom == null) {
+                    return null;
+                }
+                gm3Var2.a(parseFrom);
+                List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
+                if (extensionsList == null) {
+                    return null;
+                }
+                for (Bdtls$Extension bdtls$Extension : extensionsList) {
+                    int type = bdtls$Extension.getType();
+                    byte[] byteArray = bdtls$Extension.getData().toByteArray();
+                    if (type == 0) {
+                        byte[] decrypt = RSA.decrypt(byteArray);
+                        int a = yl3.a(decrypt);
+                        byte[] dHSecretKey = DH.getDHSecretKey(a, jm3Var.d().intValue(), jm3Var.f().intValue());
+                        jm3Var.l(dHSecretKey);
+                        jm3Var.p(Integer.valueOf(a));
+                        if (ul3.a) {
+                            Log.d("BDTLS", "GroupId=" + jm3Var.d());
+                            Log.d("BDTLS", "client dh pubkey secret=" + jm3Var.f());
+                            Log.d("BDTLS", "client dh pubkey=" + jm3Var.e());
+                            Log.d("BDTLS", "server dh pubkey=" + a);
+                            Log.d("BDTLS", "server dh raw pubkey=" + yl3.d(decrypt));
+                            Log.d("BDTLS", "aeskey=" + yl3.d(dHSecretKey));
+                        }
+                    }
+                }
+                if (parseFrom.getSKR() == null) {
+                    return null;
+                }
+                Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
+                newBuilder.v(parseFrom.getSKR());
+                Bdtls$ApplicationData build = newBuilder.build();
+                jm3Var.t(build.toByteArray());
+                if (jm3Var.c() == null) {
+                    return null;
+                }
+                long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
+                if (ul3.a) {
+                    Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
+                    Log.d("BDTLS", "expireTime=" + currentTimeMillis);
+                }
+                jm3Var.r(currentTimeMillis);
+                if (parseFrom.getCipherSuite() != null) {
+                    jm3Var.q(parseFrom.getCipherSuite().toByteArray());
+                }
+                if (ww2.c()) {
+                    new fm3().edit().putString("secretKey", Arrays.toString(jm3Var.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
+                    return gm3Var2;
+                }
+                return gm3Var2;
+            } catch (Exception e) {
+                e = e;
+                gm3Var = gm3Var2;
+                if (ul3.a) {
+                    e.printStackTrace();
+                    Log.d("BDTLS", "exception=" + e.getMessage());
+                }
+                return gm3Var;
+            }
+        } catch (Exception e2) {
+            e = e2;
+        }
+    }
 
-        public a(km3 km3Var, SwanAppActivity swanAppActivity, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km3Var, swanAppActivity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static byte[] b(jm3 jm3Var, gm3 gm3Var) {
+        InterceptResult invokeLL;
+        byte[] encrypt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jm3Var, gm3Var)) == null) {
+            if (gm3Var == null) {
+                return null;
+            }
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            byte[] bArr = new byte[32];
+            new Random().nextBytes(bArr);
+            Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder();
+            newBuilder.w(currentTimeMillis);
+            newBuilder.x(ByteString.copyFrom(bArr));
+            Bdtls$Random build = newBuilder.build();
+            int dHGroupId = DH.getDHGroupId();
+            int dHSecret = DH.getDHSecret();
+            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
+            jm3Var.m(Integer.valueOf(dHGroupId));
+            jm3Var.o(Integer.valueOf(dHSecret));
+            jm3Var.n(Integer.valueOf(dHPublicKey));
+            byte[] g = yl3.g(dHPublicKey);
+            if (g == null || (encrypt = RSA.encrypt(g)) == null) {
+                return null;
+            }
+            byte[] bytes = ej4.a(Certificate.getSignature(fm2.c()), "", false).getBytes(StandardCharsets.UTF_8);
+            LinkedList linkedList = new LinkedList();
+            Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
+            newBuilder2.w(0);
+            newBuilder2.v(ByteString.copyFrom(encrypt));
+            linkedList.offer(newBuilder2.build());
+            Bdtls$Extension.b newBuilder3 = Bdtls$Extension.newBuilder();
+            newBuilder3.w(1);
+            newBuilder3.v(ByteString.copyFrom(new byte[]{0}));
+            linkedList.offer(newBuilder3.build());
+            Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
+            newBuilder4.w(2);
+            newBuilder4.v(ByteString.copyFrom(yl3.g(dHGroupId)));
+            linkedList.offer(newBuilder4.build());
+            Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
+            newBuilder5.w(3);
+            newBuilder5.v(ByteString.copyFrom(bytes));
+            linkedList.offer(newBuilder5.build());
+            if (ww2.c()) {
+                if (tm3.getContext() != null) {
+                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
+                    newBuilder6.w(4);
+                    newBuilder6.v(ByteString.copyFrom(tm3.getContext().b().getBytes()));
+                    linkedList.offer(newBuilder6.build());
+                }
+                if (tm3.getContext() != null) {
+                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
+                    newBuilder7.w(5);
+                    newBuilder7.v(ByteString.copyFrom(zi4.f().getBytes()));
+                    linkedList.offer(newBuilder7.build());
                 }
             }
-            this.a = swanAppActivity;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.l03.a
-        public void a(l03 l03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, l03Var) == null) {
-                zo2.d(l03Var.c(), this.a, this.b);
+            if (ul3.a) {
+                Log.d("BDTLS", "groupId encode=" + dHGroupId);
+                Log.d("BDTLS", "secretC encode=" + dHSecret);
+                Log.d("BDTLS", "pubKey encode=" + dHPublicKey);
+                Log.d("BDTLS", "signature encode=" + new String(bytes));
             }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends xd2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ km3 b;
-
-        public b(km3 km3Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km3Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
+            Iterator it = linkedList.iterator();
+            while (it.hasNext()) {
+                newBuilder8.n((Bdtls$Extension) it.next());
             }
-            this.b = km3Var;
-            this.a = swanAppActivity;
+            newBuilder8.C(build);
+            newBuilder8.m(ByteString.copyFrom(vl3.c));
+            byte[] byteArray = newBuilder8.build().toByteArray();
+            ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
+            allocate.put((byte) 1);
+            allocate.put(byteArray);
+            return allocate.array();
         }
-
-        @Override // com.baidu.tieba.xd2, com.baidu.tieba.yd2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.j();
-                this.a.F0(this);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917848, "Lcom/baidu/tieba/km3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917848, "Lcom/baidu/tieba/km3;");
-                return;
-            }
-        }
-        boolean z = kh1.a;
-    }
-
-    public km3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tm1
-    public void a(NgWebView ngWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
-            ngWebView.doSelectionCancel();
-        }
-    }
-
-    @Override // com.baidu.tieba.tm1
-    public void b(NgWebView ngWebView, String str) {
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) || (w = z03.K().w()) == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a = new ng3(ngWebView.covertToView());
-        int[] g = g(w);
-        int[] h = h(w);
-        for (int i = 0; i < g.length; i++) {
-            this.a.e(g[i], h[i]);
-        }
-        this.a.r(new a(this, w, str));
-        this.a.t();
-        w.t0(new b(this, w));
-    }
-
-    @Override // com.baidu.tieba.tm1
-    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
-            if (z) {
-                i("show", null, null);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tm1
-    public void d(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.tm1
-    public void e(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, context) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        ve3.b(context).c(str);
-        i("click", "copy", null);
-    }
-
-    public int[] g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            int[] iArr = {7, 6, 8};
-            if (ce3.a(context, "android.permission.SET_WALLPAPER")) {
-                return iArr;
-            }
-            int[] iArr2 = new int[2];
-            System.arraycopy(iArr, 0, iArr2, 0, 2);
-            return iArr2;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public int[] h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f1240, R.string.obfuscated_res_0x7f0f1242, R.string.obfuscated_res_0x7f0f1246};
-            if (ce3.a(context, "android.permission.SET_WALLPAPER")) {
-                return iArr;
-            }
-            int[] iArr2 = new int[2];
-            System.arraycopy(iArr, 0, iArr2, 0, 2);
-            return iArr2;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            c83 c83Var = new c83();
-            c83Var.a = ClearCacheUbcController.FROM_VALUE;
-            c83Var.f = z03.K().getAppId();
-            c83Var.c = "miniapp";
-            c83Var.g = "text";
-            c83Var.b = str;
-            c83Var.e = str2;
-            if (!TextUtils.isEmpty(str3)) {
-                c83Var.a("query", str3);
-            }
-            t73.x("810", c83Var);
-        }
+        return (byte[]) invokeLL.objValue;
     }
 }

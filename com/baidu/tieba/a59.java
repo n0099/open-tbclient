@@ -1,258 +1,196 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.gm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a59 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public JSONObject c;
-    public JSONObject d;
-    public JSONObject e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public List<n49> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566308, "Lcom/baidu/tieba/a59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class a implements gm8.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorTools a;
+
+        public a(EditorTools editorTools) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947566308, "Lcom/baidu/tieba/a59;");
-                return;
-            }
-        }
-        n = f59.m();
-    }
-
-    public a59(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.m = new ArrayList();
-        this.c = jSONObject;
-    }
-
-    public JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
-    }
-
-    public List<n49> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (List) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : invokeV.intValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                if (this.c != null && this.c.length() != 0) {
-                    JSONObject jSONObject = this.c;
-                    this.d = jSONObject.optJSONObject("set");
-                    this.a = jSONObject.optInt("threshold", 10000);
-                    this.b = jSONObject.optInt("timeup", 604800000);
-                    this.f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
-                    jSONObject.optString(StickerDataChangeType.REPLACE);
-                    this.e = jSONObject.optJSONObject("del");
-                    this.g = jSONObject.optInt("all_size", 614400);
-                    this.h = jSONObject.optInt("single_size", 153600);
-                    this.i = jSONObject.optInt("real_size", 614400);
-                    this.j = jSONObject.optInt("non_real_size", 614400);
-                    this.k = jSONObject.optInt("trigger_number", 100);
-                    this.l = jSONObject.optInt("trigger_interval", 180);
-                    int i = 1;
-                    if (this.d != null) {
-                        Iterator<String> keys = this.d.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
-                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-                                String optString = optJSONObject.optString("version");
-                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
-                                    Iterator<String> it = keys;
-                                    n49 n49Var = new n49(next, optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH, i) != 0, optJSONObject2.optInt(Constant.IS_REAL, 0) == 1, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), optJSONObject2.optInt("isAbtest", 0) == 1);
-                                    if (q49.a(next)) {
-                                        n49Var.y(optJSONObject2.optInt("isSend", 1) == 1);
-                                    }
-                                    if (optJSONObject2.has("rate")) {
-                                        n49Var.D(optJSONObject2.getInt("rate"));
-                                    }
-                                    if (optJSONObject2.has("c")) {
-                                        n49Var.u(optJSONObject2.getString("c"));
-                                    }
-                                    if (optJSONObject2.has("limitUnit")) {
-                                        n49Var.A(optJSONObject2.getInt("limitUnit"));
-                                    }
-                                    if (optJSONObject2.has("limitCnt")) {
-                                        n49Var.z(optJSONObject2.getInt("limitCnt"));
-                                    }
-                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
-                                        n49Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
-                                    }
-                                    n49Var.C(optJSONObject2.optInt("ch", 0) == 1);
-                                    if (optJSONObject2.has("dfc")) {
-                                        n49Var.x(optJSONObject2.getInt("dfc") == 1);
-                                    }
-                                    if (optJSONObject2.has("reallog")) {
-                                        n49Var.E(optJSONObject2.getInt("reallog") == 1);
-                                    }
-                                    if (optJSONObject2.has("gflow")) {
-                                        n49Var.v(optJSONObject2.getInt("gflow"));
-                                    }
-                                    if (optJSONObject2.has("uploadType")) {
-                                        n49Var.F(optJSONObject2.optInt("uploadType", -1));
-                                    }
-                                    int optInt = optJSONObject2.optInt("lcache", 2);
-                                    if (optInt == 1 || optInt == 0) {
-                                        n49Var.B(optInt);
-                                    }
-                                    n49Var.G(optString);
-                                    this.m.add(n49Var);
-                                    keys = it;
-                                    i = 1;
-                                }
-                            }
-                        }
-                        return true;
-                    }
-                    return true;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return false;
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
+            }
+            this.a = editorTools;
+        }
+
+        @Override // com.baidu.tieba.gm8.f
+        public void onRefresh() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A(new u45(2, 12, null));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements gm8.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorTools a;
+
+        public b(EditorTools editorTools) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return false;
+            }
+            this.a = editorTools;
+        }
+
+        @Override // com.baidu.tieba.gm8.f
+        public void onRefresh() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A(new u45(2, 12, null));
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public void m(List<n49> list) {
+    public static h39 a(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.m = list;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) ? new h39(tbPageContext) : (h39) invokeL.objValue;
     }
 
-    public a59(List<n49> list) {
+    public static j39 b(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) ? new j39(tbPageContext) : (j39) invokeL.objValue;
+    }
+
+    public static k39 c(@NonNull TbPageContext<?> tbPageContext, @NonNull z39 z39Var, @NonNull EditorTools editorTools, @NonNull x29 x29Var, @NonNull e59 e59Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, z39Var, editorTools, x29Var, e59Var)) == null) {
+            k39 k39Var = new k39(tbPageContext, x29Var, e59Var);
+            k39Var.R(z39Var);
+            k39Var.W(new a(editorTools));
+            return k39Var;
         }
-        this.m = new ArrayList();
-        if (list == null || list.size() <= 0) {
-            return;
+        return (k39) invokeLLLLL.objValue;
+    }
+
+    public static l39 d(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) ? new l39(tbPageContext) : (l39) invokeL.objValue;
+    }
+
+    public static m39 e(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) ? new m39(tbPageContext) : (m39) invokeL.objValue;
+    }
+
+    public static n39 f(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) ? new n39(tbPageContext) : (n39) invokeL.objValue;
+    }
+
+    public static o39 g(@NonNull TbPageContext<?> tbPageContext, @NonNull i59 i59Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, tbPageContext, i59Var)) == null) ? new o39(tbPageContext, i59Var) : (o39) invokeLL.objValue;
+    }
+
+    public static p39 h(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, tbPageContext)) == null) ? new p39(tbPageContext) : (p39) invokeL.objValue;
+    }
+
+    public static q39 i(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) ? new q39(tbPageContext) : (q39) invokeL.objValue;
+    }
+
+    public static r39 j(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) ? new r39(tbPageContext) : (r39) invokeL.objValue;
+    }
+
+    public static s39 k(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) ? new s39(tbPageContext) : (s39) invokeL.objValue;
+    }
+
+    public static t39 l(@NonNull TbPageContext<?> tbPageContext, @NonNull z39 z39Var, @NonNull EditorTools editorTools, @NonNull i59 i59Var, @NonNull x29 x29Var, @NonNull e59 e59Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{tbPageContext, z39Var, editorTools, i59Var, x29Var, e59Var})) == null) {
+            t39 t39Var = new t39(tbPageContext, i59Var, x29Var, e59Var);
+            t39Var.T(z39Var);
+            t39Var.V(new b(editorTools));
+            return t39Var;
         }
-        this.m.addAll(list);
+        return (t39) invokeCommon.objValue;
+    }
+
+    public static u39 m(@NonNull TbPageContext<?> tbPageContext, @NonNull z39 z39Var, @NonNull x29 x29Var, @NonNull e59 e59Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, z39Var, x29Var, e59Var)) == null) {
+            u39 u39Var = new u39(tbPageContext, x29Var, e59Var);
+            u39Var.K(z39Var);
+            return u39Var;
+        }
+        return (u39) invokeLLLL.objValue;
+    }
+
+    public static v39 n(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, tbPageContext)) == null) ? new v39(tbPageContext) : (v39) invokeL.objValue;
+    }
+
+    public static w39 o(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) ? new w39(tbPageContext) : (w39) invokeL.objValue;
+    }
+
+    public static x39 p(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) ? new x39(tbPageContext) : (x39) invokeL.objValue;
     }
 }

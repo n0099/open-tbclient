@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -145,13 +145,13 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 return;
             }
         }
-        this.a = ri.f(TbadkApplication.getInst(), R.dimen.tbds22);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0869, this);
-        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a4e);
-        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a50);
-        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a4f);
-        this.e = findViewById(R.id.obfuscated_res_0x7f0903e9);
-        int k = (((ri.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
-        int k2 = (((ri.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
+        this.a = ej.f(TbadkApplication.getInst(), R.dimen.tbds22);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0884, this);
+        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a68);
+        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a6a);
+        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a69);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0903f5);
+        int k = (((ej.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
+        int k2 = (((ej.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
     }
 }

@@ -100,7 +100,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f091212);
+            this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f091230);
         }
     }
 

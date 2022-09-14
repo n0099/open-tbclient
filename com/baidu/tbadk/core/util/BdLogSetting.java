@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.mh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BdLogSetting implements yg {
+public class BdLogSetting implements mh {
     public static /* synthetic */ Interceptable $ic;
     public static BdLogSetting mInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class BdLogSetting implements yg {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkSettings.getInst().loadLong("log_stat_error_time", 0L) : invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.yg
+    @Override // com.baidu.tieba.mh
     public long getLogUploadTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class BdLogSetting implements yg {
         }
     }
 
-    @Override // com.baidu.tieba.yg
+    @Override // com.baidu.tieba.mh
     public void setLogUploadTime(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {

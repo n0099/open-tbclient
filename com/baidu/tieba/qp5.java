@@ -1,94 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetAddressList.DataRes;
+import tbclient.GetAddressList.listData;
+import tbclient.GetAddressList.robotsList;
 /* loaded from: classes5.dex */
-public class qp5 extends x23 {
+public class qp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<up5> a;
+    public List<up5> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qp5(x13 x13Var) {
-        super(x13Var, "/swan/publishThread");
+    public qp5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
+    public List<up5> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList();
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b(List<up5> list, i25 i25Var) {
+        InterceptResult invokeLL;
+        List<i25> a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i25Var)) == null) {
+            if (list != null && i25Var != null) {
+                for (up5 up5Var : list) {
+                    if (up5Var != null && (a = up5Var.a()) != null) {
+                        for (i25 i25Var2 : a) {
+                            if (i25Var2 != null && i25Var2.d() == i25Var.d()) {
+                                return true;
+                            }
+                        }
+                        continue;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, no5.a(optString2, "", "", 0)));
-                    return true;
                 }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(qi.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
             }
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public boolean c(DataRes dataRes) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
+            if (dataRes == null || dataRes.robots_list == null) {
+                z = false;
+            } else {
+                this.b = new ArrayList();
+                z = false;
+                for (robotsList robotslist : dataRes.robots_list) {
+                    if (TextUtils.isEmpty(robotslist.key)) {
+                        z = true;
+                    } else {
+                        up5 up5Var = new up5();
+                        up5Var.d(robotslist);
+                        this.b.add(up5Var);
+                    }
+                }
+            }
+            if (dataRes != null && dataRes.address_list != null) {
+                this.a = new ArrayList();
+                for (listData listdata : dataRes.address_list) {
+                    if (TextUtils.isEmpty(listdata.key)) {
+                        z = true;
+                    } else {
+                        up5 up5Var2 = new up5();
+                        up5Var2.c(listdata);
+                        if (up5Var2.a() != null) {
+                            for (i25 i25Var : up5Var2.a()) {
+                                if (b(this.b, i25Var)) {
+                                    i25Var.q(1);
+                                } else {
+                                    i25Var.q(0);
+                                }
+                            }
+                        }
+                        this.a.add(up5Var2);
+                    }
+                }
+            }
+            return z;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

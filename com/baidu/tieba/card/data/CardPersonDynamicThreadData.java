@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.dq4;
-import com.baidu.tieba.go4;
-import com.baidu.tieba.pg;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.is4;
+import com.baidu.tieba.lq4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends go4 {
+public class CardPersonDynamicThreadData extends lq4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -687,24 +687,24 @@ public class CardPersonDynamicThreadData extends go4 {
         }
     }
 
-    @Override // com.baidu.tieba.go4
-    public dq4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.lq4
+    public is4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (dq4) invokeV.objValue;
+        return (is4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.go4
+    @Override // com.baidu.tieba.lq4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -792,10 +792,10 @@ public class CardPersonDynamicThreadData extends go4 {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.h) && pg.g(this.a, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.h) && dh.g(this.a, -1L) != -1) {
             this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = pg.g(this.a, 0L);
+            multipleForum2.forum_id = dh.g(this.a, 0L);
             multipleForum2.forum_name = this.h;
             this.B[0] = multipleForum2;
         }
@@ -826,7 +826,7 @@ public class CardPersonDynamicThreadData extends go4 {
         }
         if (postInfoList.is_share_thread.intValue() == 1) {
             OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-            originalThreadInfo.o(postInfoList.origin_thread_info, this.p);
+            originalThreadInfo.p(postInfoList.origin_thread_info, this.p);
             ThreadData threadData = this.p;
             threadData.originalThreadData = originalThreadInfo;
             threadData.isShareThread = true;

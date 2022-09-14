@@ -1,197 +1,213 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.data.AudioInfoData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class fx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public a b;
-    public dy4 c;
+    public TbPageContext<?> a;
+    public Activity b;
+    public AlertDialog c;
     public String d;
-    public String e;
-    public List<b> f;
+    public TextView e;
+    public DialogInterface.OnCancelListener f;
+    public boolean g;
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public cy4 c;
-        public NetWork d;
-        public boolean e;
-        public String f;
-
-        public a(fx4 fx4Var, String str, cy4 cy4Var, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fx4Var, str, cy4Var, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.e = false;
-            this.f = null;
-            this.a = str;
-            this.c = cy4Var;
-            this.b = str2;
-            this.f = str3;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:44:0x00f6 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0111 A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public dy4 a() throws IOException {
-            InterceptResult invokeV;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dy4 dy4Var = new dy4();
-                long c = this.c.c();
-                long j = 30720;
-                long j2 = c / 30720;
-                if (c % 30720 != 0) {
-                    j2++;
-                }
-                int a = this.c.a();
-                if (a < j2) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
-                    int i = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                    if (randomAccessFile.skipBytes(i) >= i) {
-                        while (true) {
-                            long j3 = a;
-                            if (j3 < j2) {
-                                long j4 = j2 - 1;
-                                int i2 = j3 == j4 ? (int) (c - (j4 * j)) : TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                                byte[] bArr = new byte[i2];
-                                int read = randomAccessFile.read(bArr, 0, i2);
-                                if (read != -1) {
-                                    NetWork netWork = new NetWork(this.b);
-                                    this.d = netWork;
-                                    netWork.addPostData("voice_chunk", bArr);
-                                    this.d.addPostData("chunk_md5", this.c.b());
-                                    this.d.addPostData(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(read));
-                                    this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                    this.d.addPostData("total_length", String.valueOf(c));
-                                    this.d.addPostData("chunk_no", String.valueOf(a + 1));
-                                    this.d.addPostData("total_num", String.valueOf(j2));
-                                    this.d.addPostData("voice_md5", this.f);
-                                    if (!this.e) {
-                                        if (this.d.postMultiNetData() == null || !this.d.getNetContext().getResponse().isRequestSuccess()) {
-                                            this.c.d(a);
-                                            ChunkUploadDatabaseService.saveChunkUploadData(this.c);
-                                            randomAccessFile.close();
-                                        } else {
-                                            z = false;
-                                            if (!z) {
-                                                dy4Var.f(this.d.getServerErrorCode());
-                                                dy4Var.g(this.d.getErrorString());
-                                                dy4Var.e(this.c);
-                                                dy4Var.h(false);
-                                                return dy4Var;
-                                            }
-                                        }
-                                    }
-                                    z = true;
-                                    if (!z) {
-                                    }
-                                }
-                                a++;
-                                j = 30720;
-                            } else {
-                                randomAccessFile.close();
-                                break;
-                            }
-                        }
-                    } else {
-                        dy4Var.h(false);
-                        randomAccessFile.close();
-                        return dy4Var;
-                    }
-                }
-                dy4Var.h(true);
-                return dy4Var;
-            }
-            return (dy4) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(fx4 fx4Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fx4Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-    }
-
-    public fx4(String str, String str2) {
+    public fx4(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.a = tbPageContext;
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+            return;
+        }
+        this.b = this.a.getPageActivity();
+    }
+
+    public final fx4 a(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            ih.i(create, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0209, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090755);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setCancelable(true);
+                    this.c.setCanceledOnTouchOutside(true);
+                    this.c.setOnCancelListener(onCancelListener);
+                } else {
+                    this.c.setCanceledOnTouchOutside(false);
+                    this.c.setCancelable(false);
+                }
+            }
+            return this;
+        }
+        return (fx4) invokeL.objValue;
+    }
+
+    public final fx4 b(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            ih.i(create, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0209, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090755);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setOnCancelListener(onCancelListener);
+                }
+            }
+            return this;
+        }
+        return (fx4) invokeL.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AlertDialog alertDialog = this.c;
+            return alertDialog != null && alertDialog.isShowing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void e(DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
+            this.f = onCancelListener;
+        }
+    }
+
+    public void f(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alertDialog = this.c) == null) {
+            return;
+        }
+        alertDialog.setCancelable(z);
+    }
+
+    public void g(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (alertDialog = this.c) == null) {
+            return;
+        }
+        alertDialog.setCanceledOnTouchOutside(z);
+    }
+
+    @Nullable
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Activity) invokeV.objValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (z) {
+                if (this.g) {
+                    a(this.f);
+                    return;
+                } else {
+                    b(this.f);
+                    return;
+                }
+            }
+            ih.a(this.c, this.b);
+        }
+    }
+
+    public void i(int i) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (activity = this.b) == null) {
+            return;
+        }
+        this.d = activity.getString(i);
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+            TextView textView = this.e;
+            if (textView != null) {
+                textView.setText(str);
+            }
+        }
+    }
+
+    public fx4(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,112 +217,11 @@ public class fx4 {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.d = str;
-        this.e = str2;
-    }
-
-    public void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            this.f.add(new b(this, str, String.valueOf(i)));
-        }
-    }
-
-    public final long b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            int i = ((j % 30720) > 0L ? 1 : ((j % 30720) == 0L ? 0 : -1));
-            long j2 = j / 30720;
-            return i == 0 ? j2 : j2 + 1;
-        }
-        return invokeJ.longValue;
-    }
-
-    public final String c(String str, cy4 cy4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cy4Var)) == null) {
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
-            this.a = netWork;
-            netWork.addPostData("voice_md5", cy4Var.b());
-            if (ListUtils.getCount(this.f) != 0) {
-                for (b bVar : this.f) {
-                    if (bVar != null) {
-                        this.a.addPostData(bVar.a(), bVar.b());
-                    }
-                }
-            }
-            String postNetData = this.a.postNetData();
-            if (postNetData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                ChunkUploadDatabaseService.delChunkUploadData(str);
-                return postNetData;
-            }
-            cy4Var.d((int) b(cy4Var.c()));
-            ChunkUploadDatabaseService.saveChunkUploadData(cy4Var);
-            this.c.f(this.a.getServerErrorCode());
-            this.c.g(this.a.getErrorString());
-            this.c.h(false);
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public dy4 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.d);
-                    return e(str, file);
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (dy4) invokeL.objValue;
-    }
-
-    public final dy4 e(String str, File file) throws IOException {
-        InterceptResult invokeLL;
-        String c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            String b2 = xi.b(FileHelper.GetStreamFromFile(file));
-            if (b2 != null && b2.length() > 0) {
-                b2 = b2.toLowerCase();
-            }
-            cy4 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
-            if (chunkUploadDataByMd5 == null) {
-                chunkUploadDataByMd5 = new cy4();
-                chunkUploadDataByMd5.e(b2);
-                chunkUploadDataByMd5.d(0);
-                chunkUploadDataByMd5.f(file.length());
-            }
-            cy4 cy4Var = chunkUploadDataByMd5;
-            a aVar = new a(this, str, cy4Var, TbConfig.SERVER_ADDRESS + this.d, b2);
-            this.b = aVar;
-            dy4 a2 = aVar.a();
-            this.c = a2;
-            if (a2.d() && (c = c(b2, cy4Var)) != null && !c.equals("")) {
-                AudioInfoData audioInfoData = new AudioInfoData();
-                audioInfoData.parserJson(c);
-                if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                    cy4Var.e(audioInfoData.getVoiceId());
-                    this.c.e(cy4Var);
-                } else {
-                    this.c.f(audioInfoData.getErrorCode());
-                    this.c.g(audioInfoData.getErrorUserMsg());
-                    this.c.h(false);
-                }
-            }
-            return this.c;
-        }
-        return (dy4) invokeLL.objValue;
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.b = activity;
     }
 }

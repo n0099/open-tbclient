@@ -1,57 +1,79 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class iv1 extends gu1 {
+public abstract class iv1 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Join a;
 
-    public iv1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iv1(v33 v33Var, String str) {
+        super(v33Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.gu1
-    public void a(hu1 hu1Var, Canvas canvas) {
-        Paint.Join join;
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap<String, String> hashMap, String str) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hu1Var, canvas) == null) || (join = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, unitedSchemeEntity, callbackHandler, hashMap, str) == null) || (params = unitedSchemeEntity.getParams()) == null || params.isEmpty() || hashMap == null) {
             return;
         }
-        hu1Var.c.setStrokeJoin(join);
+        JSONObject jSONObject = new JSONObject();
+        try {
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                jSONObject.putOpt(entry.getKey(), entry.getValue());
+            }
+        } catch (JSONException e) {
+            if (v43.b) {
+                e.printStackTrace();
+            }
+        }
+        if (TextUtils.isEmpty(str)) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        } else {
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+        }
     }
 
-    @Override // com.baidu.tieba.gu1
-    public void b(JSONArray jSONArray) {
+    public void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, z ? 0 : -1);
         }
-        String optString = jSONArray.optString(0);
-        if (TextUtils.equals(optString, "bevel")) {
-            this.a = Paint.Join.BEVEL;
-        } else if (TextUtils.equals(optString, "round")) {
-            this.a = Paint.Join.ROUND;
-        } else if (TextUtils.equals(optString, "miter")) {
-            this.a = Paint.Join.MITER;
-        }
+    }
+
+    public String l(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) ? unitedSchemeEntity.getParams().get("params") : (String) invokeL.objValue;
     }
 }

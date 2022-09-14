@@ -6,9 +6,9 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.fm9;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.hm9;
+import com.baidu.tieba.jq9;
+import com.baidu.tieba.kq9;
+import com.baidu.tieba.lq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
-    public gm9 mBlockCanaryCore;
+    public kq9 mBlockCanaryCore;
     public boolean mMonitorStarted;
 
     static {
@@ -76,12 +76,12 @@ public class LooperMonitor implements ILooperMonitor {
         Track.getInstance().startTrack(context);
     }
 
-    public void addBlockInterceptor(hm9 hm9Var) {
+    public void addBlockInterceptor(lq9 lq9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hm9Var) == null) || hm9Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lq9Var) == null) || lq9Var == null) {
             return;
         }
-        this.mBlockCanaryCore.b(hm9Var);
+        this.mBlockCanaryCore.b(lq9Var);
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
@@ -105,11 +105,11 @@ public class LooperMonitor implements ILooperMonitor {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            fm9.init(context, sLooperContextDispatcher, i);
-            gm9.k(fm9.get());
-            gm9 e = gm9.e();
+            jq9.init(context, sLooperContextDispatcher, i);
+            kq9.k(jq9.get());
+            kq9 e = kq9.e();
             this.mBlockCanaryCore = e;
-            e.b(fm9.get());
+            e.b(jq9.get());
             startLooperPrint();
             startTrack(context);
         }

@@ -21,6 +21,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -41,20 +42,18 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bl4;
-import com.baidu.tieba.gv8;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.hw8;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.bn4;
+import com.baidu.tieba.ci5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gh;
 import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
-import com.baidu.tieba.r65;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.tf5;
+import com.baidu.tieba.q15;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.model.JumpYYLiveHttpResponseMessage;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
+import com.baidu.tieba.z85;
+import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,20 +65,14 @@ import java.util.List;
 import java.util.Map;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes6.dex */
-public abstract class AbsVideoChannelFragment extends LazyBaseFragment implements hw8 {
+public abstract class AbsVideoChannelFragment extends LazyBaseFragment implements zx8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean K;
+    public static boolean E;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> A;
-    public boolean B;
-    public boolean C;
-    public final CustomMessageListener D;
-    public final CustomMessageListener E;
-    public final CustomMessageListener F;
-    public final CustomMessageListener G;
-    public HttpMessageListener H;
-    public CustomMessageListener I;
-    public CustomMessageListener J;
+    public final CustomMessageListener A;
+    public HttpMessageListener B;
+    public CustomMessageListener C;
+    public CustomMessageListener D;
     public BdUniqueId g;
     public VideoChannelViewPager h;
     public VideoChannelHeaderLayout i;
@@ -87,30 +80,30 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     public ImageView k;
     public ViewGroup l;
     public FragmentAdapter m;
-    public List<r65> n;
+    public List<z85> n;
     public boolean o;
     public int p;
     public int q;
     public boolean r;
-    public String s;
-    public String t;
-    public List<VideoItemData> u;
-    public String v;
-    public long w;
-    public boolean x;
-    public String y;
-    public View z;
+    public List<VideoItemData> s;
+    public View t;
+    public WeakReference<Context> u;
+    public boolean v;
+    public boolean w;
+    public final CustomMessageListener x;
+    public final CustomMessageListener y;
+    public final CustomMessageListener z;
 
     /* loaded from: classes6.dex */
     public static class FragmentAdapter extends FragmentStatePagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<r65> a;
+        public List<z85> a;
         public int b;
         public boolean c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FragmentAdapter(@NonNull FragmentManager fragmentManager, List<r65> list) {
+        public FragmentAdapter(@NonNull FragmentManager fragmentManager, List<z85> list) {
             super(fragmentManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -136,7 +129,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<r65> list = this.a;
+                List<z85> list = this.a;
                 if (list == null || (i = this.b) == -1 || !(list.get(i).a instanceof BaseFragment)) {
                     return null;
                 }
@@ -161,7 +154,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                List<r65> list = this.a;
+                List<z85> list = this.a;
                 if (list == null) {
                     return 0;
                 }
@@ -301,7 +294,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                 return;
             }
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_YY_ENTRANCE_IN_VIDEO_LIST_CLICK);
-            statisticItem.addParam("obj_type", this.a.L1() == 1 ? 1 : 2);
+            statisticItem.addParam("obj_type", this.a.J1() == 1 ? 1 : 2);
             TiebaStatic.log(statisticItem);
             this.a.r = true;
         }
@@ -334,16 +327,13 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (TbSingleton.getInstance().isFromFeedVideoClick() && !"frs".equals(this.a.v)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
-                } else if (this.a.L1() != 1) {
-                    if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
-                    } else {
-                        this.a.getPageContext().getPageActivity().finish();
-                    }
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.J1() == 1) {
+                return;
+            }
+            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
+            } else {
+                this.a.getPageContext().getPageActivity().finish();
             }
         }
     }
@@ -401,8 +391,8 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                 }
                 if (i == 1) {
                     VideoVerticalPageFragment videoVerticalPageFragment = (VideoVerticalPageFragment) this.a.n.get(1).a;
-                    videoVerticalPageFragment.r2(null);
-                    this.a.h.setListener(videoVerticalPageFragment.K1());
+                    videoVerticalPageFragment.s2(null);
+                    this.a.h.setListener(videoVerticalPageFragment.L1());
                     return;
                 }
                 this.a.h.setListener(null);
@@ -410,10 +400,10 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                     return;
                 }
                 AbsVideoChannelFragment absVideoChannelFragment2 = this.a;
-                if (((r65) ListUtils.getItem(absVideoChannelFragment2.n, absVideoChannelFragment2.h.getCurrentItem())).a instanceof BaseFragment) {
+                if (((z85) ListUtils.getItem(absVideoChannelFragment2.n, absVideoChannelFragment2.h.getCurrentItem())).a instanceof BaseFragment) {
                     this.a.o = true;
                     AbsVideoChannelFragment absVideoChannelFragment3 = this.a;
-                    absVideoChannelFragment3.i.f(((BaseFragment) ((r65) ListUtils.getItem(absVideoChannelFragment3.n, i)).a).getUniqueId());
+                    absVideoChannelFragment3.i.f(((BaseFragment) ((z85) ListUtils.getItem(absVideoChannelFragment3.n, i)).a).getUniqueId());
                 }
             }
         }
@@ -532,8 +522,8 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (!pi.z()) {
-                ri.K(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c40));
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                ej.K(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c59));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -557,9 +547,9 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                         return;
                     }
                     AbsVideoChannelFragment absVideoChannelFragment3 = this.a;
-                    if (((r65) ListUtils.getItem(absVideoChannelFragment3.n, absVideoChannelFragment3.h.getCurrentItem())).a instanceof BaseFragment) {
+                    if (((z85) ListUtils.getItem(absVideoChannelFragment3.n, absVideoChannelFragment3.h.getCurrentItem())).a instanceof BaseFragment) {
                         AbsVideoChannelFragment absVideoChannelFragment4 = this.a;
-                        absVideoChannelFragment4.i.f(((BaseFragment) ((r65) ListUtils.getItem(absVideoChannelFragment4.n, absVideoChannelFragment4.h.getCurrentItem())).a).getUniqueId());
+                        absVideoChannelFragment4.i.f(((BaseFragment) ((z85) ListUtils.getItem(absVideoChannelFragment4.n, absVideoChannelFragment4.h.getCurrentItem())).a).getUniqueId());
                     }
                 }
             }
@@ -598,7 +588,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.S1((String) customResponsedMessage.getData());
+                this.a.Q1((String) customResponsedMessage.getData());
             }
         }
     }
@@ -641,7 +631,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                     if (!(httpResponsedMessage instanceof JumpYYLiveHttpResponseMessage) || (yyExtData = ((JumpYYLiveHttpResponseMessage) httpResponsedMessage).getYyExtData()) == null) {
                         return;
                     }
-                    YYLiveUtil.jumpToYYLiveRoom(this.a.getPageContext(), yyExtData, this.a.L1() == 1 ? YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL : YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE);
+                    YYLiveUtil.jumpToYYLiveRoom(this.a.getPageContext(), yyExtData, this.a.J1() == 1 ? YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL : YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE);
                     return;
                 }
                 this.a.showToast("服务器加载中，请稍候再试");
@@ -696,7 +686,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             } else {
                 this.a.j.setVisibility(8);
             }
-            if (this.a.L1() == 2) {
+            if (this.a.J1() == 2) {
                 this.a.k.setAlpha(floatValue);
             }
         }
@@ -737,11 +727,11 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                 return;
             }
             boolean booleanValue = customResponsedMessage.getData() instanceof Boolean ? ((Boolean) customResponsedMessage.getData()).booleanValue() : true;
-            if (this.a.z != null) {
+            if (this.a.t != null) {
                 if (!booleanValue) {
-                    this.a.z.setBackground(null);
+                    this.a.t.setBackground(null);
                 } else {
-                    this.a.z.setBackground(new ColorDrawable(this.a.getResources().getColor(R.color.CAM_X0611)));
+                    this.a.t.setBackground(new ColorDrawable(this.a.getResources().getColor(R.color.CAM_X0611)));
                 }
             }
         }
@@ -779,7 +769,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             }
             View inflate = this.a.d.inflate();
             AbsVideoChannelFragment absVideoChannelFragment = this.a;
-            absVideoChannelFragment.u1(inflate, absVideoChannelFragment.e);
+            absVideoChannelFragment.t1(inflate, absVideoChannelFragment.e);
         }
     }
 
@@ -809,7 +799,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
 
         @Override // java.lang.Runnable
         public void run() {
-            List<r65> list;
+            List<z85> list;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.a.isPrimary() || (list = this.a.n) == null || list.size() <= this.a.q) {
                 return;
@@ -819,7 +809,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                 AbsVideoChannelFragment absVideoChannelFragment2 = this.a;
                 if (absVideoChannelFragment2.n.get(absVideoChannelFragment2.q).a != null) {
                     AbsVideoChannelFragment absVideoChannelFragment3 = this.a;
-                    absVideoChannelFragment3.n.get(absVideoChannelFragment3.q).a.setUserVisibleHint(this.a.C);
+                    absVideoChannelFragment3.n.get(absVideoChannelFragment3.q).a.setUserVisibleHint(this.a.w);
                 }
             }
         }
@@ -847,51 +837,40 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         this.p = 1;
         this.q = 0;
         this.r = false;
-        this.w = 0L;
-        this.A = null;
-        this.B = false;
-        this.C = false;
-        this.D = new e(this, 2921576);
-        this.E = new f(this, 2921575);
-        this.F = new g(this, 2921580);
-        this.G = new h(this, 2921578);
-        this.H = new i(this, CmdConfigHttp.CMD_JUMP_YY_LIVE_IN_VIDEO_LIST);
-        this.I = new j(this, 2921594);
-        this.J = new k(this, 2921665);
+        this.u = null;
+        this.v = false;
+        this.w = false;
+        this.x = new e(this, 2921576);
+        this.y = new f(this, 2921575);
+        this.z = new g(this, 2921580);
+        this.A = new h(this, 2921578);
+        this.B = new i(this, CmdConfigHttp.CMD_JUMP_YY_LIVE_IN_VIDEO_LIST);
+        this.C = new j(this, 2921594);
+        this.D = new k(this, 2921665);
     }
 
-    @Override // com.baidu.tieba.hw8
-    public void B0() {
-        hw8 K1;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (K1 = K1()) == null) {
-            return;
-        }
-        K1.B0();
-    }
-
-    @Override // com.baidu.tieba.hw8
-    public long F0() {
+    @Override // com.baidu.tieba.zx8
+    public long E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            hw8 K1 = K1();
-            if (K1 != null) {
-                return K1.F0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            zx8 I1 = I1();
+            if (I1 != null) {
+                return I1.E0();
             }
             return 0L;
         }
         return invokeV.longValue;
     }
 
-    public final void J1(n nVar) {
+    public final void H1(n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) {
             if (CyberPlayerManager.isCoreLoaded(1)) {
                 nVar.a();
-            } else if (this.B) {
+            } else if (this.v) {
             } else {
-                this.B = true;
+                this.v = true;
                 try {
                     CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuidGalaxy2(), (String) null, 3, (Class<?>) CyberRemotePlayerService.class, (Map<String, String>) null, (CyberPlayerManager.InstallListener2) new a(this, nVar));
                 } catch (Exception e2) {
@@ -901,29 +880,29 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         }
     }
 
-    public final hw8 K1() {
+    public final zx8 I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter == null || fragmentAdapter.b == -1) {
                 return null;
             }
             Fragment item = this.m.getItem(this.m.b);
-            if (item instanceof hw8) {
-                return (hw8) item;
+            if (item instanceof zx8) {
+                return (zx8) item;
             }
             return null;
         }
-        return (hw8) invokeV.objValue;
+        return (zx8) invokeV.objValue;
     }
 
-    public abstract int L1();
+    public abstract int J1();
 
-    public final String M1() {
+    public final String K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String stringExtra = getPageContext().getPageActivity().getIntent().getStringExtra("sub_locate_type");
             if (StringUtils.isNull(stringExtra)) {
                 return null;
@@ -933,58 +912,56 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         return (String) invokeV.objValue;
     }
 
-    public abstract Fragment N1();
+    public abstract Fragment L1();
 
-    public abstract Fragment O1();
+    public abstract Fragment M1();
 
-    public final void P1() {
+    public final void N1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.n == null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.n == null) {
             this.n = new ArrayList();
-            r65 r65Var = new r65();
-            Fragment N1 = N1();
-            r65Var.a = N1;
-            N1.setArguments(getArguments());
-            r65Var.c = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f02ac);
-            this.n.add(r65Var);
-            r65 r65Var2 = new r65();
-            Fragment O1 = O1();
-            r65Var2.a = O1;
-            O1.setArguments(getArguments());
-            r65Var2.c = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0497);
-            this.n.add(r65Var2);
+            z85 z85Var = new z85();
+            Fragment L1 = L1();
+            z85Var.a = L1;
+            L1.setArguments(getArguments());
+            z85Var.c = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f02b0);
+            this.n.add(z85Var);
+            z85 z85Var2 = new z85();
+            Fragment M1 = M1();
+            z85Var2.a = M1;
+            M1.setArguments(getArguments());
+            z85Var2.c = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f049b);
+            this.n.add(z85Var2);
         }
     }
 
-    public final void Q1(View view2) {
+    public final void O1(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (TbSingleton.getInstance().isFromFeedVideoClick()) {
-                this.w = System.currentTimeMillis();
-            }
-            this.h = (VideoChannelViewPager) view2.findViewById(R.id.obfuscated_res_0x7f09146e);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            this.h = (VideoChannelViewPager) view2.findViewById(R.id.obfuscated_res_0x7f091493);
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 this.h.setBackground(null);
             }
-            this.i = (VideoChannelHeaderLayout) view2.findViewById(R.id.obfuscated_res_0x7f091460);
-            AlaLiveTipView alaLiveTipView = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0901dc);
+            this.i = (VideoChannelHeaderLayout) view2.findViewById(R.id.obfuscated_res_0x7f091484);
+            AlaLiveTipView alaLiveTipView = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0901dd);
             this.j = alaLiveTipView;
             alaLiveTipView.setViewLocate(3);
-            this.j.setShowFrom(L1() != 1 ? 2 : 1);
-            gz4.g(L1());
+            this.j.setShowFrom(J1() != 1 ? 2 : 1);
+            this.j.setNormalBottomMarginParams(ej.f(getPageContext().getPageActivity(), R.dimen.tbds10));
+            q15.g(J1());
             this.i.setAlaEntranceBtn(this.j);
-            if (!ListUtils.isEmpty(this.u)) {
-                VideoItemData videoItemData = this.u.get(0);
+            if (!ListUtils.isEmpty(this.s)) {
+                VideoItemData videoItemData = this.s.get(0);
                 this.j.setForumInfo(videoItemData.forum_id, videoItemData.forum_name, videoItemData.thread_id);
             }
             this.j.setOnClickListener(new b(this));
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09030e);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
             this.k = imageView;
             imageView.setOnClickListener(new c(this));
-            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09207a);
+            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0920ca);
             this.l = viewGroup;
-            ((RelativeLayout.LayoutParams) viewGroup.getLayoutParams()).topMargin = bl4.c + UtilHelper.getStatusBarHeight();
-            R1();
+            ((RelativeLayout.LayoutParams) viewGroup.getLayoutParams()).topMargin = bn4.c + UtilHelper.getStatusBarHeight();
+            P1();
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter != null) {
                 fragmentAdapter.d(isPrimary());
@@ -992,15 +969,15 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         }
     }
 
-    public final void R1() {
+    public final void P1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.m == null) {
                 this.m = new FragmentAdapter(getChildFragmentManager(), this.n);
             }
             this.h.setAdapter(this.m);
             this.i.setupWithViewPager(this.h);
-            V1();
+            T1();
             this.h.addOnPageChangeListener(new d(this));
             if (TbSingleton.loginFrom == 1) {
                 TbSingleton.loginFrom = -1;
@@ -1010,66 +987,63 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             }
             if (getArguments() != null) {
                 getArguments().getString("from");
-                K = TbSingleton.getInstance().getIsNeedShowPbCommentFloat();
-                this.y = getArguments().getString("key_nid");
-                this.t = getArguments().getString("page_from");
-                this.s = getArguments().getString("from");
-                this.v = getArguments().getString("source_from");
-                this.x = getArguments().getBoolean("is_from_bjh_pb", false);
+                E = TbSingleton.getInstance().getIsNeedShowPbCommentFloat();
+                getArguments().getString("key_nid");
+                getArguments().getString("page_from");
+                getArguments().getString("from");
+                getArguments().getString("source_from");
+                getArguments().getBoolean("is_from_bjh_pb", false);
             }
-            if (L1() == 1) {
+            if (J1() == 1) {
                 this.k.setVisibility(8);
                 this.h.setScrollEnabled(true);
-            } else {
-                this.k.setVisibility(0);
-                this.h.setScrollEnabled(false);
+                return;
             }
-            if (TbSingleton.getInstance().isFromFeedVideoClick()) {
-                gv8.a(this.y);
-            }
+            this.k.setVisibility(0);
+            this.h.setScrollEnabled(false);
         }
     }
 
-    public final void S1(String str) {
+    public final void Q1(String str) {
         VideoChannelHeaderLayout videoChannelHeaderLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (videoChannelHeaderLayout = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (videoChannelHeaderLayout = this.i) == null) {
             return;
         }
         videoChannelHeaderLayout.o(str);
     }
 
-    public void T1(BdUniqueId bdUniqueId) {
+    public void R1(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
             this.g = bdUniqueId;
         }
     }
 
-    public void U1(List<VideoItemData> list) {
+    public void S1(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.u = list;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.s = list;
         }
     }
 
-    public abstract void V1();
+    public abstract void T1();
 
-    @Override // com.baidu.tieba.hw8
-    public void Z0(int i2, int i3, Intent intent) {
-        hw8 K1;
+    @Override // com.baidu.tieba.zx8
+    public void W0(int i2, int i3, Intent intent) {
+        zx8 I1;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, intent) == null) || (K1 = K1()) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048590, this, i2, i3, intent) == null) || (I1 = I1()) == null) {
             return;
         }
-        K1.Z0(i2, i3, intent);
+        I1.W0(i2, i3, intent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public TbPageTag getTbPageTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             TbPageTag tbPageTag = super.getTbPageTag();
             tbPageTag.tabType = this.p;
             return tbPageTag;
@@ -1077,14 +1051,14 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hw8
-    public boolean i1() {
+    @Override // com.baidu.tieba.zx8
+    public boolean h1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            hw8 K1 = K1();
-            if (K1 != null) {
-                return K1.i1();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            zx8 I1 = I1();
+            if (I1 != null) {
+                return I1.h1();
             }
             return false;
         }
@@ -1094,8 +1068,8 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a03, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a1e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter == null || fragmentAdapter.c() == null) {
                 return;
@@ -1107,40 +1081,35 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     @Override // com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            this.w = System.currentTimeMillis();
-            this.A = new WeakReference<>(TbadkCoreApplication.getInst());
+            this.u = new WeakReference<>(TbadkCoreApplication.getInst());
+            registerListener(this.x);
+            registerListener(this.y);
+            registerListener(this.z);
+            registerListener(this.A);
+            registerListener(this.B);
+            registerListener(this.C);
             registerListener(this.D);
-            registerListener(this.E);
-            registerListener(this.F);
-            registerListener(this.G);
-            registerListener(this.H);
-            registerListener(this.I);
-            registerListener(this.J);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
-            tf5.e(this.A, false);
+            ci5.e(this.u, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             VideoChannelHeaderLayout videoChannelHeaderLayout = this.i;
             if (videoChannelHeaderLayout != null) {
                 videoChannelHeaderLayout.k();
-            }
-            if (this.w != 0 && !TbSingleton.getInstance().isFromFeedVideoClick()) {
-                gv8.b(this.y, this.x, this.w, this.t, this.v, this.s);
-                this.w = 0L;
             }
             if (!UtilHelper.isFlyMeOs()) {
                 UtilHelper.changeStatusBarIconAndTextColor(false, getPageContext().getPageActivity());
@@ -1152,7 +1121,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     @Override // com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPrimary();
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter != null) {
@@ -1166,16 +1135,16 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
                     UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
                 }
             }
-            tf5.e(this.A, isPrimary());
+            ci5.e(this.u, isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onResume();
-            if (this.h == null || this.i == null || StringUtils.isNull(M1()) || !"22_recommend".equals(M1())) {
+            if (this.h == null || this.i == null || StringUtils.isNull(K1()) || !"22_recommend".equals(K1())) {
                 return;
             }
             this.h.setCurrentItem(1, false);
@@ -1186,7 +1155,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
         }
     }
@@ -1194,16 +1163,29 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     @Override // androidx.fragment.app.Fragment
     public void onViewStateRestored(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onViewStateRestored(bundle);
         }
     }
 
     @Override // com.baidu.tbadk.core.LazyBaseFragment
-    public int s1() {
+    public int r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? R.layout.obfuscated_res_0x7f0d08ab : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? R.layout.obfuscated_res_0x7f0d08ca : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.core.LazyBaseFragment
+    public synchronized void s1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            synchronized (this) {
+                if (!this.b && this.d != null) {
+                    this.b = true;
+                    H1(new l(this));
+                }
+            }
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1211,8 +1193,8 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             super.setUserVisibleHint(z);
-            this.C = z;
-            List<r65> list = this.n;
+            this.w = z;
+            List<z85> list = this.n;
             if (list != null) {
                 int size = list.size();
                 int i2 = this.q;
@@ -1225,31 +1207,28 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     }
 
     @Override // com.baidu.tbadk.core.LazyBaseFragment
-    public synchronized void t1() {
+    public void t1(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            synchronized (this) {
-                if (!this.b && this.d != null) {
-                    this.b = true;
-                    J1(new l(this));
-                }
+        if (interceptable == null || interceptable.invokeLL(1048604, this, view2, bundle) == null) {
+            this.t = view2;
+            if (UbsABTestHelper.isFeedVideoImmersionTransition() && J1() != 1) {
+                this.t.setBackground(null);
+            } else {
+                this.t.setBackground(new ColorDrawable(getResources().getColor(R.color.CAM_X0611)));
             }
+            N1();
+            O1(this.t);
+            gh.a().post(new m(this));
         }
     }
 
-    @Override // com.baidu.tbadk.core.LazyBaseFragment
-    public void u1(View view2, Bundle bundle) {
+    @Override // com.baidu.tieba.zx8
+    public void y0() {
+        zx8 I1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, view2, bundle) == null) {
-            this.z = view2;
-            if (UbsABTestHelper.isFeedVideoImmersionTransition() && L1() != 1) {
-                this.z.setBackground(null);
-            } else {
-                this.z.setBackground(new ColorDrawable(getResources().getColor(R.color.CAM_X0611)));
-            }
-            P1();
-            Q1(this.z);
-            sg.a().post(new m(this));
+        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || (I1 = I1()) == null) {
+            return;
         }
+        I1.y0();
     }
 }

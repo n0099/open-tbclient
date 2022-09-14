@@ -122,16 +122,16 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a27);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09075a);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090df1);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091519);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09075b);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090df2);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09151a);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090758);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090df0);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091518);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a66);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090770);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090e0c);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091542);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090771);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0d);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091543);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09076e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0b);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091541);
         }
     }
 
@@ -145,7 +145,7 @@ public class NewVoteCountDownView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0641, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0658, (ViewGroup) this, true);
             c();
         }
     }
@@ -189,7 +189,7 @@ public class NewVoteCountDownView extends LinearLayout {
     public void setContent(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d6);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d8);
             this.i.setText(String.format(string, Long.valueOf(j)));
             this.j.setText(String.format(string, Long.valueOf(j2)));
             this.k.setText(String.format(string, Long.valueOf(j3)));

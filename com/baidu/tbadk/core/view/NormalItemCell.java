@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = -1;
             this.b = 0;
             this.c = -1;
-            this.d = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+            this.d = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         }
     }
 
@@ -87,8 +87,8 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        h = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        i = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        h = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        i = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -138,12 +138,12 @@ public class NormalItemCell extends ConstraintLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0650, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f090807);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0907ee);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09146a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f4f);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b2);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0667, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f09081c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090803);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09148f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9f);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
         }
     }
 
@@ -165,7 +165,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                ns4 d = ns4.d(this.d);
+                uu4 d = uu4.d(this.d);
                 d.n(R.string.J_X06);
                 d.f(this.f.a);
             }
@@ -186,7 +186,7 @@ public class NormalItemCell extends ConstraintLayout {
             if (aVar == null || (i2 = aVar.c) == -1 || (pureDrawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null)) == null) {
                 return;
             }
-            int f = ri.f(getContext(), R.dimen.tbds32);
+            int f = ej.f(getContext(), R.dimen.tbds32);
             pureDrawable.setBounds(0, 0, f, f);
             this.d.setCompoundDrawables(pureDrawable, null, null, null);
         }
@@ -212,8 +212,8 @@ public class NormalItemCell extends ConstraintLayout {
             if (aVar != null) {
                 int i2 = aVar.d;
                 setPadding(i2, 0, i2, 0);
-                int f = aVar.a != -1 ? ri.f(getContext(), R.dimen.M_W_X004) : 0;
-                int f2 = aVar.a != -1 ? ri.f(getContext(), R.dimen.tbds8) : 0;
+                int f = aVar.a != -1 ? ej.f(getContext(), R.dimen.M_W_X004) : 0;
+                int f2 = aVar.a != -1 ? ej.f(getContext(), R.dimen.tbds8) : 0;
                 this.d.setPadding(f, f2, f, f2);
                 if (aVar.a != -1) {
                     this.d.setTextSize(0, i);

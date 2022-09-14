@@ -1,49 +1,84 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes4.dex */
-public final class g00 {
+public final class g00 implements h00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public g00(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
+        this.a = i;
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.h00
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
         }
-        return (String) invokeLZ.objValue;
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.h00
+    public int a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
+                return 0;
+            }
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
+                return -1;
+            }
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
+                    return -1;
+                }
+            }
+            return i3;
+        }
+        return invokeLII.intValue;
+    }
+
+    @Override // com.baidu.tieba.h00
+    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
+            return;
+        }
+        if (i + i2 > bArr.length) {
+            throw new ShortBufferException("Buffer too small to hold padding");
+        }
+        byte b = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b;
+        }
     }
 }

@@ -1,154 +1,305 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qg4 {
+public class qg4 extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public List<gg4> e;
+    public int b0;
+    public int c0;
+    public boolean d0;
+    public boolean e0;
+    public int f0;
+    public Dialog g0;
+    public boolean h0;
+    public boolean i0;
+    public boolean j0;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948090859, "Lcom/baidu/tieba/qg4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948090859, "Lcom/baidu/tieba/qg4;");
-                return;
-            }
-        }
-        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f = concurrentHashMap;
-        concurrentHashMap.put("1415", "66");
-    }
-
-    public qg4(String str, JSONObject jSONObject) {
+    public qg4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.c = str;
-        this.d = jSONObject;
+        this.b0 = 0;
+        this.c0 = 0;
+        this.d0 = true;
+        this.e0 = true;
+        this.f0 = -1;
     }
 
-    public List<gg4> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void A0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                JSONObject jSONObject = this.d;
-                this.a = jSONObject.getInt("threshold");
-                this.b = jSONObject.getInt("timeup");
-                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    String string = jSONObject2.getString("ubcid");
-                    if (TextUtils.isEmpty(string) || !f.containsKey(string)) {
-                        str = string;
-                    } else {
-                        String optString = jSONObject2.optString("bizid");
-                        f.get(string);
-                        str = optString;
-                    }
-                    String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
-                    String string3 = jSONObject2.getString(Constant.IS_REAL);
-                    String string4 = jSONObject2.getString("isAbtest");
-                    int parseInt = Integer.parseInt(jSONObject2.getString("timeout"));
-                    String string5 = jSONObject2.getString("type");
-                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
-                        gg4 gg4Var = new gg4(str, string2, string3, parseInt, string5, string4);
-                        if (jSONObject2.has("rate")) {
-                            gg4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
-                        }
-                        if (jSONObject2.has("bizid")) {
-                            jSONObject2.getString("bizid");
-                        }
-                        if (jSONObject2.has("c")) {
-                            gg4Var.h = jSONObject2.getString("c");
-                        }
-                        if (jSONObject2.has("limitUnit")) {
-                            gg4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
-                        }
-                        if (jSONObject2.has("limitCnt")) {
-                            gg4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
-                        }
-                        if (jSONObject2.has(Constant.ID_TYPE)) {
-                            gg4Var.k = jSONObject2.getString(Constant.ID_TYPE);
-                        }
-                        if (jSONObject2.has("appblacklist")) {
-                            jSONObject2.getString("appblacklist");
-                        }
-                        this.e.add(gg4Var);
-                    }
-                }
-                return true;
-            } catch (NumberFormatException | JSONException unused) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.A0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = true;
+                dialog.dismiss();
+                this.g0 = null;
             }
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void B0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.B0();
+            if (this.j0 || this.i0) {
+                return;
+            }
+            this.i0 = true;
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void K0(Bundle bundle) {
+        Bundle onSaveInstanceState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.K0(bundle);
+            Dialog dialog = this.g0;
+            if (dialog != null && (onSaveInstanceState = dialog.onSaveInstanceState()) != null) {
+                bundle.putBundle(DialogFragment.SAVED_DIALOG_STATE_TAG, onSaveInstanceState);
+            }
+            int i = this.b0;
+            if (i != 0) {
+                bundle.putInt(DialogFragment.SAVED_STYLE, i);
+            }
+            int i2 = this.c0;
+            if (i2 != 0) {
+                bundle.putInt(DialogFragment.SAVED_THEME, i2);
+            }
+            boolean z = this.d0;
+            if (!z) {
+                bundle.putBoolean(DialogFragment.SAVED_CANCELABLE, z);
+            }
+            boolean z2 = this.e0;
+            if (!z2) {
+                bundle.putBoolean(DialogFragment.SAVED_SHOWS_DIALOG, z2);
+            }
+            int i3 = this.f0;
+            if (i3 != -1) {
+                bundle.putInt(DialogFragment.SAVED_BACK_STACK_ID, i3);
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void L0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.L0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = false;
+                dialog.show();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void M0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.M0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                dialog.hide();
+            }
+        }
+    }
+
+    public void n1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            o1(false);
+        }
+    }
+
+    public void o1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.i0) {
+            return;
+        }
+        this.i0 = true;
+        this.j0 = false;
+        Dialog dialog = this.g0;
+        if (dialog != null) {
+            dialog.dismiss();
+            this.g0 = null;
+        }
+        this.h0 = true;
+        if (this.f0 >= 0) {
+            x().e(this.f0, 1);
+            this.f0 = -1;
+            return;
+        }
+        wg4 a = x().a();
+        a.h(this);
+        if (z) {
+            a.f();
+        } else {
+            a.e();
+        }
+    }
+
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) {
+        }
+    }
+
+    public void onDismiss(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface) == null) || this.h0) {
+            return;
+        }
+        o1(true);
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void p0(Bundle bundle) {
+        Bundle bundle2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.p0(bundle);
+            if (this.e0) {
+                View V = V();
+                if (V != null) {
+                    if (V.getParent() == null) {
+                        this.g0.setContentView(V);
+                    } else {
+                        throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                    }
+                }
+                this.g0.setOwnerActivity(getActivity());
+                this.g0.setCancelable(this.d0);
+                this.g0.setOnCancelListener(this);
+                this.g0.setOnDismissListener(this);
+                if (bundle == null || (bundle2 = bundle.getBundle(DialogFragment.SAVED_DIALOG_STATE_TAG)) == null) {
+                    return;
+                }
+                this.g0.onRestoreInstanceState(bundle2);
+            }
+        }
+    }
+
+    public Dialog p1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g0 : (Dialog) invokeV.objValue;
+    }
+
+    @StyleRes
+    public int q1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c0 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void r0(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
+            super.r0(activity);
+            if (this.j0) {
+                return;
+            }
+            this.i0 = false;
+        }
+    }
+
+    @NonNull
+    public Dialog r1(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bundle)) == null) ? new Dialog(getActivity(), q1()) : (Dialog) invokeL.objValue;
+    }
+
+    public void s1(Dialog dialog, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, dialog, i) == null) {
+            if (i != 1 && i != 2) {
+                if (i != 3) {
+                    return;
+                }
+                dialog.getWindow().addFlags(24);
+            }
+            dialog.requestWindowFeature(1);
+        }
+    }
+
+    public void t1(ug4 ug4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, ug4Var, str) == null) {
+            this.i0 = false;
+            this.j0 = true;
+            wg4 a = ug4Var.a();
+            a.c(this, str);
+            a.e();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void u0(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
+            super.u0(bundle);
+            this.e0 = this.x == 0;
+            if (bundle != null) {
+                this.b0 = bundle.getInt(DialogFragment.SAVED_STYLE, 0);
+                this.c0 = bundle.getInt(DialogFragment.SAVED_THEME, 0);
+                this.d0 = bundle.getBoolean(DialogFragment.SAVED_CANCELABLE, true);
+                this.e0 = bundle.getBoolean(DialogFragment.SAVED_SHOWS_DIALOG, this.e0);
+                this.f0 = bundle.getInt(DialogFragment.SAVED_BACK_STACK_ID, -1);
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public LayoutInflater y(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, bundle)) == null) {
+            if (!this.e0) {
+                return super.y(bundle);
+            }
+            Dialog r1 = r1(bundle);
+            this.g0 = r1;
+            if (r1 != null) {
+                s1(r1, this.b0);
+                return (LayoutInflater) this.g0.getContext().getSystemService("layout_inflater");
+            }
+            return (LayoutInflater) this.t.getContext().getSystemService("layout_inflater");
+        }
+        return (LayoutInflater) invokeL.objValue;
     }
 }

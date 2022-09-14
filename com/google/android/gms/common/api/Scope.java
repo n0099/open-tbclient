@@ -5,9 +5,6 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dn9;
-import com.baidu.tieba.hn9;
-import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,15 +12,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@KeepForSdk
+@SafeParcelable.Class(creator = "ScopeCreator")
 /* loaded from: classes7.dex */
 public final class Scope extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
     public static final Parcelable.Creator<Scope> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.VersionField(id = 1)
     public final int zza;
+    @SafeParcelable.Field(getter = "getScopeUri", id = 2)
     public final String zzb;
 
     static {
@@ -39,10 +44,11 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 return;
             }
         }
-        CREATOR = new dn9();
+        CREATOR = new zza();
     }
 
-    public Scope(int i, String str) {
+    @SafeParcelable.Constructor
+    public Scope(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +63,7 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 return;
             }
         }
-        hn9.b(str, "scopeUri must not be null or empty");
+        Preconditions.checkNotEmpty(str, "scopeUri must not be null or empty");
         this.zza = i;
         this.zzb = str;
     }
@@ -78,6 +84,7 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
     }
 
     @NonNull
+    @KeepForSdk
     public String getScopeUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,10 +108,10 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.g(parcel, 1, this.zza);
-            jn9.k(parcel, 2, getScopeUri(), false);
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeInt(parcel, 1, this.zza);
+            SafeParcelWriter.writeString(parcel, 2, getScopeUri(), false);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 

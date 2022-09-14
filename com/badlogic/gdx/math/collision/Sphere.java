@@ -2,7 +2,7 @@ package com.badlogic.gdx.math.collision;
 
 import com.badlogic.gdx.math.Vector3;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t7;
+import com.baidu.tieba.u7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class Sphere implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.center.hashCode() + 71) * 71) + t7.b(this.radius) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.center.hashCode() + 71) * 71) + u7.b(this.radius) : invokeV.intValue;
     }
 
     public boolean overlaps(Sphere sphere) {

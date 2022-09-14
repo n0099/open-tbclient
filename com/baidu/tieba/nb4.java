@@ -1,138 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes5.dex */
-public class nb4 extends ea4<tb4> {
+public class nb4 implements gb4<ac4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nb4(String str, t84 t84Var, ec4 ec4Var) {
-        super(t84Var, ec4Var);
+    public nb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, t84Var, ec4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((t84) objArr2[0], (ec4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = str;
     }
 
-    @Override // com.baidu.tieba.ea4
-    public String h() {
+    @Override // com.baidu.tieba.gb4
+    public void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(b());
+        }
+    }
+
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "CREATE TABLE IF NOT EXISTS " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0," + PackageTable.ABI + " TEXT,lib_name TEXT NOT NULL UNIQUE);";
+        }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: v */
-    public boolean f(tb4 tb4Var) {
-        InterceptResult invokeL;
-        List<y94> list;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tb4Var)) == null) {
-            if (tb4Var == null) {
-                return false;
-            }
-            if (tb4Var.a == null && (((list = tb4Var.b) == null || list.isEmpty()) && tb4Var.d == null && tb4Var.f == null && tb4Var.e == null)) {
-                return false;
-            }
-            x94 x94Var = tb4Var.a;
-            if (x94Var == null || x94Var.a()) {
-                List<y94> list2 = tb4Var.b;
-                if (list2 != null) {
-                    for (y94 y94Var : list2) {
-                        if (!y94Var.a()) {
-                            return false;
-                        }
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "so_lib" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gb4
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            while (i < i2) {
+                if (i == 9) {
+                    sQLiteDatabase.execSQL(b());
                 }
-                v94 v94Var = tb4Var.d;
-                if (v94Var == null || v94Var.a()) {
-                    t94 t94Var = tb4Var.f;
-                    if (t94Var == null || t94Var.a()) {
-                        PMSAppInfo pMSAppInfo = tb4Var.e;
-                        return pMSAppInfo == null || pMSAppInfo.checkValid();
-                    }
-                    return false;
-                }
-                return false;
+                i++;
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: w */
-    public boolean s(tb4 tb4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, tb4Var, i)) == null) {
-            if (tb4Var != null) {
-                r(tb4Var.e);
-                return false;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: x */
-    public s94 t(tb4 tb4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tb4Var)) == null) {
-            this.a.E();
-            ge4 ge4Var = new ge4();
-            o(tb4Var.a, ge4Var);
-            p(tb4Var.b, ge4Var);
-            n(g(tb4Var.c), ge4Var);
-            m(tb4Var.d, ge4Var);
-            l(tb4Var.f, ge4Var);
-            r(tb4Var.e);
-            if (ge4Var.n() == 0) {
-                this.a.F();
-                return null;
-            }
-            this.a.G(ge4Var);
-            ja4.b(tb4Var, this.a);
-            return null;
-        }
-        return (s94) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: y */
-    public tb4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? fe4.g(this.d, jSONObject) : (tb4) invokeL.objValue;
     }
 }

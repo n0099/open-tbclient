@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -18,12 +19,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ct8;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.en7;
-import com.baidu.tieba.kn7;
-import com.baidu.tieba.og;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.oo7;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.tu8;
+import com.baidu.tieba.uo7;
 import com.baidu.tieba.video.editvideo.data.PendantData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -44,10 +44,10 @@ import org.json.JSONObject;
 public class SelectCoverModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ct8 a;
+    public tu8 a;
     public d b;
     public TbPageContext c;
-    public kn7 d;
+    public uo7 d;
     public final HttpMessageListener e;
     public final HttpMessageListener f;
 
@@ -216,17 +216,17 @@ public class SelectCoverModel extends BdBaseModel {
                 VideoCheckUegResponseMessage videoCheckUegResponseMessage = (VideoCheckUegResponseMessage) httpResponsedMessage;
                 String status = videoCheckUegResponseMessage.getStatus();
                 if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    this.a.a.Z();
+                    this.a.a.a0();
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f153f);
+                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f155f);
                     }
                     this.a.a.k0(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1512);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1532);
                     }
                     this.a.a.k0(errorString);
                     if (this.a.d != null) {
@@ -273,7 +273,7 @@ public class SelectCoverModel extends BdBaseModel {
                 if (videoPendantResponseMessage.pendantDatas == null) {
                     return;
                 }
-                this.a.a.s(videoPendantResponseMessage.pendantDatas);
+                this.a.a.t(videoPendantResponseMessage.pendantDatas);
             }
         }
     }
@@ -378,7 +378,7 @@ public class SelectCoverModel extends BdBaseModel {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (this.c.d != null) {
-                        this.c.d.a(203, en7.a(e));
+                        this.c.d.a(203, oo7.a(e));
                         return bitmap;
                     }
                     return bitmap;
@@ -399,18 +399,18 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectCoverModel(TbPageContext tbPageContext, ct8 ct8Var, kn7 kn7Var) {
+    public SelectCoverModel(TbPageContext tbPageContext, tu8 tu8Var, uo7 uo7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ct8Var, kn7Var};
+            Object[] objArr = {tbPageContext, tu8Var, uo7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -419,8 +419,8 @@ public class SelectCoverModel extends BdBaseModel {
         this.e = new a(this, CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         this.f = new b(this, CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
         this.c = tbPageContext;
-        this.a = ct8Var;
-        this.d = kn7Var;
+        this.a = tu8Var;
+        this.d = uo7Var;
         registerTask();
         this.e.setTag(getUniqueId());
         this.e.setSelfListener(true);
@@ -442,8 +442,8 @@ public class SelectCoverModel extends BdBaseModel {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!pi.z()) {
-                this.c.showToast(R.string.obfuscated_res_0x7f0f0c78);
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.c.showToast(R.string.obfuscated_res_0x7f0f0c91);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT));
             }
@@ -497,8 +497,8 @@ public class SelectCoverModel extends BdBaseModel {
                 try {
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, r2);
                     bufferedOutputStream.write(r2.toByteArray());
-                    og.d(r2);
-                    og.d(bufferedOutputStream);
+                    ch.d(r2);
+                    ch.d(bufferedOutputStream);
                 } catch (Exception e2) {
                     e = e2;
                     bufferedOutputStream2 = bufferedOutputStream;
@@ -506,24 +506,24 @@ public class SelectCoverModel extends BdBaseModel {
                     try {
                         e.printStackTrace();
                         if (this.d != null) {
-                            this.d.a(202, en7.a(e));
+                            this.d.a(202, oo7.a(e));
                         }
-                        og.d(r2);
-                        og.d(bufferedOutputStream2);
+                        ch.d(r2);
+                        ch.d(bufferedOutputStream2);
                         return file;
                     } catch (Throwable th2) {
                         th = th2;
                         bufferedOutputStream = bufferedOutputStream2;
                         bufferedOutputStream2 = r2;
-                        og.d(bufferedOutputStream2);
-                        og.d(bufferedOutputStream);
+                        ch.d(bufferedOutputStream2);
+                        ch.d(bufferedOutputStream);
                         throw th;
                     }
                 } catch (Throwable th3) {
                     th = th3;
                     bufferedOutputStream2 = r2;
-                    og.d(bufferedOutputStream2);
-                    og.d(bufferedOutputStream);
+                    ch.d(bufferedOutputStream2);
+                    ch.d(bufferedOutputStream);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -531,8 +531,8 @@ public class SelectCoverModel extends BdBaseModel {
                 r2 = 0;
             } catch (Throwable th4) {
                 th = th4;
-                og.d(bufferedOutputStream2);
-                og.d(bufferedOutputStream);
+                ch.d(bufferedOutputStream2);
+                ch.d(bufferedOutputStream);
                 throw th;
             }
             return file;

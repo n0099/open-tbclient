@@ -100,11 +100,11 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fbVar)) == null) {
             if (fb.class.equals(fbVar.getClass())) {
-                int compareTo = Boolean.valueOf(m324a()).compareTo(Boolean.valueOf(fbVar.m324a()));
+                int compareTo = Boolean.valueOf(m325a()).compareTo(Boolean.valueOf(fbVar.m325a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m324a() || (a4 = iv.a(this.f350a, fbVar.f350a)) == 0) {
+                if (!m325a() || (a4 = iv.a(this.f350a, fbVar.f350a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(fbVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -156,28 +156,28 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jfVar) != null) {
             return;
         }
-        jfVar.m549a();
+        jfVar.m550a();
         while (true) {
-            jc m545a = jfVar.m545a();
-            byte b2 = m545a.a;
+            jc m546a = jfVar.m546a();
+            byte b2 = m546a.a;
             if (b2 == 0) {
                 jfVar.f();
                 a();
                 return;
             }
-            short s = m545a.f810a;
+            short s = m546a.f810a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f350a = jfVar.m550a();
+                    this.f350a = jfVar.m551a();
                     jfVar.g();
                 }
                 ji.a(jfVar, b2);
                 jfVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    jd m546a = jfVar.m546a();
-                    this.f351a = new ArrayList(m546a.f811a);
-                    for (int i = 0; i < m546a.f811a; i++) {
+                    jd m547a = jfVar.m547a();
+                    this.f351a = new ArrayList(m547a.f811a);
+                    for (int i = 0; i < m547a.f811a; i++) {
                         fa faVar = new fa();
                         faVar.a(jfVar);
                         this.f351a.add(faVar);
@@ -189,7 +189,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
                 jfVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f352b = jfVar.m550a();
+                    this.f352b = jfVar.m551a();
                     jfVar.g();
                 }
                 ji.a(jfVar, b2);
@@ -199,23 +199,23 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m324a() {
+    public boolean m325a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f350a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m325a(fb fbVar) {
+    public boolean m326a(fb fbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fbVar)) == null) {
             if (fbVar == null) {
                 return false;
             }
-            boolean m324a = m324a();
-            boolean m324a2 = fbVar.m324a();
-            if ((m324a || m324a2) && !(m324a && m324a2 && this.f350a.equals(fbVar.f350a))) {
+            boolean m325a = m325a();
+            boolean m325a2 = fbVar.m325a();
+            if ((m325a || m325a2) && !(m325a && m325a2 && this.f350a.equals(fbVar.f350a))) {
                 return false;
             }
             boolean b2 = b();
@@ -259,7 +259,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m553a();
+            jfVar.m554a();
         }
     }
 
@@ -280,7 +280,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             if (obj != null && (obj instanceof fb)) {
-                return m325a((fb) obj);
+                return m326a((fb) obj);
             }
             return false;
         }

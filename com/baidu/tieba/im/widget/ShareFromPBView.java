@@ -47,11 +47,11 @@ public final class ShareFromPBView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a6, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c0, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f9);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09060c);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090602);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);
         }
     }
 

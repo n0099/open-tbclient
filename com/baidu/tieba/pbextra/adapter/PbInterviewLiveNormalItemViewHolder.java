@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.pb.view.PbGiftListView;
-import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.FrsPraiseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,26 +44,26 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f50);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f6b);
         this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
         this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091bd4);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0917fc);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f0917fd);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917fb);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090c99);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1b);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091832);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091833);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091831);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cb4);
         this.b.getLayoutStrategy().t();
         this.b.getLayoutStrategy().k(true);
-        int min = Math.min(((((ri.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
+        int min = Math.min(((((ej.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.b.getLayoutStrategy().q(min);
         this.b.getLayoutStrategy().p((int) (min * 1.618f));
         this.b.setTextSize(TbConfig.getContentSize());
         this.b.setDisplayImage(z2, false);
-        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d08e6);
+        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0905);
     }
 
     @Override // android.view.View.OnClickListener

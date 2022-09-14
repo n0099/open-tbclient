@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes4.dex */
 public interface km1 {
-    boolean a(String str, String str2, String str3);
-
-    void b();
+    void a(Context context);
 }

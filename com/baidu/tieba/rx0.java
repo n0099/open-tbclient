@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class rx0 implements ts0 {
+public final /* synthetic */ class rx0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract qx0 a();
-
-    public abstract sx0 b();
-
-    public abstract tx0 c();
+    static {
+        int[] iArr = new int[PlayerStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[PlayerStatus.PREPARED.ordinal()] = 1;
+        $EnumSwitchMapping$0[PlayerStatus.COMPLETE.ordinal()] = 2;
+    }
 }

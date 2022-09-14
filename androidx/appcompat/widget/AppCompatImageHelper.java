@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -150,22 +150,22 @@ public class AppCompatImageHelper {
         int resourceId;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.AppCompatImageView, i, 0);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0);
             ImageView imageView = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R$styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+            ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R.styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             try {
                 Drawable drawable = this.mView.getDrawable();
-                if (drawable == null && (resourceId = obtainStyledAttributes.getResourceId(R$styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
+                if (drawable == null && (resourceId = obtainStyledAttributes.getResourceId(1, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
                     this.mView.setImageDrawable(drawable);
                 }
                 if (drawable != null) {
                     DrawableUtils.fixDrawable(drawable);
                 }
-                if (obtainStyledAttributes.hasValue(R$styleable.AppCompatImageView_tint)) {
-                    ImageViewCompat.setImageTintList(this.mView, obtainStyledAttributes.getColorStateList(R$styleable.AppCompatImageView_tint));
+                if (obtainStyledAttributes.hasValue(2)) {
+                    ImageViewCompat.setImageTintList(this.mView, obtainStyledAttributes.getColorStateList(2));
                 }
-                if (obtainStyledAttributes.hasValue(R$styleable.AppCompatImageView_tintMode)) {
-                    ImageViewCompat.setImageTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(R$styleable.AppCompatImageView_tintMode, -1), null));
+                if (obtainStyledAttributes.hasValue(3)) {
+                    ImageViewCompat.setImageTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(3, -1), null));
                 }
             } finally {
                 obtainStyledAttributes.recycle();

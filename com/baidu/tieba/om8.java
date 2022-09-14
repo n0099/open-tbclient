@@ -1,58 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.ActBtn;
+import tbclient.TPointPost;
+import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
 public class om8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
+    public boolean a;
+    public ArrayList<nm8> b;
+    public ArrayList<qm8> c;
 
-    public om8() {
+    public om8(TPointPost tPointPost) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tPointPost};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (tPointPost != null) {
+            try {
+                String str = tPointPost.position;
+                tPointPost.template_id.longValue();
+                this.a = tPointPost.is_tuiguang.intValue() != 0;
+                tPointPost.template_type.intValue();
+                List<ActBtn> list = tPointPost.act_btn;
+                if (list != null && list.size() > 0) {
+                    this.b = new ArrayList<>();
+                    for (int i3 = 0; i3 != list.size(); i3++) {
+                        this.b.add(new nm8(list.get(i3)));
+                    }
+                }
+                List<Timgs> list2 = tPointPost.t_imgs;
+                if (list2 != null && list2.size() > 0) {
+                    this.c = new ArrayList<>();
+                    for (int i4 = 0; i4 != list2.size(); i4++) {
+                        this.c.add(new qm8(list2.get(i4)));
+                    }
+                }
+                if (tPointPost.detail_info != null) {
+                    new pm8(tPointPost.detail_info);
+                }
+                String str2 = tPointPost.monitor_id;
+                tPointPost.hidden_day.intValue();
+                VideoInfo videoInfo = tPointPost.t_video;
+                String str3 = tPointPost.tag_name;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    public void a(String str) {
+    public qm8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
-                if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    this.a = new ArrayList<>();
-                    for (int i = 0; i < length; i++) {
-                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
-                    }
-                }
-                this.b = optJSONObject.optString("upload_id");
-                this.c = optJSONObject.optString("video_url");
-            }
-        } catch (JSONException unused) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (qm8) ListUtils.getItem(this.c, 0) : (qm8) invokeV.objValue;
     }
 }

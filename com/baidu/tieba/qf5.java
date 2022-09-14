@@ -1,61 +1,27 @@
 package com.baidu.tieba;
 
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.rf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class qf5 {
+public class qf5 extends nf5<s85, rf5.d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<m06> b;
+    public TbPageContext<?> e;
 
-    /* loaded from: classes5.dex */
-    public class a implements Comparator<m06> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(qf5 qf5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qf5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(m06 m06Var, m06 m06Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, m06Var, m06Var2)) == null) ? m06Var.sort() - m06Var2.sort() : invokeLL.intValue;
-        }
-    }
-
-    public qf5() {
+    public qf5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,49 +31,27 @@ public class qf5 {
                 return;
             }
         }
-        this.b = new LinkedList();
+        this.e = tbPageContext;
     }
 
-    public List<m06> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nf5
+    /* renamed from: g */
+    public void d(ViewType viewType, s85 s85Var, rf5.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, s85Var, dVar) == null) {
+            s85Var.s(dVar.b);
+            s85Var.k().setText(dVar.a);
+            s85Var.onChangeSkinType();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nf5
+    /* renamed from: h */
+    public s85 f(ViewType viewType, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) ? b(list, list2, null) : (List) invokeLL.objValue;
-    }
-
-    public List<m06> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                for (int i = 0; i < list.size(); i++) {
-                    PbLinkData pbLinkData = list.get(i);
-                    if (pbLinkData.urlType == 2 && !this.a) {
-                        this.a = true;
-                    }
-                    this.b.add(pbLinkData);
-                }
-            }
-            if (!ListUtils.isEmpty(list2)) {
-                this.a = true;
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    this.b.add(list2.get(i2));
-                }
-            }
-            if (!ListUtils.isEmpty(list3)) {
-                this.a = false;
-                for (int i3 = 0; i3 < list3.size(); i3++) {
-                    this.b.add(list3.get(i3));
-                }
-            }
-            Collections.sort(this.b, new a(this));
-            return this.b;
-        }
-        return (List) invokeLLL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new s85(this.e.getPageActivity()) : (s85) invokeLL.objValue;
     }
 }

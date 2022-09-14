@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.wi4;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class yi4 extends wi4.c {
+public class yi4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final yi4 b;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,24 +25,12 @@ public final class yi4 extends wi4.c {
                 return;
             }
         }
-        b = new yi4();
+        a = wi4.f().getString("openstat_switch", "1");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi4() {
-        super(new wi4.b());
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((wi4.b) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TextUtils.equals(a, "1") : invokeV.booleanValue;
     }
 }

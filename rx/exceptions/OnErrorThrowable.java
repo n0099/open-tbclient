@@ -2,8 +2,8 @@ package rx.exceptions;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iz9;
-import com.baidu.tieba.kv9;
+import com.baidu.tieba.a1a;
+import com.baidu.tieba.cx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class OnErrorThrowable extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -569558213262703934L;
@@ -22,14 +22,14 @@ public final class OnErrorThrowable extends RuntimeException {
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class OnNextValue extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3454462756050397899L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
             public static final Set<Class<?>> a;
@@ -114,7 +114,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj instanceof Enum) {
                     return ((Enum) obj).name();
                 }
-                String b = iz9.c().b().b(obj);
+                String b = a1a.c().b().b(obj);
                 if (b != null) {
                     return b;
                 }
@@ -159,11 +159,11 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b = kv9.b(th);
+            Throwable b = cx9.b(th);
             if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
                 return th;
             }
-            kv9.a(th, new OnNextValue(obj));
+            cx9.a(th, new OnNextValue(obj));
             return th;
         }
         return (Throwable) invokeLL.objValue;
@@ -176,7 +176,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b = kv9.b(th);
+            Throwable b = cx9.b(th);
             if (b instanceof OnNextValue) {
                 return new OnErrorThrowable(th, ((OnNextValue) b).getValue());
             }

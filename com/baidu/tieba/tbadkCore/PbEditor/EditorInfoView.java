@@ -3,8 +3,6 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +14,6 @@ public class EditorInfoView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EditorInfoView(Context context) {
@@ -39,19 +36,10 @@ public class EditorInfoView extends TextView {
         }
     }
 
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i == this.a) {
-            return;
-        }
-        SkinManager.setViewTextColor(this, (int) R.color.CAM_X0106);
-        this.a = i;
-    }
-
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
             setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702cb));
         }
@@ -97,11 +85,10 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.a = 3;
-        this.b = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f07025f);
+        this.a = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f07025f);
         int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e6);
-        this.c = dimension;
-        int i4 = this.b;
+        this.b = dimension;
+        int i4 = this.a;
         setPadding(i4, dimension, i4, dimension);
         setGravity(16);
         setSingleLine(true);

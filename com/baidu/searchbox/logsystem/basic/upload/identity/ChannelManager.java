@@ -227,14 +227,14 @@ public class ChannelManager {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0040, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L12;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0041, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0042, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0043, code lost:
         android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x005a, code lost:
-        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L12;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x005b, code lost:
+        if (com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.DEBUG == false) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

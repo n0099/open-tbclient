@@ -1,85 +1,35 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public final class yp0 {
+public abstract class yp0<T> implements xp0<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vp0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    public yp0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                zh0.c("AuthStrategyHelper", e.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final List<up0> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wp0
+    public void c(Headers headers, InputStream inputStream, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = xp0.a(px0.l().getString("host_auth_config", a()));
-            }
-            vp0 vp0Var = a;
-            if (vp0Var != null) {
-                return vp0Var.a();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, headers, inputStream, i) == null) {
+            throw new IllegalStateException("走错路了");
         }
-        return (List) invokeV.objValue;
-    }
-
-    public static final synchronized up0 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (yp0.class) {
-                if (str != null) {
-                    List<up0> b = b();
-                    if (b != null) {
-                        try {
-                            String host = new URL(str).getHost();
-                            for (up0 up0Var : b) {
-                                if (Pattern.matches(up0Var.b(), host)) {
-                                    return up0Var;
-                                }
-                            }
-                        } catch (Exception e) {
-                            zh0.a("AuthStrategyHelper", e.getMessage());
-                        }
-                        return null;
-                    }
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (up0) invokeL.objValue;
     }
 }

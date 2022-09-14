@@ -29,6 +29,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -243,7 +244,7 @@ public class bw {
                 if (!bo.e(context, com.kuaishou.weapon.p0.h.d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                     return "";
                 }
-                String macAddress = connectionInfo.getMacAddress();
+                String macAddress = ApiReplaceUtil.getMacAddress(connectionInfo);
                 return !TextUtils.isEmpty(macAddress) ? macAddress : "";
             } catch (Exception unused) {
                 return "";
@@ -305,17 +306,17 @@ public class bw {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:10|11|12|(11:14|15|16|17|19|20|(1:24)|25|(2:26|(1:1)(8:32|33|(1:35)|36|(1:44)(1:40)|41|42|43))|48|(1:50)(6:51|52|53|(1:55)|56|57))|67|15|16|17|19|20|(2:22|24)|25|(3:26|(2:28|60)(1:61)|43)|48|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003e, code lost:
         r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x003f, code lost:
         r4 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00ba A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00b4 A[ADDED_TO_REGION, EDGE_INSN: B:72:0x00b4->B:44:0x00b4 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00bc A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00b6 A[ADDED_TO_REGION, EDGE_INSN: B:73:0x00b6->B:44:0x00b6 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -597,7 +598,7 @@ public class bw {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003b: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003c: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -693,7 +694,7 @@ public class bw {
             try {
                 for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                     if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = networkInterface.getHardwareAddress();
+                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
                         if (hardwareAddress == null) {
                             return "";
                         }
@@ -732,9 +733,9 @@ public class bw {
                             InetAddress nextElement2 = inetAddresses.nextElement();
                             if (!nextElement2.isAnyLocalAddress() && (nextElement2 instanceof Inet4Address) && !nextElement2.isLoopbackAddress()) {
                                 if (nextElement2.isSiteLocalAddress()) {
-                                    bArr = nextElement.getHardwareAddress();
+                                    bArr = ApiReplaceUtil.getHardwareAddress(nextElement);
                                 } else if (!nextElement2.isLinkLocalAddress()) {
-                                    bArr = nextElement.getHardwareAddress();
+                                    bArr = ApiReplaceUtil.getHardwareAddress(nextElement);
                                     break;
                                 }
                             }

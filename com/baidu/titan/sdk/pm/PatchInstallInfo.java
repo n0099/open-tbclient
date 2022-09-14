@@ -2,7 +2,6 @@ package com.baidu.titan.sdk.pm;
 
 import android.os.Build;
 import androidx.multidex.MultiDexExtractor;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.internal.util.Closes;
 import com.baidu.titan.sdk.internal.util.EncodeUtils;
 import java.io.BufferedReader;
@@ -340,7 +339,7 @@ public class PatchInstallInfo {
 
     public boolean writeLock() {
         try {
-            FileLock tryLock = new RandomAccessFile(getLockFile(), rw.c).getChannel().tryLock(0L, 0L, false);
+            FileLock tryLock = new RandomAccessFile(getLockFile(), "rw").getChannel().tryLock(0L, 0L, false);
             this.mWriteFileLock = tryLock;
             return tryLock != null;
         } catch (IOException unused) {

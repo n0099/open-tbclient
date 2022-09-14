@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +57,6 @@ public class BaseActivity extends Activity {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
             }
             super.onCreate(bundle);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

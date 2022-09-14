@@ -1,7 +1,7 @@
 package com.baidu.nadcore.max.component;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gm0;
+import com.baidu.tieba.sn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
     public final /* synthetic */ AlsComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements gm0 {
+    public static final class a implements sn0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlsComponent$alsService$2 a;
@@ -43,7 +43,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
             this.a = alsComponent$alsService$2;
         }
 
-        @Override // com.baidu.tieba.gm0
+        @Override // com.baidu.tieba.sn0
         public void a(String type, String area) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, type, area) == null) {
@@ -53,7 +53,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
             }
         }
 
-        @Override // com.baidu.tieba.gm0
+        @Override // com.baidu.tieba.sn0
         public void c(String type, String area, String ext1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, type, area, ext1) == null) {

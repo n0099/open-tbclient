@@ -4,7 +4,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,13 +25,11 @@ public class ForumWriteData implements Serializable {
     public ForumTagInfo forumTagInfo;
     public FrsTabInfoData frsTabInfo;
     public String mFrom;
-    public int mem_type;
     public final PostPrefixData prefixData;
     public int privateThread;
     public String secondDir;
     public String specialForumType;
     public int statisticFrom;
-    public PostTopicData topicData;
     public String writeCallFrom;
 
     public ForumWriteData(String str, String str2, PostPrefixData postPrefixData, AntiData antiData) {
@@ -80,31 +77,10 @@ public class ForumWriteData implements Serializable {
         }
     }
 
-    public void setForumLevel(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.forumLevel = i;
-        }
-    }
-
-    public void setMem_type(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mem_type = i;
-        }
-    }
-
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.privateThread = i;
-        }
-    }
-
-    public void setTopicData(PostTopicData postTopicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, postTopicData) == null) {
-            this.topicData = postTopicData;
         }
     }
 }

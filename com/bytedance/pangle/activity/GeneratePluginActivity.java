@@ -53,7 +53,6 @@ import android.widget.Toolbar;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -659,7 +658,6 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
         if (interceptable == null || interceptable.invokeL(1048654, this, bundle) == null) {
             this.mProxyActivity.zeusSuperOnCreate(bundle);
             com.bytedance.pangle.res.b.a(getLayoutInflater());
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

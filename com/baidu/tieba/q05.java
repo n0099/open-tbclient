@@ -1,65 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Hashtable;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class q05 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "表情包";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Hashtable<String, String> a;
+    public Hashtable<String, String> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948038035, "Lcom/baidu/tieba/q05;")) == null) {
+    public q05() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Hashtable<>();
+        this.b = new Hashtable<>();
+    }
+
+    public final void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hashtable, jSONArray) == null) || (length = jSONArray.length()) <= 0) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948038035, "Lcom/baidu/tieba/q05;");
-        }
-    }
-
-    public static String a(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            return b(textPaint, str, f - textPaint.measureText(str2), str2);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(TextPaint textPaint, String str, float f, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
-            float measureText = textPaint.measureText(str);
-            if (measureText > f) {
-                if (str.endsWith(a)) {
-                    str = str.substring(0, str.length() - 3);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                try {
+                    hashtable.put(next, optJSONObject.get(next));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                str3 = StringHelper.STRING_MORE + a;
-            } else {
-                str3 = !str.endsWith(a) ? a : "";
             }
-            while (str.length() > 0 && measureText > f) {
-                str = nf5.n(str, nf5.d(str) - 1);
-                measureText = textPaint.measureText(str);
-            }
-            return str + str3;
         }
-        return (String) invokeCommon.objValue;
+    }
+
+    public boolean b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            String str2 = null;
+            if (i == 1) {
+                str2 = this.b.get(str);
+            } else if (i == 2) {
+                str2 = this.a.get(str);
+            }
+            if (StringUtils.isNull(str2)) {
+                return true;
+            }
+            return str2.equals("3");
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+            BdLog.e("consumepath is:" + jSONObject.toString());
+            a(this.a, optJSONArray);
+            a(this.b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.a.toString());
+            BdLog.e("pay mPayCashierType:" + this.b.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

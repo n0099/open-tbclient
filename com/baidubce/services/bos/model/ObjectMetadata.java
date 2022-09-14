@@ -11,7 +11,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ObjectMetadata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

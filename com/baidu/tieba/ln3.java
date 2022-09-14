@@ -1,83 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class ln3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Method a;
+    public Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948600, "Lcom/baidu/tieba/ln3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948600, "Lcom/baidu/tieba/ln3;");
+    public ln3(Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        if (cls == null) {
+            return;
+        }
+        try {
+            this.b = c74.m(cls);
+            Method i3 = c74.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
     }
 
-    public static String a(String str) {
+    public static ln3 a(@NonNull Context context) {
+        Class<?> cls;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Signature b = b(str);
-            if (b == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return c(MessageDigest.getInstance("MD5").digest(b.toByteArray()));
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-                return null;
+                cls = c74.b("com.hisi.perfhub.PerfHub", true);
+            } catch (Throwable unused) {
+                cls = null;
             }
+            return new ln3(cls);
         }
-        return (String) invokeL.objValue;
+        return (ln3) invokeL.objValue;
     }
 
-    public static Signature b(String str) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Signature) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.b == null || this.a == null) ? false : true : invokeV.booleanValue;
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    public int c(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                char[] cArr2 = a;
-                cArr[i2] = cArr2[(b >>> 4) & 15];
-                cArr[i2 + 1] = cArr2[b & 15];
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (b()) {
+                try {
+                    Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
+                } catch (Throwable unused) {
+                    return -1;
+                }
             }
-            return new String(cArr);
+            return -1;
         }
-        return (String) invokeL.objValue;
+        return invokeILL.intValue;
     }
 }

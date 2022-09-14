@@ -42,7 +42,7 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public static final HttpClientFactory httpClientFactory;
@@ -215,8 +215,8 @@ public class BceHttpClient {
         this.signer = signer;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:69:0x014f  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x0189 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0150  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x018a A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -334,7 +334,7 @@ public class BceHttpClient {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

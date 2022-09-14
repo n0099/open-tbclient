@@ -19,7 +19,6 @@ import androidx.media2.session.MediaSession;
 import androidx.media2.session.MediaSessionService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,11 +59,11 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
         MediaSessionService mediaSessionService2 = this.mServiceInstance;
         this.mStartSelfIntent = new Intent(mediaSessionService2, mediaSessionService2.getClass());
         this.mNotificationManager = (NotificationManager) this.mServiceInstance.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        this.mNotificationChannelName = this.mServiceInstance.getResources().getString(R.string.obfuscated_res_0x7f0f0496);
-        this.mPlayAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d3f, R.string.obfuscated_res_0x7f0f0e8a, 4L);
-        this.mPauseAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d3e, R.string.obfuscated_res_0x7f0f0d6a, 2L);
-        this.mSkipToPrevAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d41, R.string.obfuscated_res_0x7f0f11a8, 16L);
-        this.mSkipToNextAction = createNotificationAction(R.drawable.obfuscated_res_0x7f080d40, R.string.obfuscated_res_0x7f0f11a7, 32L);
+        this.mNotificationChannelName = this.mServiceInstance.getResources().getString(com.baidu.tieba.R.string.default_notification_channel_name);
+        this.mPlayAction = createNotificationAction(com.baidu.tieba.R.drawable.media_session_service_notification_ic_play, com.baidu.tieba.R.string.play_button_content_description, 4L);
+        this.mPauseAction = createNotificationAction(com.baidu.tieba.R.drawable.media_session_service_notification_ic_pause, com.baidu.tieba.R.string.pause_button_content_description, 2L);
+        this.mSkipToPrevAction = createNotificationAction(com.baidu.tieba.R.drawable.media_session_service_notification_ic_skip_to_previous, com.baidu.tieba.R.string.skip_to_previous_item_button_content_description, 16L);
+        this.mSkipToNextAction = createNotificationAction(com.baidu.tieba.R.drawable.media_session_service_notification_ic_skip_to_next, com.baidu.tieba.R.string.skip_to_next_item_button_content_description, 32L);
     }
 
     private NotificationCompat.Action createNotificationAction(int i, int i2, long j) {
@@ -102,7 +101,7 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i = this.mServiceInstance.getApplicationInfo().icon;
-            return i != 0 ? i : R.drawable.obfuscated_res_0x7f080d3d;
+            return i != 0 ? i : com.baidu.tieba.R.drawable.media_session_service_notification_ic_music_note;
         }
         return invokeV.intValue;
     }

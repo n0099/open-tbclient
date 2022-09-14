@@ -1,37 +1,75 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.StampShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class lk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public mk8 b;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public lk8(Context context, mk8 mk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, mk8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            boolean checkWriteExternalStorage = PermissionUtil.checkWriteExternalStorage(activity);
-            if (activity.getApplicationInfo().targetSdkVersion >= 23 || !Environment.getExternalStorageState().equals("unmounted")) {
-                return checkWriteExternalStorage;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = context;
+        this.b = mk8Var;
     }
 
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? context.getPackageManager().getPackageInfo(str, 0) != null : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ShareItem shareItem = new ShareItem();
+            Bundle e = shareItem.e();
+            if (e == null) {
+                e = new Bundle();
+            }
+            e.putInt("obj_locate", 20);
+            shareItem.k(e);
+            shareItem.r0 = true;
+            shareItem.h0 = 1;
+            StampShareDialogConfig stampShareDialogConfig = new StampShareDialogConfig(this.a, shareItem, true, this.b);
+            stampShareDialogConfig.setIsCopyLink(false);
+            stampShareDialogConfig.setHideMode(stampShareDialogConfig.hideMode | 32);
+            this.b.e(b("https://tieba.baidu.com/mo/q/icon/home"));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, stampShareDialogConfig));
+        }
+    }
+
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
+                return null;
+            }
+            return (Bitmap) runTask.getData();
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

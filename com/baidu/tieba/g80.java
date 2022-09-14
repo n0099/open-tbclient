@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveFollowWrapData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
 /* loaded from: classes4.dex */
-public class g80 extends d80 {
+public class g80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveFollowWrapData b;
+    public Boolean a;
+    public Boolean b;
+    public Socket c;
+    public InputStream d;
+    public OutputStream e;
 
     public g80() {
         Interceptable interceptable = $ic;
@@ -21,7 +27,14 @@ public class g80 extends d80 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Boolean bool = Boolean.FALSE;
+        this.a = bool;
+        this.b = bool;
+        this.c = null;
+        this.d = null;
+        this.e = null;
     }
 }

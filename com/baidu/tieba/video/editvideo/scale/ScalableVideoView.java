@@ -13,9 +13,9 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.st8;
-import com.baidu.tieba.tt8;
+import com.baidu.tieba.jv8;
+import com.baidu.tieba.kv8;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +130,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new st8(new tt8(getWidth(), getHeight()), new tt8(i, i2)).m(this.b)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new jv8(new kv8(getWidth(), getHeight()), new kv8(i, i2)).m(this.b)) == null) {
             return;
         }
         setTransform(m);
@@ -386,7 +386,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.b = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040763}, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.videoScaleStyle, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());

@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y93 extends SQLiteOpenHelper {
+public class y93 extends ba3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public String A;
+    public String B;
+    public long C;
+    public long D;
+    public int v;
+    public String w;
+    public String x;
+    public int y;
+    public String z;
 
     static {
         InterceptResult invokeClinit;
@@ -36,141 +41,189 @@ public class y93 extends SQLiteOpenHelper {
                 return;
             }
         }
-        b = kh1.a;
+        boolean z = ij1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y93(@NonNull Context context, String str) {
-        super(context.getApplicationContext(), c(str), (SQLiteDatabase.CursorFactory) null, 1);
+    public y93(String str, int i, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.w = str;
+        this.y = i;
+        this.C = j;
+        this.D = j2;
+        this.B = "0";
+    }
+
+    @Override // com.baidu.tieba.ba3, com.baidu.tieba.aa3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
+                    this.h.put("errorno", this.v);
+                }
+                String b = q93.b(this.w);
+                this.w = b;
+                this.h.put("url", b);
+                this.h.put("netStatus", this.y);
+                if (!TextUtils.isEmpty(this.x)) {
+                    this.h.put("msg", this.x);
+                }
+                if (!TextUtils.isEmpty(this.z)) {
+                    this.h.put("pagetype", this.z);
+                }
+                if (!TextUtils.isEmpty(this.A)) {
+                    this.h.put("curpage", this.A);
+                }
+                if (!TextUtils.isEmpty(this.B)) {
+                    this.h.put("requesttype", this.B);
+                }
+                if (this.D - this.C > 0) {
+                    this.h.put(FetchLog.START_TIME, this.C);
+                    this.h.put(FetchLog.END_TIME, this.D);
+                }
+                ExtensionCore T = s92.U().T();
+                if (T != null) {
+                    this.h.put("extension_ver", T.extensionCoreVersionName);
+                }
+            } catch (JSONException e) {
+                yz1.e("SwanAppRequestEvent", "834", "#toJSONObject error", e, false);
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.C : invokeV.longValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.B : (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.w : (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = this.h;
+            return jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
+                    jSONObject.put("errorno", this.v);
+                }
+                jSONObject.put("url", q93.b(this.w));
+                jSONObject.put("netStatus", this.y);
+                if (!TextUtils.isEmpty(this.x)) {
+                    jSONObject.put("msg", this.x);
+                }
+                if (!TextUtils.isEmpty(this.B)) {
+                    jSONObject.put("requesttype", this.B);
+                }
+                if (this.D - this.C > 0) {
+                    jSONObject.put(FetchLog.START_TIME, this.C);
+                    jSONObject.put(FetchLog.END_TIME, this.D);
+                }
+            } catch (JSONException e) {
+                yz1.e("SwanAppRequestEvent", "834", "#mergeRequestInfo error", e, false);
+            }
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.A = str;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.z = str;
+        }
+    }
+
+    public y93(int i, String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
+        this.v = i;
+        this.w = str;
+        this.x = str2;
+        this.y = i2;
+        this.B = "1";
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public y93(int i, String str, String str2, int i2, long j, long j2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE cookies (_id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,value TEXT,domain TEXT,path TEXT,expires INTEGER,secure INTEGER,ext TEXT);" : (String) invokeV.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String o = wj2.o(str);
-            File file = new File(o);
-            if (!file.exists() && !file.mkdirs()) {
-                ay1.k("SwanCookieDBHelper", "mkdirs fail: " + o);
-            }
-            return o + File.separator + "smCookie.db";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getReadableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Exception e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getReadableDatabase();
-                } catch (Exception e2) {
-                    sQLiteDatabase = null;
-                    e = e2;
-                }
-                try {
-                    String databaseName = getDatabaseName();
-                    if (!new File(databaseName).exists()) {
-                        ay1.k("SwanCookieDBHelper", "getReadableDatabase file is not exit: " + databaseName);
-                        return null;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    ay1.k("SwanCookieDBHelper", "getRead fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
-                    if (b) {
-                        throw new RuntimeException(e);
-                    }
-                    return sQLiteDatabase;
-                }
-                return sQLiteDatabase;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Exception e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getWritableDatabase();
-                } catch (Exception e2) {
-                    sQLiteDatabase = null;
-                    e = e2;
-                }
-                try {
-                    String databaseName = getDatabaseName();
-                    if (!new File(databaseName).exists()) {
-                        ay1.k("SwanCookieDBHelper", "getWritableDatabase file is not exit: " + databaseName);
-                        return null;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    ay1.k("SwanCookieDBHelper", "getWrite fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
-                    if (b) {
-                        throw new RuntimeException(e);
-                    }
-                    return sQLiteDatabase;
-                }
-                return sQLiteDatabase;
-            }
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            if (b) {
-                Log.d("SwanCookieDBHelper", "onCreate");
-            }
-            try {
-                sQLiteDatabase.execSQL(a());
-            } catch (Exception e) {
-                ay1.k("SwanCookieDBHelper", "createTableSql fail:" + Log.getStackTraceString(e));
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && b) {
-            Log.d("SwanCookieDBHelper", "oldVersion = " + i + ";newVersion=" + i2);
+        this.v = i;
+        this.w = str;
+        this.x = str2;
+        this.y = i2;
+        this.C = j;
+        this.D = j2;
+        if (i == 200 && j2 - j >= 5000) {
+            this.B = "2";
+        } else {
+            this.B = "1";
         }
     }
 }

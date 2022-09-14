@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.kb5;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.l15;
+import com.baidu.tieba.td5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,10 +115,10 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     if (this.a.h.hasFocus()) {
-                        ri.x(this.a.getPageContext().getPageActivity(), this.a.h);
+                        ej.x(this.a.getPageContext().getPageActivity(), this.a.h);
                     }
                     if (this.a.i.hasFocus()) {
-                        ri.x(this.a.getPageContext().getPageActivity(), this.a.i);
+                        ej.x(this.a.getPageContext().getPageActivity(), this.a.i);
                         return false;
                     }
                     return false;
@@ -270,14 +270,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        bz4 bz4Var = new bz4();
-                        bz4Var.e(postNetData);
-                        if (bz4Var.c() != null && bz4Var.c().length() > 0) {
-                            this.c.d = bz4Var.b();
+                        l15 l15Var = new l15();
+                        l15Var.e(postNetData);
+                        if (l15Var.c() != null && l15Var.c().length() > 0) {
+                            this.c.d = l15Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(bz4Var.c());
+                            NetWork netWork2 = new NetWork(l15Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -370,28 +370,28 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c33);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c81);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f.setTitleText(R.string.obfuscated_res_0x7f0f046a);
-            this.g = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f092568);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09085e);
+            this.f.setTitleText(R.string.obfuscated_res_0x7f0f046e);
+            this.g = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090873);
             this.h = editText;
             editText.setText(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09086f);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090884);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b7f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc2);
             this.k = textView;
             textView.setOnClickListener(this.a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e79);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c1);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092112);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
-            findViewById(R.id.obfuscated_res_0x7f0903ac).setOnTouchListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f0903b7).setOnTouchListener(new b(this));
         }
     }
 
@@ -421,7 +421,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().k(this.e);
-            kb5.a(getPageContext(), this.e);
+            td5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);
@@ -450,7 +450,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01ff);
+            setContentView(R.layout.obfuscated_res_0x7f0d0203);
             initData();
             K1();
             J1();

@@ -129,12 +129,12 @@ public class HistoryLoginView extends RelativeLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c4, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091d53);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cc6);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc5);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc7);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d47);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d6, this);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091da1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d14);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d13);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d15);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d95);
             View.OnClickListener onClickListener = new View.OnClickListener(this) { // from class: com.baidu.sapi2.views.logindialog.view.HistoryLoginView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +293,7 @@ public class HistoryLoginView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e78));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e9f));
         }
     }
 }

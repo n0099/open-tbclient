@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt;
 import com.kwad.sdk.pngencrypt.ChunkReader;
 import java.io.Closeable;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b implements f, Closeable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public byte[] ajA;

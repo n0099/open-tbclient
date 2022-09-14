@@ -1,13 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.res.AssetFileDescriptor;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.os.Build;
+import android.content.res.AssetManager;
+import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,176 +11,176 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.InputStream;
 /* loaded from: classes3.dex */
-public class c3 implements j2 {
+public class c3 extends n2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SoundPool a;
-    public final AudioManager b;
-    public final List<v2> c;
+    public boolean d;
+    public long e;
+    public g3 f;
+    public String g;
 
-    public c3(Context context, h2 h2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c3(String str) {
+        super((AssetManager) null, str, Files.FileType.Internal);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, h2Var};
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((AssetManager) objArr2[0], (String) objArr2[1], (Files.FileType) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        w();
+    }
+
+    @Override // com.baidu.tieba.n2, com.baidu.tieba.k3
+    public k3 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a.getPath().length() == 0) {
+                return new c3(new File(str), this.b);
+            }
+            return new c3(new File(this.a, str), this.b);
+        }
+        return (k3) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n2, com.baidu.tieba.k3
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d || this.f.b(v()).length != 0 : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.n2, com.baidu.tieba.k3
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d) {
+                return this.e;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.n2, com.baidu.tieba.k3
+    public k3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File parentFile = this.a.getParentFile();
+            if (parentFile == null) {
+                parentFile = new File("");
+            }
+            return new c3(parentFile.getPath());
+        }
+        return (k3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.n2, com.baidu.tieba.k3
+    public InputStream m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return this.f.c(v());
+            } catch (IOException e) {
+                throw new GdxRuntimeException("Error reading file: " + this.a + " (ZipResourceFile)", e);
+            }
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.n2, com.baidu.tieba.k3
+    public k3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.a.getPath().length() != 0) {
+                return f1.d.d(new File(this.a.getParent(), str).getPath(), this.b);
+            }
+            throw new GdxRuntimeException("Cannot get the sibling of the root.");
+        }
+        return (k3) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n2
+    public AssetFileDescriptor u() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.a(v()) : (AssetFileDescriptor) invokeV.objValue;
+    }
+
+    public final String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.g = this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
+            g3 c = ((o2) f1.d).c();
+            this.f = c;
+            AssetFileDescriptor a = c.a(v());
+            if (a != null) {
+                this.d = true;
+                this.e = a.getLength();
+                try {
+                    a.close();
+                } catch (IOException unused) {
+                }
+            } else {
+                this.d = false;
+            }
+            if (x()) {
+                this.g += "/";
+            }
+        }
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.d : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c3(File file, Files.FileType fileType) {
+        super((AssetManager) null, file, fileType);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, fileType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((AssetManager) objArr2[0], (File) objArr2[1], (Files.FileType) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        if (!h2Var.p) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.a = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(h2Var.q).build();
-            } else {
-                this.a = new SoundPool(h2Var.q, 3, 0);
-            }
-            this.b = (AudioManager) context.getSystemService("audio");
-            if (context instanceof Activity) {
-                ((Activity) context).setVolumeControlStream(3);
-                return;
-            }
-            return;
-        }
-        this.a = null;
-        this.b = null;
-    }
-
-    @Override // com.baidu.tieba.d1
-    public f2 a(j3 j3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, j3Var)) == null) {
-            if (this.a != null) {
-                m2 m2Var = (m2) j3Var;
-                if (m2Var.t() == Files.FileType.Internal) {
-                    try {
-                        AssetFileDescriptor u = m2Var.u();
-                        y2 y2Var = new y2(this.a, this.b, this.a.load(u, 1));
-                        u.close();
-                        return y2Var;
-                    } catch (IOException e) {
-                        throw new GdxRuntimeException("Error loading audio file: " + j3Var + "\nNote: Internal audio files must be placed in the assets directory.", e);
-                    }
-                }
-                try {
-                    return new y2(this.a, this.b, this.a.load(m2Var.e().getPath(), 1));
-                } catch (Exception e2) {
-                    throw new GdxRuntimeException("Error loading audio file: " + j3Var, e2);
-                }
-            }
-            throw new GdxRuntimeException("Android audio is not enabled by the application config.");
-        }
-        return (f2) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.j2
-    public void d(v2 v2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v2Var) == null) {
-            synchronized (this.c) {
-                this.c.remove(this);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.h7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            Iterator it = new ArrayList(this.c).iterator();
-            while (it.hasNext()) {
-                ((v2) it.next()).dispose();
-            }
-        }
-        this.a.release();
-    }
-
-    @Override // com.baidu.tieba.d1
-    public e2 f(j3 j3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j3Var)) == null) {
-            if (this.a != null) {
-                m2 m2Var = (m2) j3Var;
-                MediaPlayer mediaPlayer = new MediaPlayer();
-                if (m2Var.t() == Files.FileType.Internal) {
-                    try {
-                        AssetFileDescriptor u = m2Var.u();
-                        mediaPlayer.setDataSource(u.getFileDescriptor(), u.getStartOffset(), u.getLength());
-                        u.close();
-                        mediaPlayer.prepare();
-                        v2 v2Var = new v2(this, mediaPlayer);
-                        synchronized (this.c) {
-                            this.c.add(v2Var);
-                        }
-                        return v2Var;
-                    } catch (Exception e) {
-                        throw new GdxRuntimeException("Error loading audio file: " + j3Var + "\nNote: Internal audio files must be placed in the assets directory.", e);
-                    }
-                }
-                try {
-                    mediaPlayer.setDataSource(m2Var.e().getPath());
-                    mediaPlayer.prepare();
-                    v2 v2Var2 = new v2(this, mediaPlayer);
-                    synchronized (this.c) {
-                        this.c.add(v2Var2);
-                    }
-                    return v2Var2;
-                } catch (Exception e2) {
-                    throw new GdxRuntimeException("Error loading audio file: " + j3Var, e2);
-                }
-            }
-            throw new GdxRuntimeException("Android audio is not enabled by the application config.");
-        }
-        return (e2) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.j2
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            for (v2 v2Var : this.c) {
-                if (v2Var.a()) {
-                    v2Var.pause();
-                    v2Var.d = true;
-                } else {
-                    v2Var.d = false;
-                }
-            }
-        }
-        this.a.autoPause();
-    }
-
-    @Override // com.baidu.tieba.j2
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).d) {
-                    this.c.get(i).f();
-                }
-            }
-        }
-        this.a.autoResume();
+        w();
     }
 }

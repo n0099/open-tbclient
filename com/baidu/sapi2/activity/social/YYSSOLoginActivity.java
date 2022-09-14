@@ -10,9 +10,9 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
-import com.baidu.tieba.ir9;
-import com.baidu.tieba.jr9;
-import com.baidu.tieba.kr9;
+import com.baidu.tieba.at9;
+import com.baidu.tieba.bt9;
+import com.baidu.tieba.ct9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,12 +23,12 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q = "YYSSOLoginActivity";
     public transient /* synthetic */ FieldHolder $fh;
-    public kr9 n;
+    public ct9 n;
     public String o;
-    public ir9 p;
+    public at9 p;
 
     /* loaded from: classes2.dex */
-    public class a implements ir9 {
+    public class a implements at9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YYSSOLoginActivity a;
@@ -51,7 +51,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             this.a = yYSSOLoginActivity;
         }
 
-        @Override // com.baidu.tieba.ir9
+        @Override // com.baidu.tieba.at9
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -61,7 +61,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             }
         }
 
-        @Override // com.baidu.tieba.ir9
+        @Override // com.baidu.tieba.at9
         public void onComplete(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -83,13 +83,13 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             }
         }
 
-        @Override // com.baidu.tieba.ir9
-        public void onError(jr9 jr9Var) {
+        @Override // com.baidu.tieba.at9
+        public void onError(bt9 bt9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jr9Var) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + jr9Var.a + " " + jr9Var.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bt9Var) == null) {
+                Log.d(YYSSOLoginActivity.q, "onError " + bt9Var.a + " " + bt9Var.b);
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, jr9Var.a, jr9Var.b);
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, bt9Var.a, bt9Var.b);
             }
         }
     }
@@ -136,7 +136,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && !TextUtils.isEmpty(confignation.yyAppId)) {
                 try {
-                    kr9 b = kr9.b(getApplicationContext(), confignation.yyAppId);
+                    ct9 b = ct9.b(getApplicationContext(), confignation.yyAppId);
                     this.n = b;
                     b.a(this, this.p);
                     return;

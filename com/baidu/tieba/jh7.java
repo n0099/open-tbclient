@@ -1,193 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public class jh7 extends BaseAdapter {
+public class jh7 implements ih7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<ih7> a;
+    public static final ih7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public Context c;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947883376, "Lcom/baidu/tieba/jh7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947883376, "Lcom/baidu/tieba/jh7;");
+                return;
+            }
+        }
+        a = new AtomicReference<>(null);
+        b = new jh7();
     }
 
-    public jh7(Context context, ArrayList<String> arrayList) {
+    public jh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = context;
-        this.b = arrayList;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public String getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int count = getCount();
-            if (count <= 0 || i >= count) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void b(TextView textView, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.a)) {
-            return;
-        }
-        String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.a.toLowerCase();
-        if (!lowerCase.contains(lowerCase2)) {
-            textView.setText(str);
-            return;
-        }
-        int indexOf = lowerCase.indexOf(lowerCase2);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.a.length() + indexOf, 33);
-        textView.setText(spannableStringBuilder);
-    }
-
-    public void c(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                notifyDataSetChanged();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        this.a = str.trim();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static ih7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ih7 ih7Var = a.get();
+            return ih7Var == null ? b : ih7Var;
         }
-        return invokeV.intValue;
+        return (ih7) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.ih7
+    public ah7 a(eh7 eh7Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eh7Var)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (ah7) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    @Override // com.baidu.tieba.ih7
+    public eg7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0787, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091c34);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d8c);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091d8b);
-                view2.setTag(bVar);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            String item = getItem(i);
-            if (StringUtils.isNull(item)) {
-                return view2;
-            }
-            b(bVar.c, item);
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != bVar.a) {
-                bVar.a = skinType;
-                SkinManager.setBackgroundResource(bVar.b, R.drawable.addresslist_item_bg);
-                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
-            }
-            return view2;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
         }
-        return (View) invokeILL.objValue;
+        return (eg7) invokeLLI.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public View b;
-        public TextView c;
-        public View d;
-
-        public b(jh7 jh7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jh7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
+    @Override // com.baidu.tieba.ih7
+    public kh7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
         }
-
-        public /* synthetic */ b(jh7 jh7Var, a aVar) {
-            this(jh7Var);
-        }
+        return (kh7) invokeLL.objValue;
     }
 }

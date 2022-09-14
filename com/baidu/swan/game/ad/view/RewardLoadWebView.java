@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-import com.baidu.tieba.vp3;
+import com.baidu.tieba.ur3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class RewardLoadWebView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public RewardWebView b;
-    public vp3 c;
+    public ur3 c;
 
     /* loaded from: classes3.dex */
     public class a extends WebViewClient {
@@ -111,9 +111,9 @@ public class RewardLoadWebView extends RelativeLayout {
         this.a = "";
     }
 
-    public void b(String str, AdElementInfo adElementInfo, vp3 vp3Var) {
+    public void b(String str, AdElementInfo adElementInfo, ur3 ur3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, adElementInfo, vp3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, adElementInfo, ur3Var) == null) {
             if (TextUtils.equals("reward_banner_html", str)) {
                 this.a = adElementInfo.getBannerHtml();
             } else if (TextUtils.equals("reward_end_frame_html", str)) {
@@ -121,7 +121,7 @@ public class RewardLoadWebView extends RelativeLayout {
             } else if (TextUtils.equals("reward_banner_land_html", str)) {
                 this.a = adElementInfo.getLandBannerHtml();
             }
-            this.c = vp3Var;
+            this.c = ur3Var;
             RewardWebView rewardWebView = new RewardWebView(getContext());
             this.b = rewardWebView;
             rewardWebView.setWebViewClient(new a(this));

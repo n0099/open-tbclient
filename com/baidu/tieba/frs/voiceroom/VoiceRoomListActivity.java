@@ -107,7 +107,7 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d005c);
             VoiceRoomListFragment voiceRoomListFragment = new VoiceRoomListFragment();
             voiceRoomListFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090ab2, voiceRoomListFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090acc, voiceRoomListFragment).commitAllowingStateLoss();
         }
     }
 }

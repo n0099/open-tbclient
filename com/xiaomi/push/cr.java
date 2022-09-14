@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.yy.gslbsdk.db.ResultTB;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -69,7 +68,7 @@ public class cr {
         }
         this.f181a = System.currentTimeMillis();
         this.f183a.add(new da(str, -1));
-        this.f182a = cv.m251a();
+        this.f182a = cv.m252a();
         this.f184b = str;
     }
 
@@ -95,7 +94,7 @@ public class cr {
                 this.f182a = jSONObject.optString("net");
                 this.b = jSONObject.getLong(ResultTB.TTL);
                 this.a = jSONObject.getDouble("pct");
-                this.f181a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+                this.f181a = jSONObject.getLong("ts");
                 this.d = jSONObject.optString("city");
                 this.c = jSONObject.optString("prv");
                 this.g = jSONObject.optString("cty");
@@ -133,7 +132,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m242a() {
+    public synchronized ArrayList<String> m243a() {
         InterceptResult invokeV;
         ArrayList<String> a;
         Interceptable interceptable = $ic;
@@ -159,7 +158,7 @@ public class cr {
                 Iterator<String> it = a(true).iterator();
                 while (it.hasNext()) {
                     ct a = ct.a(it.next(), url.getPort());
-                    arrayList.add(new URL(url.getProtocol(), a.m250a(), a.a(), url.getFile()).toString());
+                    arrayList.add(new URL(url.getProtocol(), a.m251a(), a.a(), url.getFile()).toString());
                 }
                 return arrayList;
             }
@@ -197,7 +196,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m243a() {
+    public synchronized JSONObject m244a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -207,7 +206,7 @@ public class cr {
                 jSONObject.put("net", this.f182a);
                 jSONObject.put(ResultTB.TTL, this.b);
                 jSONObject.put("pct", this.a);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f181a);
+                jSONObject.put("ts", this.f181a);
                 jSONObject.put("city", this.d);
                 jSONObject.put("prv", this.c);
                 jSONObject.put("cty", this.g);
@@ -256,7 +255,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m244a(String str) {
+    public synchronized void m245a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             synchronized (this) {
@@ -356,10 +355,10 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m245a() {
+    public boolean m246a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f182a, cv.m251a()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f182a, cv.m252a()) : invokeV.booleanValue;
     }
 
     public boolean a(cr crVar) {

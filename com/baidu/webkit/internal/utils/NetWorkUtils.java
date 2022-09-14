@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +176,7 @@ public final class NetWorkUtils implements INoProGuard {
                         }
                         String str = null;
                         try {
-                            str = telephonyManager.getSubscriberId();
+                            str = ApiReplaceUtil.getSubscriberId(telephonyManager);
                         } catch (SecurityException unused) {
                             sOperatorType = 99;
                         }

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cf;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class WeChatShareSmallAppToH5Switch extends cf {
+public class WeChatShareSmallAppToH5Switch extends qf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SMALL_APP_TO_H5 = "switch_share_wechat_smallapp_to_h5";
     public static final int TYPE_OFF = 0;
@@ -33,24 +33,24 @@ public class WeChatShareSmallAppToH5Switch extends cf {
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? su4.k().l("key_wechat_small_app_to_h5", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? bx4.k().l("key_wechat_small_app_to_h5", 0) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class WeChatShareSmallAppToH5Switch extends cf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class WeChatShareSmallAppToH5Switch extends cf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SMALL_APP_TO_H5 : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
+    @Override // com.baidu.tieba.qf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

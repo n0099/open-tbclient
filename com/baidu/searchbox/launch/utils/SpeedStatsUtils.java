@@ -39,6 +39,7 @@ public class SpeedStatsUtils {
     public static final String UBC_KEY_DEVICE_SCORE = "device_score";
     public static final String UBC_KEY_DRAW_COUNT = "drawcount";
     public static final String UBC_KEY_OPTION = "option";
+    public static final String UBC_KEY_SID = "sid";
     public static final String UBC_KEY_STAGE = "stage";
     public static final String UBC_KEY_USER_PERCEPTION_COST = "userPerceptionCost";
     public static final String UBC_PAGE_ALLCACHE = "allcache";

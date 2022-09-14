@@ -1,92 +1,93 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import androidx.core.view.LayoutInflaterCompat;
+import com.baidu.tieba.nh4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
+import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
-public class oh4 implements mh4<String> {
+public class oh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Field a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public oh4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getApplicationContext();
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends nh4.a implements LayoutInflater.Factory2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mh4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mh4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d() : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mh4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ResolveInfo> queryBroadcastReceivers = this.a.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
-            String str = null;
-            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null && !this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, "files"), "libuuid.so");
-                        if (file.exists()) {
-                            str = sh4.c(file);
-                        }
-                        if (!TextUtils.isEmpty(str)) {
-                            break;
-                        }
-                    }
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qh4 qh4Var) {
+            super(qh4Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((qh4) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return str;
         }
-        return (String) invokeV.objValue;
+
+        @Override // android.view.LayoutInflater.Factory2
+        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) ? this.a.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        }
+    }
+
+    public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
+            if (!b) {
+                try {
+                    Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
+                    a = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e) {
+                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
+                }
+                b = true;
+            }
+            Field field = a;
+            if (field != null) {
+                try {
+                    field.set(layoutInflater, factory2);
+                } catch (IllegalAccessException e2) {
+                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
+                }
+            }
+        }
+    }
+
+    public static void b(LayoutInflater layoutInflater, qh4 qh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, qh4Var) == null) {
+            a aVar = qh4Var != null ? new a(qh4Var) : null;
+            layoutInflater.setFactory2(aVar);
+            LayoutInflater.Factory factory = layoutInflater.getFactory();
+            if (factory instanceof LayoutInflater.Factory2) {
+                a(layoutInflater, (LayoutInflater.Factory2) factory);
+            } else {
+                a(layoutInflater, aVar);
+            }
+        }
     }
 }

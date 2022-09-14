@@ -1,13 +1,13 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av9;
-import com.baidu.tieba.ev9;
-import com.baidu.tieba.kv9;
-import com.baidu.tieba.ox9;
-import com.baidu.tieba.oy9;
-import com.baidu.tieba.tv9;
-import com.baidu.tieba.vy9;
+import com.baidu.tieba.cx9;
+import com.baidu.tieba.g0a;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.n0a;
+import com.baidu.tieba.sw9;
+import com.baidu.tieba.ww9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
+/* loaded from: classes9.dex */
+public final class QueuedValueProducer<T> extends AtomicLong implements sw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
     public static final long serialVersionUID = 7277121710709137047L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ev9<? super T> child;
+    public final ww9<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -45,19 +45,19 @@ public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QueuedValueProducer(ev9<? super T> ev9Var) {
-        this(ev9Var, vy9.b() ? new oy9() : new ox9());
+    public QueuedValueProducer(ww9<? super T> ww9Var) {
+        this(ww9Var, n0a.b() ? new g0a() : new gz9());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var};
+            Object[] objArr = {ww9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((ev9) objArr2[0], (Queue) objArr2[1]);
+                this((ww9) objArr2[0], (Queue) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,20 +69,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
         Object poll;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.wip.getAndIncrement() == 0) {
-            ev9<? super T> ev9Var = this.child;
+            ww9<? super T> ww9Var = this.child;
             Queue<Object> queue = this.queue;
-            while (!ev9Var.isUnsubscribed()) {
+            while (!ww9Var.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            ev9Var.onNext(null);
+                            ww9Var.onNext(null);
                         } else {
-                            ev9Var.onNext(poll);
+                            ww9Var.onNext(poll);
                         }
-                        if (ev9Var.isUnsubscribed()) {
+                        if (ww9Var.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -91,7 +91,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        kv9.g(th, ev9Var, poll);
+                        cx9.g(th, ww9Var, poll);
                         return;
                     }
                 }
@@ -122,7 +122,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -131,18 +131,18 @@ public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (i > 0) {
-                tv9.b(this, j);
+                lx9.b(this, j);
                 drain();
             }
         }
     }
 
-    public QueuedValueProducer(ev9<? super T> ev9Var, Queue<Object> queue) {
+    public QueuedValueProducer(ww9<? super T> ww9Var, Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ev9Var, queue};
+            Object[] objArr = {ww9Var, queue};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -152,7 +152,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements av9 {
                 return;
             }
         }
-        this.child = ev9Var;
+        this.child = ww9Var;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }

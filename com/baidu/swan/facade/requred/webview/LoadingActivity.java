@@ -13,24 +13,23 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e13;
-import com.baidu.tieba.pa2;
-import com.baidu.tieba.qa2;
-import com.baidu.tieba.ra2;
-import com.baidu.tieba.re3;
-import com.baidu.tieba.tf3;
-import com.baidu.tieba.ue3;
-import com.baidu.tieba.un3;
-import com.baidu.tieba.z03;
+import com.baidu.tieba.c33;
+import com.baidu.tieba.nc2;
+import com.baidu.tieba.oc2;
+import com.baidu.tieba.pc2;
+import com.baidu.tieba.pg3;
+import com.baidu.tieba.rh3;
+import com.baidu.tieba.sg3;
+import com.baidu.tieba.tp3;
+import com.baidu.tieba.x23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LoadingActivity extends Activity implements tf3<e13.a> {
+public class LoadingActivity extends Activity implements rh3<c33.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SwanAppActionBar a;
@@ -38,25 +37,25 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public LottieAnimationView c;
     public ImageView d;
     public TextView e;
-    public ra2 f;
+    public pc2 f;
     public boolean g;
-    public final tf3<ra2> h;
-    public final tf3<ra2> i;
+    public final rh3<pc2> h;
+    public final rh3<pc2> i;
 
     /* loaded from: classes3.dex */
-    public class a implements tf3<ra2> {
+    public class a implements rh3<pc2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0185a implements Runnable {
+        public class RunnableC0184a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0185a(a aVar) {
+            public RunnableC0184a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,18 +101,18 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
+        @Override // com.baidu.tieba.rh3
         /* renamed from: b */
-        public void a(ra2 ra2Var) {
+        public void a(pc2 pc2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ra2Var) == null) {
-                ue3.e0(new RunnableC0185a(this));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc2Var) == null) {
+                sg3.e0(new RunnableC0184a(this));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements tf3<ra2> {
+    public class b implements rh3<pc2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -137,11 +136,11 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
+        @Override // com.baidu.tieba.rh3
         /* renamed from: b */
-        public void a(ra2 ra2Var) {
+        public void a(pc2 pc2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ra2Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc2Var) == null) {
                 this.a.finish();
             }
         }
@@ -236,16 +235,16 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.setText(getString(R.string.obfuscated_res_0x7f0f019b, new Object[]{0}));
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f019d, new Object[]{0}));
             Intent intent = getIntent();
-            Bitmap d2 = un3.b().d();
+            Bitmap d2 = tp3.b().d();
             if (d2 == null) {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801bf);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801c0);
             } else {
                 this.d.setImageBitmap(d2);
             }
             String stringExtra = intent == null ? "" : intent.getStringExtra("so_lib_name");
-            ra2 j = pa2.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            pc2 j = nc2.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
             this.f = j;
             if (j != null && !j.n()) {
                 this.f.v(this.h);
@@ -260,7 +259,7 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090180);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090181);
             this.a = swanAppActionBar;
             swanAppActionBar.f(-16777216, false);
             this.a.setRightExitOnClickListener(new d(this));
@@ -270,13 +269,13 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901aa);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a7);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901ab);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a8);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a9);
             this.b = lottieAnimationView;
             lottieAnimationView.setImageAssetsFolder("swan-loading/images/");
             this.b.setAnimation("swan-loading/aiapps_so_download_anim_first.json");
-            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a9);
+            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901aa);
             this.c = lottieAnimationView2;
             lottieAnimationView2.setImageAssetsFolder("swan-loading/images/");
             this.c.setAnimation("swan-loading/aiapps_so_download_anim_second.json");
@@ -288,9 +287,9 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tf3
+    @Override // com.baidu.tieba.rh3
     /* renamed from: f */
-    public void a(e13.a aVar) {
+    public void a(c33.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && TextUtils.equals(aVar.b, "loading_hide")) {
             finish();
@@ -300,7 +299,7 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            z03.K().u(this);
+            x23.K().u(this);
         }
     }
 
@@ -319,15 +318,15 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            z03.K().o(this);
+            x23.K().o(this);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ra2 ra2Var = this.f;
-            qa2.b m = ra2Var == null ? null : ra2Var.m();
+            pc2 pc2Var = this.f;
+            oc2.b m = pc2Var == null ? null : pc2Var.m();
             if (m == null || !m.a()) {
                 return;
             }
@@ -336,7 +335,7 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
             if (textView == null || min <= 0) {
                 return;
             }
-            textView.setText(getString(R.string.obfuscated_res_0x7f0f019b, new Object[]{Integer.valueOf(min)}));
+            textView.setText(getString(R.string.obfuscated_res_0x7f0f019d, new Object[]{Integer.valueOf(min)}));
         }
     }
 
@@ -344,16 +343,15 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            int c0 = ue3.c0(this);
+            int c0 = sg3.c0(this);
             super.onCreate(bundle);
-            ue3.g(this, c0);
+            sg3.g(this, c0);
             setContentView(R.layout.obfuscated_res_0x7f0d0041);
             e();
             d();
-            re3.a(this);
+            pg3.a(this);
             g();
             c();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -364,10 +362,10 @@ public class LoadingActivity extends Activity implements tf3<e13.a> {
             this.b.removeAllAnimatorListeners();
             this.b.cancelAnimation();
             this.c.cancelAnimation();
-            ra2 ra2Var = this.f;
-            if (ra2Var != null) {
-                ra2Var.g(this.i);
-                ra2Var.h(this.h);
+            pc2 pc2Var = this.f;
+            if (pc2Var != null) {
+                pc2Var.g(this.i);
+                pc2Var.h(this.h);
             }
             i();
             super.onDestroy();

@@ -1,34 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
+import android.media.AudioRecord;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes5.dex */
-public class oz4 {
-    public static /* synthetic */ Interceptable $ic;
+public class oz4 implements rz4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int l = 8000;
+    public static int m = 2;
+    public static int n = 2;
+    public static int o = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
+    public int a;
+    public boolean b;
+    public AudioRecord c;
+    public RandomAccessFile d;
+    public File e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public short j;
+    public short k;
 
     /* loaded from: classes5.dex */
-    public class a implements ym4 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ oz4 c;
+        public final /* synthetic */ oz4 a;
 
-        public a(oz4 oz4Var, boolean z, boolean z2) {
+        public a(oz4 oz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oz4Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {oz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,72 +54,196 @@ public class oz4 {
                     return;
                 }
             }
-            this.c = oz4Var;
-            this.a = z;
-            this.b = z2;
+            this.a = oz4Var;
         }
 
-        @Override // com.baidu.tieba.ym4
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    nz4.d().X(true);
-                }
-                if (this.b) {
-                    n05.l(this.c.a.getPageActivity());
-                } else {
-                    j05.e(this.c.a);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ym4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.h();
             }
         }
     }
 
-    public oz4(TbPageContext<?> tbPageContext) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948049536, "Lcom/baidu/tieba/oz4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948049536, "Lcom/baidu/tieba/oz4;");
+        }
+    }
+
+    public oz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = 0;
+        this.b = false;
+        this.c = null;
+        this.e = null;
     }
 
-    public void b(int i) {
-        TbPageContext<?> tbPageContext;
+    @Override // com.baidu.tieba.rz4
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (tbPageContext = this.a) == null || tbPageContext.getPageActivity() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = false;
         }
-        if (i == 1 || i == 2) {
-            if (UbsABTestHelper.isPushOpenNewStyle()) {
-                boolean areNotificationsEnabled = NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled();
-                boolean D = nz4.d().D();
-                if (!(areNotificationsEnabled && D) && n05.g(TbadkCoreApplication.getInst(), 0)) {
-                    a aVar = new a(this, D, areNotificationsEnabled);
-                    if (i == 1) {
-                        n05.k(this.a, 4, aVar);
-                    } else {
-                        n05.k(this.a, 5, aVar);
+    }
+
+    @Override // com.baidu.tieba.rz4
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rz4
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? g(o, l, m, n, str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rz4
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Thread thread = new Thread(new a(this));
+            thread.setPriority(10);
+            thread.setDaemon(true);
+            thread.start();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public boolean g(int i, int i2, int i3, int i4, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
+            this.a = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
+            this.g = i2;
+            this.h = i3;
+            this.i = i4;
+            AudioRecord audioRecord = this.c;
+            if (audioRecord != null) {
+                audioRecord.release();
+            }
+            this.c = new AudioRecord(i, this.g, this.h, this.i, this.a);
+            this.j = (short) (this.h == 12 ? 2 : 1);
+            this.k = (short) (this.i == 2 ? 16 : 8);
+            File file = new File(str);
+            this.e = file;
+            if (file.exists()) {
+                this.e.delete();
+            }
+            try {
+                this.e.createNewFile();
+                RandomAccessFile randomAccessFile = this.d;
+                if (randomAccessFile != null) {
+                    try {
+                        randomAccessFile.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return false;
                     }
                 }
-            } else if (j05.g(TbadkCoreApplication.getInst(), 0)) {
-                j05.i(this.a, 5, 0L);
+                try {
+                    this.d = new RandomAccessFile(this.e, "rw");
+                    i();
+                    f(this.e.getParent());
+                    return true;
+                } catch (FileNotFoundException e2) {
+                    e2.printStackTrace();
+                    return false;
+                }
+            } catch (IOException unused) {
+                this.e = null;
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void h() {
+        AudioRecord audioRecord;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.c) == null || this.e == null) {
+            return;
+        }
+        try {
+            this.b = true;
+            int i = this.a;
+            byte[] bArr = new byte[i];
+            audioRecord.startRecording();
+            while (this.b) {
+                this.c.read(bArr, 0, i);
+                this.d.write(bArr);
+                this.f += i;
+            }
+            this.d.seek(4L);
+            this.d.writeInt(Integer.reverseBytes(this.f + 36));
+            this.d.seek(40L);
+            this.d.writeInt(Integer.reverseBytes(this.f));
+            this.d.close();
+            this.c.stop();
+            this.c.release();
+            this.b = false;
+        } catch (Throwable unused) {
+            if (this.e.exists()) {
+                this.e.delete();
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.d.setLength(0L);
+                this.d.writeBytes("RIFF");
+                this.d.writeInt(0);
+                this.d.writeBytes("WAVE");
+                this.d.writeBytes("fmt ");
+                this.d.writeInt(Integer.reverseBytes(16));
+                this.d.writeShort(Short.reverseBytes((short) 1));
+                this.d.writeShort(Short.reverseBytes(this.j));
+                this.d.writeInt(Integer.reverseBytes(this.g));
+                this.d.writeInt(Integer.reverseBytes(((this.g * this.j) * this.k) / 8));
+                this.d.writeShort(Short.reverseBytes((short) ((this.j * this.k) / 8)));
+                this.d.writeShort(Short.reverseBytes(this.k));
+                this.d.writeBytes("data");
+                this.d.writeInt(0);
+            } catch (IOException e) {
+                if (this.e.exists()) {
+                    this.e.delete();
+                }
+                e.printStackTrace();
             }
         }
     }

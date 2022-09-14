@@ -1,59 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wz3 {
+public class wz3 implements n04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k82 a;
-    public xz3 b;
 
-    public wz3(k82 k82Var) {
+    public wz3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k82Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = k82Var;
     }
 
-    public yz3 a(JsObject jsObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n04
+    public void a(m34 m34Var, l34 l34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            yz3 yz3Var = new yz3(b(), this.a);
-            yz3Var.B(jsObject);
-            return yz3Var;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, m34Var, l34Var) == null) || l34Var == null) {
+            return;
         }
-        return (yz3) invokeL.objValue;
+        l34Var.a(m34Var, "Method 'shareVideo' is not implemented.");
     }
 
-    @NonNull
-    public final xz3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n04
+    public void b(d34 d34Var, c34 c34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = new xz3();
-            }
-            return this.b;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d34Var, c34Var) == null) || c34Var == null) {
+            return;
         }
-        return (xz3) invokeV.objValue;
+        c34Var.a(d34Var, "Method 'clipVideo' is not implemented.");
     }
 }

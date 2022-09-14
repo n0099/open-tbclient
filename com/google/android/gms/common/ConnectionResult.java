@@ -11,10 +11,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.eo9;
-import com.baidu.tieba.gn9;
-import com.baidu.tieba.hn9;
-import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.Objects;
+import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@SafeParcelable.Class(creator = "ConnectionResultCreator")
 /* loaded from: classes7.dex */
 public final class ConnectionResult extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,6 +47,8 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int RESOLUTION_REQUIRED = 6;
     public static final int RESTRICTED_PROFILE = 20;
     @NonNull
+    @ShowFirstParty
+    @KeepForSdk
     public static final ConnectionResult RESULT_SUCCESS;
     public static final int SERVICE_DISABLED = 3;
     public static final int SERVICE_INVALID = 9;
@@ -55,13 +60,18 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int SIGN_IN_REQUIRED = 4;
     public static final int SUCCESS = 0;
     public static final int TIMEOUT = 14;
+    @KeepForSdk
     public static final int UNKNOWN = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.VersionField(id = 1)
     public final int zza;
+    @SafeParcelable.Field(getter = "getErrorCode", id = 2)
     public final int zzb;
     @Nullable
+    @SafeParcelable.Field(getter = "getResolution", id = 3)
     public final PendingIntent zzc;
     @Nullable
+    @SafeParcelable.Field(getter = "getErrorMessage", id = 4)
     public final String zzd;
 
     static {
@@ -78,7 +88,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
             }
         }
         RESULT_SUCCESS = new ConnectionResult(0);
-        CREATOR = new eo9();
+        CREATOR = new zzb();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -102,7 +112,8 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         }
     }
 
-    public ConnectionResult(int i, int i2, @Nullable PendingIntent pendingIntent, @Nullable String str) {
+    @SafeParcelable.Constructor
+    public ConnectionResult(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) int i2, @Nullable @SafeParcelable.Param(id = 3) PendingIntent pendingIntent, @Nullable @SafeParcelable.Param(id = 4) String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +219,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
             }
             if (obj instanceof ConnectionResult) {
                 ConnectionResult connectionResult = (ConnectionResult) obj;
-                return this.zzb == connectionResult.zzb && gn9.a(this.zzc, connectionResult.zzc) && gn9.a(this.zzd, connectionResult.zzd);
+                return this.zzb == connectionResult.zzb && Objects.equal(this.zzc, connectionResult.zzc) && Objects.equal(this.zzd, connectionResult.zzd);
             }
             return false;
         }
@@ -244,7 +255,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? gn9.b(Integer.valueOf(this.zzb), this.zzc, this.zzd) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Objects.hashCode(Integer.valueOf(this.zzb), this.zzc, this.zzd) : invokeV.intValue;
     }
 
     public boolean isSuccess() {
@@ -257,7 +268,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, activity, i) == null) && hasResolution()) {
             PendingIntent pendingIntent = this.zzc;
-            hn9.d(pendingIntent);
+            Preconditions.checkNotNull(pendingIntent);
             activity.startIntentSenderForResult(pendingIntent.getIntentSender(), i, null, 0, 0, 0);
         }
     }
@@ -267,11 +278,11 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            gn9.a c = gn9.c(this);
-            c.a("statusCode", zza(this.zzb));
-            c.a("resolution", this.zzc);
-            c.a("message", this.zzd);
-            return c.toString();
+            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
+            stringHelper.add("statusCode", zza(this.zzb));
+            stringHelper.add("resolution", this.zzc);
+            stringHelper.add("message", this.zzd);
+            return stringHelper.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -280,12 +291,12 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.g(parcel, 1, this.zza);
-            jn9.g(parcel, 2, getErrorCode());
-            jn9.j(parcel, 3, getResolution(), i, false);
-            jn9.k(parcel, 4, getErrorMessage(), false);
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeInt(parcel, 1, this.zza);
+            SafeParcelWriter.writeInt(parcel, 2, getErrorCode());
+            SafeParcelWriter.writeParcelable(parcel, 3, getResolution(), i, false);
+            SafeParcelWriter.writeString(parcel, 4, getErrorMessage(), false);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 

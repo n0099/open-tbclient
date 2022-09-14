@@ -39,7 +39,7 @@ public class g implements f {
             return;
         }
         v vVar = new v();
-        v.a aVar2 = new v.a() { // from class: com.baidu.tieba.ml9
+        v.a aVar2 = new v.a() { // from class: com.baidu.tieba.qp9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.n21;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes5.dex */
-public final class o21 {
+public class o21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n21.a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980251, "Lcom/baidu/tieba/o21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 31) {
+                return PendingIntent.getBroadcast(context, i, intent, i2 | CodedInputStream.DEFAULT_SIZE_LIMIT);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980251, "Lcom/baidu/tieba/o21;");
-                return;
-            }
+            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
-        a = new p21();
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

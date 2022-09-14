@@ -1,75 +1,57 @@
 package com.baidu.tieba;
 
-import android.telephony.PhoneStateListener;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class op2 extends PhoneStateListener {
+public class op2 extends kp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039864, "Lcom/baidu/tieba/op2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948039864, "Lcom/baidu/tieba/op2;");
-                return;
-            }
-        }
-        a = kh1.a;
-    }
+    public rp2 z;
 
     public op2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // android.telephony.PhoneStateListener
-    public void onCallStateChanged(int i, String str) {
+    @Override // com.baidu.tieba.kp2, com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            super.onCallStateChanged(i, str);
-            if (i == 0) {
-                qp2.k().o();
-                if (a) {
-                    Log.i("PhoneStateListener", "挂断");
-                }
-            } else if (i == 1) {
-                qp2.k().n();
-                if (a) {
-                    Log.i("PhoneStateListener", "响铃:" + str);
-                }
-            } else if (i != 2) {
-                if (a) {
-                    Log.e("PhoneStateListener", "invalid state");
-                }
-            } else {
-                qp2.k().n();
-                if (a) {
-                    Log.i("PhoneStateListener", "接听");
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        jSONObject.optString("cb");
+        double optDouble = jSONObject.optDouble("latitude");
+        double optDouble2 = jSONObject.optDouble("longitude");
+        jSONObject.optString("guideKey");
+        jSONObject.optString("guideIcon");
+        if (Double.isNaN(optDouble) || Double.isNaN(optDouble2) || optDouble < -90.0d || optDouble > 90.0d || optDouble2 < -180.0d || optDouble2 > 180.0d) {
+            return;
+        }
+        rp2 rp2Var = new rp2();
+        this.z = rp2Var;
+        rp2Var.a(jSONObject);
+    }
+
+    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.z != null : invokeV.booleanValue;
     }
 }

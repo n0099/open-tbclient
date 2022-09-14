@@ -8,7 +8,7 @@ import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -79,16 +79,16 @@ public class KeyTrigger extends Key {
             }
             SparseIntArray sparseIntArray = new SparseIntArray();
             mAttrMap = sparseIntArray;
-            sparseIntArray.append(R$styleable.KeyTrigger_framePosition, 8);
-            mAttrMap.append(R$styleable.KeyTrigger_onCross, 4);
-            mAttrMap.append(R$styleable.KeyTrigger_onNegativeCross, 1);
-            mAttrMap.append(R$styleable.KeyTrigger_onPositiveCross, 2);
-            mAttrMap.append(R$styleable.KeyTrigger_motionTarget, 7);
-            mAttrMap.append(R$styleable.KeyTrigger_triggerId, 6);
-            mAttrMap.append(R$styleable.KeyTrigger_triggerSlack, 5);
-            mAttrMap.append(R$styleable.KeyTrigger_motion_triggerOnCollision, 9);
-            mAttrMap.append(R$styleable.KeyTrigger_motion_postLayoutCollision, 10);
-            mAttrMap.append(R$styleable.KeyTrigger_triggerReceiver, 11);
+            sparseIntArray.append(0, 8);
+            mAttrMap.append(4, 4);
+            mAttrMap.append(5, 1);
+            mAttrMap.append(6, 2);
+            mAttrMap.append(1, 7);
+            mAttrMap.append(7, 6);
+            mAttrMap.append(9, 5);
+            mAttrMap.append(3, 9);
+            mAttrMap.append(2, 10);
+            mAttrMap.append(8, 11);
         }
 
         public Loader() {
@@ -385,7 +385,7 @@ public class KeyTrigger extends Key {
     public void load(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R$styleable.KeyTrigger), context);
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyTrigger), context);
         }
     }
 

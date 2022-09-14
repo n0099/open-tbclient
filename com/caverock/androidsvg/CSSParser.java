@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.df9;
+import com.baidu.tieba.gj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -665,7 +665,7 @@ public class CSSParser {
 
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
-            df9 df9Var;
+            gj9 gj9Var;
             a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -683,13 +683,13 @@ public class CSSParser {
                             aVar = new a(2, 0);
                         } else {
                             int i3 = (!f('+') && f(SignatureImpl.SEP)) ? -1 : 1;
-                            df9 c = df9.c(this.a, this.b, this.c, false);
+                            gj9 c = gj9.c(this.a, this.b, this.c, false);
                             if (c != null) {
                                 this.b = c.a();
                             }
                             if (f('n') || f('N')) {
                                 if (c == null) {
-                                    c = new df9(1L, this.b);
+                                    c = new gj9(1L, this.b);
                                 }
                                 A();
                                 boolean f = f('+');
@@ -698,24 +698,24 @@ public class CSSParser {
                                 }
                                 if (f) {
                                     A();
-                                    df9Var = df9.c(this.a, this.b, this.c, false);
-                                    if (df9Var != null) {
-                                        this.b = df9Var.a();
+                                    gj9Var = gj9.c(this.a, this.b, this.c, false);
+                                    if (gj9Var != null) {
+                                        this.b = gj9Var.a();
                                     } else {
                                         this.b = i;
                                         return null;
                                     }
                                 } else {
-                                    df9Var = null;
+                                    gj9Var = null;
                                 }
                                 int i4 = i2;
                                 i2 = i3;
                                 i3 = i4;
                             } else {
-                                df9Var = c;
+                                gj9Var = c;
                                 c = null;
                             }
-                            aVar = new a(c == null ? 0 : i2 * c.d(), df9Var != null ? i3 * df9Var.d() : 0);
+                            aVar = new a(c == null ? 0 : i2 * c.d(), gj9Var != null ? i3 * gj9Var.d() : 0);
                         }
                     }
                     A();
@@ -960,8 +960,8 @@ public class CSSParser {
         /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
         /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-        /* JADX WARN: Removed duplicated region for block: B:81:0x0132  */
-        /* JADX WARN: Removed duplicated region for block: B:83:0x0137  */
+        /* JADX WARN: Removed duplicated region for block: B:81:0x0134  */
+        /* JADX WARN: Removed duplicated region for block: B:83:0x0139  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */

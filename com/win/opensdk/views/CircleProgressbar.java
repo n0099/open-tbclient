@@ -12,13 +12,13 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.M;
+import com.win.opensdk.R;
 import com.win.opensdk.r2;
 import com.win.opensdk.s2;
 import com.win.opensdk.y;
@@ -171,7 +171,7 @@ public class CircleProgressbar extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.f.setAntiAlias(true);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040776});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.win_CircleProgressbar);
             this.b = obtainStyledAttributes.hasValue(0) ? obtainStyledAttributes.getColorStateList(0) : ColorStateList.valueOf(0);
             this.c = this.b.getColorForState(getDrawableState(), 0);
             obtainStyledAttributes.recycle();

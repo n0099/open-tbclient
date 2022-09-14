@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface b99 {
-    void close() throws IOException;
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    boolean b(File file, long j, boolean z, boolean z2);
 }

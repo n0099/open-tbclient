@@ -1,171 +1,118 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.view.animation.LinearInterpolator;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
+import android.widget.Toast;
+import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.q01;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class a21 {
+public final class a21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueAnimator.AnimatorUpdateListener a;
-    public final Rect b;
-    public Drawable.Callback c;
-    public ValueAnimator d;
-    public long e;
-    public float f;
-    public float g;
 
-    /* loaded from: classes3.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a21 a;
-
-        public a(a21 a21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static boolean a(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    if (TextUtils.isEmpty(mi0.a().t())) {
+                        return false;
+                    }
+                    Uri uriForFile = FileProvider.getUriForFile(context, mi0.a().t(), file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        ActivityInfo activityInfo = resolveInfo.activityInfo;
+                        if (activityInfo != null && !TextUtils.isEmpty(activityInfo.packageName)) {
+                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException unused) {
+                    return false;
                 }
             }
-            this.a = a21Var;
+            return true;
         }
+        return invokeLLL.booleanValue;
+    }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.c(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.f();
+    public static void b(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, dialog) == null) || dialog == null) {
+            return;
+        }
+        try {
+            dialog.show();
+        } catch (Exception unused) {
+        }
+    }
+
+    public static void c(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
+            e(activity, intent, true);
+        }
+    }
+
+    public static boolean d(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) ? e(context, intent, false) : invokeLL.booleanValue;
+    }
+
+    public static boolean e(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) ? f(context, intent, z, false) : invokeLLZ.booleanValue;
+    }
+
+    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b7a, 0).show();
+                    return false;
+                }
+                return false;
+            } catch (SecurityException unused2) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b7a, 0).show();
+                    return false;
+                }
+                return false;
+            } catch (Exception unused3) {
+                return false;
             }
         }
-    }
-
-    public a21(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a(this);
-        this.b = new Rect();
-        e(context);
-        m();
-    }
-
-    public void b(Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-            this.d.addListener(animatorListener);
-        }
-    }
-
-    public abstract void c(float f);
-
-    public abstract void d(Canvas canvas);
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f = q01.c.a(context, 31.0f);
-            this.g = q01.c.a(context, 31.0f);
-            this.e = 1333L;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.invalidateDrawable(null);
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.isRunning() : invokeV.booleanValue;
-    }
-
-    public abstract void h();
-
-    public abstract void i(int i);
-
-    public void j(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) {
-            this.b.set(rect);
-        }
-    }
-
-    public void k(Drawable.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
-            this.c = callback;
-        }
-    }
-
-    public abstract void l(ColorFilter colorFilter);
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.d = ofFloat;
-            ofFloat.setRepeatCount(-1);
-            this.d.setRepeatMode(1);
-            this.d.setDuration(this.e);
-            this.d.setInterpolator(new LinearInterpolator());
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            h();
-            this.d.addUpdateListener(this.a);
-            this.d.setRepeatCount(-1);
-            this.d.setDuration(this.e);
-            this.d.setStartDelay(200L);
-            this.d.start();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.removeUpdateListener(this.a);
-            this.d.setRepeatCount(0);
-            this.d.setDuration(0L);
-            this.d.end();
-        }
+        return invokeCommon.booleanValue;
     }
 }

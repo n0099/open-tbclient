@@ -9,10 +9,10 @@ import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cc9;
-import com.baidu.tieba.ic9;
-import com.baidu.tieba.pc9;
-import com.baidu.tieba.sc9;
+import com.baidu.tieba.fg9;
+import com.baidu.tieba.lg9;
+import com.baidu.tieba.sg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -309,21 +309,21 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:125:0x01a5 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:167:0x019d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:178:0x000e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:180:0x0194 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x0136 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x0139 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0151 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:125:0x01a8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:167:0x01a0 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:180:0x0197 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:184:0x000f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x0139 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:84:0x013c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0154 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0198 A[Catch: Exception -> 0x019d, TRY_LEAVE, TryCatch #6 {Exception -> 0x019d, blocks: (B:120:0x0194, B:122:0x0198), top: B:180:0x0194 }] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x01ae A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x01af  */
-    /* JADX WARN: Removed duplicated region for block: B:172:0x01a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:188:0x019f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:192:0x0189 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:200:0x018e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x019b A[Catch: Exception -> 0x01a0, TRY_LEAVE, TryCatch #7 {Exception -> 0x01a0, blocks: (B:120:0x0197, B:122:0x019b), top: B:180:0x0197 }] */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x01b1 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x01b2  */
+    /* JADX WARN: Removed duplicated region for block: B:170:0x01aa A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:190:0x01a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x018c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:198:0x0191 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v10, types: [android.media.MediaCodec] */
     /* JADX WARN: Type inference failed for: r0v11 */
     /* JADX WARN: Type inference failed for: r0v18, types: [android.media.MediaCodec] */
@@ -348,10 +348,10 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
     /* JADX WARN: Type inference failed for: r3v10, types: [com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface] */
     /* JADX WARN: Type inference failed for: r3v11 */
     /* JADX WARN: Type inference failed for: r3v13, types: [android.media.MediaExtractor] */
-    /* JADX WARN: Type inference failed for: r3v19, types: [java.lang.Exception] */
-    /* JADX WARN: Type inference failed for: r3v20 */
+    /* JADX WARN: Type inference failed for: r3v18, types: [java.lang.Exception] */
+    /* JADX WARN: Type inference failed for: r3v19 */
+    /* JADX WARN: Type inference failed for: r3v20, types: [com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface] */
     /* JADX WARN: Type inference failed for: r3v21, types: [com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface] */
-    /* JADX WARN: Type inference failed for: r3v22, types: [com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface] */
     /* JADX WARN: Type inference failed for: r3v23 */
     /* JADX WARN: Type inference failed for: r3v4 */
     /* JADX WARN: Type inference failed for: r3v6, types: [android.media.MediaExtractor] */
@@ -368,11 +368,14 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         InputSurface inputSurface;
         MediaCodec mediaCodec2;
         ?? e;
+        MediaFormat trackFormat;
+        int integer;
+        int integer2;
         Surface surface;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String e2 = "video/avc";
-            MediaCodecInfo m = ic9.m("video/avc");
+            MediaCodecInfo m = lg9.m("video/avc");
             if (m == null) {
                 return;
             }
@@ -382,16 +385,16 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             MediaExtractor mediaExtractor = null;
             try {
                 try {
-                    e = ic9.b(this.mSourcePath);
+                    e = lg9.b(this.mSourcePath);
                     try {
                         try {
-                            MediaFormat trackFormat = e.getTrackFormat(ic9.f(e));
-                            int integer = this.mOutWidth == 0 ? trackFormat.getInteger("width") : this.mOutWidth;
-                            int integer2 = this.mOutHeight == 0 ? trackFormat.getInteger("height") : this.mOutHeight;
+                            trackFormat = e.getTrackFormat(lg9.f(e));
+                            integer = this.mOutWidth == 0 ? trackFormat.getInteger("width") : this.mOutWidth;
+                            integer2 = this.mOutHeight == 0 ? trackFormat.getInteger("height") : this.mOutHeight;
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                            int b = ((int) (cc9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (pc9.b) {
+                            int b = ((int) (fg9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                            if (sg9.b) {
                                 trackFormat.setInteger("rotation-degrees", b);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", b);
@@ -402,13 +405,13 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 integer = i;
                             }
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (!sc9.a(extractMetadata)) {
-                                this.mSourceVideoDuration = cc9.c(extractMetadata, 0L);
+                            if (!vg9.a(extractMetadata)) {
+                                this.mSourceVideoDuration = fg9.c(extractMetadata, 0L);
                             }
                             this.mLastProgressPercent = 0;
                             String str = e2;
                             if (this.mEncodeHevcVideo) {
-                                MediaCodecInfo m2 = ic9.m(MimeTypes.VIDEO_H265);
+                                MediaCodecInfo m2 = lg9.m(MimeTypes.VIDEO_H265);
                                 str = e2;
                                 if (m2 != null) {
                                     m = m2;
@@ -417,12 +420,12 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             }
                             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, integer, integer2);
                             createVideoFormat.setInteger("color-format", 2130708361);
-                            ic9.n(trackFormat, createVideoFormat, "bitrate", this.mOutBitRate == 0 ? RecordConstants.DEFAULT_BIT_RATE_GTE_API18 : this.mOutBitRate);
-                            ic9.n(trackFormat, createVideoFormat, "frame-rate", this.mFrameRate == 0 ? 30 : this.mFrameRate);
-                            ic9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                            lg9.n(trackFormat, createVideoFormat, "bitrate", this.mOutBitRate == 0 ? RecordConstants.DEFAULT_BIT_RATE_GTE_API18 : this.mOutBitRate);
+                            lg9.n(trackFormat, createVideoFormat, "frame-rate", this.mFrameRate == 0 ? 30 : this.mFrameRate);
+                            lg9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
                             AtomicReference atomicReference = new AtomicReference();
                             try {
-                                e2 = ic9.d(m, createVideoFormat, atomicReference);
+                                e2 = lg9.d(m, createVideoFormat, atomicReference);
                             } catch (Exception unused) {
                                 if (integer % 16 != 0) {
                                     integer += 16 - (integer % 16);
@@ -432,157 +435,23 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 }
                                 createVideoFormat.setInteger("width", integer);
                                 createVideoFormat.setInteger("height", integer2);
-                                e2 = ic9.d(m, createVideoFormat, atomicReference);
+                                e2 = lg9.d(m, createVideoFormat, atomicReference);
                             }
                             try {
                                 m = new InputSurface((Surface) atomicReference.get());
-                                try {
-                                    m.makeCurrent();
-                                    if (this.mOutputSurface != null) {
-                                        this.mOutputSurface.init(integer, integer2);
-                                        surface = this.mOutputSurface.getSurface();
-                                    } else {
-                                        surface = null;
-                                    }
-                                    mediaCodec2 = ic9.c(trackFormat, surface);
-                                    try {
-                                        doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
-                                        if (e != 0) {
-                                            try {
-                                                e.release();
-                                            } catch (Exception e4) {
-                                                e3 = e4;
-                                            }
-                                        }
-                                        if (mediaCodec2 != null) {
-                                            try {
-                                                mediaCodec2.stop();
-                                                mediaCodec2.release();
-                                            } catch (Exception e5) {
-                                                if (e3 == null) {
-                                                    e3 = e5;
-                                                }
-                                            }
-                                        }
-                                        try {
-                                            e = this.mOutputSurface;
-                                            if (e != 0) {
-                                                e = this.mOutputSurface;
-                                                e.release();
-                                            }
-                                        } catch (Exception e6) {
-                                            e = e6;
-                                            if (e3 == null) {
-                                                e3 = e;
-                                            }
-                                        }
-                                        if (e2 != 0) {
-                                            try {
-                                                e2.stop();
-                                                e2.release();
-                                            } catch (Exception e7) {
-                                                e2 = e7;
-                                                if (e3 == null) {
-                                                    e3 = e2;
-                                                }
-                                            }
-                                        }
-                                        try {
-                                            m.release();
-                                        } catch (Exception e8) {
-                                            e2 = e8;
-                                            if (e3 == null) {
-                                                e3 = e2;
-                                            }
-                                        }
-                                    } catch (Exception e9) {
-                                        e3 = e9;
-                                        e3.printStackTrace();
-                                        if (e != 0) {
-                                        }
-                                        if (mediaCodec2 != null) {
-                                        }
-                                        try {
-                                            e = this.mOutputSurface;
-                                            if (e != 0) {
-                                            }
-                                        } catch (Exception unused2) {
-                                        }
-                                        if (e2 != 0) {
-                                        }
-                                        if (m != 0) {
-                                        }
-                                        if (e3 != null) {
-                                        }
-                                    }
-                                } catch (Exception e10) {
-                                    mediaCodec2 = null;
-                                    e3 = e10;
-                                } catch (Throwable th) {
-                                    mediaCodec2 = null;
-                                    mediaExtractor = e;
-                                    mediaCodec = e2;
-                                    th = th;
-                                    inputSurface = m;
-                                    exc = mediaCodec2;
-                                    if (mediaExtractor != null) {
-                                        try {
-                                            mediaExtractor.release();
-                                        } catch (Exception e11) {
-                                            if (exc == null) {
-                                                exc = e11;
-                                            }
-                                        }
-                                    }
-                                    if (mediaCodec2 != null) {
-                                        try {
-                                            mediaCodec2.stop();
-                                            mediaCodec2.release();
-                                        } catch (Exception e12) {
-                                            if (exc == null) {
-                                                exc = e12;
-                                            }
-                                        }
-                                    }
-                                    try {
-                                        if (this.mOutputSurface != null) {
-                                            this.mOutputSurface.release();
-                                        }
-                                    } catch (Exception e13) {
-                                        if (exc == null) {
-                                            exc = e13;
-                                        }
-                                    }
-                                    if (mediaCodec != null) {
-                                        try {
-                                            mediaCodec.stop();
-                                            mediaCodec.release();
-                                        } catch (Exception e14) {
-                                            if (exc == null) {
-                                            }
-                                        }
-                                    }
-                                    if (inputSurface != null) {
-                                        try {
-                                            inputSurface.release();
-                                        } catch (Exception unused3) {
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            } catch (Exception e15) {
+                            } catch (Exception e4) {
                                 mediaCodec2 = null;
-                                e3 = e15;
+                                e3 = e4;
                                 m = 0;
-                            } catch (Throwable th2) {
+                            } catch (Throwable th) {
                                 inputSurface = null;
                                 mediaCodec2 = null;
                                 mediaExtractor = e;
                                 mediaCodec = e2;
-                                th = th2;
+                                th = th;
                             }
-                        } catch (Exception e16) {
-                            e = e16;
+                        } catch (Exception e5) {
+                            e = e5;
                             m = 0;
                             mediaCodec2 = null;
                             e = e;
@@ -592,52 +461,186 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             if (e != 0) {
                                 try {
                                     e.release();
-                                } catch (Exception unused4) {
+                                } catch (Exception unused2) {
                                 }
                             }
                             if (mediaCodec2 != null) {
                                 try {
                                     mediaCodec2.stop();
                                     mediaCodec2.release();
-                                } catch (Exception unused5) {
+                                } catch (Exception unused3) {
                                 }
                             }
-                            e = this.mOutputSurface;
-                            if (e != 0) {
+                            try {
                                 e = this.mOutputSurface;
-                                e.release();
+                                if (e != 0) {
+                                    e = this.mOutputSurface;
+                                    e.release();
+                                }
+                            } catch (Exception unused4) {
                             }
                             if (e2 != 0) {
                                 try {
                                     e2.stop();
                                     e2.release();
-                                } catch (Exception unused6) {
+                                } catch (Exception unused5) {
                                 }
                             }
                             if (m != 0) {
                                 try {
                                     m.release();
-                                } catch (Exception unused7) {
+                                } catch (Exception unused6) {
                                 }
                             }
                             if (e3 != null) {
                             }
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (Throwable th2) {
+                        th = th2;
                         exc = null;
                         inputSurface = null;
                         mediaCodec2 = null;
                         mediaExtractor = e;
                         mediaCodec = null;
                     }
-                } catch (Throwable th4) {
+                } catch (Throwable th3) {
                     MediaExtractor mediaExtractor2 = e;
                     mediaCodec = e2;
-                    th = th4;
+                    th = th3;
                     inputSurface = m;
                     exc = e3;
                     mediaExtractor = mediaExtractor2;
+                }
+                try {
+                    m.makeCurrent();
+                    if (this.mOutputSurface != null) {
+                        this.mOutputSurface.init(integer, integer2);
+                        surface = this.mOutputSurface.getSurface();
+                    } else {
+                        surface = null;
+                    }
+                    mediaCodec2 = lg9.c(trackFormat, surface);
+                    try {
+                        doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
+                        if (e != 0) {
+                            try {
+                                e.release();
+                            } catch (Exception e6) {
+                                e3 = e6;
+                            }
+                        }
+                        if (mediaCodec2 != null) {
+                            try {
+                                mediaCodec2.stop();
+                                mediaCodec2.release();
+                            } catch (Exception e7) {
+                                if (e3 == null) {
+                                    e3 = e7;
+                                }
+                            }
+                        }
+                        try {
+                            e = this.mOutputSurface;
+                            if (e != 0) {
+                                e = this.mOutputSurface;
+                                e.release();
+                            }
+                        } catch (Exception e8) {
+                            e = e8;
+                            if (e3 == null) {
+                                e3 = e;
+                            }
+                        }
+                        if (e2 != 0) {
+                            try {
+                                e2.stop();
+                                e2.release();
+                            } catch (Exception e9) {
+                                e2 = e9;
+                                if (e3 == null) {
+                                    e3 = e2;
+                                }
+                            }
+                        }
+                        try {
+                            m.release();
+                        } catch (Exception e10) {
+                            e2 = e10;
+                            if (e3 == null) {
+                                e3 = e2;
+                            }
+                        }
+                    } catch (Exception e11) {
+                        e3 = e11;
+                        e3.printStackTrace();
+                        if (e != 0) {
+                        }
+                        if (mediaCodec2 != null) {
+                        }
+                        e = this.mOutputSurface;
+                        if (e != 0) {
+                        }
+                        if (e2 != 0) {
+                        }
+                        if (m != 0) {
+                        }
+                        if (e3 != null) {
+                        }
+                    }
+                } catch (Exception e12) {
+                    mediaCodec2 = null;
+                    e3 = e12;
+                } catch (Throwable th4) {
+                    mediaCodec2 = null;
+                    mediaExtractor = e;
+                    mediaCodec = e2;
+                    th = th4;
+                    inputSurface = m;
+                    exc = mediaCodec2;
+                    if (mediaExtractor != null) {
+                        try {
+                            mediaExtractor.release();
+                        } catch (Exception e13) {
+                            if (exc == null) {
+                                exc = e13;
+                            }
+                        }
+                    }
+                    if (mediaCodec2 != null) {
+                        try {
+                            mediaCodec2.stop();
+                            mediaCodec2.release();
+                        } catch (Exception e14) {
+                            if (exc == null) {
+                                exc = e14;
+                            }
+                        }
+                    }
+                    try {
+                        if (this.mOutputSurface != null) {
+                            this.mOutputSurface.release();
+                        }
+                    } catch (Exception e15) {
+                        if (exc == null) {
+                            exc = e15;
+                        }
+                    }
+                    if (mediaCodec != null) {
+                        try {
+                            mediaCodec.stop();
+                            mediaCodec.release();
+                        } catch (Exception e16) {
+                            if (exc == null) {
+                            }
+                        }
+                    }
+                    if (inputSurface != null) {
+                        try {
+                            inputSurface.release();
+                        } catch (Exception unused7) {
+                        }
+                    }
+                    throw th;
                 }
             } catch (Exception e17) {
                 e = e17;

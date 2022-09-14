@@ -1,85 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class x83 extends x23 {
+public final class x83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x83(x13 x13Var) {
-        super(x13Var, "/swanAPI/setStorageSync");
+    public static String a(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            return str + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String appId = x23.K().getAppId();
+            gb3 a = mb3.a();
+            a.remove(a("SwanAppStabilitySp-obtainData", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
+            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
+            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
+            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = br1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (j83.b(Q)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
-                return false;
-            } else {
-                String P = br1.P(optParamsAsJo);
-                if (P == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                } else if (j83.c(P)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
-                    return false;
-                } else {
-                    j83 f0 = a13Var.f0();
-                    if (f0.m(Q, P)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
-                        return false;
-                    }
-                    f0.g().putString(Q, P);
-                    wc3.h.update();
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
-                }
-            }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? mb3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", x23.K().getAppId()), i) : invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? mb3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", x23.K().getAppId()), i) : invokeI.intValue;
+    }
+
+    public static int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? mb3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", x23.K().getAppId()), i) : invokeI.intValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? mb3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", x23.K().getAppId()), false) : invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? mb3.a().getBoolean(a("SwanAppStabilitySp-obtainData", x23.K().getAppId()), false) : invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? mb3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", x23.K().getAppId()), false) : invokeV.booleanValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
+            mb3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void j(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
+            mb3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
+        }
+    }
+
+    public static void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
+            mb3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
+        }
+    }
+
+    public static void l(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
+            mb3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        }
+    }
+
+    public static void m(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
+            mb3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
+        }
+    }
+
+    public static void n(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
+            mb3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
+        }
     }
 }

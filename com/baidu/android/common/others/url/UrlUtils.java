@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.util.PatternsCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.sapi2.SapiWebView;
@@ -362,10 +363,30 @@ public final class UrlUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) ? !TextUtils.isEmpty(str) && str.startsWith("https://") : invokeL.booleanValue;
     }
 
-    public static boolean isUrl(String str) {
+    public static boolean isStandardUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            try {
+                return PatternsCompat.WEB_URL.matcher(str).matches();
+            } catch (Exception e) {
+                Log.e("UrlUtils", "isValidUrl ： query.matcher failed! " + e.toString());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isStandardUrlValidUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) ? isStandardUrl(str) || isUrlAuxiliary(str) : invokeL.booleanValue;
+    }
+
+    public static boolean isUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
             try {
                 return COARSE_WEB_URL.matcher(str).matches();
             } catch (Exception e) {
@@ -379,7 +400,7 @@ public final class UrlUtils {
     public static boolean isUrlAuxiliary(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
             try {
                 return Pattern.compile("(https?|ftp)://[-A-Za-z0-9+&@#/%?=~_|!:,.;{]+[-A-Za-z0-9+&@#/%=~_|}]").matcher(str).matches();
             } catch (Exception unused) {
@@ -392,7 +413,7 @@ public final class UrlUtils {
     public static boolean isValidUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? isUrl(str) || isUrlAuxiliary(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) ? isUrl(str) || isUrlAuxiliary(str) : invokeL.booleanValue;
     }
 
     public static String getParamValue(String str, String str2, boolean z) {

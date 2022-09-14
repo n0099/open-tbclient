@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.bdtask.TaskState;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class qp implements dp {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ String a;
+public interface qp {
+    void a(Map<String, ? extends List<TaskState>> map);
 }

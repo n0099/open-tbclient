@@ -1,15 +1,15 @@
 package rx.internal.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av9;
+import com.baidu.tieba.sw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
-public final class BackpressureDrainManager extends AtomicLong implements av9 {
+/* loaded from: classes9.dex */
+public final class BackpressureDrainManager extends AtomicLong implements sw9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2826241102729529449L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class BackpressureDrainManager extends AtomicLong implements av9 {
     public Throwable exception;
     public volatile boolean terminated;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(Throwable th);
 
@@ -190,7 +190,7 @@ public final class BackpressureDrainManager extends AtomicLong implements av9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.terminated : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.av9
+    @Override // com.baidu.tieba.sw9
     public void request(long j) {
         boolean z;
         long j2;

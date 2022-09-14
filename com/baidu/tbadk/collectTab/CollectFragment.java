@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,12 +53,12 @@ public abstract class CollectFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 CollectFragment collectFragment = this.a;
-                collectFragment.t1(collectFragment.getType());
+                collectFragment.s1(collectFragment.getType());
                 CollectFragment collectFragment2 = this.a;
                 if (collectFragment2.a) {
                     return;
                 }
-                collectFragment2.u1(false, collectFragment2.getType());
+                collectFragment2.t1(false, collectFragment2.getType());
             }
         }
     }
@@ -100,19 +100,19 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public abstract boolean r1();
+    public abstract boolean q1();
 
-    public boolean s1() {
+    public boolean r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public void t1(int i) {
+    public void s1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !r1() && pi.z();
+            boolean z = !q1() && BdNetTypeUtil.isNetWorkAvailable();
             this.a = z;
             bundle.putBoolean("is_enable_edit", z);
             bundle.putInt("fragment_type", i);
@@ -120,7 +120,7 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void u1(boolean z, int i) {
+    public void t1(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             Bundle bundle = new Bundle();

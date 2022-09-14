@@ -246,8 +246,8 @@ public final class MaterialCalendarGridView extends GridView {
         }
         this.dayCompute = UtcDates.getUtcCalendar();
         if (MaterialDatePicker.isFullscreen(getContext())) {
-            setNextFocusLeftId(R.id.obfuscated_res_0x7f09048a);
-            setNextFocusRightId(R.id.obfuscated_res_0x7f0906b0);
+            setNextFocusLeftId(R.id.obfuscated_res_0x7f090499);
+            setNextFocusRightId(R.id.obfuscated_res_0x7f0906c6);
         }
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.datepicker.MaterialCalendarGridView.1
             public static /* synthetic */ Interceptable $ic;

@@ -1,146 +1,237 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.view.AdDownloadDlgView;
+import com.baidu.nadcore.download.view.DefaultDownloadViewLP;
+import com.baidu.nadcore.download.view.NadLPDownloadAuditView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public final class kk0 {
+public class kk0 extends lk0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cy0 a;
-    public final Map<String, String> b;
-    @NonNull
-    public final Map<String, Map<String, String>> c;
-    public volatile boolean d;
+    public boolean f;
+    public fk0 g;
 
-    public kk0() {
-        String[] a;
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ NadLPDownloadAuditView b;
+
+        public a(kk0 kk0Var, ViewGroup viewGroup, NadLPDownloadAuditView nadLPDownloadAuditView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kk0Var, viewGroup, nadLPDownloadAuditView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = nadLPDownloadAuditView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.removeView(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ NadLPDownloadAuditView b;
+
+        public b(kk0 kk0Var, ViewGroup viewGroup, NadLPDownloadAuditView nadLPDownloadAuditView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kk0Var, viewGroup, nadLPDownloadAuditView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = nadLPDownloadAuditView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.removeView(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kk0 a;
+
+        public c(kk0 kk0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kk0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kk0Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                WeakReference<rk0<?>> weakReference = this.a.e;
+                if (weakReference != null) {
+                    weakReference.clear();
+                }
+                this.a.e = null;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Type inference failed for: r8v1, types: [android.view.View] */
+    public kk0(@NonNull yj0 yj0Var, @NonNull rk0<?> rk0Var) {
+        super(yj0Var, rk0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yj0Var, rk0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((yj0) objArr2[0], (rk0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ConcurrentHashMap(128);
-        this.c = new ConcurrentHashMap(8);
-        this.a = fy0.a().b("nad.cold.launch.config");
-        for (String str : rk0.a().a()) {
-            String string = this.a.getString(str, null);
-            if (string != null) {
-                zx0.e(this.b, str, string);
+        rk0Var.getRealView().setOnClickListener(this);
+    }
+
+    public void A(ViewGroup viewGroup, fk0 fk0Var, Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, viewGroup, fk0Var, activity, i) == null) && viewGroup != null && (this.e.get() instanceof DefaultDownloadViewLP)) {
+            rk0<?> rk0Var = this.e.get();
+            if (rk0Var instanceof DefaultDownloadViewLP) {
+                DefaultDownloadViewLP defaultDownloadViewLP = (DefaultDownloadViewLP) rk0Var;
+                defaultDownloadViewLP.d(false);
+                if (i == 1) {
+                    AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
+                    adDownloadDlgView.b(fk0Var);
+                    adDownloadDlgView.setDownloadView(defaultDownloadViewLP);
+                    NadLPDownloadAuditView nadLPDownloadAuditView = new NadLPDownloadAuditView(activity);
+                    nadLPDownloadAuditView.getDownloadView().addView(adDownloadDlgView);
+                    adDownloadDlgView.setOnCloseClickListener(new a(this, viewGroup, nadLPDownloadAuditView));
+                    nadLPDownloadAuditView.getDownloadViewOtherArea().setOnClickListener(new b(this, viewGroup, nadLPDownloadAuditView));
+                    viewGroup.addView(nadLPDownloadAuditView);
+                    return;
+                }
+                gl0.c(fk0Var, defaultDownloadViewLP, activity, new c(this), null);
             }
         }
     }
 
-    @NonNull
-    public Map<String, String> a() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            m();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r5v1, types: [android.view.View] */
+    @Override // com.baidu.tieba.lk0
+    public void t(rk0<?> rk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rk0Var) == null) {
+            super.t(rk0Var);
+            rk0Var.getRealView().setOnClickListener(this);
+        }
+    }
+
+    public fk0 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (fk0) invokeV.objValue;
     }
 
-    @NonNull
-    public Map<String, Map<String, String>> b() {
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    public final void c(@NonNull JSONObject jSONObject) {
-        String[] a;
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.b.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                zx0.e(this.b, next, jSONObject.optString(next));
-            }
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            for (String str : rk0.a().a()) {
-                String str2 = (String) zx0.b(this.b, str);
-                if (str2 != null) {
-                    edit.putString(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            WeakReference<rk0<?>> weakReference = this.e;
+            if (weakReference != null && weakReference.get() != null) {
+                rk0<?> rk0Var = this.e.get();
+                if (rk0Var instanceof View) {
+                    return !((View) rk0Var).isAttachedToWindow();
                 }
             }
-            edit.apply();
-            SharedPreferences.Editor edit2 = fy0.a().b("nad.launch.config.global").edit();
-            edit2.clear();
-            for (String str3 : this.b.keySet()) {
-                String str4 = (String) zx0.b(this.b, str3);
-                if (str4 != null) {
-                    edit2.putString(str3, str4);
-                }
-            }
-            edit2.apply();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void y(fk0 fk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fk0Var) == null) {
+            this.g = fk0Var;
         }
     }
 
-    public final void d(@NonNull JSONObject jSONObject) {
+    public void z(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.c.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                HashMap hashMap = null;
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap = new HashMap(8);
-                    JSONObject c = yx0.c(optString);
-                    Iterator<String> keys2 = c.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        zx0.e(hashMap, next2, c.optString(next2));
-                    }
-                }
-                if (hashMap != null) {
-                    zx0.e(this.c, next, hashMap);
-                    fy0 a = fy0.a();
-                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
-                    edit.clear();
-                    for (String str : hashMap.keySet()) {
-                        String str2 = (String) hashMap.get(str);
-                        if (str2 != null) {
-                            edit.putString(str, str2);
-                        }
-                    }
-                    edit.apply();
-                }
-            }
-        }
-    }
-
-    public void update(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            String optString = jSONObject.optString("global");
-            if (!TextUtils.isEmpty(optString)) {
-                c(yx0.c(optString));
-            }
-            String optString2 = jSONObject.optString("place_conf");
-            if (TextUtils.isEmpty(optString2)) {
-                return;
-            }
-            d(yx0.c(optString2));
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
         }
     }
 }

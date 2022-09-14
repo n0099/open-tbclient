@@ -1,106 +1,49 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uv1 extends gu1 {
+public class uv1 extends oy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
+    public String j;
 
-    public uv1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uv1(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = -1.0f;
-        this.e = 0.0f;
-        this.f = 1.0f;
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            yz1.d("Camera", "parsing CameraTakePhotoModel occurs exception", e);
+        }
     }
 
-    @Override // com.baidu.tieba.gu1
-    public void a(hu1 hu1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hu1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
-            return;
-        }
-        TextPaint textPaint = hu1Var.e;
-        int i = hu1Var.k;
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        float f = fontMetrics.top;
-        int i2 = this.c;
-        float f2 = i2 + f;
-        float f3 = fontMetrics.ascent + i2;
-        float f4 = fontMetrics.bottom;
-        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
-        if (this.e == 0.0d) {
-            Rect rect = new Rect();
-            String str = this.a;
-            textPaint.getTextBounds(str, 0, str.length(), rect);
-            if (this.d != -1.0f) {
-                float f6 = this.d;
-                if (rect.width() > f6) {
-                    this.e = f6 / rect.width();
-                }
-            }
-            this.e = 1.0f;
-        }
-        canvas.save();
-        int alpha = textPaint.getAlpha();
-        int color = textPaint.getColor();
-        textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setStrokeWidth(this.f);
-        textPaint.setColor(hu1Var.m);
-        hu1Var.c(textPaint);
-        canvas.scale(this.e, 1.0f);
-        canvas.drawText(this.a, this.b, f5, textPaint);
-        textPaint.setStyle(Paint.Style.FILL);
-        textPaint.setAlpha(alpha);
-        textPaint.setColor(color);
-        canvas.restore();
-    }
-
-    @Override // com.baidu.tieba.gu1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = re3.g((float) jSONArray.optDouble(1));
-                    this.c = re3.g((float) jSONArray.optDouble(2));
-                    if (jSONArray.length() > 3) {
-                        this.d = re3.g((float) jSONArray.optDouble(3));
-                    }
-                    this.f = re3.g(1.0f);
-                }
-            } catch (Exception e) {
-                if (kh1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            this.j = jSONObject.optString("quality");
         }
     }
 }

@@ -1,67 +1,273 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.IConnectListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.vh7;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wh7 {
-    public static /* synthetic */ Interceptable $ic;
+public class wh7 implements IConnectListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String e = "imlog";
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public c b;
+    public CustomMessageListener c;
+    public boolean d;
 
-    public static List<pn> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-            if (recommendForumInfo != null) {
-                sh7 sh7Var = new sh7();
-                sh7Var.j(recommendForumInfo);
-                arrayList.add(sh7Var);
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                th7 th7Var = new th7();
-                th7Var.j(item);
-                arrayList.add(th7Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                uh7 uh7Var = new uh7();
-                uh7Var.o(str);
-                uh7Var.n(sugLiveInfo);
-                arrayList.add(uh7Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                vh7 vh7Var = new vh7();
-                vh7Var.h(str);
-                vh7Var.g(sugRankingInfo);
-                arrayList.add(vh7Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                rh7 rh7Var = new rh7();
-                rh7Var.c(str);
-                rh7Var.f(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, rh7Var);
-                } else {
-                    arrayList.add(rh7Var);
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wh7 wh7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return arrayList;
+            this.a = wh7Var;
         }
-        return (List) invokeLL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements vh7.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wh7 a;
+
+        public b(wh7 wh7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wh7Var;
+        }
+
+        @Override // com.baidu.tieba.vh7.b
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i + ", errMsg=" + str);
+                StringBuilder sb = new StringBuilder();
+                sb.append(wh7.e);
+                sb.append("LiveIMManager");
+                String sb2 = sb.toString();
+                LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + this.a.a);
+                if (i != 0 || this.a.a) {
+                    return;
+                }
+                this.a.onResult(0);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean mIsDestroy;
+        public boolean mIsInit;
+        public final /* synthetic */ wh7 this$0;
+
+        public c(wh7 wh7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = wh7Var;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void destroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+                this.mIsDestroy = true;
+                try {
+                    TbadkCoreApplication.getInst().unregisterReceiver(this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        private void init() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+                this.mIsInit = true;
+                this.mIsDestroy = false;
+            }
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+                if (this.mIsInit) {
+                    this.mIsInit = false;
+                } else if (!BdNetTypeUtil.isNetWorkAvailable() || this.mIsDestroy) {
+                } else {
+                    BIMManager.tryConnection(context);
+                }
+            }
+        }
+
+        public void register() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                init();
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                TbadkCoreApplication.getInst().registerReceiver(this, intentFilter);
+            }
+        }
+
+        public /* synthetic */ c(wh7 wh7Var, a aVar) {
+            this(wh7Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948270659, "Lcom/baidu/tieba/wh7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948270659, "Lcom/baidu/tieba/wh7;");
+        }
+    }
+
+    public wh7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.c = new a(this, 2005016);
+        this.d = false;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.init id =" + str);
+            if (this.d) {
+                return;
+            }
+            this.d = true;
+            vh7.a().b(TbadkCoreApplication.getInst());
+            d();
+            c();
+            if (this.b == null) {
+                this.b = new c(this, null);
+            }
+            this.b.register();
+            MessageManager.getInstance().registerListener(this.c);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            vh7.a().d(new b(this));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogUtils.d(e + "LiveIMManager", "registerIMConnectListener");
+            this.a = false;
+            BIMManager.unregisterConnectListener();
+            BIMManager.registerConnectListener(this);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.account.IConnectListener
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i);
+            LogUtils.d(e + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+            this.a = true;
+            if (i == 0) {
+                LogUtils.d(e + "LiveIMManager", "IConnectListener net connect");
+            } else if (i == 1) {
+                LogUtils.d(e + "LiveIMManager", "IConnectListener net disconnect");
+            }
+        }
     }
 }

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,7 +138,6 @@ public class NASLib extends Activity {
             load_uri();
             onAppStart(getApplicationContext());
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

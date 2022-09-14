@@ -1,38 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.DLauncher;
-import com.baidu.tbadk.editortools.view.CommonTabContentView;
-import com.baidu.tieba.y45;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tieba.r15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class t25 extends y45 {
+public class t25 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<r15> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<s25> m;
 
     /* loaded from: classes5.dex */
-    public class a implements y45.a {
+    public static class a implements r15.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t25 a;
 
-        public a(t25 t25Var) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.r15.j
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = t25.a = false;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements r15.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+
+        public b(HotEventData hotEventData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t25Var};
+                Object[] objArr = {hotEventData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,36 +75,31 @@ public class t25 extends y45 {
                     return;
                 }
             }
-            this.a = t25Var;
+            this.a = hotEventData;
         }
 
-        @Override // com.baidu.tieba.y45.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
+        @Override // com.baidu.tieba.r15.h
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-                DLauncher D = this.a.D(i);
-                if (D.getLayoutParams() == null) {
-                    D.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-                }
-                return D;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{this.a.getBtnSchema()});
+                t25.e();
             }
-            return (View) invokeILL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements CommonTabContentView.c {
+    public static class c implements r15.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t25 a;
+        public final /* synthetic */ HotEventData a;
 
-        public b(t25 t25Var) {
+        public c(HotEventData hotEventData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t25Var};
+                Object[] objArr = {hotEventData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,96 +109,109 @@ public class t25 extends y45 {
                     return;
                 }
             }
-            this.a = t25Var;
+            this.a = hotEventData;
         }
 
-        @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
-        public void a(View view2, int i, long j) {
+        @Override // com.baidu.tieba.r15.i
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && view2.isEnabled() && (view2 instanceof DLauncher) && this.a.j != null) {
-                this.a.j.x(view2);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{this.a.getBtnSchema()});
+                t25.e();
             }
         }
     }
 
-    public t25() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.m25
-    public void A(l25 l25Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l25Var) == null) {
-        }
-    }
-
-    public void C(LinkedList<s25> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) {
-            this.m = linkedList;
-        }
-    }
-
-    public final DLauncher D(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i < 0 || i >= c()) {
-                return null;
-            }
-            return (DLauncher) this.m.get(i);
-        }
-        return (DLauncher) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.y45
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinkedList<s25> linkedList = this.m;
-            if (linkedList != null) {
-                linkedList.clear();
-            }
-            this.m = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.y45
-    public int c() {
+    public static r15 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<s25> linkedList = this.m;
-            if (linkedList != null) {
-                return linkedList.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            WeakReference<r15> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
             }
-            return 0;
+            return null;
         }
-        return invokeV.intValue;
+        return (r15) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y45
-    public void n(Context context) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
-            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            o(4);
-            v(2);
-            x(new a(this));
-            h().b(this);
-            s(new b(this));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
+        }
+    }
+
+    public static void g(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, hotEventData) == null) || TextUtils.isEmpty(hotEventData.getBtnSchema()) || TextUtils.isEmpty(hotEventData.getTitle())) {
+            return;
+        }
+        if (hotEventData.getWindowType() == 1 || hotEventData.getWindowType() == 2) {
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
+                HotEvent hotEvent = new HotEvent();
+                hotEvent.hotEventData = hotEventData;
+                hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+                aa5.i(hotEvent);
+                return;
+            }
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
+            }
+            if (a) {
+                return;
+            }
+            if (hotEventData.getWindowType() == 1) {
+                if (System.currentTimeMillis() - bx4.k().m("key_hot_event_tip_show_time", 0L) <= 600000) {
+                    return;
+                }
+            }
+            if (t15.c() && t15.b() != null) {
+                t15.b().t();
+            }
+            if (TextUtils.isEmpty(hotEventData.getDesc())) {
+                hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0881));
+            }
+            if (TextUtils.isEmpty(hotEventData.getBtnText())) {
+                hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0880));
+            } else {
+                String btnText = hotEventData.getBtnText();
+                if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
+                    hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
+                }
+            }
+            r15.g gVar = new r15.g(currentActivity);
+            gVar.m(hotEventData.getBtnText());
+            gVar.u(hotEventData.getTitle());
+            gVar.o(hotEventData.getDesc());
+            gVar.q(hotEventData.getIcon());
+            gVar.n(R.drawable.obfuscated_res_0x7f0805d8);
+            gVar.p(5000);
+            gVar.s(new c(hotEventData));
+            gVar.r(new b(hotEventData));
+            gVar.t(new a());
+            r15 l = gVar.l();
+            l.p();
+            b = new WeakReference<>(l);
+            f();
+            if (hotEventData.getWindowType() == 1) {
+                bx4.k().x("key_hot_event_tip_show_time", System.currentTimeMillis());
+            }
+            a = true;
         }
     }
 }

@@ -399,7 +399,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040752});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040761});
         if (obtainStyledAttributes.hasValue(0)) {
             setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
         }

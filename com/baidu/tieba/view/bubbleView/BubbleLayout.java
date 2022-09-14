@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.fx8;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.xy8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class BubbleLayout extends FrameLayout {
     public static float j = -1.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrowDirection a;
-    public fx8 b;
+    public xy8 b;
     public float c;
     public float d;
     public float e;
@@ -119,7 +119,7 @@ public class BubbleLayout extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) || i2 < i || i4 < i3) {
             return;
         }
-        this.b = new fx8(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
+        this.b = new xy8(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
     }
 
     public final void c() {
@@ -165,9 +165,9 @@ public class BubbleLayout extends FrameLayout {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            fx8 fx8Var = this.b;
-            if (fx8Var != null) {
-                fx8Var.draw(canvas);
+            xy8 xy8Var = this.b;
+            if (xy8Var != null) {
+                xy8Var.draw(canvas);
             }
             super.dispatchDraw(canvas);
         }
@@ -270,7 +270,7 @@ public class BubbleLayout extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f0400e4, R.attr.obfuscated_res_0x7f0400e5, R.attr.obfuscated_res_0x7f0400e6, R.attr.obfuscated_res_0x7f0400e7, R.attr.obfuscated_res_0x7f0400e8, R.attr.obfuscated_res_0x7f0406a6});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ap8.BubbleLayout);
         this.c = obtainStyledAttributes.getDimension(2, a(8.0f, context));
         this.e = obtainStyledAttributes.getDimension(0, a(8.0f, context));
         this.d = obtainStyledAttributes.getDimension(4, 0.0f);

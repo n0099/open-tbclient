@@ -66,7 +66,7 @@ public final class PersonExtraStaticAutoGenerateUrlCollectorImpl implements ICmd
             arrayList.add(UrlSchemaHelper.GOTO_PERSON_INFO);
             arrayList.add(UrlSchemaHelper.OPEN_PERSON_INFO);
             arrayList.add(UrlSchemaHelper.JUMP_TO_MODIFY_NICKNAME);
-            arrayList.add(UrlSchemaHelper.JUMP_TO_POST_LIST);
+            arrayList.add("https://tieba.baidu.com/mo/q/myPost");
             hashMap.put("com.baidu.tieba.personExtra.PersonExtraStatic", arrayList);
             return hashMap;
         }

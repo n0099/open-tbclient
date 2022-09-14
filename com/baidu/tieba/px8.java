@@ -1,99 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public class px8 implements qx8 {
+public final /* synthetic */ class px8 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ px8 a = new px8();
     public transient /* synthetic */ FieldHolder $fh;
-    public final CloudMusicModel a;
-    public final rx8 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements xx8<CloudMusicData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ px8 a;
-
-        public a(px8 px8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {px8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = px8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xx8
-        /* renamed from: b */
-        public void a(CloudMusicData cloudMusicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
-                this.a.b.g0(false);
-                if (cloudMusicData != null) {
-                    this.a.b.l(false);
-                    if (cloudMusicData.tag_list.isEmpty()) {
-                        this.a.b.l(true);
-                        return;
-                    } else {
-                        this.a.b.w(cloudMusicData);
-                        return;
-                    }
-                }
-                this.a.b.l(true);
-            }
-        }
+    private /* synthetic */ px8() {
     }
 
-    public px8(CloudMusicModel cloudMusicModel, rx8 rx8Var) {
+    @Override // android.view.View.OnTouchListener
+    public final boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cloudMusicModel, rx8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = cloudMusicModel;
-        this.b = rx8Var;
-        rx8Var.r0(this);
-    }
-
-    @Override // com.baidu.tieba.qx8
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.cancelLoadData();
-        }
-    }
-
-    @Override // com.baidu.tieba.qx8
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.g0(true);
-            this.a.A(new a(this));
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? VideoVerticalPageFragment.l2(view2, motionEvent) : invokeLL.booleanValue;
     }
 }

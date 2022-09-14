@@ -16,7 +16,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import com.kwad.sdk.service.ServiceProvider;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ai {
     public static void R(String str, String str2) {
         String str3;

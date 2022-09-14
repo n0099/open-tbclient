@@ -1,49 +1,75 @@
 package com.baidu.tieba;
 
-import android.util.LruCache;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nd1 extends LruCache<String, md1<File>> {
+public class nd1 {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<e> a;
-    public final String b;
-    public HashMap<md1<File>, byte[]> c;
-    public long d;
-    public volatile boolean e;
-    public int f;
-    public long g;
 
     /* loaded from: classes5.dex */
-    public static class a extends ne1 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ nd1 d;
+        public long a;
+        public ArrayList<C0346a> b;
 
-        public a(String str, nd1 nd1Var) {
+        /* renamed from: com.baidu.tieba.nd1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class C0346a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public long a;
+            public long b;
+
+            public C0346a(long j, long j2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = j;
+                this.b = j2;
+            }
+
+            public boolean a(long j) {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j >= this.a && j <= this.b : invokeJ.booleanValue;
+            }
+        }
+
+        public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, nd1Var};
+                Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,458 +79,401 @@ public class nd1 extends LruCache<String, md1<File>> {
                     return;
                 }
             }
-            this.c = str;
-            this.d = nd1Var;
-        }
-
-        @Override // com.baidu.tieba.ne1
-        public Object b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    File file = new File(this.c);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    this.d.r(file.listFiles(), currentTimeMillis);
-                    return null;
-                } catch (Exception unused) {
-                    this.d.e = true;
-                    return null;
-                }
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ne1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] c;
-        public final /* synthetic */ md1 d;
-        public final /* synthetic */ nd1 e;
-
-        public b(nd1 nd1Var, byte[] bArr, md1 md1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nd1Var, bArr, md1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = nd1Var;
-            this.c = bArr;
-            this.d = md1Var;
-        }
-
-        @Override // com.baidu.tieba.ne1
-        public Object b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    s01.i(this.c, (File) this.d.a());
-                    this.e.put(((File) this.d.a()).getName(), this.d);
-                    nd1.b(this.e);
-                    if (!this.e.a.isEmpty()) {
-                        for (e eVar : this.e.a) {
-                            eVar.c(((File) this.d.a()).getName(), this.d);
-                        }
-                    }
-                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    nd1 nd1Var = this.e;
-                    nd1Var.m("File saved using " + currentTimeMillis2 + "ms: " + ((File) this.d.a()).getName() + "\nStatus:" + this.e.t());
-                    this.e.g();
-                    return null;
-                } catch (Throwable unused) {
-                    if (this.e.a.isEmpty()) {
-                        return null;
-                    }
-                    for (e eVar2 : this.e.a) {
-                        eVar2.b(((File) this.d.a()).getName(), this.d);
-                    }
-                    return null;
-                }
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends ne1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ md1 c;
-        public final /* synthetic */ nd1 d;
-
-        public c(nd1 nd1Var, md1 md1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nd1Var, md1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = nd1Var;
-            this.c = md1Var;
-        }
-
-        @Override // com.baidu.tieba.ne1
-        public Object b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    if (this.c != null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        String name = ((File) this.c.a()).getName();
-                        nd1.c(this.d);
-                        this.c.e();
-                        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                        nd1 nd1Var = this.d;
-                        nd1Var.m("File deleted using " + currentTimeMillis2 + "ms: " + name);
-                    }
-                    this.d.g();
-                    return null;
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(nd1 nd1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nd1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) ? Long.valueOf(file.lastModified()).compareTo(Long.valueOf(file2.lastModified())) : invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(String str, md1<File> md1Var);
-
-        void b(String str, md1<File> md1Var);
-
-        void c(String str, md1<File> md1Var);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947998510, "Lcom/baidu/tieba/nd1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947998510, "Lcom/baidu/tieba/nd1;");
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nd1(int i, String str) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            this.b = new ArrayList<>();
+            this.a = jSONObject.optLong("expires", 0L);
+            JSONArray optJSONArray = jSONObject.optJSONArray("schedule");
+            if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
             }
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                if (optJSONObject != null) {
+                    this.b.add(new C0346a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+                }
+            }
         }
-        this.a = new ArrayList();
-        this.e = false;
-        this.f = 0;
-        this.g = 2592000000L;
-        this.b = str;
-        this.c = new HashMap<>();
-    }
 
-    public static /* synthetic */ int b(nd1 nd1Var) {
-        int i = nd1Var.f;
-        nd1Var.f = i + 1;
-        return i;
-    }
-
-    public static /* synthetic */ int c(nd1 nd1Var) {
-        int i = nd1Var.f;
-        nd1Var.f = i - 1;
-        return i;
-    }
-
-    public static nd1 o(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            nd1 nd1Var = new nd1(i, str);
-            nd1Var.e = false;
-            oe1.a().c(new a(str, nd1Var));
-            return nd1Var;
+        @Nullable
+        public static a c(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                try {
+                    return new a(jSONObject);
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (a) invokeL.objValue;
         }
-        return (nd1) invokeLI.objValue;
+
+        public final boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e(System.currentTimeMillis() / 1000) : invokeV.booleanValue;
+        }
+
+        public final boolean e(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                if (jz0.l(this.b) == 0) {
+                    return false;
+                }
+                Iterator<C0346a> it = this.b.iterator();
+                while (it.hasNext()) {
+                    C0346a next = it.next();
+                    if (next != null && next.a(j)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public final boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g(System.currentTimeMillis() / 1000) : invokeV.booleanValue;
+        }
+
+        public final boolean g(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.a > j : invokeJ.booleanValue;
+        }
     }
 
-    public void delete(String str) {
+    public static void A(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || super.get(str) == null) {
+        if (interceptable == null || interceptable.invokeF(65536, null, f) == null) {
+            rz0.a().b("splash_sp_name").f("hot_background_time", f);
+        }
+    }
+
+    public static void B(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65537, null, f) == null) {
+            rz0.a().b("splash_sp_name").f("hot_update_split_time", f);
+        }
+    }
+
+    public static void C(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        h((md1) super.remove(str));
+        rz0.a().b("splash_sp_name").j("inner_monitor_host", str, false);
     }
 
-    public void f(e eVar) {
+    public static void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.a.add(eVar);
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("md5_check_switch", i);
         }
     }
 
-    public synchronized void g() {
+    public static void E(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (System.currentTimeMillis() - this.d < this.g) {
-                    return;
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                Map snapshot = super.snapshot();
-                this.d = System.currentTimeMillis();
-                for (String str : snapshot.keySet()) {
-                    md1 md1Var = (md1) snapshot.get(str);
-                    if (md1Var.d(this.g)) {
-                        ((File) ((md1) super.remove(str)).a()).delete();
-                        this.f--;
-                    } else if (((File) md1Var.a()).lastModified() < this.d) {
-                        this.d = ((File) md1Var.a()).lastModified();
-                    }
-                }
-                m("Clear cache using " + (System.currentTimeMillis() - currentTimeMillis) + "ms: ");
-            }
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("monitor_log_switch", i);
         }
     }
 
-    public final void h(md1<File> md1Var) {
+    public static void F(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, md1Var) == null) {
-            oe1.a().c(new c(this, md1Var));
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("query_host_opt", i);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.util.LruCache
-    /* renamed from: i */
-    public void entryRemoved(boolean z, String str, md1<File> md1Var, md1<File> md1Var2) {
+    public static void G(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, md1Var, md1Var2}) == null) {
-            super.entryRemoved(z, str, md1Var, md1Var2);
-            if (z && md1Var != null) {
-                h(md1Var);
-            }
-            if (!z || this.a.isEmpty()) {
-                return;
-            }
-            for (e eVar : this.a) {
-                eVar.a(str, md1Var);
-            }
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("query_time_out_advance", i);
         }
     }
 
-    public md1<File> j(String str) {
-        InterceptResult invokeL;
+    public static void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            md1<File> md1Var = (md1) super.get(str);
-            if (md1Var != null) {
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("request_count", i);
+        }
+    }
+
+    public static void I(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            String str2 = "";
+            if (!TextUtils.isEmpty(str)) {
                 try {
-                    md1Var.a().setLastModified(System.currentTimeMillis());
-                    m("Fetch resource for " + str + ",\nStatus:" + t());
-                } catch (Throwable unused) {
+                    str2 = new JSONObject(str).optString("server_block_reason", "");
+                } catch (JSONException unused) {
                 }
             }
-            return md1Var;
+            rz0.a().b("splash_sp_name").i("server_block_reason", str2);
         }
-        return (md1) invokeL.objValue;
     }
 
-    public String k() {
+    public static void J(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("freq");
+            if (optJSONObject != null) {
+                x(optJSONObject);
+            }
+            G(jSONObject.optInt("query_time_out_advance", 100));
+            B((float) jSONObject.optDouble("hot_update_split_time", 5.0d));
+            u(jSONObject.optInt("open_bes_switch", 0));
+            D(jSONObject.optInt("md5_check_switch", 0));
+            H(jSONObject.optInt("request_count", 10));
+            E(jSONObject.optInt("monitor_log_switch", 1));
+            C(jSONObject.optString("inner_monitor_host", "https://sp0.baidu.com"));
+            w(jSONObject.optInt("crash_opt", 1));
+            v(jSONObject.optString("cpt_config", ""));
+            F(jSONObject.optInt("query_host_opt", 0));
+        } catch (JSONException unused) {
+        }
+    }
+
+    public static boolean K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? rz0.a().b("splash_sp_name").getInt("query_host_opt", 0) == 1 : invokeV.booleanValue;
     }
 
-    public long l() {
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            JSONObject d = ad1.a().d();
+            if (d == null || !d.has("cpc_show_scene")) {
+                return true;
+            }
+            int optInt = d.optInt("cpc_show_scene", 0);
+            return optInt != 1 ? optInt != 2 || i == 1 : i == 0;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? super.maxSize() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? c(false) : invokeV.booleanValue;
     }
 
-    public final void m(String str) {
+    public static boolean c(boolean z) {
+        InterceptResult invokeZ;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-        }
-    }
-
-    public final synchronized void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.e = true;
-                if (this.c != null) {
-                    for (md1<File> md1Var : this.c.keySet()) {
-                        v(md1Var, this.c.get(md1Var));
-                    }
-                    this.c.clear();
-                    this.c = null;
-                }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65549, null, z)) == null) {
+            a e = e();
+            if (e == null) {
+                i = 13001;
+            } else if (e.f()) {
+                i = e.d() ? 13003 : 0;
+            } else {
+                i = TaskResponseData.ERROR_NO_TASK_OFFLINE_02;
             }
-        }
-    }
-
-    public final void p(String str, File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, file) == null) && file.exists()) {
-            super.put(str, new md1(file));
-            this.f++;
-        }
-    }
-
-    public void q(e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) && this.a.contains(eVar)) {
-            this.a.remove(eVar);
-        }
-    }
-
-    public boolean query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? j(str) != null && j(str).a().exists() : invokeL.booleanValue;
-    }
-
-    public final void r(File[] fileArr, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, fileArr, j) == null) {
-            if (fileArr != null && fileArr.length > 0) {
-                PriorityQueue priorityQueue = new PriorityQueue(11, new d(this));
-                if (priorityQueue.size() > 0) {
-                    this.d = ((File) priorityQueue.peek()).lastModified();
-                } else {
-                    this.d = System.currentTimeMillis();
-                }
-                priorityQueue.addAll(Arrays.asList(fileArr));
-                while (!priorityQueue.isEmpty()) {
-                    File file = (File) priorityQueue.poll();
-                    p(file.getName(), file);
-                }
+            if (i != 0 && z) {
+                BaseVM.k(i);
             }
-            m("Complete restore cache using " + (System.currentTimeMillis() - j) + "ms: ");
-            n();
+            return i == 0;
         }
+        return invokeZ.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.util.LruCache
-    /* renamed from: s */
-    public int sizeOf(String str, md1<File> md1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, md1Var)) == null) {
-            if (md1Var == null) {
-                return super.sizeOf(null, null);
-            }
-            return md1Var.f();
-        }
-        return invokeLL.intValue;
-    }
-
-    public String t() {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int hitCount = hitCount() + missCount();
-            return String.format(Locale.CHINA, "LruDiskCache[count=%d,size=%d/%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.f), Integer.valueOf(size()), Integer.valueOf(maxSize()), Integer.valueOf(hitCount()), Integer.valueOf(missCount()), Integer.valueOf(hitCount != 0 ? (hitCount() * 100) / hitCount : 0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            JSONObject d = ad1.a().d();
+            if (d == null || !d.has("cpc_show_times")) {
+                return Integer.MAX_VALUE;
+            }
+            return d.optInt("cpc_show_times");
+        }
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public static a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (a == null) {
+                a = f();
+            }
+            return a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    @Nullable
+    public static a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            String string = rz0.a().b("splash_sp_name").getString("cpt_config", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            return a.c(kz0.c(string));
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? rz0.a().b("splash_sp_name").getInt("hot_splash_max_count", 3) : invokeV.intValue;
+    }
+
+    public static float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? rz0.a().b("splash_sp_name").getFloat("hot_background_time", 5.0f) : invokeV.floatValue;
+    }
+
+    public static float i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? rz0.a().b("splash_sp_name").getFloat("hot_update_split_time", 5.0f) : invokeV.floatValue;
+    }
+
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? rz0.a().b("splash_sp_name").getString("inner_monitor_host", "https://sp0.baidu.com") : (String) invokeV.objValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? rz0.a().b("splash_sp_name").getInt("monitor_log_switch", 1) == 1 : invokeV.booleanValue;
+    }
+
+    @NonNull
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            if (s()) {
+                return n();
+            }
+            return ad1.a().e();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // android.util.LruCache
-    public synchronized void trimToSize(int i) {
+    public static int m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            synchronized (this) {
-                super.trimToSize(i);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? rz0.a().b("splash_sp_name").getInt("query_time_out_advance", 100) : invokeV.intValue;
+    }
+
+    @NonNull
+    public static String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            JSONObject d = ad1.a().d();
+            return (d == null || !d.has("query_unite_pid")) ? "" : d.optString("query_unite_pid", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? rz0.a().b("splash_sp_name").getInt("request_count", 10) : invokeV.intValue;
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? rz0.a().b("splash_sp_name").getString("server_block_reason", "") : (String) invokeV.objValue;
+    }
+
+    public static boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? dm0.b().a().a("cmd_uniform_enable", 0) != 0 : invokeV.booleanValue;
+    }
+
+    public static boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
+            JSONObject d = ad1.a().d();
+            return d != null && d.optInt("nad_splash_query_download_opt", 0) == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? dm0.b().a().a("query_uniform_enable", 0) == 1 && !TextUtils.isEmpty(n()) : invokeV.booleanValue;
+    }
+
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? dm0.b().a().a("query_url_cache_opt", 0) == 1 : invokeV.booleanValue;
+    }
+
+    public static void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65567, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("open_bes_switch", i);
         }
     }
 
-    public void u(byte[] bArr, md1<File> md1Var) {
+    public static void v(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, bArr, md1Var) == null) || md1Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65568, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.e) {
-            v(md1Var, bArr);
-        } else {
-            this.c.put(md1Var, bArr);
+        a = a.c(kz0.c(str));
+        rz0.a().b("splash_sp_name").i("cpt_config", str);
+    }
+
+    public static void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65569, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("crash_opt", i);
         }
     }
 
-    public final void v(md1<File> md1Var, byte[] bArr) {
+    public static void x(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, md1Var, bArr) == null) {
-            oe1.a().c(new b(this, bArr, md1Var));
+        if (interceptable == null || interceptable.invokeL(65570, null, jSONObject) == null) {
+            A((float) jSONObject.optDouble("hot_background_time", 5.0d));
+            y(jSONObject.optInt("hot_splash_max_count", 3));
+            z(jSONObject.optInt("hot_switch", 1));
+        }
+    }
+
+    public static void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65571, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("hot_splash_max_count", i);
+        }
+    }
+
+    public static void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65572, null, i) == null) {
+            rz0.a().b("splash_sp_name").g("hot_switch", i);
         }
     }
 }

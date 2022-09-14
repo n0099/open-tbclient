@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.pg3;
+import com.baidu.tieba.xi3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,12 +52,12 @@ public class CommonTagView extends TextView {
     public final void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f0401a3, R.attr.obfuscated_res_0x7f0406f7});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xi3.CommonTagView);
             this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
-            setPadding(getPaddingLeft() == 0 ? re3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? re3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? re3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? re3.f(context, 1.0f) : getPaddingBottom());
+            setPadding(getPaddingLeft() == 0 ? pg3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? pg3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? pg3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? pg3.f(context, 1.0f) : getPaddingBottom());
             b(context);
         }
     }

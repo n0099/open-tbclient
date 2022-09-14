@@ -7,10 +7,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.tencent.open.SocialOperation;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Arrays;
+import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,77 +36,85 @@ public class vy2 {
                 return;
             }
         }
-        a = kh1.a;
+        a = ij1.a;
     }
 
-    public static JSONObject a(List<String> list, float f) {
-        InterceptResult invokeLF;
+    public static String a(String str, long j, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
-            if (a) {
-                Log.d("PublisherCompress", "start compress");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
+            y23 M = y23.M();
+            String[] strArr = {M != null ? av1.a(M.O()) : "", str, String.valueOf(j), str2};
+            Arrays.sort(strArr);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 4; i++) {
+                sb.append(strArr[i]);
             }
-            ArrayList arrayList = new ArrayList();
-            a13 M = a13.M();
-            if (M == null) {
-                return null;
-            }
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    File file = new File(str);
-                    File k = yd3.k(file.getName());
-                    if (yd3.b(file, k, (int) (100.0f * f))) {
-                        arrayList.add(k);
-                    }
-                }
-            }
-            return b(arrayList, M);
-        }
-        return (JSONObject) invokeLF.objValue;
-    }
-
-    public static JSONObject b(ArrayList<File> arrayList, a13 a13Var) {
-        InterceptResult invokeLL;
-        String J;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, a13Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            boolean w0 = a13Var.w0();
             try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                Iterator<File> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File next = it.next();
-                    if (next != null) {
-                        if (w0) {
-                            J = kd2.Z(next.getAbsolutePath());
-                        } else {
-                            J = i83.J(next.getAbsolutePath(), a13Var.b);
-                        }
-                        if (a) {
-                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
-                        }
-                        jSONArray.put(J);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", J);
-                        jSONObject2.put("size", next.length());
-                        jSONArray2.put(jSONObject2);
-                    }
-                }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e) {
+                return qf3.c("SHA-1", sb.toString().getBytes(), false);
+            } catch (NoSuchAlgorithmException e) {
                 if (a) {
-                    Log.e("PublisherCompress", "wrapParams failed");
-                    e.printStackTrace();
+                    Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String b(zb4 zb4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zb4Var)) == null) {
+            if (zb4Var == null) {
+                return "";
+            }
+            String str = zb4Var.p;
+            JSONObject jSONObject = new JSONObject();
+            String uuid = UUID.randomUUID().toString();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            try {
+                jSONObject.put("noncestr", uuid);
+                jSONObject.put("timestamp", currentTimeMillis);
+                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
+            } catch (JSONException e) {
+                qy2.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(String str, String str2, zb4 zb4Var) {
+        InterceptResult invokeLLL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, zb4Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && zb4Var != null) {
+                String str3 = zb4Var.q;
+                if (TextUtils.isEmpty(str3)) {
+                    return false;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
+                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
+                        return false;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < length; i++) {
+                        String optString = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                    return p33.b(new URI(str2).getHost(), arrayList);
+                } catch (URISyntaxException | JSONException e) {
+                    qy2.b(Log.getStackTraceString(e));
                 }
             }
-            if (a) {
-                Log.e("PublisherCompress", jSONObject.toString());
-            }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

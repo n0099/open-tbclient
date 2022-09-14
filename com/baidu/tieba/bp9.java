@@ -1,78 +1,94 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsRewardVideoAd;
 /* loaded from: classes3.dex */
-public final class bp9 {
+public class bp9 extends gp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsRewardVideoAd c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ ap9 e;
 
-    public static int a(int i, int i2, String str) {
-        InterceptResult invokeIIL;
-        String a;
+    public bp9(ap9 ap9Var, KsRewardVideoAd ksRewardVideoAd, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65536, null, i, i2, str)) == null) {
-            if (i < 0 || i >= i2) {
-                if (i < 0) {
-                    a = cp9.a("%s (%s) must not be negative", "index", Integer.valueOf(i));
-                } else if (i2 < 0) {
-                    StringBuilder sb = new StringBuilder(26);
-                    sb.append("negative size: ");
-                    sb.append(i2);
-                    throw new IllegalArgumentException(sb.toString());
-                } else {
-                    a = cp9.a("%s (%s) must be less than size (%s)", "index", Integer.valueOf(i), Integer.valueOf(i2));
-                }
-                throw new IndexOutOfBoundsException(a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ap9Var, ksRewardVideoAd, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i;
         }
-        return invokeIIL.intValue;
+        this.e = ap9Var;
+        this.c = ksRewardVideoAd;
+        this.d = str;
     }
 
-    public static int b(int i, int i2, String str) {
-        InterceptResult invokeIIL;
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, null, i, i2, str)) == null) {
-            if (i < 0 || i > i2) {
-                throw new IndexOutOfBoundsException(d(i, i2, "index"));
-            }
-            return i;
-        }
-        return invokeIIL.intValue;
-    }
-
-    public static void c(int i, int i2, int i3) {
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65538, null, i, i2, i3) == null) {
-            if (i < 0 || i2 < i || i2 > i3) {
-                if (i >= 0 && i <= i3) {
-                    d = (i2 < 0 || i2 > i3) ? d(i2, i3, "end index") : cp9.a("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
-                } else {
-                    d = d(i, i3, "start index");
-                }
-                throw new IndexOutOfBoundsException(d);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClicked(this.c, this.b, this.d);
+            this.b = true;
         }
     }
 
-    public static String d(int i, int i2, String str) {
-        InterceptResult invokeIIL;
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i, i2, str)) == null) {
-            if (i < 0) {
-                return cp9.a("%s (%s) must not be negative", str, Integer.valueOf(i));
-            }
-            if (i2 >= 0) {
-                return cp9.a("%s (%s) must not be greater than size (%s)", str, Integer.valueOf(i), Integer.valueOf(i2));
-            }
-            StringBuilder sb = new StringBuilder(26);
-            sb.append("negative size: ");
-            sb.append(i2);
-            throw new IllegalArgumentException(sb.toString());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClose(this.c);
         }
-        return (String) invokeIIL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onRewardVerify() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.e.onRewardedVideo(this.c, this.d);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.d();
+            this.e.onAdError(this.c, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.e.onAdShow(this.c, this.a, this.d);
+            this.a = true;
+        }
     }
 }

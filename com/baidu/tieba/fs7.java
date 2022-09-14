@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fs7 extends WebChromeClient {
+public class fs7<V> implements ps7<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public vl8 b;
+    public InterestSelectionStyleAModel a;
+    public yr7 b;
+    public BaseInterestSelectionFragment c;
 
-    public fs7(PayVcodeActivity payVcodeActivity) {
+    public fs7(BaseInterestSelectionFragment baseInterestSelectionFragment, yr7 yr7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
+            Object[] objArr = {baseInterestSelectionFragment, yr7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,28 +30,46 @@ public class fs7 extends WebChromeClient {
                 return;
             }
         }
-        this.a = payVcodeActivity;
+        this.c = baseInterestSelectionFragment;
+        this.b = yr7Var;
+        this.a = new InterestSelectionStyleAModel(yr7Var, this);
     }
 
-    public void a(vl8 vl8Var) {
+    @Override // com.baidu.tieba.ps7
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vl8Var) == null) {
-            this.b = vl8Var;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.c) == null) {
+            return;
         }
+        baseInterestSelectionFragment.r1();
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        PayVcodeActivity payVcodeActivity;
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            vl8 vl8Var = this.b;
-            if ((vl8Var == null || !vl8Var.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.a) != null && ug.f(payVcodeActivity.getPageContext())) {
-                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interestSelectionStyleAModel = this.a) == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        interestSelectionStyleAModel.onDestroy();
+    }
+
+    public void c() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interestSelectionStyleAModel = this.a) == null) {
+            return;
+        }
+        interestSelectionStyleAModel.E();
+    }
+
+    @Override // com.baidu.tieba.ps7
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (baseInterestSelectionFragment = this.c) == null) {
+            return;
+        }
+        baseInterestSelectionFragment.s1(str);
     }
 }

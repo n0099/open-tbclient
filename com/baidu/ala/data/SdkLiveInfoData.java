@@ -27,7 +27,6 @@ public class SdkLiveInfoData {
     public AlaLiveInfo liveInfo;
     public String location;
     public String logid;
-    public SdkMiddleStrategyInfo middleStrategyInfo;
     public String modeUrl;
     public String nid;
     public String recom_extra_img;

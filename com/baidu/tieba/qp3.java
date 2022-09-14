@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface qp3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+public class qp3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<ip3> responseCallback);
-
-    void c(String str, ResponseCallback<ro3> responseCallback);
-
-    void d(String str);
-
-    void e(String str);
-
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    public qp3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

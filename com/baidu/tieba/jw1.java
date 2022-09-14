@@ -1,47 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class jw1 extends ow1 {
+public class jw1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
+    public Rect a;
+    public Paint b;
+    public PorterDuffXfermode c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw1(String str, @NonNull String str2) {
-        super(str, str2);
+    public jw1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = "";
+        this.b = new Paint();
+        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
-    @Override // com.baidu.tieba.ow1, com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || this.a == null) {
             return;
         }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("src");
+        this.b.setXfermode(this.c);
+        canvas.drawRect(this.a, this.b);
+    }
+
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = pg3.g((float) jSONArray.optDouble(0));
+                    int g2 = pg3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, pg3.g((float) jSONArray.optDouble(2)) + g, pg3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (ij1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

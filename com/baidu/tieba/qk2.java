@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class qk2 implements q94 {
+public class qk2 extends sg2<jl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,10 +27,33 @@ public class qk2 implements q94 {
         }
     }
 
-    @Override // com.baidu.tieba.q94
-    public ah4 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sg2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new r93(str) : (ah4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sg2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jl2 jl2Var) {
+        Object obj;
+        float floatValue;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jl2Var) == null) || (obj = command.obj) == null) {
+            return;
+        }
+        if (obj instanceof Float) {
+            floatValue = ((Float) obj).floatValue();
+        } else {
+            floatValue = obj instanceof Double ? ((Double) obj).floatValue() : Float.MIN_VALUE;
+        }
+        if (floatValue != Float.MIN_VALUE) {
+            jl2Var.setSpeed(floatValue);
+            String str = command.what;
+            d(jl2Var, str, "playbackRate: " + command.obj, false);
+        }
     }
 }

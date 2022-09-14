@@ -1,68 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vt2 {
+public class vt2 extends st2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
+    public vt2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
-            String b = b(unitedSchemeEntity);
-            if (TextUtils.isEmpty(b)) {
-                ay1.i("WxWebViewPayment", "wxPay: url is empty");
-                ay1.k("WxWebViewPayment", "param check error - src" + b);
-                t73.H(false, "wechatH5Action", t73.m(b, "param check error - src"));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (!s71.a().b(context)) {
-                s03.g(context, context.getText(R.string.obfuscated_res_0x7f0f01e8)).G();
-                ay1.k("WxWebViewPayment", "Error: wechat not install. " + b);
-                t73.H(false, "wechatH5Action", t73.m(b, "Error: wechat not install. "));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-                return false;
-            } else {
-                ar2 d = ar2.d(b, b);
-                ay1.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
-                if (!o02.d3("wxPay", d)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    ay1.k("WxWebViewPayment", "Error: webview fragment not opened.");
-                    return false;
-                }
-                ay1.k("WxWebViewPayment", "Success:open wxPay page success");
-                ay1.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(ot2.c(b), 0));
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.st2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (st2.c) {
+                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
             }
-            try {
-                return new JSONObject(str).optString("src");
-            } catch (JSONException unused) {
-                return null;
+            if (bitmap == null) {
+                return false;
             }
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
+            int i = 0;
+            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
+                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
+                    int pixel = bitmap.getPixel(i2, i3);
+                    if (i == 0) {
+                        i = pixel;
+                    }
+                    if (i != pixel && pixel != 0) {
+                        if (ij1.a) {
+                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                        return false;
+                    }
+                }
+            }
+            if (st2.c) {
+                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

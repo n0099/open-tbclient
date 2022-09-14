@@ -1,21 +1,55 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public interface ul1 {
-    void a(Context context, JSONObject jSONObject);
+public class ul1 implements eo1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context, JSONObject jSONObject);
+    public ul1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    @Override // com.baidu.tieba.eo1
+    public void a(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        }
+    }
 
-    void d(Context context, String[] strArr, int i);
+    @Override // com.baidu.tieba.eo1
+    public b72 b(Context context, File file, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
+            return null;
+        }
+        return (b72) invokeCommon.objValue;
+    }
 
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
-
-    void f(Context context, JSONObject jSONObject);
+    @Override // com.baidu.tieba.eo1
+    public void c(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+        }
+    }
 }

@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.media.AudioManager;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,21 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes5.dex */
-public class pa3 extends x23 {
+public class pa3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pa3(x13 x13Var) {
-        super(x13Var, "/swanAPI/getMediaVolumeSync");
+    public pa3(v33 v33Var) {
+        super(v33Var, "/swanAPI/getStorageSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,65 +38,32 @@ public class pa3 extends x23 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                ay1.c("getMediaVolumeSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
-            } else if (context == null) {
-                ay1.c("getMediaVolumeSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
-                }
-                return false;
-            } else {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                if (audioManager == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    if (x23.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
-                    }
-                    return false;
-                }
-                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
-                int streamVolume = audioManager.getStreamVolume(3);
-                if (streamMaxVolume <= 0) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    if (x23.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
-                    }
-                    return false;
-                }
-                double d = streamVolume / streamMaxVolume;
-                if (d < 0.0d) {
-                    d = 0.0d;
-                } else if (d > 1.0d) {
-                    d = 1.0d;
-                }
-                if (x23.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", d);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    return true;
-                } catch (JSONException unused) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    if (x23.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
-                    }
-                    return false;
-                }
             }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String Q = zs1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            JSONObject O = zs1.O(y23Var.f0().g().getString(Q, null));
+            if (O == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
+                return false;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(O, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

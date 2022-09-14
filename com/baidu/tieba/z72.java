@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,223 +13,184 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class z72 {
+public class z72 implements a82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final Uri c;
     public transient /* synthetic */ FieldHolder $fh;
-    public UriMatcher a;
+    public final List<c82> a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312788, "Lcom/baidu/tieba/z72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-277170825, "Lcom/baidu/tieba/z72$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-277170825, "Lcom/baidu/tieba/z72$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948312788, "Lcom/baidu/tieba/z72;");
-                return;
+            int[] iArr = new int[RecordType.values().length];
+            a = iArr;
+            try {
+                iArr[RecordType.APP_ID.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[RecordType.APP_VERSION.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
         }
-        b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-        c = Uri.parse("content://" + b);
     }
 
     public z72() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        UriMatcher uriMatcher = new UriMatcher(-1);
-        this.a = uriMatcher;
-        uriMatcher.addURI(b, "favorite", 0);
-        this.a.addURI(b, "favorite_and_aps", 1);
-        this.a.addURI(b, "history", 2);
-        this.a.addURI(b, "history_with_app", 3);
-        this.a.addURI(b, "favorite_with_aps_pms", 4);
-        this.a.addURI(b, "history_with_aps_pms", 5);
-        this.a.addURI(b, "user_behavior", 6);
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    public static void b() {
+    public void a(String str, UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            AppRuntime.getAppContext().getContentResolver().notifyChange(c82.b(), (ContentObserver) null, false);
-            AppRuntime.getAppContext().getContentResolver().notifyChange(c82.c(), (ContentObserver) null, false);
-            AppRuntime.getAppContext().getContentResolver().notifyChange(c82.a(), (ContentObserver) null, false);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, ubcFlowEvent) == null) && b(str)) {
+            dw2.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
         }
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public final String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 6) {
-                if (kh1.a) {
-                    throw new NullPointerException("tableName must not Null");
-                }
-                return "";
-            }
-            return "user_behavior";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        SQLiteDatabase e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match == 6 && (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
-                        return e.delete(a(match), str, strArr);
-                    }
-                    return 0;
-                }
-                int c2 = SwanAppDbControl.f(AppRuntime.getAppContext()).c(str, strArr);
-                if (c2 > 0) {
-                    b();
-                }
-                return c2;
-            }
-            return SwanAppDbControl.f(AppRuntime.getAppContext()).b(str, strArr);
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Nullable
-    public String getType(@NonNull Uri uri) {
+    public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
-        SQLiteDatabase e;
+    public final void c(HybridUbcFlow hybridUbcFlow, c82 c82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            int match = this.a.match(uri);
-            if (match == 0) {
-                long i = SwanAppDbControl.f(AppRuntime.getAppContext()).i(contentValues);
-                if (i < 0) {
-                    return null;
-                }
-                return ContentUris.withAppendedId(c.buildUpon().build(), i);
-            } else if (match != 2) {
-                if (match == 6 && (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
-                    e.insertWithOnConflict(a(match), null, contentValues, 5);
-                    return uri;
-                }
-                return null;
-            } else {
-                long j = SwanAppDbControl.f(AppRuntime.getAppContext()).j(contentValues);
-                if (j < 0) {
-                    return null;
-                }
-                b();
-                return ContentUris.withAppendedId(c.buildUpon().build(), j);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, c82Var) == null) || hybridUbcFlow == null || c82Var == null) {
+            return;
         }
-        return (Uri) invokeLL.objValue;
+        switch (a.a[c82Var.a.ordinal()]) {
+            case 1:
+                hybridUbcFlow.D("app_id", c82Var.b);
+                return;
+            case 2:
+                hybridUbcFlow.D("app_version", c82Var.b);
+                return;
+            case 3:
+                hybridUbcFlow.E("type", c82Var.c ? "hot" : "cold");
+                return;
+            case 4:
+                hybridUbcFlow.E("source", c82Var.b);
+                return;
+            case 5:
+                hybridUbcFlow.D("msg", c82Var.b);
+                return;
+            case 6:
+                synchronized (this.a) {
+                    this.a.add(c82Var);
+                }
+                return;
+            default:
+                return;
+        }
     }
 
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    public void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            int match = this.a.match(uri);
-            switch (match) {
-                case 0:
-                    Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(strArr, str, strArr2, str2);
-                    l.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return l;
-                case 1:
-                    Cursor k = SwanAppDbControl.f(AppRuntime.getAppContext()).k(strArr, str, strArr2, str2);
-                    k.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return k;
-                case 2:
-                    Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(strArr, str, strArr2, str2);
-                    n.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return n;
-                case 3:
-                    Cursor m = SwanAppDbControl.f(AppRuntime.getAppContext()).m(strArr, str, strArr2, str2);
-                    m.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return m;
-                case 4:
-                    Cursor s = y72.s();
-                    s.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return s;
-                case 5:
-                    int i = -1;
-                    try {
-                        i = Integer.valueOf(uri.getQueryParameter("query_limit")).intValue();
-                    } catch (Exception e) {
-                        if (kh1.a) {
-                            e.printStackTrace();
-                        }
-                    }
-                    String queryParameter = uri.getQueryParameter("query_word");
-                    if (queryParameter == null) {
-                        queryParameter = "";
-                    }
-                    Cursor o = d82.o(queryParameter, i);
-                    o.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return o;
-                case 6:
-                    SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
-                    if (e2 != null) {
-                        return e2.query(a(match), strArr, str, strArr2, null, null, str2);
-                    }
-                    return null;
-                default:
-                    return null;
-            }
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) && b(str)) {
+            dw2.q(PrefetchEvent.MODULE, str).E("value", z ? "success" : com.baidu.pass.biometrics.face.liveness.b.a.g0);
         }
-        return (Cursor) invokeLLLLL.objValue;
     }
 
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
-        SQLiteDatabase e;
+    public void e(String str, c82 c82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match == 6 && (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) != null) {
-                        return e.update(a(match), contentValues, str, strArr);
-                    }
-                    return 0;
-                }
-                int r = SwanAppDbControl.f(AppRuntime.getAppContext()).r(contentValues, str, strArr);
-                if (r > 0) {
-                    b();
-                }
-                return r;
-            }
-            return SwanAppDbControl.f(AppRuntime.getAppContext()).q(contentValues, str, strArr);
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, c82Var) == null) && b(str)) {
+            c(dw2.q(PrefetchEvent.MODULE, str), c82Var);
         }
-        return invokeLLLL.intValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && b(str)) {
+            dw2.s(PrefetchEvent.MODULE, str);
+            dw2.q(PrefetchEvent.MODULE, str);
+        }
+    }
+
+    public final void g(HybridUbcFlow hybridUbcFlow) {
+        List<c82> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) || hybridUbcFlow == null || (list = this.a) == null || list.size() <= 0) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        JSONArray jSONArray = new JSONArray();
+        synchronized (this.a) {
+            try {
+                for (c82 c82Var : this.a) {
+                    String str = c82Var.b;
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("url", str);
+                    jSONObject2.put("link", c82Var.c ? "1" : "0");
+                    jSONArray.put(jSONObject2);
+                }
+                jSONObject.put("links", jSONArray);
+            } catch (JSONException unused) {
+            }
+            this.a.clear();
+        }
+        if (jSONObject.length() > 0) {
+            hybridUbcFlow.D("prelink", jSONObject.toString());
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
+            this.b = true;
+            HybridUbcFlow q = dw2.q(PrefetchEvent.MODULE, str);
+            g(q);
+            q.A();
+            dw2.s(PrefetchEvent.MODULE, str);
+        }
     }
 }

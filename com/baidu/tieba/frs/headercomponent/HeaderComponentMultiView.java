@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.wm6;
-import com.baidu.tieba.xm6;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.do6;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements xm6 {
+public class HeaderComponentMultiView extends FrameLayout implements do6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -54,7 +54,7 @@ public class HeaderComponentMultiView extends FrameLayout implements xm6 {
         c();
     }
 
-    @Override // com.baidu.tieba.xm6
+    @Override // com.baidu.tieba.do6
     public void a() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -64,13 +64,13 @@ public class HeaderComponentMultiView extends FrameLayout implements xm6 {
         headerComponentMultiAdapter.e();
     }
 
-    @Override // com.baidu.tieba.xm6
-    public void b(List<LiveFuseForumData> list, wm6 wm6Var) {
+    @Override // com.baidu.tieba.do6
+    public void b(List<LiveFuseForumData> list, co6 co6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, wm6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, co6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(wm6Var);
+        this.d.g(co6Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
@@ -79,11 +79,11 @@ public class HeaderComponentMultiView extends FrameLayout implements xm6 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = ri.k(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0313, (ViewGroup) null);
+            int k = ej.k(getContext());
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0318, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090697);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ab);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = k;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));

@@ -66,16 +66,9 @@ public class PkgNameAndNodeInfoData implements Serializable {
         }
     }
 
-    public void setNodeInfo(NodeInfo nodeInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nodeInfo) == null) {
-            this.nodeInfo = nodeInfo;
-        }
-    }
-
     public void setPackageName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.packageName = str;
         }
     }

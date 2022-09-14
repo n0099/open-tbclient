@@ -10,9 +10,9 @@ import com.baidu.searchbox.websocket.WebSocketManager;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i82;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.nx3;
+import com.baidu.tieba.ga2;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.mz3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,13 +38,13 @@ public class SwanInspectorEndpoint {
     public String d;
     public boolean e;
     public boolean f;
-    public nx3.a g;
+    public mz3.a g;
     public boolean h;
     public Runnable i;
     public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public i82 m;
+    public ga2 m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -285,7 +285,7 @@ public class SwanInspectorEndpoint {
                 return;
             }
         }
-        t = kh1.a;
+        t = ij1.a;
         u = new SwanInspectorEndpoint();
     }
 
@@ -365,18 +365,18 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(nx3 nx3Var, i82 i82Var, nx3.a aVar, Runnable runnable) {
+    public void r(mz3 mz3Var, ga2 ga2Var, mz3.a aVar, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, nx3Var, i82Var, aVar, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, mz3Var, ga2Var, aVar, runnable) == null) {
             p(false);
             w(aVar);
             try {
-                t(i82Var);
-                if (nx3Var.d()) {
+                t(ga2Var);
+                if (mz3Var.d()) {
                     this.i = runnable;
-                    s(nx3Var);
+                    s(mz3Var);
                 } else {
-                    s(nx3Var);
+                    s(mz3Var);
                     runnable.run();
                 }
             } catch (Exception e) {
@@ -388,13 +388,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(nx3 nx3Var) {
+    public final void s(mz3 mz3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nx3Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, mz3Var) == null) {
             this.j = ConnectionState.CONNECTING;
-            this.c = nx3Var.a();
-            this.f = nx3Var.b();
-            this.e = nx3Var.d();
+            this.c = mz3Var.a();
+            this.f = mz3Var.b();
+            this.e = mz3Var.d();
             this.d = "ws://" + this.c + "/inspect/inspectorTarget/" + this.a;
             if (t) {
                 Log.i("SwanInspector", "Starting inspector to " + this.d);
@@ -408,13 +408,13 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void t(i82 i82Var) throws Exception {
+    public final void t(ga2 ga2Var) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i82Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, ga2Var) == null) {
             this.k = ConnectionState.CONNECTING;
-            if (this.n != i82Var.hashCode()) {
-                this.m = i82Var;
-                this.n = i82Var.hashCode();
+            if (this.n != ga2Var.hashCode()) {
+                this.m = ga2Var;
+                this.n = ga2Var.hashCode();
                 c cVar = new c(this, null);
                 this.s = cVar;
                 this.r = this.m.r0(cVar);
@@ -434,9 +434,9 @@ public class SwanInspectorEndpoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resources)) == null) {
             StringBuilder sb = new StringBuilder();
             long currentTimeMillis = System.currentTimeMillis();
-            nx3.a aVar = this.g;
+            mz3.a aVar = this.g;
             if (aVar == null) {
-                aVar = nx3.a.c();
+                aVar = mz3.a.c();
             }
             sb.append(aVar.a());
             sb.append("\n");
@@ -446,43 +446,43 @@ public class SwanInspectorEndpoint {
             String str = null;
             ConnectionState connectionState = this.j;
             if (connectionState == ConnectionState.OPEN) {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0172);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0174);
             } else if (this.l == null && (connectionState != ConnectionState.CONNECTING || currentTimeMillis - this.q <= 5000)) {
                 if (this.j == ConnectionState.CONNECTING) {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f0170);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f0172);
                 } else {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f016f);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f0171);
                 }
             } else {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0171);
-                str = resources.getString(R.string.obfuscated_res_0x7f0f016e);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0173);
+                str = resources.getString(R.string.obfuscated_res_0x7f0f0170);
             }
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0175));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0177));
             sb.append(string);
             sb.append("\n");
             if (str != null) {
                 sb.append(str);
                 sb.append("\n");
             }
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0174));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0176));
             sb.append(this.c);
             sb.append("\n");
             if (this.j == ConnectionState.OPEN) {
-                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0177));
+                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0179));
                 if (this.i != null) {
-                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f0179);
+                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017b);
                 } else if (this.h) {
-                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f0178);
-                } else {
                     string2 = resources.getString(R.string.obfuscated_res_0x7f0f017a);
+                } else {
+                    string2 = resources.getString(R.string.obfuscated_res_0x7f0f017c);
                 }
                 sb.append(string2);
                 sb.append("\n");
-                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0176));
+                sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0178));
                 if (this.e) {
-                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f017c);
+                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f017e);
                 } else {
-                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f017b);
+                    string3 = resources.getString(R.string.obfuscated_res_0x7f0f017d);
                 }
                 sb.append(string3);
                 sb.append("\n");
@@ -492,7 +492,7 @@ public class SwanInspectorEndpoint {
         return (String) invokeL.objValue;
     }
 
-    public void w(nx3.a aVar) {
+    public void w(mz3.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;

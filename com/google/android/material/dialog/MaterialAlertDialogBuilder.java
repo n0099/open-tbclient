@@ -45,9 +45,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
     @AttrRes
     public static final int DEF_STYLE_ATTR = 2130968711;
     @StyleRes
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100125 = 2131755301;
+    public static final int DEF_STYLE_RES = 2131755301;
     @AttrRes
     public static final int MATERIAL_ALERT_DIALOG_THEME_OVERLAY = 2130969766;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +96,7 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             int materialAlertDialogThemeOverlay = getMaterialAlertDialogThemeOverlay(context);
-            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
+            Context wrap = MaterialThemeOverlay.wrap(context, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
             return materialAlertDialogThemeOverlay == 0 ? wrap : new ContextThemeWrapper(wrap, materialAlertDialogThemeOverlay);
         }
         return (Context) invokeL.objValue;
@@ -234,9 +232,9 @@ public class MaterialAlertDialogBuilder extends AlertDialog.Builder {
         }
         Context context2 = getContext();
         Resources.Theme theme = context2.getTheme();
-        this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
+        this.backgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, DEF_STYLE_RES);
         int color = MaterialColors.getColor(context2, (int) R.attr.obfuscated_res_0x7f04017e, MaterialAlertDialogBuilder.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100125);
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
         materialShapeDrawable.initializeElevationOverlay(context2);
         materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));
         if (Build.VERSION.SDK_INT >= 28) {

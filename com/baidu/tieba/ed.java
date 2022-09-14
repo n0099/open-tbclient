@@ -6,25 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 /* loaded from: classes3.dex */
-public class ed implements ad {
+public class ed implements bd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Message a;
-    public Set<String> b;
+    public long a;
 
-    public ed(Message message) {
+    public ed(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {message};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,53 +27,48 @@ public class ed implements ad {
                 return;
             }
         }
-        this.a = message;
-        List<Field> b = dc.b(message.getClass());
-        this.b = new HashSet();
-        if (b == null || b.size() <= 0) {
-            return;
-        }
-        for (Field field : b) {
-            if (field != null) {
-                this.b.add(field.getName());
-            }
-        }
+        this.a = j;
     }
 
-    @Override // com.baidu.tieba.ad
-    public void a(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
-            dc.h(this.a, str, obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.ad
-    public Object b(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
-            Object c = c(str);
-            if (c != null) {
-                de deVar = new de(type);
-                nd a = he.a(c);
-                return a != null ? a.a(deVar) : c;
-            }
-            return c;
-        }
-        return invokeLL.objValue;
-    }
-
-    public Object c(String str) {
+    @Override // com.baidu.tieba.bd
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? dc.d(this.a, str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) ? Long.valueOf(this.a) : invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ad
-    public Set<String> getKeys() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bd
+    public Object b(re reVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reVar)) == null) ? Long.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object c(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, reVar)) == null) ? Long.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object d(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reVar)) == null) ? Long.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object e(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, reVar)) == null) ? d(reVar) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object f(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reVar)) == null) ? Long.valueOf(this.a) : invokeL.objValue;
     }
 }

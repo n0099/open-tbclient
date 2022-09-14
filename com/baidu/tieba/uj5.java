@@ -1,81 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewConfiguration;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class uj5 {
+public class uj5 extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public b b;
-    public VelocityTracker c;
-    public float d;
-    public float e;
-    public long f;
-    public long g;
-    public boolean h;
-    public boolean i;
-    public int j;
-    public int k;
-    public int l;
+    public String a;
+    public String b;
+    public NetWork c;
+    public a d;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uj5 a;
-
-        public a(uj5 uj5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uj5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uj5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i || !this.a.h || this.a.b == null) {
-                return;
-            }
-            this.a.b.onViewClick();
-        }
+    public interface a {
+        void a(boolean z, String str);
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void k0(float f, float f2);
-
-        void onViewClick();
-
-        void onViewDragToRight();
-    }
-
-    public uj5(View view2) {
+    public uj5(String str, String str2, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {str, str2, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,79 +40,106 @@ public class uj5 {
                 return;
             }
         }
-        this.a = view2;
-        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
-        if (viewConfiguration != null) {
-            this.l = viewConfiguration.getScaledPagingTouchSlop();
-        }
-        this.k = ViewConfiguration.getMaximumFlingVelocity();
-        this.j = ViewConfiguration.getMinimumFlingVelocity();
+        this.a = str;
+        this.b = str2;
+        this.d = aVar;
     }
 
-    public boolean d(MotionEvent motionEvent) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
-        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.c == null) {
-                this.c = VelocityTracker.obtain();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                return true;
             }
-            this.c.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                this.f = System.currentTimeMillis();
-                this.h = true;
-            } else if (action == 1) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
-                    this.i = true;
-                } else {
-                    this.i = false;
-                }
-                VelocityTracker velocityTracker = this.c;
-                velocityTracker.computeCurrentVelocity(1000, this.k);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
-                    this.i = false;
-                    this.h = false;
-                }
-                if (this.i) {
-                    b bVar2 = this.b;
-                    if (bVar2 != null) {
-                        bVar2.k0(motionEvent.getRawX(), motionEvent.getRawY());
-                    }
-                } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
-                    bVar.onViewDragToRight();
-                }
-                if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
-                    this.a.postDelayed(new a(this), 300L);
-                }
-                this.g = currentTimeMillis;
-                e();
-            } else if (action == 3) {
-                e();
+            try {
+                return file.mkdirs();
+            } catch (Exception e) {
+                TiebaStatic.file(e, dj.join("FileHelper", ".", "CheckTempDir", " ", str));
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || dj.isEmpty(str)) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(str));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            if (dj.isEmpty(this.a) || dj.isEmpty(this.b) || !b(this.a)) {
+                return null;
+            }
+            String c = lj.c(this.b);
+            String str = this.a + c + "/";
+            if (e(str)) {
+                return c;
+            }
+            NetWork netWork = new NetWork();
+            this.c = netWork;
+            netWork.setUrl(this.b);
+            String str2 = this.a + c + ".zip";
+            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+                c(str2);
+                return c;
+            }
+            c(str2);
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.exists() || !file.isDirectory() || file.list() == null || file.list().length <= 0) {
+                file.delete();
+                return false;
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final void e() {
-        VelocityTracker velocityTracker;
+    public final boolean f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (dj.isEmpty(str) || dj.isEmpty(str2)) {
+                return false;
+            }
+            return gw4.b(str, str2);
         }
-        velocityTracker.clear();
-        this.c.recycle();
-        this.c = null;
+        return invokeLL.booleanValue;
     }
 
-    public void f(b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d == null) {
+            return;
+        }
+        if (!dj.isEmpty(str)) {
+            this.d.a(true, str);
+        } else {
+            this.d.a(false, null);
         }
     }
 }

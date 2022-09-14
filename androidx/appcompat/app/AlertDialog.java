@@ -22,10 +22,10 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.app.AlertController;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -610,7 +610,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
                 return i;
             }
             TypedValue typedValue = new TypedValue();
-            context.getTheme().resolveAttribute(R$attr.alertDialogTheme, typedValue, true);
+            context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040088, typedValue, true);
             return typedValue.resourceId;
         }
         return invokeLI.intValue;

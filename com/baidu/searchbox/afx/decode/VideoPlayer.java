@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.decode;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.pm.ConfigurationInfo;
 import android.media.MediaCodec;
@@ -32,21 +33,23 @@ import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class VideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final boolean DEBUG = false;
     public static final int DEFAULT_FPS = 25;
     public static final int MEDIA_INFO_EXTRA_NONE = 0;
     public static final int MEDIA_INFO_VIDEO_RENDERING_START = 3;
+    public static final int MS_PER_SECOND = 1000;
     public static final String TAG = "VideoPlayer";
-    public static final boolean VERBOSE = false;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaCodec.BufferInfo mBufferInfo;
+    public int mDurationPerFrame;
     public long mDurationUs;
     public int mFps;
     public FrameCallback mFrameCallback;
     public GLTextureView mGLTextureView;
+    public int mInputChunk;
     public volatile boolean mIsPauseRequested;
     public volatile boolean mIsStopRequested;
     public boolean mLoop;
-    public MediaCodec mMediaDecoder;
     public MediaExtractor mMediaExtractor;
     public OnInfoListener mOnInfoListener;
     public Surface mOutputSurface;
@@ -161,6 +164,7 @@ public class VideoPlayer {
             this.mLocalHandler = new LocalHandler(onVideoEndedListener, onVideoErrorListener, onReportListener);
         }
 
+        @SuppressLint({"MobilebdThread"})
         public void execute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -257,33 +261,34 @@ public class VideoPlayer {
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         this.mFps = 25;
+        this.mDurationPerFrame = 0;
+        this.mInputChunk = 1;
         this.mStartFrameTimeUs = 0L;
         this.mPlayFrames = Integer.MAX_VALUE;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r27v0, resolved type: android.media.MediaExtractor */
+    /* JADX DEBUG: Multi-variable search result rejected for r26v0, resolved type: android.media.MediaExtractor */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x017d A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x014f  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0154  */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x016c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x013c  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0141  */
     /* JADX WARN: Type inference failed for: r10v0 */
     /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r10v2 */
+    @SuppressLint({"BDThrowableCheck"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void doExtract(MediaExtractor mediaExtractor, int i, MediaCodec mediaCodec, FrameCallback frameCallback) {
-        ByteBuffer[] byteBufferArr;
         boolean z;
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65538, this, mediaExtractor, i, mediaCodec, frameCallback) == null) {
             GLTextureView gLTextureView = this.mGLTextureView;
             ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-            long j = -1;
+            this.mInputChunk = 1;
             ?? r10 = 0;
-            long j2 = -1;
-            int i2 = 1;
+            long j = -1;
             boolean z2 = false;
             boolean z3 = false;
             boolean z4 = false;
@@ -308,38 +313,30 @@ public class VideoPlayer {
                         }
                     }
                 }
-                if (z3 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
-                    byteBufferArr = inputBuffers;
-                    i2 = i2;
-                } else {
-                    if (j2 == j) {
-                        j2 = System.nanoTime();
+                if (!z3 && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) >= 0) {
+                    if (j == -1) {
+                        j = System.nanoTime();
                     }
-                    long j3 = j2;
+                    long j2 = j;
                     int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], r10);
                     if (readSampleData < 0) {
-                        byteBufferArr = inputBuffers;
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                        i2 = i2;
-                        j2 = j3;
+                        j = j2;
                         z3 = true;
                         z4 = true;
                     } else {
-                        int i3 = i2;
-                        byteBufferArr = inputBuffers;
                         if (mediaExtractor.getSampleTrackIndex() != i) {
                             Log.w(TAG, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
                         }
-                        if (z4 && i3 == this.mPlayFrames + 1) {
+                        if (z4 && this.mInputChunk == this.mPlayFrames + 1) {
                             mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                            i2 = i3;
-                            j2 = j3;
+                            j = j2;
                             z3 = true;
                         } else {
                             mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                            i2 = i3 + 1;
+                            this.mInputChunk++;
                             mediaExtractor.advance();
-                            j2 = j3;
+                            j = j2;
                         }
                     }
                 }
@@ -349,9 +346,9 @@ public class VideoPlayer {
                         if (dequeueOutputBuffer == -2) {
                             mediaCodec.getOutputFormat();
                         } else if (dequeueOutputBuffer >= 0) {
-                            if (j2 != 0) {
+                            if (j != 0) {
                                 System.nanoTime();
-                                j2 = 0;
+                                j = 0;
                             }
                             if ((this.mBufferInfo.flags & 4) == 0) {
                                 z = false;
@@ -376,12 +373,12 @@ public class VideoPlayer {
                                         gLTextureView.requestRender();
                                     }
                                     if (!z) {
+                                        this.mInputChunk = 1;
                                         mediaExtractor.seekTo(this.mStartFrameTimeUs, 2);
                                         mediaCodec.flush();
                                         if (frameCallback != null) {
                                             frameCallback.loopReset();
                                         }
-                                        i2 = 1;
                                         z3 = false;
                                     }
                                 }
@@ -396,66 +393,71 @@ public class VideoPlayer {
                         }
                     }
                 }
-                inputBuffers = byteBufferArr;
                 r10 = 0;
-                j = -1;
             }
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void onDataSourceSet(MediaExtractor mediaExtractor) {
+        int selectVideoTrackIndex;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, mediaExtractor) == null) {
-            int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
-            if (selectVideoTrackIndex >= 0) {
-                mediaExtractor.selectTrack(selectVideoTrackIndex);
-                MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                this.mVideoWidth = trackFormat.getInteger("width");
-                this.mVideoHeight = trackFormat.getInteger("height");
-                this.mDurationUs = trackFormat.getLong("durationUs");
-                try {
-                    this.mFps = trackFormat.getInteger("frame-rate");
-                    return;
-                } catch (Exception e) {
-                    Log.e(TAG, "get frame rate (FPS) failed.", e);
-                    return;
-                }
-            }
-            throw new RuntimeException("No video track found in source file.");
+        if (!(interceptable == null || interceptable.invokeL(65539, this, mediaExtractor) == null) || (selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor)) < 0) {
+            return;
+        }
+        mediaExtractor.selectTrack(selectVideoTrackIndex);
+        MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
+        this.mVideoWidth = trackFormat.getInteger("width");
+        this.mVideoHeight = trackFormat.getInteger("height");
+        this.mDurationUs = trackFormat.getLong("durationUs");
+        try {
+            int integer = trackFormat.getInteger("frame-rate");
+            this.mFps = integer;
+            this.mDurationPerFrame = 1000 / integer;
+        } catch (Exception e) {
+            Log.e(TAG, "get frame rate (FPS) failed.", e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @SuppressLint({"BDThrowableCheck"})
     public void play() throws IOException {
+        FrameCallback frameCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            MediaExtractor mediaExtractor = this.mMediaExtractor;
-            MediaCodec mediaCodec = this.mMediaDecoder;
-            int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
+            int selectVideoTrackIndex = selectVideoTrackIndex(this.mMediaExtractor);
             if (selectVideoTrackIndex >= 0) {
-                mediaExtractor.selectTrack(selectVideoTrackIndex);
-                if (mediaCodec == null) {
-                    MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                    MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
-                    Surface surface = this.mOutputSurface;
-                    if (surface != null) {
-                        createDecoderByType.configure(trackFormat, surface, (MediaCrypto) null, 0);
-                        createDecoderByType.start();
-                        this.mMediaDecoder = createDecoderByType;
-                        mediaCodec = createDecoderByType;
-                    } else {
-                        throw new IllegalStateException("The output surface is not prepared.");
+                this.mMediaExtractor.selectTrack(selectVideoTrackIndex);
+                MediaFormat trackFormat = this.mMediaExtractor.getTrackFormat(selectVideoTrackIndex);
+                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
+                Surface surface = this.mOutputSurface;
+                if (surface != null) {
+                    createDecoderByType.configure(trackFormat, surface, (MediaCrypto) null, 0);
+                    createDecoderByType.start();
+                    try {
+                        doExtract(this.mMediaExtractor, selectVideoTrackIndex, createDecoderByType, this.mFrameCallback);
+                        this.mMediaExtractor.seekTo(0L, 2);
+                        createDecoderByType.flush();
+                        if (frameCallback != null) {
+                            return;
+                        }
+                        return;
+                    } finally {
+                        try {
+                            createDecoderByType.stop();
+                        } catch (Exception unused) {
+                        }
+                        try {
+                            createDecoderByType.release();
+                        } catch (Exception unused2) {
+                        }
+                        frameCallback = this.mFrameCallback;
+                        if (frameCallback != null) {
+                            frameCallback.reset();
+                        }
                     }
                 }
-                doExtract(mediaExtractor, selectVideoTrackIndex, mediaCodec, this.mFrameCallback);
-                mediaExtractor.seekTo(0L, 2);
-                mediaCodec.flush();
-                FrameCallback frameCallback = this.mFrameCallback;
-                if (frameCallback != null) {
-                    frameCallback.reset();
-                    return;
-                }
-                return;
+                throw new IllegalStateException("The output surface is not prepared.");
             }
             throw new RuntimeException("No video track found in source file.");
         }
@@ -476,16 +478,22 @@ public class VideoPlayer {
         return invokeL.intValue;
     }
 
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDurationPerFrame * (this.mInputChunk - 1) : invokeV.intValue;
+    }
+
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDurationUs / 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDurationUs / 1000 : invokeV.longValue;
     }
 
     public int getFps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFps : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFps : invokeV.intValue;
     }
 
     public String getGlVersion() {
@@ -493,7 +501,7 @@ public class VideoPlayer {
         ActivityManager activityManager;
         ConfigurationInfo deviceConfigurationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             GLTextureView gLTextureView = this.mGLTextureView;
             if (gLTextureView == null || (activityManager = (ActivityManager) gLTextureView.getContext().getSystemService("activity")) == null || (deviceConfigurationInfo = activityManager.getDeviceConfigurationInfo()) == null) {
                 return null;
@@ -506,38 +514,25 @@ public class VideoPlayer {
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVideoHeight : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVideoHeight : invokeV.intValue;
     }
 
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVideoWidth : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mVideoWidth : invokeV.intValue;
     }
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MediaCodec mediaCodec = this.mMediaDecoder;
-            if (mediaCodec != null) {
-                try {
-                    mediaCodec.stop();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try {
-                    this.mMediaDecoder.release();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                this.mMediaDecoder = null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            requestStop();
             MediaExtractor mediaExtractor = this.mMediaExtractor;
             if (mediaExtractor != null) {
                 try {
                     mediaExtractor.release();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 this.mMediaExtractor = null;
             }
@@ -545,8 +540,8 @@ public class VideoPlayer {
             if (surface != null) {
                 try {
                     surface.release();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
                 this.mOutputSurface = null;
             }
@@ -558,14 +553,14 @@ public class VideoPlayer {
 
     public void requestPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.mIsPauseRequested = true;
         }
     }
 
     public void requestResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mIsPauseRequested = false;
             synchronized (this) {
                 notifyAll();
@@ -575,35 +570,35 @@ public class VideoPlayer {
 
     public void requestStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.mIsStopRequested = true;
         }
     }
 
     public void setDataSource(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             setDataSource(new File(str));
         }
     }
 
     public void setFrameCallback(FrameCallback frameCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, frameCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, frameCallback) == null) {
             this.mFrameCallback = frameCallback;
         }
     }
 
     public void setGLTextureView(GLTextureView gLTextureView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gLTextureView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, gLTextureView) == null) {
             this.mGLTextureView = gLTextureView;
         }
     }
 
     public void setLoopSection(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.mStartFrameTimeUs = 1000 * j;
             this.mPlayFrames = ((int) (((j2 - j) / 1000.0d) * this.mFps)) + 1;
         }
@@ -611,28 +606,28 @@ public class VideoPlayer {
 
     public void setLooping(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mLoop = z;
         }
     }
 
     public void setOnInfoListener(OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, onInfoListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, onInfoListener) == null) {
             this.mOnInfoListener = onInfoListener;
         }
     }
 
     public void setSurface(Surface surface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, surface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, surface) == null) {
             this.mOutputSurface = surface;
         }
     }
 
     public void setDataSource(File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048585, this, file) != null) {
+        if (interceptable != null && interceptable.invokeL(1048586, this, file) != null) {
             return;
         }
         FileInputStream fileInputStream = null;
@@ -664,14 +659,14 @@ public class VideoPlayer {
 
     public void setLoopSection(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
             setLoopSection(j, (long) (this.mDurationUs / 1000.0d));
         }
     }
 
     public void setLoopSection(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             this.mStartFrameTimeUs = (long) ((1000.0d / this.mFps) * i * 1000.0d);
             this.mPlayFrames = (i2 - i) + 1;
         }
@@ -679,14 +674,14 @@ public class VideoPlayer {
 
     public void setLoopSection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             setLoopSection(i, (int) ((this.mDurationUs / 1000000.0d) * this.mFps));
         }
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fileDescriptor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, fileDescriptor) == null) {
             MediaExtractor mediaExtractor = new MediaExtractor();
             this.mMediaExtractor = mediaExtractor;
             mediaExtractor.setDataSource(fileDescriptor);
@@ -696,7 +691,7 @@ public class VideoPlayer {
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             MediaExtractor mediaExtractor = new MediaExtractor();
             this.mMediaExtractor = mediaExtractor;
             mediaExtractor.setDataSource(fileDescriptor, j, j2);

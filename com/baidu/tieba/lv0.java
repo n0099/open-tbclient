@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lv0 {
+public class lv0 implements ov0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     public lv0() {
         Interceptable interceptable = $ic;
@@ -23,5 +23,32 @@ public class lv0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ov0
+    @NonNull
+    public hv0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -812096555) {
+                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("CyberSysPlayer")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                return new rv0();
+            }
+            return new jv0();
+        }
+        return (hv0) invokeL.objValue;
     }
 }

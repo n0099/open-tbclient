@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ir7;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.ss7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,11 +20,12 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ir7 a;
+    public ss7 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
     public String[] e;
+    public boolean f;
 
     public InterestGuideActivity() {
         Interceptable interceptable = $ic;
@@ -40,7 +41,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void D0() {
+    public final void M0() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
             return;
@@ -49,20 +50,21 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         this.c = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM, false);
         this.d = getIntent().getIntegerArrayListExtra(InterestGuideActivityConfig.KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM);
         this.e = getIntent().getStringArrayExtra(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
+        this.f = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_INTEREST_BACK_TO_MAINTAB, true);
     }
 
-    public final void E0() {
+    public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String q = su4.k().q("key_interest_guide_show", "");
+            String q = bx4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            su4 k = su4.k();
+            bx4 k = bx4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            su4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            bx4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -90,11 +92,11 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            D0();
-            ir7 ir7Var = new ir7(this, this.b, this.c, this.d, this.e);
-            this.a = ir7Var;
-            setContentView(ir7Var.d());
-            E0();
+            M0();
+            ss7 ss7Var = new ss7(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = ss7Var;
+            setContentView(ss7Var.d());
+            N0();
         }
     }
 }

@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g48;
-import com.baidu.tieba.h48;
-import com.baidu.tieba.no5;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.v38;
+import com.baidu.tieba.a58;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.l58;
+import com.baidu.tieba.m58;
+import com.baidu.tieba.zq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public HeadImageView a;
     public TextView b;
     public ImageView c;
-    public v38 d;
+    public a58 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -66,32 +66,32 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         }
     }
 
-    public void a(v38 v38Var) {
+    public void a(a58 a58Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v38Var) == null) || v38Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, a58Var) == null) || a58Var == null) {
             return;
         }
-        this.d = v38Var;
+        this.d = a58Var;
         this.c.setVisibility(8);
-        if (v38Var instanceof h48) {
-            h48 h48Var = (h48) v38Var;
-            this.a.L(h48Var.c(), 10, false, false);
-            String g = h48Var.g();
-            if (!qi.isEmpty(g)) {
+        if (a58Var instanceof m58) {
+            m58 m58Var = (m58) a58Var;
+            this.a.L(m58Var.c(), 10, false, false);
+            String g = m58Var.g();
+            if (!dj.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f090b);
+                this.b.setText(R.string.obfuscated_res_0x7f0f091e);
             }
-            if (v38Var.getType() == 1) {
+            if (a58Var.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
             setOnClickListener(this);
-        } else if (v38Var instanceof g48) {
+        } else if (a58Var instanceof l58) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0ae7);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0afd);
             setOnClickListener(this);
         }
     }
@@ -122,23 +122,23 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            v38 v38Var = this.d;
-            if (v38Var instanceof h48) {
-                h48 h48Var = (h48) v38Var;
-                if (!no5.b(h48Var.b(), h48Var.f(), "1191000600000000", h48Var.e())) {
-                    if (qi.isEmpty(h48Var.d())) {
+            a58 a58Var = this.d;
+            if (a58Var instanceof m58) {
+                m58 m58Var = (m58) a58Var;
+                if (!zq5.b(m58Var.b(), m58Var.f(), "1191000600000000", m58Var.e())) {
+                    if (dj.isEmpty(m58Var.d())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{h48Var.d()});
+                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{m58Var.d()});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_source", "personal_center");
-                statisticItem.param("obj_id", h48Var.a().longValue());
-                statisticItem.param("obj_name", h48Var.g());
-                statisticItem.param("obj_param1", h48Var.e().intValue());
+                statisticItem.param("obj_id", m58Var.a().longValue());
+                statisticItem.param("obj_name", m58Var.g());
+                statisticItem.param("obj_param1", m58Var.e().intValue());
                 TiebaStatic.log(statisticItem);
-            } else if (v38Var instanceof g48) {
+            } else if (a58Var instanceof l58) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MORE_HISTORY_RECORD_CLICK);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -208,14 +208,14 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06eb, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091004);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) this, true);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091020);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setDefaultResource(R.color.CAM_X0204);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09238e);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144c);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e7);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091470);
         c();
     }
 }

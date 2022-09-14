@@ -3,6 +3,7 @@ package com.baidu.tbadk.pay;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,6 +19,7 @@ public class PayInfoResultData extends OrmObject implements Serializable {
     public int errno;
     public int pay_status;
     public long time;
+    public BdToastData toast;
     public String usermsg;
 
     public PayInfoResultData() {
@@ -58,36 +60,49 @@ public class PayInfoResultData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pay_status : invokeV.intValue;
     }
 
+    public BdToastData getToast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.toast : (BdToastData) invokeV.objValue;
+    }
+
     public String getUsermsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.usermsg : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.usermsg : (String) invokeV.objValue;
     }
 
     public void setErrmsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.errmsg = str;
         }
     }
 
     public void setErrno(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.errno = i;
         }
     }
 
     public void setPay_status(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.pay_status = i;
+        }
+    }
+
+    public void setToast(BdToastData bdToastData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdToastData) == null) {
+            this.toast = bdToastData;
         }
     }
 
     public void setUsermsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.usermsg = str;
         }
     }

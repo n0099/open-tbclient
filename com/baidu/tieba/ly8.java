@@ -1,66 +1,28 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.hy8;
-import com.baidu.tieba.jy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.core.ImageLoader;
-import java.io.File;
-import java.util.List;
-import java.util.Vector;
 /* loaded from: classes4.dex */
-public class ly8 {
+public class ly8 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ly8 c;
+    public static ly8 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public jy8 a;
-    public List<qy8> b;
-
-    /* loaded from: classes4.dex */
-    public class a implements py8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ly8 a;
-
-        public a(ly8 ly8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ly8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ly8Var;
-        }
-
-        @Override // com.baidu.tieba.py8
-        public void a(hy8.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                hy8.a().c(bVar);
-                if (dc9.e(this.a.b)) {
-                    return;
-                }
-                ly8 ly8Var = this.a;
-                ly8Var.h((qy8) dc9.c(ly8Var.b, 0));
-                dc9.g(this.a.b, 0);
-            }
-        }
-    }
+    public vk5 a;
+    public int b;
+    public int c;
+    public long d;
+    public int e;
 
     public ly8() {
         Interceptable interceptable = $ic;
@@ -75,111 +37,119 @@ public class ly8 {
                 return;
             }
         }
-        this.b = new Vector();
-        this.a = new jy8.b().d();
+        this.e = -1;
     }
 
-    public static ly8 f() {
+    public static ly8 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (ly8.class) {
-                    if (c == null) {
-                        c = new ly8();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                f = new ly8();
             }
-            return c;
+            return f;
         }
         return (ly8) invokeV.objValue;
     }
 
-    public final void c() {
+    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
-            throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return Math.abs(f4 - f2) <= 100.0f && Math.abs(f5 - f3) <= 100.0f && j2 - j >= j3;
         }
+        return invokeCommon.booleanValue;
     }
 
-    public Bitmap d(String str) {
-        InterceptResult invokeL;
+    public final vk5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Bitmap a2 = g().a(str);
-            if (a2 == null || a2.isRecycled()) {
-                Bitmap a3 = e().a(str);
-                if (a3 == null || a3.isRecycled()) {
-                    return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+            if (motionEvent != null && motionEvent.getAction() != 3) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                try {
+                    Layout layout = textView.getLayout();
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                    vk5[] vk5VarArr = (vk5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, vk5.class);
+                    if (vk5VarArr == null || vk5VarArr.length <= 0 || vk5VarArr[0] == null) {
+                        return null;
+                    }
+                    return vk5VarArr[0];
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return this.a;
                 }
-                return a3;
             }
-            return a2;
+            return this.a;
         }
-        return (Bitmap) invokeL.objValue;
+        return (vk5) invokeLLL.objValue;
     }
 
-    public ey8 e() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c();
-            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.c.b(), str)) {
-                this.a.c.d(str);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
+            vk5 b = b(textView, spannable, motionEvent);
+            if (b == null && motionEvent.getAction() == 0) {
+                try {
+                    return super.onTouchEvent(textView, spannable, motionEvent);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return true;
+                }
             }
-            return this.a.c;
-        }
-        return (ey8) invokeV.objValue;
-    }
-
-    public oy8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            return this.a.b;
-        }
-        return (oy8) invokeV.objValue;
-    }
-
-    public final void h(qy8 qy8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qy8Var) == null) {
-            c();
-            hy8.b b = hy8.a().b();
             if (b != null) {
-                b.m(this.a.a);
-                b.setDataSource(qy8Var.a);
-                b.h(qy8Var, new a(this));
-                return;
+                this.a = b;
             }
-            this.b.add(qy8Var);
-        }
-    }
-
-    public void i(ry8 ry8Var, iy8 iy8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, ry8Var, iy8Var) == null) {
-            List<qy8> c2 = ny8.c(ry8Var, iy8Var);
-            if (dc9.e(c2)) {
-                return;
+            int i = this.e;
+            if (i > -1) {
+                this.a.g(i);
             }
-            for (qy8 qy8Var : c2) {
-                h(qy8Var);
+            if (motionEvent.getAction() == 0) {
+                this.b = (int) motionEvent.getX();
+                this.c = (int) motionEvent.getY();
+                this.d = System.currentTimeMillis();
+                vk5 vk5Var = this.a;
+                if (vk5Var != null) {
+                    vk5Var.h(1);
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
+                }
+                textView.invalidate();
+            } else if (motionEvent.getAction() == 2) {
+                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
+                    this.a.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+                vk5 vk5Var2 = this.a;
+                if (vk5Var2 != null) {
+                    vk5Var2.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
+                    return true;
+                }
+            }
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return true;
             }
         }
-    }
-
-    public void j(sy8 sy8Var, iy8 iy8Var) {
-        qy8 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, sy8Var, iy8Var) == null) || (b = ny8.b(sy8Var, iy8Var)) == null) {
-            return;
-        }
-        h(b);
+        return invokeLLL.booleanValue;
     }
 }

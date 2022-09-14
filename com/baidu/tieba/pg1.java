@@ -1,121 +1,114 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class pg1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+public class pg1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, String> b;
+    public SharedPreferences c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060975, "Lcom/baidu/tieba/pg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948060975, "Lcom/baidu/tieba/pg1;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948060975, "Lcom/baidu/tieba/pg1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948060975, "Lcom/baidu/tieba/pg1;");
+        }
+    }
+
+    public pg1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        this.a = new HashMap();
+        this.b = new HashMap();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b) {
-        InterceptResult invokeB;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
-            if (b < 0) {
-                b += 256;
-            }
-            return a[b / 16] + a[b % 16];
-        }
-        return (String) invokeB.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        String str2 = "";
-        try {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            String str3 = new String(str);
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-            } catch (Throwable th) {
-                th = th;
-                str2 = str3;
-                lg1.d(th);
-                return str2;
-            }
-        } catch (Throwable th2) {
-            th = th2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    public String b(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : bArr) {
-                stringBuffer.append(a(b));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (i == d) {
+                str2 = this.a.get(str);
+            } else if (i == e) {
+                str2 = this.b.get(str);
+            } else {
+                if (i == f) {
+                    SharedPreferences sharedPreferences = this.c;
+                    if (sharedPreferences != null) {
+                        str2 = sharedPreferences.getString(str, "");
+                    } else {
+                        Log.e("TAG", "prefs data store is null");
+                    }
+                }
+                str2 = null;
             }
-            return stringBuffer.toString();
+            return str2 == null ? "" : str2;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
+    public void c(SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(bArr));
-            } catch (Throwable th) {
-                lg1.d(th);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
+            this.c = sharedPreferences;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr) {
-        InterceptResult invokeL;
+    public void d(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
-            }
-            try {
-                return MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (Throwable th) {
-                lg1.d(th);
-                return null;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (i == d) {
+                this.a.put(str, str2);
+            } else if (i == e) {
+                this.b.put(str, str2);
+            } else if (i == f) {
+                SharedPreferences sharedPreferences = this.c;
+                if (sharedPreferences != null) {
+                    sharedPreferences.edit().putString(str, str2).commit();
+                } else {
+                    Log.e("TAG", "prefs data store is null");
+                }
             }
         }
-        return (byte[]) invokeL.objValue;
     }
 }

@@ -1,131 +1,233 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gs4;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tieba.au4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.BawuThrones;
 /* loaded from: classes3.dex */
 public class ch6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public es4 a;
-    public gs4 b;
-    public String c;
-    public String[] d;
-    public String e;
-    public gs4.e f;
-    public d9 g;
+    public au4 a;
+    public TextView b;
+    public TextView c;
+    public ImageView d;
+    public TextView e;
+    public boolean f;
 
-    public ch6(d9 d9Var) {
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ch6 a;
+
+        public a(ch6 ch6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ch6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ch6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ch6 ch6Var = this.a;
+                ch6Var.f = !ch6Var.f;
+                this.a.h();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements au4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ch6 c;
+
+        public b(ch6 ch6Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ch6Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ch6Var;
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                bx4.k().u("key_frs_recommend_tip", !this.c.f);
+                ig6.c().d(this.a, this.b);
+                this.c.a.dismiss();
+                this.c.a = null;
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements au4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ch6 a;
+
+        public c(ch6 ch6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ch6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ch6Var;
+        }
+
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                this.a.f = false;
+                this.a.a.dismiss();
+                this.a.a = null;
+            }
+        }
+    }
+
+    public ch6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = d9Var;
     }
 
-    public static ch6 c(d9 d9Var) {
-        InterceptResult invokeL;
+    public final void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d9Var)) == null) ? new ch6(d9Var) : (ch6) invokeL.objValue;
-    }
-
-    public final List<cs4> a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < strArr.length; i++) {
-                String str = strArr[i];
-                cs4 cs4Var = new cs4(i, str, this.b);
-                if (!StringUtils.isNull(this.e) && this.e.equals(str)) {
-                    cs4Var.q(R.color.CAM_X0304);
-                    cs4Var.p();
-                }
-                arrayList.add(cs4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = this.b;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
             }
-            return arrayList;
+            TextView textView2 = this.c;
+            if (textView2 != null) {
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            }
+            h();
+            TextView textView3 = this.e;
+            if (textView3 != null) {
+                SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+            }
         }
-        return (List) invokeL.objValue;
     }
 
-    public void b() {
-        es4 es4Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (es4Var = this.a) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+        }
+    }
+
+    public final void h() {
+        ImageView imageView;
+        Drawable maskDrawable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.d) == null) {
             return;
         }
-        es4Var.dismiss();
-    }
-
-    public ch6 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.e = str;
-            return this;
+        if (this.f) {
+            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f8, null);
+        } else {
+            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f7, null);
         }
-        return (ch6) invokeL.objValue;
+        imageView.setImageDrawable(maskDrawable);
     }
 
-    public ch6 e(gs4.e eVar) {
-        InterceptResult invokeL;
+    public void i(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
-            this.f = eVar;
-            return this;
-        }
-        return (ch6) invokeL.objValue;
-    }
-
-    public ch6 f(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
-            this.d = strArr;
-            return this;
-        }
-        return (ch6) invokeL.objValue;
-    }
-
-    public ch6 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (ch6) invokeL.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            gs4 gs4Var = new gs4(this.g.getPageActivity());
-            this.b = gs4Var;
-            gs4Var.q(this.c);
-            this.b.n(this.f);
-            this.b.j(a(this.d));
-            this.b.l(ri.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07075d));
-            es4 es4Var = new es4(this.g, this.b);
-            this.a = es4Var;
-            es4Var.k();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, str2) == null) {
+            au4 au4Var = this.a;
+            if (au4Var == null || !au4Var.isShowing()) {
+                au4 au4Var2 = new au4(tbPageContext.getPageActivity());
+                this.a = au4Var2;
+                au4Var2.setContentViewSize(1);
+                this.a.setNegativeTextColor(R.color.CAM_X0105);
+                View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) null);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216);
+                this.b = textView;
+                textView.setText(R.string.obfuscated_res_0x7f0f075b);
+                this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09048f);
+                BawuThrones b2 = ig6.c().b();
+                if (b2 != null) {
+                    TextView textView2 = this.c;
+                    String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f075a);
+                    Integer num = b2.total_recommend_num;
+                    textView2.setText(String.format(string, b2.bazhu_level, num, Integer.valueOf(num.intValue() - b2.used_recommend_num.intValue())));
+                } else {
+                    this.c.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f075a), "D", 2, 2));
+                }
+                this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090611);
+                this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916e6);
+                inflate.findViewById(R.id.obfuscated_res_0x7f0916e5).setOnClickListener(new a(this));
+                f();
+                this.a.setContentView(inflate);
+                this.a.setPositiveButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0759), new b(this, str, str2));
+                this.a.setNegativeButton(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c65), new c(this));
+                this.a.create(tbPageContext).show();
+            }
         }
     }
 }

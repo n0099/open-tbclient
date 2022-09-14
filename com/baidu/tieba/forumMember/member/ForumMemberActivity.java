@@ -1,19 +1,19 @@
 package com.baidu.tieba.forumMember.member;
 
 import android.os.Bundle;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.df6;
-import com.baidu.tieba.jg6;
-import com.baidu.tieba.ld6;
-import com.baidu.tieba.pg6;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.ai6;
+import com.baidu.tieba.bf6;
+import com.baidu.tieba.gi6;
+import com.baidu.tieba.li6;
+import com.baidu.tieba.lx4;
+import com.baidu.tieba.pe6;
 import com.baidu.tieba.tg6;
-import com.baidu.tieba.zc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,20 +22,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements bv4.g {
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements lx4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pg6 a;
+    public gi6 a;
     public String b;
     public String c;
-    public List<pn> d;
-    public ld6 e;
-    public zc6 f;
-    public jg6 g;
+    public List<Cdo> d;
+    public bf6 e;
+    public pe6 f;
+    public ai6 g;
     public NoNetworkView.b h;
 
     /* loaded from: classes4.dex */
-    public class a implements jg6 {
+    public class a implements ai6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumMemberActivity a;
@@ -58,16 +58,16 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.a = forumMemberActivity;
         }
 
-        @Override // com.baidu.tieba.jg6
-        public void a(int i, int i2, tg6 tg6Var, ArrayList<pn> arrayList) {
+        @Override // com.baidu.tieba.ai6
+        public void a(int i, int i2, li6 li6Var, ArrayList<Cdo> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), tg6Var, arrayList}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), li6Var, arrayList}) == null) {
                 this.a.e.d();
                 this.a.e.c();
                 if (arrayList != null) {
-                    Iterator<pn> it = arrayList.iterator();
+                    Iterator<Cdo> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof df6) {
+                        if (it.next() instanceof tg6) {
                             it.remove();
                         }
                     }
@@ -76,9 +76,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     this.a.e.e();
                     this.a.d = arrayList;
                     this.a.e.f(this.a.d);
-                } else if (!ListUtils.isEmpty(this.a.d) || tg6Var == null) {
+                } else if (!ListUtils.isEmpty(this.a.d) || li6Var == null) {
                 } else {
-                    this.a.e.l(tg6Var.f);
+                    this.a.e.l(li6Var.f);
                 }
             }
         }
@@ -155,10 +155,10 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 this.c = bundle.getString("forum_id", "");
                 this.b = bundle.getString("forum_name", "");
             }
-            pg6 pg6Var = new pg6();
-            this.a = pg6Var;
-            pg6Var.b = this.c;
-            pg6Var.a = this.b;
+            gi6 gi6Var = new gi6();
+            this.a = gi6Var;
+            gi6Var.b = this.c;
+            gi6Var.a = this.b;
         }
     }
 
@@ -170,7 +170,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.bv4.g
+    @Override // com.baidu.tieba.lx4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -193,12 +193,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             D1(bundle);
-            ld6 ld6Var = new ld6(this);
-            this.e = ld6Var;
-            ld6Var.j(this.h);
-            zc6 zc6Var = new zc6();
-            this.f = zc6Var;
-            zc6Var.E(getUniqueId());
+            bf6 bf6Var = new bf6(this);
+            this.e = bf6Var;
+            bf6Var.j(this.h);
+            pe6 pe6Var = new pe6();
+            this.f = pe6Var;
+            pe6Var.E(getUniqueId());
             this.f.init();
             this.f.w(this.g);
             E1();
@@ -211,9 +211,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.f.j();
-            ld6 ld6Var = this.e;
-            if (ld6Var != null) {
-                ld6Var.i();
+            bf6 bf6Var = this.e;
+            if (bf6Var != null) {
+                bf6Var.i();
             }
         }
     }
@@ -221,7 +221,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && pi.A()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
             E1();
         }
     }

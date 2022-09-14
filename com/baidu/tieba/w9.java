@@ -1,34 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
-public abstract class w9<M extends Message<?>, T extends MessageTask> implements t9<M, T> {
+public class w9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MessageManager a;
 
-    public w9(MessageManager messageManager) {
+    public static r9<?> a(Context context) {
+        InterceptResult invokeL;
+        Object a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
+            if (context instanceof r9) {
+                return (r9) context;
+            }
+            if (context instanceof s9) {
+                return ((s9) context).getPageContext();
+            }
+            Field b = vi.b(context.getClass(), v9.class);
+            if (b == null || (a = vi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
+                return null;
+            }
+            return ((s9) a).getPageContext();
         }
-        this.a = null;
-        this.a = messageManager;
+        return (r9) invokeL.objValue;
+    }
+
+    public static s9<?> b(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof s9) {
+                return (s9) context;
+            }
+            Field b = vi.b(context.getClass(), v9.class);
+            if (b == null || (a = vi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
+                return null;
+            }
+            return (s9) a;
+        }
+        return (s9) invokeL.objValue;
+    }
+
+    public static v9 c(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof v9) {
+                return (v9) context;
+            }
+            if (context instanceof s9) {
+                Object orignalPage = ((s9) context).getPageContext().getOrignalPage();
+                if (orignalPage instanceof v9) {
+                    return (v9) orignalPage;
+                }
+            }
+            Field b = vi.b(context.getClass(), v9.class);
+            if (b == null || (a = vi.a(context, b)) == null || !(a instanceof v9)) {
+                return null;
+            }
+            return (v9) a;
+        }
+        return (v9) invokeL.objValue;
     }
 }

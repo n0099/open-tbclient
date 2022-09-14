@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be3;
+import com.baidu.tieba.zf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                be3.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
+                zf3.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
@@ -80,7 +80,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                be3.b(this.a.w, false);
+                zf3.b(this.a.w, false);
             }
         }
     }
@@ -127,7 +127,7 @@ public class AccountSmsLoginView extends SmsLoginView {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(R.id.obfuscated_res_0x7f091977)).requestFocus();
+            ((EditText) findViewById(R.id.obfuscated_res_0x7f0919b4)).requestFocus();
             new Handler().postDelayed(new b(this), 100L);
         }
     }

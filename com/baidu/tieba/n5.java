@@ -1,178 +1,19 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o3;
+import com.baidu.tieba.j5;
+import com.baidu.tieba.m5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n5<T extends o3> implements Comparable<n5<T>> {
+public abstract class n5<D extends m5, T extends j5<D>> extends f5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;
-    public Texture.TextureFilter b;
-    public Texture.TextureFilter c;
-    public Texture.TextureWrap d;
-    public Texture.TextureWrap e;
-
-    public n5(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, textureFilter, textureFilter2, textureWrap, textureWrap2};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        b(t, textureFilter, textureFilter2, textureWrap, textureWrap2);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(n5<T> n5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n5Var)) == null) {
-            if (n5Var == this) {
-                return 0;
-            }
-            T t = this.a;
-            int i = t == null ? 0 : t.a;
-            T t2 = n5Var.a;
-            int i2 = t2 == null ? 0 : t2.a;
-            if (i != i2) {
-                return i - i2;
-            }
-            T t3 = this.a;
-            int i3 = t3 == null ? 0 : t3.i();
-            T t4 = n5Var.a;
-            int i4 = t4 == null ? 0 : t4.i();
-            if (i3 != i4) {
-                return i3 - i4;
-            }
-            Texture.TextureFilter textureFilter = this.b;
-            if (textureFilter != n5Var.b) {
-                int gLEnum = textureFilter == null ? 0 : textureFilter.getGLEnum();
-                Texture.TextureFilter textureFilter2 = n5Var.b;
-                return gLEnum - (textureFilter2 != null ? textureFilter2.getGLEnum() : 0);
-            }
-            Texture.TextureFilter textureFilter3 = this.c;
-            if (textureFilter3 != n5Var.c) {
-                int gLEnum2 = textureFilter3 == null ? 0 : textureFilter3.getGLEnum();
-                Texture.TextureFilter textureFilter4 = n5Var.c;
-                return gLEnum2 - (textureFilter4 != null ? textureFilter4.getGLEnum() : 0);
-            }
-            Texture.TextureWrap textureWrap = this.d;
-            if (textureWrap != n5Var.d) {
-                int gLEnum3 = textureWrap == null ? 0 : textureWrap.getGLEnum();
-                Texture.TextureWrap textureWrap2 = n5Var.d;
-                return gLEnum3 - (textureWrap2 != null ? textureWrap2.getGLEnum() : 0);
-            }
-            Texture.TextureWrap textureWrap3 = this.e;
-            if (textureWrap3 != n5Var.e) {
-                int gLEnum4 = textureWrap3 == null ? 0 : textureWrap3.getGLEnum();
-                Texture.TextureWrap textureWrap4 = n5Var.e;
-                return gLEnum4 - (textureWrap4 != null ? textureWrap4.getGLEnum() : 0);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public void b(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, textureFilter, textureFilter2, textureWrap, textureWrap2) == null) {
-            this.a = t;
-            this.b = textureFilter;
-            this.c = textureFilter2;
-            this.d = textureWrap;
-            this.e = textureWrap2;
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r0v2, types: [T extends com.baidu.tieba.o3] */
-    public <V extends T> void c(n5<V> n5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n5Var) == null) {
-            this.a = n5Var.a;
-            this.b = n5Var.b;
-            this.c = n5Var.c;
-            this.d = n5Var.d;
-            this.e = n5Var.e;
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof n5) {
-                n5 n5Var = (n5) obj;
-                return n5Var.a == this.a && n5Var.b == this.b && n5Var.c == this.c && n5Var.d == this.d && n5Var.e == this.e;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            long j = (t == null ? 0 : t.a) * 811;
-            T t2 = this.a;
-            long i = (j + (t2 == null ? 0 : t2.i())) * 811;
-            Texture.TextureFilter textureFilter = this.b;
-            long gLEnum = (i + (textureFilter == null ? 0 : textureFilter.getGLEnum())) * 811;
-            Texture.TextureFilter textureFilter2 = this.c;
-            long gLEnum2 = (gLEnum + (textureFilter2 == null ? 0 : textureFilter2.getGLEnum())) * 811;
-            Texture.TextureWrap textureWrap = this.d;
-            long gLEnum3 = (gLEnum2 + (textureWrap == null ? 0 : textureWrap.getGLEnum())) * 811;
-            Texture.TextureWrap textureWrap2 = this.e;
-            long gLEnum4 = gLEnum3 + (textureWrap2 != null ? textureWrap2.getGLEnum() : 0);
-            return (int) ((gLEnum4 >> 32) ^ gLEnum4);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public n5(T t) {
-        this(t, null, null, null, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((o3) objArr2[0], (Texture.TextureFilter) objArr2[1], (Texture.TextureFilter) objArr2[2], (Texture.TextureWrap) objArr2[3], (Texture.TextureWrap) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
+    public D b;
 
     public n5() {
         Interceptable interceptable = $ic;
@@ -184,9 +25,32 @@ public class n5<T extends o3> implements Comparable<n5<T>> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
+    }
+
+    public abstract boolean g(j5<?> j5Var);
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.j5<?> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean h(j5<?> j5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j5Var)) == null) {
+            if (g(j5Var)) {
+                this.a = j5Var;
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f5
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.a(this.b);
+        }
     }
 }

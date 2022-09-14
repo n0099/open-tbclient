@@ -1,67 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import java.util.List;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
 /* loaded from: classes5.dex */
-public class o1a implements q3a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Activity c;
-    public IYYPayWayView d;
-    public AbsViewEventHandler e;
-    public u0a f;
+public interface o1a {
+    void addLogDelegate(IRLogDelegate iRLogDelegate);
 
-    public o1a(int i, int i2, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, u0a u0aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, iYYPayWayView, absViewEventHandler, u0aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = activity;
-        this.d = iYYPayWayView;
-        this.e = absViewEventHandler;
-        this.f = u0aVar;
-    }
+    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
 
-    @Override // com.baidu.tieba.q3a
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
-            this.f.j();
-            this.f.c(cancelType, this.e);
-            t1a.b(this.a, this.b, cancelType);
-        }
-    }
+    List<IRevenue> getAllRevenue();
 
-    @Override // com.baidu.tieba.q3a
-    public boolean b(DialogInterface dialogInterface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f.m(this.c, this.d, this.e) : invokeL.booleanValue;
-    }
+    IMiddleRevenue getMiddleRevenue(int i, int i2);
+
+    IRevenue getRevenue(int i, int i2);
+
+    void removeRevenueConfig(int i, int i2);
+
+    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
 }

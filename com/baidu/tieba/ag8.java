@@ -1,192 +1,193 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumHttpResMsg;
+import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumReqMsg;
+import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ag8 extends zf8 {
+public class ag8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context R;
-    public yi8 S;
-    public RoundRelativeLayout T;
-    public TbImageView U;
-    public TextView V;
-    public TextView W;
-    public RoundRelativeLayout X;
-    public TbImageView Y;
-    public TextView Z;
-    public TextView a0;
-    public ImageView b0;
+    public BdUniqueId a;
+    public int b;
+    public bg8 c;
+    public b d;
+    public pb e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag8(Context context, boolean z, int i, yi8 yi8Var) {
-        super(context, z, i);
+    /* loaded from: classes3.dex */
+    public class a extends pb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ag8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ag8 ag8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ag8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ag8Var;
+        }
+
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            bg8 pageData;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.a) {
+                if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
+                    pageData = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
+                } else {
+                    pageData = responsedMessage instanceof ForbiddenForumSocketResMsg ? ((ForbiddenForumSocketResMsg) responsedMessage).getPageData() : null;
+                }
+                if (responsedMessage.getError() == 0) {
+                    if (this.a.b == 1 && (pageData == null || ListUtils.isEmpty(pageData.a))) {
+                        if (this.a.d != null) {
+                            this.a.d.a(null);
+                        }
+                    } else if (pageData != null) {
+                        this.a.c.a.addAll(pageData.a);
+                        if (ListUtils.isEmpty(pageData.a)) {
+                            this.a.c.b = false;
+                        } else {
+                            this.a.c.b = pageData.b;
+                            ag8.c(this.a);
+                        }
+                        if (this.a.d != null) {
+                            this.a.d.a(pageData);
+                        }
+                    }
+                } else if (this.a.d != null) {
+                    this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(bg8 bg8Var);
+
+        void onError(int i, String str);
+    }
+
+    public ag8(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), yi8Var};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.R = context;
-        this.S = yi8Var;
-        y0();
-        g0(2);
+        this.b = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
+        this.e = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.e);
+        i();
+        h();
+        this.c = new bg8();
     }
 
-    @Override // com.baidu.tieba.zf8
-    public View A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) null) : (View) invokeV.objValue;
+    public static /* synthetic */ int c(ag8 ag8Var) {
+        int i = ag8Var.b;
+        ag8Var.b = i + 1;
+        return i;
     }
 
-    public final void A0() {
+    public void f(String str) {
+        bg8 bg8Var;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int k = (ri.k(TbadkCoreApplication.getInst()) * 879) / 1076;
-            int i = (k * 1342) / 879;
-            ViewGroup.LayoutParams layoutParams = this.T.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = k;
-                layoutParams.height = i;
-            }
-            this.T.setLayoutParams(layoutParams);
-            int i2 = (k * 416) / 879;
-            ViewGroup.LayoutParams layoutParams2 = this.U.getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = i2;
-                layoutParams2.height = i2;
-            }
-            this.U.setLayoutParams(layoutParams2);
-        }
-    }
-
-    @Override // com.baidu.tieba.zf8
-    public ShareItem C(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ShareItem shareItem = this.B.get(1);
-            if (shareItem == null) {
-                shareItem = new ShareItem();
-            }
-            shareItem.n0 = false;
-            shareItem.m0 = false;
-            shareItem.v = "";
-            shareItem.g0 = 1;
-            shareItem.i(x0(this.T));
-            shareItem.g();
-            this.B.put(1, shareItem);
-            return super.C(i);
-        }
-        return (ShareItem) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.zf8
-    public void j0(Window window) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, window) == null) {
-            window.setLayout(-1, -1);
-        }
-    }
-
-    @Override // com.baidu.tieba.zf8
-    public void l0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
-            if (this.S != null) {
-                z0(this.U);
-                this.Y.setImageBitmap(this.S.a());
-                this.V.setText(this.S.d());
-            }
-            WebPManager.setPureDrawable(this.b0, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0101, null);
-            ns4.d(this.Z).v(R.color.CAM_X0101);
-            ns4.d(this.a0).v(R.color.CAM_X0101);
-            ns4 d = ns4.d(this.V);
-            d.A(R.string.F_X02);
-            d.v(R.color.CAM_X0102);
-            ns4.d(this.W).v(R.color.CAM_X0103);
-            super.l0();
-        }
-    }
-
-    public final Bitmap x0(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_4444);
-            view2.draw(new Canvas(createBitmap));
-            return createBitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public final void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.T = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f19);
-            this.U = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f18);
-            this.X = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09128c);
-            this.Y = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f1c);
-            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f1b);
-            this.W = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f1a);
-            this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b1);
-            this.a0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b0);
-            this.b0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eee);
-            A0();
-            this.T.setRoundLayoutRadius(ls4.y(R.string.J_X06));
-            this.X.setRoundLayoutRadius(ls4.y(R.string.J_X04));
-        }
-    }
-
-    public final void z0(TbImageView tbImageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, tbImageView) == null) || tbImageView == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bg8Var = this.c) == null || ListUtils.isEmpty(bg8Var.a)) {
             return;
         }
-        if (this.S.b() == 1) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080a63);
-        } else if (this.S.b() == 2) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080bd8);
-        } else if (this.S.b() == 3) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080a64);
-        } else if (this.S.b() == 4) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080a67);
-        } else {
-            tbImageView.K(this.S.c(), 10, false);
+        for (zf8 zf8Var : this.c.a) {
+            if (zf8Var != null && (str2 = zf8Var.c) != null && str2.equals(str)) {
+                this.c.a.remove(zf8Var);
+                return;
+            }
+        }
+    }
+
+    public bg8 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (bg8) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, dm8.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            zd5 zd5Var = new zd5(309692);
+            zd5Var.setResponsedClass(ForbiddenForumSocketResMsg.class);
+            zd5Var.g(true);
+            zd5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(zd5Var);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
+            forbiddenForumReqMsg.pageSize = 20;
+            forbiddenForumReqMsg.pageNum = this.b;
+            forbiddenForumReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
+        }
+    }
+
+    public void k(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 }

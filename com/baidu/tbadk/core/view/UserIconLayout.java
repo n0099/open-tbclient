@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.km4;
-import com.baidu.tieba.ml4;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.nl4;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sz5;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.lo4;
+import com.baidu.tieba.nn4;
+import com.baidu.tieba.on4;
+import com.baidu.tieba.w9;
+import com.baidu.tieba.wh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public class UserIconLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null || this.a.g.getAuthor() == null) {
                 return;
             }
-            km4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14e9), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            lo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.j == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -130,10 +130,10 @@ public class UserIconLayout extends LinearLayout {
                 return;
             }
             ArrayList<IconData> tShowInfoNew = this.a.g.getAuthor().getTShowInfoNew();
-            if (ListUtils.getCount(tShowInfoNew) == 0 || ListUtils.getItem(tShowInfoNew, 0) == null || (url = this.a.g.getAuthor().getTShowInfoNew().get(0).getUrl()) == null || !(i9.a(this.a.a) instanceof TbPageContext)) {
+            if (ListUtils.getCount(tShowInfoNew) == 0 || ListUtils.getItem(tShowInfoNew, 0) == null || (url = this.a.g.getAuthor().getTShowInfoNew().get(0).getUrl()) == null || !(w9.a(this.a.a) instanceof TbPageContext)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink((TbPageContext) i9.a(this.a.a), new String[]{url});
+            UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.a), new String[]{url});
         }
     }
 
@@ -172,7 +172,7 @@ public class UserIconLayout extends LinearLayout {
             if (this.a.g.getResource() != 1) {
                 if (this.a.g.getResource() != 2) {
                     if (this.a.g.getResource() == 5) {
-                        personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
+                        personInfoActivityConfig.setVideoPersonFrom("topic_detail");
                     }
                 } else {
                     personInfoActivityConfig.setVideoPersonFrom("frs");
@@ -242,8 +242,8 @@ public class UserIconLayout extends LinearLayout {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new sz5.a(str, R.drawable.pic_smalldot_title));
-            return sz5.h(this.a, str2, arrayList, true);
+            arrayList.add(new g16.a(str, R.drawable.pic_smalldot_title));
+            return g16.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -262,16 +262,16 @@ public class UserIconLayout extends LinearLayout {
             this.d = new UserIconBox(this.a);
             this.e = new UserIconBox(this.a);
             this.b = new TextView(this.a);
-            View a2 = nl4.b().a(this.a, 1);
+            View a2 = on4.b().a(this.a, 1);
             this.c = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
             }
-            layoutParams.setMargins(0, 0, ri.f(this.a, R.dimen.obfuscated_res_0x7f070230), ri.f(this.a, R.dimen.obfuscated_res_0x7f070224));
-            layoutParams2.setMargins(ri.f(this.a, R.dimen.obfuscated_res_0x7f0701b2), -ri.f(this.a, R.dimen.obfuscated_res_0x7f070198), 0, 0);
-            layoutParams3.setMargins(0, ri.f(this.a, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
-            layoutParams4.setMargins(ri.f(this.a, R.dimen.obfuscated_res_0x7f070302), ri.f(this.a, R.dimen.obfuscated_res_0x7f070298), 0, 0);
-            this.b.setTextSize(0, ri.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
+            layoutParams.setMargins(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f070230), ej.f(this.a, R.dimen.obfuscated_res_0x7f070224));
+            layoutParams2.setMargins(ej.f(this.a, R.dimen.obfuscated_res_0x7f0701b2), -ej.f(this.a, R.dimen.obfuscated_res_0x7f070198), 0, 0);
+            layoutParams3.setMargins(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
+            layoutParams4.setMargins(ej.f(this.a, R.dimen.obfuscated_res_0x7f070302), ej.f(this.a, R.dimen.obfuscated_res_0x7f070298), 0, 0);
+            this.b.setTextSize(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
             if (!this.i) {
                 this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
             }
@@ -307,10 +307,10 @@ public class UserIconLayout extends LinearLayout {
         if (threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.c != null) {
-                ml4 ml4Var = new ml4();
-                ml4Var.a = alaUserData;
-                ml4Var.b = 1;
-                this.c.setTag(ml4Var);
+                nn4 nn4Var = new nn4();
+                nn4Var.a = alaUserData;
+                nn4Var.b = 1;
+                this.c.setTag(nn4Var);
             }
         }
         if (StringUtils.isNull(this.g.getAuthor().getName_show())) {
@@ -320,8 +320,8 @@ public class UserIconLayout extends LinearLayout {
             String name_show = this.g.getAuthor().getName_show();
             if (this.i) {
                 if (this.k) {
-                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), nf5.l(name_show, 20)));
-                    int byteLength = qi.byteLength(name_show);
+                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), wh5.l(name_show, 20)));
+                    int byteLength = dj.byteLength(name_show);
                     i = byteLength < 20 ? byteLength >= 16 ? 2 : 4 : 1;
                     ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
                     if (!this.f && ListUtils.getCount(iconInfo) != 0) {
@@ -339,7 +339,7 @@ public class UserIconLayout extends LinearLayout {
                     }
                     setUserTextColor(threadData);
                 }
-                this.b.setText(nf5.l(name_show, 20));
+                this.b.setText(wh5.l(name_show, 20));
             } else if (this.k) {
                 this.b.setText(e(this.g.getAuthor().getSealPrefix(), name_show));
             } else {
@@ -381,7 +381,7 @@ public class UserIconLayout extends LinearLayout {
     public void setUserNameTextSizeRid(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b.setTextSize(0, ri.f(this.a, i));
+            this.b.setTextSize(0, ej.f(this.a, i));
         }
     }
 

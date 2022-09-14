@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.qn;
 import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class QuestionTagAdapter extends cn<QuestionTagListData.QuestionTag, QuestionTagHolder> {
+public class QuestionTagAdapter extends qn<QuestionTagListData.QuestionTag, QuestionTagHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,8 +51,8 @@ public class QuestionTagAdapter extends cn<QuestionTagListData.QuestionTag, Ques
                     return;
                 }
             }
-            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e05);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200c);
+            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e20);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09205c);
             this.a.setDrawerType(1);
             this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setDrawCorner(true);
@@ -60,7 +60,7 @@ public class QuestionTagAdapter extends cn<QuestionTagListData.QuestionTag, Ques
             this.a.setRadiusById(R.string.J_X06);
             this.a.setPlaceHolder(1);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(ri.f(view2.getContext(), R.dimen.L_X01));
+            this.a.setBorderWidth(ej.f(view2.getContext(), R.dimen.L_X01));
         }
 
         public void a(QuestionTagListData.QuestionTag questionTag) {
@@ -96,19 +96,19 @@ public class QuestionTagAdapter extends cn<QuestionTagListData.QuestionTag, Ques
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, QuestionTagListData.QuestionTag questionTag, QuestionTagHolder questionTagHolder) {
         t(i, view2, viewGroup, questionTag, questionTagHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: s */
     public QuestionTagHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new QuestionTagHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04bd, viewGroup, false)) : (QuestionTagHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new QuestionTagHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ce, viewGroup, false)) : (QuestionTagHolder) invokeL.objValue;
     }
 
     public View t(int i, View view2, ViewGroup viewGroup, QuestionTagListData.QuestionTag questionTag, QuestionTagHolder questionTagHolder) {

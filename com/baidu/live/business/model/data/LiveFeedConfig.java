@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.p80;
+import com.baidu.tieba.s90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,9 +19,11 @@ public class LiveFeedConfig {
     public static final String LIVE_FEED_PAGE_CONFIG_CACHE_KEY = "live_feed_page_config_cache_key";
     public transient /* synthetic */ FieldHolder $fh;
     public AbSwitchConfig abSwitchConfig;
+    public int followShowNum;
     public boolean footprintSwitch;
     public String footprintUrl;
     public InterestInsert interestInsert;
+    public String minorUfoUrl;
     public PlayConfig playConfig;
     public boolean searchIsOpen;
     public String startLiveScheme;
@@ -156,9 +158,21 @@ public class LiveFeedConfig {
         }
     }
 
+    public int getFollowShowNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.followShowNum <= 0) {
+                this.followShowNum = 20;
+            }
+            return this.followShowNum;
+        }
+        return invokeV.intValue;
+    }
+
     public void parserJson(JSONObject jSONObject, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (jSONObject != null) {
                 this.startLiveScheme = jSONObject.optString("start_live_scheme");
                 this.timeoutRefreshTime = jSONObject.optLong("timeout_refresh_time");
@@ -168,11 +182,16 @@ public class LiveFeedConfig {
                 this.interestInsert = InterestInsert.parserJson(jSONObject.optJSONObject("interest_insert"));
                 this.footprintSwitch = jSONObject.optString("watch_history_switch").equals("1");
                 this.footprintUrl = jSONObject.optString("watch_history_url");
+                this.followShowNum = jSONObject.optInt("follow_show_num");
+                JSONObject optJSONObject = jSONObject.optJSONObject("user_minor_conf");
+                if (optJSONObject != null) {
+                    this.minorUfoUrl = optJSONObject.optString("ufo_url");
+                }
                 if (z && z2) {
-                    p80.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                    s90.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
                 }
             } else if (z && z2) {
-                String b = p80.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+                String b = s90.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
                 if (TextUtils.isEmpty(b)) {
                     return;
                 }
@@ -183,8 +202,13 @@ public class LiveFeedConfig {
                     this.searchIsOpen = jSONObject2.optInt("feed_search_switch") == 1;
                     this.playConfig = PlayConfig.parserJson(jSONObject2.optJSONObject("auto_play"));
                     this.abSwitchConfig = AbSwitchConfig.parserJson(jSONObject2.optJSONObject("ab_switch"));
+                    this.followShowNum = jSONObject2.optInt("follow_show_num");
+                    JSONObject optJSONObject2 = jSONObject2.optJSONObject("user_minor_conf");
+                    if (optJSONObject2 != null) {
+                        this.minorUfoUrl = optJSONObject2.optString("ufo_url");
+                    }
                 } catch (JSONException unused) {
-                    p80.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                    s90.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                 }
             }
         }
@@ -193,7 +217,7 @@ public class LiveFeedConfig {
     public boolean supportPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PlayConfig playConfig = this.playConfig;
             if (playConfig != null) {
                 return playConfig.enable;

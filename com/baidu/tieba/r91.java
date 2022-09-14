@@ -1,82 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.poly.util.HttpSigner;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class r91 {
+public class r91 implements lc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static List<o91> i;
-    public static Object j;
+    public static r91 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public boolean b;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                r91.d();
-            }
-        }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends i81 {
+    public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k81 a;
-        public final /* synthetic */ j81 b;
+        public final /* synthetic */ r91 this$0;
 
-        public b(k81 k81Var, j81 j81Var) {
+        public b(r91 r91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k81Var, j81Var};
+                Object[] objArr = {r91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,333 +48,101 @@ public class r91 {
                     return;
                 }
             }
-            this.a = k81Var;
-            this.b = j81Var;
+            this.this$0 = r91Var;
         }
 
-        @Override // com.baidu.tieba.i81
-        public void a(Throwable th, int i, String str) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                r91.l(this.a.b(), this.b.b());
-                q91.g().h();
-            }
-        }
-
-        @Override // com.baidu.tieba.i81
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends i81 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ JSONArray b;
-
-        public c(JSONObject jSONObject, JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, jSONArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
+                this.this$0.b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.g.startActivity(intent2);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            this.a = jSONObject;
-            this.b = jSONArray;
         }
 
-        @Override // com.baidu.tieba.i81
-        public void a(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                this.b.put(this.a);
-                aa1.g("localObject" + this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.i81
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                aa1.g("localObject success" + this.a);
-            }
+        public /* synthetic */ b(r91 r91Var, a aVar) {
+            this(r91Var);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076351, "Lcom/baidu/tieba/r91;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076351, "Lcom/baidu/tieba/r91;");
+    public r91() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        j = new Object();
+        this.b = false;
     }
 
-    public static void c() {
-        List<o91> list;
+    public static r91 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || (list = i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (r91.class) {
+                    if (c == null) {
+                        c = new r91();
+                    }
+                }
+            }
+            return c;
+        }
+        return (r91) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc1
+    public void a(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            xb1.b("WECHAT signWechatAutoRenew appId=" + str);
+            y91 a2 = o91.a();
+            if (a2 == null) {
+                return;
+            }
+            if (!a2.b(activity)) {
+                vc1.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
+                return;
+            }
+            this.b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
             return;
         }
-        list.clear();
-    }
-
-    public static synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (r91.class) {
-                List<o91> list = i;
-                if (list != null && !list.isEmpty()) {
-                    j81 g2 = g();
-                    synchronized (j) {
-                        JSONArray jSONArray = new JSONArray();
-                        for (o91 o91Var : i) {
-                            JSONObject d2 = o91Var.d();
-                            if (d2 != null) {
-                                jSONArray.put(d2);
-                            }
-                        }
-                        g2.d("data", jSONArray.toString());
-                        g2.d("s", HttpSigner.a(g2, "key", p81.a()));
-                        c();
-                    }
-                    k81 h2 = h();
-                    if (ca1.d()) {
-                        n();
-                        new p91().a(h2, g2, new b(h2, g2));
-                    } else {
-                        l(h2.b(), g2.b());
-                        q91.g().h();
-                    }
-                }
-            }
+        try {
+            PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public static void e(o91 o91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, o91Var) == null) {
-            if (i == null) {
-                i = new ArrayList();
-            }
-            if (o91Var != null) {
-                synchronized (j) {
-                    i.add(o91Var);
-                }
-            }
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            s91.a(new a());
-        }
-    }
-
-    public static j81 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            j81 j81Var = new j81();
-            j81Var.d(com.kuaishou.weapon.p0.u.A, "cashier");
-            j81Var.d("os", "android");
-            j81Var.d("v", "2.8.7.9");
-            if (!TextUtils.isEmpty(g)) {
-                j81Var.d("n", g);
-            }
-            String b2 = r81.b();
-            if (!TextUtils.isEmpty(b2)) {
-                j81Var.d("nv", b2);
-            }
-            if (!TextUtils.isEmpty(h)) {
-                j81Var.d("ss", h);
-            }
-            if (!TextUtils.isEmpty(b)) {
-                j81Var.d("d", b);
-            }
-            if (!TextUtils.isEmpty(e)) {
-                j81Var.d("dt", e);
-            }
-            if (!TextUtils.isEmpty(f)) {
-                j81Var.d(com.kuaishou.weapon.p0.u.v, f);
-            }
-            if (!TextUtils.isEmpty(c)) {
-                j81Var.d(ContentUtil.RESULT_KEY_AK, c);
-            }
-            if (!TextUtils.isEmpty(d)) {
-                j81Var.d(Config.DEVICE_ID_SEC, d);
-            }
-            return j81Var;
-        }
-        return (j81) invokeV.objValue;
-    }
-
-    public static k81 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            k81 k81Var = new k81();
-            if (!TextUtils.isEmpty(a)) {
-                k81Var.d("Cookie", "BDUSS=" + a);
-            }
-            return k81Var;
-        }
-        return (k81) invokeV.objValue;
-    }
-
-    public static JSONArray i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            File file = new File(ea1.a().getFilesDir(), "poly_cashier_statistics.json");
-            if (file.exists()) {
-                try {
-                    JSONArray jSONArray = new JSONArray(y91.b(file));
-                    try {
-                        file.delete();
-                    } catch (Exception unused) {
-                    }
-                    return jSONArray;
-                } catch (Exception unused2) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public static void j(int i2, String str, String str2) {
-        o91 o91Var;
-        o91 o91Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65546, null, i2, str, str2) == null) {
-            if (i2 != 0) {
-                if (i2 == 2) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("selects", m91.a);
-                        m91.a = 0;
-                        jSONObject.put("hbit", m91.b);
-                        m91.b = "0";
-                    } catch (JSONException unused) {
-                    }
-                    o91Var2 = new o91("4");
-                    o91Var2.c(jSONObject);
-                } else if (i2 != 3) {
-                    o91Var = null;
-                } else {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("exceptionType", str2);
-                        jSONObject2.put("msg", str);
-                    } catch (JSONException unused2) {
-                    }
-                    o91Var2 = new o91("3");
-                    o91Var2.c(jSONObject2);
-                }
-                o91Var = o91Var2;
-            } else {
-                o91Var = new o91("2");
-            }
-            if (o91Var != null) {
-                e(o91Var);
-            }
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            a = null;
-            b = null;
-            e = null;
-            f = null;
-            g = null;
-            h = null;
-        }
-    }
-
-    public static void l(Map map, Map map2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, map, map2) == null) {
-            try {
-                JSONArray i2 = i();
-                if (i2 != null) {
-                    if (i2.length() >= 20) {
-                        i2.remove(0);
-                    }
-                } else {
-                    i2 = new JSONArray();
-                }
-                JSONObject jSONObject = new JSONObject();
-                JSONObject b2 = ba1.b(map);
-                JSONObject b3 = ba1.b(map2);
-                jSONObject.put("header", b2);
-                jSONObject.put(TtmlNode.TAG_BODY, b3);
-                i2.put(jSONObject);
-                m(i2);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void m(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, jSONArray) == null) || jSONArray == null || jSONArray.length() == 0) {
-            return;
-        }
-        aa1.g("localArray" + jSONArray.length() + jSONArray.toString());
-        y91.d(jSONArray.toString(), new File(ea1.a().getFilesDir(), "poly_cashier_statistics.json"));
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            JSONArray i2 = i();
-            if (i2 == null || i2.length() == 0) {
-                return true;
-            }
-            try {
-                jSONArray = new JSONArray();
-                for (int i3 = 0; i3 < i2.length(); i3++) {
-                    JSONObject jSONObject = i2.getJSONObject(i3);
-                    k81 k81Var = new k81();
-                    k81Var.e(ba1.d(jSONObject.optJSONObject("header")));
-                    j81 j81Var = new j81();
-                    j81Var.e(ba1.d(jSONObject.optJSONObject(TtmlNode.TAG_BODY)));
-                    new p91().a(k81Var, j81Var, new c(jSONObject, jSONArray));
-                }
-            } catch (Exception unused) {
-            }
-            if (jSONArray.length() == 0) {
-                return true;
-            }
-            m(jSONArray);
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

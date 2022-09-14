@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.SingleLinkCardView;
 import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,8 +51,8 @@ public class InitPersonalizeChildViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                TbadkCoreApplication.getInst().getPersonalizeViewData().a = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0279, (ViewGroup) null);
-                TbadkCoreApplication.getInst().getPersonalizeViewData().b = new HomePageAlaRecommendLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().a = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d027d, (ViewGroup) null);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().b = new AlaRecommendLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().c = new CardUserInfoLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().d = new ForumEnterLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().e = new CardForumHeadLayout(TbadkCoreApplication.getInst());
@@ -61,12 +61,12 @@ public class InitPersonalizeChildViewTask extends LaunchTask {
                 TbadkCoreApplication.getInst().getPersonalizeViewData().h = new MutiImgSingleVerticalLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().i = new MutiImgMutiPicLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().j = new NewGridImageLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().k = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01c0, (ViewGroup) null, true);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().k = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null, true);
                 TbadkCoreApplication.getInst().getPersonalizeViewData().l = new ItemCardView(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().m = new SingleLinkCardView(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().n = new MultiLinkCardView(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().o = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01a2, (ViewGroup) null, true);
-                TbadkCoreApplication.getInst().getPersonalizeViewData().p = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01bc, (ViewGroup) null, false);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().o = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null, true);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().p = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) null, false);
                 TbadkCoreApplication.getInst().getPersonalizeViewData().q = new ThreadGodReplyLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().r = new ThreadCardBottomOpSegmentLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().s = new RecommendInfoLayout(TbadkCoreApplication.getInst());

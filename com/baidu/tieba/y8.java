@@ -1,78 +1,143 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
-import android.os.Build;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class y8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public y8(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0 && i != 1 && i != 11 && i != 12) {
-                switch (i) {
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                        break;
-                    default:
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.a = file.getAbsolutePath();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0088 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #6 {Exception -> 0x0084, blocks: (B:50:0x0080, B:54:0x0088), top: B:68:0x0080 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean b() {
+        InterceptResult invokeV;
+        FileInputStream fileInputStream;
+        Exception e;
+        ZipInputStream zipInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return invokeV.booleanValue;
+        }
+        if (TextUtils.isEmpty(this.a)) {
+            return false;
+        }
+        ZipInputStream zipInputStream2 = null;
+        try {
+            fileInputStream = new FileInputStream(new File(this.a));
+        } catch (Exception e2) {
+            fileInputStream = null;
+            e = e2;
+            zipInputStream = null;
+        } catch (Throwable th) {
+            th = th;
+            fileInputStream = null;
+        }
+        try {
+            zipInputStream = new ZipInputStream(new BufferedInputStream(fileInputStream));
+            while (true) {
+                try {
+                    try {
+                        ZipEntry nextEntry = zipInputStream.getNextEntry();
+                        if (nextEntry == null) {
+                            try {
+                                zipInputStream.close();
+                                fileInputStream.close();
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
+                            }
+                            return true;
+                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
+                            try {
+                                zipInputStream.close();
+                                fileInputStream.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                            }
+                            return false;
+                        }
+                    } catch (Exception e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        if (zipInputStream != null) {
+                            try {
+                                zipInputStream.close();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
+                                return false;
+                            }
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                            return false;
+                        }
                         return false;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    zipInputStream2 = zipInputStream;
+                    if (zipInputStream2 != null) {
+                        try {
+                            zipInputStream2.close();
+                        } catch (Exception e7) {
+                            e7.printStackTrace();
+                            throw th;
+                        }
+                    }
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    throw th;
                 }
             }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void b(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && d(activity)) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
-                if (a(activityInfo.screenOrientation)) {
-                    activityInfo.screenOrientation = -1;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        } catch (Exception e8) {
+            e = e8;
+            zipInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            if (zipInputStream2 != null) {
             }
-        }
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            try {
-                Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
-                declaredField.setAccessible(true);
-                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
-                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
-                declaredMethod.setAccessible(true);
-                return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+            if (fileInputStream != null) {
             }
+            throw th;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? Build.VERSION.SDK_INT == 26 && c(activity) : invokeL.booleanValue;
     }
 }

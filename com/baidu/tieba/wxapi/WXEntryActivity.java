@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pr7;
+import com.baidu.tieba.zs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -80,11 +80,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04f8);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c7b);
+            setContentView(R.layout.obfuscated_res_0x7f0d050a);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091cc9);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5f));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a75));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -157,10 +157,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        pr7 pr7Var = new pr7();
-        pr7Var.a = this;
-        pr7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, pr7Var);
+        zs7 zs7Var = new zs7();
+        zs7Var.a = this;
+        zs7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, zs7Var);
         closeActivity();
     }
 

@@ -3,7 +3,6 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.util.VersionInitHelper;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +29,10 @@ public class InitVersionTask extends LaunchTask {
 
     private void initVersion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            if (LaunchUpApplicationSwitch.getIsOn() && VersionInitHelper.hasInitFinish()) {
-                return;
-            }
-            VersionInitHelper.init();
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || VersionInitHelper.hasInitFinish()) {
+            return;
         }
+        VersionInitHelper.init();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

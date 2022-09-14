@@ -1,43 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class pr5 {
+public class pr5 implements an2 {
     public static /* synthetic */ Interceptable $ic;
+    public static BroadcastReceiver a;
     public transient /* synthetic */ FieldHolder $fh;
-    public qr5 a;
-    public rr5 b;
-    public vr5 c;
-    public ur5 d;
-    public sr5 e;
-    public tr5 f;
-    public List<cn> g;
 
     /* loaded from: classes5.dex */
-    public class a implements js5 {
+    public class a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ t91 a;
 
-        public a(pr5 pr5Var, TbPageContext tbPageContext) {
+        public a(pr5 pr5Var, t91 t91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pr5Var, tbPageContext};
+                Object[] objArr = {pr5Var, t91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,46 +55,30 @@ public class pr5 {
                     return;
                 }
             }
-            this.a = tbPageContext;
+            this.a = t91Var;
         }
 
-        @Override // com.baidu.tieba.js5
-        public void a(oq5 oq5Var) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, oq5Var) == null) || oq5Var == null || oq5Var.getThreadData() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                this.a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
             }
-            if (oq5Var.getThreadData().getThreadAlaInfo() != null && oq5Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                AlaInfoData threadAlaInfo = oq5Var.getThreadData().getThreadAlaInfo();
-                TbPageContext tbPageContext = this.a;
-                YyExtData yyExtData = threadAlaInfo.mYyExtData;
-                String str = yyExtData.mSid;
-                String str2 = yyExtData.mSsid;
-                String str3 = yyExtData.mTemplateId;
-                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, threadAlaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
-                AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
-                if (alaUserInfoData != null) {
-                    StatisticItem.make("c14719").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", alaUserInfoData.ala_id).param("obj_locate", 1).eventStat();
-                    return;
-                }
-                return;
-            }
-            br5.h(this.a.getPageActivity(), oq5Var.getThreadData());
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements js5 {
+    public class b implements rr5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ t91 a;
 
-        public b(pr5 pr5Var, TbPageContext tbPageContext) {
+        public b(pr5 pr5Var, t91 t91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pr5Var, tbPageContext};
+                Object[] objArr = {pr5Var, t91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,60 +88,182 @@ public class pr5 {
                     return;
                 }
             }
-            this.a = tbPageContext;
+            this.a = t91Var;
         }
 
-        @Override // com.baidu.tieba.js5
-        public void a(oq5 oq5Var) {
+        @Override // com.baidu.tieba.rr5
+        public void a(Bundle bundle) {
+            t91 t91Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, oq5Var) == null) || oq5Var == null || oq5Var.getThreadData() == null || oq5Var.getThreadData().getThreadAlaInfo() == null || oq5Var.getThreadData().getThreadAlaInfo().mYyExtData == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (t91Var = this.a) == null) {
                 return;
             }
-            AlaInfoData threadAlaInfo = oq5Var.getThreadData().getThreadAlaInfo();
-            TbPageContext tbPageContext = this.a;
-            YyExtData yyExtData = threadAlaInfo.mYyExtData;
-            String str = yyExtData.mSid;
-            String str2 = yyExtData.mSsid;
-            String str3 = yyExtData.mTemplateId;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
+            t91Var.onPayResult(bundle.getInt("result_code"), bundle.getString("result_msg"));
         }
     }
 
-    public pr5(TbPageContext tbPageContext) {
+    /* loaded from: classes5.dex */
+    public class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pr5 this$0;
+        public final /* synthetic */ t91 val$callback;
+
+        public c(pr5 pr5Var, t91 t91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pr5Var, t91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = pr5Var;
+            this.val$callback = t91Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                intent.getExtras();
+                this.val$callback.onPayResult(intent.getExtras().getInt("errorCode", -1), intent.getExtras().getString("errorMsg"));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071670, "Lcom/baidu/tieba/pr5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948071670, "Lcom/baidu/tieba/pr5;");
+        }
+    }
+
+    public pr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.g = new LinkedList();
-        this.a = new qr5(tbPageContext);
-        this.b = new rr5(tbPageContext);
-        this.c = new vr5(tbPageContext);
-        this.d = new ur5(tbPageContext);
-        this.e = new sr5(tbPageContext);
-        this.f = new tr5(tbPageContext);
-        this.b.u(new a(this, tbPageContext));
-        this.d.u(new b(this, tbPageContext));
-        this.g.add(this.a);
-        this.g.add(this.b);
-        this.g.add(this.c);
-        this.g.add(this.d);
-        this.g.add(this.e);
-        this.g.add(this.f);
     }
 
-    public List<cn> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.an2
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.an2
+    public boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
+                return true;
+            }
+            q23.g(context, "您没有安装微信，请选择其他支付方式").G();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.an2
+    public void c(Activity activity, String str, t91 t91Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, t91Var) == null) {
+            if (!rc5.c().d()) {
+                ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0ed1);
+                return;
+            }
+            y23 M = y23.M();
+            if (M == null || M.getActivity() == null) {
+                return;
+            }
+            or5 or5Var = new or5();
+            or5Var.mParams.putInt("type", 2);
+            or5Var.mParams.putString("orderInfo", str);
+            or5Var.d(M.getActivity());
+            or5Var.e(new b(this, t91Var));
+            or5Var.onExec();
+        }
+    }
+
+    @Override // com.baidu.tieba.an2
+    public void d(Context context, JSONObject jSONObject, t91 t91Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, jSONObject, t91Var) == null) {
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
+            PayReq g = g(jSONObject);
+            createWXAPI.registerApp(g.appId);
+            if (!createWXAPI.isWXAppInstalled()) {
+                t91Var.onPayResult(3, "wx_not_installed");
+                q23.g(context, "您没有安装微信，请选择其他支付方式").G();
+            } else if (y23.M() == null) {
+            } else {
+                if (!createWXAPI.sendReq(g)) {
+                    t91Var.onPayResult(6, "wx_start_failed");
+                }
+                if (a != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(a);
+                }
+                a = new c(this, t91Var);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("WXPayResult");
+                TbadkCoreApplication.getInst().registerReceiver(a, intentFilter);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.an2
+    public void e(Activity activity, String str, t91 t91Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, str, t91Var) == null) {
+            DelegateUtils.callOnMainWithActivity(lo2.U().getActivity(), MainProcessDelegateActivity.class, sr5.class, sr5.d(str), new a(this, t91Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.an2
+    public void f(Activity activity, String str, fa1<JSONObject> fa1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, fa1Var) == null) {
+        }
+    }
+
+    public final PayReq g(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            PayReq payReq = new PayReq();
+            payReq.appId = jSONObject.optString("appid");
+            payReq.partnerId = jSONObject.optString("partnerid");
+            payReq.prepayId = jSONObject.optString("prepayid");
+            payReq.packageValue = jSONObject.optString("packagealias");
+            payReq.nonceStr = jSONObject.optString("noncestr");
+            payReq.timeStamp = jSONObject.optString("timestamp");
+            payReq.sign = jSONObject.optString("sign");
+            return payReq;
+        }
+        return (PayReq) invokeL.objValue;
     }
 }

@@ -1,56 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.NetworkInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.tieba.n60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public final class j60 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public int b;
+    @Nullable
+    public Runnable c;
+    @Nullable
+    public Executor d;
+    public final Deque<n60.a> e;
+    public final Deque<n60.a> f;
+    public final Deque<n60> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835109, "Lcom/baidu/tieba/j60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835109, "Lcom/baidu/tieba/j60;");
-                return;
-            }
-        }
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        c = hashMap;
-        hashMap.put("WIFI", 1);
-        c.put("3GNET", 21);
-        c.put("3GWAP", 22);
-        c.put("CMNET", 31);
-        c.put("UNINET", 32);
-        c.put("CTNET", 33);
-        c.put("CMWAP", 41);
-        c.put("UNIWAP", 42);
-        c.put("CTWAP", 43);
-    }
-
-    public j60(Context context) {
-        String upperCase;
+    public j60(Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {executor};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,16 +46,154 @@ public final class j60 {
                 return;
             }
         }
-        NetworkInfo a = k60.a(context);
-        if (a != null) {
-            if (!"wifi".equals(a.getTypeName().toLowerCase())) {
-                String extraInfo = a.getExtraInfo();
-                upperCase = extraInfo != null ? extraInfo.toUpperCase() : upperCase;
-                this.b = a.getSubtype();
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+        this.d = executor;
+    }
+
+    public synchronized void a(n60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (this.f.size() < this.a && i(aVar) < this.b) {
+                    this.f.add(aVar);
+                    c().execute(aVar);
+                } else {
+                    this.e.add(aVar);
+                }
             }
-            "wifi".toUpperCase();
-            this.a = upperCase;
-            this.b = a.getSubtype();
         }
+    }
+
+    public synchronized void b(n60 n60Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n60Var) == null) {
+            synchronized (this) {
+                this.g.add(n60Var);
+            }
+        }
+    }
+
+    public synchronized Executor c() {
+        InterceptResult invokeV;
+        Executor executor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
+                }
+                executor = this.d;
+            }
+            return executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public void d(n60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            f(this.f, aVar, true);
+        }
+    }
+
+    public void e(n60 n60Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, n60Var) == null) {
+            f(this.g, n60Var, false);
+        }
+    }
+
+    public final <T> void f(Deque<T> deque, T t, boolean z) {
+        int h;
+        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
+            synchronized (this) {
+                if (deque.remove(t)) {
+                    if (z) {
+                        g();
+                    }
+                    h = h();
+                    runnable = this.c;
+                } else {
+                    throw new AssertionError("Call wasn't in-flight!");
+                }
+            }
+            if (h != 0 || runnable == null) {
+                return;
+            }
+            runnable.run();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f.size() >= this.a || this.e.isEmpty()) {
+            return;
+        }
+        Iterator<n60.a> it = this.e.iterator();
+        while (it.hasNext()) {
+            n60.a next = it.next();
+            if (i(next) < this.b) {
+                it.remove();
+                this.f.add(next);
+                c().execute(next);
+            }
+            if (this.f.size() >= this.a) {
+                return;
+            }
+        }
+    }
+
+    public synchronized int h() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.f.size() + this.g.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int i(n60.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
+            int i = 0;
+            for (n60.a aVar2 : this.f) {
+                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
+                    i++;
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public j60() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
     }
 }

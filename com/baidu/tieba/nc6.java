@@ -1,62 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Dialog;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumMember.bawu.BawuTeamHttpResponseMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamSocketResponseMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BawuRoleDes;
-import tbclient.BawuRoleInfoPub;
-import tbclient.BawuTeam;
-import tbclient.GetBawuInfo.ManagerApplyInfo;
 /* loaded from: classes5.dex */
-public class nc6 {
+public class nc6 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BawuTeam a;
-    public boolean b;
-    public ManagerApplyInfo c;
-    public c d;
-    public bb e;
-    public CustomMessageListener f;
+    public TbPageContext a;
+    public View b;
+    public SpannableString c;
+    public TextView d;
+    public TextView e;
+    public int f;
 
     /* loaded from: classes5.dex */
-    public class a extends bb {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nc6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nc6 nc6Var, int i, int i2) {
-            super(i, i2);
+        public a(nc6 nc6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nc6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {nc6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,221 +52,76 @@ public class nc6 {
             this.a = nc6Var;
         }
 
-        @Override // com.baidu.tieba.bb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof BawuTeamHttpResponseMessage;
-            if (z || (responsedMessage instanceof BawuTeamSocketResponseMessage)) {
-                if (z) {
-                    BawuTeamHttpResponseMessage bawuTeamHttpResponseMessage = (BawuTeamHttpResponseMessage) responsedMessage;
-                    this.a.a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
-                    this.a.b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
-                    this.a.c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
-                } else if (responsedMessage instanceof BawuTeamSocketResponseMessage) {
-                    BawuTeamSocketResponseMessage bawuTeamSocketResponseMessage = (BawuTeamSocketResponseMessage) responsedMessage;
-                    this.a.a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
-                    this.a.b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
-                    this.a.c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
-                }
-                hd6 hd6Var = new hd6();
-                if (this.a.c != null) {
-                    hd6Var.k(this.a.c.manager_left_num.intValue());
-                    hd6Var.j(this.a.c.manager_apply_url);
-                    nc6 nc6Var = this.a;
-                    hd6Var.g(nc6Var.i(nc6Var.c, this.a.a));
-                    hd6Var.f(this.a.c.assist_apply_url);
-                }
-                if (this.a.d != null) {
-                    c cVar = this.a.d;
-                    nc6 nc6Var2 = this.a;
-                    cVar.a(nc6Var2.m(nc6Var2.a), hd6Var, true, responsedMessage.getError(), responsedMessage.getErrorString());
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                nc6 nc6Var = this.a;
+                ih.b(nc6Var, nc6Var.a);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nc6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(nc6 nc6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nc6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BawuTeamReadCacheResponseMessage)) {
-                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = (BawuTeamReadCacheResponseMessage) customResponsedMessage;
-                this.a.a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
-                this.a.b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
-                this.a.c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
-                hd6 hd6Var = new hd6();
-                if (this.a.c != null) {
-                    hd6Var.k(this.a.c.manager_left_num.intValue());
-                    hd6Var.j(this.a.c.manager_apply_url);
-                    nc6 nc6Var = this.a;
-                    hd6Var.g(nc6Var.i(nc6Var.c, this.a.a));
-                    hd6Var.f(this.a.c.assist_apply_url);
-                }
-                if (this.a.d != null) {
-                    c cVar = this.a.d;
-                    nc6 nc6Var2 = this.a;
-                    cVar.a(nc6Var2.m(nc6Var2.a), hd6Var, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(ArrayList<rc6> arrayList, hd6 hd6Var, boolean z, int i, String str);
-    }
-
-    public nc6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nc6(TbPageContext tbPageContext, int i) {
+        super(tbPageContext.getContext(), i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = null;
-        this.e = new a(this, CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
-        this.f = new b(this, 2003005);
-        MessageManager.getInstance().registerListener(this.f);
-        MessageManager.getInstance().registerListener(this.e);
+        this.a = tbPageContext;
     }
 
-    public void h() {
+    public final void b() {
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
-            MessageManager.getInstance().unRegisterListener(this.f);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tbPageContext = this.a) == null) {
+            return;
+        }
+        tbPageContext.getLayoutMode().l(this.f == 1);
+        this.a.getLayoutMode().k(this.b);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d027e, (ViewGroup) null);
+            this.f = TbadkApplication.getInst().getSkinType();
+            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f8c);
+            this.c = new SpannableString(string);
+            this.c.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
+            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab)));
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ee);
+            this.d = textView;
+            textView.setText(this.c);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c5);
+            this.e = textView2;
+            textView2.setOnClickListener(new a(this));
+            setCancelable(true);
+            b();
         }
     }
 
-    public final int i(@NonNull ManagerApplyInfo managerApplyInfo, @Nullable BawuTeam bawuTeam) {
-        InterceptResult invokeLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, managerApplyInfo, bawuTeam)) == null) ? managerApplyInfo.assist_left_num.intValue() : invokeLL.intValue;
-    }
-
-    public final int j(@NonNull BawuRoleDes bawuRoleDes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bawuRoleDes)) == null) ? bawuRoleDes.role_info.size() : invokeL.intValue;
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            BawuTeamInfoReadCacheRequestMessage bawuTeamInfoReadCacheRequestMessage = new BawuTeamInfoReadCacheRequestMessage();
-            bawuTeamInfoReadCacheRequestMessage.setCacheKey("" + j);
-            MessageManager.getInstance().sendMessage(bawuTeamInfoReadCacheRequestMessage);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d027f, (ViewGroup) null);
+            this.f = TbadkApplication.getInst().getSkinType();
+            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070293)));
+            setCancelable(false);
+            b();
         }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            BawuTeamRequestMessage bawuTeamRequestMessage = new BawuTeamRequestMessage();
-            bawuTeamRequestMessage.setForumId(j);
-            MessageManager.getInstance().sendMessage(bawuTeamRequestMessage);
-        }
-    }
-
-    public ArrayList<rc6> m(BawuTeam bawuTeam) {
-        InterceptResult invokeL;
-        List<BawuRoleInfoPub> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bawuTeam)) == null) {
-            ArrayList<rc6> arrayList = new ArrayList<>();
-            if (bawuTeam == null || bawuTeam.bawu_team_list == null) {
-                return null;
-            }
-            ArrayList<BawuRoleDes> o = o(bawuTeam);
-            int size = o.size();
-            for (int i = 0; i < size; i++) {
-                BawuRoleDes bawuRoleDes = o.get(i);
-                if (bawuRoleDes != null && !StringUtils.isNull(bawuRoleDes.role_name) && (list = bawuRoleDes.role_info) != null && list.size() > 0) {
-                    lc6 lc6Var = new lc6();
-                    lc6Var.c(bawuRoleDes.role_name + "(" + j(bawuRoleDes) + SmallTailInfo.EMOTION_SUFFIX);
-                    arrayList.add(lc6Var);
-                    int size2 = bawuRoleDes.role_info.size();
-                    int i2 = 0;
-                    while (i2 < size2) {
-                        kc6 kc6Var = new kc6();
-                        kc6Var.i(bawuRoleDes.role_name);
-                        ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
-                        arrayList2.add(bawuRoleDes.role_info.get(i2));
-                        int i3 = i2 + 1;
-                        if (i3 < size2) {
-                            arrayList2.add(bawuRoleDes.role_info.get(i3));
-                        }
-                        i2 += 2;
-                        if (i2 >= size2) {
-                            if (this.b) {
-                                kc6Var.f(false);
-                            } else {
-                                kc6Var.f(true);
-                            }
-                            kc6Var.g(true);
-                        } else {
-                            kc6Var.g(false);
-                        }
-                        kc6Var.h(arrayList2);
-                        arrayList.add(kc6Var);
-                    }
-                    if (i <= size - 2) {
-                        arrayList.add(new jc6());
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public void n(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
-    @NonNull
-    public final ArrayList<BawuRoleDes> o(@NonNull BawuTeam bawuTeam) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bawuTeam)) == null) ? new ArrayList<>(bawuTeam.bawu_team_list) : (ArrayList) invokeL.objValue;
     }
 }

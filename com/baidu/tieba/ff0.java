@@ -1,59 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.ef0;
+import com.baidu.tieba.hf0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
 /* loaded from: classes4.dex */
-public class ff0 extends og0 {
+public abstract class ff0 implements hf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements ef0.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wg0 a;
-        public final /* synthetic */ sg0 b;
-        public final /* synthetic */ ff0 c;
-
-        public a(ff0 ff0Var, wg0 wg0Var, sg0 sg0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff0Var, wg0Var, sg0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ff0Var;
-            this.a = wg0Var;
-            this.b = sg0Var;
-        }
-
-        @Override // com.baidu.tieba.ef0.c
-        public void onResult(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.c.c(this.a, this.b, z ? 0 : 1001, z);
-            }
-        }
-    }
+    public int a;
+    public hf0.a b;
 
     public ff0() {
         Interceptable interceptable = $ic;
@@ -65,26 +24,58 @@ public class ff0 extends og0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public abstract void b();
+
+    public void c(hf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
+            if (aVar != null) {
+                aVar.a(a(), this);
             }
         }
     }
 
-    @Override // com.baidu.tieba.og0
-    public String a() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "dlink" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        hf0.a aVar = this.b;
+        if (aVar != null) {
+            aVar.a(i, this);
+        }
     }
 
-    @Override // com.baidu.tieba.og0
-    public boolean b(@NonNull Context context, @NonNull sg0 sg0Var, @Nullable Map<String, Object> map, @Nullable wg0 wg0Var) {
-        InterceptResult invokeLLLL;
+    public void e(hf0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sg0Var, map, wg0Var)) == null) {
-            super.b(context, sg0Var, map, wg0Var);
-            new ef0().g(context, sg0Var.d(), new a(this, wg0Var, sg0Var));
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            int i = this.a;
+            if (i != 0 && 3 != i && 2 != i) {
+                c(aVar);
+                return;
+            }
+            d(1);
+            c(aVar);
+            try {
+                b();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                d(3);
+            }
         }
-        return invokeLLLL.booleanValue;
     }
 }

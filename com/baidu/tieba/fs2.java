@@ -1,82 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
 /* loaded from: classes4.dex */
-public final class fs2 extends RequestBody {
+public class fs2 extends as2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaType a;
-    public final FormBody b;
 
-    public fs2(FormBody formBody) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fs2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {formBody};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = formBody;
     }
 
-    public static fs2 a(FormBody formBody, MediaType mediaType) {
-        InterceptResult invokeLL;
+    private void update(qr2 qr2Var, sr2 sr2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
-            fs2 fs2Var = new fs2(formBody);
-            fs2Var.b(mediaType);
-            return fs2Var;
-        }
-        return (fs2) invokeLL.objValue;
-    }
-
-    public void b(MediaType mediaType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.a = mediaType;
+        if (interceptable == null || interceptable.invokeLLLL(65537, this, qr2Var, sr2Var, unitedSchemeEntity, callbackHandler) == null) {
+            qr2Var.A(sr2Var);
+            qr2Var.z(sr2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.as2
+    public boolean a(qr2 qr2Var, sr2 sr2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.contentLength() : invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.a;
-            return mediaType == null ? this.b.contentType() : mediaType;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{qr2Var, sr2Var, context, unitedSchemeEntity, callbackHandler, y23Var})) == null) {
+            yz1.i("video", "update, video id:" + sr2Var.j + " slave id: " + sr2Var.c);
+            update(qr2Var, sr2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.b.writeTo(bufferedSink);
-        }
+        return invokeCommon.booleanValue;
     }
 }

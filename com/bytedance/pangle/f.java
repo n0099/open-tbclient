@@ -49,7 +49,7 @@ public interface f extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                     return (f) queryLocalInterface;
                 }
-                return new C0496a(iBinder);
+                return new C0501a(iBinder);
             }
             return (f) invokeL.objValue;
         }
@@ -57,7 +57,7 @@ public interface f extends IInterface {
         public static f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0496a.a : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0501a.a : (f) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -96,13 +96,13 @@ public interface f extends IInterface {
 
         /* renamed from: com.bytedance.pangle.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0496a implements f {
+        public static class C0501a implements f {
             public static /* synthetic */ Interceptable $ic;
             public static f a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0496a(IBinder iBinder) {
+            public C0501a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

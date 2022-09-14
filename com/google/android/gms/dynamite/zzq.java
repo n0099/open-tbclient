@@ -5,16 +5,14 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IObjectWrapper;
-import com.google.android.gms.internal.common.zza;
 /* loaded from: classes7.dex */
-public final class zzq extends zza implements IInterface {
+public final class zzq extends com.google.android.gms.internal.common.zza implements IInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,9 +54,9 @@ public final class zzq extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iObjectWrapper, str, z)) == null) {
             Parcel zza = zza();
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             zza.writeString(str);
-            yo9.b(zza, z);
+            com.google.android.gms.internal.common.zzc.zzb(zza, z);
             Parcel zzB = zzB(3, zza);
             int readInt = zzB.readInt();
             zzB.recycle();
@@ -72,9 +70,9 @@ public final class zzq extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, iObjectWrapper, str, z)) == null) {
             Parcel zza = zza();
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             zza.writeString(str);
-            yo9.b(zza, z);
+            com.google.android.gms.internal.common.zzc.zzb(zza, z);
             Parcel zzB = zzB(5, zza);
             int readInt = zzB.readInt();
             zzB.recycle();
@@ -88,7 +86,7 @@ public final class zzq extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, iObjectWrapper, str, i)) == null) {
             Parcel zza = zza();
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             zza.writeString(str);
             zza.writeInt(i);
             Parcel zzB = zzB(2, zza);
@@ -104,10 +102,10 @@ public final class zzq extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048580, this, iObjectWrapper, str, i, iObjectWrapper2)) == null) {
             Parcel zza = zza();
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             zza.writeString(str);
             zza.writeInt(i);
-            yo9.e(zza, iObjectWrapper2);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper2);
             Parcel zzB = zzB(8, zza);
             IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());
             zzB.recycle();
@@ -121,7 +119,7 @@ public final class zzq extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, iObjectWrapper, str, i)) == null) {
             Parcel zza = zza();
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             zza.writeString(str);
             zza.writeInt(i);
             Parcel zzB = zzB(4, zza);
@@ -137,9 +135,9 @@ public final class zzq extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{iObjectWrapper, str, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
             Parcel zza = zza();
-            yo9.e(zza, iObjectWrapper);
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
             zza.writeString(str);
-            yo9.b(zza, z);
+            com.google.android.gms.internal.common.zzc.zzb(zza, z);
             zza.writeLong(j);
             Parcel zzB = zzB(7, zza);
             IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());

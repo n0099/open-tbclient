@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,25 +9,79 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class dr implements mr {
+public final class dr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
+    public static final b d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public byte[] b;
+    public final int a;
+    public final String b;
+    public final TaskResponseData c;
 
     /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
 
-        public a() {
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        public final dr a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                bu buVar = new bu();
+                try {
+                    JSONObject jSONObject = new JSONObject(this.a);
+                    int optInt = jSONObject.optInt("errno");
+                    String errmsg = jSONObject.optString("errmsg");
+                    String data = jSONObject.optString("data");
+                    zt a = buVar.a("response");
+                    Intrinsics.checkExpressionValueIsNotNull(data, "data");
+                    TaskResponseData taskResponseData = (TaskResponseData) a.a(data);
+                    if (taskResponseData != null) {
+                        Intrinsics.checkExpressionValueIsNotNull(errmsg, "errmsg");
+                        return new dr(optInt, errmsg, taskResponseData);
+                    }
+                    return new dr(301, "task complete request failed", null, 4, null);
+                } catch (JSONException e) {
+                    String message = e.getMessage();
+                    if (message == null) {
+                        message = "task complete request failed";
+                    }
+                    return new dr(301, message, null, 4, null);
+                }
+            }
+            return (dr) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,28 +95,13 @@ public final class dr implements mr {
             }
         }
 
-        @JvmStatic
-        public final dr a(String str) {
+        public final a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str == null || TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject(str);
-                return new dr(jSONObject.optInt("Level"), ht.b(jSONObject.optString("Description")));
-            }
-            return (dr) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new a(str) : (a) invokeL.objValue;
         }
 
-        @JvmStatic
-        public final dr b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? a(ht.a(bArr)) : (dr) invokeL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -81,15 +119,15 @@ public final class dr implements mr {
                 return;
             }
         }
-        c = new a(null);
+        d = new b(null);
     }
 
-    public dr(int i, byte[] bArr) {
+    public dr(int i, String str, TaskResponseData taskResponseData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), bArr};
+            Object[] objArr = {Integer.valueOf(i), str, taskResponseData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -100,80 +138,35 @@ public final class dr implements mr {
             }
         }
         this.a = i;
-        this.b = bArr;
+        this.b = str;
+        this.c = taskResponseData;
     }
 
-    @JvmStatic
-    public static final dr a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? c.b(bArr) : (dr) invokeL.objValue;
-    }
-
-    public final String b() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = ht.a(ht.d(this.b));
-            Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(St…ase64Decode(description))");
-            return a2;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 0 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mr
-    public JSONObject c() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("Level", Integer.valueOf(this.a));
-            jSONObject.putOpt("Description", this.b);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public final int d() {
+    public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof dr) {
-                    dr drVar = (dr) obj;
-                    if (!(this.a == drVar.a) || !Intrinsics.areEqual(this.b, drVar.b)) {
-                    }
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
+    public final TaskResponseData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a * 31;
-            byte[] bArr = this.b;
-            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (TaskResponseData) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "Alert(level=" + this.a + ", description=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
+    public /* synthetic */ dr(int i, String str, TaskResponseData taskResponseData, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, str, (i2 & 4) != 0 ? null : taskResponseData);
     }
 }

@@ -1,76 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
 import android.content.Context;
-import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebViewFactory;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public final class hw {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static HashMap<String, gw> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448306814, "Lcom/baidu/tieba/hw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448306814, "Lcom/baidu/tieba/hw;");
-        }
-    }
-
-    public static ActivityManager.RunningAppProcessInfo a(Context context) {
-        InterceptResult invokeL;
+    public static synchronized gw a(String str, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
-                return null;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, context)) == null) {
+            synchronized (hw.class) {
+                if (TextUtils.isEmpty(str)) {
+                    str = context.getPackageName() + "_preferences";
                 }
+                if (a == null) {
+                    a = new HashMap<>();
+                }
+                if (a.get(str) != null) {
+                    return a.get(str);
+                }
+                gw gwVar = new gw(str);
+                a.put(str, gwVar);
+                return gwVar;
             }
-            return null;
         }
-        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningAppProcessInfo a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
-                a = a2.processName;
-            }
-            return a;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b = b(context);
-            return b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP);
-        }
-        return invokeL.booleanValue;
+        return (gw) invokeLL.objValue;
     }
 }

@@ -1,25 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vv7 extends Thread {
+public class vv7 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public int a;
+    public long b;
+    public long c;
+    public b d;
+    public long e;
+    public Handler f;
 
-    public vv7(String str, String str2, String str3) {
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vv7 a;
+
+        public a(vv7 vv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vv7Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 2) {
+                    this.a.a = 0;
+                    this.a.b = 0L;
+                    this.a.c = 0L;
+                } else if (i == 1 && this.a.a == 1) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                    this.a.a = 0;
+                    this.a.b = 0L;
+                    this.a.c = 0L;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    public vv7(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,21 +87,39 @@ public class vv7 extends Thread {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.e = 500L;
+        this.f = new a(this);
+        this.d = bVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.a);
-            netWork.addPostData("phonenum", this.b);
-            netWork.addPostData("optype", this.c);
-            netWork.postNetData();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                if (this.d == null) {
+                    return false;
+                }
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b = System.currentTimeMillis();
+                    this.f.sendEmptyMessageDelayed(1, this.e);
+                } else if (i == 2) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.c = currentTimeMillis;
+                    if (currentTimeMillis - this.b < this.e) {
+                        this.d.b();
+                    }
+                    this.f.sendEmptyMessage(2);
+                }
+            }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 }

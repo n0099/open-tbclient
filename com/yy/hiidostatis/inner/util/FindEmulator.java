@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +118,7 @@ public class FindEmulator {
             }
         }
         known_numbers = new String[]{"15555215554", "15555215556", "15555215558", "15555215560", "15555215562", "15555215564", "15555215566", "15555215568", "15555215570", "15555215572", "15555215574", "15555215576", "15555215578", "15555215580", "15555215582", "15555215584"};
-        known_device_ids = new String[]{"000000000000000", "e21833235b6eef10", "012345678912345"};
+        known_device_ids = new String[]{Config.NULL_DEVICE_ID, "e21833235b6eef10", "012345678912345"};
         known_imsi_ids = new String[]{"310260000000000"};
         known_pipes = new String[]{"/dev/socket/qemud", "/dev/qemu_pipe"};
         known_files = new String[]{"/system/lib/libc_malloc_debug_qemu.so", "/sys/qemu_trace", "/init.nox.rc", "/ueventd.nox.rc", "/etc/init.nox.sh"};
@@ -285,7 +287,7 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
-                String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
                         return true;
@@ -302,7 +304,7 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
-                String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
+                String subscriberId = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {
                         return true;

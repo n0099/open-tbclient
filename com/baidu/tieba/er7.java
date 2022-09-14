@@ -1,103 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /* loaded from: classes3.dex */
-public final class er7 {
+public class er7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final void a(int i, int i2, int i3, String objParam1, String fid) {
-            int i4;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), objParam1, fid}) == null) {
-                Intrinsics.checkNotNullParameter(objParam1, "objParam1");
-                Intrinsics.checkNotNullParameter(fid, "fid");
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_CLICK);
-                statisticItem.param("obj_name", i);
-                if (UbsABTestHelper.isFirstLoginTestA()) {
-                    i4 = 1;
-                } else {
-                    i4 = UbsABTestHelper.isFirstLoginTestB() ? 2 : 3;
-                }
-                statisticItem.param("obj_type", i4);
-                statisticItem.param("obj_locate", i2);
-                statisticItem.param("obj_source", i3);
-                statisticItem.param("obj_param1", objParam1);
-                statisticItem.param("fid", fid);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void b(String objName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objName) == null) {
-                Intrinsics.checkNotNullParameter(objName, "objName");
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SEE_MORE_CLICK);
-                statisticItem.param("obj_name", objName);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void c(int i, int i2) {
-            int i3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SHOW);
-                statisticItem.param("obj_name", i);
-                if (UbsABTestHelper.isFirstLoginTestA()) {
-                    i3 = 1;
-                } else {
-                    i3 = UbsABTestHelper.isFirstLoginTestB() ? 2 : 3;
-                }
-                statisticItem.param("obj_type", i3);
-                statisticItem.param("obj_source", i2);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -112,30 +33,139 @@ public final class er7 {
                 return;
             }
         }
-        a = new a(null);
+        a = wq7.c + "draft/";
+        b = a + "upload_draft";
     }
 
-    @JvmStatic
-    public static final void a(int i, int i2, int i3, String str, String str2) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
-            a.a(i, i2, i3, str, str2);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
+            }
         }
     }
 
-    @JvmStatic
-    public static final void b(String str) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
+    public static FaceGroupDraft b() {
+        InterceptResult invokeV;
+        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.b(str);
+        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
+            return (FaceGroupDraft) invokeV.objValue;
+        }
+        File file = new File(b);
+        ?? r2 = 0;
+        r2 = null;
+        r2 = null;
+        r2 = null;
+        r2 = null;
+        FaceGroupDraft faceGroupDraft2 = null;
+        r2 = null;
+        r2 = null;
+        ObjectInputStream objectInputStream = null;
+        try {
+            if (!file.exists()) {
+                return null;
+            }
+            try {
+                ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
+                try {
+                    Object readObject = objectInputStream2.readObject();
+                    if (readObject != null && (readObject instanceof FaceGroupDraft)) {
+                        faceGroupDraft2 = (FaceGroupDraft) readObject;
+                    }
+                    objectInputStream2.close();
+                    ch.c(objectInputStream2);
+                    return faceGroupDraft2;
+                } catch (IOException e) {
+                    e = e;
+                    FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
+                    objectInputStream = objectInputStream2;
+                    faceGroupDraft = faceGroupDraft3;
+                    e.printStackTrace();
+                    ch.c(objectInputStream);
+                    r2 = faceGroupDraft;
+                    return r2;
+                } catch (ClassNotFoundException e2) {
+                    e = e2;
+                    FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
+                    objectInputStream = objectInputStream2;
+                    faceGroupDraft = faceGroupDraft4;
+                    e.printStackTrace();
+                    ch.c(objectInputStream);
+                    r2 = faceGroupDraft;
+                    return r2;
+                } catch (Throwable th) {
+                    th = th;
+                    FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
+                    objectInputStream = objectInputStream2;
+                    faceGroupDraft = faceGroupDraft5;
+                    th.printStackTrace();
+                    ch.c(objectInputStream);
+                    r2 = faceGroupDraft;
+                    return r2;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                faceGroupDraft = null;
+            } catch (ClassNotFoundException e4) {
+                e = e4;
+                faceGroupDraft = null;
+            } catch (Throwable th2) {
+                th = th2;
+                faceGroupDraft = null;
+            }
+        } catch (Throwable th3) {
+            ch.c(r2);
+            throw th3;
         }
     }
 
-    @JvmStatic
-    public static final void c(int i, int i2) {
+    public static void c(FaceGroupDraft faceGroupDraft) {
+        ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            a.c(i, i2);
+        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(a);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    a();
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
+                } finally {
+                    ch.d(objectOutputStream2);
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                objectOutputStream.writeObject(faceGroupDraft);
+                ch.d(objectOutputStream);
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (IOException e4) {
+                e = e4;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                th.printStackTrace();
+            }
         }
     }
 }

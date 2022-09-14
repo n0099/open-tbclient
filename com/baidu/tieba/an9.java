@@ -1,71 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class an9 {
+public class an9 implements GdtHelper.GdtNativeContainerCreator {
     public static /* synthetic */ Interceptable $ic;
+    public static final an9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<WeakReference<NativeAdContainer>> a;
 
-    @NonNull
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case -1:
-                    return "SUCCESS_CACHE";
-                case 0:
-                    return "SUCCESS";
-                case 1:
-                case 9:
-                case 11:
-                case 12:
-                default:
-                    StringBuilder sb = new StringBuilder(32);
-                    sb.append("unknown status code: ");
-                    sb.append(i);
-                    return sb.toString();
-                case 2:
-                    return "SERVICE_VERSION_UPDATE_REQUIRED";
-                case 3:
-                    return "SERVICE_DISABLED";
-                case 4:
-                    return "SIGN_IN_REQUIRED";
-                case 5:
-                    return "INVALID_ACCOUNT";
-                case 6:
-                    return "RESOLUTION_REQUIRED";
-                case 7:
-                    return "NETWORK_ERROR";
-                case 8:
-                    return "INTERNAL_ERROR";
-                case 10:
-                    return "DEVELOPER_ERROR";
-                case 13:
-                    return "ERROR";
-                case 14:
-                    return "INTERRUPTED";
-                case 15:
-                    return "TIMEOUT";
-                case 16:
-                    return "CANCELED";
-                case 17:
-                    return "API_NOT_CONNECTED";
-                case 18:
-                    return "DEAD_CLIENT";
-                case 19:
-                    return "REMOTE_EXCEPTION";
-                case 20:
-                    return "CONNECTION_SUSPENDED_DURING_CALL";
-                case 21:
-                    return "RECONNECTION_TIMED_OUT_DURING_UPDATE";
-                case 22:
-                    return "RECONNECTION_TIMED_OUT";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621085, "Lcom/baidu/tieba/an9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947621085, "Lcom/baidu/tieba/an9;");
+                return;
             }
         }
-        return (String) invokeI.objValue;
+        b = new an9();
+    }
+
+    public an9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashSet();
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
+        }
+        return (ViewGroup) invokeL.objValue;
     }
 }

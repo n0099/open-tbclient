@@ -1,216 +1,278 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes4.dex */
-public class iq5 {
+public class iq5 extends se1<ri0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public HttpMessageListener b;
-    public BdUniqueId c;
-    public BdUniqueId d;
-    public CustomMessageListener e;
-    public CustomMessageListener f;
 
     /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
+    public class a implements ri0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq5 a;
+        public final /* synthetic */ iq5 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(iq5 iq5Var, int i) {
-            super(i);
+        /* renamed from: com.baidu.tieba.iq5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0300a implements ti0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a f;
+
+            public C0300a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = aVar;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? jq5.h().a() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String b() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? jq5.h().l() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String c() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f.c.c() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String d() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? jq5.h().j() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String e() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? jq5.h().g() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String f() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? jq5.h().i() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String g() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? jq5.h().d() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String h() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? jq5.h().o() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String k() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? jq5.h().f() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String m() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? jq5.h().b() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String n() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String o() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? jq5.h().n() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String p() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "tieba" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String packageName() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? jq5.h().m() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String q() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "2" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String r() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? jq5.h().p() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            @NonNull
+            public String t() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? jq5.h().e() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String u() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? jq5.h().c() : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public String x() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "Tieba" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.ti0
+            public boolean y() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
+            }
+        }
+
+        public a(iq5 iq5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iq5Var, Integer.valueOf(i)};
+                Object[] objArr = {iq5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = iq5Var;
+            this.c = iq5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.ri0
+        @NonNull
+        public ti0 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                this.a.a = null;
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0300a(this) : (ti0) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(iq5 iq5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iq5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && pi.A() && this.a.a != null) {
-                iq5 iq5Var = this.a;
-                iq5Var.h(iq5Var.a, this.a.d);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iq5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(iq5 iq5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iq5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.a.f((JSONObject) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    public iq5(TbPageContext tbPageContext) {
+    public iq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = BdUniqueId.gen();
-        this.d = BdUniqueId.gen();
-        this.e = new b(this, 2000994);
-        this.f = new c(this, 2921324);
-        if (this.b == null) {
-            this.b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        }
-        MessageManager.getInstance().registerListener(this.b);
-        MessageManager.getInstance().registerListener(this.e);
-        this.f.setTag(tbPageContext.getUniqueId());
-        this.f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public final void f(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.se1
+    /* renamed from: b */
+    public ri0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        if (pi.A()) {
-            h(jSONObject, this.c);
-        } else {
-            this.a = jSONObject;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (ri0) invokeV.objValue;
     }
 
-    public void g() {
+    public final String c() {
+        InterceptResult invokeV;
+        byte[] b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().unRegisterListener(this.e);
-            MessageManager.getInstance().unRegisterListener(this.f);
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = "";
+            String q = bx4.k().q("key_last_cached_real_oid", "");
+            if (StringUtils.isNull(q)) {
+                String k = jq5.h().k();
+                if (StringUtils.isNull(k)) {
+                    return "";
+                }
+                String[] split = k.split("-");
+                if (split != null && split.length > 1) {
+                    String str2 = split[1];
+                    if (StringUtils.isNull(str2) || (b = new c50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+                        return "";
+                    }
+                    try {
+                        str = new String(b, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    if (!StringUtils.isNull(str)) {
+                        bx4.k().y("key_last_cached_real_oid", str);
+                    }
+                }
+                return str;
+            }
+            return q;
         }
-    }
-
-    public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, bdUniqueId) == null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("tid");
-        String optString2 = jSONObject.optString("fid");
-        String optString3 = jSONObject.optString("dislike_ids");
-        String optString4 = jSONObject.optString("type");
-        int i = 1;
-        if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {
-            i = 2;
-        } else {
-            "ala_frs_demo_hell_live_feed_back_type".equals(optString4);
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        httpMessage.addParam("thread_id", optString);
-        httpMessage.addParam("forum_id", optString2);
-        httpMessage.addParam("dislike_reason_id", optString3);
-        httpMessage.addParam("reason_type", i);
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        return (String) invokeV.objValue;
     }
 }

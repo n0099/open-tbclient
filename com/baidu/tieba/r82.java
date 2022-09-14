@@ -1,17 +1,76 @@
 package com.baidu.tieba;
+
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface r82 {
-    void a(i82 i82Var);
+public class r82 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(i82 i82Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948075421, "Lcom/baidu/tieba/r82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948075421, "Lcom/baidu/tieba/r82;");
+                return;
+            }
+        }
+        a = ij1.a;
+    }
 
-    void c(i82 i82Var);
+    @NonNull
+    public static p82 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            p82 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
+            }
+            return b;
+        }
+        return (p82) invokeV.objValue;
+    }
 
-    void d(i82 i82Var);
+    public static p82 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new n82();
+            }
+            if (i > 0) {
+                return new q82(i);
+            }
+            if (i == -1) {
+                return new o82();
+            }
+            return new n82();
+        }
+        return (p82) invokeI.objValue;
+    }
 
-    void e(i82 i82Var);
-
-    void f(i82 i82Var);
-
-    void g(i82 i82Var);
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            fm2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 }

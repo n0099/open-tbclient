@@ -13,9 +13,8 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tieba.bg9;
-import com.baidu.tieba.sm9;
-import com.baidu.tieba.yf9;
+import com.baidu.tieba.ck9;
+import com.baidu.tieba.fk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.n0;
 import com.fun.openid.sdk.FunOpenIDSdk;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import org.json.JSONException;
@@ -128,7 +127,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, yf9.a);
+                        FunOpenIDSdk.getOaid(appContext, ck9.a);
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
                         }
@@ -162,7 +161,7 @@ public class HostAppInfo {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
-                                            HostAppInfo.b.x = sm9.a(this.a).a();
+                                            HostAppInfo.b.x = AdvertisingIdClient.getAdvertisingIdInfo(this.a).getId();
                                         } catch (Exception e) {
                                             HostAppInfo.b.x = null;
                                             LogPrinter.e(e);
@@ -284,7 +283,7 @@ public class HostAppInfo {
             HostAppInfo fillHostAppInfo = fillHostAppInfo(jSONObject);
             long currentTimeMillis = System.currentTimeMillis();
             String mD5String = MD5Utils.getMD5String(fillHostAppInfo.o + fillHostAppInfo.d + fillHostAppInfo.e + fillHostAppInfo.r + currentTimeMillis + "c643144089d135c383c4c87f1df87a9d4ccc1c0f70cee0a5f78fd32d475f1a49");
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
+            jSONObject.put("ts", currentTimeMillis);
             jSONObject.put("vc", mD5String);
         }
     }
@@ -366,14 +365,14 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = bg9.c();
+            this.o = fk9.c();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.xf9
+            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.bk9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

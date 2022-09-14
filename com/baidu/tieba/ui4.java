@@ -1,74 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseIntArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.util.zip.GZIPInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ui4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray a;
+    public SparseIntArray b;
+    public ArrayList<String> c;
+    public long d;
+    public long e;
+    public String f;
+    public boolean g;
 
-    @NonNull
-    public static String a(@NonNull File file) throws IOException {
-        InterceptResult invokeL;
+    public ui4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            String canonicalPath = file.getCanonicalPath();
-            if (canonicalPath.endsWith("/")) {
-                return canonicalPath;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return canonicalPath + "/";
         }
-        return (String) invokeL.objValue;
+        this.g = false;
+        this.a = new JSONArray();
+        this.b = new SparseIntArray();
+        this.c = new ArrayList<>();
+        this.d = 0L;
+        this.e = 0L;
+        this.f = "0";
     }
 
-    @Nullable
-    public static File b(@NonNull File file, @NonNull String str) throws IOException {
-        InterceptResult invokeLL;
+    public final void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            String a = a(file);
-            String canonicalPath = new File(file, str).getCanonicalPath();
-            if (canonicalPath.startsWith(a)) {
-                return new File(canonicalPath);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a.put(jSONObject);
+        }
+    }
+
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.toString().getBytes().length >= i : invokeI.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.clear();
+            this.c.clear();
+            this.a = null;
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length() == 0 : invokeV.booleanValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.c.contains(str)) {
+            return;
+        }
+        this.c.add(str);
+    }
+
+    public final void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.b.put(i, i2);
+        }
+    }
+
+    public final void g(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            long j3 = this.d;
+            if ((j < j3 || j3 == 0) && j != 0) {
+                this.d = j;
             }
-            return null;
+            if (j2 > this.e) {
+                this.e = j2;
+            }
         }
-        return (File) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static String c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
-            return guessContentTypeFromName == null ? "text/plain" : guessContentTypeFromName;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) ? str.endsWith(".svgz") ? new GZIPInputStream(inputStream) : inputStream : (InputStream) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) ? d(file.getPath(), new FileInputStream(file)) : (InputStream) invokeL.objValue;
     }
 }

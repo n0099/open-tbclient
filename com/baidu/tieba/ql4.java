@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
 /* loaded from: classes5.dex */
 public interface ql4 {
-    void a(boolean z);
-
-    void onFail();
+    boolean onMissionCompleted(CompleteTaskToastData completeTaskToastData);
 }

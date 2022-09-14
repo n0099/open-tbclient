@@ -1,42 +1,98 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q25 extends w25 {
-    public static /* synthetic */ Interceptable $ic;
+public class q25 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q25(int i) {
-        super((String) null, 1, 0);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948039957, "Lcom/baidu/tieba/q25;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948039957, "Lcom/baidu/tieba/q25;");
+        }
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
             }
+            return bx4.k().l("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
-        if (i == 7) {
-            this.d = R.drawable.obfuscated_res_0x7f080804;
-            this.f = R.color.CAM_X0105;
-            this.j = true;
-        } else {
-            this.d = R.drawable.obfuscated_res_0x7f0809a2;
-            this.i = true;
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() == null || !TbSingleton.getInstance().getSharePanelConfData().c()) {
+                return -1;
+            }
+            int a2 = a();
+            return a2 != 2 ? a2 != 3 ? a2 != 4 ? a2 != 6 ? a2 != 8 ? R.drawable.obfuscated_res_0x7f080835 : R.drawable.obfuscated_res_0x7f080832 : R.drawable.obfuscated_res_0x7f080836 : R.drawable.obfuscated_res_0x7f080833 : R.drawable.obfuscated_res_0x7f080835 : R.drawable.obfuscated_res_0x7f080831;
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f133e);
+        return invokeV.intValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = bx4.k().m("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            return a;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) || i <= 0 || dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
+        }
+        bx4.k().w("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+        bx4.k().D("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+        a = 0L;
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(65541, null, j) == null) || dj.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
+        }
+        bx4.k().x("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+        a = j;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
+        }
     }
 }

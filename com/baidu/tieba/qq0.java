@@ -1,23 +1,50 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Message;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.tieba.vq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class qq0 implements xq0 {
+public class qq0 implements vq0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public su0 a;
+    public final gu0 a;
+
+    /* loaded from: classes5.dex */
+    public class a implements gu0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(qq0 qq0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qq0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gu0
+        @NonNull
+        public hu0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pt0() : (hu0) invokeV.objValue;
+        }
+    }
 
     public qq0() {
         Interceptable interceptable = $ic;
@@ -29,97 +56,39 @@ public abstract class qq0 implements xq0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a(this);
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vq0.a
+    public vq0 a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) ? new xq0(new rw0(this.a, context)) : (vq0) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.vq0.a
+    public vq0 b(Context context, int i, @Nullable wq0 wq0Var) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, wq0Var)) == null) {
+            if (wq0Var == null) {
+                wq0Var = wq0.b;
+            }
+            int i2 = wq0Var.a;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        return new xq0(new lq0(this.a, context));
+                    }
+                    return new xq0(new kq0(this.a, context));
+                }
+                return new xq0(new jq0(this.a, context));
+            }
+            return new xq0(new lq0(this.a, context));
         }
-        return invokeV.booleanValue;
-    }
-
-    public void e(vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vr0Var) == null) {
-            this.a.N(vr0Var);
-        }
-    }
-
-    @Nullable
-    public ViewGroup.LayoutParams f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    public bp0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.u() : (bp0) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getContentView().getContext() : (Context) invokeV.objValue;
-    }
-
-    public void h(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
-        }
-    }
-
-    public abstract void i();
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    public void k(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vr0Var) == null) {
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, playerStatus, playerStatus2) == null) {
-        }
-    }
-
-    public void o(vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, vr0Var) == null) {
-            this.a.F(vr0Var);
-        }
-    }
-
-    public void p(@NonNull su0 su0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, su0Var) == null) {
-            this.a = su0Var;
-        }
+        return (vq0) invokeLIL.objValue;
     }
 }

@@ -1,109 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class ns5 extends hz5<jr5> {
+public class ns5 implements bn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ar5 i;
-    public ar5 j;
-    public ViewGroup k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ns5(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i, boolean z) {
-        super(tbPageContext, viewGroup);
+    public ns5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (z) {
-            this.i = new ps5(tbPageContext, i);
-            this.j = new ps5(tbPageContext, i);
-            s();
-            return;
-        }
-        this.i = new os5(tbPageContext, i);
-        this.j = new os5(tbPageContext, i);
-        r();
     }
 
-    @Override // com.baidu.tieba.hz5
-    public int d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bn2
+    public boolean a(Context context, String str, re3 re3Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0831 : invokeV.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, re3Var)) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
+            statisticItem.param("uid", cr5.l().p() == null ? "" : cr5.l().p());
+            statisticItem.param("obj_param1", re3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, re3Var.e());
+            TiebaStatic.log(statisticItem);
+            if (re3Var.j() == 10 && re3Var.h() == 1013) {
+                b(context, re3Var);
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hz5
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public final void b(Context context, re3 re3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.onChangeSkinType(tbPageContext, i);
-            this.j.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, re3Var) == null) {
+            y23 b0 = y23.b0();
+            if (context == null || b0 == null) {
+                return;
+            }
+            String i = dc3.i(lo2.U().M(), b0.Y().G());
+            long h = re3Var.h();
+            String r = re3Var.r();
+            if (!(1020 == h && !TextUtils.isEmpty(r))) {
+                r = we4.b().a(h);
+            }
+            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + sg3.D() + "/" + i + "/" + re3Var.a());
+            forbiddenInfo.enableSlidingFlag = -1;
+            sn2.l(context, "type_need_update_sdk", re3Var, forbiddenInfo, b0.Y().D());
         }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12), g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-            this.k.addView(this.j.getView());
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds34), g().getResources().getDimensionPixelSize(R.dimen.tbds21), g().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds20), -1));
-            this.k.addView(this.j.getView());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
-    /* renamed from: t */
-    public void i(jr5 jr5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jr5Var) == null) || jr5Var == null) {
-            return;
-        }
-        this.i.a(jr5Var.a);
-        this.j.a(jr5Var.b);
     }
 }

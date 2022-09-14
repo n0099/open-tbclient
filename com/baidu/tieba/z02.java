@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,21 +13,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class z02 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public b b;
+    public c c;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ z02 a;
 
-        public a(SwanAppActivity swanAppActivity) {
+        public a(z02 z02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppActivity};
+                Object[] objArr = {z02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -33,37 +40,107 @@ public class z02 {
                     return;
                 }
             }
-            this.a = swanAppActivity;
+            this.a = z02Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.finish();
+                if (b02.e() || z02.e() != 0) {
+                    this.a.c = new d12(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
+                } else if (b02.f()) {
+                    this.a.c = new c12(t02.e(), this.a.b);
+                } else {
+                    yz1.c("V8Inspector", "Unknown inspect mode");
+                    return;
+                }
+                this.a.c.start();
             }
         }
     }
 
-    public static String a() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onConnected();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void start();
+
+        void stop();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306061, "Lcom/baidu/tieba/z02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948306061, "Lcom/baidu/tieba/z02;");
+                return;
+            }
+        }
+        d = mb3.a().getBoolean("Inspector", false) ? 2 : 0;
+    }
+
+    public z02(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+    }
+
+    public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? d : invokeV.intValue;
     }
 
-    public static void b(String str) {
+    public static void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a = str;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            mb3.a().putBoolean("Inspector", i == 2);
+            d = i;
         }
     }
 
-    public static void c() {
-        SwanAppActivity activity;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (activity = nm2.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed()) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
+        }
+    }
+
+    public void i() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.c) == null) {
             return;
         }
-        ue3.a0(new a(activity));
+        cVar.stop();
+        this.c = null;
     }
 }

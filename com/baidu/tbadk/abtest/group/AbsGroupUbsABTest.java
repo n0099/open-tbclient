@@ -3,8 +3,8 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.go4;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.lq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,17 +32,17 @@ public abstract class AbsGroupUbsABTest {
         }
     }
 
-    public static void setCardInfoUbsABTest(List<pn> list) {
+    public static void setCardInfoUbsABTest(List<Cdo> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
             return;
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
-        for (pn pnVar : list) {
-            if (pnVar instanceof go4) {
-                go4 go4Var = (go4) pnVar;
+        for (Cdo cdo : list) {
+            if (cdo instanceof lq4) {
+                lq4 lq4Var = (lq4) cdo;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    go4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    lq4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }

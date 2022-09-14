@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.tabHost;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -11,10 +12,11 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -136,7 +138,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.v = false;
         this.w = false;
         this.y = false;
-        this.z = true;
+        this.z = false;
         f();
     }
 
@@ -269,8 +271,8 @@ public class FragmentTabWidget extends LinearLayout {
             paint.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
-            this.l = ri.d(getContext(), 1.0f);
-            this.m = ri.d(getContext(), 2.0f);
+            this.l = ej.d(getContext(), 1.0f);
+            this.m = ej.d(getContext(), 2.0f);
             this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;
@@ -292,6 +294,10 @@ public class FragmentTabWidget extends LinearLayout {
                 return;
             }
             SkinManager.setBackgroundColor(this, i);
+            Context context = getContext();
+            if (context instanceof Activity) {
+                UtilHelper.setNavigationBarBg((Activity) context, SkinManager.getColor(i));
+            }
         }
     }
 
@@ -512,7 +518,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.v = false;
         this.w = false;
         this.y = false;
-        this.z = true;
+        this.z = false;
         f();
     }
 }

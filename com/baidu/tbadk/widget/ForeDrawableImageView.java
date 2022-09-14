@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.sn4;
+import com.baidu.tieba.up4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,7 +49,7 @@ public class ForeDrawableImageView extends TbImageView {
 
     public final void Q(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || sn4.c().g()) {
+        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || up4.c().g()) {
             return;
         }
         canvas.drawText(this.w0, (int) (i - (this.y0.measureText(this.w0) / 2.0f)), i2 + this.x0, this.y0);

@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
@@ -256,7 +255,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             TypedValue typedValue = new TypedValue();
             if (getContext().getTheme().resolveAttribute(i, typedValue, true)) {
                 ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-                if (getContext().getTheme().resolveAttribute(R$attr.colorPrimary, typedValue, true)) {
+                if (getContext().getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040178, typedValue, true)) {
                     int i2 = typedValue.data;
                     int defaultColor = colorStateList.getDefaultColor();
                     return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i2, defaultColor});

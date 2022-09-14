@@ -1,89 +1,86 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.d83;
+import com.baidu.tieba.h22;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sp1 extends rp1 {
+public class sp1 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements rh3<b83<d83.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ a13 d;
+        public final /* synthetic */ h22 d;
         public final /* synthetic */ sp1 e;
 
-        public a(sp1 sp1Var, File file, int i, String str, a13 a13Var) {
+        public a(sp1 sp1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, h22 h22Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sp1Var, file, Integer.valueOf(i), str, a13Var};
+                Object[] objArr = {sp1Var, callbackHandler, unitedSchemeEntity, str, h22Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.e = sp1Var;
-            this.a = file;
-            this.b = i;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
             this.c = str;
-            this.d = a13Var;
+            this.d = h22Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(b83<d83.e> b83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File k = yd3.k(this.a.getName());
-                if (!yd3.b(this.a, k, this.b)) {
-                    ay1.c("ImageApi", "compress image failed");
-                    this.e.d(this.c, new at1(1001, "compress image failed"));
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
+                if (!w73.h(b83Var)) {
+                    w73.p(b83Var, this.a, this.b);
+                } else {
+                    this.e.k(this.c, this.d, this.a, this.b);
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("tempFilePath", i83.J(k.getAbsolutePath(), this.d.b));
-                } catch (JSONException e) {
-                    ay1.c("ImageApi", e.toString());
-                }
-                this.e.d(this.c, new at1(0, jSONObject));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sp1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    public sp1(v33 v33Var) {
+        super(v33Var, "/swanAPI/openAdLandingPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,66 +88,51 @@ public class sp1 extends rp1 {
         }
     }
 
-    @Override // com.baidu.tieba.dp1
-    public String j() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("OpenAdLandingPageAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            String o = h63.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                yz1.i("AdLanding", "adLanding: url is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            h22 V = lo2.U().V();
+            if (V == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals(h63.n(unitedSchemeEntity, "params", "invokeFrom"), "boxjs")) {
+                k(o, V, callbackHandler, unitedSchemeEntity);
+                return true;
+            } else {
+                y23Var.e0().g(context, "mapp_i_open_adlanding", new a(this, callbackHandler, unitedSchemeEntity, o, V));
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
     }
 
-    public at1 x(String str) {
-        InterceptResult invokeL;
+    public final void j(ys2 ys2Var, h22 h22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#compressImage", false);
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    ay1.c("ImageApi", "cb is empty");
-                    return new at1(202, "cb is empty");
-                }
-                return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
-            }
-            return at1Var;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ys2Var, h22Var) == null) {
+            yz1.i("AdLanding", "openAdLanding: page url=" + ys2Var.c);
+            h22.b i = h22Var.i("adLanding");
+            i.n(h22.g, h22.i);
+            i.k("adLanding", ys2Var).b();
         }
-        return (at1) invokeL.objValue;
     }
 
-    public final at1 y(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public void k(String str, h22 h22Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
-            a13 b0 = a13.b0();
-            if (b0 == null) {
-                return new at1(1001, "swan app is null");
-            }
-            int i2 = (i < 0 || i > 100) ? 80 : i;
-            if (TextUtils.isEmpty(str2)) {
-                ay1.c("ImageApi", "src is null");
-                return new at1(202, "src is null");
-            }
-            PathType s = i83.s(str2);
-            String str3 = null;
-            if (s == PathType.BD_FILE) {
-                str3 = i83.M(str2, b0.b);
-            } else if (s == PathType.RELATIVE) {
-                str3 = i83.L(str2, b0, b0.k0());
-            }
-            if (TextUtils.isEmpty(str3)) {
-                ay1.c("ImageApi", "file path error");
-                return new at1(2001, "file path error");
-            }
-            File file = new File(str3);
-            if (!file.exists()) {
-                ay1.c("ImageApi", "file does not exist");
-                return new at1(2001, "file does not exist");
-            }
-            ud3.k(new a(this, file, i2, str, b0), "compressImage");
-            return at1.f();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, h22Var, callbackHandler, unitedSchemeEntity) == null) {
+            j(ys2.d(str, str), h22Var);
+            yz1.i("AdLanding", "open adLanding page success");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         }
-        return (at1) invokeLLI.objValue;
     }
 }

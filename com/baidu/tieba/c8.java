@@ -1,450 +1,199 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
 /* loaded from: classes3.dex */
-public class c8<T> implements Iterable<T> {
+public final class c8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T[] a;
-    public int b;
-    public int c;
-    public int d;
-    public transient a e;
 
-    /* loaded from: classes3.dex */
-    public static class a<T> implements Iterable<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final c8<T> a;
-        public final boolean b;
-        public b c;
-        public b d;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(c8<T> c8Var) {
-            this(c8Var, true);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((c8) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.lang.Iterable
-        public Iterator<T> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (f7.a) {
-                    return new b(this.a, this.b);
-                }
-                if (this.c == null) {
-                    this.c = new b(this.a, this.b);
-                    this.d = new b(this.a, this.b);
-                }
-                b bVar = this.c;
-                if (!bVar.d) {
-                    bVar.c = 0;
-                    bVar.d = true;
-                    this.d.d = false;
-                    return bVar;
-                }
-                b bVar2 = this.d;
-                bVar2.c = 0;
-                bVar2.d = true;
-                bVar.d = false;
-                return bVar2;
-            }
-            return (Iterator) invokeV.objValue;
-        }
-
-        public a(c8<T> c8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c8Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = c8Var;
-            this.b = z;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b<T> implements Iterator<T>, Iterable<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final c8<T> a;
-        public final boolean b;
-        public int c;
-        public boolean d;
-
-        public b(c8<T> c8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c8Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = true;
-            this.a = c8Var;
-            this.b = z;
-        }
-
-        @Override // java.util.Iterator
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.d) {
-                    return this.c < this.a.d;
-                }
-                throw new GdxRuntimeException("#iterator() cannot be used nested.");
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // java.lang.Iterable
-        public Iterator<T> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (Iterator) invokeV.objValue;
-        }
-
-        @Override // java.util.Iterator
-        public T next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.c;
-                c8<T> c8Var = this.a;
-                if (i < c8Var.d) {
-                    if (this.d) {
-                        this.c = i + 1;
-                        return c8Var.get(i);
-                    }
-                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
-                }
-                throw new NoSuchElementException(String.valueOf(this.c));
-            }
-            return (T) invokeV.objValue;
-        }
-
-        @Override // java.util.Iterator
-        public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.b) {
-                    int i = this.c - 1;
-                    this.c = i;
-                    this.a.a(i);
-                    return;
-                }
-                throw new GdxRuntimeException("Remove not allowed.");
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public c8() {
-        this(16);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public T a(int i) {
-        InterceptResult invokeI;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0) {
-                if (i < this.d) {
-                    T[] tArr = this.a;
-                    int i2 = this.b;
-                    int i3 = this.c;
-                    int i4 = i + i2;
-                    if (i2 < i3) {
-                        t = tArr[i4];
-                        System.arraycopy(tArr, i4 + 1, tArr, i4, i3 - i4);
-                        tArr[i3] = null;
-                        this.c--;
-                    } else if (i4 >= tArr.length) {
-                        int length = i4 - tArr.length;
-                        t = tArr[length];
-                        System.arraycopy(tArr, length + 1, tArr, length, i3 - length);
-                        this.c--;
-                    } else {
-                        T t2 = tArr[i4];
-                        System.arraycopy(tArr, i2, tArr, i2 + 1, i4 - i2);
-                        tArr[i2] = null;
-                        int i5 = this.b + 1;
-                        this.b = i5;
-                        if (i5 == tArr.length) {
-                            this.b = 0;
-                        }
-                        t = t2;
-                    }
-                    this.d--;
-                    return t;
-                }
-                throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.d);
-            }
-            throw new IndexOutOfBoundsException("index can't be < 0: " + i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void addLast(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            T[] tArr = this.a;
-            if (this.d == tArr.length) {
-                b(tArr.length << 1);
-                tArr = this.a;
-            }
-            int i = this.c;
-            int i2 = i + 1;
-            this.c = i2;
-            tArr[i] = t;
-            if (i2 == tArr.length) {
-                this.c = 0;
-            }
-            this.d++;
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            T[] tArr = this.a;
-            int i2 = this.b;
-            int i3 = this.c;
-            T[] tArr2 = (T[]) ((Object[]) s8.a(tArr.getClass().getComponentType(), i));
-            if (i2 < i3) {
-                System.arraycopy(tArr, i2, tArr2, 0, i3 - i2);
-            } else if (this.d > 0) {
-                int length = tArr.length - i2;
-                System.arraycopy(tArr, i2, tArr2, 0, length);
-                System.arraycopy(tArr, 0, tArr2, length, i3);
-            }
-            this.a = tArr2;
-            this.b = 0;
-            this.c = this.d;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x003c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x003f  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0040 A[SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0132, code lost:
+        if (r11 != 3) goto L56;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static void a(x7<String, String> x7Var, Reader reader) throws IOException {
+        char c;
+        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || !(obj instanceof c8)) {
-                return false;
-            }
-            c8 c8Var = (c8) obj;
-            int i = this.d;
-            if (c8Var.d != i) {
-                return false;
-            }
-            T[] tArr = this.a;
-            int length = tArr.length;
-            T[] tArr2 = c8Var.a;
-            int length2 = tArr2.length;
-            int i2 = this.b;
-            int i3 = c8Var.b;
-            for (int i4 = 0; i4 < i; i4++) {
-                T t = tArr[i2];
-                T t2 = tArr2[i3];
-                if (t == null) {
-                    if (t2 != null) {
-                        return false;
+        if (interceptable != null && interceptable.invokeLL(65536, null, x7Var, reader) != null) {
+            return;
+        }
+        if (x7Var == null) {
+            throw new NullPointerException("properties cannot be null");
+        }
+        if (reader != null) {
+            char[] cArr = new char[40];
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            char c3 = 2;
+            char c4 = 1;
+            int i = 0;
+            char c5 = 0;
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                int i4 = -1;
+                boolean z = true;
+                while (true) {
+                    int read = bufferedReader.read();
+                    if (read == -1) {
+                        if (c5 == c3 && i2 <= 4) {
+                            throw new IllegalArgumentException("Invalid Unicode sequence: expected format \\uxxxx");
+                        }
+                        if (i4 == -1 && i > 0) {
+                            i4 = i;
+                        }
+                        if (i4 >= 0) {
+                            String str = new String(cArr, 0, i);
+                            String substring = str.substring(0, i4);
+                            String substring2 = str.substring(i4);
+                            if (c5 == c4) {
+                                substring2 = substring2 + "\u0000";
+                            }
+                            x7Var.i(substring, substring2);
+                            return;
+                        }
+                        return;
                     }
-                    i2++;
-                    i3++;
-                    if (i2 == length) {
-                        i2 = 0;
+                    char c6 = (char) read;
+                    if (i == cArr.length) {
+                        char[] cArr2 = new char[cArr.length * 2];
+                        System.arraycopy(cArr, 0, cArr2, 0, i);
+                        cArr = cArr2;
                     }
-                    if (i3 != length2) {
-                        i3 = 0;
+                    if (c5 == c3) {
+                        int digit = Character.digit(c6, 16);
+                        if (digit >= 0) {
+                            i3 = (i3 << 4) + digit;
+                            i2++;
+                            if (i2 < 4) {
+                                c3 = 2;
+                            }
+                        } else if (i2 <= 4) {
+                            throw new IllegalArgumentException("Invalid Unicode sequence: illegal character");
+                        }
+                        cArr[i] = (char) i3;
+                        i++;
+                        if (c6 != '\n') {
+                            c3 = 2;
+                            c5 = 0;
+                        } else {
+                            c5 = 0;
+                        }
                     }
-                } else {
-                    if (!t.equals(t2)) {
-                        return false;
+                    if (c5 != c4) {
+                        if (c6 == '\n') {
+                            if (c5 != 3) {
+                                break;
+                            }
+                            c3 = 2;
+                            c4 = 1;
+                            c5 = 5;
+                        } else if (c6 == '\r') {
+                            break;
+                        } else {
+                            if (c6 == '!' || c6 == '#') {
+                                if (z) {
+                                    do {
+                                        int read2 = bufferedReader.read();
+                                        if (read2 == -1 || (c = (char) read2) == '\r') {
+                                            break;
+                                        }
+                                    } while (c != '\n');
+                                    c3 = 2;
+                                    c4 = 1;
+                                }
+                            } else if (c6 == ':' || c6 == '=') {
+                                if (i4 == -1) {
+                                    i4 = i;
+                                    c3 = 2;
+                                    c4 = 1;
+                                    c5 = 0;
+                                }
+                            } else if (c6 == '\\') {
+                                if (c5 == 4) {
+                                    i4 = i;
+                                }
+                                c3 = 2;
+                                c4 = 1;
+                                c5 = 1;
+                            }
+                            if (Character.isSpace(c6)) {
+                                if (c5 == 3) {
+                                    c5 = 5;
+                                }
+                                if (i != 0 && i != i4) {
+                                    c2 = 5;
+                                    if (c5 != 5) {
+                                        if (i4 == -1) {
+                                            c3 = 2;
+                                            c4 = 1;
+                                            c5 = 4;
+                                        }
+                                    }
+                                }
+                                c3 = 2;
+                                c4 = 1;
+                            } else {
+                                c2 = 5;
+                            }
+                            if (c5 != c2) {
+                            }
+                            c5 = 0;
+                        }
+                    } else if (c6 == '\n') {
+                        c3 = 2;
+                        c5 = 5;
+                    } else if (c6 != '\r') {
+                        if (c6 == 'b') {
+                            c6 = '\b';
+                        } else if (c6 == 'f') {
+                            c6 = '\f';
+                        } else if (c6 == 'n') {
+                            c6 = '\n';
+                        } else if (c6 == 'r') {
+                            c6 = '\r';
+                        } else if (c6 == 't') {
+                            c6 = '\t';
+                        } else if (c6 == 'u') {
+                            c3 = 2;
+                            c5 = 2;
+                            i2 = 0;
+                            i3 = 0;
+                        }
+                        c5 = 0;
+                    } else {
+                        c3 = 2;
+                        c5 = 3;
                     }
-                    i2++;
-                    i3++;
-                    if (i2 == length) {
+                    if (c5 == 4) {
+                        i4 = i;
+                        c5 = 0;
                     }
-                    if (i3 != length2) {
-                    }
+                    cArr[i] = c6;
+                    i++;
+                    c3 = 2;
+                    c4 = 1;
+                    z = false;
                 }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public T get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i >= 0) {
-                if (i < this.d) {
-                    T[] tArr = this.a;
-                    int i2 = this.b + i;
-                    if (i2 >= tArr.length) {
-                        i2 -= tArr.length;
+                if (i > 0 || (i == 0 && i4 == 0)) {
+                    if (i4 == -1) {
+                        i4 = i;
                     }
-                    return tArr[i2];
+                    String str2 = new String(cArr, 0, i);
+                    x7Var.i(str2.substring(0, i4), str2.substring(i4));
                 }
-                throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.d);
+                c3 = 2;
+                c4 = 1;
+                i = 0;
+                c5 = 0;
             }
-            throw new IndexOutOfBoundsException("index can't be < 0: " + i);
+        } else {
+            throw new NullPointerException("reader cannot be null");
         }
-        return (T) invokeI.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.d;
-            T[] tArr = this.a;
-            int length = tArr.length;
-            int i2 = this.b;
-            int i3 = i + 1;
-            for (int i4 = 0; i4 < i; i4++) {
-                T t = tArr[i2];
-                i3 *= 31;
-                if (t != null) {
-                    i3 += t.hashCode();
-                }
-                i2++;
-                if (i2 == length) {
-                    i2 = 0;
-                }
-            }
-            return i3;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.lang.Iterable
-    public Iterator<T> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (f7.a) {
-                return new b(this, true);
-            }
-            if (this.e == null) {
-                this.e = new a(this);
-            }
-            return this.e.iterator();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048583, this)) != null) {
-            return (String) invokeV.objValue;
-        }
-        if (this.d == 0) {
-            return "[]";
-        }
-        T[] tArr = this.a;
-        int i = this.b;
-        int i2 = this.c;
-        j8 j8Var = new j8(64);
-        j8Var.a('[');
-        j8Var.m(tArr[i]);
-        while (true) {
-            i = (i + 1) % tArr.length;
-            if (i != i2) {
-                j8Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                j8Var.m(tArr[i]);
-            } else {
-                j8Var.a(']');
-                return j8Var.toString();
-            }
-        }
-    }
-
-    public c8(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.a = (T[]) new Object[i];
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.b7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,68 +11,104 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class s46 {
+public final class s46 extends k46 {
     public static /* synthetic */ Interceptable $ic;
-    public static final s46 a;
-    public static final r0 b;
-    public static final Class<? extends u26>[] c;
-    public static final r0 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101492, "Lcom/baidu/tieba/s46;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948101492, "Lcom/baidu/tieba/s46;");
-                return;
-            }
-        }
-        a = new s46();
-        r0 b2 = r0.d(z26.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{z26.class, y26.class};
-        r0.b d2 = r0.d(z26.class, y26.class);
-        d2.c(a36.class, c36.class);
-        r0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
-    }
+    public final b7<r46> b;
+    public final PointF c;
+    public float d;
+    public final PointF e;
+    public float f;
 
     public s46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new b7<>(0);
+        this.c = new PointF();
+        this.e = new PointF(1.0f, 1.0f);
+        this.f = 1.0f;
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            g();
+            b7.b<r46> it = this.b.iterator();
+            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
+            while (it.hasNext()) {
+                it.next().a(j);
             }
         }
     }
 
-    public final r0 a() {
-        InterceptResult invokeV;
+    public final void d(r46 action) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (r0) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
+            Intrinsics.checkNotNullParameter(action, "action");
+            action.c(this);
+            action.b();
+            this.b.a(action);
+        }
     }
 
-    public final Class<? extends u26>[] b() {
+    public final float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (Class[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.floatValue;
     }
 
-    public final r0 c() {
+    public final PointF f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (r0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (PointF) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a().f().u();
+            this.c.set(0.0f, 0.0f);
+            this.d = 0.0f;
+            this.e.set(1.0f, 1.0f);
+            this.f = 1.0f;
+        }
+    }
+
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    public final void i(Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
+            Intrinsics.checkNotNullParameter(matrix, "matrix");
+            PointF pointF = this.e;
+            matrix.setScale(pointF.x, pointF.y);
+            matrix.postRotate(this.d);
+            PointF pointF2 = this.c;
+            matrix.postTranslate(pointF2.x, pointF2.y);
+        }
+    }
+
+    @Override // com.baidu.tieba.k46, com.baidu.tieba.a8.a
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.reset();
+            g();
+            this.b.clear();
+        }
     }
 }

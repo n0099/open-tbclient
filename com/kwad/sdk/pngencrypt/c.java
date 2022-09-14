@@ -4,7 +4,7 @@ import com.kwad.sdk.pngencrypt.ChunkReader;
 import com.kwad.sdk.pngencrypt.chunk.ChunkLoadBehaviour;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends b {
     public k ajL;
     public k ajM;
@@ -23,7 +23,7 @@ public final class c extends b {
     public g ajY = new com.kwad.sdk.pngencrypt.chunk.a();
 
     /* renamed from: com.kwad.sdk.pngencrypt.c$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] aka;
 
@@ -84,7 +84,7 @@ public final class c extends b {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static boolean m85do(String str) {
+    public static boolean m86do(String str) {
         return !com.kwad.sdk.pngencrypt.chunk.b.dr(str);
     }
 
@@ -128,7 +128,7 @@ public final class c extends b {
             }
             this.ajP = new com.kwad.sdk.pngencrypt.chunk.e(this.ajL);
         }
-        if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER && m85do(chunkReader.xT().alB)) {
+        if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER && m86do(chunkReader.xT().alB)) {
             this.ajR += chunkReader.xT().len;
         }
         if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER || this.ajT) {

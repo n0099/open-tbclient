@@ -1,151 +1,24 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class b02 implements mn1 {
+public class b02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
+    public static String b;
+    public static String c;
+    public static a02 d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<c02> a;
-    public final Lock b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public c e;
-    public WebKitFactory.IForceInitZeusListener f;
-
-    /* loaded from: classes3.dex */
-    public class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b02 a;
-
-        public a(b02 b02Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b02Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b02Var;
-        }
-
-        @Override // com.baidu.tieba.b02.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.d = true;
-                    this.a.j();
-                    this.a.p();
-                } finally {
-                    this.a.b.unlock();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements WebKitFactory.IForceInitZeusListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b02 a;
-
-        public b(b02 b02Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b02Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b02Var;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusFinish(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.c = true;
-                    this.a.p();
-                    this.a.b.unlock();
-                    BdSailor.getInstance().removeForceInitListener(this.a.f);
-                } catch (Throwable th) {
-                    this.a.b.unlock();
-                    throw th;
-                }
-            }
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusStart() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && b02.g) {
-                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b02 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-970735003, "Lcom/baidu/tieba/b02$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-970735003, "Lcom/baidu/tieba/b02$d;");
-                    return;
-                }
-            }
-            a = new b02(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -160,167 +33,103 @@ public class b02 implements mn1 {
                 return;
             }
         }
-        g = kh1.a;
+        a = ij1.a;
+        b = "";
+        c = "";
+        e = 0;
     }
 
-    public /* synthetic */ b02(a aVar) {
-        this();
-    }
-
-    public static b02 k() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? d.a : (b02) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mn1
-    public void a(c02 c02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c02Var) == null) {
-            try {
-                this.b.lock();
-                if (c02Var != null && this.a.contains(c02Var)) {
-                    this.a.remove(c02Var);
-                }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mn1
-    public void b(c02 c02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c02Var) == null) {
-            try {
-                this.b.lock();
-                if (c02Var == null) {
-                    return;
-                }
-                if (!this.a.contains(c02Var)) {
-                    this.a.add(c02Var);
-                }
-                if (n()) {
-                    p();
-                }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    public final synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    WebSettingsGlobalBlink.setFileInIOEnabled(true);
-                }
-            }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m(false);
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            hk2.g().d(z);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
-        if (o() != false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean n() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                this.b.lock();
-                if (g) {
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.d);
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.c + " ,isZeusForceInited: " + o());
-                }
-                if (this.d) {
-                    if (!this.c) {
-                    }
-                    z = true;
-                    return z;
-                }
-                z = false;
-                return z;
-            } finally {
-                this.b.unlock();
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean o() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g) {
-                Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
-                Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + b;
             }
-            return !BdSailor.getInstance().checkZeusForceInit() || (BdSailor.getInstance().checkZeusForceInit() && BdSailor.getInstance().isZeusForceInited());
+            return "";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void p() {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.b.lock();
-                if (n()) {
-                    Iterator<c02> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        c02 next = it.next();
-                        if (next != null) {
-                            next.a();
-                        }
-                    }
-                    this.a.clear();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c : (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? e == 2 : invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? e == 1 : invokeV.booleanValue;
+    }
+
+    public static void g(Bundle bundle) {
+        a02 a02Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, bundle) == null) || (a02Var = d) == null) {
+            return;
+        }
+        a02Var.b(bundle);
+    }
+
+    public static void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
+            String i = xf3.i(bundle, "extraWSUrl");
+            String i2 = xf3.i(bundle, "adb_debug_path");
+            if (!TextUtils.isEmpty(i)) {
+                d = new t02();
+                e = 1;
+            } else if (!TextUtils.isEmpty(i2)) {
+                d = new d02();
+                e = 2;
+            } else {
+                if (a) {
+                    Log.d("UserDebugParams", "not debug mode");
                 }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    public b02() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                e = 0;
+                d = null;
                 return;
             }
+            d.a(bundle);
         }
-        this.a = new ArrayList<>();
-        this.b = new ReentrantLock();
-        this.c = false;
-        this.d = false;
-        this.e = new a(this);
-        b bVar = new b(this);
-        this.f = bVar;
-        BdSailor.addForceInitListener(bVar);
-        hk2.g().h(this.e);
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            b = str;
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c = str;
+        }
     }
 }

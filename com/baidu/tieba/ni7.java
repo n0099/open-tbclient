@@ -1,74 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.pay.IPayCallback;
-import com.baidu.searchbox.live.interfaces.pay.IPayChannel;
-import com.baidu.searchbox.live.interfaces.pay.PayChannelType;
-import com.baidu.searchbox.live.interfaces.pay.YYPayResultService;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.wallet.ITiebaPay;
-import com.baidu.tieba.wallet.ITiebaPayCallback;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ni7 implements PayChannelService {
+public class ni7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ITiebaPay a;
+    public final Context a;
+    public ArrayList<String> b;
+    public final String c;
+    public boolean d;
 
     /* loaded from: classes5.dex */
-    public class a implements IPayChannel {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ni7 a;
+    }
 
-        /* renamed from: com.baidu.tieba.ni7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0341a implements ITiebaPayCallback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ IPayCallback a;
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public View b;
 
-            public C0341a(a aVar, IPayCallback iPayCallback) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, iPayCallback};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = iPayCallback;
-            }
-
-            @Override // com.baidu.tieba.wallet.ITiebaPayCallback
-            public void onPayResult(int i, String str) {
-                IPayCallback iPayCallback;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || (iPayCallback = this.a) == null) {
-                    return;
-                }
-                iPayCallback.onPayResult(i, str);
-            }
-        }
-
-        public a(ni7 ni7Var) {
+        public b(ni7 ni7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,62 +49,21 @@ public class ni7 implements PayChannelService {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ni7Var;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public PayChannelType getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PayChannelType.WALLET : (PayChannelType) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public String getUaForFrontPay() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return wf5.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void onPayResult(String str, String str2, String str3, Context context, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, context, Boolean.valueOf(z)}) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) || hashMap == null || hashMap.isEmpty()) {
-                return;
-            }
-            this.a.c();
-            if (this.a.a != null) {
-                this.a.a.pay(hashMap.remove("channel"), hashMap, new C0341a(this, iPayCallback));
-            } else if (iPayCallback != null) {
-                iPayCallback.onPayResult(2, null);
-            }
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
+        public /* synthetic */ b(ni7 ni7Var, a aVar) {
+            this(ni7Var);
         }
     }
 
-    public ni7() {
+    public ni7(Context context, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,37 +73,92 @@ public class ni7 implements PayChannelService {
                 return;
             }
         }
-        this.a = null;
+        this.a = context;
+        this.b = arrayList;
+        this.d = true;
+        this.c = context.getText(R.string.obfuscated_res_0x7f0f066e).toString();
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
-    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
-        InterceptResult invokeL;
+    public void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payChannelType)) == null) {
-            if (payChannelType == PayChannelType.WALLET) {
-                return new a(this);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+            this.b = arrayList;
         }
-        return (IPayChannel) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
-    public YYPayResultService buildYYPayResChannel() {
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<String> arrayList = this.b;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
         }
-        return (YYPayResultService) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void c() {
-        CustomResponsedMessage runTask;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.a = (ITiebaPay) runTask.getData();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int count = getCount();
+            if (count <= 0 || i >= count) {
+                return null;
+            }
+            return this.b.get(i);
         }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    @SuppressLint({"ResourceAsColor"})
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0390, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d93);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090d8a);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            Object item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            String str = (String) item;
+            if (this.d) {
+                bVar.a.setText(str.concat(this.c));
+            } else {
+                bVar.a.setText(str);
+            }
+            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

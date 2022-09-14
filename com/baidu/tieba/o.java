@@ -1,43 +1,128 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
 import com.baidu.cloudbase.download.exception.DownloadException;
-import com.baidu.tieba.e;
+import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Map;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public abstract class o implements e {
+public class o implements e10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final i b;
-    public final k c;
-    public final e.a d;
-    public volatile int e;
-    public volatile int f;
+    public Executor a;
 
-    public o(i iVar, k kVar, e.a aVar) {
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final d10 a;
+        public final c10 b;
+
+        public a(d10 d10Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d10Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d10Var;
+            this.b = d10Var.a();
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                switch (this.a.h()) {
+                    case 102:
+                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
+                        this.b.c();
+                        return;
+                    case 103:
+                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
+                        this.b.b(this.a.e(), this.a.i());
+                        return;
+                    case 104:
+                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
+                        this.b.g(this.a.d(), this.a.e(), this.a.f());
+                        return;
+                    case 105:
+                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
+                        if (this.a.b()) {
+                            return;
+                        }
+                        this.a.l(true);
+                        this.b.a(this.a.g());
+                        return;
+                    case 106:
+                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
+                        this.b.e();
+                        return;
+                    case 107:
+                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
+                        this.b.d();
+                        return;
+                    case 108:
+                        i10.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
+                        this.b.f((DownloadException) this.a.c());
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Handler a;
+
+        public b(o oVar, Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler;
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                this.a.post(runnable);
+            }
+        }
+    }
+
+    public o(Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iVar, kVar, aVar};
+            Object[] objArr = {handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,248 +132,14 @@ public abstract class o implements e {
                 return;
             }
         }
-        this.f = 0;
-        this.b = iVar;
-        this.c = kVar;
-        this.d = aVar;
-        String k = k();
-        this.a = k;
-        if (TextUtils.isEmpty(k)) {
-            this.a = getClass().getSimpleName();
-        }
+        this.a = new b(this, handler);
     }
 
-    public abstract RandomAccessFile a(File file, String str, long j);
-
-    public abstract Map<String, String> b(k kVar);
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0058 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0076  */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.tieba.o, java.lang.Object] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void c() {
-        IOException e;
-        ProtocolException e2;
+    @Override // com.baidu.tieba.e10
+    public void a(d10 d10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        try {
-            URL url = new URL(this.c.a);
-            ?? r2 = 0;
-            try {
-                try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                    try {
-                        httpURLConnection.setConnectTimeout(4000);
-                        httpURLConnection.setReadTimeout(4000);
-                        httpURLConnection.setRequestMethod("GET");
-                        h(b(this.c), httpURLConnection);
-                        int responseCode = httpURLConnection.getResponseCode();
-                        if (responseCode == i()) {
-                            g(httpURLConnection);
-                            httpURLConnection.disconnect();
-                            return;
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("UnSupported response code:");
-                        sb.append(responseCode);
-                        throw new DownloadException(108, sb.toString());
-                    } catch (ProtocolException e3) {
-                        e2 = e3;
-                        throw new DownloadException(108, "Protocol error", e2);
-                    } catch (IOException e4) {
-                        e = e4;
-                        throw new DownloadException(108, "IO error", e);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    r2 = url;
-                    if (r2 != 0) {
-                        r2.disconnect();
-                    }
-                    throw th;
-                }
-            } catch (ProtocolException e5) {
-                e2 = e5;
-            } catch (IOException e6) {
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (r2 != 0) {
-                }
-                throw th;
-            }
-        } catch (MalformedURLException e7) {
-            throw new DownloadException(108, "Bad url.", e7);
-        }
-    }
-
-    public final void d(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
-            switch (downloadException.getErrorCode()) {
-                case 106:
-                    synchronized (this.d) {
-                        this.e = 106;
-                        ((m) this.d).h();
-                    }
-                    return;
-                case 107:
-                    synchronized (this.d) {
-                        this.e = 107;
-                        ((m) this.d).g();
-                    }
-                    return;
-                case 108:
-                    synchronized (this.d) {
-                        this.e = 108;
-                        ((m) this.d).f(downloadException);
-                    }
-                    return;
-                default:
-                    throw new IllegalArgumentException("Unknown state");
-            }
-        }
-    }
-
-    public final void e(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, closeable) == null) || closeable == null) {
-            return;
-        }
-        synchronized (o.class) {
-            closeable.close();
-        }
-    }
-
-    public final void f(InputStream inputStream, RandomAccessFile randomAccessFile) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, randomAccessFile) == null) {
-            byte[] bArr = new byte[8192];
-            while (this.f != 107) {
-                if (this.f != 106) {
-                    try {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            return;
-                        }
-                        randomAccessFile.write(bArr, 0, read);
-                        long j = read;
-                        this.c.d += j;
-                        synchronized (this.d) {
-                            this.b.d += j;
-                            ((m) this.d).b(this.b.d, this.b.c);
-                        }
-                    } catch (IOException e) {
-                        l(this.c);
-                        throw new DownloadException(108, e);
-                    }
-                } else {
-                    l(this.c);
-                    throw new DownloadException(106, "Download paused!");
-                }
-            }
-            throw new DownloadException(107, "Download canceled!");
-        }
-    }
-
-    public final void g(HttpURLConnection httpURLConnection) {
-        Throwable th;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048582, this, httpURLConnection) != null) {
-            return;
-        }
-        try {
-            try {
-                inputStream = httpURLConnection.getInputStream();
-                try {
-                    long j = this.c.b + this.c.d;
-                    try {
-                        File file = this.b.b;
-                        if (!file.exists()) {
-                            file.mkdirs();
-                        }
-                        RandomAccessFile a = a(file, this.b.a, j);
-                        f(inputStream, a);
-                        try {
-                            e(inputStream);
-                            e(a);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    } catch (IOException e2) {
-                        throw new DownloadException(108, "File occur IOException ", e2);
-                    } catch (Exception e3) {
-                        throw new DownloadException(108, "Occur Exception ", e3);
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        e(inputStream);
-                        e(null);
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                    throw th;
-                }
-            } catch (IOException e5) {
-                throw new DownloadException(108, "http get inputStream error", e5);
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            inputStream = null;
-        }
-    }
-
-    public final void h(Map<String, String> map, URLConnection uRLConnection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, map, uRLConnection) == null) || map == null) {
-            return;
-        }
-        for (String str : map.keySet()) {
-            uRLConnection.setRequestProperty(str, map.get(str));
-        }
-    }
-
-    public abstract int i();
-
-    public abstract void j(k kVar);
-
-    public abstract String k();
-
-    public abstract void l(k kVar);
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e == 104 : invokeV.booleanValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Process.setThreadPriority(10);
-            j(this.c);
-            try {
-                this.e = 104;
-                c();
-                synchronized (this.d) {
-                    this.e = 105;
-                    e.a aVar = this.d;
-                    ((m) aVar).d(this.b.b.getAbsolutePath() + File.separator + this.b.a);
-                }
-            } catch (DownloadException e) {
-                d(e);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, d10Var) == null) {
+            this.a.execute(new a(d10Var));
         }
     }
 }

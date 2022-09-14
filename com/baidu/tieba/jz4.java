@@ -1,139 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class jz4 {
+public class jz4 extends gz4<iz4, a> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<iz4> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context d;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a extends BdBaseViewPagerAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz4 a;
+        public TbImageView d;
 
-        public a(iz4 iz4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jz4 jz4Var, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iz4Var};
+                Object[] objArr = {jz4Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = iz4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A();
-                boolean unused = jz4.a = true;
+            if (view2 instanceof TbImageView) {
+                TbImageView tbImageView = (TbImageView) view2;
+                this.d = tbImageView;
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz4 a;
-
-        public b(iz4 iz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iz4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    public static iz4 b() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jz4(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            WeakReference<iz4> weakReference = b;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gz4
+    /* renamed from: f */
+    public a b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            TbImageView tbImageView = new TbImageView(this.d);
+            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            return new a(this, tbImageView);
+        }
+        return (a) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gz4
+    /* renamed from: g */
+    public View d(ViewGroup viewGroup, a aVar, iz4 iz4Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, iz4Var)) == null) {
+            aVar.d.K(iz4Var.a(), 10, false);
             return null;
         }
-        return (iz4) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            su4.k().x("key_live_remind_float_view", System.currentTimeMillis());
-        }
-    }
-
-    public static iz4 e(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (tbPageContext == null || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || k05.d()) {
-                return null;
-            }
-            iz4 iz4Var = new iz4(tbPageContext, map);
-            if (view2 != null) {
-                iz4Var.y(view2);
-            }
-            if (j <= 0) {
-                iz4Var.A();
-                a = true;
-            } else {
-                sg.a().postDelayed(new a(iz4Var), j);
-            }
-            if (j2 > 0) {
-                sg.a().postDelayed(new b(iz4Var), j2);
-            }
-            b = new WeakReference<>(iz4Var);
-            return iz4Var;
-        }
-        return (iz4) invokeCommon.objValue;
+        return (View) invokeLLL.objValue;
     }
 }

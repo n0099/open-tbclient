@@ -449,7 +449,6 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             super.onCreate(bundle);
             setContentView(initView());
             initLoad();
-            com.baidu.mytransformapp.util.LogUtil.logActivity(this, "onCreate");
         }
     }
 

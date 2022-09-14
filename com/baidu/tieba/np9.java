@@ -1,50 +1,53 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class np9 implements ValueAnimator.AnimatorUpdateListener {
+public class np9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-    public final /* synthetic */ int b;
-    public final /* synthetic */ int c;
-    public final /* synthetic */ InstallActivity d;
+    public zj9 a;
+    public final qk9 b;
+    public final HashMap<String, sk9> c;
 
-    public np9(InstallActivity installActivity, int i, int i2, int i3) {
+    /* loaded from: classes5.dex */
+    public interface a<E> {
+        void a(E e);
+
+        void b(E e);
+    }
+
+    public np9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = installActivity;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        this.b = new qk9();
+        this.c = new HashMap<>();
     }
 
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
-            float animatedFraction2 = valueAnimator.getAnimatedFraction();
-            int i = this.b;
-            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
-            this.d.getWindow().getDecorView().refreshDrawableState();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
+            for (E e : set2) {
+                if (set == null || !set.contains(e)) {
+                    aVar.b(e);
+                } else {
+                    aVar.a(e);
+                }
+            }
         }
     }
 }

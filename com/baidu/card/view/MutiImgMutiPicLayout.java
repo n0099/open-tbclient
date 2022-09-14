@@ -27,20 +27,20 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an;
-import com.baidu.tieba.gh5;
-import com.baidu.tieba.go4;
-import com.baidu.tieba.h06;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.ls4;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.pf5;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sn4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.lq4;
+import com.baidu.tieba.mn;
+import com.baidu.tieba.on;
+import com.baidu.tieba.qj5;
+import com.baidu.tieba.su4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.ym;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.up4;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.v16;
+import com.baidu.tieba.wx;
+import com.baidu.tieba.yh5;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
+public class MutiImgMutiPicLayout extends LinearLayout implements wx<lq4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,10 +66,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
     public ViewGroup i;
     public String j;
     public boolean k;
-    public h06<go4> l;
-    public go4 m;
+    public v16<lq4> l;
+    public lq4 m;
     public int n;
-    public gh5 o;
+    public qj5 o;
     public LinkedList<MediaData> p;
     public boolean q;
     public int r;
@@ -103,7 +103,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            h06<go4> subClickListener;
+            v16<lq4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -114,7 +114,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
     }
 
     /* loaded from: classes.dex */
-    public class b implements gh5 {
+    public class b implements qj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgMutiPicLayout a;
@@ -137,11 +137,11 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
             this.a = mutiImgMutiPicLayout;
         }
 
-        @Override // com.baidu.tieba.gh5
+        @Override // com.baidu.tieba.qj5
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                h06<go4> subClickListener = this.a.getSubClickListener();
+                v16<lq4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.m.objType = 2;
@@ -160,8 +160,8 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
                         return;
                     }
                 }
-                if (pf5.c()) {
-                    if (pf5.b(view2.getContext() instanceof Activity ? view2.getContext() : this.a.t, this.a.j, this.a.m)) {
+                if (yh5.c()) {
+                    if (yh5.b(view2.getContext() instanceof Activity ? view2.getContext() : this.a.t, this.a.j, this.a.m)) {
                         return;
                     }
                 }
@@ -216,7 +216,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            an m = m55.k().m(lg.h().g(tbImageView.getUrl(), this.a.k ? 13 : 14));
+            on m = u75.k().m(zg.h().g(tbImageView.getUrl(), this.a.k ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -362,10 +362,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
                 return;
             }
         }
-        ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-        ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-        v = ri.k(TbadkCoreApplication.getInst()) - ((ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+        ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+        v = ej.k(TbadkCoreApplication.getInst()) - ((ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -394,7 +394,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (sn4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (up4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -403,9 +403,9 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
                     }
                 }
                 this.p = linkedList;
-                ns4.d(this.i).n(R.string.J_X11);
+                uu4.d(this.i).n(R.string.J_X11);
                 if (linkedList.size() > 3) {
-                    this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043f, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
+                    this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0443, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
                     this.i.setVisibility(0);
                     z = true;
                 } else {
@@ -457,10 +457,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
         }
     }
 
-    public h06<go4> getSubClickListener() {
+    public v16<lq4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (h06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (v16) invokeV.objValue;
     }
 
     public final int h(int i) {
@@ -468,7 +468,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (this.n > 0) {
-                int k = ri.k(getContext());
+                int k = ej.k(getContext());
                 if (k == this.r) {
                     return this.n;
                 }
@@ -503,19 +503,19 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b3, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092120);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09212e);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09212f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092171);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09217f);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092180);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            int k = ((ri.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X011) * 2)) - (ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002) * 2)) / 3;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092125);
+            int k = ((ej.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X011) * 2)) - (ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002) * 2)) / 3;
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092176);
             this.d = relativeLayout;
             relativeLayout.getLayoutParams().height = k;
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092127);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092178);
             this.e = tbImageView;
             tbImageView.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X12);
@@ -523,7 +523,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
             this.e.setConrers(15);
             this.e.getLayoutParams().height = k;
             this.e.getLayoutParams().width = k;
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09212a);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217b);
             this.f = tbImageView2;
             tbImageView2.setDrawCorner(false);
             this.f.setPlaceHolder(2);
@@ -531,7 +531,7 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
             this.f.setConrers(15);
             this.f.getLayoutParams().height = k;
             this.f.getLayoutParams().width = k;
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092129);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217a);
             this.g = tbImageView3;
             tbImageView3.setDrawCorner(true);
             this.g.setPlaceHolder(2);
@@ -539,27 +539,27 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
             this.g.setConrers(15);
             this.g.getLayoutParams().height = k;
             this.g.getLayoutParams().width = k;
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092126);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092128);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092177);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092179);
             this.i = viewGroup;
             viewGroup.getLayoutParams().height = k;
             this.i.getLayoutParams().width = k;
-            ns4 d2 = ns4.d(this.h);
+            uu4 d2 = uu4.d(this.h);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0607);
-            this.h.setTypeface(ls4.H(ls4.E(R.string.F_X02)));
+            this.h.setTypeface(su4.H(su4.E(R.string.F_X02)));
             this.o = new b(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.wx
     /* renamed from: k */
-    public void a(go4 go4Var) {
+    public void a(lq4 lq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
-            this.m = go4Var;
-            ThreadData threadData = go4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048581, this, lq4Var) == null) {
+            this.m = lq4Var;
+            ThreadData threadData = lq4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.s);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, v, this.s);
             TextView textView = this.a;
@@ -695,9 +695,9 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(ym ymVar) {
+    public void setPreloadSizeReadyCallback(mn mnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ymVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, mnVar) == null) {
         }
     }
 
@@ -708,10 +708,10 @@ public class MutiImgMutiPicLayout extends LinearLayout implements ix<go4> {
         }
     }
 
-    public void setSubClickListener(h06<go4> h06Var) {
+    public void setSubClickListener(v16<lq4> v16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, h06Var) == null) {
-            this.l = h06Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, v16Var) == null) {
+            this.l = v16Var;
         }
     }
 

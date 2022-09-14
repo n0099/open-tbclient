@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.TextureData;
+import com.badlogic.gdx.graphics.glutils.ETC1;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,20 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class q5 implements TextureData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j3 a;
-    public int b;
-    public int c;
-    public Pixmap.Format d;
-    public Pixmap e;
+    public k3 a;
+    public ETC1.a b;
+    public boolean c;
+    public int d;
+    public int e;
     public boolean f;
-    public boolean g;
 
-    public q5(j3 j3Var, Pixmap pixmap, Pixmap.Format format, boolean z) {
+    public q5(k3 k3Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j3Var, pixmap, format, Boolean.valueOf(z)};
+            Object[] objArr = {k3Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,20 +37,11 @@ public class q5 implements TextureData {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0;
-        this.g = false;
-        this.a = j3Var;
-        this.e = pixmap;
-        this.d = format;
-        this.f = z;
-        if (pixmap != null) {
-            this.b = pixmap.n();
-            this.c = this.e.l();
-            if (format == null) {
-                this.d = this.e.h();
-            }
-        }
+        this.d = 0;
+        this.e = 0;
+        this.f = false;
+        this.a = k3Var;
+        this.c = z;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -67,7 +58,33 @@ public class q5 implements TextureData {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            throw new GdxRuntimeException("This TextureData implementation does not upload data itself");
+            if (this.f) {
+                if (!f1.b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
+                    Pixmap a = ETC1.a(this.b, Pixmap.Format.RGB565);
+                    f1.e.q(i, 0, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
+                    if (this.c) {
+                        x5.a(i, a, a.n(), a.l());
+                    }
+                    a.dispose();
+                    this.c = false;
+                } else {
+                    n3 n3Var = f1.e;
+                    int i2 = ETC1.b;
+                    int i3 = this.d;
+                    int i4 = this.e;
+                    int capacity = this.b.c.capacity();
+                    ETC1.a aVar = this.b;
+                    n3Var.h(i, 0, i2, i3, i4, 0, capacity - aVar.d, aVar.c);
+                    if (f()) {
+                        f1.f.F(3553);
+                    }
+                }
+                this.b.dispose();
+                this.b = null;
+                this.f = false;
+                return;
+            }
+            throw new GdxRuntimeException("Call prepare() before calling consumeCompressedData()");
         }
     }
 
@@ -76,13 +93,7 @@ public class q5 implements TextureData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.g) {
-                this.g = false;
-                Pixmap pixmap = this.e;
-                this.e = null;
-                return pixmap;
-            }
-            throw new GdxRuntimeException("Call prepare() before calling getPixmap()");
+            throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
         }
         return (Pixmap) invokeV.objValue;
     }
@@ -91,14 +102,14 @@ public class q5 implements TextureData {
     public Pixmap.Format d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Pixmap.Format) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Pixmap.Format.RGB565 : (Pixmap.Format) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -106,7 +117,7 @@ public class q5 implements TextureData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
+            throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
         }
         return invokeV.booleanValue;
     }
@@ -115,57 +126,49 @@ public class q5 implements TextureData {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public TextureData.TextureDataType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? TextureData.TextureDataType.Pixmap : (TextureData.TextureDataType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? TextureData.TextureDataType.Custom : (TextureData.TextureDataType) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.g) {
-                if (this.e == null) {
-                    if (this.a.d().equals("cim")) {
-                        this.e = p3.a(this.a);
-                    } else {
-                        this.e = new Pixmap(this.a);
-                    }
-                    this.b = this.e.n();
-                    this.c = this.e.l();
-                    if (this.d == null) {
-                        this.d = this.e.h();
-                    }
+            if (!this.f) {
+                if (this.a == null && this.b == null) {
+                    throw new GdxRuntimeException("Can only load once from ETC1Data");
                 }
-                this.g = true;
+                k3 k3Var = this.a;
+                if (k3Var != null) {
+                    this.b = new ETC1.a(k3Var);
+                }
+                ETC1.a aVar = this.b;
+                this.d = aVar.a;
+                this.e = aVar.b;
+                this.f = true;
                 return;
             }
             throw new GdxRuntimeException("Already prepared");
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
     }
 }

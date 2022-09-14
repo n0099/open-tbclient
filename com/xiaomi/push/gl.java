@@ -216,9 +216,9 @@ public class gl extends gn {
                 sb.append(b);
             }
             sb.append(o());
-            gr m369a = m369a();
-            if (m369a != null) {
-                sb.append(m369a.m373a());
+            gr m370a = m370a();
+            if (m370a != null) {
+                sb.append(m370a.m374a());
             }
             sb.append("</iq>");
             return sb.toString();

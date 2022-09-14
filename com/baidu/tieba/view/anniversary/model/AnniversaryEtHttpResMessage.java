@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dx8;
+import com.baidu.tieba.vy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dx8 resultData;
+    public vy8 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtHttpResMessage() {
@@ -36,10 +36,10 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public dx8 getResultData() {
+    public vy8 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (dx8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (vy8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
             setErrorString(videoTemplateResIdl.error.usermsg);
         }
         if (videoTemplateResIdl.data != null) {
-            dx8 dx8Var = new dx8();
-            this.resultData = dx8Var;
-            dx8Var.g(videoTemplateResIdl.data);
+            vy8 vy8Var = new vy8();
+            this.resultData = vy8Var;
+            vy8Var.g(videoTemplateResIdl.data);
         }
     }
 }

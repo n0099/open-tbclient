@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.d9;
-import com.baidu.tieba.tp4;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.yr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -303,7 +303,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<tp4> f;
+        public ArrayList<yr4> f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -367,9 +367,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                tp4 tp4Var = new tp4();
-                                tp4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(tp4Var);
+                                yr4 yr4Var = new yr4();
+                                yr4Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(yr4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -428,7 +428,7 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<tp4> c;
+        public ArrayList<yr4> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -475,7 +475,7 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -638,7 +638,7 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

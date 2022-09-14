@@ -1,8 +1,8 @@
 package rx.internal.schedulers;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.fz9;
-import com.baidu.tieba.pv9;
+import com.baidu.tieba.hx9;
+import com.baidu.tieba.x0a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class GenericScheduledExecutorServiceFactory {
     public static final /* synthetic */ GenericScheduledExecutorServiceFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,7 +63,7 @@ public final class GenericScheduledExecutorServiceFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            pv9<? extends ScheduledExecutorService> a = fz9.a();
+            hx9<? extends ScheduledExecutorService> a = x0a.a();
             if (a == null) {
                 return createDefault();
             }

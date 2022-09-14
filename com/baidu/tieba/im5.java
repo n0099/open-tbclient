@@ -1,34 +1,40 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.do4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class im5 {
     public static /* synthetic */ Interceptable $ic;
-    public static im5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<a>> a;
+    public Context a;
+    public do4 b;
+    public b c;
+    public MarkData d;
+    public final do4.a e;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a implements do4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public HashMap<String, Object> b;
+        public final /* synthetic */ im5 a;
 
-        public a(String str, HashMap<String, Object> hashMap) {
+        public a(im5 im5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, hashMap};
+                Object[] objArr = {im5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,15 +44,47 @@ public class im5 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = hashMap;
+            this.a = im5Var;
+        }
+
+        @Override // com.baidu.tieba.do4.a
+        public void a(boolean z, boolean z2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (z2) {
+                        ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d2));
+                    } else {
+                        ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0ff1));
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.a(z2);
+                    }
+                    if (this.a.d != null) {
+                        rm8 rm8Var = new rm8();
+                        rm8Var.a = this.a.d.getThreadId();
+                        rm8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, rm8Var));
+                        return;
+                    }
+                    return;
+                }
+                ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14e5));
+            }
         }
     }
 
-    public im5() {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    public im5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,53 +94,76 @@ public class im5 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.b = null;
+        this.e = new a(this);
+        this.a = context;
+        if (context instanceof BaseActivity) {
+            this.b = do4.b((BaseActivity) context);
+        } else if (context instanceof BaseFragmentActivity) {
+            this.b = do4.c((BaseFragmentActivity) context);
+        }
+        do4 do4Var = this.b;
+        if (do4Var != null) {
+            do4Var.j(this.e);
+        }
     }
 
-    public static im5 c() {
+    public void d() {
+        do4 do4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (do4Var = this.b) == null) {
+            return;
+        }
+        do4Var.a();
+        this.b.h(true);
+    }
+
+    public void e() {
+        do4 do4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (do4Var = this.b) != null && do4Var.e()) {
+            this.b.d();
+            this.b.h(false);
+        }
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (im5.class) {
-                    if (b == null) {
-                        b = new im5();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            do4 do4Var = this.b;
+            if (do4Var != null) {
+                return do4Var.e();
             }
-            return b;
+            return false;
         }
-        return (im5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void a(String str, String str2, HashMap<String, Object> hashMap) {
+    public void g(boolean z) {
+        do4 do4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
-            List<a> list = this.a.get(str);
-            if (list == null) {
-                list = new ArrayList<>();
-                this.a.put(str, list);
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (do4Var = this.b) == null) {
+            return;
+        }
+        do4Var.h(z);
+    }
+
+    public void h(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
+            this.d = markData;
+            do4 do4Var = this.b;
+            if (do4Var != null) {
+                do4Var.i(markData);
             }
-            list.add(new a(str2, hashMap));
         }
     }
 
-    public void b(String str) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a.remove(str);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
         }
-    }
-
-    public List<a> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return new ArrayList();
-        }
-        return (List) invokeL.objValue;
     }
 }

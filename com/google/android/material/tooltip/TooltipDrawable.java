@@ -19,7 +19,6 @@ import androidx.annotation.StyleRes;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.TextDrawableHelper;
 import com.google.android.material.internal.ThemeEnforcement;
@@ -41,9 +41,7 @@ import com.google.android.material.shape.OffsetEdgeTreatment;
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     @StyleRes
-
-    /* renamed from: DEFAULT_STYLE */
-    public static final int obfuscated_res_0x7f100399 = 2131755929;
+    public static final int DEFAULT_STYLE = 2131755930;
     @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130970410;
     public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +175,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     public static TooltipDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100399) : (TooltipDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (TooltipDrawable) invokeL.objValue;
     }
 
     @NonNull
@@ -233,13 +231,13 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65548, this, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842965, 16842998, 16843071, 16843072, 16843087, R.attr.obfuscated_res_0x7f0400b9}, i, i2, new int[0]);
-            this.arrowSize = this.context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e0);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, R.styleable.Tooltip, i, i2, new int[0]);
+            this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704e0);
             setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
             setText(obtainStyledAttributes.getText(5));
             setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));
-            setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f040172, TooltipDrawable.class.getCanonicalName()), 153)))));
-            setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) R.attr.obfuscated_res_0x7f04017e, TooltipDrawable.class.getCanonicalName())));
+            setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) com.baidu.tieba.R.attr.obfuscated_res_0x7f040172, TooltipDrawable.class.getCanonicalName()), 153)))));
+            setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) com.baidu.tieba.R.attr.obfuscated_res_0x7f04017e, TooltipDrawable.class.getCanonicalName())));
             this.padding = obtainStyledAttributes.getDimensionPixelSize(1, 0);
             this.minWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.minHeight = obtainStyledAttributes.getDimensionPixelSize(4, 0);
@@ -431,6 +429,6 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100399) : (TooltipDrawable) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (TooltipDrawable) invokeLL.objValue;
     }
 }

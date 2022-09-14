@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.px7;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.wy7;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public px7 c;
+    public wy7 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,7 +58,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
                 return 0;
             }
             if (threadData.isMutiForumThread()) {
-                return !qi.isEmpty(threadData.getForum_name()) ? 2 : 0;
+                return !dj.isEmpty(threadData.getForum_name()) ? 2 : 0;
             }
             return 1;
         }
@@ -69,8 +69,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            px7 px7Var = this.c;
-            return (px7Var == null || px7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
+            wy7 wy7Var = this.c;
+            return (wy7Var == null || wy7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -78,14 +78,14 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06d3, this);
-            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902d4);
-            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906ae);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06ea, this);
+            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902dc);
+            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906c4);
             this.a.setIsRound(true);
-            this.a.setBorderWidth(ri.f(context, R.dimen.tbds3));
+            this.a.setBorderWidth(ej.f(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new pv4());
+            this.b.setConfig(new zx4());
         }
     }
 
@@ -100,17 +100,17 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            px7 px7Var = new px7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-            this.c = px7Var;
-            px7Var.m("11");
+            wy7 wy7Var = new wy7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+            this.c = wy7Var;
+            wy7Var.m("11");
             this.c.l(this.d);
         }
         this.c.n(threadData.getAuthor());
         this.c.x(str);
         this.c.v(threadData);
-        px7 px7Var2 = this.c;
-        px7Var2.p = true;
-        px7Var2.w(a);
+        wy7 wy7Var2 = this.c;
+        wy7Var2.p = true;
+        wy7Var2.w(a);
     }
 
     public void setData(ThreadData threadData) {

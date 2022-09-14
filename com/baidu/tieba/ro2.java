@@ -1,121 +1,224 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class ro2 {
+public class ro2 implements po2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final boolean b;
+    public long c;
+    public volatile boolean d;
+    @NonNull
+    public final List<po2> e;
+    public final Runnable f;
+    public final Runnable g;
 
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (arrayList = a) == null) {
-            return;
-        }
-        arrayList.clear();
-        a = null;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ro2 a;
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null || arrayList.size() == 0 || a.get(0) == null) {
-                return null;
-            }
-            return a.get(0).getType();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int c(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
-            if (mediaModel == null || (arrayList = a) == null) {
-                return -1;
-            }
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                if (mediaModel.equals(a.get(i))) {
-                    return i;
+        public a(ro2 ro2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ro2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return -1;
+            this.a = ro2Var;
         }
-        return invokeL.intValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d();
+            }
+        }
     }
 
-    public static int d() {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ro2 a;
+
+        public b(ro2 ro2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ro2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ro2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ro2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-454486795, "Lcom/baidu/tieba/ro2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-454486795, "Lcom/baidu/tieba/ro2$c;");
+                    return;
+                }
+            }
+            a = new ro2(null);
+        }
+    }
+
+    public /* synthetic */ ro2(a aVar) {
+        this();
+    }
+
+    public static po2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null) {
-                return 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a : (po2) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.c;
+            boolean z = this.b && !this.d && ProcessUtils.isSwanProcess() && pg3.C(true);
+            yz1.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
+            if (z) {
+                for (po2 po2Var : this.e) {
+                    yz1.i("SwanBackStageManager", "performPause for strategy=" + po2Var);
+                    po2Var.onPause();
+                }
+                this.d = true;
             }
-            return arrayList.size();
         }
-        return invokeV.intValue;
     }
 
-    public static ArrayList<MediaModel> e() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (ArrayList) invokeV.objValue;
-    }
-
-    public static boolean f(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean z = this.b && this.d;
+            yz1.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
+            for (po2 po2Var : this.e) {
+                yz1.i("SwanBackStageManager", "performResume for strategy=" + po2Var);
+                po2Var.onResume();
             }
-            return arrayList.contains(mediaModel);
+            this.d = false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean g(MediaModel mediaModel) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.po2
+    @AnyThread
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList == null || arrayList.size() == 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            yz1.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
+            if (this.b) {
+                this.c = System.currentTimeMillis();
+                Handler M = x23.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                M.postDelayed(this.f, this.a);
             }
-            return a.contains(mediaModel);
         }
-        return invokeL.booleanValue;
     }
 
-    public static void h(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList;
+    @Override // com.baidu.tieba.po2
+    @AnyThread
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) || (arrayList = a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            yz1.i("SwanBackStageManager", "onResume: enable=" + this.b);
+            if (this.b) {
+                Handler M = x23.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                sg3.e0(this.g);
+            }
         }
-        arrayList.remove(mediaModel);
     }
 
-    public static void i(MediaModel mediaModel) {
+    public ro2() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, mediaModel) == null) || mediaModel == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (a == null) {
-            a = new ArrayList<>();
+        long millis = TimeUnit.SECONDS.toMillis(wo2.b.a());
+        this.a = millis;
+        this.b = millis >= 0 && wo2.b.e();
+        this.c = 0L;
+        this.d = false;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.e = new ArrayList();
+        if (wo2.b.e()) {
+            if (wo2.b.d()) {
+                this.e.add(new so2());
+            }
+            if (wo2.b.b()) {
+                this.e.add(new to2());
+            }
+            if (wo2.b.c()) {
+                this.e.add(new qo2());
+            }
         }
-        a.add(mediaModel);
     }
 }

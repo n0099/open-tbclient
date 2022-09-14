@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.fr8;
-import com.baidu.tieba.iq8;
-import com.baidu.tieba.nr8;
-import com.baidu.tieba.pk8;
+import com.baidu.tieba.dm8;
+import com.baidu.tieba.dt8;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.vs8;
+import com.baidu.tieba.yr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,15 +22,15 @@ import java.util.List;
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nr8 a;
-    public List<fr8> b;
+    public dt8 a;
+    public List<vs8> b;
     public int c;
     public boolean d;
     public b e;
-    public bb f;
+    public pb f;
 
     /* loaded from: classes6.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardCategoryModel a;
@@ -57,7 +57,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
             this.a = personalCardCategoryModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -103,7 +103,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, nr8 nr8Var, List<fr8> list, boolean z);
+        void a(int i, String str, dt8 dt8Var, List<vs8> list, boolean z);
     }
 
     public PersonalCardCategoryModel(PersonalCardCategoryActivity personalCardCategoryActivity) {
@@ -124,8 +124,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        pk8.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        pk8.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        dm8.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        dm8.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
@@ -157,25 +157,25 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     }
 
     public void J(long j, int i) {
-        List<fr8> list;
+        List<vs8> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) || (list = this.b) == null || list.size() <= 0) {
             return;
         }
-        for (fr8 fr8Var : list) {
-            if (fr8Var != null && fr8Var.a() != null && fr8Var.a().size() > 0) {
-                for (iq8 iq8Var : fr8Var.a()) {
-                    if (iq8Var != null) {
-                        if (iq8Var.a() == j) {
+        for (vs8 vs8Var : list) {
+            if (vs8Var != null && vs8Var.a() != null && vs8Var.a().size() > 0) {
+                for (yr8 yr8Var : vs8Var.a()) {
+                    if (yr8Var != null) {
+                        if (yr8Var.a() == j) {
                             if (i == 1) {
-                                iq8Var.s(1);
+                                yr8Var.s(1);
                             } else {
-                                iq8Var.s(0);
+                                yr8Var.s(0);
                             }
                         } else if (i == 1) {
-                            iq8Var.s(0);
-                        } else if (iq8Var.a() == iq8.k) {
-                            iq8Var.s(1);
+                            yr8Var.s(0);
+                        } else if (yr8Var.a() == yr8.k) {
+                            yr8Var.s(1);
                         }
                     }
                 }

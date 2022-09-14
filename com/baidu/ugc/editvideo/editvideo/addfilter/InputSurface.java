@@ -9,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.bg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ public class InputSurface {
                 if (eglGetError == 12288) {
                     break;
                 }
-                yb9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                bg9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
                 z = true;
             }
             if (z) {

@@ -9,7 +9,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1089,7 +1088,7 @@ public final class WebKitFactory {
             try {
                 if (WebViewFactory.getContext() != null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(WebViewFactory.getContext().getFilesDir().getAbsolutePath() + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH, "update_zeus"), rw.c);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(WebViewFactory.getContext().getFilesDir().getAbsolutePath() + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH, "update_zeus"), "rw");
                     Log.i(EngineManager.LOG_TAG, " invoke lockUpdateZeus");
                     mLock = randomAccessFile.getChannel().lock();
                     Log.i(EngineManager.LOG_TAG, " lockUpdateZeus time = " + (System.currentTimeMillis() - currentTimeMillis));

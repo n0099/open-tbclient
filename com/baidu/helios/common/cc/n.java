@@ -1,6 +1,6 @@
 package com.baidu.helios.common.cc;
 
-import com.baidu.tieba.o30;
+import com.baidu.tieba.q40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,13 +79,13 @@ public class n {
         }
     }
 
-    public static String a(byte[] bArr) throws Exception {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new o30().a(bArr), "UTF-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new q40().a(bArr), "UTF-8") : (String) invokeL.objValue;
     }
 
-    public static Method b(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException {
+    public static Method b(Class<?> cls, String str, Class<?>[] clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {

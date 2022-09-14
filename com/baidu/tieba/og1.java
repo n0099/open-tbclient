@@ -1,86 +1,91 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class og1 {
+public class og1 extends sg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean c;
+    public long d;
+    public V8ExceptionInfo e;
+    public int f;
 
-    public static void a(InputStream inputStream, OutputStream outputStream) {
+    public og1() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65536, null, inputStream, outputStream) != null) {
-            return;
-        }
-        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[2048];
-        while (true) {
-            int read = inputStream.read(bArr, 0, 2048);
-            if (read != -1) {
-                gZIPOutputStream.write(bArr, 0, read);
-            } else {
-                gZIPOutputStream.flush();
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
+            }
+        }
+        this.c = false;
+    }
+
+    @Override // com.baidu.tieba.sg1
+    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, v8ExceptionInfo) == null) {
+            synchronized (this) {
+                if (this.e == null && v8ExceptionInfo != null) {
+                    this.e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+                    this.f = i;
+                    if (this.b != null) {
+                        this.b.a();
+                    }
+                }
             }
         }
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = null;
+            this.d = 0L;
+            this.f = -1;
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static void c(InputStream inputStream, OutputStream outputStream) {
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65538, null, inputStream, outputStream) != null) {
-            return;
-        }
-        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-        byte[] bArr = new byte[2048];
-        while (true) {
-            int read = gZIPInputStream.read(bArr, 0, 2048);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
-                gZIPInputStream.close();
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                if (this.b != null && this.d > 0 && this.e != null) {
+                    if (System.currentTimeMillis() - this.e.exceptionTime > this.a && this.e.exceptionTime > this.d) {
+                        this.b.b(new rg1(this.f, this.e, this.d));
+                        d();
+                    }
+                    return;
+                }
+                Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
             }
         }
     }
 
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
+    public synchronized void f(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            c(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (this) {
+                this.c = z;
+                if (z) {
+                    this.d = j;
+                    this.e = null;
+                }
+            }
         }
-        return (byte[]) invokeL.objValue;
     }
 }

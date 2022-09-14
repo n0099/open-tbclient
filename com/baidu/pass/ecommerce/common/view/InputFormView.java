@@ -63,12 +63,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d9, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091cee);
-            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cf0);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091cf1);
-            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091cec);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091ced);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_sdk_common_input_form, (ViewGroup) this, true);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.sapi_sdk_input_et);
+            this.mImg = (ImageView) inflate.findViewById(R.id.sapi_sdk_input_icon);
+            this.mBottomLine = inflate.findViewById(R.id.sapi_sdk_input_line);
+            this.mCleanEtBtn = inflate.findViewById(R.id.sapi_sdk_input_clean_icon);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.sapi_sdk_input_clean_icon_dark_shape);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -117,7 +117,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091cec) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.sapi_sdk_input_clean_icon) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }
@@ -140,9 +140,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.isDarkMode = z;
             if (z) {
-                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060943));
-                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060947));
-                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060941));
+                this.mEditText.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
+                this.mEditText.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
+                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
             }
         }
     }
@@ -187,7 +187,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04001e, R.attr.obfuscated_res_0x7f04002d, R.attr.obfuscated_res_0x7f04002e, R.attr.obfuscated_res_0x7f040030, R.attr.obfuscated_res_0x7f040031, R.attr.obfuscated_res_0x7f040034, R.attr.obfuscated_res_0x7f040036}, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, com.baidu.sapi2.ecommerce.R.styleable.SapiSDKInputFormView, i, 0);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(5, true);
         this.mIconResId = obtainStyledAttributes.getResourceId(1, 0);
         this.mMinLines = obtainStyledAttributes.getInt(4, 1);

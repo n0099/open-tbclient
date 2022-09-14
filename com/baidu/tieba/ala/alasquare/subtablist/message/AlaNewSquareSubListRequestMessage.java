@@ -2,13 +2,13 @@ package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = ri.k(TbadkCoreApplication.getInst());
-            int i = ri.i(TbadkCoreApplication.getInst());
-            float h = ri.h(TbadkCoreApplication.getInst());
+            int k = ej.k(TbadkCoreApplication.getInst());
+            int i = ej.i(TbadkCoreApplication.getInst());
+            float h = ej.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
@@ -79,14 +79,14 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
             addParam(SuggestAddrField.KEY_LAT, this.lat);
             addParam(SuggestAddrField.KEY_LNG, this.lng);
             String str = "N";
-            if (pi.z()) {
-                if (pi.H()) {
+            if (BdNetTypeUtil.isNetWorkAvailable()) {
+                if (BdNetTypeUtil.isWifiNet()) {
                     str = "1_0";
-                } else if (pi.v()) {
+                } else if (BdNetTypeUtil.is4GNet()) {
                     str = "0_13";
-                } else if (pi.u()) {
+                } else if (BdNetTypeUtil.is3GNet()) {
                     str = "0_3";
-                } else if (pi.t()) {
+                } else if (BdNetTypeUtil.is2GNet()) {
                     str = "0_2";
                 }
             }

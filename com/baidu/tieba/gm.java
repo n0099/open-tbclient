@@ -1,49 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gm {
+public abstract class gm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public gm() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str.contains(".so")) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                StringBuilder sb = new StringBuilder();
-                sb.append(fi.a() ? "so_64_cache" : "so_cache");
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else {
-                str2 = str.contains(".mp3") ? "mp3_cache" : "res_cache";
-            }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
         }
-        return (String) invokeL.objValue;
+        this.a = false;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public abstract String a();
+
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            return a(str) + File.separator + str;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a) {
+            return;
         }
-        return (String) invokeL.objValue;
+        this.a = true;
+        if (TextUtils.isEmpty(a())) {
+            return;
+        }
+        try {
+            new JSONObject().put("version", i);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void c(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
+            String str = a + "_download";
+            if (i == 0) {
+                fm.c(str, arrayList);
+            } else {
+                fm.b(str, arrayList);
+            }
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_install";
+            if (i == 13) {
+                fm.c(str, arrayList);
+            } else {
+                fm.b(str, arrayList);
+            }
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_launch";
+            if (i == 14) {
+                fm.c(str, arrayList);
+            } else {
+                fm.b(str, arrayList);
+            }
+        }
     }
 }

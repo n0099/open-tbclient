@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class ti2 extends ue2<lj2> {
+public class ti2 extends sg2<jj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,31 +27,26 @@ public class ti2 extends ue2<lj2> {
         }
     }
 
-    @Override // com.baidu.tieba.ue2
+    @Override // com.baidu.tieba.sg2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ue2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.ret = 1;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBeautyWhite" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue2
+    @Override // com.baidu.tieba.sg2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull lj2 lj2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull jj2 jj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, lj2Var) == null) {
-            command.ret = lj2Var.prepareAsync() ? 1 : 0;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jj2Var) == null) {
             String str = command.what;
-            d(lj2Var, str, "isSupport: " + command.ret, false);
+            d(jj2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Integer) {
+                jj2Var.I(((Integer) obj).intValue());
+            }
         }
     }
 }

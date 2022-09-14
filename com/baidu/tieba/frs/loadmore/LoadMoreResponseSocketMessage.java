@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.nd8;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.qd8;
-import com.baidu.tieba.wp4;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.bs4;
+import com.baidu.tieba.ve8;
+import com.baidu.tieba.ye8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<pn> threadList;
+    public ArrayList<Cdo> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,7 +78,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            nd8.e().h(threadListResIdl.data.asp_shown_info);
+            ve8.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -103,18 +103,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        wp4 wp4Var = new wp4();
-                        wp4Var.h(threadData.getLegoCard());
-                        this.threadList.add(wp4Var);
+                        bs4 bs4Var = new bs4();
+                        bs4Var.h(threadData.getLegoCard());
+                        this.threadList.add(bs4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = qd8.b(threadInfo);
+                        JSONObject b = ye8.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                qd8.f().h("FRS", arrayList);
+                ye8.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -136,7 +136,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bannerListData : (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<pn> getThreadList() {
+    public ArrayList<Cdo> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.threadList : (ArrayList) invokeV.objValue;

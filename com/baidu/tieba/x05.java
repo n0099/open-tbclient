@@ -1,222 +1,197 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
+import java.util.Objects;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.TabPic;
+import tbclient.TabPicDesc;
 /* loaded from: classes6.dex */
 public class x05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public c b;
-    public b c;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public boolean f;
+    public TabPic g;
+    public String h;
+    public int i;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<String, Void, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Process a;
-        public final /* synthetic */ x05 b;
-
-        public b(x05 x05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x05Var;
-            this.a = null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                boolean z = false;
-                if (strArr != null && strArr.length >= 1) {
-                    try {
-                        try {
-                            try {
-                                Process exec = Runtime.getRuntime().exec(strArr[0]);
-                                this.a = exec;
-                                if (exec.waitFor() == 0) {
-                                    z = true;
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
-                        }
-                    } finally {
-                        this.a.destroy();
-                    }
-                }
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.onCancelled();
-                Process process = this.a;
-                if (process != null) {
-                    try {
-                        process.destroy();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-                if (this.b.b != null) {
-                    this.b.b.a(false);
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                if (this.b.b != null) {
-                    this.b.b.a(bool == null ? false : bool.booleanValue());
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
-                }
-            }
-        }
-
-        public /* synthetic */ b(x05 x05Var, a aVar) {
-            this(x05Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<x05> a;
-
-        public d(x05 x05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(x05Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            x05 x05Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 0 || (x05Var = this.a.get()) == null) {
-                    return;
-                }
-                x05Var.e();
-            }
-        }
-    }
-
-    public x05(String str, c cVar) {
+    public x05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        d dVar = new d(this);
-        this.a = dVar;
-        this.b = cVar;
-        dVar.sendEmptyMessageDelayed(0, 50000L);
-        b bVar = new b(this, null);
-        this.c = bVar;
-        bVar.setSelfExecute(true);
-        b bVar2 = this.c;
-        bVar2.execute(d() + str);
     }
 
-    public final String d() {
+    @Nullable
+    public static x05 a(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("[pic-tab]")) {
+                try {
+                    jSONObject = new JSONObject(str.substring(9));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    jSONObject = null;
+                }
+                try {
+                    x05 x05Var = new x05();
+                    x05Var.g = b(jSONObject);
+                    if (jSONObject != null) {
+                        x05Var.b = jSONObject.optString("tabName");
+                    }
+                    return x05Var;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (x05) invokeL.objValue;
+    }
+
+    public static TabPic b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            TabPic.Builder builder = new TabPic.Builder();
+            JSONObject optJSONObject = jSONObject.optJSONObject("normal");
+            if (optJSONObject != null) {
+                TabPicDesc.Builder builder2 = new TabPicDesc.Builder();
+                builder2.selected_pic_url = optJSONObject.optString("selected_pic_url");
+                builder2.unselected_pic_url = optJSONObject.optString("unselected_pic_url");
+                builder2.pic_height = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                builder2.pic_width = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+                builder.normal = builder2.build(true);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("dark");
+            if (optJSONObject2 != null) {
+                TabPicDesc.Builder builder3 = new TabPicDesc.Builder();
+                builder3.selected_pic_url = optJSONObject2.optString("selected_pic_url");
+                builder3.unselected_pic_url = optJSONObject2.optString("unselected_pic_url");
+                builder3.pic_height = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                builder3.pic_width = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+                builder.dark = builder3.build(true);
+            }
+            return builder.build(true);
+        }
+        return (TabPic) invokeL.objValue;
+    }
+
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int I = pi.I();
-            return I != 1 ? I != 2 ? "ping -c 3 -w 5000 " : "ping -c 3 -w 10000 " : "ping -c 3 -w 3000 ";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (g()) {
+                try {
+                    JSONObject jSONObject = new JSONObject(this.h);
+                    jSONObject.put("tabName", this.b);
+                    return "[pic-tab]" + jSONObject.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return "[pic-tab]" + this.h;
+                }
+            }
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void e() {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.c;
-            if (bVar != null) {
-                bVar.cancel(true);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.b) || this.a <= 0 : invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            d dVar = this.a;
-            if (dVar != null) {
-                dVar.removeMessages(0);
+            if (obj == null || x05.class != obj.getClass()) {
+                return false;
             }
+            x05 x05Var = (x05) obj;
+            return this.a == x05Var.a && this.f == x05Var.f && this.i == x05Var.i && Objects.equals(this.b, x05Var.b) && Objects.equals(this.c, x05Var.c) && Objects.equals(this.d, x05Var.d) && Objects.equals(this.e, x05Var.e) && Objects.equals(this.h, x05Var.h);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i == 1 : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        TabPic tabPic;
+        TabPicDesc tabPicDesc;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (TextUtils.isEmpty(this.h) || (tabPic = this.g) == null || (tabPicDesc = tabPic.normal) == null || TextUtils.isEmpty(tabPicDesc.unselected_pic_url) || this.g.normal.pic_width.intValue() <= 0) ? false : true : invokeV.booleanValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("tab_type");
+        this.b = jSONObject.optString("tab_name");
+        this.c = jSONObject.optString("tab_code");
+        this.i = jSONObject.optInt("is_main_tab", 0);
+        this.d = jSONObject.optString("tab_url");
+        this.e = jSONObject.optString("tab_version");
+        JSONObject optJSONObject = jSONObject.optJSONObject("head_pics");
+        if (optJSONObject != null) {
+            this.h = optJSONObject.toString();
+            this.g = b(optJSONObject);
+        }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.h) : invokeV.intValue;
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.i = z ? 1 : 0;
         }
     }
 }

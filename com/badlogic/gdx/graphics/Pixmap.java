@@ -4,9 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h7;
-import com.baidu.tieba.j3;
+import com.baidu.tieba.i7;
 import com.baidu.tieba.k3;
+import com.baidu.tieba.l3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Pixmap implements h7 {
+public class Pixmap implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Gdx2DPixmap a;
@@ -309,7 +309,7 @@ public class Pixmap implements h7 {
         }
     }
 
-    @Override // com.baidu.tieba.h7
+    @Override // com.baidu.tieba.i7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -394,16 +394,16 @@ public class Pixmap implements h7 {
     public void p(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.b = k3.b(f, f2, f3, f4);
+            this.b = l3.b(f, f2, f3, f4);
         }
     }
 
-    public Pixmap(j3 j3Var) {
+    public Pixmap(k3 k3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j3Var};
+            Object[] objArr = {k3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -417,10 +417,10 @@ public class Pixmap implements h7 {
         Filter filter = Filter.BiLinear;
         this.b = 0;
         try {
-            byte[] n = j3Var.n();
+            byte[] n = k3Var.n();
             this.a = new Gdx2DPixmap(n, 0, n.length, 0);
         } catch (Exception e) {
-            throw new GdxRuntimeException("Couldn't load file: " + j3Var, e);
+            throw new GdxRuntimeException("Couldn't load file: " + k3Var, e);
         }
     }
 }

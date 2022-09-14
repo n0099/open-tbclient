@@ -15,7 +15,6 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
-import com.baidu.tbadk.TbConfig;
 import com.fun.ad.sdk.FunAdSdk;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", "sw", "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 

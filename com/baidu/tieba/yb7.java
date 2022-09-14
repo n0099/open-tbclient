@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yb7 extends hc7 implements v85 {
+public class yb7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,36 +29,24 @@ public class yb7 extends hc7 implements v85 {
         }
     }
 
-    @Override // com.baidu.tieba.t85
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v85
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v85
-    public boolean q(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                initByJson(new JSONObject(str));
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
+                return null;
             }
+            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
+            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
+            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
+            responseSearchGroupLocalMessage.setError(0);
+            String str = groupId + "";
+            zt4.f();
+            jf<String> g = zt4.g("tb.im_group_search_history");
+            g.g(str, g.get(str));
+            return responseSearchGroupLocalMessage;
         }
-        return invokeL.booleanValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

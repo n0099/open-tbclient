@@ -1,86 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.ViewTreeObserver;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.badge.BadgeUtils;
-import java.lang.reflect.Field;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class de5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static Field e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BadgeDrawable a;
-    @Nullable
-    public String b;
-    public boolean c;
-    @Nullable
-    public b d;
+    public final List<qn> a;
+    public TbPageContext<?> b;
+    public jo c;
+    public se5 d;
+    public oe5 e;
+    public he5 f;
+    public je5 g;
+    public ie5 h;
+    public ke5 i;
+    public le5 j;
+    public ne5 k;
+    public me5 l;
+    public qe5 m;
+    public pe5 n;
+    public re5 o;
+    public fe5 p;
+    public ee5 q;
 
-    /* loaded from: classes3.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ de5 b;
-
-        public a(de5 de5Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de5Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = de5Var;
-            this.a = view2;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BadgeUtils.attachBadgeDrawable(this.b.a, this.a, null);
-                this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        boolean a();
-    }
-
-    public de5(@NonNull Context context) {
+    public de5(TbPageContext tbPageContext, jo joVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, joVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,181 +49,180 @@ public class de5 {
                 return;
             }
         }
-        this.c = true;
-        this.a = BadgeDrawable.create(context);
+        this.a = new LinkedList();
+        this.b = tbPageContext;
+        this.c = joVar;
+        b();
     }
 
-    @NonNull
-    public static de5 c(@NonNull Context context) {
-        InterceptResult invokeL;
+    public void a(List<qn> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new de5(context) : (de5) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (qn qnVar : list) {
+            if (!c(qnVar.getType())) {
+                this.a.add(qnVar);
+            }
+        }
+        this.c.a(this.a);
     }
 
-    @NonNull
-    public de5 b(@NonNull View view2) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            se5 se5Var = new se5(this.b);
+            this.d = se5Var;
+            se5Var.K(this.c);
+            this.a.add(this.d);
+            oe5 oe5Var = new oe5(this.b);
+            this.e = oe5Var;
+            oe5Var.K(this.c);
+            this.a.add(this.e);
+            re5 re5Var = new re5(this.b);
+            this.o = re5Var;
+            re5Var.K(this.c);
+            this.a.add(this.o);
+            he5 he5Var = new he5(this.b);
+            this.f = he5Var;
+            he5Var.K(this.c);
+            this.a.add(this.f);
+            je5 je5Var = new je5(this.b);
+            this.g = je5Var;
+            je5Var.K(this.c);
+            this.a.add(this.g);
+            ie5 ie5Var = new ie5(this.b);
+            this.h = ie5Var;
+            ie5Var.K(this.c);
+            this.a.add(this.h);
+            ke5 ke5Var = new ke5(this.b);
+            this.i = ke5Var;
+            ke5Var.K(this.c);
+            this.a.add(this.i);
+            le5 le5Var = new le5(this.b);
+            this.j = le5Var;
+            le5Var.K(this.c);
+            this.a.add(this.j);
+            ne5 ne5Var = new ne5(this.b);
+            this.k = ne5Var;
+            ne5Var.K(this.c);
+            this.a.add(this.k);
+            me5 me5Var = new me5(this.b);
+            this.l = me5Var;
+            me5Var.K(this.c);
+            this.a.add(this.l);
+            qe5 qe5Var = new qe5(this.b);
+            this.m = qe5Var;
+            qe5Var.K(this.c);
+            this.a.add(this.m);
+            pe5 pe5Var = new pe5(this.b);
+            this.n = pe5Var;
+            pe5Var.K(this.c);
+            this.a.add(this.n);
+            fe5 fe5Var = new fe5(this.b);
+            this.p = fe5Var;
+            fe5Var.K(this.c);
+            this.a.add(this.p);
+            ee5 ee5Var = new ee5(this.b, j26.N0);
+            this.q = ee5Var;
+            this.a.add(ee5Var);
+            this.c.a(this.a);
+        }
+    }
+
+    public boolean c(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            b bVar = this.d;
-            if (bVar == null || bVar.a()) {
-                if (this.b == null || !su4.k().h(this.b, false)) {
-                    ViewParent parent = view2.getParent();
-                    if (parent instanceof ViewGroup) {
-                        ViewGroup viewGroup = (ViewGroup) parent;
-                        viewGroup.setClipChildren(this.c);
-                        viewGroup.setClipToPadding(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            if (bdUniqueId != null && !ListUtils.isEmpty(this.a)) {
+                for (qn qnVar : this.a) {
+                    if (qnVar != null && qnVar.getType() == bdUniqueId) {
+                        return true;
                     }
-                    view2.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, view2));
-                    return this;
-                }
-                return this;
-            }
-            return this;
-        }
-        return (de5) invokeL.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.d;
-            boolean z = true;
-            boolean a2 = bVar != null ? bVar.a() : true;
-            if (this.b != null) {
-                return (!a2 || su4.k().h(this.b, false)) ? false : false;
-            }
-            return a2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.isVisible() : invokeV.booleanValue;
-    }
-
-    @NonNull
-    public de5 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (de5) invokeZ.objValue;
-    }
-
-    @NonNull
-    public de5 g(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.setBackgroundColor(i);
-            return this;
-        }
-        return (de5) invokeI.objValue;
-    }
-
-    @NonNull
-    public de5 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.setBadgeGravity(i);
-            return this;
-        }
-        return (de5) invokeI.objValue;
-    }
-
-    @NonNull
-    public de5 i(@DimenRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (e == null) {
-                try {
-                    Field declaredField = BadgeDrawable.class.getDeclaredField("badgeRadius");
-                    e = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
                 }
             }
-            try {
-                if (e != null) {
-                    e.set(this.a, Integer.valueOf(UtilHelper.getDimenPixelSize(i)));
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d() {
+        jo joVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (joVar = this.c) == null || joVar.getListAdapter() == null) {
+            return;
+        }
+        this.c.getListAdapter().notifyDataSetChanged();
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof ge5) {
+                    ((ge5) qnVar).s(i);
                 }
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
             }
-            return this;
         }
-        return (de5) invokeI.objValue;
     }
 
-    @NonNull
-    public de5 j(@Nullable b bVar) {
-        InterceptResult invokeL;
+    public void f(te5 te5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
-            this.d = bVar;
-            return this;
-        }
-        return (de5) invokeL.objValue;
-    }
-
-    @NonNull
-    public de5 k(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
+        if (interceptable == null || interceptable.invokeL(1048581, this, te5Var) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof ge5) {
+                    ((ge5) qnVar).G(te5Var);
+                }
             }
-            this.a.setHorizontalOffset(dimenPixelSize);
-            return this;
         }
-        return (de5) invokeCommon.objValue;
     }
 
-    @NonNull
-    public de5 l(@Nullable String str) {
-        InterceptResult invokeL;
+    public void g(List<qn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.b = str;
-            return this;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (de5) invokeL.objValue;
+        this.a.clear();
+        this.c.a(this.a);
     }
 
-    @NonNull
-    public de5 m(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
+    public void h(List<Cdo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void i(dp4 dp4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dp4Var) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof ge5) {
+                    ((ge5) qnVar).H(dp4Var);
+                }
             }
-            this.a.setVerticalOffset(dimenPixelSize);
-            return this;
         }
-        return (de5) invokeCommon.objValue;
     }
 
-    public void n(boolean z) {
+    public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.a.setVisible(z);
-            if (z || this.b == null) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof ge5) {
+                    ((ge5) qnVar).I(bdUniqueId);
+                }
             }
-            su4.k().u(this.b, true);
+        }
+    }
+
+    public void k(jo joVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, joVar) == null) {
+            for (qn qnVar : this.a) {
+                if (qnVar instanceof ge5) {
+                    ((ge5) qnVar).K(joVar);
+                }
+            }
         }
     }
 }

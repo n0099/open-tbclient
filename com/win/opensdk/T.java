@@ -1,7 +1,6 @@
 package com.win.opensdk;
 
 import android.widget.Toast;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +33,7 @@ public class T implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Toast.makeText(this.a.b.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f15ae, 0).show();
+            Toast.makeText(this.a.b.getApplicationContext(), (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f15ce, 0).show();
         }
     }
 }

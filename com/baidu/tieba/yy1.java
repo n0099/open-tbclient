@@ -1,135 +1,174 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yy1 extends x23 {
+public final class yy1 extends ny1<CanvasView, vx1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wy1 c;
+    @NonNull
+    public CanvasView i;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CanvasView.c a;
+
+        public a(yy1 yy1Var, CanvasView.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yy1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CanvasView.c cVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.a) == null) {
+                return;
+            }
+            cVar.a();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends ei3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(yy1 yy1Var, String str, String str2, String str3, boolean z) {
+            super(str, str2, str3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yy1Var, str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = z;
+        }
+
+        @Override // com.baidu.tieba.ei3, android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.j && super.onTouch(view2, motionEvent) : invokeLL.booleanValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy1(x13 x13Var) {
-        super(x13Var, "/swanAPI/perfCat");
+    public yy1(@NonNull Context context, @NonNull vx1 vx1Var) {
+        super(context, vx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {context, vx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (oy1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        CanvasView canvasView = new CanvasView(context);
+        this.i = canvasView;
+        canvasView.setInterceptTouchEvent(vx1Var.j);
+        this.i.setHide(vx1Var.f);
+        this.i.setGesture(vx1Var.g);
+        if (vx1Var.g) {
+            this.i.setInterceptTouchEvent(false);
+        }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public boolean F(vx1 vx1Var, CanvasView.c cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vx1Var, cVar)) == null) {
+            if (vx1Var != null && (vx1Var instanceof wx1)) {
+                vx1 n = n();
+                if (!TextUtils.equals(n.b, vx1Var.b) || !TextUtils.equals(n.c, vx1Var.c)) {
+                    rz1.a("Component-Canvas", "drawCanvas with illegal ids!");
+                }
+                wx1 wx1Var = (wx1) vx1Var;
+                this.i.c(wx1Var.h(), wx1Var.i());
+                this.i.postInvalidate();
+                this.i.post(new a(this, cVar));
+                return true;
             }
+            yz1.c("Component-Canvas", "some params is invalid");
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    @SuppressLint({"ClickableViewAccessibility"})
+    /* renamed from: G */
+    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull vx1 vx1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
-            }
-            if (!x23.b) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -322942229) {
-                if (hashCode != 227833272) {
-                    if (hashCode == 977180790 && str.equals("/swanAPI/perfCat/on")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/perfCat/off")) {
-                    c = 1;
-                }
-            } else if (str.equals("/swanAPI/perfCat/duration")) {
-                c = 2;
-            }
-            if (c == 0) {
-                if (this.c == null) {
-                    this.c = new wy1();
-                }
-                this.c.h();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                ay1.i("SwanAppPropertyLogAction", " Start property log：");
-                return true;
-            } else if (c != 1) {
-                if (c != 2) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
-                    return false;
-                }
-                if (optParamsAsJo == null) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
-                } else {
-                    if (this.c != null) {
-                        this.c.g(optParamsAsJo.optInt("duration"));
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                }
-                return true;
-            } else {
-                JSONObject jSONObject = new JSONObject();
-                wy1 wy1Var = this.c;
-                if (wy1Var == null) {
-                    ay1.c("SwanAppPropertyLogAction", "Property log never start");
-                } else {
-                    String i = wy1Var.i();
-                    this.c = null;
-                    nm2.U().C();
-                    try {
-                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, nm2.U().C());
-                        jSONObject.put("path", i);
-                    } catch (JSONException e) {
-                        if (x23.b) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (x23.b) {
-                        Log.d("SwanAppPropertyLogAction", "Video dispatch Params : " + jSONObject.toString());
-                    }
-                    ay1.i("SwanAppPropertyLogAction", "Stop property log");
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, vx1Var) == null) {
+            swanAppComponentContainerView.setOnTouchListener(new b(this, vx1Var.c, vx1Var.b, vx1Var.a, vx1Var.g));
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: H */
+    public CanvasView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? this.i : (CanvasView) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ny1
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.z();
+            this.i.f();
+        }
     }
 }

@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String AUTOPAY_FROM_LOW_INCOME_FEEDBACK = "autopay_from_low_income_feedback";
     public static final String AUTOPAY_FROM_LOW_INCOME_FRS = "autopay_from_low_income_frs";
     public static final String AUTOPAY_FROM_LOW_INCOME_HOME = "autopay_from_low_income_home";
-    public static final String AUTOPAY_FROM_LOW_INCOME_HOME_FEEDBACK = "autopay_from_low_income_home_feedback";
     public static final String AUTOPAY_FROM_LOW_INCOME_PB = "autopay_from_low_income_pb";
     public static final String FID = "fid";
     public static final String FROM = "from";
@@ -59,6 +59,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int SCENE_FROM_MEMBER_YEAR_COMMON = 9;
     public static final int SCENE_FROM_PB = 100017;
     public static final String SCENE_ID = "scene_id";
+    public static final String SHOW_PRICE = "show_price";
     public static final String SHOW_VIP_TIP = "show_vip_tip";
     public static final String ST_TYPE = "st_type";
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,9 +135,17 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setShowPrice(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        getIntent().putExtra(SHOW_PRICE, str);
+    }
+
     public void setStType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             getIntent().putExtra("st_type", str);
         }
     }

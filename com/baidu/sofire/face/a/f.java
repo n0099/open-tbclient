@@ -48,7 +48,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -135,12 +134,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
         /* renamed from: com.baidu.sofire.face.a.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0166a implements Runnable {
+        public class RunnableC0165a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0166a(a aVar) {
+            public RunnableC0165a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -297,7 +296,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 com.baidu.sofire.face.b.b.a(fVar6.a, fVar6.r, 1, 0, null);
                 f fVar7 = this.a;
                 if (fVar7.d != null && (activity3 = fVar7.b) != null) {
-                    activity3.runOnUiThread(new RunnableC0166a(this));
+                    activity3.runOnUiThread(new RunnableC0165a(this));
                 }
                 if (!FH.isInitSuc(1) && this.a.n.a()) {
                     this.a.a(-15);
@@ -742,12 +741,12 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
 
     /* renamed from: com.baidu.sofire.face.a.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0167f implements Runnable {
+    public class RunnableC0166f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public RunnableC0167f(f fVar) {
+        public RunnableC0166f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1513,7 +1512,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
             try {
                 Activity activity = this.b;
                 if (activity != null) {
-                    activity.runOnUiThread(new RunnableC0167f(this));
+                    activity.runOnUiThread(new RunnableC0166f(this));
                 }
             } catch (Throwable unused) {
             }
@@ -2019,7 +2018,7 @@ public class f implements TextureView.SurfaceTextureListener, Camera.ErrorCallba
                 jSONObject7.put("zid", FH.gzfi(this.a, "", 5002));
                 jSONObject7.put(Config.EVENT_PART, "face");
                 jSONObject7.put(NotificationStyle.NOTIFICATION_STYLE, this.X);
-                jSONObject7.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
+                jSONObject7.put("ts", System.currentTimeMillis());
                 TimeZone timeZone = TimeZone.getDefault();
                 if (timeZone != null) {
                     jSONObject7.put("tz", timeZone.getID());

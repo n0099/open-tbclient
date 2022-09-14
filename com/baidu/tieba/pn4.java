@@ -1,69 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
-import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
-import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            lg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
-            lg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
-            lg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
-            lg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
-            lg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
-            lg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
-            lg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
-            lg.h().o(39, new SimpleBlurLoaderProc(true, 39));
-            lg.h().o(12, new PortraitLoaderProc(false, false, 12));
-            lg.h().o(26, new PortraitLoaderProc(true, false, 26));
-            lg.h().o(28, new PortraitLoaderProc(false, false, 26));
-            lg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
-            lg.h().o(19, new NinePatchLoaderProc(19));
-            lg.h().o(24, new LocalPicDrawableLoaderProc(24));
-            lg.h().o(25, new PortraitLoaderProc(false, true, 26));
-            lg.h().o(27, new BigImageLoaderProc(27));
-            lg.h().o(29, new SimpleForeverLoaderProc(true, 29));
-            lg.h().o(32, new LocalFileDrawableLoaderProc(32));
-            lg.h().o(23, new dx4());
-            lg.h().o(33, new MemeLoaderProc2());
-            lg.h().o(34, new EmotionShareLoaderProc());
-            lg.h().o(35, new LocalFileImageLoaderProc(160, 160));
-            lg.h().o(36, new LocalFileImageLoaderProc());
-            lg.h().o(43, new LocalFileImageLoaderProc2());
-            lg.h().o(37, new LocalVideoThumbLoaderProc());
-            lg.h().o(38, new ImageLoaderProc());
-            lg.h().o(41, new BigdayImageLoaderProc());
-            lg.h().o(44, new FlutterLoaderProc(true, 44, false));
-            lg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
-            lg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
-            lg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
-            lg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
-            lg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
-            lg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
-            lg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
-            lg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getTag() == null || !(view2.getTag() instanceof nn4)) {
+                return;
+            }
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                ej.M(view2.getContext(), R.string.obfuscated_res_0x7f0f0c92);
+                return;
+            }
+            nn4 nn4Var = (nn4) view2.getTag();
+            AlaUserInfoData alaUserInfoData = nn4Var.a;
+            if (alaUserInfoData == null) {
+                return;
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            long j = alaUserInfoData.anchor_live;
+            if (j != 0) {
+                alaLiveInfoCoreData.liveID = j;
+            } else {
+                long j2 = alaUserInfoData.enter_live;
+                if (j2 != 0) {
+                    alaLiveInfoCoreData.liveID = j2;
+                } else {
+                    long j3 = alaUserInfoData.live_id;
+                    if (j3 == 0) {
+                        return;
+                    }
+                    alaLiveInfoCoreData.liveID = j3;
+                }
+            }
+            int i = nn4Var.b;
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (i == 1) {
+                TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
+            } else if (i == 2 || i == 3 || i == 4) {
+                TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
+            } else if (i == 5) {
+                TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
+            } else if (i == 7) {
+                if (alaUserInfoData.ala_id != 0) {
+                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
+                }
+                TiebaStatic.log(new StatisticItem("c12542"));
+                if (nn4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.obfuscated_res_0x7f0f0e83), alaUserInfoData.sex));
+                    b.f(BdToast.ToastIcon.FAILURE);
+                    b.i();
+                    return;
+                }
+            }
+            int i2 = nn4Var.b;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, i2 == 5 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION : i2 == 7 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY : AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false, "")));
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067795, "Lcom/baidu/tieba/pn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948067795, "Lcom/baidu/tieba/pn4;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public static TextView a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
+            }
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
+        }
+        return (TextView) invokeL.objValue;
     }
 }

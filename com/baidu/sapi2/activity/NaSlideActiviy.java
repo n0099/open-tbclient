@@ -9,10 +9,10 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.ActivityStackManager;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -104,7 +104,6 @@ public class NaSlideActiviy extends AppCompatActivity {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r5v2, types: [android.view.Window, android.app.Activity] */
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -119,11 +118,10 @@ public class NaSlideActiviy extends AppCompatActivity {
             } else {
                 this.a = false;
             }
-            ?? window = getWindow();
-            if (window != 0) {
+            Window window = getWindow();
+            if (window != null) {
                 window.setBackgroundDrawable(new ColorDrawable(0));
             }
-            LogUtil.logActivity(window, "onCreate");
         }
     }
 

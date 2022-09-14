@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zg2 extends ue2<lh2> {
+public class zg2 extends sg2<yg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,33 +27,22 @@ public class zg2 extends ue2<lh2> {
         }
     }
 
-    @Override // com.baidu.tieba.ue2
+    @Override // com.baidu.tieba.sg2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hidekeyboard" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue2
+    @Override // com.baidu.tieba.sg2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull lh2 lh2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull yg2 yg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, lh2Var) == null) {
-            String str = command.what;
-            d(lh2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.has("status") && jSONObject.has("userId")) {
-                    long optLong = jSONObject.optLong("userId", -1L);
-                    boolean optBoolean = jSONObject.optBoolean("status");
-                    if (jh2.a(optLong)) {
-                        lh2Var.p(optLong, optBoolean);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, yg2Var) == null) {
+            d(yg2Var, command.what, null, false);
+            yg2Var.x0();
         }
     }
 }

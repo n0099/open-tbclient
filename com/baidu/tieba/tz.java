@@ -1,11 +1,44 @@
 package com.baidu.tieba;
 
-import javax.crypto.ShortBufferException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface tz {
-    int a(int i);
+public final class tz extends rz {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int a(byte[] bArr, int i, int i2);
+    public tz(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
+    }
 
-    void b(byte[] bArr, int i, int i2) throws ShortBufferException;
+    @Override // com.baidu.tieba.rz
+    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            uz uzVar = new uz();
+            uzVar.c(bArr, i, i2);
+            return com.baidu.cesium.i.b.a(new long[]{uzVar.b()});
+        }
+        return (com.baidu.cesium.i.b) invokeLII.objValue;
+    }
 }

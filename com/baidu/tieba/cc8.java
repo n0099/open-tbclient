@@ -1,36 +1,15 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes3.dex */
 public interface cc8 {
-    cn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+    void b1();
 
-    xb8 b();
+    void c1();
 
-    sb8 c();
+    void g0();
 
-    cn<?, ?> d(bc8 bc8Var, BdUniqueId bdUniqueId);
+    void h1();
 
-    void e();
+    void o0(String str, String str2);
 
-    List<AdvertAppInfo> f();
-
-    cn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
-
-    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
-
-    zb8 i();
-
-    void j(AdvertAppInfo advertAppInfo);
-
-    void k(HashMap<String, String> hashMap, Context context);
+    void w0(String str);
 }

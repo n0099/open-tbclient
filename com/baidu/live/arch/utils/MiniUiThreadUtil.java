@@ -2,6 +2,7 @@ package com.baidu.live.arch.utils;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005R\u001d\u0010\u000b\u001a\u00020\u00068B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\t\u0010\n¨\u0006\u000e"}, d2 = {"Lcom/baidu/live/arch/utils/MiniUiThreadUtil;", "Ljava/lang/Runnable;", "runnable", "", "runOnUiThread", "(Ljava/lang/Runnable;)V", "Landroid/os/Handler;", "sMainHandler$delegate", "Lkotlin/Lazy;", "getSMainHandler", "()Landroid/os/Handler;", "sMainHandler", "<init>", "()V", "lib-live-mini-arch_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\b\b\u0002\u0010\u0007\u001a\u00020\u0006¢\u0006\u0004\b\u0004\u0010\bR\u001d\u0010\u000e\u001a\u00020\t8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r¨\u0006\u0011"}, d2 = {"Lcom/baidu/live/arch/utils/MiniUiThreadUtil;", "Ljava/lang/Runnable;", "runnable", "", "runOnUiThread", "(Ljava/lang/Runnable;)V", "", "postImmediate", "(Ljava/lang/Runnable;Z)V", "Landroid/os/Handler;", "sMainHandler$delegate", "Lkotlin/Lazy;", "getSMainHandler", "()Landroid/os/Handler;", "sMainHandler", "<init>", "()V", "lib-live-mini-arch_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class MiniUiThreadUtil {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
@@ -68,16 +69,32 @@ public final class MiniUiThreadUtil {
         return (Handler) invokeV.objValue;
     }
 
+    public static /* synthetic */ void runOnUiThread$default(MiniUiThreadUtil miniUiThreadUtil, Runnable runnable, boolean z, int i, Object obj) {
+        if ((i & 2) != 0) {
+            z = false;
+        }
+        miniUiThreadUtil.runOnUiThread(runnable, z);
+    }
+
     public final void runOnUiThread(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            runOnUiThread(runnable, false);
+        }
+    }
+
+    public final void runOnUiThread(Runnable runnable, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, z) == null) {
             Thread currentThread = Thread.currentThread();
             Looper mainLooper = Looper.getMainLooper();
             Intrinsics.checkExpressionValueIsNotNull(mainLooper, "Looper.getMainLooper()");
-            if (currentThread != mainLooper.getThread()) {
-                getSMainHandler().post(runnable);
-            } else {
+            if (currentThread == mainLooper.getThread()) {
                 runnable.run();
+            } else if (z) {
+                getSMainHandler().postAtFrontOfQueue(runnable);
+            } else {
+                getSMainHandler().post(runnable);
             }
         }
     }

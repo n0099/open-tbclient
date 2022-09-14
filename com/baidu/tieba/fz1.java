@@ -1,215 +1,131 @@
 package com.baidu.tieba;
 
-import android.net.LocalServerSocket;
-import android.net.LocalSocket;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.bz1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
 /* loaded from: classes4.dex */
-public class fz1 implements bz1.c {
+public final class fz1 extends jy1<TextView, gz1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public bz1.b a;
-    public LocalServerSocket b;
-    public dz1 c;
-    public String d;
-    public boolean e;
+    public SwanAppComponentContainerView i;
+    public TextView j;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashMap();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public a a;
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        public abstract Map<String, String> b();
-
-        public abstract String c();
-
-        public final void d(PrintWriter printWriter, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
-                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
-            }
-        }
-
-        public void e(OutputStream outputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
-                d(printWriter, "Date", simpleDateFormat.format(new Date()));
-                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
-                Map<String, String> b = b();
-                if (b != null && b.size() > 0) {
-                    for (Map.Entry<String, String> entry : b.entrySet()) {
-                        d(printWriter, entry.getKey(), entry.getValue());
-                    }
-                }
-                printWriter.append("\r\n");
-                printWriter.append((CharSequence) a());
-                printWriter.flush();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781324, "Lcom/baidu/tieba/fz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947781324, "Lcom/baidu/tieba/fz1;");
-                return;
-            }
-        }
-        f = kh1.a;
-    }
-
-    public fz1(String str, bz1.b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fz1(@NonNull Context context, @NonNull gz1 gz1Var) {
+        super(context, gz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, gz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (ky1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
-        this.a = bVar;
+        g(4);
+        this.i = new SwanAppComponentContainerView(context);
+        this.j = new TextView(context);
     }
 
-    @Override // com.baidu.tieba.bz1.c
-    public void start() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jy1, com.baidu.tieba.ly1, com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: Z */
+    public qz1 k(@NonNull gz1 gz1Var, @NonNull gz1 gz1Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e) {
-            return;
-        }
-        try {
-            this.b = new LocalServerSocket(this.d);
-            this.e = true;
-            int i = 0;
-            while (this.e) {
-                LocalSocket accept = this.b.accept();
-                dz1 dz1Var = new dz1(accept.getInputStream(), accept.getOutputStream());
-                this.c = dz1Var;
-                dz1Var.o(this.a);
-                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
-                if (zw2.H() && (i = i + 1) > 10) {
-                    if (f) {
-                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
-                        return;
-                    }
-                    return;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, gz1Var, gz1Var2)) == null) {
+            qz1 k = super.k(gz1Var, gz1Var2);
+            if (!TextUtils.equals(gz1Var.E, gz1Var2.E) && (TextUtils.equals(gz1Var.E, "scroll") || TextUtils.equals(gz1Var2.E, "scroll"))) {
+                k.b(7);
             }
-        } catch (IOException e) {
-            ay1.d("V8InspectorServer", "launch local server fail", e);
+            if (!TextUtils.equals(gz1Var.E, gz1Var2.E) || (TextUtils.equals(gz1Var2.E, "scroll") && gz1Var.D != gz1Var2.D)) {
+                k.b(8);
+            }
+            return k;
+        }
+        return (qz1) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: a0 */
+    public TextView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.j : (TextView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ly1
+    /* renamed from: b0 */
+    public void P(@NonNull View view2, @NonNull gz1 gz1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, gz1Var) == null) {
+            if (ny1.h) {
+                Log.d("Component-CoverView", "renderAlpha");
+            }
+            if (gz1Var.j == null) {
+                return;
+            }
+            ViewParent parent = view2.getParent();
+            if (parent instanceof View) {
+                super.P((View) parent, gz1Var);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.bz1.c
-    public void stop() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ly1
+    /* renamed from: c0 */
+    public void Q(@NonNull TextView textView, @NonNull gz1 gz1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = false;
-            LocalServerSocket localServerSocket = this.b;
-            if (localServerSocket != null) {
-                try {
-                    localServerSocket.close();
-                } catch (IOException e) {
-                    ay1.d("V8InspectorServer", "stop local server fail", e);
-                }
-                this.b = null;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, gz1Var) == null) {
+            if (ny1.h) {
+                Log.d("Component-CoverView", "renderBackground");
             }
-            dz1 dz1Var = this.c;
-            if (dz1Var != null) {
-                dz1Var.l();
-                this.c = null;
+            if (gz1Var.j == null) {
+                return;
             }
-            this.a = null;
+            SwanAppComponentContainerView m = m();
+            if (m != null) {
+                m.setModel(gz1Var);
+            }
+            ViewParent parent = textView.getParent();
+            if (parent instanceof View) {
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setColor(gz1Var.k);
+                gradientDrawable.setCornerRadius(gz1Var.n);
+                gradientDrawable.setStroke(gz1Var.l, gz1Var.m);
+                ((View) parent).setBackground(gradientDrawable);
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.i : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

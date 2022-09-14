@@ -8,10 +8,10 @@ import com.baidu.searchbox.block.ubc.BlockPerfSampleCallback;
 import com.baidu.searchbox.fluency.ubc.FpsPerfSampleCallback;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import com.baidu.tieba.fc1;
-import com.baidu.tieba.hc1;
-import com.baidu.tieba.jc1;
-import com.baidu.tieba.rg8;
+import com.baidu.tieba.ce1;
+import com.baidu.tieba.di8;
+import com.baidu.tieba.ee1;
+import com.baidu.tieba.ge1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class PerfSampleManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public jc1<IPerfSampleCallback> mCallbackList;
+    public ge1<IPerfSampleCallback> mCallbackList;
 
     /* loaded from: classes2.dex */
     public interface IPerfSampleCallback {
@@ -32,7 +32,7 @@ public class PerfSampleManager {
     }
 
     /* loaded from: classes2.dex */
-    public class IPerfSampleCallback_PerfSampleManager_ListProvider implements fc1 {
+    public class IPerfSampleCallback_PerfSampleManager_ListProvider implements ce1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class PerfSampleManager {
             }
         }
 
-        @Override // com.baidu.tieba.fc1
+        @Override // com.baidu.tieba.ce1
         public Object get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class PerfSampleManager {
                 arrayList.add(new FpsPerfSampleCallback());
                 arrayList.add(new ExceptionPerfSampleCallback());
                 arrayList.add(new LooperPerfSampleCallback());
-                arrayList.add(new rg8());
+                arrayList.add(new di8());
                 return arrayList;
             }
             return invokeV.objValue;
@@ -89,9 +89,9 @@ public class PerfSampleManager {
         List<IPerfSampleCallback> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            jc1<IPerfSampleCallback> jc1Var = this.mCallbackList;
+            ge1<IPerfSampleCallback> ge1Var = this.mCallbackList;
             String str = 0;
-            if (jc1Var != null && (list = jc1Var.getList()) != null && list.size() != 0) {
+            if (ge1Var != null && (list = ge1Var.getList()) != null && list.size() != 0) {
                 for (int i = 0; i < list.size(); i++) {
                     String sampleFlag = list.get(i).getSampleFlag();
                     if (!TextUtils.isEmpty(sampleFlag)) {
@@ -111,7 +111,7 @@ public class PerfSampleManager {
     public void initmCallbackList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hc1 b = hc1.b();
+            ee1 b = ee1.b();
             this.mCallbackList = b;
             b.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
         }

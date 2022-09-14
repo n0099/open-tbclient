@@ -11,11 +11,10 @@ import com.baidu.live.business.model.data.LiveFeedData;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.model.data.LiveTabWrapData;
 import com.baidu.live.business.util.GrParasmUtil;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.h80;
+import com.baidu.tieba.jb0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.kb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +29,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedModel implements ILiveFeedModel {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String FEED_PAGE_INTEREST_URL = "https://tiebac.baidu.com/livefeed/interest";
     public static final String FEED_PAGE_URL = "https://tiebac.baidu.com/livefeed/feed";
+    public static final String RESOURCE_ALL_FOLLOW = "all_follow,config";
     public static final String RESOURCE_INIT = "banner,tab,feed,follow,config,reserve,diamond,topic";
+    public static final String RESOURCE_INIT_ALL_FOLLOW = "banner,tab,feed,all_follow,config,reserve,diamond,topic";
     public transient /* synthetic */ FieldHolder $fh;
     public final String mPage;
     public String mParamScene;
@@ -58,29 +58,46 @@ public class LiveFeedModel implements ILiveFeedModel {
         this.mParamScene = getSceneParam(str);
     }
 
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private String getSceneParam(String str) {
         InterceptResult invokeL;
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == 1137617387) {
-                if (str.equals(LiveFeedPageSdk.IMMERSION)) {
-                    c = 1;
-                }
-                c = 65535;
-            } else if (hashCode != 1333267023) {
-                if (hashCode == 1418021314 && str.equals(LiveFeedPageSdk.HOST_LIVE_TAB)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals(LiveFeedPageSdk.VIDEO_BAR)) {
-                    c = 2;
-                }
-                c = 65535;
+            switch (str.hashCode()) {
+                case -2042598803:
+                    if (str.equals(LiveFeedPageSdk.FOLLOW_VIDEO)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1137617387:
+                    if (str.equals(LiveFeedPageSdk.IMMERSION)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1333267023:
+                    if (str.equals(LiveFeedPageSdk.VIDEO_BAR)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1418021314:
+                    if (str.equals(LiveFeedPageSdk.HOST_LIVE_TAB)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return c != 0 ? c != 1 ? c != 2 ? "tab" : "videobar" : "immer" : "tab";
+            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "tab" : "followvideo" : "videobar" : "immer" : "tab";
         }
         return (String) invokeL.objValue;
     }
@@ -101,9 +118,9 @@ public class LiveFeedModel implements ILiveFeedModel {
             hashMap.put("subtab", str5);
             hashMap.put("upload_ids", str6);
             hashMap.put("refresh_index", String.valueOf(i2));
-            hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, System.currentTimeMillis() + "");
+            hashMap.put("start_time", System.currentTimeMillis() + "");
             hashMap.put("source", this.mSource);
-            ea0.f(FEED_PAGE_URL, hashMap, new da0<LiveFeedData>(this, i, str, onDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedModel.1
+            kb0.f(FEED_PAGE_URL, hashMap, new jb0<LiveFeedData>(this, i, str, onDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveFeedModel this$0;
@@ -133,14 +150,14 @@ public class LiveFeedModel implements ILiveFeedModel {
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-                @Override // com.baidu.tieba.da0
+                @Override // com.baidu.tieba.jb0
                 public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list2) {
                     onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list2);
                 }
 
                 /* JADX WARN: Can't wrap try/catch for region: R(11:3|(2:5|(3:44|(1:46)|47)(3:8|(1:10)|11))(3:48|(1:50)|51)|12|(3:14|(9:38|39|40|18|(2:(1:36)(1:27)|28)(1:37)|29|30|31|32)|16)(1:43)|17|18|(0)(0)|29|30|31|32) */
-                /* JADX WARN: Removed duplicated region for block: B:32:0x00b0  */
-                /* JADX WARN: Removed duplicated region for block: B:42:0x00c8  */
+                /* JADX WARN: Removed duplicated region for block: B:32:0x00b4  */
+                /* JADX WARN: Removed duplicated region for block: B:42:0x00cc  */
                 /* renamed from: onNetResponse  reason: avoid collision after fix types in other method */
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
@@ -190,15 +207,15 @@ public class LiveFeedModel implements ILiveFeedModel {
                             str8 = "网络不给力，请稍后重试";
                             i3 = -100;
                         }
-                        String n = h80.n(this.this$0.mPage);
+                        String n = k90.n(this.this$0.mPage);
                         if (map != null) {
                             String str15 = map.get("tab");
                             String str16 = map.get("subtab");
                             str10 = map.get("resource");
                             String str17 = map.get("session_id");
-                            if (map.containsKey(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY)) {
+                            if (map.containsKey("start_time")) {
                                 try {
-                                    j = currentTimeMillis - Long.parseLong(map.get(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY));
+                                    j = currentTimeMillis - Long.parseLong(map.get("start_time"));
                                     str9 = str15;
                                     str11 = str16;
                                     str12 = str17;
@@ -210,7 +227,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                                     str13 = (liveFeedData == null || (liveTabWrapData = liveFeedData.tabWrapData) == null || (list3 = liveTabWrapData.tabList) == null || list3.isEmpty()) ? "1" : "0";
                                 }
                                 str14 = URLEncoder.encode(str10, "UTF-8");
-                                h80.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
+                                k90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
                             }
                             str9 = str15;
                             str11 = str16;
@@ -225,13 +242,13 @@ public class LiveFeedModel implements ILiveFeedModel {
                         if (str10.contains("tab")) {
                         }
                         str14 = URLEncoder.encode(str10, "UTF-8");
-                        h80.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
+                        k90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
                     }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.da0
+                @Override // com.baidu.tieba.jb0
                 public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -239,10 +256,10 @@ public class LiveFeedModel implements ILiveFeedModel {
                         LiveFeedData liveFeedData = new LiveFeedData();
                         if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {
                             try {
-                                liveFeedData.parserJson(new JSONObject(netResponse.decodedResponseStr), this.val$refreshType, LiveFeedModel.RESOURCE_INIT.equals(this.val$resource), true);
+                                liveFeedData.parserJson(new JSONObject(netResponse.decodedResponseStr), this.val$refreshType, this.this$0.getInitResource().equals(this.val$resource), true);
                             } catch (JSONException e) {
                                 LiveFeedPageSdk.liveLog(e.getMessage());
-                                if (TextUtils.equals(LiveFeedModel.RESOURCE_INIT, this.val$resource)) {
+                                if (TextUtils.equals(this.this$0.getInitResource(), this.val$resource)) {
                                     liveFeedData.getDataByCache(-101, e.getMessage(), true, true);
                                 }
                             }
@@ -255,34 +272,40 @@ public class LiveFeedModel implements ILiveFeedModel {
         }
     }
 
+    public String getFollowResource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LiveFeedPageSdk.VIDEO_BAR.equals(this.mPage) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.mPage)) ? RESOURCE_ALL_FOLLOW : "follow" : (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.live.business.model.ILiveFeedModel
     @NonNull
     public String getInitResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RESOURCE_INIT : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (LiveFeedPageSdk.VIDEO_BAR.equals(this.mPage) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.mPage)) ? RESOURCE_INIT_ALL_FOLLOW : RESOURCE_INIT : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.live.business.model.ILiveFeedModel
     public void reqFollow(ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDataLoadCallback) == null) {
-            realReq("follow", "", 0, "", "", "", 1, "", null, onDataLoadCallback);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onDataLoadCallback) == null) {
+            realReq(getFollowResource(), "", 0, "", "", "", 1, "", null, onDataLoadCallback);
         }
     }
 
     @Override // com.baidu.live.business.model.ILiveFeedModel
     public void reqInit(ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onDataLoadCallback) == null) {
-            realReq(RESOURCE_INIT, "", 0, "", "", "", 1, GrParasmUtil.genUploadJson(), GrParasmUtil.uploadFeedList, onDataLoadCallback);
+        if (interceptable == null || interceptable.invokeL(1048579, this, onDataLoadCallback) == null) {
+            realReq(getInitResource(), "", 0, "", "", "", 1, GrParasmUtil.genUploadJson(), GrParasmUtil.uploadFeedList, onDataLoadCallback);
         }
     }
 
     @Override // com.baidu.live.business.model.ILiveFeedModel
     public void reqSingleData(String str, String str2, int i, String str3, String str4, String str5, int i2, ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5, Integer.valueOf(i2), onDataLoadCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5, Integer.valueOf(i2), onDataLoadCallback}) == null) {
             realReq(str, str2, i, str3, str4, str5, i2, GrParasmUtil.genUploadJson(), GrParasmUtil.uploadFeedList, onDataLoadCallback);
         }
     }
@@ -290,8 +313,8 @@ public class LiveFeedModel implements ILiveFeedModel {
     @Override // com.baidu.live.business.model.ILiveFeedModel
     public void reqInit(@Nullable String str, @Nullable String str2, @Nullable ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, onDataLoadCallback) == null) {
-            realReq(RESOURCE_INIT, "", 0, str, str2, "", 1, GrParasmUtil.genUploadJson(), GrParasmUtil.uploadFeedList, onDataLoadCallback);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, onDataLoadCallback) == null) {
+            realReq(getInitResource(), "", 0, str, str2, "", 1, GrParasmUtil.genUploadJson(), GrParasmUtil.uploadFeedList, onDataLoadCallback);
         }
     }
 }

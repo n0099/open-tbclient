@@ -2,6 +2,7 @@ package com.baidu.searchbox.live.data.req;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlaLiveTabMyConcernActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -219,7 +220,7 @@ public final class RoomEnterParams extends MixBaseParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             addExtParams("room_id", this.id);
-            addExtParams("live_source", this.source);
+            addExtParams(AlaLiveTabMyConcernActivityConfig.ALA_LIVE_SOURCE, this.source);
             String str = this.query;
             boolean z = false;
             if (!(str == null || str.length() == 0)) {

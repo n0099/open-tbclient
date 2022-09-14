@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iq8;
+import com.baidu.tieba.yr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iq8 cardData;
+    public yr8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailSocketReponse() {
@@ -61,10 +61,10 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
             if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
                 personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
             }
-            iq8 iq8Var = new iq8();
-            this.cardData = iq8Var;
+            yr8 yr8Var = new yr8();
+            this.cardData = yr8Var;
             if (personalCardDetailRequest != null) {
-                iq8Var.m(personalCardDetailRequest.getCardId());
+                yr8Var.m(personalCardDetailRequest.getCardId());
             }
             this.cardData.v(getCardResIdl.data.title);
             this.cardData.p(getCardResIdl.data.description);
@@ -81,9 +81,9 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public iq8 getCardData() {
+    public yr8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardData : (iq8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardData : (yr8) invokeV.objValue;
     }
 }

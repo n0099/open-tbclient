@@ -1,102 +1,405 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a23 extends x23 {
+public class a23 extends c23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public static class a extends c23.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
+        public TextView f;
+        public TextView g;
+        public TextView h;
+        public TextView i;
+        public LinearLayout j;
+        public LinearLayout k;
+        public CheckBox l;
 
-        public a(a23 a23Var, SwanAppActivity swanAppActivity) {
+        /* renamed from: com.baidu.tieba.a23$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class DialogInterface$OnKeyListenerC0198a implements DialogInterface.OnKeyListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DialogInterface.OnClickListener a;
+            public final /* synthetic */ a b;
+
+            public DialogInterface$OnKeyListenerC0198a(a aVar, DialogInterface.OnClickListener onClickListener) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, onClickListener};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = onClickListener;
+            }
+
+            @Override // android.content.DialogInterface.OnKeyListener
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                InterceptResult invokeLIL;
+                DialogInterface.OnClickListener onClickListener;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
+                    if (keyEvent.getAction() == 1 && i == 4 && keyEvent.getRepeatCount() == 0 && (onClickListener = this.a) != null) {
+                        onClickListener.onClick(dialogInterface, this.b.c0());
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeLIL.booleanValue;
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DialogInterface.OnClickListener a;
+            public final /* synthetic */ a b;
+
+            public b(a aVar, DialogInterface.OnClickListener onClickListener) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, onClickListener};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = onClickListener;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                DialogInterface.OnClickListener onClickListener;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (onClickListener = this.a) == null) {
+                    return;
+                }
+                a aVar = this.b;
+                onClickListener.onClick(aVar.b, aVar.c0());
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class c implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DialogInterface.OnClickListener a;
+            public final /* synthetic */ a b;
+
+            public c(a aVar, DialogInterface.OnClickListener onClickListener) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, onClickListener};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = onClickListener;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                DialogInterface.OnClickListener onClickListener;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (onClickListener = this.a) == null) {
+                    return;
+                }
+                a aVar = this.b;
+                onClickListener.onClick(aVar.b, aVar.c0());
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class d implements DialogInterface.OnShowListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DialogInterface.OnShowListener a;
+
+            public d(a aVar, DialogInterface.OnShowListener onShowListener) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, onShowListener};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = onShowListener;
+            }
+
+            @Override // android.content.DialogInterface.OnShowListener
+            public void onShow(DialogInterface dialogInterface) {
+                DialogInterface.OnShowListener onShowListener;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onShowListener = this.a) == null) {
+                    return;
+                }
+                onShowListener.onShow(dialogInterface);
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class e implements DialogInterface.OnDismissListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DialogInterface.OnDismissListener a;
+
+            public e(a aVar, DialogInterface.OnDismissListener onDismissListener) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, onDismissListener};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = onDismissListener;
+            }
+
+            @Override // android.content.DialogInterface.OnDismissListener
+            public void onDismiss(DialogInterface dialogInterface) {
+                DialogInterface.OnDismissListener onDismissListener;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.a) == null) {
+                    return;
+                }
+                onDismissListener.onDismiss(dialogInterface);
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a23Var, swanAppActivity};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = swanAppActivity;
+            n(new gi3());
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d080a, e(), false);
+            W(viewGroup);
+            this.j = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ef);
+            this.h = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902f0);
+            this.i = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902f1);
+            this.k = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091042);
+            this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e0e);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e10);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e0f);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a0), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.k.setVisibility(8);
+            this.j.setVisibility(0);
+            this.l.setVisibility(0);
+            this.b.setCancelable(false);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.c23.a
+        public /* bridge */ /* synthetic */ c23.a N(DialogInterface.OnShowListener onShowListener) {
+            j0(onShowListener);
+            return this;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.c23.a
+        /* renamed from: b0 */
+        public a23 c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ie3.a(this.a);
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (a23) super.c() : (a23) invokeV.objValue;
+        }
+
+        public final int c0() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l.isChecked() ? 1 : 0 : invokeV.intValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.c23.a
+        /* renamed from: d0 */
+        public a23 h(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? new a23(context) : (a23) invokeL.objValue;
+        }
+
+        public a e0(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.g.setText(str);
+                return this;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public a f0(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.f.setText(str);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g0(DialogInterface.OnClickListener onClickListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, onClickListener)) == null) {
+                this.h.setOnClickListener(new b(this, onClickListener));
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a h0(DialogInterface.OnClickListener onClickListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
+                super.M(new DialogInterface$OnKeyListenerC0198a(this, onClickListener));
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a i0(DialogInterface.OnDismissListener onDismissListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, onDismissListener)) == null) {
+                super.L(new e(this, onDismissListener));
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a j0(DialogInterface.OnShowListener onShowListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, onShowListener)) == null) {
+                super.N(new d(this, onShowListener));
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a k0(DialogInterface.OnClickListener onClickListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, onClickListener)) == null) {
+                this.i.setOnClickListener(new c(this, onClickListener));
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a23(x13 x13Var) {
-        super(x13Var, "/swanAPI/applyUpdate");
+    public a23(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001a8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        a(false);
+        Window window = getWindow();
+        if (window != null) {
+            window.setGravity(80);
+            window.setLayout(-1, -2);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+        }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                ay1.c("applyUpdate", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else if (!(context instanceof SwanAppActivity)) {
-                ay1.c("applyUpdate", "context is not SwanAppActivity");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else {
-                SwanAppActivity swanAppActivity = (SwanAppActivity) context;
-                Intent intent = swanAppActivity.getIntent();
-                if (!swanAppActivity.isDestroyed() && intent != null) {
-                    ue3.e0(new a(this, swanAppActivity));
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                ay1.c("applyUpdate", "launchScheme is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty launchScheme");
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            c23.a c = c();
+            c.p(R.drawable.obfuscated_res_0x7f080125);
+            c.f(true);
+            c.k(false);
+            c.j();
+            c.t(false);
         }
-        return invokeLLLL.booleanValue;
     }
 }

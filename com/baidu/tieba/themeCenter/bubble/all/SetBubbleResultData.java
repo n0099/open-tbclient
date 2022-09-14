@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SetBubbleResultData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4612117445868668894L;
@@ -17,13 +17,14 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
     public String error_code;
     public String error_msg;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ResultInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1818506758727291395L;
         public transient /* synthetic */ FieldHolder $fh;
         public String b_url;
         public int can_use;
+        public String dynamic_url;
         public int is_free;
         public String t_msg;
 
@@ -59,22 +60,28 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.can_use : invokeV.intValue;
         }
 
+        public String getDynamicUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
         public int getIs_free() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.is_free : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.is_free : invokeV.intValue;
         }
 
         public String getT_msg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.t_msg : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.t_msg : (String) invokeV.objValue;
         }
 
         public boolean isFree() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.is_free == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.is_free == 1 : invokeV.booleanValue;
         }
     }
 

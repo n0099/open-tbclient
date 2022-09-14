@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class lf2 extends ue2<if2> {
+public class lf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String digest;
+    @V8JavascriptField
+    public String errMsg;
+    @V8JavascriptField
+    public int size;
 
     public lf2() {
         Interceptable interceptable = $ic;
@@ -25,36 +29,20 @@ public class lf2 extends ue2<if2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.ue2
-    @NonNull
-    public String b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ue2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull if2 if2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, if2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof ArrayList) {
-                ArrayList arrayList = (ArrayList) obj;
-                if (arrayList.size() < 4) {
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("Cookie", (String) arrayList.get(1));
-                hashMap.put("User-Agent", (String) arrayList.get(2));
-                hashMap.put("Referer", (String) arrayList.get(3));
-                if2Var.k((String) arrayList.get(0), hashMap);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GetFileInfoCallBack" + this.b;
         }
+        return (String) invokeV.objValue;
     }
 }

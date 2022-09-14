@@ -103,7 +103,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!qi.isEmpty(postNetData)) {
+                                } else if (!dj.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -134,7 +134,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<bj8> {
+    public static class b implements CustomMessageTask.CustomRunnable<pk8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,12 +153,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<bj8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<pk8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof er4)) {
-                    new wi8().j((er4) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof jt4)) {
+                    new kk8().j((jt4) customMessage.getData());
                 }
                 return null;
             }
@@ -250,7 +250,7 @@ public class SignStatic {
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = lf.n().j(false)) != null) {
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = zf.n().j(false)) != null) {
                 locationLng = String.valueOf(j.getLongitude());
                 locationLat = String.valueOf(j.getLatitude());
             }

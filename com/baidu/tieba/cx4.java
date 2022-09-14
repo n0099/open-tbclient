@@ -1,70 +1,148 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
+import android.util.Pair;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class cx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public FragmentTabHost b;
+    public final yg<on> c;
 
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (cx4.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
+    /* loaded from: classes3.dex */
+    public class a extends yg<on> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cx4 a;
+
+        public a(cx4 cx4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = cx4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
+                super.onLoaded((a) onVar, str, i);
+                if (this.a.b == null || onVar == null || !onVar.w()) {
+                    this.a.f();
+                    return;
+                }
+                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
+                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
+                ViewGroup tabWrapper = this.a.b.getTabWrapper();
+                if (fragmentTabWidget == null || fragmentViewPager == null) {
+                    return;
+                }
+                this.a.b.setNeedShowThemeStyle(false);
+                fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
+                SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
+                SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
+                layoutParams.bottomMargin = ej.f(this.a.b.getContext(), R.dimen.tbds100);
+                fragmentViewPager.setLayoutParams(layoutParams);
+                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(onVar.p()));
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public cx4(FragmentTabHost fragmentTabHost, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true)) : invokeLL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.c = new a(this);
+        this.b = fragmentTabHost;
+        this.a = i;
     }
 
-    public static bx4 c(String str) {
-        InterceptResult invokeL;
+    public final BdUniqueId c() {
+        InterceptResult invokeV;
+        r9<?> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            bx4 bx4Var = new bx4();
-            if (str == null) {
-                bx4Var.c = 6;
-                bx4Var.d = bx4.a(6);
-                return bx4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            FragmentTabHost fragmentTabHost = this.b;
+            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = w9.a(this.b.getContext())) == null) {
+                return null;
             }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                bx4Var.c = 7;
-                bx4Var.d = bx4.a(7);
-                return bx4Var;
-            }
-            String b = xi.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                bx4Var.c = 5;
-                bx4Var.d = bx4.a(5);
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    bx4Var.b = filePath;
-                    bx4Var.a = b;
-                } else {
-                    bx4Var.c = 1;
-                    bx4Var.d = bx4.a(1);
-                }
-            }
-            return bx4Var;
+            return a2.getUniqueId();
         }
-        return (bx4) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            zg.h().m(str, 10, this.c, c());
+        }
+    }
+
+    public void e(Pair<String, String> pair) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
+            return;
+        }
+        String str = (String) pair.first;
+        String str2 = (String) pair.second;
+        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
+            d(str2);
+        } else if (!TextUtils.isEmpty(str)) {
+            d(str);
+        } else {
+            f();
+        }
+    }
+
+    public final void f() {
+        FragmentTabHost fragmentTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
+            return;
+        }
+        this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
+        SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
+        SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
     }
 }

@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,108 +8,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes5.dex */
 public class nc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public Set<String> b;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static nc0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-580145264, "Lcom/baidu/tieba/nc0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-580145264, "Lcom/baidu/tieba/nc0$b;");
-                    return;
-                }
-            }
-            a = new nc0(null);
-        }
-    }
+    public pc0 a;
+    public tc0 b;
+    public ad0 c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947997518, "Lcom/baidu/tieba/nc0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947997518, "Lcom/baidu/tieba/nc0;");
-                return;
-            }
-        }
-        c = su4.o("advert_hide_list");
-    }
-
-    public /* synthetic */ nc0(a aVar) {
-        this();
-    }
-
-    public static nc0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (nc0) invokeV.objValue;
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            if (this.b == null) {
-                this.b = this.a.getStringSet(c, null);
-            }
-            Set<String> set = this.b;
-            if (set == null) {
-                return false;
-            }
-            return set.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947997518, "Lcom/baidu/tieba/nc0;")) == null) {
             return;
         }
-        Set<String> stringSet = this.a.getStringSet(c, null);
-        this.b = stringSet;
-        if (stringSet == null) {
-            this.b = new HashSet();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        this.b.add(str);
-        this.a.edit().putStringSet(c, this.b).commit();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947997518, "Lcom/baidu/tieba/nc0;");
+        }
     }
 
-    public nc0() {
+    public nc0(ad0 ad0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ad0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -122,6 +46,98 @@ public class nc0 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+        this.c = ad0Var;
+        this.a = new pc0(ad0Var.f(), 1);
+        d();
+    }
+
+    public final void a(tc0 tc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tc0Var) == null) {
+            if (tc0Var == null) {
+                this.b = new sc0();
+            } else {
+                this.b = tc0Var;
+            }
+            this.b.b(this.c.j(), this.c.i());
+        }
+    }
+
+    public void b(long j) {
+        ad0 ad0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.b == null || (ad0Var = this.c) == null) {
+            return;
+        }
+        if (ad0Var.l()) {
+            d();
+        }
+        if (j != 0) {
+            this.c.h().h(j);
+        }
+        this.b.a(this.c.e(), this.c.h());
+    }
+
+    public pc0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (pc0) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            float[] b = this.c.h().b();
+            cd0.b(b);
+            yc0 c = this.c.c();
+            cd0.e(b, c.g(), c.h());
+            cd0.a(b, c.d());
+            cd0.c(b, c.b());
+            if ((c.f() + 360) % 180 == 0) {
+                cd0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
+                return;
+            }
+            wc0 clone = this.c.i().clone();
+            clone.e(this.c.i().b());
+            clone.d(this.c.i().c());
+            cd0.d(b, this.c.j(), clone, c.e(), c.c());
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            tc0 tc0Var = this.b;
+            if (tc0Var != null) {
+                tc0Var.release();
+                this.b = null;
+            }
+            pc0 pc0Var = this.a;
+            if (pc0Var != null) {
+                pc0Var.f();
+                this.a = null;
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            tc0 g = this.c.g();
+            this.b = g;
+            a(g);
+        }
+    }
+
+    public void g(tc0 tc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tc0Var) == null) {
+            ad0 ad0Var = this.c;
+            if (ad0Var != null) {
+                ad0Var.o(tc0Var);
+            }
+            this.b.release();
+            a(tc0Var);
+        }
     }
 }

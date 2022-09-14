@@ -20,6 +20,7 @@ import com.facebook.imagepipeline.producers.NetworkFetchProducer;
 import com.facebook.imagepipeline.producers.PartialDiskCacheProducer;
 import com.facebook.imagepipeline.producers.PostprocessedBitmapMemoryCacheProducer;
 import com.facebook.imagepipeline.producers.QualifiedResourceFetchProducer;
+import com.google.android.gms.common.internal.ImagesContract;
 /* loaded from: classes7.dex */
 public class ImageOriginUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -199,7 +200,7 @@ public class ImageOriginUtils {
                 case 6:
                     return "memory_bitmap_shortcut";
                 case 7:
-                    return "local";
+                    return ImagesContract.LOCAL;
                 default:
                     return "unknown";
             }

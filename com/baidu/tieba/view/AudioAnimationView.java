@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -96,7 +96,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -109,11 +109,11 @@ public class AudioAnimationView extends View {
             if (this.f) {
                 invalidate();
             }
-            sg.a().removeCallbacks(this.n);
+            gh.a().removeCallbacks(this.n);
             if (this.g) {
                 return;
             }
-            sg.a().postDelayed(this.n, 250L);
+            gh.a().postDelayed(this.n, 250L);
         }
     }
 
@@ -191,7 +191,7 @@ public class AudioAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            sg.a().removeCallbacks(this.n);
+            gh.a().removeCallbacks(this.n);
         }
     }
 
@@ -291,7 +291,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();

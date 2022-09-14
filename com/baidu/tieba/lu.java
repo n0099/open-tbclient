@@ -1,90 +1,119 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.HashMap;
+import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class lu implements ju {
+public final class lu implements os {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UBCManager a;
-    public final mu b;
+    public WeakReference<Activity> a;
+    public final pp b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310596, "Lcom/baidu/tieba/lu;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448310596, "Lcom/baidu/tieba/lu;");
-        }
-    }
-
-    public lu() {
+    public lu(pp ppVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ppVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        this.b = (mu) ServiceManager.getService(mu.a.a());
+        this.b = ppVar;
     }
 
-    @Override // com.baidu.tieba.ju
-    public void a(String str, String str2, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.os
+    public Activity a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", str2);
-            hashMap.put("page", str);
-            if (jSONObject != null) {
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
-                hashMap.put("ext", jSONObject2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference == null) {
+                return null;
             }
-            UBCManager uBCManager = this.a;
-            if (uBCManager != null) {
-                uBCManager.onEvent("3676", hashMap);
+            Activity activity = weakReference != null ? weakReference.get() : null;
+            if (nt.a(activity)) {
+                return null;
             }
+            return activity;
         }
+        return (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ju
-    public void b(String str, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.os
+    public void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            String extra = jSONObject.toString();
-            HashMap hashMap = new HashMap();
-            hashMap.put("value", str);
-            hashMap.put("type", "abnormal");
-            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
-            hashMap.put("ext", extra);
-            mu muVar = this.b;
-            if (muVar != null) {
-                muVar.a("3677", str, extra);
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || nt.a(activity)) {
+            return;
         }
+        this.a = new WeakReference<>(activity);
+    }
+
+    @Override // com.baidu.tieba.os
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.t() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.os
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Context context = this.b.getContext();
+            Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
+            return context;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.os
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String k = this.b.k();
+            Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
+            return k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.os
+    public ps getEnv() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ps r = this.b.r();
+            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
+            return r;
+        }
+        return (ps) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.os
+    public String getSdkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String q = this.b.q();
+            Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
+            return q;
+        }
+        return (String) invokeV.objValue;
     }
 }

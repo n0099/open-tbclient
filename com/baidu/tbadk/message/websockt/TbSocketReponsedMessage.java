@@ -1,7 +1,7 @@
 package com.baidu.tbadk.message.websockt;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.ve;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,11 +31,11 @@ public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public static void saveProtocolBufferDataToCache(ve<byte[]> veVar, String str, byte[] bArr) {
+    public static void saveProtocolBufferDataToCache(jf<byte[]> jfVar, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, veVar, str, bArr) == null) || str == null || veVar == null || bArr == null || bArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, jfVar, str, bArr) == null) || str == null || jfVar == null || bArr == null || bArr.length <= 0) {
             return;
         }
-        veVar.g(str, bArr);
+        jfVar.g(str, bArr);
     }
 }

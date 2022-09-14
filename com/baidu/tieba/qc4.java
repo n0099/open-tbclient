@@ -1,37 +1,66 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 /* loaded from: classes5.dex */
-public class qc4 extends gc4 {
+public class qc4 implements uc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Response a;
 
-    public qc4() {
+    public qc4(@NonNull Response response) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {response};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = response;
+    }
+
+    @Override // com.baidu.tieba.uc4
+    @Nullable
+    public tc4 body() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ResponseBody body = this.a.body();
+            if (body == null) {
+                return null;
+            }
+            return new rc4(body);
+        }
+        return (tc4) invokeV.objValue;
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.close();
         }
     }
 
-    @Override // com.baidu.tieba.gc4, com.baidu.tieba.jc4
-    public void b(JSONObject jSONObject, t84 t84Var, @Nullable t84 t84Var2, @Nullable t84 t84Var3) {
-        nc4 d;
+    @Override // com.baidu.tieba.uc4
+    public int code() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, t84Var, t84Var2, t84Var3) == null) || jSONObject == null || (d = oc4.c().d(jSONObject)) == null) {
-            return;
-        }
-        j84.b().D(d);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.code() : invokeV.intValue;
     }
 }

@@ -15,7 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -125,14 +126,14 @@ public class AudioCircleProgress extends View {
             this.j = new RectF();
             this.g = new Point();
             this.p = new ValueAnimator();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040098, R.attr.obfuscated_res_0x7f04009a, R.attr.obfuscated_res_0x7f0400dd, R.attr.obfuscated_res_0x7f0404a1, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f04064f, R.attr.obfuscated_res_0x7f040675});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.voiceCircleProgress);
             this.b = obtainStyledAttributes.getColor(0, SkinManager.getColor(R.color.CAM_X0302));
             this.e = obtainStyledAttributes.getColor(2, 0);
             this.c = obtainStyledAttributes.getDimension(1, 15.0f);
             this.d = obtainStyledAttributes.getDimension(1, 15.0f);
             this.m = obtainStyledAttributes.getFloat(5, 270.0f);
             this.n = obtainStyledAttributes.getFloat(6, 360.0f);
-            this.q = ri.f(context, R.dimen.tbds25);
+            this.q = ej.f(context, R.dimen.tbds25);
             e();
         }
     }

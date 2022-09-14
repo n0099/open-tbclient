@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +117,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         ImageView imageView = this.e;
-        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f049f) + bawuRoleInfoPub.user_level);
+        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f04a3) + bawuRoleInfoPub.user_level);
         SkinManager.setImageResource(this.e, smallGradeResourceIdNew);
         this.e.setVisibility(0);
     }
@@ -125,17 +125,17 @@ public class BawuMemberInfoView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0145, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0148, this);
             this.b = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e9a);
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090eb5);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.c.setBorderWidth(ri.f(this.a, R.dimen.obfuscated_res_0x7f070198));
+            this.c.setBorderWidth(ej.f(this.a, R.dimen.obfuscated_res_0x7f070198));
             this.b.setOnClickListener(new a(this));
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e9b);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092109);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092108);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eb6);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09215a);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092159);
         }
     }
 

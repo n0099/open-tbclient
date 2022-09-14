@@ -279,7 +279,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, view2, charSequence, i)) == null) {
             ViewGroup findSuitableParent = findSuitableParent(view2);
             if (findSuitableParent != null) {
-                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d05a3 : R.layout.obfuscated_res_0x7f0d0213, findSuitableParent, false);
+                SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) LayoutInflater.from(findSuitableParent.getContext()).inflate(hasSnackbarContentStyleAttrs(findSuitableParent.getContext()) ? R.layout.obfuscated_res_0x7f0d05ba : R.layout.obfuscated_res_0x7f0d0217, findSuitableParent, false);
                 Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);
                 snackbar.setText(charSequence);
                 snackbar.setDuration(i);

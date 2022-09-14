@@ -1,57 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.mg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class qn2 extends mn2 {
+public class qn2 implements co2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tn2 z;
 
-    public qn2() {
+    public static SwanAppConfigData a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file == null || !file.exists()) {
+                return null;
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            SwanAppConfigData b = k33.b(file.getAbsolutePath());
+            if (co2.a) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                StringBuilder sb = new StringBuilder();
+                sb.append("buildAppJsonConfig cost = ");
+                sb.append(currentTimeMillis2 - currentTimeMillis);
+                sb.append("ms ; current thread is main = ");
+                sb.append(Looper.getMainLooper() == Looper.myLooper());
+                sb.append(" ; path = ");
+                sb.append(file);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return b;
         }
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mn2, com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static SwanAppConfigData b(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file == null || !file.exists()) {
+                return null;
+            }
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) rn2.c().b(file.getAbsolutePath());
+            if (swanAppConfigData == null) {
+                swanAppConfigData = bx2.e().j(file);
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = a(file);
+                }
+                rn2.c().d(file.getAbsolutePath(), swanAppConfigData);
+            } else if (co2.a) {
+                Log.d("SwanPerformance", "adopt cached app.json");
+            }
+            return swanAppConfigData;
         }
-        super.a(jSONObject);
-        jSONObject.optString("cb");
-        double optDouble = jSONObject.optDouble("latitude");
-        double optDouble2 = jSONObject.optDouble("longitude");
-        jSONObject.optString("guideKey");
-        jSONObject.optString("guideIcon");
-        if (Double.isNaN(optDouble) || Double.isNaN(optDouble2) || optDouble < -90.0d || optDouble > 90.0d || optDouble2 < -180.0d || optDouble2 > 180.0d) {
-            return;
-        }
-        tn2 tn2Var = new tn2();
-        this.z = tn2Var;
-        tn2Var.a(jSONObject);
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public boolean isValid() {
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) rn2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(fm2.M().a());
+            }
+            if (z) {
+                rn2.c().e("getNightModeStateCache");
+            }
+            return bool;
+        }
+        return (Boolean) invokeZ.objValue;
+    }
+
+    public static List<mg3.a> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.z != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List<mg3.a> list = (List) rn2.c().b("getStorageListCache");
+            if (list == null) {
+                List<mg3.a> d = mg3.d();
+                rn2.c().d("getStorageListCache", d);
+                return d;
+            }
+            return list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static void e(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            rn2.c().d("getNightModeStateCache", bool);
+        }
     }
 }

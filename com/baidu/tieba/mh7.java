@@ -1,43 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestCommonViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.model.LegoPageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Lego.DataRes;
 /* loaded from: classes5.dex */
-public class mh7 extends cn<rh7, SearchSuggestCommonViewHolder> {
+public class mh7 implements kh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public LegoPageModel a;
+    public lh7 b;
+    public LegoPageModel.b c;
 
     /* loaded from: classes5.dex */
-    public class a implements zn {
+    public class a implements LegoPageModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ mh7 a;
 
-        public a(mh7 mh7Var, Context context) {
+        public a(mh7 mh7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mh7Var, context};
+                Object[] objArr = {mh7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,91 +42,186 @@ public class mh7 extends cn<rh7, SearchSuggestCommonViewHolder> {
                     return;
                 }
             }
-            this.a = context;
+            this.a = mh7Var;
         }
 
-        @Override // com.baidu.tieba.zn
-        public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void a(long j, String str, DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof rh7)) {
-                rh7 rh7Var = (rh7) pnVar;
-                String a = rh7Var.a();
-                String b = rh7Var.b();
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921595, b);
-                Context context = this.a;
-                if (context != null && (context instanceof BdBaseActivity)) {
-                    customResponsedMessage.setmOrginalMessage(new CustomMessage(2921595, ((BdBaseActivity) context).getUniqueId()));
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) || this.a.b == null) {
+                return;
+            }
+            this.a.b.c(j, str, dataRes, z);
+        }
+
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void b(long j, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) || this.a.b == null) {
+                return;
+            }
+            this.a.b.b(j, str, str2, i);
+        }
+
+        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
+        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || this.a.b == null) {
+                return;
+            }
+            this.a.b.a(true, dataRes, !z, j, str, i);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends qh5<DataRes> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jf a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+
+        public b(mh7 mh7Var, jf jfVar, long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mh7Var, jfVar, Long.valueOf(j), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                TiebaStatic.eventStat(this.a, "search_bar_result_click", "click", 1, new Object[0]);
-                TiebaStatic.log(new StatisticItem("c12842").param("obj_name", a).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i + 1).param("obj_param1", b));
+            }
+            this.a = jfVar;
+            this.b = j;
+            this.c = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qh5
+        /* renamed from: a */
+        public DataRes doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                jf jfVar = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.b);
+                sb.append("_");
+                sb.append(TextUtils.isEmpty(this.c) ? "" : this.c);
+                byte[] bArr = (byte[]) jfVar.get(sb.toString());
+                if (bArr != null && bArr.length != 0) {
+                    try {
+                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                    } catch (IOException unused) {
+                    }
+                }
+                return null;
+            }
+            return (DataRes) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements vg5<DataRes> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ mh7 c;
+
+        public c(mh7 mh7Var, long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mh7Var, Long.valueOf(j), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = mh7Var;
+            this.a = j;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vg5
+        /* renamed from: a */
+        public void onReturnDataInUI(DataRes dataRes) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
+                this.c.f(this.a, this.b, dataRes);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mh7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public mh7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
+        this.c = new a(this);
+        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
+        this.a = legoPageModel;
+        legoPageModel.B(this.c);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rh7 rh7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        t(i, view2, viewGroup, rh7Var, searchSuggestCommonViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public SearchSuggestCommonViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kh7
+    public void a(long j, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SearchSuggestCommonViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0785, viewGroup, false)) : (SearchSuggestCommonViewHolder) invokeL.objValue;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, rh7 rh7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rh7Var, searchSuggestCommonViewHolder})) == null) {
-            if (rh7Var == null) {
-                return view2;
-            }
-            u(searchSuggestCommonViewHolder);
-            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a50, R.color.CAM_X0109, null);
-            lh7.a(searchSuggestCommonViewHolder.b, rh7Var.b(), rh7Var.a());
-            return view2;
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
+            zt4.f();
+            uh5.b(new b(this, zt4.d("tb.lego_update"), j, str), new c(this, j, str));
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final void u(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
+    @Override // com.baidu.tieba.kh7
+    public void b(lh7 lh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
-            ns4 d = ns4.d(searchSuggestCommonViewHolder.b);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
-            ns4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lh7Var) == null) {
+            this.b = lh7Var;
         }
+    }
+
+    @Override // com.baidu.tieba.kh7
+    public void c(int i, long j, String str, int i2, String str2) {
+        LegoPageModel legoPageModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) || (legoPageModel = this.a) == null) {
+            return;
+        }
+        legoPageModel.A(i, j, str, i2, str2);
+    }
+
+    public final void f(long j, String str, DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) == null) || j < 0) {
+            return;
+        }
+        lh7 lh7Var = this.b;
+        if (lh7Var != null) {
+            lh7Var.a(false, dataRes, false, j, str, 1);
+        }
+        this.a.A(2, j, str, 1, "");
     }
 }

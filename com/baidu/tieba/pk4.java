@@ -1,117 +1,184 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
+import com.baidu.tieba.gh2;
+import com.baidu.tieba.vg2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class pk4 {
+public class pk4 implements gh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public gh2.a b;
+    public CyberExtractor c;
+    public volatile boolean d;
 
-    public static String a(char[] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
-            if (cArr == null || cArr.length == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (char c : cArr) {
-                if (c != 0) {
-                    sb.append(c);
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ pk4 c;
 
-    public static char[] b(char[][] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if (cArr == null || cArr[0] == null) {
-                return null;
-            }
-            char[] cArr2 = new char[cArr.length * cArr[0].length];
-            int i = 0;
-            for (int i2 = 0; i2 < cArr.length; i2++) {
-                for (int i3 = 0; i3 < cArr[i2].length; i3++) {
-                    if (cArr[i2][i3] != 0) {
-                        cArr2[i] = cArr[i2][i3];
-                        i++;
-                    }
-                }
-            }
-            return cArr2;
-        }
-        return (char[]) invokeL.objValue;
-    }
-
-    public static void c(char[] cArr, char[][] cArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
-            int length = cArr2.length;
-            int length2 = cArr2[0].length;
-            int i = 0;
-            int i2 = 0;
-            for (char c : cArr) {
-                if (i >= length2) {
-                    i2++;
-                    i = 0;
-                }
-                if (i2 >= length) {
+        public a(pk4 pk4Var, String str, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk4Var, str, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                cArr2[i2][i] = c;
-                i++;
+            }
+            this.c = pk4Var;
+            this.a = str;
+            this.b = map;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.c.d) {
+                    if (pk4.e) {
+                        Log.d("MediaExtractorWidget", "media extractor already released");
+                        return;
+                    }
+                    return;
+                }
+                this.c.c.setDataSource(this.c.getContext(), Uri.parse(ak2.a(this.a)), this.b);
+                Bundle metaData = this.c.c.getMetaData();
+                if (this.c.b != null) {
+                    this.c.b.a(metaData);
+                }
             }
         }
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
-                return str.replace("$", "").replace("!", "");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948064912, "Lcom/baidu/tieba/pk4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948064912, "Lcom/baidu/tieba/pk4;");
+                return;
+            }
+        }
+        e = ij1.a;
+    }
+
+    public pk4(ZeusPluginFactory.Invoker invoker, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.d = false;
+    }
+
+    @Override // com.baidu.tieba.vg2
+    public void A(@NonNull vg2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.c = new CyberExtractor(true);
+            aVar.a(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.vg2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? fm2.c() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gh2
+    public void k(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        sf3.j(new a(this, str, map), "loadMetadata");
+    }
+
+    @Override // com.baidu.tieba.vg2
+    @Nullable
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static char[][] e(char[][] cArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gh2
+    public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
-            if (cArr == null || cArr[0] == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = true;
+            CyberExtractor cyberExtractor = this.c;
+            if (cyberExtractor != null) {
+                cyberExtractor.release();
             }
-            char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
-            for (int length = cArr.length - 1; length >= 0; length--) {
-                cArr2[(cArr.length - length) - 1] = cArr[length];
+            this.c = null;
+            gh2.a aVar = this.b;
+            if (aVar != null) {
+                aVar.onRelease();
             }
-            return cArr2;
+            this.b = null;
         }
-        return (char[][]) invokeL.objValue;
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gh2
+    public void w(gh2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            char[] charArray = str.toCharArray();
-            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
-            c(charArray, cArr);
-            return a(b(e(cArr)));
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
         }
-        return (String) invokeL.objValue;
     }
 }

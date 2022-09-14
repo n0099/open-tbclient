@@ -1,72 +1,82 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class g32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742915, "Lcom/baidu/tieba/g32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements SwanAppNetworkUtils.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(g32 g32Var, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947742915, "Lcom/baidu/tieba/g32;");
-                return;
-            }
-        }
-        a = kh1.a;
-        b = new AtomicInteger(0);
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str != null && str.startsWith("master") : invokeL.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (a52.h()) {
-                int andIncrement = b.getAndIncrement();
-                if (andIncrement >= 1) {
-                    str = "master" + andIncrement;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g32Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (a) {
-                    Log.i("MasterIdGenerator", "next master id - " + str);
-                }
-                return str;
             }
-            return "master";
+            this.a = bVar;
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    this.a.a(NetworkStatus.NETWORK_GOOD);
+                } else if (i == 2) {
+                    this.a.a(NetworkStatus.NETWORK_BAD);
+                } else if (i != 3) {
+                    this.a.a(NetworkStatus.NETWORK_UNKNOWN);
+                } else {
+                    this.a.a(NetworkStatus.NETWORK_OFFLINE);
+                }
+            }
+        }
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(NetworkStatus networkStatus);
+    }
+
+    public g32() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return andSet;
         }
-        return invokeV.intValue;
+    }
+
+    public void a(@NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+            return;
+        }
+        SwanAppNetworkUtils.b(new a(this, bVar));
     }
 }

@@ -1,8 +1,18 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.util.HttpSigner;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.BundleInfoGroup;
+import com.baidu.nps.pm.SubBundleInfo;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,28 +20,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class p81 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+public class p81 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile p81 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public r81 a;
 
     /* loaded from: classes5.dex */
-    public static final class a extends i81<String> {
+    public class a extends s81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l91 a;
-        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ ContentValues b;
+        public final /* synthetic */ p81 c;
 
-        public a(l91 l91Var, JSONObject jSONObject) {
+        public a(p81 p81Var, ContentValues contentValues) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l91Var, jSONObject};
+                Object[] objArr = {p81Var, contentValues};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,47 +53,32 @@ public final class p81 {
                     return;
                 }
             }
-            this.a = l91Var;
-            this.b = jSONObject;
+            this.c = p81Var;
+            this.b = contentValues;
         }
 
-        @Override // com.baidu.tieba.i81
-        public void a(Throwable th, int i, String str) {
+        @Override // com.baidu.tieba.s81
+        public boolean b(SQLiteDatabase sQLiteDatabase) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                l91 l91Var = this.a;
-                if (l91Var != null) {
-                    l91Var.a(1, str);
-                }
-                t81.d(this.b);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i81
-        /* renamed from: d */
-        public void c(String str) {
-            l91 l91Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l91Var = this.a) == null) {
-                return;
-            }
-            l91Var.a(0, "");
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) ? this.c.k(sQLiteDatabase, this.b) : invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class b extends i81<String> {
+    public class b extends s81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l91 a;
+        public final /* synthetic */ BundleInfo b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ p81 d;
 
-        public b(l91 l91Var) {
+        public b(p81 p81Var, BundleInfo bundleInfo, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l91Var};
+                Object[] objArr = {p81Var, bundleInfo, list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,29 +88,23 @@ public final class p81 {
                     return;
                 }
             }
-            this.a = l91Var;
+            this.d = p81Var;
+            this.b = bundleInfo;
+            this.c = list;
         }
 
-        @Override // com.baidu.tieba.i81
-        public void a(Throwable th, int i, String str) {
-            l91 l91Var;
+        @Override // com.baidu.tieba.s81
+        public boolean b(SQLiteDatabase sQLiteDatabase) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) || (l91Var = this.a) == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
+                this.d.k(sQLiteDatabase, BundleInfo.toContentValues(this.b));
+                for (BundleInfo bundleInfo : this.c) {
+                    this.d.l(sQLiteDatabase, BundleInfo.toContentValues(bundleInfo));
+                }
+                return true;
             }
-            l91Var.a(1, str);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i81
-        /* renamed from: d */
-        public void c(String str) {
-            l91 l91Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l91Var = this.a) == null) {
-                return;
-            }
-            l91Var.a(0, "");
+            return invokeL.booleanValue;
         }
     }
 
@@ -132,44 +123,299 @@ public final class p81 {
         }
     }
 
-    public static final int a() {
+    public p81(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.a = new r81(context);
+    }
+
+    public static p81 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (b == null) {
+                synchronized (p81.class) {
+                    if (b == null) {
+                        Application applicationContext = ContextHolder.getApplicationContext();
+                        if (applicationContext != null) {
+                            context = applicationContext;
+                        }
+                        b = new p81(context);
+                    }
+                }
+            }
+            return b;
+        }
+        return (p81) invokeL.objValue;
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
-    }
-
-    public static final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.a.getWritableDatabase().delete("bundleinfo", "abi <>? AND abi <> 3", new String[]{String.valueOf(h91.a())});
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public static final void c(JSONObject jSONObject, l91 l91Var) {
+    public int delete(Uri uri, String str, String[] strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, jSONObject, l91Var) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
+            return 0;
+        }
+        return invokeLLL.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0029, code lost:
+        if (com.baidu.tieba.d91.a() == false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002b, code lost:
+        r0.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0044, code lost:
+        if (com.baidu.tieba.d91.a() == false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<BundleInfo> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Cursor query = this.a.getReadableDatabase().query("bundleinfo", null, "", null, null, null, null);
+            List<BundleInfo> arrayList = new ArrayList<>();
+            try {
+                try {
+                    arrayList = BundleInfo.toBundleInfoList(query);
+                    try {
+                        query.close();
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Exception e2) {
+                    if (d91.a()) {
+                        e2.printStackTrace();
+                    }
+                    try {
+                        query.close();
+                    } catch (Exception e3) {
+                        e = e3;
+                    }
+                }
+                return arrayList;
+            } catch (Throwable th) {
+                try {
+                    query.close();
+                } catch (Exception e4) {
+                    if (d91.a()) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Cursor f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? query(null, null, "pkg_name =? AND type = ? AND broken = ? ", new String[]{str, String.valueOf(i), "0"}, null) : (Cursor) invokeLI.objValue;
+    }
+
+    public Cursor g(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) ? query(null, null, "pkg_name =? AND type = ? AND version_code >= ? AND broken = ? ", new String[]{str, String.valueOf(i2), String.valueOf(i), "0"}, null) : (Cursor) invokeLII.objValue;
+    }
+
+    public int h(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bundleInfo)) == null) {
+            bundleInfo.setType(1);
+            this.a.getWritableDatabase().update("bundleinfo", BundleInfo.toContentValues(bundleInfo), "pkg_name =? AND version_code = ? ", new String[]{bundleInfo.getPackageName(), String.valueOf(bundleInfo.getVersionCode())});
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final boolean i(s81 s81Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, s81Var)) == null) {
+            s81Var.c(this.a.getWritableDatabase());
+            return s81Var.a();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j(BundleInfo bundleInfo) {
+        List<SubBundleInfo> subBundle;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bundleInfo) == null) || (subBundle = bundleInfo.getSubBundle()) == null || subBundle.isEmpty()) {
             return;
         }
-        k81 k81Var = new k81();
-        r81.d(k81Var);
-        j81 e = r81.e(jSONObject);
-        r81.c(k81Var, e.a("bduss"));
-        HttpSigner.b(e);
-        new o81(false).a(s81.f(), k81Var, e, new a(l91Var, jSONObject));
+        Cursor query = this.a.getReadableDatabase().query("bundleinfo", null, null, null, null, null, null);
+        Map<String, BundleInfoGroup> bundleInfoGroups = BundleInfo.toBundleInfoGroups(BundleInfo.toBundleInfoList(query), 0L);
+        try {
+            query.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ArrayList arrayList = new ArrayList();
+        for (SubBundleInfo subBundleInfo : subBundle) {
+            String packageName = subBundleInfo.getPackageName();
+            int minVersion = subBundleInfo.getMinVersion();
+            int maxVersion = subBundleInfo.getMaxVersion();
+            BundleInfoGroup bundleInfoGroup = bundleInfoGroups.get(packageName);
+            if (bundleInfoGroup != null) {
+                BundleInfo bundleByType = bundleInfoGroup.getBundleByType(1);
+                BundleInfo bundleByType2 = bundleInfoGroup.getBundleByType(2);
+                BundleInfo bundleByType3 = bundleInfoGroup.getBundleByType(3);
+                bundleByType = (bundleByType == null || bundleByType.getVersionCode() < minVersion || bundleByType.getVersionCode() > maxVersion) ? null : null;
+                if (bundleByType2 == null || bundleByType2.getVersionCode() < minVersion || bundleByType2.getVersionCode() > maxVersion) {
+                    bundleByType2 = bundleByType;
+                }
+                if (bundleByType3 == null || bundleByType3.getVersionCode() < minVersion || bundleByType3.getVersionCode() > maxVersion) {
+                    bundleByType3 = bundleByType2;
+                }
+                if (bundleByType3 != null) {
+                    bundleByType3.setType(4);
+                    arrayList.add(bundleByType3);
+                }
+            }
+        }
+        i(new b(this, bundleInfo, arrayList));
     }
 
-    public static final void d(JSONArray jSONArray, l91 l91Var) {
+    public final boolean k(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, l91Var) == null) || jSONArray == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, contentValues)) == null) {
+            BundleInfo bundleInfo = BundleInfo.toBundleInfo(contentValues);
+            if (bundleInfo == null) {
+                return false;
+            }
+            Cursor query = sQLiteDatabase.query("bundleinfo", null, "pkg_name =? ", new String[]{bundleInfo.getPackageName()}, null, null, null);
+            List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(query);
+            try {
+                query.close();
+            } catch (Exception unused) {
+            }
+            if (bundleInfoList.isEmpty()) {
+                sQLiteDatabase.insert("bundleinfo", null, contentValues);
+                return true;
+            }
+            HashMap hashMap = new HashMap();
+            for (BundleInfo bundleInfo2 : bundleInfoList) {
+                if (bundleInfo2 != null) {
+                    hashMap.put(Integer.valueOf(bundleInfo2.getType()), bundleInfo2);
+                }
+            }
+            BundleInfo bundleInfo3 = (BundleInfo) hashMap.get(3);
+            BundleInfo bundleInfo4 = (BundleInfo) hashMap.get(2);
+            BundleInfo bundleInfo5 = (BundleInfo) hashMap.get(1);
+            if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() > bundleInfo.getUpdateV()) {
+                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo3);
+            }
+            if (bundleInfo4 != null && bundleInfo4.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo4.getUpdateV() > bundleInfo.getUpdateV()) {
+                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo4);
+            }
+            if (bundleInfo5 != null && bundleInfo5.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo5.getUpdateV() > bundleInfo.getUpdateV()) {
+                BundleInfo.updateBundleInfoConfig(bundleInfo, bundleInfo5);
+            }
+            int type = bundleInfo.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type == 3) {
+                        if (bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.put(3, bundleInfo);
+                        }
+                        if (bundleInfo4 != null && bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.remove(2);
+                        }
+                        if (bundleInfo5 != null && bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.remove(1);
+                        }
+                    }
+                } else if (bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) {
+                    if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() <= bundleInfo.getUpdateV()) {
+                        BundleInfo.updateBundleInfoConfig(bundleInfo3, bundleInfo);
+                    } else {
+                        if (bundleInfo4 == null || bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.put(2, bundleInfo);
+                        }
+                        if (bundleInfo5 != null && bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
+                            hashMap.remove(1);
+                        }
+                    }
+                }
+            } else if ((bundleInfo3 == null || bundleInfo3.getVersionCode() <= bundleInfo.getVersionCode()) && (bundleInfo4 == null || bundleInfo4.getVersionCode() <= bundleInfo.getVersionCode())) {
+                if (bundleInfo3 != null && bundleInfo3.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo3.getUpdateV() <= bundleInfo.getUpdateV()) {
+                    BundleInfo.updateBundleInfoConfig(bundleInfo3, bundleInfo);
+                } else if (bundleInfo4 != null && bundleInfo4.getVersionCode() == bundleInfo.getVersionCode() && bundleInfo4.getUpdateV() <= bundleInfo.getUpdateV()) {
+                    BundleInfo.updateBundleInfoConfig(bundleInfo4, bundleInfo);
+                } else if (bundleInfo5 == null || bundleInfo5.getVersionCode() <= bundleInfo.getVersionCode()) {
+                    hashMap.put(1, bundleInfo);
+                }
+            }
+            sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME)});
+            for (BundleInfo bundleInfo6 : hashMap.values()) {
+                sQLiteDatabase.insert("bundleinfo", null, BundleInfo.toContentValues(bundleInfo6));
+            }
+            return true;
         }
-        k81 k81Var = new k81();
-        r81.d(k81Var);
-        j81 j81Var = new j81();
-        String jSONArray2 = jSONArray.toString();
-        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
-        j81Var.d("batchData", jSONArray2);
-        HttpSigner.b(j81Var);
-        new o81(false).a(s81.a(), k81Var, j81Var, new b(l91Var));
+        return invokeLL.booleanValue;
+    }
+
+    public final void l(SQLiteDatabase sQLiteDatabase, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, contentValues) == null) {
+            String[] strArr = {contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME), contentValues.getAsString("type")};
+            Cursor query = sQLiteDatabase.query("bundleinfo", null, "pkg_name =?  AND type =? ", strArr, null, null, null);
+            boolean z = query.getCount() == 0;
+            try {
+                query.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (z) {
+                sQLiteDatabase.insert("bundleinfo", null, contentValues);
+            } else {
+                sQLiteDatabase.update("bundleinfo", contentValues, "pkg_name =?  AND type =? ", strArr);
+            }
+        }
+    }
+
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, uri, strArr, str, strArr2, str2)) == null) ? this.a.getReadableDatabase().query("bundleinfo", null, str, strArr2, null, null, null) : (Cursor) invokeLLLLL.objValue;
+    }
+
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, uri, contentValues, str, strArr)) == null) {
+            i(new a(this, contentValues));
+            return 1;
+        }
+        return invokeLLLL.intValue;
     }
 }

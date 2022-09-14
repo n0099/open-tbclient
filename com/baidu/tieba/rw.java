@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.platform.BdSailorPlatform;
-import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,30 +9,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.LoadErrorCode;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class rw implements WebKitFactory.WebkitInstallListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String c = "rw";
+public class rw {
+    public static /* synthetic */ Interceptable $ic;
+    public static rw b;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte a;
-    public long b;
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448316424, "Lcom/baidu/tieba/rw;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316424, "Lcom/baidu/tieba/rw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316424, "Lcom/baidu/tieba/rw;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448316424, "Lcom/baidu/tieba/rw;");
-        }
+        b = new rw();
     }
 
     public rw() {
@@ -46,65 +44,52 @@ public class rw implements WebKitFactory.WebkitInstallListener {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
     }
 
-    public static void c(LoadErrorCode loadErrorCode) {
+    public static rw b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
-            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (rw) invokeV.objValue;
     }
 
-    public final void a(LoadErrorCode loadErrorCode) {
+    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
-            WebKitFactory.setEngine(0);
-            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) == null) || this.a == null) {
             return;
         }
-        this.a = (byte) 0;
-        if (!str.startsWith("file://")) {
-            str = "file://".concat(String.valueOf(str));
-        }
-        BdZeusUtil.printKernellog("install plugin from download");
-        WebKitFactory.installAsync(str, this);
-        this.b = System.currentTimeMillis();
-        Log.i(c, "full update started!");
-    }
-
-    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-    public void onInstallFinish(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            System.currentTimeMillis();
-            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
-            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
-            if (i == 0) {
-                Log.d(c, "install success!");
-                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
-            } else {
-                Log.d(c, "install failed!");
-                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
+        synchronized (rw.class) {
+            if (this.a.containsKey(Integer.valueOf(i))) {
+                this.a.remove(Integer.valueOf(i));
             }
-            BdSailorPlatform.getWebkitManager().enableBdWebkit();
-            long currentTimeMillis = System.currentTimeMillis() - this.b;
-            String str2 = c;
-            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
+            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
         }
     }
 
-    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-    public void onInstallStart() {
+    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
+            if (map == null || !map.containsKey(Integer.valueOf(i))) {
+                return null;
+            }
+            return this.a.get(Integer.valueOf(i));
+        }
+        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (rw.class) {
+                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
+                    this.a.remove(Integer.valueOf(i));
+                }
+            }
         }
     }
 }

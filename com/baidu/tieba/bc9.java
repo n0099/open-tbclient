@@ -1,204 +1,176 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.NinePatch;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.text.TextPaint;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.Div;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 /* loaded from: classes3.dex */
-public class bc9 {
-    public static /* synthetic */ Interceptable $ic;
+public final class bc9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1000;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textStyleEntity)) == null) {
-            if (textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null || !styleBackgroudInfoEntity.isLoaded()) {
-                return null;
-            }
-            return zb9.f(styleBackgroudInfoEntity.getSourceFile().getAbsolutePath());
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static void b(Bitmap bitmap, NinePatchChunk ninePatchChunk, Canvas canvas, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, ninePatchChunk, canvas, i) == null) || bitmap == null || ninePatchChunk == null || !NinePatch.isNinePatchChunk(ninePatchChunk.toBytes())) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947640305, "Lcom/baidu/tieba/bc9;")) == null) {
             return;
         }
-        new NinePatch(bitmap, ninePatchChunk.toBytes(), null).draw(canvas, new Rect(i, i, canvas.getWidth() - i, canvas.getHeight() - i));
-        bitmap.recycle();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947640305, "Lcom/baidu/tieba/bc9;");
+        }
     }
 
-    public static void c(TextPaint textPaint, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        TextWordsEntity.StyleShadowInfoEntity styleShadowInfoEntity;
-        int i;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, textPaint, textStyleEntity, textColorEntity) == null) || textStyleEntity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
+            c(2, "BaiDuAbSDK", str, null);
         }
-        List<TextWordsEntity.StyleShadowInfoEntity> list = textStyleEntity.mShadowInfoList;
-        if (dc9.e(list) || (styleShadowInfoEntity = list.get(0)) == null) {
-            return;
-        }
-        int i2 = i(styleShadowInfoEntity.mShadowColor, styleShadowInfoEntity.mShadowAlpha);
-        if (textColorEntity != null && ((i = textStyleEntity.mTextStyleType) == 1 || i == 5)) {
-            i2 = textColorEntity.mColorInfo;
-        }
-        textPaint.setShadowLayer(rc9.a(Integer.parseInt(styleShadowInfoEntity.mShadowBlur)), rc9.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetX)), rc9.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetY)), i2);
     }
 
-    public static int[] d(TextPaint textPaint, TextPaint textPaint2, TextPaint textPaint3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        InterceptResult invokeLLLLL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, textPaint, textPaint2, textPaint3, textStyleEntity, textColorEntity)) == null) {
-            int[] iArr = new int[2];
-            if (textStyleEntity == null) {
-                return iArr;
-            }
-            List<TextWordsEntity.StyleStrokeInfoEntity> list = textStyleEntity.mStrokeInfoList;
-            if (dc9.e(list)) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity = list.get(0);
-            if (styleStrokeInfoEntity != null) {
-                textPaint2.setTextSize(textPaint.getTextSize());
-                textPaint2.setFlags(textPaint.getFlags());
-                textPaint2.setAlpha(textPaint.getAlpha());
-                textPaint2.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint2.setTextSkewX(textPaint.getTextSkewX());
-                int i = i(styleStrokeInfoEntity.mStrokeColor, styleStrokeInfoEntity.mStrokeAlpha);
-                if (textColorEntity != null && textStyleEntity.mTextStyleType == 2) {
-                    i = textColorEntity.mColorInfo;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
+            c(5, "BaiDuAbSDK", str, null);
+        }
+    }
+
+    public static void c(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            if (!TextUtils.isEmpty(str2)) {
+                int length = str2.length();
+                int i2 = a;
+                if (length >= i2) {
+                    if (i == 1) {
+                        Log.v(str, str2.substring(0, i2));
+                    } else if (i == 2) {
+                        Log.d(str, str2.substring(0, i2));
+                    } else if (i == 3) {
+                        Log.i(str, str2.substring(0, i2));
+                    } else if (i == 4) {
+                        Log.w(str, str2.substring(0, i2));
+                    } else if (i == 5) {
+                        Log.e(str, str2.substring(0, i2));
+                    }
+                } else if (i == 1) {
+                    Log.v(str, str2);
+                } else if (i == 2) {
+                    Log.d(str, str2);
+                } else if (i == 3) {
+                    Log.i(str, str2);
+                } else if (i == 4) {
+                    Log.w(str, str2);
+                } else if (i != 5) {
+                    Log.d(str, str2);
+                } else {
+                    Log.e(str, str2);
                 }
-                textPaint2.setStyle(Paint.Style.STROKE);
-                textPaint2.setColor(i);
-                textPaint2.setStrokeWidth(rc9.a(Integer.parseInt(styleStrokeInfoEntity.mStrokeWidth)));
             }
-            iArr[0] = 1;
-            if (list.size() <= 1) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity2 = list.get(1);
-            if (styleStrokeInfoEntity2 != null) {
-                textPaint3.setTextSize(textPaint.getTextSize());
-                textPaint3.setFlags(textPaint.getFlags());
-                textPaint3.setAlpha(textPaint.getAlpha());
-                textPaint3.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint3.setTextSkewX(textPaint.getTextSkewX());
-                textPaint3.setStyle(Paint.Style.STROKE);
-                textPaint3.setColor(i(styleStrokeInfoEntity2.mStrokeColor, styleStrokeInfoEntity2.mStrokeAlpha));
-                textPaint3.setStrokeWidth(rc9.a(Integer.parseInt(styleStrokeInfoEntity2.mStrokeWidth)));
-            }
-            iArr[1] = 1;
-            return iArr;
-        }
-        return (int[]) invokeLLLLL.objValue;
-    }
-
-    public static void e(Canvas canvas, TextPaint textPaint, int i, int i2, int i3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        int i4;
-        LinearGradient linearGradient;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{canvas, textPaint, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textStyleEntity, textColorEntity}) == null) || textStyleEntity == null) {
-            return;
-        }
-        List<TextWordsEntity.StyleTextInfoEntity> list = textStyleEntity.mTextInfoList;
-        if (dc9.e(list)) {
-            return;
-        }
-        if (TextUtils.equals(textStyleEntity.mTextType, "0") || list.size() > 1) {
-            if (TextUtils.equals(textStyleEntity.mTextType, "1")) {
-                linearGradient = new LinearGradient(0.0f, i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
-            } else if (!TextUtils.equals(textStyleEntity.mTextType, "2")) {
-                int h = h(list.get(0));
-                if (textColorEntity != null && ((i4 = textStyleEntity.mTextStyleType) == 1 || i4 == 2 || i4 == 3)) {
-                    h = textColorEntity.mColorInfo;
+            if (th != null) {
+                String f = f(th);
+                if (TextUtils.isEmpty(f)) {
+                    return;
                 }
-                textPaint.setColor(h);
-                return;
-            } else {
-                linearGradient = new LinearGradient(canvas.getWidth(), i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
+                if (i == 1) {
+                    Log.v(str, f);
+                } else if (i == 2) {
+                    Log.d(str, f);
+                } else if (i == 3) {
+                    Log.i(str, f);
+                } else if (i == 4) {
+                    Log.w(str, f);
+                } else if (i != 5) {
+                    Log.d(str, str2);
+                } else {
+                    Log.e(str, f);
+                }
             }
-            textPaint.setShader(linearGradient);
         }
     }
 
-    public static NinePatchChunk f(Bitmap bitmap, TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeLL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
+    public static void d(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bitmap, textStyleEntity)) == null) {
-            if (bitmap == null || textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null) {
-                return null;
-            }
-            NinePatchChunk ninePatchChunk = new NinePatchChunk();
-            ArrayList<Div> arrayList = styleBackgroudInfoEntity.mStretchableX;
-            ArrayList<Div> arrayList2 = styleBackgroudInfoEntity.mStretchableY;
-            ninePatchChunk.xDivs = arrayList;
-            ninePatchChunk.yDivs = arrayList2;
-            Rect rect = new Rect();
-            ninePatchChunk.padding = rect;
-            rect.left = styleBackgroudInfoEntity.mBackgroudLeft;
-            rect.top = styleBackgroudInfoEntity.mBackgroudTop;
-            rect.right = styleBackgroudInfoEntity.mBackgroudRight;
-            rect.bottom = styleBackgroudInfoEntity.mBackgroudBottom;
-            NinePatchChunk.createColors(bitmap, ninePatchChunk);
-            return ninePatchChunk;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
+            c(2, "BaiDuAbSDK", "", th);
         }
-        return (NinePatchChunk) invokeLL.objValue;
     }
 
-    public static int g(TextPaint textPaint) {
+    public static void e(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
+            c(4, "BaiDuAbSDK", "", th);
+        }
+    }
+
+    public static String f(Throwable th) {
         InterceptResult invokeL;
+        PrintWriter printWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textPaint)) == null) {
-            Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
-            return Math.abs(fontMetricsInt.ascent) + Math.abs(fontMetricsInt.descent);
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, th)) != null) {
+            return (String) invokeL.objValue;
         }
-        return invokeL.intValue;
-    }
-
-    public static int h(TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, styleTextInfoEntity)) == null) {
-            if (styleTextInfoEntity == null) {
-                return 0;
-            }
-            return i(styleTextInfoEntity.mTextColor, styleTextInfoEntity.mTextAlpha);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+        StringWriter stringWriter = null;
+        try {
+            StringWriter stringWriter2 = new StringWriter();
             try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+                printWriter = new PrintWriter(stringWriter2);
+                try {
+                    th.printStackTrace(printWriter);
+                    printWriter.flush();
+                    stringWriter2.flush();
+                    String stringWriter3 = stringWriter2.toString();
+                    try {
+                        stringWriter2.close();
+                    } catch (Throwable th2) {
+                        th2.printStackTrace();
+                    }
+                    printWriter.close();
+                    return stringWriter3;
+                } catch (Throwable th3) {
+                    th = th3;
+                    stringWriter = stringWriter2;
+                    try {
+                        th.printStackTrace();
+                        return "";
+                    } finally {
+                        if (stringWriter != null) {
+                            try {
+                                stringWriter.close();
+                            } catch (Throwable th4) {
+                                th4.printStackTrace();
+                            }
+                        }
+                        if (printWriter != null) {
+                            printWriter.close();
+                        }
+                    }
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                printWriter = null;
             }
+        } catch (Throwable th6) {
+            th = th6;
+            printWriter = null;
         }
-        return invokeLL.intValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            b = z;
+        }
     }
 }

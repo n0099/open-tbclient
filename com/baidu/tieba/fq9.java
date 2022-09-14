@@ -1,16 +1,47 @@
 package com.baidu.tieba;
 
-import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public final class fq9 {
+public class fq9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BitmapFactory.Options a;
+    public static final a a;
+    public static long b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+        public long c;
+        public long d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            new HashMap();
+            new HashMap();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,6 +56,6 @@ public final class fq9 {
                 return;
             }
         }
-        a = new BitmapFactory.Options();
+        a = new a();
     }
 }

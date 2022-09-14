@@ -1,9 +1,45 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import android.widget.RelativeLayout;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface u85 extends t85 {
-    boolean isNeedUid();
+public class u85 implements p85 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean o();
+    public u85() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    String y();
+    @Override // com.baidu.tieba.p85
+    public void a(View view2, View view3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2;
+            if (z) {
+                relativeLayout.addView(view3, 0);
+            } else {
+                relativeLayout.addView(view3);
+            }
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.addRule(14);
+            view3.setLayoutParams(layoutParams);
+        }
+    }
 }

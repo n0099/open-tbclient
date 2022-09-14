@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.on;
+import com.baidu.tieba.yg;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class PersonHeaderBackgroundController {
     public View.OnClickListener f;
 
     /* loaded from: classes5.dex */
-    public class a extends kg<an> {
+    public class a extends yg<on> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonHeaderBackgroundController a;
@@ -66,7 +66,7 @@ public class PersonHeaderBackgroundController {
             this.a = personHeaderBackgroundController;
         }
 
-        @Override // com.baidu.tieba.kg
+        @Override // com.baidu.tieba.yg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -74,7 +74,7 @@ public class PersonHeaderBackgroundController {
             }
         }
 
-        @Override // com.baidu.tieba.kg
+        @Override // com.baidu.tieba.yg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -83,13 +83,13 @@ public class PersonHeaderBackgroundController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, anVar, str, i) == null) {
-                super.onLoaded((a) anVar, str, i);
-                if (anVar != null) {
-                    anVar.h(this.a.b);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar, str, i) == null) {
+                super.onLoaded((a) onVar, str, i);
+                if (onVar != null) {
+                    onVar.h(this.a.b);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class PersonHeaderBackgroundController {
                     String userId = this.a.d.getUserId();
                     String bg_pic = this.a.d.getBg_pic();
                     try {
-                        i = pg.e((String) this.a.f(bg_pic).get("props_id"), -1);
+                        i = dh.e((String) this.a.f(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException unused) {
                         i = -1;
                     }
@@ -167,7 +167,7 @@ public class PersonHeaderBackgroundController {
         this.a = tbPageContext;
         this.b = tbImageView;
         this.e = z;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802cd);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802ce);
         this.c = view2;
         view2.setOnClickListener(this.f);
     }
@@ -179,10 +179,10 @@ public class PersonHeaderBackgroundController {
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (qi.isEmpty(bg_pic)) {
+        if (dj.isEmpty(bg_pic)) {
             return;
         }
-        lg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
+        zg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
     }
 
     public final Map<String, String> f(String str) throws URISyntaxException {

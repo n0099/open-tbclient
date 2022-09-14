@@ -1,70 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class ng9 implements AdRipper {
+public class ng9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ng9() {
+    public static float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long[] b = b();
+            if (b[0] <= 0) {
+                return 0.0f;
             }
+            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
         }
+        return invokeV.floatValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void destroy(Object obj) {
+    public static long[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long[] jArr = new long[4];
+            try {
+                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
+                long[] jArr2 = {30, -30};
+                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
+                if (method != null) {
+                    method.invoke(null, objArr);
+                    for (int i = 0; i < 4; i++) {
+                        jArr[i] = jArr2[i] / 1024;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return jArr;
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, obj, z)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeLZ.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void preParseRippedAd(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void report(Object obj, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
-        }
+        return (long[]) invokeV.objValue;
     }
 }

@@ -89,7 +89,7 @@ public final class b extends KSFrameLayout {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    com.kwad.components.core.c.a.a.a(new a.C0569a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0574a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 aS;
@@ -242,11 +242,11 @@ public final class b extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0419, this);
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
+            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d041d, this);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6);
             this.mRootContainer = adBaseFrameLayout;
-            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0911f8);
-            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09120e);
+            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091216);
+            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09122c);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setOnClickListener(this.aP);

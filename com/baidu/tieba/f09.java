@@ -1,131 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes3.dex */
 public class f09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends hf5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.hf5
-        public Integer doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                ur4.f();
-                ve<String> g = ur4.g("tb.write_privacy_state_space" + this.b);
-                if (g != null) {
-                    i = pg.e(g.get(this.c), this.a);
-                }
-                return Integer.valueOf(i);
-            }
-            return (Integer) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements oe5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.oe5
-        /* renamed from: a */
-        public void onReturnDataInUI(Integer num) {
-            c cVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, num) == null) || (cVar = this.a) == null) {
-                return;
-            }
-            cVar.a(num.intValue());
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(int i);
-    }
-
-    public static void a(String str, int i, c cVar) {
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) || StringUtils.isNull(str) || cVar == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
+            }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
-            return;
-        }
-        lf5.b(new a(i, currentAccount, str), new b(cVar));
+        return (long[]) invokeCommon.objValue;
     }
 
-    public static void b(String str, int i) {
+    public static i09 b(k09 k09Var, a09 a09Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, k09Var, a09Var)) == null) {
+            if (k09Var == null || a09Var == null || k09Var.e == null) {
+                return null;
+            }
+            long[] a = a(k09Var.b, k09Var.a);
+            MultiMediaData multiMediaData = k09Var.e;
+            i09 i09Var = new i09();
+            i09Var.e = new ArrayList();
+            i09Var.a = multiMediaData.path;
+            i09Var.c = k09Var.c;
+            i09Var.d = k09Var.d;
+            i09Var.b = multiMediaData.rotation;
+            for (int i = 0; i < k09Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                c09 c09Var = new c09();
+                c09Var.a = vz8.b(multiMediaData.path, j, multiMediaData.type);
+                c09Var.b = multiMediaData.path;
+                c09Var.f = i;
+                c09Var.g = multiMediaData.type;
+                c09Var.h = k09Var.c;
+                c09Var.i = k09Var.d;
+                c09Var.j = a09Var;
+                c09Var.d = j;
+                c09Var.c = multiMediaData.rotation;
+                i09Var.e.add(c09Var);
+            }
+            return i09Var;
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
-            return;
+        return (i09) invokeLL.objValue;
+    }
+
+    public static List<i09> c(j09 j09Var, a09 a09Var) {
+        InterceptResult invokeLL;
+        List<c09> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, j09Var, a09Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (j09Var == null || a09Var == null || j09Var.b <= 0 || gg9.e(j09Var.e) || gg9.e(j09Var.f)) {
+                return null;
+            }
+            long[] a = a(j09Var.b, j09Var.a);
+            ArrayList arrayList = new ArrayList();
+            i09 i09Var = null;
+            for (int i = 0; i < j09Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(j09Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) gg9.c(j09Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        i09Var = new i09();
+                        i09Var.e = new ArrayList();
+                        i09Var.a = multiMediaData2.path;
+                        i09Var.c = j09Var.c;
+                        i09Var.d = j09Var.d;
+                        i09Var.b = multiMediaData2.rotation;
+                        arrayList.add(i09Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) gg9.c(j09Var.e, findInputIndexInSegments), j) * 1000;
+                    c09 c09Var = new c09();
+                    c09Var.a = vz8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    c09Var.b = multiMediaData2.path;
+                    c09Var.f = i;
+                    c09Var.g = multiMediaData2.type;
+                    c09Var.h = j09Var.c;
+                    c09Var.i = j09Var.d;
+                    c09Var.d = multiMediaDataSeekTime;
+                    c09Var.j = a09Var;
+                    c09Var.c = multiMediaData2.rotation;
+                    if (i09Var != null && (list = i09Var.e) != null) {
+                        list.add(c09Var);
+                    }
+                    multiMediaData = multiMediaData2;
+                }
+            }
+            return arrayList;
         }
-        ur4.f();
-        ve<String> g = ur4.g("tb.write_privacy_state_space" + currentAccount);
-        if (g != null) {
-            g.a(str, String.valueOf(i));
-        }
+        return (List) invokeLL.objValue;
     }
 }

@@ -109,13 +109,13 @@ public class LiveActivityUtil {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0a30, 0).show();
+                    Toast.makeText(context, (int) R.string.liveshow_activity_not_found, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException unused2) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0a30, 0).show();
+                    Toast.makeText(context, (int) R.string.liveshow_activity_not_found, 0).show();
                     return false;
                 }
                 return false;

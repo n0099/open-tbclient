@@ -1,221 +1,252 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.BigImgCard;
+import com.baidu.tieba.lego.card.model.ButtonCard;
+import com.baidu.tieba.lego.card.model.CardGroup;
+import com.baidu.tieba.lego.card.model.FocusListCard;
+import com.baidu.tieba.lego.card.model.HorRankCard;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
+import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
+import com.baidu.tieba.lego.card.model.LPBigImgCard;
+import com.baidu.tieba.lego.card.model.OnePicInfoCard;
+import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
+import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
+import com.baidu.tieba.lego.card.model.RankScoreCard;
+import com.baidu.tieba.lego.card.model.SingleLineCard;
+import com.baidu.tieba.lego.card.model.WebViewCard;
+import com.baidu.tieba.lego.card.view.BaseCardView;
+import com.baidu.tieba.lego.card.view.BigImgView;
+import com.baidu.tieba.lego.card.view.ButtonCardView;
+import com.baidu.tieba.lego.card.view.FocusListCardView;
+import com.baidu.tieba.lego.card.view.HorRankCardView;
+import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
+import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
+import com.baidu.tieba.lego.card.view.LPBigImgCardView;
+import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
+import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
+import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
+import com.baidu.tieba.lego.card.view.RankScoreCardView;
+import com.baidu.tieba.lego.card.view.SingleLineCardView;
+import com.baidu.tieba.lego.card.view.WebViewCardView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bg7 {
+public class bg7 extends cg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Animation a;
-    public Animation b;
-    public View c;
-    public ViewGroup d;
-    public c e;
-    public ag7 f;
-    public boolean g;
 
     /* loaded from: classes3.dex */
-    public class a implements AdapterView.OnItemClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ bg7 b;
+    }
 
-        public a(bg7 bg7Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bg7Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bg7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-919792455, "Lcom/baidu/tieba/bg7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-919792455, "Lcom/baidu/tieba/bg7$b;");
                     return;
                 }
             }
-            this.b = bg7Var;
-            this.a = context;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                yf7 item = this.b.f.getItem(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
-                this.b.f(this.a);
-            }
+            a = new bg7(null);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends rg {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bg7 a;
+    public /* synthetic */ bg7(a aVar) {
+        this();
+    }
 
-        public b(bg7 bg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static bg7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (bg7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cg7
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        ICardInfo playPicInfoCard;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            if (i == 1) {
+                playPicInfoCard = new PlayPicInfoCard(jSONObject);
+            } else if (i == 2) {
+                playPicInfoCard = new SingleLineCard(jSONObject);
+            } else if (i == 3) {
+                playPicInfoCard = new OnePicInfoCard(jSONObject);
+            } else if (i == 5) {
+                playPicInfoCard = new FocusListCard(jSONObject);
+            } else if (i == 6) {
+                playPicInfoCard = new HorRankCard(jSONObject);
+            } else if (i == 7) {
+                playPicInfoCard = new RankDetailTrendCard(jSONObject);
+            } else if (i == 8) {
+                playPicInfoCard = new RankScoreCard(jSONObject);
+            } else if (i == 11) {
+                playPicInfoCard = new CardGroup(jSONObject);
+            } else if (i == 28) {
+                playPicInfoCard = new ButtonCard(jSONObject);
+            } else if (i == 18) {
+                playPicInfoCard = new WebViewCard(jSONObject);
+            } else if (i != 19) {
+                switch (i) {
+                    case 21:
+                        playPicInfoCard = new LPBigImgCard(jSONObject);
+                        break;
+                    case 22:
+                        playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
+                        break;
+                    case 23:
+                        playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
+                        break;
+                    default:
+                        return null;
                 }
+            } else {
+                playPicInfoCard = new BigImgCard(jSONObject);
             }
-            this.a = bg7Var;
+            return playPicInfoCard;
         }
+        return (ICardInfo) invokeLI.objValue;
+    }
 
-        @Override // com.baidu.tieba.rg, android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.g = false;
-                if (this.a.e != null) {
-                    this.a.e.a();
+    @Override // com.baidu.tieba.cg7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SparseIntArray sparseIntArray = cg7.a;
+            sparseIntArray.put(1, sparseIntArray.size() + 1);
+            SparseIntArray sparseIntArray2 = cg7.a;
+            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
+            SparseIntArray sparseIntArray3 = cg7.a;
+            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
+            SparseIntArray sparseIntArray4 = cg7.a;
+            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
+            SparseIntArray sparseIntArray5 = cg7.a;
+            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
+            SparseIntArray sparseIntArray6 = cg7.a;
+            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
+            SparseIntArray sparseIntArray7 = cg7.a;
+            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
+            SparseIntArray sparseIntArray8 = cg7.a;
+            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
+            SparseIntArray sparseIntArray9 = cg7.a;
+            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
+            SparseIntArray sparseIntArray10 = cg7.a;
+            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
+            SparseIntArray sparseIntArray11 = cg7.a;
+            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
+            SparseIntArray sparseIntArray12 = cg7.a;
+            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
+            SparseIntArray sparseIntArray13 = cg7.a;
+            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
+            cg7.b.put(1, BdUniqueId.gen());
+            cg7.b.put(2, BdUniqueId.gen());
+            cg7.b.put(3, BdUniqueId.gen());
+            cg7.b.put(5, BdUniqueId.gen());
+            cg7.b.put(6, BdUniqueId.gen());
+            cg7.b.put(7, BdUniqueId.gen());
+            cg7.b.put(8, BdUniqueId.gen());
+            cg7.b.put(18, BdUniqueId.gen());
+            cg7.b.put(19, BdUniqueId.gen());
+            cg7.b.put(21, BdUniqueId.gen());
+            cg7.b.put(22, BdUniqueId.gen());
+            cg7.b.put(23, BdUniqueId.gen());
+            cg7.b.put(28, BdUniqueId.gen());
+        }
+    }
+
+    @Override // com.baidu.tieba.cg7
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cg7
+    /* renamed from: e */
+    public <T> BaseCardView a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        BaseCardView playPicInfoCardView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            int cardType = iCardInfo == null ? -1 : iCardInfo.getCardType();
+            if (cardType == 1) {
+                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
+            } else if (cardType == 2) {
+                playPicInfoCardView = new SingleLineCardView(tbPageContext);
+            } else if (cardType == 3) {
+                playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
+            } else if (cardType == 5) {
+                playPicInfoCardView = new FocusListCardView(tbPageContext);
+            } else if (cardType == 6) {
+                playPicInfoCardView = new HorRankCardView(tbPageContext);
+            } else if (cardType == 7) {
+                playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
+            } else if (cardType == 8) {
+                playPicInfoCardView = new RankScoreCardView(tbPageContext);
+            } else if (cardType == 18) {
+                playPicInfoCardView = new WebViewCardView(tbPageContext);
+            } else if (cardType == 19) {
+                playPicInfoCardView = new BigImgView(tbPageContext);
+            } else if (cardType != 28) {
+                switch (cardType) {
+                    case 21:
+                        playPicInfoCardView = new LPBigImgCardView(tbPageContext);
+                        break;
+                    case 22:
+                        playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
+                        break;
+                    case 23:
+                        playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
+                        break;
+                    default:
+                        return null;
                 }
-                this.a.d.removeView(this.a.c);
+            } else {
+                playPicInfoCardView = new ButtonCardView(tbPageContext);
             }
+            return playPicInfoCardView;
         }
+        return (BaseCardView) invokeLLI.objValue;
     }
 
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a();
-    }
-
-    public bg7(ViewGroup viewGroup) {
+    public bg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = false;
-        this.d = viewGroup;
-    }
-
-    public void f(Context context) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.c) == null) {
-            return;
-        }
-        view2.startAnimation(i(context));
-    }
-
-    public final View g(Context context, List<yf7> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0509, (ViewGroup) null);
-            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091d7f);
-            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
-            ag7 ag7Var = new ag7(context, i);
-            this.f = ag7Var;
-            ag7Var.b(list);
-            gridView.setAdapter((ListAdapter) this.f);
-            gridView.setOnItemClickListener(new a(this, context));
-            return inflate;
-        }
-        return (View) invokeLLI.objValue;
-    }
-
-    public final Animation h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.a == null) {
-                this.a = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01005f);
-            }
-            return this.a;
-        }
-        return (Animation) invokeL.objValue;
-    }
-
-    public final Animation i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.b == null) {
-                this.b = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010060);
-            }
-            this.b.setAnimationListener(new b(this));
-            return this.b;
-        }
-        return (Animation) invokeL.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
-            ag7 ag7Var = this.f;
-            if (ag7Var != null) {
-                ag7Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void l(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    public void m(Context context, List<yf7> list, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, context, list, i) == null) || this.g) {
-            return;
-        }
-        this.g = true;
-        View g = g(context, list, i);
-        this.c = g;
-        this.d.addView(g);
-        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
-        this.c.startAnimation(h(context));
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ConnectTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ConnectTask {
     public List<String> aun;
     public final String url;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class Reconnect extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2940866805654257562L;
@@ -51,7 +51,7 @@ public final class ConnectTask {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

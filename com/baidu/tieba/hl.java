@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import android.graphics.drawable.BitmapDrawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-@Service
 /* loaded from: classes4.dex */
-public class hl implements IThreadManager {
+public class hl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
+    public BitmapDrawable a;
+    public on b;
+    public volatile boolean c;
 
     public hl() {
         Interceptable interceptable = $ic;
@@ -28,14 +28,70 @@ public class hl implements IThreadManager {
                 return;
             }
         }
-        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+        this.c = true;
     }
 
-    @Override // com.baidu.nps.interfa.IThreadManager
-    public void run(Runnable runnable) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (e()) {
+                return this.a.getIntrinsicHeight();
+            }
+            if (d()) {
+                return this.b.m();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e()) {
+                return this.a.getIntrinsicWidth();
+            }
+            if (d()) {
+                return this.b.r();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e() || d() : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            on onVar = this.b;
+            return onVar != null && onVar.w();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapDrawable bitmapDrawable = this.a;
+            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.a.getBitmap().isRecycled()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = null;
+            this.a = null;
         }
     }
 }

@@ -154,9 +154,9 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.sl = findViewById(R.id.obfuscated_res_0x7f091100);
-            this.sm = findViewById(R.id.obfuscated_res_0x7f091101);
-            this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091053);
+            this.sl = findViewById(R.id.obfuscated_res_0x7f09111e);
+            this.sm = findViewById(R.id.obfuscated_res_0x7f09111f);
+            this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091071);
         }
     }
 

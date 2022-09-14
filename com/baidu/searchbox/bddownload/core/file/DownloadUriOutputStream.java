@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.file.DownloadOutputStream;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,7 +95,7 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
                 return;
             }
         }
-        ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, rw.c);
+        ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "rw");
         if (openFileDescriptor != null) {
             this.pdf = openFileDescriptor;
             FileOutputStream fileOutputStream = new FileOutputStream(openFileDescriptor.getFileDescriptor());

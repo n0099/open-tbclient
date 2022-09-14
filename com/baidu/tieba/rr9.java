@@ -1,153 +1,207 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes5.dex */
-public class rr9 extends InputStream {
+public class rr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int b;
-    public int c;
-    public final zr9 d;
+    public Handler a;
+    public Context b;
+    public c c;
+    public ServiceConnection d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public rr9(InputStream inputStream) throws IOException {
-        this(inputStream, 16384, null);
+    /* loaded from: classes5.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rr9 a;
+
+        public a(rr9 rr9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rr9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rr9Var;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onBindingDied(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onNullBinding(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
+                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.a.a.removeMessages(2);
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rr9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(rr9 rr9Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rr9Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rr9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 0) {
+                    this.a.c.a(-1, null);
+                } else if (i != 1) {
+                    if (i != 2) {
+                        return;
+                    }
+                    this.a.c.a(-2, null);
+                } else {
+                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+                    try {
+                        try {
+                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception e) {
+                                this.a.c.a(-4, e);
+                            }
+                        } catch (RemoteException e2) {
+                            this.a.c.a(-3, e2);
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception unused) {
+                            }
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            this.a.b.unbindService(this.a.d);
+                        } catch (Exception e3) {
+                            this.a.c.a(-4, e3);
+                        }
+                        throw th;
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(int i, Exception exc);
+
+        void b(String str, boolean z);
+    }
+
+    public rr9(Context context, c cVar, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
+            Object[] objArr = {context, cVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new a(this);
+        this.b = context;
+        this.c = cVar;
+        this.a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public static void d(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
+            e(context, cVar, null);
+        }
+    }
+
+    public static void e(Context context, c cVar, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
+            new rr9(context.getApplicationContext(), cVar, handler).f();
+        }
+    }
+
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zr9.a(this.d);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c >= this.b) {
-                byte[] bArr = this.a;
-                int read = read(bArr, 0, bArr.length);
-                this.b = read;
-                this.c = 0;
-                if (read == -1) {
-                    return -1;
-                }
-            }
-            byte[] bArr2 = this.a;
-            int i = this.c;
-            this.c = i + 1;
-            return bArr2[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    public rr9(InputStream inputStream, int i, byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            if (this.b.bindService(intent, this.d, 1)) {
+                Handler handler = this.a;
+                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
                 return;
             }
+            this.a.sendEmptyMessage(0);
         }
-        zr9 zr9Var = new zr9();
-        this.d = zr9Var;
-        if (i <= 0) {
-            throw new IllegalArgumentException("Bad buffer size:" + i);
-        } else if (inputStream != null) {
-            this.a = new byte[i];
-            this.b = 0;
-            this.c = 0;
-            try {
-                zr9.c(zr9Var, inputStream);
-                if (bArr != null) {
-                    tr9.s(this.d, bArr);
-                }
-            } catch (BrotliRuntimeException e) {
-                throw new IOException("Brotli decoder initialization failed", e);
-            }
-        } else {
-            throw new IllegalArgumentException("source is null");
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (i < 0) {
-                throw new IllegalArgumentException("Bad offset: " + i);
-            } else if (i2 >= 0) {
-                int i3 = i + i2;
-                if (i3 > bArr.length) {
-                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
-                } else if (i2 == 0) {
-                    return 0;
-                } else {
-                    int max = Math.max(this.b - this.c, 0);
-                    if (max != 0) {
-                        max = Math.min(max, i2);
-                        System.arraycopy(this.a, this.c, bArr, i, max);
-                        this.c += max;
-                        i += max;
-                        i2 -= max;
-                        if (i2 == 0) {
-                            return max;
-                        }
-                    }
-                    try {
-                        this.d.Z = bArr;
-                        this.d.U = i;
-                        this.d.V = i2;
-                        this.d.W = 0;
-                        tr9.i(this.d);
-                        if (this.d.W == 0) {
-                            return -1;
-                        }
-                        return this.d.W + max;
-                    } catch (BrotliRuntimeException e) {
-                        throw new IOException("Brotli stream decoding failed", e);
-                    }
-                }
-            } else {
-                throw new IllegalArgumentException("Bad length: " + i2);
-            }
-        }
-        return invokeLII.intValue;
     }
 }

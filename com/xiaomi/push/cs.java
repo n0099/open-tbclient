@@ -65,8 +65,8 @@ public class cs {
             synchronized (this) {
                 for (int size = this.f185a.size() - 1; size >= 0; size--) {
                     cr crVar = this.f185a.get(size);
-                    if (crVar.m245a()) {
-                        cv.a().m255a(crVar.a());
+                    if (crVar.m246a()) {
+                        cv.a().m256a(crVar.a());
                         return crVar;
                     }
                 }
@@ -93,21 +93,21 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m246a() {
+    public String m247a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cr> m247a() {
+    public ArrayList<cr> m248a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f185a : (ArrayList) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m248a() {
+    public synchronized JSONObject m249a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class cs {
                 JSONArray jSONArray = new JSONArray();
                 Iterator<cr> it = this.f185a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m243a());
+                    jSONArray.put(it.next().m244a());
                 }
                 jSONObject.put("fbs", jSONArray);
             }

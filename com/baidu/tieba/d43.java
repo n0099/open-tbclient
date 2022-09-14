@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -11,21 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes3.dex */
-public class d43 extends x23 {
+public class d43 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d43(x13 x13Var) {
-        super(x13Var, "/swanAPI/setNavigationBarTitle");
+    public d43(v33 v33Var) {
+        super(v33Var, "/swanAPI/getAppInfoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,35 +41,34 @@ public class d43 extends x23 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                Log.d("BarTitleAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                ay1.c("navigationTitle", "paramsJson is null");
+            if (y23Var == null) {
+                yz1.c(DI.APP_INFO_NAME, "swanApp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            String optString = optParamsAsJo.optString("title");
-            j02 V = nm2.U().V();
-            if (V == null) {
-                ay1.c("navigationTitle", "manager is null");
+            try {
+                JSONObject D = xs1.D(y23Var, context);
+                if (v43.b && D != null) {
+                    Log.d("GetAppInfoSyncAction", "data: " + D.toString());
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(D, 0);
+                return true;
+            } catch (JSONException e) {
+                if (v43.b) {
+                    Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e));
+                }
+                yz1.c(DI.APP_INFO_NAME, Log.getStackTraceString(e));
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            g02 m = V.m();
-            if (!(m != null && m.w2(optString, true))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                ay1.c("navigationTitle", "set title fail");
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

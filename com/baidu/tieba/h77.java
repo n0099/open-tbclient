@@ -1,231 +1,124 @@
 package com.baidu.tieba;
 
+import android.graphics.Rect;
+import android.text.SpannableString;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.c77;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class h77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements c77.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.c77.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    public static GroupNewsPojo a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                return null;
-            }
-            try {
-                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                    return null;
-                }
-                String optString = new JSONObject(content).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
-                groupNewsPojo.setOriginalPushMsg(chatMessage);
-                return groupNewsPojo;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (GroupNewsPojo) invokeL.objValue;
-    }
-
-    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
-            if (linkedList == null || linkedList.size() == 0) {
-                return null;
-            }
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            Iterator<ChatMessage> it = linkedList.iterator();
-            while (it.hasNext()) {
-                GroupNewsPojo a2 = a(it.next());
-                if (a2 != null) {
-                    linkedList2.add(a2);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public static String c(String str, String str2) {
+    public static SpannableString a(ArrayList<tk5> arrayList, String str) {
         InterceptResult invokeLL;
-        String optString;
-        String optString2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str2);
-                String optString3 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (!str.equals("apply_join_group")) {
-                    return "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) ? optString3 : "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
+            if (TbFaceManager.i().p(str)) {
+                SpannableString spannableString = new SpannableString(str + " ");
+                tk5 d = TbFaceManager.i().d(str);
+                if (arrayList != null) {
+                    arrayList.add(d);
                 }
-                if (true != jSONObject.isNull("notice_id")) {
-                    optString = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    String optString4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                    optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
-                    str3 = optString4;
-                } else if (optJSONObject != null) {
-                    optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    str3 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                    optString2 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
+                s75.a g = TbFaceManager.i().g(str);
+                if (g != null) {
+                    int a = (int) (g.a() * 0.5d);
+                    d.setBounds(new Rect(0, 0, a, a));
                 } else {
-                    optString = "";
-                    optString2 = optString;
-                    str3 = optString2;
+                    d.setBounds(new Rect(0, 0, 0, 0));
                 }
-                ImMessageCenterPojo i = r87.o().i(optString, 1);
-                if (i != null) {
-                    optString2 = i.getGroup_name();
-                }
-                if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
-                    return "";
-                }
-                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14f8) + optString2;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                return "";
+                spannableString.setSpan(new dc6(d, 1), 0, str.length(), 33);
+                return spannableString;
             }
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return (SpannableString) invokeLL.objValue;
     }
 
-    public static boolean d(String str) {
+    public static SpannableString b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) : invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && str.equals("apply_join_group") : invokeL.booleanValue;
-    }
-
-    public static void f(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, c77.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            c77.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
-        }
-    }
-
-    public static void g(GroupMsgData groupMsgData) {
-        LinkedList<GroupNewsPojo> b;
-        PushMessage newInstance;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, groupMsgData) == null) || (b = b(groupMsgData.getListMessage())) == null || b.isEmpty()) {
-            return;
-        }
-        LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-        Iterator<GroupNewsPojo> it = b.iterator();
-        GroupNewsPojo groupNewsPojo = null;
-        GroupNewsPojo groupNewsPojo2 = null;
-        long j = 0;
-        while (it.hasNext()) {
-            GroupNewsPojo next = it.next();
-            if (!TextUtils.isEmpty(next.getNotice_id())) {
-                long parseLong = Long.parseLong(next.getNotice_id());
-                if (parseLong > j) {
-                    j = parseLong;
-                }
-                if (d(next.getCmd())) {
-                    linkedList.add(next);
-                    if (groupNewsPojo2 == null || parseLong > Long.parseLong(groupNewsPojo2.getNotice_id())) {
-                        groupNewsPojo2 = next;
-                    }
-                } else if (e(next.getCmd())) {
-                    linkedList.add(next);
-                    if (groupNewsPojo == null || parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
-                        groupNewsPojo = next;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
+            return UrlManager.findAllWebUrl(str);
         }
-        u77.f().m(linkedList);
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
-        imMessageCenterPojo.setIs_hidden(1);
-        imMessageCenterPojo.setCustomGroupType(-2);
-        imMessageCenterPojo.setPulled_msgId(j);
-        a87.f().k(imMessageCenterPojo);
-        if (groupNewsPojo != null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
-            imMessageCenterPojo2.setCustomGroupType(-4);
-            imMessageCenterPojo2.setUnread_count(1);
-            imMessageCenterPojo2.setLast_rid(pg.g(groupNewsPojo.getNotice_id(), 0L));
-            imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
-            imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
-            imMessageCenterPojo2.setIs_hidden(0);
-            a87.f().l(imMessageCenterPojo2, 2);
-        }
-        Iterator<GroupNewsPojo> it2 = b.iterator();
-        while (it2.hasNext()) {
-            GroupNewsPojo next2 = it2.next();
-            if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static ArrayList<TbRichTextData> c(String str, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
             }
+            TbRichTextData tbRichTextData = new TbRichTextData(1);
+            arrayList.add(tbRichTextData);
+            try {
+                int length = str.length();
+                int i3 = 0;
+                String str2 = "";
+                while (i3 < str.length()) {
+                    char charAt = str.charAt(i3);
+                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
+                        String str3 = SmallTailInfo.EMOTION_PREFIX;
+                        i3 += 2;
+                        while (i3 < length) {
+                            char charAt2 = str.charAt(i3);
+                            str3 = str3 + charAt2;
+                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
+                                i3 = i2;
+                            }
+                        }
+                        if (!TbFaceManager.i().p(str3)) {
+                            str2 = str2 + str3;
+                        } else {
+                            if (!TextUtils.isEmpty(str2)) {
+                                if (i == 1) {
+                                    tbRichTextData.A(str2);
+                                } else {
+                                    SpannableString b = b(str2);
+                                    if (b != null) {
+                                        tbRichTextData.A(b);
+                                    }
+                                }
+                                str2 = "";
+                            }
+                            SpannableString a = a(tbRichTextData.B(), str3);
+                            if (a != null) {
+                                tbRichTextData.A(a);
+                            }
+                        }
+                    } else {
+                        str2 = str2 + charAt;
+                    }
+                    i3++;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    if (i == 1) {
+                        tbRichTextData.A(str2);
+                    } else {
+                        SpannableString b2 = b(str2);
+                        if (b2 != null) {
+                            tbRichTextData.A(b2);
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return arrayList;
         }
+        return (ArrayList) invokeLI.objValue;
     }
 }

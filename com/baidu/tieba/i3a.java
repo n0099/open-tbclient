@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,138 +9,59 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class i3a extends BaseAdapter {
+public class i3a implements k5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public List<GiftBagItemInfo> b;
-    public PayUIKitConfig c;
+    public int a;
+    public int b;
+    public Activity c;
+    public IYYPayWayView d;
+    public AbsViewEventHandler e;
+    public o2a f;
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public a(i3a i3aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public i3a(Context context, List<GiftBagItemInfo> list, PayUIKitConfig payUIKitConfig) {
+    public i3a(int i, int i2, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, o2a o2aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, payUIKitConfig};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, iYYPayWayView, absViewEventHandler, o2aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = list;
-        this.c = payUIKitConfig;
+        RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = activity;
+        this.d = iYYPayWayView;
+        this.e = absViewEventHandler;
+        this.f = o2aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public GiftBagItemInfo getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.k5a
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<GiftBagItemInfo> list = this.b;
-            if (list == null || list.isEmpty() || i < 0 || i >= this.b.size()) {
-                return null;
-            }
-            return this.b.get(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
+            this.f.j();
+            this.f.c(cancelType, this.e);
+            n3a.b(this.a, this.b, cancelType);
         }
-        return (GiftBagItemInfo) invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.k5a
+    public boolean b(DialogInterface dialogInterface) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(new ContextThemeWrapper(this.a, b3a.a.a(this.c))).inflate(getCount() <= 2 ? R.layout.obfuscated_res_0x7f0d0690 : R.layout.obfuscated_res_0x7f0d0691, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234c);
-                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eca);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237a);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c3);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            GiftBagItemInfo item = getItem(i);
-            if (TextUtils.isEmpty(item.name)) {
-                aVar.a.setVisibility(4);
-            } else {
-                aVar.a.setVisibility(0);
-                aVar.a.setText(item.name);
-            }
-            if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                aVar.b.setVisibility(0);
-                aVar.b.setText(item.countDisplay);
-            } else {
-                aVar.b.setVisibility(4);
-            }
-            if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.typeName);
-            } else {
-                aVar.d.setVisibility(4);
-            }
-            PayUIKitConfig payUIKitConfig = this.c;
-            if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.c.imageLoaderSupplier.onLoad(this.a, aVar.c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
-            } else {
-                RLog.error("PayGiftListAdapter", "getView error mPayUIKitConfig null", new Object[0]);
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f.m(this.c, this.d, this.e) : invokeL.booleanValue;
     }
 }

@@ -1,29 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class j44 {
+public class j44 extends aa3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-    }
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
     public j44() {
         Interceptable interceptable = $ic;
@@ -35,40 +28,31 @@ public class j44 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Resources resources = hk2.c() != null ? hk2.c().getResources() : null;
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f07070c);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f07070d);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f07070e);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f07070b);
     }
 
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources == null || i == 0) {
-                return 0.0f;
-            }
-            return p34.b(resources.getDimension(i));
-        }
-        return invokeLI.floatValue;
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
-    }
-
-    public String toString() {
+    @Override // com.baidu.tieba.aa3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put("touch", this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (aa3.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

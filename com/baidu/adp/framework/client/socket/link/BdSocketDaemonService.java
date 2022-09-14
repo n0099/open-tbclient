@@ -11,9 +11,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.na;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.lh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static na sCallBack;
+    public static bb sCallBack;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public b myBinder;
@@ -113,24 +113,24 @@ public class BdSocketDaemonService extends BdBaseService {
         this.conn = new a(this);
     }
 
-    public static void setLinkServiceDisconnectCallBack(na naVar) {
+    public static void setLinkServiceDisconnectCallBack(bb bbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, naVar) == null) {
-            sCallBack = naVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, bbVar) == null) {
+            sCallBack = bbVar;
         }
     }
 
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            tg.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            hh.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tg.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            hh.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
         }
     }
 
@@ -150,7 +150,7 @@ public class BdSocketDaemonService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    xg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    lh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onCreate-startForeground");
                     BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }
@@ -167,7 +167,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 unbindService(this.conn);
             } catch (Exception unused) {
-                xg statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                lh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-unbindService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
@@ -176,7 +176,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startService(intent);
             } catch (Exception unused2) {
-                xg statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                lh statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem2.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-startService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
             }

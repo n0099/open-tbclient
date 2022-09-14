@@ -1,29 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.heytap.mcssdk.mode.CommandMessage;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class ac1 {
+public class ac1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610266, "Lcom/baidu/tieba/ac1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947610266, "Lcom/baidu/tieba/ac1;");
+    public static void a(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, bundle) == null) || bundle == null) {
+            return;
+        }
+        try {
+            String string = bundle.getString("zid");
+            if (TextUtils.isEmpty(string)) {
                 return;
             }
+            bundle.remove("zid");
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("c", bundle.getString("cuid"));
+            jSONObject.put("z", string);
+            jSONObject.put("mac", qb1.c());
+            jSONObject.put("app", "android");
+            jSONObject.put("ver", rb1.a(context));
+            bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+        } catch (Exception e) {
+            xb1.b(e.getMessage());
         }
-        a = xb1.b();
+    }
+
+    public static Bundle b(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
+            if (bundle == null) {
+                return new Bundle();
+            }
+            ob1.a = bundle.getString("bduss");
+            ob1.b = bundle.getString("tpOrderId");
+            ob1.g = bundle.getString("nativeAppId");
+            ob1.h = bundle.getString("sceneSource");
+            ob1.c = bundle.getString("appKey");
+            ob1.d = bundle.getString("dealId");
+            bundle.putString("deviceType", "ANDROID");
+            bundle.putString("channel", "cashiersdk");
+            bundle.putString(CommandMessage.SDK_VERSION, "2.8.7.9");
+            String[] stringArray = bundle.getStringArray("blockedPayChannels");
+            if (stringArray != null && stringArray.length > 0) {
+                bundle.remove("blockedPayChannels");
+                JSONArray jSONArray = new JSONArray();
+                for (String str : stringArray) {
+                    jSONArray.put(str);
+                }
+                bundle.putString("bannedChannels", jSONArray.toString());
+            }
+            a(context, bundle);
+            return bundle;
+        }
+        return (Bundle) invokeLL.objValue;
     }
 }

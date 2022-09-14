@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     public final f a;
     public final String b;
@@ -12,7 +12,7 @@ public class i {
     public final j d;
     public final Object e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public f a;
         public String b = "GET";

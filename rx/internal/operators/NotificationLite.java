@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.zu9;
+import com.baidu.tieba.rw9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class NotificationLite {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
     public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorSentinel implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3;
@@ -117,22 +117,22 @@ public final class NotificationLite {
         };
     }
 
-    public static <T> boolean a(zu9<? super T> zu9Var, Object obj) {
+    public static <T> boolean a(rw9<? super T> rw9Var, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, zu9Var, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, rw9Var, obj)) == null) {
             if (obj == a) {
-                zu9Var.onCompleted();
+                rw9Var.onCompleted();
                 return true;
             } else if (obj == b) {
-                zu9Var.onNext(null);
+                rw9Var.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    zu9Var.onError(((OnErrorSentinel) obj).e);
+                    rw9Var.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                zu9Var.onNext(obj);
+                rw9Var.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");

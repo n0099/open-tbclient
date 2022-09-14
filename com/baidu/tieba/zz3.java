@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Locale;
 /* loaded from: classes6.dex */
 public class zz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static volatile yz3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948377206, "Lcom/baidu/tieba/zz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static synchronized yz3 a() {
+        InterceptResult invokeV;
+        yz3 yz3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zz3.class) {
+                if (a == null) {
+                    a = new yz3();
+                }
+                yz3Var = a;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948377206, "Lcom/baidu/tieba/zz3;");
-                return;
-            }
+            return yz3Var;
         }
-        a = String.format(Locale.CHINA, "invalid code, the code must be either %d, or between %d and %d", 1000, 3000, 4999);
+        return (yz3) invokeV.objValue;
     }
 }

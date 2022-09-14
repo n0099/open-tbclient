@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 Iterator<VisitedForumData> it = linkedList.iterator();
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
-                    if (!qi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+                    if (!dj.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                         return true;
                     }
                 }
@@ -64,7 +64,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 break;
             }
             VisitedForumData next = it.next();
-            if (!qi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!dj.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 visitedForumData2 = next;
                 break;
             }
@@ -90,7 +90,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                     break;
                 }
                 VisitedForumData visitedForumData2 = this.mForumData.get(i2);
-                if (!qi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                if (!dj.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     i = i2;
                     break;
                 }

@@ -1,35 +1,98 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public class ix8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public static final rs8 b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public cx8 c;
+    public VideoPlayView.i d;
+    public int e;
+    public Set<String> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868992, "Lcom/baidu/tieba/ix8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947868992, "Lcom/baidu/tieba/ix8;");
+    public ix8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TimeUnit.DAYS.toMillis(5L);
-        b = new rs8("camera_last_api", 0, "camera_last_api_stamp");
-        c = "Lenovo K520".equals(Build.MODEL);
+        this.a = 0;
+        this.b = 0;
+        this.f = new HashSet();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
+            this.b = this.a + 1;
+            b();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c == null || this.e <= 0) {
+            return;
+        }
+        while (this.b < this.c.k()) {
+            VideoItemData s = this.c.s(this.b);
+            this.b++;
+            if (s != null && !TextUtils.isEmpty(s.video_url)) {
+                this.e--;
+                if (!this.f.contains(s.video_url)) {
+                    CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
+                    this.f.add(s.video_url);
+                }
+                if (this.e <= 0) {
+                    break;
+                }
+            }
+        }
+        if (this.e <= 0 || this.d == null || this.c.k() - this.a >= 10) {
+            return;
+        }
+        this.d.a();
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void d(cx8 cx8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cx8Var) == null) {
+            this.c = cx8Var;
+        }
+    }
+
+    public void e(VideoPlayView.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
+            this.d = iVar;
+        }
     }
 }

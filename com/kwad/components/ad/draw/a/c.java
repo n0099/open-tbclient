@@ -191,7 +191,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     private void a(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0569a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0574a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c bs;
@@ -327,12 +327,12 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091038);
-            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09103c);
-            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f09103a);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09103b);
-            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f091039);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091037);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091056);
+            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09105a);
+            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091059);
+            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f091057);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091055);
             this.bl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
         }

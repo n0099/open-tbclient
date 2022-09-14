@@ -10,7 +10,6 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -393,7 +392,7 @@ public class SevenZipUtils {
             }
             try {
                 this.mLockFile = new File(file, "lock");
-                RandomAccessFile randomAccessFile = new RandomAccessFile(this.mLockFile, rw.c);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(this.mLockFile, "rw");
                 this.mLockRAFile = randomAccessFile;
                 FileChannel channel = randomAccessFile.getChannel();
                 this.mChannel = channel;

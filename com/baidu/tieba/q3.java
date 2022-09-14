@@ -1,90 +1,97 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.Application;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.BufferedInputStream;
+import java.io.Closeable;
+import java.io.DataInputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.InflaterInputStream;
 /* loaded from: classes5.dex */
-public class q3 extends o3 {
+public class q3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, a7<q3>> j;
     public transient /* synthetic */ FieldHolder $fh;
-    public r3 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313355, "Lcom/baidu/tieba/q3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final byte[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(259711214, "Lcom/baidu/tieba/q3$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(259711214, "Lcom/baidu/tieba/q3$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448313355, "Lcom/baidu/tieba/q3;");
-                return;
+            a = new byte[32000];
+        }
+
+        /* JADX WARN: Not initialized variable reg: 1, insn: 0x0084: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:27:0x0084 */
+        public static Pixmap a(k3 k3Var) {
+            InterceptResult invokeL;
+            Exception e;
+            Closeable closeable;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, k3Var)) != null) {
+                return (Pixmap) invokeL.objValue;
+            }
+            Closeable closeable2 = null;
+            try {
+                try {
+                    DataInputStream dataInputStream = new DataInputStream(new InflaterInputStream(new BufferedInputStream(k3Var.m())));
+                    try {
+                        Pixmap pixmap = new Pixmap(dataInputStream.readInt(), dataInputStream.readInt(), Pixmap.Format.fromGdx2DPixmapFormat(dataInputStream.readInt()));
+                        ByteBuffer m = pixmap.m();
+                        m.position(0);
+                        m.limit(m.capacity());
+                        synchronized (a) {
+                            while (true) {
+                                int read = dataInputStream.read(a);
+                                if (read > 0) {
+                                    m.put(a, 0, read);
+                                }
+                            }
+                        }
+                        m.position(0);
+                        m.limit(m.capacity());
+                        j8.a(dataInputStream);
+                        return pixmap;
+                    } catch (Exception e2) {
+                        e = e2;
+                        throw new GdxRuntimeException("Couldn't read Pixmap from file '" + k3Var + "'", e);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    j8.a(closeable2);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+            } catch (Throwable th2) {
+                th = th2;
+                j8.a(closeable2);
+                throw th;
             }
         }
-        j = new HashMap();
     }
 
-    public static void s(Application application) {
+    public static Pixmap a(k3 k3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            j.remove(application);
-        }
-    }
-
-    public static void t(Application application) {
-        a7<q3> a7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, application) == null) || (a7Var = j.get(application)) == null) {
-            return;
-        }
-        for (int i = 0; i < a7Var.b; i++) {
-            a7Var.get(i).w();
-        }
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i.a() : invokeV.booleanValue;
-    }
-
-    public final void v(r3 r3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r3Var) == null) {
-            if (this.i != null && r3Var.a() != this.i.a()) {
-                throw new GdxRuntimeException("New data must have the same managed status as the old data");
-            }
-            this.i = r3Var;
-            a();
-            e1.g.O(35866, 0, r3Var.b(), r3Var.getWidth(), r3Var.getHeight(), r3Var.d(), 0, r3Var.b(), r3Var.e(), null);
-            if (!r3Var.isPrepared()) {
-                r3Var.prepare();
-            }
-            r3Var.c();
-            l(this.c, this.d);
-            m(this.e, this.f);
-            e1.e.N(this.a, 0);
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (u()) {
-                this.b = e1.e.a();
-                v(this.i);
-                return;
-            }
-            throw new GdxRuntimeException("Tried to reload an unmanaged TextureArray");
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, k3Var)) == null) ? a.a(k3Var) : (Pixmap) invokeL.objValue;
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e85 implements m75<LiveRemindDataEvent> {
+public abstract class e85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,20 +27,15 @@ public class e85 implements m75<LiveRemindDataEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m75
-    /* renamed from: a */
-    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
+    public abstract String a();
+
+    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
+
+    public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
-            if (liveRemindDataEvent == null) {
-                return false;
-            }
-            fu4.a().d(liveRemindDataEvent.liveRemindData);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadBitmap(str), true) : (Bitmap) invokeL.objValue;
     }
+
+    public abstract void d(String str);
 }

@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -126,7 +126,7 @@ public class CommonTipView extends TextView {
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.i();
                 this.a.setVisibility(8);
-                sg.a().postDelayed(this.a.e, 600L);
+                gh.a().postDelayed(this.a.e, 600L);
             }
         }
 
@@ -212,7 +212,7 @@ public class CommonTipView extends TextView {
             }
         }
         this.a = 4000;
-        this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
+        this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
         this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
@@ -261,7 +261,7 @@ public class CommonTipView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             removeCallbacks(this.d);
-            sg.a().removeCallbacks(this.e);
+            gh.a().removeCallbacks(this.e);
             e();
         }
     }
@@ -318,7 +318,7 @@ public class CommonTipView extends TextView {
             }
         }
         this.a = 4000;
-        this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
+        this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
         this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
         this.d = new a(this);
         this.e = new b(this);
@@ -345,7 +345,7 @@ public class CommonTipView extends TextView {
             }
         }
         this.a = 4000;
-        this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.obfuscated_res_0x7f010064);
+        this.b = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
         this.c = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
         this.d = new a(this);
         this.e = new b(this);

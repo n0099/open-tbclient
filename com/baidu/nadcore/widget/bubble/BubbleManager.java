@@ -1,10 +1,10 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import com.baidu.tieba.s41;
-import com.baidu.tieba.t41;
-import com.baidu.tieba.v41;
-import com.baidu.tieba.zh0;
+import com.baidu.tieba.jj0;
+import com.baidu.tieba.l61;
+import com.baidu.tieba.m61;
+import com.baidu.tieba.o61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BubbleManager extends v41 implements View.OnClickListener {
+public class BubbleManager extends o61 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,11 +95,11 @@ public class BubbleManager extends v41 implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls == t41.class || cls == s41.class) {
+            if (cls == m61.class || cls == l61.class) {
                 try {
                     return cls.newInstance();
                 } catch (Exception e) {
-                    zh0.b("BubbleManager", "", e);
+                    jj0.b("BubbleManager", "", e);
                     return null;
                 }
             }

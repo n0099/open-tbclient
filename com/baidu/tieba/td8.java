@@ -2,128 +2,79 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.recapp.adapter.PbAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class td8 extends xd8 {
+public class td8 extends qn<um8, PbAppEmptyHolder> implements id8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView h;
-    public TextView i;
-    public TextView j;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hd8 a;
-        public final /* synthetic */ td8 b;
-
-        public a(td8 td8Var, hd8 hd8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {td8Var, hd8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = td8Var;
-            this.a = hd8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.b.b.getContext();
-                hd8 hd8Var = this.a;
-                String str = hd8Var.d;
-                String str2 = hd8Var.f;
-                AdvertAppInfo advertAppInfo = this.b.c;
-                fc8.a(context, str, str2, advertAppInfo != null ? advertAppInfo.g : "", this.a.j);
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
-                iy0.b(clogBuilder);
-                td8 td8Var = this.b;
-                if (td8Var.d != null) {
-                    bf7.c(td8Var.c);
-                }
-            }
-        }
-    }
+    public BaseFragmentActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public td8(View view2, String str) {
-        super(view2, str);
+    public td8(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
+            Object[] objArr = {baseFragmentActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        k();
+        this.a = baseFragmentActivity;
     }
 
-    @Override // com.baidu.tieba.xd8
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public PbAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.b();
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f0811d4, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.a.getPageContext().getPageActivity());
+            view2.setVisibility(8);
+            return new PbAppEmptyHolder(view2);
+        }
+        return (PbAppEmptyHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.id8
+    public void setIsFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.xd8
-    public void c(hd8 hd8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, um8 um8Var, PbAppEmptyHolder pbAppEmptyHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hd8Var) == null) {
-            super.c(hd8Var);
-            this.h.K(hd8Var.c, 10, false);
-            this.i.setText(hd8Var.b);
-            this.j.setText(hd8Var.e);
-            this.b.setOnClickListener(new a(this, hd8Var));
-            b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, um8Var, pbAppEmptyHolder})) == null) {
+            AdvertAppInfo advertAppInfo = um8Var.getAdvertAppInfo();
+            if (advertAppInfo != null) {
+                qq4.g(advertAppInfo.i, um8Var.getPosition(), advertAppInfo.c == -1001);
+            }
+            return pbAppEmptyHolder.getView();
         }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092466);
-            this.h = headImageView;
-            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            this.h.setDefaultBgResource(R.color.CAM_X0205);
-            this.h.setIsRound(true);
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f092459);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f090059);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

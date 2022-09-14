@@ -1,59 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ra9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class do5 extends vc1<cb1> {
+public class do5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a implements cb1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(do5 do5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.cb1
-        public boolean a(String str, wb1 wb1Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, wb1Var)) == null) {
-                if (fo5.a) {
-                    PrintStream printStream = System.out;
-                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + lb1.a));
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
+    public int a;
+    public boolean b;
 
     public do5() {
         Interceptable interceptable = $ic;
@@ -65,16 +29,155 @@ public class do5 extends vc1<cb1> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = false;
+        i();
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return d(i);
+            }
+            int i2 = this.a;
+            if (i2 == 1) {
+                return c(i);
+            }
+            if (i2 == 0) {
+                return d(i);
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public void b(ArrayList<Integer> arrayList, co5 co5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, co5Var) == null) || arrayList == null || co5Var == null) {
+            return;
+        }
+        Iterator<Integer> it = arrayList.iterator();
+        while (it.hasNext()) {
+            int intValue = it.next().intValue();
+            co5Var.b(intValue, a(intValue));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vc1
-    /* renamed from: a */
-    public cb1 createService() throws ServiceNotFoundException {
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            String e = e(i);
+            if (dj.isEmpty(e)) {
+                return 0;
+            }
+            SampleResult a = qa9.a(e);
+            return (a == SampleResult.T1 || a == SampleResult.T2 || a == SampleResult.T3 || a == SampleResult.T4 || a == SampleResult.T5) ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            String f = f(i);
+            return (!dj.isEmpty(f) && bx4.k().l(f, 0) == 1) ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 2) {
+                return "46";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i == 1) {
+                return "key_card_show_type";
+            }
+            if (i == 2) {
+                return "key_card_abstract_switch";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (cb1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                try {
+                    ra9.a aVar = new ra9.a();
+                    aVar.e(TbadkCoreApplication.getInst());
+                    aVar.j(false);
+                    aVar.n(30L);
+                    aVar.m(1);
+                    aVar.l(false);
+                    aVar.o(15L);
+                    aVar.k(1000);
+                    qa9.b(aVar.c());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = bx4.k().l("key_abtest_channel", 0);
+            j();
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
+            boolean h = h();
+            this.b = h;
+            if (h) {
+                return;
+            }
+            this.a = 0;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i == 1 || i == 0) {
+                this.a = i;
+                bx4.k().w("key_abtest_channel", this.a);
+                j();
+            }
+        }
     }
 }

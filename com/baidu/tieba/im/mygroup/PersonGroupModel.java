@@ -4,11 +4,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.d9;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.GroupsByUidMessage;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,15 +36,15 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = false;
-        this.mImageWidth = ri.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = ri.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = ej.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = ej.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
     }
 
@@ -125,15 +125,15 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.b = false;
-        this.mImageWidth = ri.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = ri.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = ej.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = ej.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
     }
 }

@@ -1,84 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class wz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wz0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public ClogBuilder.LogType a;
+    public String b;
+    public String c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948287740, "Lcom/baidu/tieba/wz0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948287740, "Lcom/baidu/tieba/wz0;");
-        }
-    }
-
-    public wz0() {
+    public wz0(ClogBuilder.LogType logType, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
+        this.c = "";
+        this.a = logType;
+        this.b = str;
+        this.c = str2;
+        this.d = z;
     }
 
-    public static wz0 b() {
+    public b01 a(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) ? b(i, str, "normal") : (b01) invokeIL.objValue;
+    }
+
+    public b01 b(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
+            b01 b01Var = new b01();
+            try {
+                b01Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return b01Var;
+        }
+        return (b01) invokeILL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (wz0.class) {
-                    if (b == null) {
-                        b = new wz0();
-                    }
-                }
-            }
-            return b;
-        }
-        return (wz0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
-    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
-        InterceptResult invokeLLI;
-        ElasticTask elasticTask;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                synchronized (this) {
-                    long j = this.a + 1;
-                    this.a = j;
-                    elasticTask = new ElasticTask(runnable, str, j, i);
-                }
-                return elasticTask;
-            }
-            throw new IllegalArgumentException("illegal params");
-        }
-        return (ElasticTask) invokeLLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.k97;
-import com.baidu.tieba.y9;
+import com.baidu.tieba.ma;
+import com.baidu.tieba.ra7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
 /* loaded from: classes4.dex */
-public class RequestPersonalMsgReadMessage extends TbSocketMessage implements y9 {
+public class RequestPersonalMsgReadMessage extends TbSocketMessage implements ma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long hasSentMsgId;
@@ -48,7 +48,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements y9
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = k97.j;
+                builder.groupId = ra7.j;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);
@@ -63,7 +63,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements y9
         return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y9
+    @Override // com.baidu.tieba.ma
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

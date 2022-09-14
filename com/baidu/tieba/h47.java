@@ -1,64 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import tbclient.RecomVideo.DislikeReason;
-import tbclient.RecomVideo.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public f47 a;
+    public ArrayList<g47> b;
 
-    public static void a(List<ThreadPersonalized> list, List<pn> list2) {
-        l06 l06Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public h47() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) || list == null || list2 == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        for (ThreadPersonalized threadPersonalized2 : list) {
-            if (threadPersonalized2 != null) {
-                hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
-            }
-        }
-        int count = ListUtils.getCount(list2);
-        for (int i = 0; i < count; i++) {
-            pn pnVar = (pn) ListUtils.getItem(list2, i);
-            if ((pnVar instanceof l06) && (threadData = (l06Var = (l06) pnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
-                l06Var.J(threadPersonalized.source);
-                l06Var.M(threadPersonalized.weight);
-                l06Var.F(threadPersonalized.abtest_tag);
-                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                threadData.mRecomSource = threadPersonalized.source;
-                threadData.mRecomWeight = threadPersonalized.weight;
-                if (threadData.getThreadVideoInfo() != null) {
-                    l06Var.H(threadData.getThreadVideoInfo().is_vertical);
-                }
-                List<DislikeReason> list3 = threadPersonalized.dislike_resource;
-                if (list3 != null) {
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    for (DislikeReason dislikeReason : list3) {
-                        int intValue = dislikeReason.dislike_id.intValue();
-                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                    }
-                    l06Var.feedBackReasonMap = sparseArray;
-                    l06Var.G(threadPersonalized.extra);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(List<ThreadPersonalized> list, List<pn> list2) {
+    public static h47 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            a(list, list2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            h47 h47Var = new h47();
+            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
+            h47Var.a = f47.a(optJSONObject);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                h47Var.b = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        g47 a = g47.a(optJSONArray.getJSONObject(i));
+                        if (a != null) {
+                            h47Var.b.add(a);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return h47Var;
         }
+        return (h47) invokeL.objValue;
     }
 }

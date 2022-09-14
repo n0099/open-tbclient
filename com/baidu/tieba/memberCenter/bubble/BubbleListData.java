@@ -30,6 +30,8 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
         public String bg_url;
         public String bname;
         public int can_use;
+        public String dynamic_url;
+        public String dynamic_url_small;
         public String icon_url;
         public int is_def;
         public int is_free;
@@ -86,65 +88,77 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.can_use : invokeV.intValue;
         }
 
+        public String getDynamicUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        public String getDynamicUrlSmall() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
         public String getIcon_url() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.icon_url : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.icon_url : (String) invokeV.objValue;
         }
 
         public int getIs_def() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.is_def : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.is_def : invokeV.intValue;
         }
 
         public int getIs_free() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.is_free : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.is_free : invokeV.intValue;
         }
 
         public String getLevel_name() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.level_name : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.level_name : (String) invokeV.objValue;
         }
 
         public int getTime_interval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.time_interval : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.time_interval : invokeV.intValue;
         }
 
         public boolean isDef() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.is_def == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.is_def == 1 : invokeV.booleanValue;
         }
 
         public boolean isFree() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.is_free == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.is_free == 1 : invokeV.booleanValue;
         }
 
         public void setBcode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
                 this.bcode = i;
             }
         }
 
         public void setCan_use(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
                 this.can_use = i;
             }
         }
 
         public void setIs_def(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
                 this.is_def = i;
             }
         }

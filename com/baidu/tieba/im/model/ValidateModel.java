@@ -1,22 +1,14 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ApplyJoinGroupActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.hf5;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.lf5;
-import com.baidu.tieba.oe5;
-import com.baidu.tieba.r87;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.u77;
+import com.baidu.tieba.y97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,10 +51,9 @@ public class ValidateModel {
             }
             try {
                 JSONObject jSONObject = new JSONObject(content);
-                if (true == jSONObject.isNull("notice_id")) {
+                if (jSONObject.isNull("notice_id")) {
                     ValidateItemData validateItemData = new ValidateItemData();
                     validateItemData.setNotice_id(groupNewsPojo.getNotice_id());
-                    validateItemData.setApplyReason(jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG));
                     validateItemData.setApplyTime(groupNewsPojo.getTime());
                     JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                     if (optJSONObject == null) {
@@ -74,8 +65,6 @@ public class ValidateModel {
                     validateItemData.setGroupId(optString);
                     setGroupName(validateItemData, optString);
                     validateItemData.setUserId(optJSONObject.optString("userId"));
-                    validateItemData.setInviterUserId(optJSONObject.optLong(ApplyJoinGroupActivityConfig.INVITE_USER_ID));
-                    validateItemData.setJoinType(optJSONObject.optInt(ApplyJoinGroupActivityConfig.JOIN_TYPE));
                     validateItemData.setExt(groupNewsPojo.getExt());
                     return validateItemData;
                 }
@@ -110,220 +99,13 @@ public class ValidateModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteValidateData(ValidateItemData validateItemData, oe5<Boolean> oe5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, oe5Var) == null) || validateItemData == null) {
-            return;
-        }
-        lf5.c(new hf5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ValidateItemData val$data;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {validateItemData};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$data = validateItemData;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.hf5
-            public Boolean doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(u77.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
-            }
-        }, oe5Var);
-    }
-
-    public static ValidateItemData getByNoticeid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? convertToValidateItemData(u77.f().d(str)) : (ValidateItemData) invokeL.objValue;
-    }
-
-    public static void markShown(List<ValidateItemData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        LinkedList linkedList = new LinkedList();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            ValidateItemData validateItemData = list.get(i);
-            if (validateItemData != null && !validateItemData.isShown()) {
-                validateItemData.setShown(true);
-                linkedList.add(new GroupNewsPojo(validateItemData));
-            }
-        }
-        new BdAsyncTask<Void, Void, Void>(linkedList) { // from class: com.baidu.tieba.im.model.ValidateModel.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ LinkedList val$list;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {linkedList};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$list = linkedList;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Void doInBackground(Void... voidArr) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                    u77.f().m(this.val$list);
-                    return null;
-                }
-                return (Void) invokeL.objValue;
-            }
-        }.execute(new Void[0]);
-    }
-
-    public static void requestValidateDataCountFromDB(oe5<Integer> oe5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, oe5Var) == null) {
-            lf5.c(new hf5<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.hf5
-                public Integer doInBackground() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(u77.f().e("apply_join_group")) : (Integer) invokeV.objValue;
-                }
-            }, oe5Var);
-        }
-    }
-
-    public static void requestValidateDataFromDB(int i, int i2, oe5<LinkedList<GroupNewsPojo>> oe5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, oe5Var) == null) {
-            lf5.c(new hf5<LinkedList<GroupNewsPojo>>(i, i2) { // from class: com.baidu.tieba.im.model.ValidateModel.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int val$count;
-                public final /* synthetic */ int val$offset;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$count = i;
-                    this.val$offset = i2;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.hf5
-                public LinkedList<GroupNewsPojo> doInBackground() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? u77.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
-                }
-            }, oe5Var);
-        }
-    }
-
     public static void setGroupName(ValidateItemData validateItemData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, validateItemData, str) == null) {
-            if (!BdBaseApplication.getInst().isDebugMode() || ri.C()) {
-                ImMessageCenterPojo i = r87.o().i(str, 1);
+        if (interceptable == null || interceptable.invokeLL(65539, null, validateItemData, str) == null) {
+            if (!BdBaseApplication.getInst().isDebugMode() || ej.C()) {
+                ImMessageCenterPojo i = y97.o().i(str, 1);
                 validateItemData.setGroupName(i != null ? i.getGroup_name() : "");
             }
         }
-    }
-
-    public static void updateValidateData(oe5<Boolean> oe5Var, ValidateItemData validateItemData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, oe5Var, validateItemData) == null) || validateItemData == null) {
-            return;
-        }
-        lf5.c(new hf5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ValidateItemData val$data;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {validateItemData};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$data = validateItemData;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.hf5
-            public Boolean doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(u77.f().j(this.val$data)) : (Boolean) invokeV.objValue;
-            }
-        }, oe5Var);
     }
 }

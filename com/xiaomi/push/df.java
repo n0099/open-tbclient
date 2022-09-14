@@ -214,9 +214,9 @@ public class df {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bv.m648a());
+                        hashMap.put("uid", com.xiaomi.push.service.bv.m649a());
                         hashMap.put("token", this.b);
-                        hashMap.put("net", bj.m194a(this.f209a.f207a));
+                        hashMap.put("net", bj.m195a(this.f209a.f207a));
                         bj.a(this.f211a, hashMap, this.f210a, "file");
                     }
                     this.f212a = true;
@@ -227,7 +227,7 @@ public class df {
 
         @Override // com.xiaomi.push.ao.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo265c() {
+        public void mo266c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f212a) {
@@ -311,7 +311,7 @@ public class df {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m162a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m163a()) {
             return;
         }
         try {

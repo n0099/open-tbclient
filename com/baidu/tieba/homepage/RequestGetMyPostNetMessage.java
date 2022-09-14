@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
             builder.q_type = Integer.valueOf(this.mQType);
             builder.bfrom = this.bFrom;
             builder.call_from = Integer.valueOf(this.callFrom);
-            ye5.a(builder, true);
+            fh5.a(builder, true);
             GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

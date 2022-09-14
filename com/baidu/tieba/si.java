@@ -1,115 +1,65 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class si {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Cursor cursor) {
+    public static void a(@Nullable File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, cursor) == null) || cursor == null) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (File file2 : listFiles) {
+                        a(file2);
+                    }
+                    return;
+                }
+                return;
+            }
+            String absolutePath = file.getAbsolutePath();
+            if (file.delete()) {
+                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
+                return;
+            }
+            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
+        }
+    }
+
+    public static void b(@NonNull Context context) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || Build.VERSION.SDK_INT < 24) {
             return;
         }
         try {
-            cursor.close();
+            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
+            File filesDir = context.getFilesDir();
+            if (filesDir == null || filesDir.getParent() == null) {
+                return;
+            }
+            File file = new File(filesDir.getParent());
+            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                for (File file2 : listFiles) {
+                    String absolutePath = file2.getAbsolutePath();
+                    if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
+                        a(file2);
+                    }
+                }
+            }
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void b(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) || sQLiteDatabase == null) {
-            return;
-        }
-        try {
-            sQLiteDatabase.close();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void c(SQLiteStatement sQLiteStatement) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, sQLiteStatement) == null) || sQLiteStatement == null) {
-            return;
-        }
-        try {
-            sQLiteStatement.close();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void d(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-    }
-
-    public static void e(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream) == null) || inputStream == null) {
-            return;
-        }
-        try {
-            inputStream.close();
-        } catch (IOException e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void f(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, outputStream) == null) || outputStream == null) {
-            return;
-        }
-        try {
-            outputStream.close();
-        } catch (IOException e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void g(Reader reader) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, reader) == null) || reader == null) {
-            return;
-        }
-        try {
-            reader.close();
-        } catch (IOException e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void h(Writer writer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, writer) == null) || writer == null) {
-            return;
-        }
-        try {
-            writer.close();
-        } catch (IOException e) {
             BdLog.e(e.getMessage());
         }
     }

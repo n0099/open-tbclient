@@ -1,213 +1,168 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-import android.widget.PopupWindow;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class ug {
+public class ug<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public LinkedList<T> c;
+    public vg<T> d;
 
-    public static final boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public ug(vg<T> vgVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !h(activity.getWindow().getDecorView())) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vgVar, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            dialog.dismiss();
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.a = 10;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        if (vgVar != null && i > 0 && i2 <= i) {
+            this.d = vgVar;
+            this.a = i;
+            this.b = i2;
+            this.c = new LinkedList<>();
+            a(this.b);
+            return;
+        }
+        throw new InvalidParameterException("invalid params");
     }
 
-    public static final boolean b(Dialog dialog, d9<?> d9Var) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: java.util.LinkedList<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dialog, d9Var)) == null) {
-            if (d9Var == null || d9Var.getPageActivity() == null) {
-                return false;
-            }
-            return a(dialog, d9Var.getPageActivity());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean c(PopupWindow popupWindow) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
-            if (popupWindow == null || g(popupWindow.getContentView().getContext()) || !h(popupWindow.getContentView())) {
-                return false;
-            }
-            popupWindow.dismiss();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean d(PopupWindow popupWindow, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, popupWindow, activity)) == null) {
-            if (popupWindow != null && activity != null) {
-                if (!g(activity) && h(activity.getWindow().getDecorView())) {
-                    popupWindow.dismiss();
-                    return true;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            synchronized (this) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    Object obj = null;
+                    try {
+                        obj = this.d.a(this.d.d());
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    if (obj != null) {
+                        this.c.offer(obj);
+                    }
                 }
-                return false;
-            }
-            return c(popupWindow);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity == null || g(activity)) {
-                return false;
-            }
-            return h(activity.getWindow().getDecorView()) || !activity.getWindow().isActive();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean f(d9<?> d9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, d9Var)) == null) {
-            if (d9Var == null) {
-                return false;
-            }
-            return e(d9Var.getPageActivity());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (context instanceof Activity) {
-                return ((Activity) context).isFinishing();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 == null || (windowToken = view2.getWindowToken()) == null) {
-                return false;
-            }
-            try {
-                if (windowToken.isBinderAlive()) {
-                    return windowToken.pingBinder();
-                }
-                return false;
-            } catch (Exception unused) {
-                return false;
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public static final boolean i(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public T b() {
+        InterceptResult invokeV;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                t = null;
                 try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused) {
+                    if (this.c.size() > 0) {
+                        t = this.d.a(this.c.poll());
+                    } else {
+                        t = this.d.a(this.d.d());
+                    }
+                    a(this.b - this.c.size());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
-            if (activity.getWindow() != null && h(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused2) {
-                }
-            }
-            return false;
+            return t;
         }
-        return invokeLL.booleanValue;
+        return (T) invokeV.objValue;
     }
 
-    public static final boolean j(Dialog dialog, d9<?> d9Var) {
-        InterceptResult invokeLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, dialog, d9Var)) == null) {
-            if (d9Var == null || d9Var.getPageActivity() == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.c.clear();
             }
-            return i(dialog, d9Var.getPageActivity());
         }
-        return invokeLL.booleanValue;
     }
 
-    public static final boolean k(PopupWindow popupWindow, View view2) {
-        InterceptResult invokeLL;
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, popupWindow, view2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2);
-                    return true;
-                } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (this) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    try {
+                        this.d.b(this.c.poll());
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static final boolean l(PopupWindow popupWindow, View view2, int i, int i2) {
-        InterceptResult invokeLLII;
+    public void e(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view2, i, i2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2, i, i2);
-                    return true;
-                } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            synchronized (this) {
+                if (this.c.size() < this.a) {
+                    T t2 = null;
+                    try {
+                        t2 = this.d.c(t);
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                    if (t2 != null) {
+                        this.c.offer(t2);
+                    }
+                } else {
+                    this.d.b(t);
                 }
             }
-            return false;
         }
-        return invokeLLII.booleanValue;
     }
 
-    public static final boolean m(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAtLocation(view2, i, i2, i3);
-                    return true;
-                } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            synchronized (this) {
+                if (i < this.b) {
+                    i = this.b;
                 }
+                if (i <= 0) {
+                    i = 1;
+                }
+                this.a = i;
+                d(this.c.size() - this.a);
             }
-            return false;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            synchronized (this) {
+                if (i > this.a) {
+                    i = this.a;
+                }
+                this.b = i;
+                a(i - this.c.size());
+            }
+        }
     }
 }

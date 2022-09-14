@@ -1,13 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xb7 extends ic7 {
+public class xb7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,27 +29,18 @@ public class xb7 extends ic7 {
         }
     }
 
-    @Override // com.baidu.tieba.ic7, com.baidu.tieba.t85
-    public String getCacheKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ic7, com.baidu.tieba.u85
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
+                return null;
+            }
+            zt4.f();
+            zt4.b("tb.im_group_search_history");
+            return new ResponseSearchGroupLocalMessage(2001206);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ic7, com.baidu.tieba.u85
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

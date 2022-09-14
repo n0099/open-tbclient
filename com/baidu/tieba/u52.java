@@ -1,125 +1,162 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class u52 extends InputStream {
+public class u52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public s52 b;
+    public HashMap<wb4, Set<c>> a;
 
-    public u52(@NonNull InputStream inputStream, @NonNull s52 s52Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static u52 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-422163591, "Lcom/baidu/tieba/u52$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-422163591, "Lcom/baidu/tieba/u52$b;");
+                    return;
+                }
+            }
+            a = new u52(null);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(PMSDownloadType pMSDownloadType);
+
+        void b(PMSDownloadType pMSDownloadType, re3 re3Var);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161911, "Lcom/baidu/tieba/u52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948161911, "Lcom/baidu/tieba/u52;");
+                return;
+            }
+        }
+        b = ij1.a;
+    }
+
+    public /* synthetic */ u52(a aVar) {
+        this();
+    }
+
+    public static u52 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (u52) invokeV.objValue;
+    }
+
+    public synchronized void a(wb4 wb4Var, PMSDownloadType pMSDownloadType, re3 re3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, wb4Var, pMSDownloadType, re3Var) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadError:" + wb4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                }
+                Set<c> set = this.a.get(wb4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.b(pMSDownloadType, re3Var);
+                        }
+                    }
+                    this.a.remove(wb4Var);
+                }
+            }
+        }
+    }
+
+    public synchronized void b(wb4 wb4Var, PMSDownloadType pMSDownloadType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wb4Var, pMSDownloadType) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + wb4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                }
+                Set<c> set = this.a.get(wb4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.a(pMSDownloadType);
+                        }
+                    }
+                    this.a.remove(wb4Var);
+                }
+            }
+        }
+    }
+
+    public synchronized void d(wb4 wb4Var, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wb4Var, cVar) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + wb4Var);
+                }
+                if (wb4Var != null && cVar != null) {
+                    Set<c> set = this.a.get(wb4Var);
+                    if (set != null) {
+                        set.add(cVar);
+                    } else {
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(cVar);
+                        this.a.put(wb4Var, hashSet);
+                    }
+                }
+            }
+        }
+    }
+
+    public u52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, s52Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = inputStream;
-        this.b = s52Var;
-    }
-
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.available() : invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.close();
-            this.b.c(this.a);
-            this.b.a();
-            ch4.d(this.a);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public void mark(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            super.mark(i);
-            this.a.mark(i);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.markSupported() : invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int read = this.a.read(bArr);
-            this.b.d(bArr, 0, read);
-            return read;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                super.reset();
-                this.a.reset();
-            }
-        }
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.a.skip(j);
-            return super.skip(j);
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            int read = this.a.read(bArr, i, i2);
-            this.b.d(bArr, i, read);
-            return read;
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.read() : invokeV.intValue;
+        this.a = new HashMap<>();
     }
 }

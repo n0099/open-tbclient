@@ -1,39 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ClassForumInfo;
+import tbclient.GetVerticalForumList.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class is7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<gs7> a;
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public is7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(ii.d(b(str2))));
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, generatePublic);
-                return ii.j(cipher.doFinal(str.getBytes("GBK")));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? StringUtils.isNull(str) ? "" : str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "") : (String) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        if (dataRes.class_foruminfo != null) {
+            this.a = new ArrayList();
+            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
+                gs7 gs7Var = new gs7();
+                gs7Var.b = classForumInfo.class_id;
+                gs7Var.c = classForumInfo.class_name;
+                gs7Var.d = classForumInfo.class_icon;
+                ArrayList arrayList = new ArrayList();
+                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
+                    arrayList.add(new ms7(recommendForumInfo, false));
+                }
+                gs7Var.a = arrayList;
+                this.a.add(gs7Var);
+            }
+        }
+        Page page = dataRes.page;
     }
 }

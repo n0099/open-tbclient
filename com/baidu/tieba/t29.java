@@ -1,119 +1,96 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
-import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class t29 {
+public class t29 extends s29 {
     public static /* synthetic */ Interceptable $ic;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<List<String>> b;
-    public VideoCategoryClassData c;
-    public BdUniqueId d;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
 
-    public t29(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t29(r9 r9Var) {
+        super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new VideoCategoryClassData();
-        this.d = bdUniqueId;
+        g = r9Var.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070302);
     }
 
-    public VideoCategoryClassData a(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.s29
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            this.c.setFirstClass(this.a.get(i));
-            this.c.setSecondClass(this.b.get(i).get(i2));
-            this.c.getTags().clear();
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0734, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c86);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c88);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c87);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c89);
         }
-        return (VideoCategoryClassData) invokeII.objValue;
     }
 
-    public List<String> b() {
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public List<List<String>> c() {
-        InterceptResult invokeV;
+    public void l() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public ArrayList<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getTags() : (ArrayList) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
-            getSelectClassReqMessage.setTag(this.d);
-            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+            this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+            this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+            this.c.setCompoundDrawablePadding(g);
+            this.d.setCompoundDrawablePadding(g);
+            this.f.setCompoundDrawablePadding(g);
+            this.e.setCompoundDrawablePadding(g);
         }
     }
 
-    public void f() {
+    public void m(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
-            getSelectTagReqMessage.setTag(this.d);
-            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
-            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
-            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
-        }
-    }
-
-    public void g(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.a.clear();
-            this.a.addAll(list);
-        }
-    }
-
-    public void h(List<List<String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-        }
-    }
-
-    public void i(VideoCategoryClassData videoCategoryClassData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
-            this.c = videoCategoryClassData;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c.setTag(0);
+            this.d.setTag(1);
+            this.e.setTag(2);
+            this.f.setTag(3);
+            this.c.setOnClickListener(onClickListener);
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
+            this.f.setOnClickListener(onClickListener);
         }
     }
 }

@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import java.math.BigInteger;
 /* loaded from: classes5.dex */
 public interface q00 {
-    void a(p00 p00Var);
+    BigInteger a();
+
+    BigInteger b();
 }

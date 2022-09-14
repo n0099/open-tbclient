@@ -1,11 +1,11 @@
 package com.kwad.sdk.utils.kwai;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
 
     /* renamed from: com.kwad.sdk.utils.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0617a extends j {
-        public C0617a(int i, int i2, Object obj, int i3, boolean z) {
+    /* loaded from: classes8.dex */
+    public static class C0622a extends j {
+        public C0622a(int i, int i2, Object obj, int i3, boolean z) {
             super(i, i2, obj, i3, z);
         }
 
@@ -15,14 +15,14 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class b {
         public int offset;
 
         public abstract byte AW();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c extends b {
         public boolean value;
 
@@ -37,7 +37,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d extends b {
         public double value;
 
@@ -52,7 +52,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e extends b {
         public float value;
 
@@ -67,7 +67,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class f extends b {
         public int value;
 
@@ -82,7 +82,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class g extends b {
         public long value;
 
@@ -97,7 +97,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class h extends j {
         public h(int i, int i2, Object obj, int i3, boolean z) {
             super(i, i2, obj, i3, z);
@@ -109,7 +109,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class i extends j {
         public i(int i, int i2, String str, int i3, boolean z) {
             super(i, i2, str, i3, z);
@@ -121,7 +121,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class j extends b {
         public int apt;
         public boolean apu;

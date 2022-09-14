@@ -135,7 +135,7 @@ public class ab {
             } catch (IOException e2) {
                 e = e2;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m89a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m90a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -249,7 +249,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m161a(File file) {
+    public static boolean m162a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, file)) == null) {

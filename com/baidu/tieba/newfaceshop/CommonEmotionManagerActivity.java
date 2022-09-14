@@ -4,32 +4,53 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
-import com.baidu.tieba.ri;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
     public CommonEmotionCenterFragment b;
     public String c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1358647515, "Lcom/baidu/tieba/newfaceshop/CommonEmotionManagerActivity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1358647515, "Lcom/baidu/tieba/newfaceshop/CommonEmotionManagerActivity;");
+                return;
+            }
+        }
+        d = TbConfig.TIEBA_ADDRESS + "n/interact/emoticoncenter";
+    }
+
     public CommonEmotionManagerActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
@@ -47,21 +68,21 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e4);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e7);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ri.s(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ej.s(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.c = stringExtra;
             if (TextUtils.isEmpty(stringExtra)) {
-                this.c = "https://tieba.baidu.com/n/interact/emoticoncenter";
+                this.c = d;
             }
             this.b = new CommonEmotionCenterFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906bd, this.b).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906d3, this.b).commit();
         }
     }
 

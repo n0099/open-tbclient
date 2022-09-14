@@ -9,12 +9,12 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bz2;
-import com.baidu.tieba.hk2;
-import com.baidu.tieba.ry2;
-import com.baidu.tieba.ul1;
-import com.baidu.tieba.vo2;
-import com.baidu.tieba.xy2;
+import com.baidu.tieba.fm2;
+import com.baidu.tieba.p03;
+import com.baidu.tieba.sn1;
+import com.baidu.tieba.tq2;
+import com.baidu.tieba.v03;
+import com.baidu.tieba.z03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public int b;
     public int c;
     public int d;
-    public vo2 e;
-    public ry2 f;
+    public tq2 e;
+    public p03 f;
     public Activity g;
 
     /* loaded from: classes2.dex */
@@ -98,13 +98,13 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getLeftCount() <= 0) {
             return;
         }
-        bz2.i(getLeftCount(), this.e);
+        z03.i(getLeftCount(), this.e);
     }
 
     public final void c(int i) {
-        ul1 C;
+        sn1 C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (C = hk2.C()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (C = fm2.C()) == null) {
             return;
         }
         C.d(getContext(), (String[]) this.f.c().toArray(new String[0]), i);
@@ -114,7 +114,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             this.g = activity;
-            this.f = new ry2(activity.getApplicationContext(), this.b, this.d);
+            this.f = new p03(activity.getApplicationContext(), this.b, this.d);
             setOnItemClickListener(this);
             postDelayed(new a(this), 10L);
         }
@@ -153,7 +153,7 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (this.f.e(i)) {
                 if (i == this.f.getCount() - 1) {
-                    xy2.onEvent("pic_clk_content");
+                    v03.onEvent("pic_clk_content");
                     b();
                     return;
                 }
@@ -177,10 +177,10 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         }
     }
 
-    public void setCallback(vo2 vo2Var) {
+    public void setCallback(tq2 tq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vo2Var) == null) {
-            this.e = vo2Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, tq2Var) == null) {
+            this.e = tq2Var;
         }
     }
 
@@ -257,13 +257,13 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.ry2' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.p03' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (ry2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (p03) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

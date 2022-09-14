@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.l28;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.sn4;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.fh5;
+import com.baidu.tieba.n38;
+import com.baidu.tieba.up4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,12 +50,12 @@ public class PersonPolymericReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.uid = Long.valueOf(this.uid);
             builder.pn = Integer.valueOf(this.pn);
-            builder.scr_w = Integer.valueOf(ri.k(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_h = Integer.valueOf(ri.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(sn4.c().e());
-            builder.scr_dip = Double.valueOf(ri.h(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst().getApp()));
+            builder.q_type = Integer.valueOf(up4.c().e());
+            builder.scr_dip = Double.valueOf(ej.h(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ye5.a(builder, true);
+                fh5.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -64,13 +64,13 @@ public class PersonPolymericReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public l28 getPersonCenterData() {
+    public n38 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (l28) invokeV.objValue;
+        return (n38) invokeV.objValue;
     }
 
     public int getPn() {

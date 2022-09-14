@@ -1,386 +1,222 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+@TargetApi(18)
 /* loaded from: classes6.dex */
-public class zu8 extends vr4 implements View.OnClickListener {
+public class zu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ImageView b;
-    public TextView c;
-    public ViewGroup d;
-    public TbCheckBox e;
-    public TextView f;
-    public Button g;
-    public Button h;
-    public ImageView i;
-    public String j;
-    public String k;
-    public String l;
-    public vr4.e m;
-    public String n;
-    public vr4.e o;
-    public String p;
-    public CompoundButton.OnCheckedChangeListener q;
-    public boolean r;
-    public TbCheckBox.b s;
-    public final kg<an> t;
+    public Context a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
+    public c f;
+    public dv8 g;
+    public bv8 h;
+    public cv8 i;
+    public volatile boolean j;
+    public volatile boolean k;
+    public volatile boolean l;
 
     /* loaded from: classes6.dex */
-    public class a implements TbCheckBox.b {
+    public class a extends dv8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zu8 a;
+        public final /* synthetic */ zu8 f;
 
-        public a(zu8 zu8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zu8 zu8Var, Context context, String str, String str2, cv8 cv8Var, c cVar) {
+            super(context, str, str2, cv8Var, cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zu8Var};
+                Object[] objArr = {zu8Var, context, str, str2, cv8Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (cv8) objArr2[3], (c) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zu8Var;
+            this.f = zu8Var;
         }
 
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+        @Override // com.baidu.tieba.dv8
+        public void k() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) || this.a.q == null) {
-                return;
-            }
-            this.a.q.onCheckedChanged(null, z);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends kg<an> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zu8 a;
-
-        public b(zu8 zu8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zu8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zu8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, anVar, str, i) == null) {
-                super.onLoaded((b) anVar, str, i);
-                if (anVar == null || !anVar.w()) {
-                    this.a.b.setImageResource(R.drawable.obfuscated_res_0x7f080581);
-                    return;
-                }
-                this.a.b.setBackgroundResource(0);
-                this.a.b.setImageDrawable(null);
-                anVar.h(this.a.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.j = true;
+                this.f.d();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements TbCheckBox.c {
+    public class b extends bv8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
+        public final /* synthetic */ zu8 f;
 
-        public c(zu8 zu8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(zu8 zu8Var, Context context, String str, cv8 cv8Var, c cVar) {
+            super(context, str, cv8Var, cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zu8Var};
+                Object[] objArr = {zu8Var, context, str, cv8Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (cv8) objArr2[2], (c) objArr2[3]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = false;
+            this.f = zu8Var;
         }
 
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-        public boolean isChecked() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.bv8
+        public void k() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-        public void setChecked(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.a = z;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.k = true;
+                this.f.d();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zu8(Activity activity) {
-        super(activity);
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onGenFilterVideoFail(int i, String str);
+
+        void onGenFilterVideoRecordError(int i, String str);
+
+        void onGenFilterVideoSuccess(String str);
+    }
+
+    public zu8(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = false;
-        this.s = new a(this);
-        this.t = new b(this);
-        c();
-        setContentViewSize(1);
-        setCanceledOnTouchOutside(false);
-        setCancelable(false);
+        this.e = false;
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
     }
 
-    public final void c() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d023c, (ViewGroup) null);
-            this.a = viewGroup;
-            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09079b);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0914f0);
-            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091641);
-            this.h = button;
-            button.setOnClickListener(this);
-            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0919f8);
-            this.g = button2;
-            button2.setOnClickListener(this);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090643);
-            this.i = imageView;
-            imageView.setOnClickListener(this);
-            this.d = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090600);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090602);
-            TbCheckBox tbCheckBox = (TbCheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f0905fe);
-            this.e = tbCheckBox;
-            tbCheckBox.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f080710, R.drawable.obfuscated_res_0x7f080711);
-            this.e.setStatedChangedListener(this.s);
-            this.e.setTagData(new c(this));
-            this.d.setClickable(true);
-            this.d.setOnClickListener(this);
-            setContentView(this.a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
+            this.i.f();
+            this.l = true;
+            g();
         }
     }
 
-    @Override // com.baidu.tieba.vr4
-    public vr4 create(d9<?> d9Var) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d9Var)) == null) {
-            if (this.r) {
-                return this;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            dv8 dv8Var = this.g;
+            if (dv8Var != null) {
+                dv8Var.interrupt();
+                this.g = null;
             }
-            this.r = true;
-            super.create(d9Var);
-            if (!qi.isEmpty(this.k)) {
-                this.c.setText(this.k);
+            bv8 bv8Var = this.h;
+            if (bv8Var != null) {
+                bv8Var.interrupt();
+                this.h = null;
             }
-            if (!qi.isEmpty(this.p)) {
-                this.f.setText(this.p);
-            } else {
-                this.d.setVisibility(4);
-            }
-            if (!qi.isEmpty(this.n)) {
-                this.h.setText(this.n);
-            }
-            if (!qi.isEmpty(this.l)) {
-                this.g.setText(this.l);
-            }
-            if (!TextUtils.isEmpty(this.j)) {
-                lg.h().m(this.j, 10, this.t, d9Var.getUniqueId());
-            } else {
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080581);
-            }
-            getRealView().setBackgroundDrawable(null);
-            return this;
         }
-        return (vr4) invokeL.objValue;
     }
 
-    public zu8 d(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        InterceptResult invokeIL;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, onCheckedChangeListener)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.p = activity.getResources().getString(i);
-                this.q = onCheckedChangeListener;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f != null) {
+                File file = new File(this.c);
+                if (file.exists() && file.length() > 0) {
+                    this.f.onGenFilterVideoSuccess(this.c);
+                } else {
+                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+                }
             }
-            return this;
+            this.e = false;
         }
-        return (zu8) invokeIL.objValue;
     }
 
-    public zu8 e(String str) {
-        InterceptResult invokeL;
+    public void h(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.j = str;
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.f = cVar;
         }
-        return (zu8) invokeL.objValue;
     }
 
-    public zu8 f(String str) {
-        InterceptResult invokeL;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (zu8) invokeL.objValue;
-    }
-
-    public zu8 g(@StringRes int i, vr4.e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, eVar)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.n = activity.getResources().getString(i);
-                this.o = eVar;
-            }
-            return this;
-        }
-        return (zu8) invokeIL.objValue;
-    }
-
-    public zu8 h(int i, vr4.e eVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, eVar)) == null) {
-            Activity activity = this.mActivity;
-            if (activity != null) {
-                this.l = activity.getResources().getString(i);
-                this.m = eVar;
-            }
-            return this;
-        }
-        return (zu8) invokeIL.objValue;
-    }
-
-    public zu8 i(String str, vr4.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
-            this.l = str;
-            this.m = eVar;
-            return this;
-        }
-        return (zu8) invokeLL.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) || view2 == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.e) {
             return;
         }
-        int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0919f8) {
-            vr4.e eVar = this.m;
-            if (eVar != null) {
-                eVar.onClick(this);
+        this.e = true;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        try {
+            File file = new File(new File(this.c).getParent());
+            if (!file.exists()) {
+                file.mkdirs();
             }
-        } else if (id == R.id.obfuscated_res_0x7f091641) {
-            vr4.e eVar2 = this.o;
-            if (eVar2 != null) {
-                eVar2.onClick(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            c cVar = this.f;
+            if (cVar != null) {
+                cVar.onGenFilterVideoFail(222, oo7.a(e));
             }
-        } else if (id == R.id.obfuscated_res_0x7f090643) {
-            dismiss();
-        } else if (id == R.id.obfuscated_res_0x7f090600) {
-            TbCheckBox tbCheckBox = this.e;
-            tbCheckBox.setChecked(!tbCheckBox.d());
         }
-    }
-
-    @Override // com.baidu.tieba.vr4
-    public /* bridge */ /* synthetic */ vr4 setMessage(String str) {
-        f(str);
-        return this;
-    }
-
-    @Override // com.baidu.tieba.vr4
-    public /* bridge */ /* synthetic */ vr4 setNegativeButton(@StringRes int i, vr4.e eVar) {
-        g(i, eVar);
-        return this;
-    }
-
-    @Override // com.baidu.tieba.vr4
-    public /* bridge */ /* synthetic */ vr4 setPositiveButton(int i, vr4.e eVar) {
-        h(i, eVar);
-        return this;
-    }
-
-    @Override // com.baidu.tieba.vr4
-    public vr4 setNegativeButton(String str, vr4.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
-            this.n = str;
-            this.o = eVar;
-            return this;
+        try {
+            this.i = new cv8(this.c);
+            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
+            this.g = aVar;
+            aVar.start();
+            b bVar = new b(this, this.a, this.b, this.i, this.f);
+            this.h = bVar;
+            bVar.start();
+        } catch (Exception unused) {
         }
-        return (vr4) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vr4
-    public /* bridge */ /* synthetic */ vr4 setPositiveButton(String str, vr4.e eVar) {
-        i(str, eVar);
-        return this;
     }
 }

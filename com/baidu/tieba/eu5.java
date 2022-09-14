@@ -2,61 +2,67 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class eu5 extends hz5<au5> {
+public class eu5 extends v06<iv5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fu5 i;
-    public fu5 j;
+    public TextView i;
+    public ImageView j;
+    public View k;
+    public View l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eu5(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public eu5(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new fu5(g(), z);
-        this.j = new fu5(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.h());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
-        viewGroup.addView(this.j.h());
+        this.k = h();
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092390);
+        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f091007);
+        this.l = h().findViewById(R.id.obfuscated_res_0x7f090e54);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00ff : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d084d : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.j(tbPageContext, i);
-            this.j.j(tbPageContext, i);
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
+            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
         }
     }
 
@@ -68,22 +74,18 @@ public class eu5 extends hz5<au5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hz5
+    @Override // com.baidu.tieba.v06
     /* renamed from: r */
-    public void i(au5 au5Var) {
+    public void i(iv5 iv5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, au5Var) == null) || au5Var == null) {
-            return;
-        }
-        this.i.i(au5Var.a);
-        this.j.i(au5Var.b);
-    }
-
-    public void s(ju5 ju5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ju5Var) == null) {
-            this.i.y(ju5Var);
-            this.j.y(ju5Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, iv5Var) == null) {
+            if (iv5Var.a == 1) {
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a2b));
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                return;
+            }
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a2a));
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }
 }

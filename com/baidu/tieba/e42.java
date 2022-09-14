@@ -1,65 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class e42 extends t84 implements ua2 {
+public class e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
 
-    public e42() {
+    public static synchronized d42 a(@NonNull String str) {
+        InterceptResult invokeL;
+        d42 i42Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            synchronized (e42.class) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case 48:
+                        if (str.equals("0")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 49:
+                        if (str.equals("1")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 50:
+                        if (str.equals("2")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case 51:
+                        if (str.equals("3")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 52:
+                        if (str.equals("4")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                }
+                if (c == 0) {
+                    i42Var = new i42();
+                } else if (c == 1) {
+                    i42Var = new b42();
+                } else if (c == 2) {
+                    i42Var = new h42();
+                } else if (c == 3) {
+                    i42Var = new f42();
+                } else if (c != 4) {
+                    i42Var = new c42();
+                } else {
+                    i42Var = new g42();
+                }
             }
+            return i42Var;
         }
-        int K = K();
-        this.a = K;
-        this.b = K;
-    }
-
-    public int J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            return i == 0 ? this.a : i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public e42 L(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = this.b;
-            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
-                this.b = i;
-            }
-            return this;
-        }
-        return (e42) invokeI.objValue;
+        return (d42) invokeL.objValue;
     }
 }

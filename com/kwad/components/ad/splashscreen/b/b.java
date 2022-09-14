@@ -51,7 +51,7 @@ public final class b extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.aq();
-            KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911db);
+            KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911f9);
             this.bq = ksLogoView;
             h(ksLogoView);
             if (this.yF.mAdTemplate.adInfoList.isEmpty() || (adSplashInfo = this.yF.mAdTemplate.adInfoList.get(0).adSplashInfo) == null) {

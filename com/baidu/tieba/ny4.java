@@ -1,32 +1,148 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.TabPic;
-import tbclient.TabPicDesc;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ny4 {
     public static /* synthetic */ Interceptable $ic;
+    public static ny4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public TabPic g;
-    public String h;
-    public int i;
+    public final HashMap<String, DownloadData> a;
+    public final HashMap<String, DownloadData> b;
+    public final HashMap<String, String> c;
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ny4 ny4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ny4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
+                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+                if (ListUtils.isEmpty(data)) {
+                    return;
+                }
+                for (DownloadData downloadData : data) {
+                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
+                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
+                        int status = downloadData.getStatus();
+                        if (status == 0) {
+                            if (this.a.a.containsKey(str)) {
+                                this.a.b.put(str, this.a.a.get(str));
+                                this.a.a.remove(str);
+                                my4.a(downloadData, 700);
+                                return;
+                            }
+                            return;
+                        } else if (status != 2) {
+                            if (status == 4 && this.a.a.containsKey(str)) {
+                                this.a.a.remove(str);
+                                my4.a(downloadData, 400);
+                                return;
+                            }
+                            return;
+                        } else {
+                            my4.a(downloadData, 600);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ny4 ny4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ny4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Intent) {
+                    Intent intent = (Intent) data;
+                    String g = k85.g(intent);
+                    if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) || "android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
+                        if (this.a.b.containsKey(g)) {
+                            my4.a((DownloadData) this.a.b.get(g), 900);
+                            this.a.b.remove(g);
+                        }
+                    } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
+                        this.a.l(g);
+                    }
+                }
+            }
+        }
+    }
 
     public ny4() {
         Interceptable interceptable = $ic;
@@ -38,152 +154,106 @@ public class ny4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        h();
+        i();
     }
 
-    @Nullable
-    public static ny4 a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("[pic-tab]")) {
-                try {
-                    jSONObject = new JSONObject(str.substring(9));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    jSONObject = null;
-                }
-                try {
-                    ny4 ny4Var = new ny4();
-                    ny4Var.g = b(jSONObject);
-                    if (jSONObject != null) {
-                        ny4Var.b = jSONObject.optString("tabName");
-                    }
-                    return ny4Var;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (ny4) invokeL.objValue;
-    }
-
-    public static TabPic b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            TabPic.Builder builder = new TabPic.Builder();
-            JSONObject optJSONObject = jSONObject.optJSONObject("normal");
-            if (optJSONObject != null) {
-                TabPicDesc.Builder builder2 = new TabPicDesc.Builder();
-                builder2.selected_pic_url = optJSONObject.optString("selected_pic_url");
-                builder2.unselected_pic_url = optJSONObject.optString("unselected_pic_url");
-                builder2.pic_height = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder2.pic_width = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.normal = builder2.build(true);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("dark");
-            if (optJSONObject2 != null) {
-                TabPicDesc.Builder builder3 = new TabPicDesc.Builder();
-                builder3.selected_pic_url = optJSONObject2.optString("selected_pic_url");
-                builder3.unselected_pic_url = optJSONObject2.optString("unselected_pic_url");
-                builder3.pic_height = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder3.pic_width = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.dark = builder3.build(true);
-            }
-            return builder.build(true);
-        }
-        return (TabPic) invokeL.objValue;
-    }
-
-    public String c() {
+    public static ny4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (g()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.h);
-                    jSONObject.put("tabName", this.b);
-                    return "[pic-tab]" + jSONObject.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return "[pic-tab]" + this.h;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                d = new ny4();
             }
-            return this.b;
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (ny4) invokeV.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void d(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.b) || this.a <= 0 : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+        }
     }
 
-    public boolean equals(Object obj) {
+    public void e(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+        }
+    }
+
+    public String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c.containsKey(str)) {
+                return this.c.get(str);
             }
-            if (obj == null || ny4.class != obj.getClass()) {
-                return false;
-            }
-            ny4 ny4Var = (ny4) obj;
-            return this.a == ny4Var.a && this.f == ny4Var.f && this.i == ny4Var.i && Objects.equals(this.b, ny4Var.b) && Objects.equals(this.c, ny4Var.c) && Objects.equals(this.d, ny4Var.d) && Objects.equals(this.e, ny4Var.e) && Objects.equals(this.h, ny4Var.h);
+            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
+            this.c.put(str, string);
+            return string;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public final void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i == 1 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a aVar = new a(this, 2001118);
+            aVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(aVar);
+        }
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
-        TabPic tabPic;
-        TabPicDesc tabPicDesc;
+    public final void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (TextUtils.isEmpty(this.h) || (tabPic = this.g) == null || (tabPicDesc = tabPic.normal) == null || TextUtils.isEmpty(tabPicDesc.unselected_pic_url) || this.g.normal.pic_width.intValue() <= 0) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b bVar = new b(this, 2002504);
+            bVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(bVar);
+        }
     }
 
-    public void h(JSONObject jSONObject) {
+    public void j(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public void k(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c.remove(str);
+            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+            edit.remove(str);
+            edit.commit();
+        }
+    }
+
+    public void m(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || StringHelper.equals(this.c.get(str), str2)) {
             return;
         }
-        this.a = jSONObject.optInt("tab_type");
-        this.b = jSONObject.optString("tab_name");
-        this.c = jSONObject.optString("tab_code");
-        this.i = jSONObject.optInt("is_main_tab", 0);
-        this.d = jSONObject.optString("tab_url");
-        this.e = jSONObject.optString("tab_version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("head_pics");
-        if (optJSONObject != null) {
-            this.h = optJSONObject.toString();
-            this.g = b(optJSONObject);
-        }
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.h) : invokeV.intValue;
+        this.c.put(str, str2);
+        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+        edit.putString(str, str2);
+        edit.commit();
     }
 }

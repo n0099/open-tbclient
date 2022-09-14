@@ -1,146 +1,101 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g42 {
+public class g42 extends z32<JSONObject, yu1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
-        if (r10.equals("1") != false) goto L13;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            char c = 0;
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 49:
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 52:
-                    if (str.equals("4")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 53:
-                    if (str.equals("5")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 54:
-                    if (str.equals("6")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 55:
-                    if (str.equals("7")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 56:
-                    if (str.equals("8")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 57:
-                    if (str.equals("9")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 1567:
-                            if (str.equals("10")) {
-                                c = '\t';
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1568:
-                            if (str.equals("11")) {
-                                c = '\n';
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1569:
-                            if (str.equals("12")) {
-                                c = 11;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        default:
-                            c = 65535;
-                            break;
-                    }
-            }
-            switch (c) {
-                case 0:
-                    return 6;
-                case 1:
-                    return 5;
-                case 2:
-                    return 8;
-                case 3:
-                    return 9;
-                case 4:
-                    return 10;
-                case 5:
-                    return 11;
-                case 6:
-                    return 12;
-                case 7:
-                    return 13;
-                case '\b':
-                    return 14;
-                case '\t':
-                    return 15;
-                case '\n':
-                    return 11;
-                case 11:
-                    return 12;
-                default:
-                    return 7;
+    /* loaded from: classes4.dex */
+    public static class a implements a42 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return invokeL.intValue;
+
+        public static a42 b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                aVar.a = str;
+                return aVar;
+            }
+            return (a42) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.a42
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                x32 x32Var = new x32();
+                x32Var.g(this.a);
+                x32Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
+            }
+        }
+    }
+
+    public g42() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d42
+    @NonNull
+    /* renamed from: c */
+    public yu1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new yu1(202);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new yu1(202, "data is required");
+            }
+            String optString = optJSONObject.optString("path");
+            if (TextUtils.isEmpty(optString)) {
+                return new yu1(202, "path is required");
+            }
+            n32 b = n32.b();
+            if (!b.d()) {
+                b.g(a.b(optString));
+            }
+            return new yu1(0);
+        }
+        return (yu1) invokeL.objValue;
     }
 }

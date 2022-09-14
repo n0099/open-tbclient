@@ -1,45 +1,21 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.CountDownTimer;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
+import com.squareup.wire.Wire;
+import tbclient.ExcPbPage.DataRes;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes4.dex */
-public abstract class gu7 {
+public class gu7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public float h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public float m;
-    public Direction n;
-    public Direction o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public Paint u;
-    public LifeCycleState v;
-    public CountDownTimer w;
-    public Random x;
-    public int y;
 
     public gu7() {
         Interceptable interceptable = $ic;
@@ -51,26 +27,35 @@ public abstract class gu7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = 255;
-        this.h = 2.0f;
-        this.i = 0;
-        this.j = 0;
-        this.k = 90;
-        this.l = 0;
-        this.m = -0.4f;
-        this.n = Direction.TOP;
-        this.o = Direction.RIGHT;
-        this.t = 0;
-        this.v = LifeCycleState.ACTIVE;
-        this.u = new Paint(1);
-        this.x = new Random();
-        this.y = TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public abstract void a();
-
-    public abstract void b(Canvas canvas);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        ExcPbPageResIdl excPbPageResIdl;
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            fu7 fu7Var = null;
+            if (customMessage != null && customMessage.getCmd() == 2001314) {
+                zt4.f();
+                byte[] bArr = zt4.d("tb.pb_normal").get("chosen_pb_page_cache");
+                if (bArr != null) {
+                    try {
+                        excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+                    } catch (Exception unused) {
+                        excPbPageResIdl = null;
+                    }
+                    if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
+                        fu7Var = new fu7(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                    }
+                }
+                return new ReadChosenPbCacheResponse(fu7Var);
+            }
+            return null;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
+    }
 }

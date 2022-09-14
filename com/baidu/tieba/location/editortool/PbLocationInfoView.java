@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.jj8;
+import com.baidu.tieba.w9;
+import com.baidu.tieba.xk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class PbLocationInfoView extends TextView {
                     drawable.setBounds(this.b);
                 }
                 setCompoundDrawables(drawable, null, null, null);
-                jj8.b((TbPageContextSupport) i9.b(getContext()), (Animatable) drawable);
+                xk8.b((TbPageContextSupport) w9.b(getContext()), (Animatable) drawable);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
@@ -94,12 +94,12 @@ public class PbLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a56);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a6c);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a53);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a69);
                 }
                 setText(str);
             }

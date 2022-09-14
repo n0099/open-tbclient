@@ -1,24 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes6.dex */
 public class y81 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public CountDownLatch b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y81() {
+    public y81(Context context, CountDownLatch countDownLatch) {
         super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, countDownLatch};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,20 +34,16 @@ public class y81 extends Handler {
                 return;
             }
         }
+        this.a = context;
+        this.b = countDownLatch;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            z81 z81Var = (z81) message.obj;
-            ImageView imageView = z81Var.a;
-            if (((String) imageView.getTag()).equals(z81Var.b)) {
-                imageView.setImageBitmap(z81Var.c);
-            } else {
-                aa1.g("不是最新数据");
-            }
+            z81.a().b(this.a);
+            this.b.countDown();
         }
     }
 }

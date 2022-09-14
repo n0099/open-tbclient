@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -313,9 +312,9 @@ public final class DateTimeUtils {
                 calendar3.set(13, 0);
                 calendar3.set(14, 0);
                 if (calendar.after(calendar2)) {
-                    return j4 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13f7), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13f8), Long.valueOf(j5)) : context.getString(R.string.obfuscated_res_0x7f0f13f9);
+                    return j4 > 0 ? String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1417), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1418), Long.valueOf(j5)) : context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1419);
                 } else if (calendar.after(calendar3)) {
-                    return String.format(context.getString(R.string.obfuscated_res_0x7f0f13f6), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
+                    return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1416), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
                 } else {
                     if (z2) {
                         return new SimpleDateFormat("MM-dd", Locale.getDefault()).format(calendar.getTime());

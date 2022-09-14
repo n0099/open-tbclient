@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ez4;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.rg6;
-import com.baidu.tieba.s47;
-import com.baidu.tieba.uw4;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.z57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public uw4 f;
+    public ez4 f;
     public BdUniqueId g;
-    public rg6 h;
+    public ji6 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -68,7 +68,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null || qi.isEmpty(this.a.h.a.getUserName()) || qi.isEmpty(this.a.h.a.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null || dj.isEmpty(this.a.h.a.getUserName()) || dj.isEmpty(this.a.h.a.getUserId())) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getView().getContext(), this.a.h.a.getUserId(), this.a.h.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
@@ -97,27 +97,27 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b27);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b69);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b26);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b24);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091b25);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b68);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b66);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091b67);
         this.e = entelechyUserLikeButton;
-        uw4 uw4Var = new uw4(tbPageContext, entelechyUserLikeButton);
-        this.f = uw4Var;
-        uw4Var.m("1");
+        ez4 ez4Var = new ez4(tbPageContext, entelechyUserLikeButton);
+        this.f = ez4Var;
+        ez4Var.m("1");
         this.f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(s47 s47Var) {
+    public void a(z57 z57Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, s47Var) == null) && (s47Var instanceof rg6)) {
-            rg6 rg6Var = (rg6) s47Var;
-            this.h = rg6Var;
-            if (StringUtils.isNull(rg6Var.a.getUserId())) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, z57Var) == null) && (z57Var instanceof ji6)) {
+            ji6 ji6Var = (ji6) z57Var;
+            this.h = ji6Var;
+            if (StringUtils.isNull(ji6Var.a.getUserId())) {
                 return;
             }
             this.b.K(this.h.a.getPortrait(), 28, false);

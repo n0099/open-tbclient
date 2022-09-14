@@ -1,10 +1,9 @@
 package com.baidu.tieba.quickWebView.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
 public class WebViewCacheReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mWebViewVersion;
+    public final String mWebViewVersion;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheReqMsg(String str) {
@@ -48,18 +47,12 @@ public class WebViewCacheReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.webview_version = this.mWebViewVersion;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ye5.a(builder, true);
+                fh5.a(builder, true);
             }
             GetWebviewCacheInfoReqIdl.Builder builder2 = new GetWebviewCacheInfoReqIdl.Builder();
             builder2.data = builder.build(true);
             return builder2.build(true);
         }
         return invokeZ.objValue;
-    }
-
-    public String getVersionNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mWebViewVersion : (String) invokeV.objValue;
     }
 }

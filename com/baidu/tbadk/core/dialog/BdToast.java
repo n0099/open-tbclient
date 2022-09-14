@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.oj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,8 +65,8 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f0809e4, true);
-            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f0809e2, true);
+            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f0809ff, true);
+            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f0809fd, true);
             ToastIcon toastIcon = new ToastIcon("NOT", 2, 0, false);
             NOT = toastIcon;
             $VALUES = new ToastIcon[]{SUCCESS, FAILURE, toastIcon};
@@ -126,10 +126,10 @@ public class BdToast {
         this.h = false;
         this.i = 0;
         this.a = context;
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0222, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0226, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092220);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092223);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092274);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092277);
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {
@@ -149,7 +149,7 @@ public class BdToast {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Toast toast = new Toast(this.a);
             this.b = toast;
-            aj.a(toast);
+            oj.a(toast);
             j();
             int i = this.g;
             if (i != -1) {
@@ -162,7 +162,7 @@ public class BdToast {
             } else {
                 this.d.setVisibility(8);
             }
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.e.setText(this.f);
             this.b.setView(this.c);

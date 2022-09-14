@@ -1,67 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.view.View;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface d21 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
-    public static final d21 b = new a();
+public class d21 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements d21 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947652550, "Lcom/baidu/tieba/d21;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.d21
-        public void a(Object obj, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.d21
-        public void b(Context context, RelativeLayout relativeLayout, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.d21
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947652550, "Lcom/baidu/tieba/d21;");
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(String str);
+    @Nullable
+    public static Bitmap a(@Nullable View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            Bitmap bitmap = null;
+            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
+                return null;
+            }
+            try {
+                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
+                view2.draw(new Canvas(bitmap));
+                return bitmap;
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+                return bitmap;
+            }
+        }
+        return (Bitmap) invokeL.objValue;
     }
-
-    void a(Object obj, b bVar);
-
-    void b(Context context, RelativeLayout relativeLayout, String str);
-
-    void release();
 }

@@ -20,8 +20,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.df9;
-import com.baidu.tieba.ef9;
+import com.baidu.tieba.fx;
+import com.baidu.tieba.gj9;
+import com.baidu.tieba.hj9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -199,7 +200,7 @@ public class SVGParser {
             direction = new SVGAttr("direction", 8);
             dx = new SVGAttr("dx", 9);
             dy = new SVGAttr("dy", 10);
-            fx = new SVGAttr("fx", 11);
+            fx = new SVGAttr(fx.c, 11);
             fy = new SVGAttr("fy", 12);
             d = new SVGAttr("d", 13);
             display = new SVGAttr(CriusAttrConstants.DISPLAY, 14);
@@ -1368,7 +1369,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public ef9 d;
+        public hj9 d;
 
         public g(String str) {
             Interceptable interceptable = $ic;
@@ -1387,7 +1388,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new ef9();
+            this.d = new hj9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -2594,7 +2595,7 @@ public class SVGParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             if (str.charAt(0) == '#') {
-                df9 b2 = df9.b(str, 1, str.length());
+                gj9 b2 = gj9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 == 4) {
@@ -2761,7 +2762,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new ef9().b(str, i, i2);
+            float b2 = new hj9().b(str, i, i2);
             if (Float.isNaN(b2)) {
                 throw new SVGParseException("Invalid float value: " + str);
             }
@@ -3607,7 +3608,7 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0091, code lost:
         continue;
      */
     /*
@@ -4071,7 +4072,7 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x00d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x00d4, code lost:
         continue;
      */
     /*

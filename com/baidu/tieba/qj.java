@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import android.media.AudioTrack;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Process;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.webSocket.WebSocketException;
+import com.baidu.adp.lib.voice.Amrnb;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,26 +14,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.apache.http.message.BasicNameValuePair;
+import java.io.File;
+import java.io.FileInputStream;
 /* loaded from: classes5.dex */
-public class qj {
+public class qj implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static qj h;
+    public static Object l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<BasicNameValuePair> b;
-    public String[] c;
-    public String d;
-    public rj e;
-    public ArrayList<pj> f;
-    public pj g;
+    public volatile int a;
+    public AudioTrack b;
+    public String c;
+    public final short[] d;
+    public Amrnb e;
+    public final Handler f;
+    public int g;
+    public final Handler h;
+    public final Runnable i;
+    public int j;
+    public final Runnable k;
 
     /* loaded from: classes5.dex */
-    public class a implements pj {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qj a;
@@ -54,108 +57,58 @@ public class qj {
             this.a = qjVar;
         }
 
-        @Override // com.baidu.tieba.pj
-        public void a(String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).a(str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.e = null;
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).b(i, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void c(lj ljVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ljVar) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).c(ljVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void d(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).d(bArr);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).e();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void f(tj tjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, tjVar) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).f(tjVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void g(int i, lj ljVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, ljVar) == null) || ljVar == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
                 return;
             }
-            ljVar.a(i);
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void h(lj ljVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, ljVar) == null) || ljVar == null) {
-                return;
-            }
-            ljVar.c();
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void i(lj ljVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ljVar) == null) || ljVar == null) {
-                return;
-            }
-            ljVar.b();
-        }
-
-        @Override // com.baidu.tieba.pj
-        public void onOpen(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((pj) it.next()).onOpen(map);
+            try {
+                if (this.a.b.getPlayState() != 3) {
+                    return;
                 }
+            } catch (NullPointerException unused) {
+            }
+            int g = this.a.g() + 0;
+            if (g != this.a.g) {
+                this.a.g = g;
+                Message obtainMessage = this.a.f.obtainMessage(6);
+                obtainMessage.arg1 = this.a.g;
+                this.a.f.sendMessage(obtainMessage);
+            }
+            this.a.h.postDelayed(this.a.i, 100L);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qj a;
+
+        public b(qj qjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qjVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qjVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.i();
             }
         }
     }
@@ -163,314 +116,278 @@ public class qj {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315060, "Lcom/baidu/tieba/qj;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315060, "Lcom/baidu/tieba/qj;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448315060, "Lcom/baidu/tieba/qj;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448315060, "Lcom/baidu/tieba/qj;");
-        }
+        l = new Object();
     }
 
-    public qj() {
+    public qj(Handler handler, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new ArrayList<>();
-        this.g = null;
-        this.g = new a(this);
+        this.a = 0;
+        this.d = new short[]{12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
+        this.g = 0;
+        this.h = new Handler();
+        this.i = new a(this);
+        this.j = 0;
+        this.k = new b(this);
+        this.j = i;
+        this.f = handler;
+        try {
+            Amrnb amrnb = new Amrnb();
+            this.e = amrnb;
+            if (amrnb != null || this.f == null) {
+                return;
+            }
+            this.f.sendMessage(this.f.obtainMessage(2));
+        } catch (Exception unused) {
+            Handler handler2 = this.f;
+            if (handler2 != null) {
+                handler2.sendMessage(handler2.obtainMessage(2));
+            }
+        }
     }
 
-    public static qj j() {
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (qj.class) {
-                    if (h == null) {
-                        h = new qj();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AudioTrack audioTrack = this.b;
+            if (audioTrack == null) {
+                return 0;
             }
-            return h;
-        }
-        return (qj) invokeV.objValue;
-    }
-
-    public boolean c(pj pjVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pjVar)) == null) {
-            if (pjVar != null) {
-                synchronized (qj.class) {
-                    if (this.f.contains(pjVar)) {
-                        return false;
-                    }
-                    return this.f.add(pjVar);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d() {
-        rj rjVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (rjVar = this.e) == null) {
-            return;
-        }
-        rjVar.o();
-    }
-
-    public void e() {
-        rj rjVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (rjVar = this.e) == null) {
-            return;
-        }
-        rjVar.p();
-    }
-
-    public void f(int i, String str) {
-        rj rjVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (rjVar = this.e) == null) {
-            return;
-        }
-        this.e = null;
-        rjVar.q(i, str);
-        if (this.e != null) {
-            BdLog.e("close is opened and thread is leaded!!!");
-            this.e = null;
-        }
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.z();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.A();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.v();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (t()) {
-                ri.c();
-            }
-            rj rjVar = this.e;
-            return (rjVar == null || !rjVar.E() || this.e.F()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (t()) {
-                ri.c();
-            }
-            rj rjVar = this.e;
-            return rjVar != null && rjVar.E();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.w();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.x();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.B();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                return rjVar.y();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void r(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, strArr, list) == null) {
-            this.a = str;
-            this.d = str2;
-            this.c = strArr;
-            this.b = list;
-            t();
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (t()) {
-                ri.c();
-            }
-            rj rjVar = this.e;
-            return rjVar != null && rjVar.C();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? BdBaseApplication.getInst().isDebugMode() : invokeV.booleanValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (t()) {
-                ri.c();
-            }
-            rj rjVar = this.e;
-            if (rjVar != null) {
-                if (!rjVar.C() && !this.e.E()) {
-                    this.e.q(1, null);
-                    this.e = null;
-                } else {
-                    t();
-                    return true;
-                }
-            }
-            this.e = new rj();
             try {
-                mk mkVar = new mk();
-                mkVar.j(this.d);
-                this.e.r(this.a, this.c, this.g, mkVar, this.b);
-                return true;
-            } catch (WebSocketException unused) {
-                this.e = null;
-                return false;
+                int playbackHeadPosition = audioTrack.getPlaybackHeadPosition();
+                if (this.b == null) {
+                    return 0;
+                }
+                int sampleRate = this.b.getSampleRate();
+                if (sampleRate == 0) {
+                    return 0;
+                }
+                return (int) (((playbackHeadPosition * 1.0f) / (sampleRate * 1.0f)) * 1000.0f);
+            } catch (Throwable unused) {
+                return 0;
             }
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public synchronized boolean v(lj ljVar) {
-        InterceptResult invokeL;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, ljVar)) == null) {
-            synchronized (this) {
-                if (ljVar == null) {
-                    return false;
-                }
-                ri.c();
-                if (this.e != null) {
-                    return this.e.I(ljVar);
-                }
-                if (ljVar != null) {
-                    ljVar.a(1);
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                this.b = new AudioTrack(wj.b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+            } catch (IllegalArgumentException e) {
+                this.b = null;
+                BdLog.e(e.getMessage());
             }
+            this.a = 1;
         }
-        return invokeL.booleanValue;
     }
 
-    public void w(List<BasicNameValuePair> list) {
+    public void i() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.f;
+            if (handler != null) {
+                handler.removeCallbacks(this.k);
+            }
+            synchronized (l) {
+                if (this.b != null) {
+                    try {
+                        i = this.b.getPlaybackHeadPosition();
+                        try {
+                            this.b.stop();
+                            this.b.release();
+                        } catch (Exception unused) {
+                        }
+                    } catch (Exception unused2) {
+                        i = 0;
+                    }
+                    this.j = 0;
+                    this.b = null;
+                } else {
+                    i = 0;
+                }
+                if (this.h != null) {
+                    this.h.removeCallbacks(this.i);
+                }
+                if (this.f != null) {
+                    Message obtainMessage = this.f.obtainMessage(0);
+                    obtainMessage.arg1 = i;
+                    this.f.sendMessage(obtainMessage);
+                }
+            }
+            this.a = 0;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 3;
+            i();
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0123  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x012f  */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        FileInputStream fileInputStream;
+        Boolean bool;
+        byte[] bArr;
+        long decoderInit;
+        short[] sArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Process.setThreadPriority(-19);
+            if (this.e == null) {
+                Handler handler = this.f;
+                if (handler != null) {
+                    handler.sendMessage(handler.obtainMessage(2));
+                    return;
+                }
+                return;
+            }
+            boolean z = true;
+            if (this.c == null) {
+                Handler handler2 = this.f;
+                if (handler2 != null) {
+                    handler2.sendMessage(handler2.obtainMessage(1));
+                    return;
+                }
+                return;
+            }
+            File file = new File(this.c);
+            if (!file.exists()) {
+                Handler handler3 = this.f;
+                if (handler3 != null) {
+                    handler3.sendMessage(handler3.obtainMessage(1));
+                    return;
+                }
+                return;
+            }
+            FileInputStream fileInputStream2 = null;
+            h();
+            AudioTrack audioTrack = this.b;
+            if (audioTrack != null && audioTrack.getState() != 0) {
+                if (this.j > 0) {
+                    this.b.reloadStaticData();
+                    this.b.setPlaybackHeadPosition(this.j);
+                }
+                boolean z2 = false;
+                try {
+                    this.b.play();
+                    this.a = 2;
+                    this.h.post(this.i);
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        bool = Boolean.TRUE;
+                        bArr = new byte[32];
+                        decoderInit = this.e.decoderInit();
+                        sArr = new short[160];
+                    } catch (Exception unused) {
+                    }
+                } catch (Exception unused2) {
+                }
+                try {
+                    while (this.a == 2) {
+                        if (bool.booleanValue()) {
+                            if (fileInputStream.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
+                                break;
+                            }
+                            bool = Boolean.FALSE;
+                        }
+                        if (fileInputStream.read(bArr, 0, 1) > 0) {
+                            short s = this.d[(bArr[0] >> 3) & 15];
+                            if (fileInputStream.read(bArr, 1, s) == s) {
+                                synchronized (l) {
+                                    if (this.b != null && this.b.getPlayState() == 3) {
+                                        this.e.decoderDecode(decoderInit, bArr, sArr);
+                                        this.b.write(sArr, 0, 160);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    fileInputStream.close();
+                    this.e.decoderDeinit(decoderInit);
+                } catch (Exception unused3) {
+                    z2 = z;
+                    fileInputStream2 = fileInputStream;
+                    Handler handler4 = this.f;
+                    if (handler4 != null) {
+                        handler4.sendMessage(handler4.obtainMessage(5));
+                    }
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (Exception e) {
+                            BdLog.e(e.getMessage());
+                        }
+                    }
+                    z = z2;
+                    this.a = 3;
+                    if (!z) {
+                    }
+                }
+                z = false;
+                this.a = 3;
+                if (!z) {
+                    Handler handler5 = this.f;
+                    if (handler5 != null) {
+                        handler5.postDelayed(this.k, 500L);
+                        return;
+                    }
+                    return;
+                }
+                i();
+                return;
+            }
+            Handler handler6 = this.f;
+            if (handler6 != null) {
+                handler6.sendMessage(handler6.obtainMessage(3));
+            }
         }
     }
 }

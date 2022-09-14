@@ -1,183 +1,23 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.NavigationBarCoverTip;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qz4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static qz4 c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public kz4 a;
-    public String b;
+public interface qz4 {
+    void a();
 
-    public qz4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = b();
-    }
+    boolean b(String str);
 
-    public static qz4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (qz4.class) {
-                    if (c == null) {
-                        c = new qz4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (qz4) invokeV.objValue;
-    }
+    int c();
 
-    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup) {
-        kz4 kz4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048576, this, i, tbPageContext, viewGroup) == null) || (kz4Var = this.a) == null) {
-            return;
-        }
-        kz4Var.c(i, tbPageContext, viewGroup);
-    }
+    void d();
 
-    public final kz4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, kz4.class);
-            if (runTask != null) {
-                return (kz4) runTask.getData();
-            }
-            return null;
-        }
-        return (kz4) invokeV.objValue;
-    }
+    void e();
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            kz4 kz4Var = this.a;
-            if (kz4Var != null) {
-                return kz4Var.f();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    int f();
 
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            kz4 kz4Var = this.a;
-            if (kz4Var != null) {
-                return kz4Var.b();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    void g();
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
+    boolean isPlaying();
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            kz4 kz4Var = this.a;
-            if (kz4Var != null) {
-                return kz4Var.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean isPrepared();
 
-    public void h(boolean z, int i, int i2) {
-        kz4 kz4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) || (kz4Var = this.a) == null) {
-            return;
-        }
-        kz4Var.h(z, i, i2);
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
-            kz4 kz4Var = this.a;
-            if (kz4Var != null) {
-                return kz4Var.e(activity, viewGroup);
-            }
-            return null;
-        }
-        return (NavigationBarCoverTip) invokeLL.objValue;
-    }
-
-    public Dialog k(int i, TbPageContext tbPageContext, ej5 ej5Var) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, tbPageContext, ej5Var)) == null) {
-            kz4 kz4Var = this.a;
-            if (kz4Var != null) {
-                return kz4Var.i(i, tbPageContext, ej5Var);
-            }
-            return null;
-        }
-        return (Dialog) invokeILL.objValue;
-    }
-
-    public void l() {
-        kz4 kz4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (kz4Var = this.a) == null) {
-            return;
-        }
-        kz4Var.d();
-    }
-
-    public void m(boolean z, long j) {
-        kz4 kz4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (kz4Var = this.a) == null) {
-            return;
-        }
-        kz4Var.g(z, j);
-    }
+    void seek(int i);
 }

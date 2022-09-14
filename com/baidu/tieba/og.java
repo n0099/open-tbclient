@@ -1,90 +1,81 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.net.HttpURLConnection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class og {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
-    public static void a(Cursor cursor) {
+    public og() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, cursor) == null) || cursor == null) {
-            return;
-        }
-        try {
-            cursor.close();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(Closeable closeable) {
+    public void a() {
+        JSONObject b;
+        UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || new Random().nextInt(100) > 20 || (b = b()) == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
-        try {
-            closeable.close();
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
+        uBCManager.onEvent(HttpConfig.UBC_HTTP_ID, b.toString());
+        uBCManager.onEvent("5607", b.toString());
     }
 
-    public static void c(InputStream inputStream) {
+    public JSONObject b() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, inputStream) == null) || inputStream == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("url", this.a);
+                    jSONObject.put("resultCode", this.b);
+                    jSONObject.put("resultMsg", this.c);
+                    int i = 1;
+                    jSONObject.put("isHttps", this.d ? 1 : 0);
+                    if (!this.e) {
+                        i = 0;
+                    }
+                    jSONObject.put("isIpv6", i);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
+            }
+            return jSONObject;
         }
-        try {
-            inputStream.close();
-        } catch (IOException e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void d(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, outputStream) == null) || outputStream == null) {
-            return;
-        }
-        try {
-            outputStream.close();
-        } catch (IOException e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void e(Reader reader) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) || reader == null) {
-            return;
-        }
-        try {
-            reader.close();
-        } catch (IOException e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void f(HttpURLConnection httpURLConnection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, httpURLConnection) == null) || httpURLConnection == null) {
-            return;
-        }
-        try {
-            httpURLConnection.disconnect();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

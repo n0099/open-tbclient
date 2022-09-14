@@ -1,72 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
 /* loaded from: classes3.dex */
 public class dm5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dm5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDataRecorder a;
-    public String b;
-    public String c;
-    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> d;
-    public boolean e;
-    public Map<String, Integer> f;
+    public View a;
+    public b b;
+    public VelocityTracker c;
+    public float d;
+    public float e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
+    public int j;
+    public int k;
+    public int l;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dm5 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-857052640, "Lcom/baidu/tieba/dm5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-857052640, "Lcom/baidu/tieba/dm5$a;");
+        public a(dm5 dm5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+            this.a = dm5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i || !this.a.h || this.a.b == null) {
+                return;
             }
-            try {
-                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
+            this.a.b.onViewClick();
         }
     }
 
-    public dm5() {
+    /* loaded from: classes3.dex */
+    public interface b {
+        void j0(float f, float f2);
+
+        void onViewClick();
+
+        void onViewDragToRight();
+    }
+
+    public dm5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,208 +85,79 @@ public class dm5 {
                 return;
             }
         }
-        this.e = false;
-        if (this.d == null) {
-            this.d = new Stack<>();
+        this.a = view2;
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
+        if (viewConfiguration != null) {
+            this.l = viewConfiguration.getScaledPagingTouchSlop();
         }
-        this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-        this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
+        this.k = ViewConfiguration.getMaximumFlingVelocity();
+        this.j = ViewConfiguration.getMinimumFlingVelocity();
     }
 
-    public static dm5 k() {
-        InterceptResult invokeV;
+    public boolean d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
-                synchronized (dm5.class) {
-                    if (g == null) {
-                        g = new dm5();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.c == null) {
+                this.c = VelocityTracker.obtain();
+            }
+            this.c.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.d = motionEvent.getX();
+                this.e = motionEvent.getY();
+                this.f = System.currentTimeMillis();
+                this.h = true;
+            } else if (action == 1) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
+                    this.i = true;
+                } else {
+                    this.i = false;
+                }
+                VelocityTracker velocityTracker = this.c;
+                velocityTracker.computeCurrentVelocity(1000, this.k);
+                if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
+                    this.i = false;
+                    this.h = false;
+                }
+                if (this.i) {
+                    b bVar2 = this.b;
+                    if (bVar2 != null) {
+                        bVar2.j0(motionEvent.getRawX(), motionEvent.getRawY());
                     }
+                } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
+                    bVar.onViewDragToRight();
                 }
-            }
-            return g;
-        }
-        return (dm5) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            su4.k().D(this.b);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            su4.k().D(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            su4.k().w(this.b, su4.k().l(this.b, 0) + 1);
-            su4.k().x(this.c, System.currentTimeMillis());
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
-            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
-            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
-            this.d.push(hashMap);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.d.isEmpty()) {
-            return;
-        }
-        this.d.pop();
-    }
-
-    public final AbsDataRecorder f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new em5();
-            }
-            return this.a;
-        }
-        return (AbsDataRecorder) invokeV.objValue;
-    }
-
-    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i == 2 || i == 3) {
-                    return i(scene);
+                if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
+                    this.a.postDelayed(new a(this), 300L);
                 }
-                return null;
+                this.g = currentTimeMillis;
+                e();
+            } else if (action == 3) {
+                e();
             }
-            return f();
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TimeHelper.isSameDay(su4.k().m(this.c, 0L), System.currentTimeMillis())) {
-                a();
-            }
-            return su4.k().l(this.b, 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final AbsDataRecorder i(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (this.d.isEmpty()) {
-                return null;
-            }
-            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.d.peek();
-            if (peek.get(scene) == null) {
-                if (scene == AbsDataRecorder.Scene.FRS_HOT) {
-                    peek.put(scene, new bm5());
-                } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
-                    peek.put(scene, new cm5());
-                }
-            }
-            return peek.get(scene);
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            Map<String, Integer> map = this.f;
-            if (map == null || map.get(str) == null) {
-                return 0;
-            }
-            return this.f.get(str).intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean l(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) ? n() && g(scene) != null : invokeL.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && am5.e().i() : invokeV.booleanValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            a();
-            b();
-            if (TbadkCoreApplication.isLogin()) {
-                this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-                this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
-            } else {
-                am5.e().a();
-            }
-            this.a.a();
-        }
-    }
-
-    public void p(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
-            if (this.f == null) {
-                this.f = new HashMap();
-            }
-            if (this.f.get(str) == null) {
-                this.f.put(str, Integer.valueOf(i));
-            }
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public boolean r(int i, AbsDataRecorder.Scene scene) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, scene)) == null) ? n() && i >= am5.e().f(AbsDataRecorder.Scene.PB) && h() < am5.e().d() : invokeIL.booleanValue;
-    }
-
-    public boolean s(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, scene)) == null) {
-            AbsDataRecorder g2 = g(scene);
-            return g2 != null && l(scene) && g2.c() >= am5.e().f(scene) && h() < am5.e().d();
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public final void e() {
+        VelocityTracker velocityTracker;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.c) == null) {
+            return;
+        }
+        velocityTracker.clear();
+        this.c.recycle();
+        this.c = null;
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
+        }
     }
 }

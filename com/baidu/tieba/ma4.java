@@ -1,65 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class ma4 {
+public abstract class ma4<T> implements pa4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ae4 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947965929, "Lcom/baidu/tieba/ma4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947965929, "Lcom/baidu/tieba/ma4;");
-                return;
-            }
-        }
-        a = ae4.e();
-    }
 
     public ma4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public Integer a(Map<String, Object> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pa4
+    public void a(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
-                try {
-                    int intValue = ((Integer) map.get("queue_priority")).intValue();
-                    if (intValue == 200 || intValue == 300) {
-                        return Integer.valueOf(intValue);
-                    }
-                } catch (Exception e) {
-                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public void e(T t, sb4 sb4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, sb4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return 100;
         }
-        return (Integer) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public sb4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) ? new sb4(2302, "业务层默认不处理下载流") : (sb4) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.pa4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 }

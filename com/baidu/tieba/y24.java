@@ -1,41 +1,147 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class y24 {
+public class y24 extends EventTargetImpl implements fd0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    @JvmField
-    public final byte[] message;
-    @V8JavascriptField
-    @JvmField
-    public final Object remoteInfo;
+    public int a;
+    public v24 b;
+    public String c;
 
-    public y24(byte[] message, Object remoteInfo) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278254, "Lcom/baidu/tieba/y24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948278254, "Lcom/baidu/tieba/y24;");
+                return;
+            }
+        }
+        d = ij1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y24(JSRuntime jSRuntime) {
+        super(jSRuntime);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {message, remoteInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {jSRuntime};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(message, "message");
-        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
-        this.message = message;
-        this.remoteInfo = remoteInfo;
+        this.a = -1;
+        this.b = new v24();
+        z24.a().b().s(this);
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void onError(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "onError:" + i);
+            }
+            x("error", new u24("internal error"));
+        }
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            x("pause", this.b);
+            aa3 aa3Var = new aa3();
+            aa3Var.b = "pause";
+            r93.h(aa3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            x("resume", this.b);
+            aa3 aa3Var = new aa3();
+            aa3Var.b = "resume";
+            r93.h(aa3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.a;
+            x("start", i == -1 ? this.b : new w24(i));
+            aa3 aa3Var = new aa3();
+            aa3Var.b = "start";
+            r93.h(aa3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void w(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            if (d) {
+                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
+            }
+            x(IntentConfig.STOP, new x24(this.c));
+            aa3 aa3Var = new aa3();
+            aa3Var.b = IntentConfig.STOP;
+            aa3Var.a("dura", String.valueOf(i / 1000.0f));
+            r93.h(aa3Var);
+        }
+    }
+
+    public final void x(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            if (d) {
+                Log.i("GameRecorderApi", "dispatchEvent:" + str);
+            }
+            dispatchEvent(new JSEvent(str, obj));
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
     }
 }

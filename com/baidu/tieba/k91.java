@@ -1,80 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.Signature;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import java.net.URLDecoder;
-import org.json.JSONObject;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.security.cert.Certificate;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 /* loaded from: classes4.dex */
 public class k91 {
     public static /* synthetic */ Interceptable $ic;
-    public static k91 c;
+    public static Object a;
+    public static WeakReference<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public b b;
-
-    /* loaded from: classes4.dex */
-    public class a extends i81<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ma1 a;
-
-        public a(k91 k91Var, ma1 ma1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k91Var, ma1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ma1Var;
-        }
-
-        @Override // com.baidu.tieba.i81
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.a.onResult(119501, "");
-                th.printStackTrace();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i81
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                int optInt = jSONObject.optInt("status", -1);
-                int optInt2 = jSONObject.optInt("signStatus", -1);
-                int optInt3 = jSONObject.optInt("payStatus", -1);
-                if (2 != optInt && 2 != optInt3) {
-                    this.a.onResult(optInt2, "");
-                } else {
-                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onResult(int i, String str);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,65 +33,202 @@ public class k91 {
                 return;
             }
         }
-        c = new k91();
+        a = new Object();
     }
 
-    public k91() {
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0085, code lost:
+        r11 = com.baidu.tieba.k91.a;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0087, code lost:
+        monitor-enter(r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0088, code lost:
+        com.baidu.tieba.k91.b = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x008a, code lost:
+        monitor-exit(r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x008b, code lost:
+        if (r4 == null) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x008e, code lost:
+        if (r4.length <= 0) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0090, code lost:
+        r11 = r4.length;
+        r1 = new android.content.pm.Signature[r4.length];
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0094, code lost:
+        if (r6 >= r11) goto L85;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x0096, code lost:
+        r1[r6] = new android.content.pm.Signature(r4[r6].getEncoded());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
+        r6 = r6 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a6, code lost:
+        r0.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00aa, code lost:
+        r0.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Signature[] a(String str) {
+        InterceptResult invokeL;
+        JarFile jarFile;
+        byte[] bArr;
+        JarFile jarFile2;
+        Signature[] signatureArr;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return (Signature[]) invokeL.objValue;
+        }
+        synchronized (a) {
+            WeakReference<byte[]> weakReference = b;
+            jarFile = null;
+            if (weakReference != null) {
+                b = null;
+                bArr = weakReference.get();
+            } else {
+                bArr = null;
+            }
+            if (bArr == null) {
+                bArr = new byte[8192];
+                weakReference = new WeakReference<>(bArr);
             }
         }
-    }
-
-    public static k91 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (k91) invokeV.objValue;
-    }
-
-    public void a(ma1 ma1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ma1Var) == null) {
-            String[] split = this.a.split("&");
-            j81 j81Var = new j81();
-            for (String str : split) {
-                String[] split2 = str.split("=");
-                if (split2 != null && split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        j81Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        j81Var.d(split2[0], split2[1]);
+        try {
+            jarFile2 = new JarFile(str);
+            try {
+                Enumeration<JarEntry> entries = jarFile2.entries();
+                Certificate[] certificateArr = null;
+                while (true) {
+                    int i = 0;
+                    if (!entries.hasMoreElements()) {
+                        break;
+                    }
+                    JarEntry nextElement = entries.nextElement();
+                    if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
+                        Certificate[] b2 = b(jarFile2, nextElement, bArr);
+                        if (b2 == null) {
+                            try {
+                                jarFile2.close();
+                            } catch (IOException unused) {
+                            }
+                            return null;
+                        } else if (certificateArr == null) {
+                            certificateArr = b2;
+                        } else {
+                            for (int i2 = 0; i2 < certificateArr.length; i2++) {
+                                int i3 = 0;
+                                while (true) {
+                                    if (i3 >= b2.length) {
+                                        z = false;
+                                        break;
+                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(b2[i3])) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i3++;
+                                    }
+                                }
+                                if (!z || certificateArr.length != b2.length) {
+                                    try {
+                                        jarFile2.close();
+                                    } catch (IOException unused2) {
+                                    }
+                                    return null;
+                                }
+                            }
+                            continue;
+                        }
                     }
                 }
+            } catch (Exception unused3) {
+                if (jarFile2 != null) {
+                    try {
+                        jarFile2.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                jarFile = jarFile2;
+                if (jarFile != null) {
+                    try {
+                        jarFile.close();
+                    } catch (IOException unused5) {
+                    }
+                }
+                throw th;
             }
-            q81.j().g(s81.e(), j81Var, new a(this, ma1Var));
+        } catch (Exception unused6) {
+            jarFile2 = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
+        return signatureArr;
+        return null;
     }
 
-    public b c() {
-        InterceptResult invokeV;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0033, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0038, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x003b, code lost:
+        return null;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        InterceptResult invokeLLL;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (b) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, jarFile, jarEntry, bArr)) != null) {
+            return (Certificate[]) invokeLLL.objValue;
         }
-    }
-
-    public void e(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+        BufferedInputStream bufferedInputStream2 = null;
+        try {
+            bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+            while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                try {
+                } catch (IOException unused) {
+                } catch (RuntimeException unused2) {
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedInputStream2 = bufferedInputStream;
+                    if (bufferedInputStream2 != null) {
+                        try {
+                            bufferedInputStream2.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
+            try {
+                bufferedInputStream.close();
+            } catch (IOException unused4) {
+            }
+            return certificates;
+        } catch (IOException unused5) {
+            bufferedInputStream = null;
+        } catch (RuntimeException unused6) {
+            bufferedInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

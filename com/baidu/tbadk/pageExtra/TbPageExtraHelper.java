@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.t95;
+import com.baidu.tieba.bc5;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.zb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -157,7 +157,7 @@ public class TbPageExtraHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            r95 findFragmentExtraSupportByView = findFragmentExtraSupportByView(view2);
+            zb5 findFragmentExtraSupportByView = findFragmentExtraSupportByView(view2);
             if (findFragmentExtraSupportByView == null || findFragmentExtraSupportByView.getTbFragmentExtra() == null) {
                 return null;
             }
@@ -166,49 +166,49 @@ public class TbPageExtraHelper {
         return (BaseFragment) invokeL.objValue;
     }
 
-    public static r95 findFragmentExtraSupportByView(View view2) {
+    public static zb5 findFragmentExtraSupportByView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
             ViewParent parent = view2.getParent();
-            r95 r95Var = null;
+            zb5 zb5Var = null;
             if (parent instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) parent;
-                if (viewGroup instanceof r95) {
-                    r95Var = (r95) parent;
+                if (viewGroup instanceof zb5) {
+                    zb5Var = (zb5) parent;
                     printLog(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
                 }
-                if (r95Var == null) {
-                    Object tag = viewGroup.getTag(R.id.obfuscated_res_0x7f092038);
-                    if (tag instanceof r95) {
-                        r95Var = (r95) tag;
+                if (zb5Var == null) {
+                    Object tag = viewGroup.getTag(R.id.obfuscated_res_0x7f092088);
+                    if (tag instanceof zb5) {
+                        zb5Var = (zb5) tag;
                         printLog(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     }
                 }
-                if (r95Var != null && r95Var.getTbFragmentExtra() != null) {
-                    BaseFragment a2 = r95Var.getTbFragmentExtra().a();
+                if (zb5Var != null && zb5Var.getTbFragmentExtra() != null) {
+                    BaseFragment a2 = zb5Var.getTbFragmentExtra().a();
                     if (a2 != null && a2.getBaseFragmentActivity() != null) {
                         BaseFragmentActivity baseFragmentActivity = a2.getBaseFragmentActivity();
                         printLog(a2, "ActivityPageKey=" + baseFragmentActivity.getCurrentPageKey() + ",FragmentPageKey=" + a2.getCurrentPageKey());
                     }
-                    return r95Var;
+                    return zb5Var;
                 }
                 return findFragmentExtraSupportByView(viewGroup);
             }
             return null;
         }
-        return (r95) invokeL.objValue;
+        return (zb5) invokeL.objValue;
     }
 
-    public static t95 findPageExtraByView(View view2) {
+    public static bc5 findPageExtraByView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
             BaseFragment findFragmentByView = findFragmentByView(view2);
-            t95 tbPageExtra = findFragmentByView != null ? findFragmentByView.getTbPageExtra() : null;
+            bc5 tbPageExtra = findFragmentByView != null ? findFragmentByView.getTbPageExtra() : null;
             return (tbPageExtra == null || tbPageExtra.f()) ? getCurrentVisiblePageExtra(getActivityByView(view2)) : tbPageExtra;
         }
-        return (t95) invokeL.objValue;
+        return (bc5) invokeL.objValue;
     }
 
     public static Activity getActivityByView(View view2) {
@@ -242,30 +242,30 @@ public class TbPageExtraHelper {
         return (Activity) invokeL.objValue;
     }
 
-    public static t95 getCurrentPageExtraByActivity(Activity activity) {
+    public static bc5 getCurrentPageExtraByActivity(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, activity)) == null) {
             if (activity instanceof BaseFragmentActivity) {
                 BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
                 printLog(baseFragmentActivity, "context is BaseFragmentActivity");
-                t95 currentPageExtraByFragmentActivity = getCurrentPageExtraByFragmentActivity(baseFragmentActivity);
+                bc5 currentPageExtraByFragmentActivity = getCurrentPageExtraByFragmentActivity(baseFragmentActivity);
                 printTbPageExtra(currentPageExtraByFragmentActivity);
                 return currentPageExtraByFragmentActivity;
             } else if (activity instanceof BaseActivity) {
                 BaseActivity baseActivity = (BaseActivity) activity;
                 printLog(baseActivity, "context is BaseActivity");
-                t95 tbPageExtra = baseActivity.getTbPageExtra();
+                bc5 tbPageExtra = baseActivity.getTbPageExtra();
                 printTbPageExtra(tbPageExtra);
                 return tbPageExtra;
             } else {
                 return null;
             }
         }
-        return (t95) invokeL.objValue;
+        return (bc5) invokeL.objValue;
     }
 
-    public static t95 getCurrentPageExtraByFragmentActivity(BaseFragmentActivity baseFragmentActivity) {
+    public static bc5 getCurrentPageExtraByFragmentActivity(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, baseFragmentActivity)) == null) {
@@ -278,34 +278,34 @@ public class TbPageExtraHelper {
                     pushStackVisibleFragment(stack, (BaseFragment) fragment);
                 }
             }
-            t95 t95Var = null;
+            bc5 bc5Var = null;
             while (true) {
                 if (stack.empty()) {
                     break;
                 }
                 BaseFragment baseFragment = (BaseFragment) stack.pop();
                 if (baseFragment != null && baseFragment.isPrimary() && baseFragment.getTbPageExtra() != null) {
-                    t95Var = baseFragment.getTbPageExtra();
-                    printLog(baseFragment, "CurrentFragmentExtra-->" + t95Var);
+                    bc5Var = baseFragment.getTbPageExtra();
+                    printLog(baseFragment, "CurrentFragmentExtra-->" + bc5Var);
                     break;
                 }
             }
             stack.clear();
-            if (t95Var == null || t95Var.f()) {
-                String b = t95Var == null ? "" : t95Var.b();
-                t95 tbPageExtra = baseFragmentActivity.getTbPageExtra();
+            if (bc5Var == null || bc5Var.f()) {
+                String b = bc5Var == null ? "" : bc5Var.b();
+                bc5 tbPageExtra = baseFragmentActivity.getTbPageExtra();
                 if (tbPageExtra != null) {
                     tbPageExtra.h(b);
                 }
                 printLog(baseFragmentActivity, "CurrentActivityExtra-->" + tbPageExtra);
                 return tbPageExtra;
             }
-            return t95Var;
+            return bc5Var;
         }
-        return (t95) invokeL.objValue;
+        return (bc5) invokeL.objValue;
     }
 
-    public static t95 getCurrentVisiblePageExtra(Context context) {
+    public static bc5 getCurrentVisiblePageExtra(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -316,21 +316,21 @@ public class TbPageExtraHelper {
                 printLog(context, "context is not Activity, so getCurrentActivity()");
                 activityFromContext = TbadkCoreApplication.getInst().getCurrentActivity();
             }
-            t95 currentPageExtraByActivity = getCurrentPageExtraByActivity(activityFromContext);
+            bc5 currentPageExtraByActivity = getCurrentPageExtraByActivity(activityFromContext);
             if (currentPageExtraByActivity == null) {
                 printLog(context, "------Not Activity，No TbPageExtra!------");
             }
             printLog("**************************End**************************");
             return currentPageExtraByActivity;
         }
-        return (t95) invokeL.objValue;
+        return (bc5) invokeL.objValue;
     }
 
     public static String getCurrentVisiblePageKey(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            t95 currentVisiblePageExtra = getCurrentVisiblePageExtra(context);
+            bc5 currentVisiblePageExtra = getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 return null;
             }
@@ -393,14 +393,14 @@ public class TbPageExtraHelper {
         }
     }
 
-    public static final void printTbPageExtra(t95 t95Var) {
+    public static final void printTbPageExtra(bc5 bc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65557, null, t95Var) == null) && isNeedPrintLog() && t95Var != null) {
-            String a2 = t95Var.a();
-            String e = t95Var.e();
-            ArrayList<String> d = t95Var.d();
-            ArrayList<String> c = t95Var.c();
-            printLog(t95Var, "Current TbPageExtra:currentPageKey=" + a2 + ",prePageKey=" + e + ",preList=" + d.toString() + ",nextList=" + c.toString());
+        if ((interceptable == null || interceptable.invokeL(65557, null, bc5Var) == null) && isNeedPrintLog() && bc5Var != null) {
+            String a2 = bc5Var.a();
+            String e = bc5Var.e();
+            ArrayList<String> d = bc5Var.d();
+            ArrayList<String> c = bc5Var.c();
+            printLog(bc5Var, "Current TbPageExtra:currentPageKey=" + a2 + ",prePageKey=" + e + ",preList=" + d.toString() + ",nextList=" + c.toString());
         }
     }
 
@@ -436,7 +436,7 @@ public class TbPageExtraHelper {
     public static void setPrePageKeyByFlutterStart(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65560, null, str) == null) && !StringUtil.isEmpty(str) && typeAndPreFlutterPageKeyMap.containsKey(str)) {
-            sg.a().postDelayed(new a(str), 100L);
+            gh.a().postDelayed(new a(str), 100L);
         }
     }
 

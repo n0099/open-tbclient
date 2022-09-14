@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,72 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ls2 extends b13 {
+public abstract class ls2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetworkBroadcastReceiver a;
-    public TelephonyManager b;
-    public a c;
-
-    /* loaded from: classes4.dex */
-    public class a extends PhoneStateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<CallbackHandler> a;
-        public String b;
-        public String c;
-        public final /* synthetic */ ls2 d;
-
-        public a(ls2 ls2Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ls2Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ls2Var;
-            this.c = "";
-            this.a = new WeakReference<>(callbackHandler);
-            this.b = str;
-        }
-
-        public void a(CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-                this.a = new WeakReference<>(callbackHandler);
-                this.b = str;
-            }
-        }
-
-        @Override // android.telephony.PhoneStateListener
-        public void onDataConnectionStateChanged(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-                if (ls2.d) {
-                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
-                }
-                if (2 == i) {
-                    String d = SwanAppNetworkUtils.d(i2, null);
-                    if (TextUtils.isEmpty(d) || d.equals(this.c)) {
-                        return;
-                    }
-                    this.c = d;
-                    SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -96,59 +36,68 @@ public class ls2 extends b13 {
                 return;
             }
         }
-        d = kh1.a;
+        a = ij1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ls2(a13 a13Var) {
-        super(a13Var);
+    public ls2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a13Var};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a13) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public void a(CallbackHandler callbackHandler, String str) {
+    public abstract boolean a(gs2 gs2Var, is2 is2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var);
+
+    @Nullable
+    public gs2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        wp2 f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-            if (this.b == null) {
-                this.b = (TelephonyManager) getSystemService("phone");
-                a aVar = new a(this, callbackHandler, str);
-                this.c = aVar;
-                this.b.listen(aVar, 64);
-                return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3) || (f = xp2.f(str, str2, str3)) == null || !(f.i() instanceof gs2)) {
+                return null;
             }
-            a aVar2 = this.c;
-            if (aVar2 != null) {
-                aVar2.a(callbackHandler, str);
-            }
+            return (gs2) f.i();
         }
+        return (gs2) invokeLLLLL.objValue;
     }
 
-    public void b(CallbackHandler callbackHandler, String str) {
+    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
-            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
-            if (networkBroadcastReceiver == null) {
-                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                registerReceiver(this.a, intentFilter);
-            } else if (networkBroadcastReceiver != null) {
-                networkBroadcastReceiver.updateCallback(callbackHandler, str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (a) {
+                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            a(callbackHandler, str);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                yz1.c("vrvideo", "param is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            gs2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("sanId"), optParamsAsJo.optString("videoId"), optParamsAsJo);
+            if (b != null && context != null) {
+                is2 h = is2.h(optParamsAsJo, b.d());
+                if (!h.isValid()) {
+                    yz1.c("vrvideo", "param is invalid");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                return a(b, h, context, unitedSchemeEntity, callbackHandler, y23Var);
+            }
+            yz1.c("vrvideo", "player id is invalid or context is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 }

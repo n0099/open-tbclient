@@ -8,7 +8,6 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -121,7 +120,6 @@ public class MzNotifyActivity extends Activity {
             } catch (Exception unused) {
             }
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.fp9;
+import com.baidu.tieba.xq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public enum ai extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final fp9 a(long j, Session session) {
+    public final xq9 a(long j, Session session) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? session.c.a(j, session) : (fp9) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? session.c.a(j, session) : (xq9) invokeJL.objValue;
     }
 }

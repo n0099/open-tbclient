@@ -1,86 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nl4 {
+public class nl4 extends jl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static nl4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<pl4> a;
+    public volatile long e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948006291, "Lcom/baidu/tieba/nl4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948006291, "Lcom/baidu/tieba/nl4;");
-        }
-    }
-
-    public nl4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nl4(dl4 dl4Var) {
+        super(dl4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dl4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((dl4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.e = System.currentTimeMillis();
     }
 
-    public static nl4 b() {
+    public synchronized long i() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                this.e = System.currentTimeMillis() + 60000;
+                j = this.e;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (nl4.class) {
-                    if (b == null) {
-                        b = new nl4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (nl4) invokeV.objValue;
-    }
-
-    public View a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (this.a.get(i) != null) {
-                return this.a.get(i).a(context);
-            }
-            return null;
-        }
-        return (View) invokeLI.objValue;
-    }
-
-    public void c(int i, pl4 pl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, pl4Var) == null) {
-            this.a.put(i, pl4Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() - this.e >= 60000 : invokeV.booleanValue;
     }
 }

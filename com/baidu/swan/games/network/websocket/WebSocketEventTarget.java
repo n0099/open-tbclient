@@ -7,11 +7,11 @@ import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.tieba.a04;
-import com.baidu.tieba.b04;
-import com.baidu.tieba.d04;
-import com.baidu.tieba.e04;
-import com.baidu.tieba.kh1;
+import com.baidu.tieba.a24;
+import com.baidu.tieba.c24;
+import com.baidu.tieba.d24;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.z14;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,7 +104,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        b = kh1.a;
+        b = ij1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             this.a = SocketTaskState.CLOSE;
-            x("close", new a04(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+            x("close", new z14(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
         }
     }
 
@@ -141,7 +141,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onError(Throwable th, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.a == SocketTaskState.IDLE) {
-            x("error", new b04(th.getMessage()));
+            x("error", new a24(th.getMessage()));
         }
     }
 
@@ -149,7 +149,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            x("message", new d04(str));
+            x("message", new c24(str));
         }
     }
 
@@ -158,7 +158,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.a = SocketTaskState.OPEN;
-            x("open", new e04(new JSONObject(map)));
+            x("open", new d24(new JSONObject(map)));
         }
     }
 
@@ -179,7 +179,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
             int remaining = byteBuffer.remaining();
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            x("message", new d04(new JsArrayBuffer(bArr, remaining)));
+            x("message", new c24(new JsArrayBuffer(bArr, remaining)));
         }
     }
 }

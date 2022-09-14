@@ -1,124 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class zh1 implements vh1 {
+public class zh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zh1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public gq3 c;
-    public wh1 d;
-    public pp3 e;
-    public List<uh1> f;
-    public uh1 g;
-    public uh1 h;
-    public Map<String, String> i;
-    public fq3 j;
+    public b a;
+    public Context b;
 
     /* loaded from: classes6.dex */
-    public class a implements fq3 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zh1 a;
+    }
 
-        public a(zh1 zh1Var) {
+    /* loaded from: classes6.dex */
+    public class b extends SQLiteOpenHelper {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(zh1 zh1Var, Context context, a aVar) {
+            this(zh1Var, context);
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onCreate(SQLiteDatabase sQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+                try {
+                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
+                } catch (Throwable th) {
+                    ii1.d(th);
+                }
+            }
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(zh1 zh1Var, Context context) {
+            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 1);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zh1Var};
+                Object[] objArr = {zh1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zh1Var;
-        }
-
-        @Override // com.baidu.tieba.fq3
-        public void a(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                if (z) {
-                    this.a.d.b();
-                    this.a.g.a(0);
-                    for (uh1 uh1Var : this.a.f) {
-                        uh1Var.a(0);
-                        if (this.a.f.contains(uh1Var)) {
-                            this.a.f.remove(uh1Var);
-                        }
-                    }
-                    return;
-                }
-                this.a.g.a(1001);
-                for (uh1 uh1Var2 : this.a.f) {
-                    uh1Var2.a(1001);
-                    if (this.a.f.contains(uh1Var2)) {
-                        this.a.f.remove(uh1Var2);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.fq3
-        public void b(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                if (z) {
-                    this.a.h.a(0);
-                } else {
-                    this.a.h.a(1001);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.fq3
-        public void c(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                this.a.d.a(yh1.a(z));
-            }
-        }
-
-        @Override // com.baidu.tieba.fq3
-        public void onClick(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.fq3
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.a.d.c(yh1.b(str));
-                iq3.k(this.a.i, str);
-            }
         }
     }
 
-    public zh1(@NonNull JSONObject jSONObject, wh1 wh1Var, uh1 uh1Var) {
+    public zh1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, wh1Var, uh1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,51 +91,217 @@ public class zh1 implements vh1 {
                 return;
             }
         }
-        this.a = "";
-        this.i = new TreeMap();
-        this.j = new a(this);
-        if (jSONObject != null && !TextUtils.isEmpty(jSONObject.optString("adUnitId")) && !TextUtils.isEmpty(jSONObject.optString("appSid"))) {
-            this.a = jSONObject.optString("adUnitId");
-            String optString = jSONObject.optString("appSid");
-            this.b = optString;
-            this.i = iq3.a("video", "app", optString, this.a, false);
-            this.e = new ai1();
-            gq3 gq3Var = new gq3(nm2.U().getActivity(), this.b, this.a, false, this.j, this.e);
-            this.c = gq3Var;
-            gq3Var.k0(this.i);
-            this.f = new CopyOnWriteArrayList();
-            b(jSONObject, uh1Var, wh1Var);
-            return;
-        }
-        uh1Var.a(202);
+        this.b = context;
+        this.a = new b(this, this.b, null);
     }
 
-    @Override // com.baidu.tieba.vh1
-    public synchronized void a(JSONObject jSONObject, uh1 uh1Var) {
+    public static zh1 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, uh1Var) == null) {
-            synchronized (this) {
-                if (this.c != null) {
-                    this.h = uh1Var;
-                    this.c.l0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (zh1.class) {
+                    if (c == null) {
+                        c = new zh1(context);
+                    }
                 }
             }
+            return c;
+        }
+        return (zh1) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<ai1> b(String str) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
+        try {
+            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT * FROM rp_tb WHERE c IN (");
+            sb.append(str);
+            sb.append(") LIMIT 100");
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() != 0) {
+                        ArrayList<ai1> arrayList = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            ai1 ai1Var = new ai1();
+                            ai1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                            ai1Var.c(ki1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
+                            ai1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                            ai1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                            arrayList.add(ai1Var);
+                        }
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        ii1.d(th);
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                ii1.d(th3);
+                            }
+                        }
+                        return null;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                ii1.d(th4);
+                            }
+                        }
+                    }
+                }
+            }
+            if (cursor != null) {
+                try {
+                    if (!cursor.isClosed()) {
+                        cursor.close();
+                    }
+                } catch (Throwable th5) {
+                    ii1.d(th5);
+                }
+            }
+            return null;
+        } catch (Throwable th6) {
+            th = th6;
+            cursor = null;
         }
     }
 
-    @Override // com.baidu.tieba.vh1
-    public synchronized void b(JSONObject jSONObject, uh1 uh1Var, wh1 wh1Var) {
+    public void c(ai1 ai1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, uh1Var, wh1Var) == null) {
-            synchronized (this) {
-                this.d = wh1Var;
-                if (this.c != null) {
-                    this.g = uh1Var;
-                    if (uh1Var != null && !this.f.contains(uh1Var)) {
-                        this.f.add(uh1Var);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ai1Var) == null) || ai1Var == null) {
+            return;
+        }
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("a", ki1.b(this.b, ai1Var.d().getBytes()));
+            contentValues.put("c", Integer.valueOf(ai1Var.h()));
+            contentValues.put("d", Integer.valueOf(ai1Var.f()));
+            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
+        } catch (Throwable th) {
+            ii1.d(th);
+        }
+    }
+
+    public void d(ArrayList<ai1> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || arrayList == null) {
+            return;
+        }
+        try {
+            if (arrayList.size() == 0) {
+                return;
+            }
+            for (int i = 0; i < arrayList.size(); i++) {
+                f(arrayList.get(i));
+            }
+        } catch (Throwable th) {
+            ii1.d(th);
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<ai1> e(String str) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
+        try {
+            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT * FROM rp_tb WHERE c IN (");
+            sb.append(str);
+            sb.append(") and ");
+            sb.append("d");
+            sb.append("=");
+            sb.append(2);
+            sb.append(" LIMIT 100");
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() != 0) {
+                        ArrayList<ai1> arrayList = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            ai1 ai1Var = new ai1();
+                            ai1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                            ai1Var.c(ki1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
+                            ai1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                            ai1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                            arrayList.add(ai1Var);
+                        }
+                        return arrayList;
                     }
-                    this.c.c0();
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        ii1.d(th);
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                ii1.d(th3);
+                            }
+                        }
+                        return null;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                ii1.d(th4);
+                            }
+                        }
+                    }
                 }
+            }
+            if (cursor != null) {
+                try {
+                    if (!cursor.isClosed()) {
+                        cursor.close();
+                    }
+                } catch (Throwable th5) {
+                    ii1.d(th5);
+                }
+            }
+            return null;
+        } catch (Throwable th6) {
+            th = th6;
+            cursor = null;
+        }
+    }
+
+    public final void f(ai1 ai1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ai1Var) == null) {
+            try {
+                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(ai1Var.a())});
+            } catch (Throwable th) {
+                System.currentTimeMillis();
+                ii1.d(th);
             }
         }
     }

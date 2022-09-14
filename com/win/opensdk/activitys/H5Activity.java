@@ -13,7 +13,6 @@ import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
@@ -218,10 +217,10 @@ public class H5Activity extends Activity implements L1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d090d);
+            setContentView(R.layout.obfuscated_res_0x7f0d092c);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092634);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f09262b);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092692);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092689);
             this.h = 0L;
             this.i = new m2(this);
             M1.a("hcl", this);
@@ -255,7 +254,6 @@ public class H5Activity extends Activity implements L1 {
             } catch (Exception unused) {
                 finish();
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

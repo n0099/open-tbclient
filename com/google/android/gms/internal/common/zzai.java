@@ -1,7 +1,6 @@
 package com.google.android.gms.internal.common;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +56,7 @@ public final class zzai<E> extends zzag<E> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            bp9.a(i, this.zzc, "index");
+            zzs.zza(i, this.zzc, "index");
             E e = (E) this.zzb[i];
             e.getClass();
             return e;

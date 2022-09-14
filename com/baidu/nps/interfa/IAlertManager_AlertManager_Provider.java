@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.fc1;
-import com.baidu.tieba.il;
+import com.baidu.tieba.ce1;
+import com.baidu.tieba.wl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class IAlertManager_AlertManager_Provider implements fc1 {
+public class IAlertManager_AlertManager_Provider implements ce1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IAlertManager_AlertManager_Provider implements fc1 {
         }
     }
 
-    @Override // com.baidu.tieba.fc1
+    @Override // com.baidu.tieba.ce1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new il() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new wl() : invokeV.objValue;
     }
 }

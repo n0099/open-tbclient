@@ -2,7 +2,7 @@ package com.baidu.bdtask.ctrl.actions.finishreq;
 
 import com.baidu.bdtask.ctrl.repo.a;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.yq;
+import com.baidu.tieba.mr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public final class b {
         this.b = new CopyOnWriteArraySet();
     }
 
-    public final Function2<Function1<? super yq, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super yq, Unit>, Function1<yq, Unit>>> b() {
+    public final Function2<Function1<? super mr, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super mr, Unit>, Function1<mr, Unit>>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new TaskFinishReqMiddleware$taskFinishMiddleWare$1(this) : (Function2) invokeV.objValue;

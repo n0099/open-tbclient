@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.tieba.ip;
-import com.baidu.tieba.kp;
+import com.baidu.tieba.wp;
+import com.baidu.tieba.yp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,20 +18,20 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class TaskBuoyViewData extends BuoyViewData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kp curProcess;
+    public final yp curProcess;
     public final String extra;
     public final TaskStatus taskStatus;
     public final TaskProcessData totalProcess;
-    public final ip uiConfig;
+    public final wp uiConfig;
 
-    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, ip ipVar, kp kpVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskStatus, ipVar, kpVar, taskProcessData, (i & 16) != 0 ? "" : str);
+    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, wp wpVar, yp ypVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskStatus, wpVar, ypVar, taskProcessData, (i & 16) != 0 ? "" : str);
     }
 
-    public final kp getCurProcess() {
+    public final yp getCurProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.curProcess : (kp) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.curProcess : (yp) invokeV.objValue;
     }
 
     public final String getExtra() {
@@ -52,10 +52,10 @@ public final class TaskBuoyViewData extends BuoyViewData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.totalProcess : (TaskProcessData) invokeV.objValue;
     }
 
-    public final ip getUiConfig() {
+    public final wp getUiConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.uiConfig : (ip) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.uiConfig : (wp) invokeV.objValue;
     }
 
     public String toString() {
@@ -68,13 +68,13 @@ public final class TaskBuoyViewData extends BuoyViewData {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskBuoyViewData(TaskStatus taskStatus, ip ipVar, kp kpVar, TaskProcessData taskProcessData, String str) {
-        super(ipVar.c(), ipVar.g(), ipVar.a(), ipVar.e(), ipVar.d(), ipVar.f(), kpVar.a(), kpVar.b(), ipVar.b());
+    public TaskBuoyViewData(TaskStatus taskStatus, wp wpVar, yp ypVar, TaskProcessData taskProcessData, String str) {
+        super(wpVar.c(), wpVar.g(), wpVar.a(), wpVar.e(), wpVar.d(), wpVar.f(), ypVar.a(), ypVar.b(), wpVar.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {taskStatus, ipVar, kpVar, taskProcessData, str};
+            Object[] objArr = {taskStatus, wpVar, ypVar, taskProcessData, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,8 +87,8 @@ public final class TaskBuoyViewData extends BuoyViewData {
             }
         }
         this.taskStatus = taskStatus;
-        this.uiConfig = ipVar;
-        this.curProcess = kpVar;
+        this.uiConfig = wpVar;
+        this.curProcess = ypVar;
         this.totalProcess = taskProcessData;
         this.extra = str;
     }

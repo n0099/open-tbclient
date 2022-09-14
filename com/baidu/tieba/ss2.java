@@ -1,181 +1,63 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
-import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.util.HashMap;
-import java.util.Map;
-import kotlinx.coroutines.DebugKt;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ss2 implements Interceptor {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
+public class ss2 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948161911, "Lcom/baidu/tieba/ss2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948161911, "Lcom/baidu/tieba/ss2;");
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public ss2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static Map<String, String> a(String str, String str2) {
+    public static ss2 a(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            if (a) {
-                if (str == null) {
-                    str = "";
-                }
-                if (str2 == null) {
-                    str2 = "";
-                }
-                hashMap.put("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON);
-                hashMap.put("___request_type___", str);
-                hashMap.put("___plugin_id___", str2);
-                return hashMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return hashMap;
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            String optString = jSONObject.optString("error");
+            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
+                return null;
+            }
+            ss2 ss2Var = new ss2();
+            ss2Var.a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
+            ss2Var.b = optJSONObject2.optString("sk");
+            ss2Var.c = optJSONObject2.optString("token");
+            ss2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
+                ss2Var.f = optJSONObject.optString("bosobject");
+                ss2Var.e = optJSONObject.optString("bosurl");
+            }
+            return ss2Var;
         }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static HttpRequest e(HttpRequest httpRequest, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, httpRequest, str, str2)) == null) {
-            if (a && httpRequest != null) {
-                if (str == null) {
-                    str = "";
-                }
-                if (str2 == null) {
-                    str2 = "";
-                }
-                return httpRequest.newBuilder().addHeader("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON).addHeader("___request_type___", str).addHeader("___plugin_id___", str2).build();
-            }
-            return httpRequest;
-        }
-        return (HttpRequest) invokeLLL.objValue;
-    }
-
-    public static Request f(Request request, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, request, str, str2)) == null) {
-            if (a && request != null) {
-                if (str == null) {
-                    str = "";
-                }
-                if (str2 == null) {
-                    str2 = "";
-                }
-                return request.newBuilder().addHeader("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON).addHeader("___request_type___", str).addHeader("___plugin_id___", str2).build();
-            }
-            return request;
-        }
-        return (Request) invokeLLL.objValue;
-    }
-
-    public final boolean b(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, response)) == null) {
-            if (response == null) {
-                return false;
-            }
-            int code = response.code();
-            if (TextUtils.isEmpty(response.header(Headers.LOCATION))) {
-                return false;
-            }
-            return (307 <= code && code <= 308) || (300 <= code && code <= 303);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean c(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) {
-            if (request == null) {
-                return false;
-            }
-            return TextUtils.equals(request.headers().get("___check_redirect___"), DebugKt.DEBUG_PROPERTY_VALUE_ON);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final Request d(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) ? request == null ? request : request.newBuilder().removeHeader("___check_redirect___").removeHeader("___request_type___").removeHeader("___plugin_id___").build() : (Request) invokeL.objValue;
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        HttpUrl resolve;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chain)) == null) {
-            Request request = chain.request();
-            if (!a) {
-                return chain.proceed(request);
-            }
-            if (!c(request)) {
-                return chain.proceed(request);
-            }
-            okhttp3.Headers headers = request.headers();
-            String str = headers.get("___request_type___");
-            String str2 = headers.get("___plugin_id___");
-            Response proceed = chain.proceed(d(request));
-            if (b(proceed)) {
-                String header = proceed.header(Headers.LOCATION);
-                if (TextUtils.isEmpty(header) || (resolve = proceed.request().url().resolve(header)) == null || r13.c(str, resolve.toString(), str2) == 0) {
-                    return proceed;
-                }
-                String str3 = "redirect error:" + resolve.toString() + " scheme illegal or not in domain list";
-                ay1.o("SafeRedirectCheck", str3);
-                throw new InterruptedIOException(str3);
-            }
-            return proceed;
-        }
-        return (Response) invokeL.objValue;
+        return (ss2) invokeLL.objValue;
     }
 }

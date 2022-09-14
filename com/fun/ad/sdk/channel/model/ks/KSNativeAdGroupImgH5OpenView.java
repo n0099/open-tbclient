@@ -141,8 +141,8 @@ public class KSNativeAdGroupImgH5OpenView extends x {
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900af);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b0);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a7);
-            this.i = (Button) findViewById(R.id.obfuscated_res_0x7f0900a8);
+            this.h = (TextView) findViewById(R.id.ad_h5_description);
+            this.i = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 

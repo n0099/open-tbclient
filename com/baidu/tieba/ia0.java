@@ -1,46 +1,26 @@
 package com.baidu.tieba;
 
 import android.os.Build;
-import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.EditText;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
-public final class ia0 {
+public class ia0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947846641, "Lcom/baidu/tieba/ia0;")) == null) {
+    public static void a(EditText editText, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) || Build.VERSION.SDK_INT >= 29) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        try {
+            Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
+            declaredField.setAccessible(true);
+            declaredField.set(editText, Integer.valueOf(i));
+        } catch (Exception unused) {
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947846641, "Lcom/baidu/tieba/ia0;");
-        }
-    }
-
-    @JvmStatic
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
-                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
-            }
-            String str = Build.MANUFACTURER;
-            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 }

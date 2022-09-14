@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class sj5 extends TimerTask {
+public class sj5 implements pj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public int c;
-    public final WheelView d;
+    public double c;
+    public boolean d;
 
-    public sj5(WheelView wheelView, int i) {
+    public sj5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView, Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,49 +35,86 @@ public final class sj5 extends TimerTask {
                 return;
             }
         }
-        this.d = wheelView;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
+        this.a = 3;
+        this.b = 3;
+        this.d = true;
+        if (i > 0) {
+            this.b = i;
+        }
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tieba.pj5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
-            }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
-                } else {
-                    this.b = 1;
-                }
-            }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
-                return;
-            }
-            WheelView wheelView = this.d;
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView wheelView2 = this.d;
-                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
-                    return;
-                }
-            }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) ? ListUtils.getCount(list) <= 0 ? i2 : e(constrainImageLayout, list, i2) : invokeLLII.intValue;
+    }
+
+    @Override // com.baidu.tieba.pj5
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return 1;
         }
+        return invokeI.intValue;
+    }
+
+    public final double c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            TbadkCoreApplication.getInst();
+            if (i == 1) {
+                return 0.5625d;
+            }
+            double d = this.c;
+            if (d > 0.0d) {
+                return d;
+            }
+            return 0.6666666666666666d;
+        }
+        return invokeI.doubleValue;
+    }
+
+    public void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.c = d;
+        }
+    }
+
+    public int e(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
+        InterceptResult invokeLLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout == null || ListUtils.isEmpty(list)) {
+                return i;
+            }
+            int count = ListUtils.getCount(list);
+            if (count >= 2) {
+                constrainImageLayout.setImageMaxChildCount(this.a);
+                constrainImageLayout.setCanCenterStart(false);
+            } else {
+                constrainImageLayout.setImageMaxChildCount(-1);
+                constrainImageLayout.setCanCenterStart(true);
+            }
+            int i3 = this.b;
+            int i4 = count - i3;
+            if (i4 > 0) {
+                i2 = i3 + i;
+                List<MediaData> subList = ListUtils.subList(list, i, i2);
+                constrainImageLayout.setExtraCenterText(this.d ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0443, new Object[]{Integer.valueOf(i4)}) : null);
+                constrainImageLayout.setUrls(subList, i, true, this.d);
+            } else {
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
+                constrainImageLayout.setExtraCenterText(null);
+                i2 = count;
+            }
+            constrainImageLayout.setSingleImageRatio(c(count));
+            return i2;
+        }
+        return invokeLLI.intValue;
     }
 }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class RecordTabLayout extends LinearLayout {
                 }
                 this.b.setCurrentTab(i2, true);
                 if (this.b.e != null) {
-                    this.b.e.w(this.a, true);
+                    this.b.e.x(this.a, true);
                 }
             }
         }
@@ -117,7 +117,7 @@ public class RecordTabLayout extends LinearLayout {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void w(int i, boolean z);
+        void x(int i, boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -146,14 +146,14 @@ public class RecordTabLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             TextView textView = new TextView(getContext());
-            textView.setTextSize(0, ri.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setTextSize(0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
             textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
             textView.setText(str);
             textView.setTag(Integer.valueOf(i));
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = ri.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
+                layoutParams.leftMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -171,8 +171,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ri.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), ri.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = ri.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), ej.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
             addView(this.b, layoutParams);
         }
     }

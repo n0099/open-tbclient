@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface ic1<T> {
-    void a(fc1<T> fc1Var);
+public interface ic1 {
+    void a();
 
-    T get();
+    void b(cc1 cc1Var);
 }

@@ -26,6 +26,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -297,14 +298,14 @@ public class c {
             return invokeV.intValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:20:0x004c  */
-        /* JADX WARN: Removed duplicated region for block: B:45:0x00d0  */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x00dc  */
-        /* JADX WARN: Removed duplicated region for block: B:55:0x00ec  */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x00f6 A[RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:59:0x00f8  */
-        /* JADX WARN: Removed duplicated region for block: B:90:0x00e6 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:91:0x00e8 A[EDGE_INSN: B:91:0x00e8->B:53:0x00e8 ?: BREAK  , SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x004d  */
+        /* JADX WARN: Removed duplicated region for block: B:45:0x00d1  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x00dd  */
+        /* JADX WARN: Removed duplicated region for block: B:55:0x00ed  */
+        /* JADX WARN: Removed duplicated region for block: B:57:0x00f7 A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:59:0x00f9  */
+        /* JADX WARN: Removed duplicated region for block: B:90:0x00e7 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:91:0x00e9 A[EDGE_INSN: B:91:0x00e9->B:53:0x00e9 ?: BREAK  , SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -944,7 +945,7 @@ public class c {
             try {
                 WifiInfo connectionInfo = this.g.getConnectionInfo();
                 if (connectionInfo != null) {
-                    return connectionInfo.getMacAddress();
+                    return ApiReplaceUtil.getMacAddress(connectionInfo);
                 }
                 return null;
             } catch (Error | Exception unused) {

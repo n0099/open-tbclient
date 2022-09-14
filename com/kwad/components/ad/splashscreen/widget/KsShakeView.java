@@ -24,13 +24,13 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.m.n;
+import com.kwad.sdk.R;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes7.dex */
 public class KsShakeView extends KSFrameLayout {
@@ -149,14 +149,14 @@ public class KsShakeView extends KSFrameLayout {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403a7, R.attr.obfuscated_res_0x7f0403a8, R.attr.obfuscated_res_0x7f0403a9, R.attr.obfuscated_res_0x7f0403b0, R.attr.obfuscated_res_0x7f0403b1, R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f0403b8, R.attr.obfuscated_res_0x7f0403bb}, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
             this.As = obtainStyledAttributes.getDimension(4, 1.0f);
             this.At = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
             this.Au = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
             this.Ar = obtainStyledAttributes.getInteger(6, 1);
             this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
             this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-            this.Ay = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bfe);
+            this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c1b);
             this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
             obtainStyledAttributes.recycle();
             this.nC = new ImageView(getContext());
@@ -231,7 +231,7 @@ public class KsShakeView extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.Ar = i;
-            setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bfe : R.drawable.obfuscated_res_0x7f080bff);
+            setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c1b : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c1c);
         }
     }
 
@@ -244,7 +244,7 @@ public class KsShakeView extends KSFrameLayout {
                 animator.cancel();
             }
             this.nC.setRotation(0.0f);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070400);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070400);
             Animator animator2 = this.AA;
             if (animator2 != null) {
                 animator2.cancel();

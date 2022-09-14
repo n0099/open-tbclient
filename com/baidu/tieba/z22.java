@@ -1,45 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-import com.baidu.tieba.p82;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class z22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public i82 a;
-    public gt1 b;
-    public s82 c;
 
     /* loaded from: classes6.dex */
-    public class a extends e92 {
+    public static class a implements SwanAppNetworkUtils.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ z22 c;
+        public final /* synthetic */ String a;
 
-        public a(@NonNull z22 z22Var, @NonNull String str, String str2) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z22Var, str, str2};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,188 +37,64 @@ public class z22 {
                     return;
                 }
             }
-            this.c = z22Var;
             this.a = str;
-            this.b = str2;
-            if (z22.d) {
-                Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
-            }
         }
 
-        @Override // com.baidu.tieba.f92
-        public String a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.e92, com.baidu.tieba.f92
-        @Nullable
-        public V8EngineConfiguration.CodeCacheSetting b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (z22.d) {
-                    Log.d("SwanAppV8Master", "pathList item: " + this.a);
-                }
-                return sz1.a("appframe", this.a);
-            }
-            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.e92, com.baidu.tieba.f92
-        public void c(i82 i82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i82Var) == null) {
-                if (this.c.c != null) {
-                    this.c.c.a(i82Var);
-                }
-                i82Var.y0();
-            }
-        }
-
-        @Override // com.baidu.tieba.e92, com.baidu.tieba.f92
-        public void d(i82 i82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, i82Var) == null) {
-                this.c.b.b(i82Var, hk2.c());
-            }
-        }
-
-        @Override // com.baidu.tieba.f92
-        public String getInitBasePath() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307983, "Lcom/baidu/tieba/z22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307983, "Lcom/baidu/tieba/z22;");
-                return;
-            }
-        }
-        d = kh1.a;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public z22(@NonNull String str, @NonNull String str2) {
-        this(str, str2, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                z22.b(this.a, i);
             }
         }
     }
 
-    public void d(Activity activity) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.b.a(activity);
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            SwanAppNetworkUtils.b(new a(str));
         }
     }
 
-    public p82 e() {
-        InterceptResult invokeV;
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            p82.b bVar = new p82.b();
-            bVar.c(1);
-            bVar.b(g32.b());
-            return bVar.a();
-        }
-        return (p82) invokeV.objValue;
-    }
-
-    public e92 f(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) ? new a(this, str, str2) : (e92) invokeLL.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.k0();
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
+            c(str, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
         }
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.c : (String) invokeV.objValue;
-    }
-
-    public i82 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (i82) invokeV.objValue;
-    }
-
-    public void j(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, codeCacheSetting) == null) {
-            this.a.B0(codeCacheSetting);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            d(str, str2, null);
         }
     }
 
-    public void k(JsCodeCacheCallback jsCodeCacheCallback) {
+    public static void d(String str, String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jsCodeCacheCallback) == null) {
-            this.a.F0(jsCodeCacheCallback);
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            e(str, str2, str3, 0, 0, 0, 0L);
         }
     }
 
-    public void l(s82 s82Var) {
+    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, s82Var) == null) {
-            this.c = s82Var;
-        }
-    }
-
-    public z22(@NonNull String str, @NonNull String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+            aa3 aa3Var = new aa3();
+            aa3Var.a = "swan";
+            aa3Var.b = str;
+            aa3Var.a("appid", x23.K().getAppId());
+            aa3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
+            if (!TextUtils.isEmpty(str3)) {
+                aa3Var.a("request", str3);
+                aa3Var.a("request_total", String.valueOf(i));
+                aa3Var.a("request_fail", String.valueOf(i2));
+                aa3Var.a("request_slow", String.valueOf(i3));
+                aa3Var.a("error_duration", String.valueOf(j));
             }
+            aa3Var.a("jserror", d32.d().c() ? "1" : "0");
+            aa3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, y22.b() ? "1" : "0");
+            r93.x("1619", aa3Var);
         }
-        this.b = new gt1();
-        if (d) {
-            Log.d("SwanAppV8Master", "createV8Master: " + str + str2);
-        }
-        b32 b32Var = bv2.l() ? new b32() : null;
-        p82 e = e();
-        if (!TextUtils.isEmpty(str3)) {
-            e.b = str3;
-        }
-        this.a = o82.b(e, f(str, str2), b32Var);
     }
 }

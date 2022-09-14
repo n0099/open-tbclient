@@ -53,12 +53,12 @@ public final class a implements b {
 
     /* renamed from: com.kwad.components.core.playable.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0579a implements ag.b {
+    public static class C0584a implements ag.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> Hw;
 
-        public C0579a(a aVar) {
+        public C0584a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,7 +151,7 @@ public final class a implements b {
     private void a(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.webview.a aVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar, aVar, cVar) == null) {
-            aVar.a(new ag(bVar, cVar, new C0579a(this)));
+            aVar.a(new ag(bVar, cVar, new C0584a(this)));
             aVar.a(new x(new x.b(this) { // from class: com.kwad.components.core.playable.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public final class a implements b {
             u.b bVar = new u.b();
             bVar.gJ = i;
             bVar.gL = this.mRootContainer.getTouchCoords();
-            com.kwad.components.core.c.a.a.a(new a.C0569a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
+            com.kwad.components.core.c.a.a.a(new a.C0574a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
         }
     }
 

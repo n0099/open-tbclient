@@ -1,123 +1,91 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import android.provider.Settings;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kd3 {
+public class kd3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
-    }
-
-    public static void a(j02 j02Var, Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kd3(v33 v33Var) {
+        super(v33Var, "/swanAPI/getAutoRotationSync");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, j02Var, context) == null) {
-            b(j02Var, context, 2);
-        }
-    }
-
-    public static void b(j02 j02Var, Context context, int i) {
-        View V;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, j02Var, context, i) == null) || j02Var == null || j02Var.k() < i) {
-            return;
-        }
-        g02 j = j02Var.j(j02Var.k() - i);
-        g02 m = j02Var.m();
-        if (m == null || !m.D0) {
-            float o = re3.o(context) >> 2;
-            if (j == null || (V = j.V()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
         }
     }
 
-    public static void c(j02 j02Var, Context context) {
-        View V;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, j02Var, context) == null) || j02Var == null || j02Var.k() < 2) {
-            return;
-        }
-        g02 j = j02Var.j(j02Var.k() - 2);
-        float o = re3.o(context) >> 2;
-        if (j == null || (V = j.V()) == null) {
-            return;
-        }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, 0.0f, -o);
-        ofFloat.setDuration(300L).start();
-        ofFloat.addListener(new a(V));
-    }
-
-    public static void d(@NonNull we4 we4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, we4Var, str, i, i2) == null) || we4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                yz1.c("getAutoRotationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (v43.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
                 }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
+                return false;
+            } else if (context == null) {
+                yz1.c("getAutoRotationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (v43.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                }
+                return false;
+            } else {
+                try {
+                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
+                    if (v43.b) {
+                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("isRotateOn", i != 0);
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        return true;
+                    } catch (JSONException unused) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                        if (v43.b) {
+                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
+                        }
+                        return false;
+                    }
+                } catch (Exception e) {
+                    if (v43.b) {
+                        e.printStackTrace();
+                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
+                    }
+                    return false;
+                }
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
         }
-        if (c != 0) {
-            if (c == 1 || c == 2) {
-                return;
-            }
-            we4Var.i(i, i2);
-            return;
-        }
-        j02 V = nm2.U().V();
-        g02 j = V.j(V.k() - 1);
-        if (j == null || !j.D0) {
-            we4Var.i(i, i2);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

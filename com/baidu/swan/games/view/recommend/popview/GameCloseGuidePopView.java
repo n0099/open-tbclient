@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i44;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.o44;
-import com.baidu.tieba.r44;
-import com.baidu.tieba.v44;
+import com.baidu.tieba.h64;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.n64;
+import com.baidu.tieba.q64;
+import com.baidu.tieba.u64;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
     public RecyclerView e;
     public e f;
     public RecommendItemModel g;
-    public i44 h;
+    public h64 h;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -166,15 +166,15 @@ public class GameCloseGuidePopView extends RelativeLayout {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
-            public final /* synthetic */ o44 b;
+            public final /* synthetic */ n64 b;
             public final /* synthetic */ d c;
 
-            public a(d dVar, List list, o44 o44Var) {
+            public a(d dVar, List list, n64 n64Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, list, o44Var};
+                    Object[] objArr = {dVar, list, n64Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -186,7 +186,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                 }
                 this.c = dVar;
                 this.a = list;
-                this.b = o44Var;
+                this.b = n64Var;
             }
 
             @Override // java.lang.Runnable
@@ -253,7 +253,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                         arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i).toString(), (Class<Object>) RecommendItemModel.class));
                     }
                 }
-                this.a.post(new a(this, arrayList, new o44(this.a.g, arrayList)));
+                this.a.post(new a(this, arrayList, new n64(this.a.g, arrayList)));
             } catch (JSONException e) {
                 if (GameCloseGuidePopView.i) {
                     e.printStackTrace();
@@ -284,7 +284,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                 return;
             }
         }
-        i = kh1.a;
+        i = ij1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -313,24 +313,24 @@ public class GameCloseGuidePopView extends RelativeLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = new i44();
-            r44.a(new d(this));
+            this.h = new h64();
+            q64.a(new d(this));
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0823, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09233c);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09236c);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c0d);
-            this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c4d);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083d, this);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092394);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0923c5);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c56);
+            this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9b);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));
-            v44.a(this.b);
-            v44.a(this.c);
+            u64.a(this.b);
+            u64.a(this.c);
             this.e.setLayoutManager(new GridLayoutManager(this.a, 3));
         }
     }

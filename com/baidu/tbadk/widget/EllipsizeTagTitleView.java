@@ -18,8 +18,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.un5;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements jx {
+public class EllipsizeTagTitleView extends View implements xx {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -83,13 +84,13 @@ public class EllipsizeTagTitleView extends View implements jx {
                 return;
             }
         }
-        B = ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = ri.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = ej.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -306,7 +307,7 @@ public class EllipsizeTagTitleView extends View implements jx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040696, R.attr.obfuscated_res_0x7f040697, R.attr.obfuscated_res_0x7f040698, R.attr.obfuscated_res_0x7f040699, R.attr.obfuscated_res_0x7f04069a, R.attr.obfuscated_res_0x7f04069b, R.attr.obfuscated_res_0x7f04069c, R.attr.obfuscated_res_0x7f04069d, R.attr.obfuscated_res_0x7f04069e, R.attr.obfuscated_res_0x7f04069f, R.attr.obfuscated_res_0x7f0406a0, R.attr.obfuscated_res_0x7f0406a1});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.EllipsizeTagTitleView);
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -337,7 +338,7 @@ public class EllipsizeTagTitleView extends View implements jx {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(ri.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
@@ -345,7 +346,7 @@ public class EllipsizeTagTitleView extends View implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.xx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {

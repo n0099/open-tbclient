@@ -7,14 +7,14 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bg9;
-import com.baidu.tieba.cg9;
-import com.baidu.tieba.sg9;
-import com.baidu.tieba.uf9;
-import com.baidu.tieba.ug9;
-import com.baidu.tieba.vl9;
-import com.baidu.tieba.wl9;
-import com.baidu.tieba.xl9;
+import com.baidu.tieba.aq9;
+import com.baidu.tieba.bq9;
+import com.baidu.tieba.fk9;
+import com.baidu.tieba.gk9;
+import com.baidu.tieba.wk9;
+import com.baidu.tieba.yj9;
+import com.baidu.tieba.yk9;
+import com.baidu.tieba.zp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,6 @@ import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.MD5Utils;
 import com.fun.ad.sdk.internal.api.utils.SignatureMd5Utils;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -54,7 +53,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int IGNORE_ERR_CODE;
-    public final List<uf9> a;
+    public final List<yj9> a;
     public final BasePidLoader<A>.FunAdCallbackWrapper b;
     public final FunAdType c;
     public int d;
@@ -101,7 +100,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdClicked() {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -110,7 +109,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdClose() {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -119,7 +118,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdLoad() {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -128,7 +127,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdLoadError(int i, String str) {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -137,7 +136,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdLoaded() {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -146,7 +145,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdShow() {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -155,7 +154,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onAdShowError(int i, String str) {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -164,7 +163,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         }
 
         public void onRewardedVideo(boolean z, int i) {
-            wl9 adCallback;
+            aq9 adCallback;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (adCallback = FunAdSdk.getAdCallback()) == null) {
                 return;
@@ -311,13 +310,13 @@ public abstract class BasePidLoader<A> implements PidLoader {
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void addListener(uf9 uf9Var) {
+    public void addListener(yj9 yj9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uf9Var) == null) || uf9Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yj9Var) == null) || yj9Var == null) {
             return;
         }
         synchronized (this.a) {
-            this.a.add(uf9Var);
+            this.a.add(yj9Var);
         }
     }
 
@@ -351,7 +350,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
                 jSONObject.put("pid", this.mPid.pid);
                 jSONObject.put("userId", FunAdSdk.getFunAdConfig().userId);
                 jSONObject.put("app_sign", SignatureMd5Utils.getSignatureMd5(context));
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, str2);
+                jSONObject.put("ts", str2);
                 jSONObject.put("tid", str);
                 jSONObject.put("pkg", context.getPackageName());
                 jSONObject.put("appV", HostAppInfo.getAppVersionCode());
@@ -574,7 +573,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
             int nextInt = new Random().nextInt();
-            return MD5Utils.getMD5String(bg9.c() + str + this.mPid.pid + nextInt);
+            return MD5Utils.getMD5String(fk9.c() + str + this.mPid.pid + nextInt);
         }
         return (String) invokeL.objValue;
     }
@@ -625,7 +624,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
                             it.remove();
                         }
                     }
-                    this.mAdSession.add(new PidLoaderSession<>(sidSessionMeta, new PidLoaderSession.AdDestroyListener() { // from class: com.baidu.tieba.wf9
+                    this.mAdSession.add(new PidLoaderSession<>(sidSessionMeta, new PidLoaderSession.AdDestroyListener() { // from class: com.baidu.tieba.ak9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -654,8 +653,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || interceptable.invokeLL(1048605, this, a, strArr) == null) {
             this.b.onAdClicked();
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.b(Flavors.CALL_BACK_AWARE.needRipper() ? this.mAdRipper.getRippedAd(a) : null, strArr);
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.b(Flavors.CALL_BACK_AWARE.needRipper() ? this.mAdRipper.getRippedAd(a) : null, strArr);
                 }
             }
         }
@@ -666,8 +665,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || interceptable.invokeL(1048606, this, a) == null) {
             this.b.onAdClose();
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.a();
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.a();
                 }
             }
         }
@@ -678,8 +677,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || interceptable.invokeLIL(1048607, this, a, i, str) == null) {
             this.b.onAdShowError(i, str);
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.b(i, str);
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.b(i, str);
                 }
             }
         }
@@ -754,39 +753,39 @@ public abstract class BasePidLoader<A> implements PidLoader {
             Ssp.Pid pid = this.mPid;
             String str = pid.pid;
             double d = pid.basePrice;
-            cg9 cg9Var = xl9.a;
+            gk9 gk9Var = bq9.a;
             if (TextUtils.isEmpty(str)) {
                 LogPrinter.e("update ad cpm show price error : pid null", new Object[0]);
             } else {
-                cg9 cg9Var2 = xl9.a;
-                synchronized (cg9Var2) {
-                    Double d2 = cg9Var2.a.get(str);
+                gk9 gk9Var2 = bq9.a;
+                synchronized (gk9Var2) {
+                    Double d2 = gk9Var2.a.get(str);
                     double doubleValue = d2 != null ? d2.doubleValue() : -2.0d;
                     if (doubleValue == -2.0d) {
                         double d3 = d / 1000.0d;
-                        int i = ug9.a.getInt(str, 0);
+                        int i = yk9.a.getInt(str, 0);
                         LogPrinter.d("show count for no cpm ad:" + i, new Object[0]);
-                        SharedPreferences.Editor editor = ug9.b;
+                        SharedPreferences.Editor editor = yk9.b;
                         editor.putInt(str, i + 1);
                         if (d3 == 0.0d) {
                             editor.apply();
                         } else {
-                            editor.putLong(str + "_", Double.doubleToRawLongBits(ug9.b(str) + d3));
-                            double a2 = ug9.a();
+                            editor.putLong(str + "_", Double.doubleToRawLongBits(yk9.b(str) + d3));
+                            double a2 = yk9.a();
                             LogPrinter.d("update PriceByBasePrice", new Object[0]);
                             editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(a2 + d3));
                             editor.apply();
                         }
                     } else {
                         LogPrinter.d("update totalPrice", new Object[0]);
-                        sg9.d(sg9.m() + doubleValue);
+                        wk9.d(wk9.m() + doubleValue);
                     }
                 }
             }
             this.b.onAdShow();
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.c(Flavors.CALL_BACK_AWARE.needRipper() ? this.mAdRipper.getRippedAd(a) : null, strArr);
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.c(Flavors.CALL_BACK_AWARE.needRipper() ? this.mAdRipper.getRippedAd(a) : null, strArr);
                 }
             }
         }
@@ -803,8 +802,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
             }
             this.b.onAdLoadError(i, str);
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.a(i, str);
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.a(i, str);
                 }
             }
         }
@@ -822,8 +821,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || interceptable.invokeL(1048613, this, funAdSlot) == null) {
             this.b.onAdLoad();
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.c();
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.c();
                 }
             }
         }
@@ -834,8 +833,8 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || interceptable.invokeLL(1048614, this, a, pidLoaderSession) == null) {
             this.b.onAdLoaded();
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.b();
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.b();
                 }
             }
         }
@@ -846,21 +845,21 @@ public abstract class BasePidLoader<A> implements PidLoader {
         if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{a, Boolean.valueOf(z), Integer.valueOf(i), strArr}) == null) {
             this.b.onRewardedVideo(z, i);
             synchronized (this.a) {
-                for (uf9 uf9Var : this.a) {
-                    uf9Var.a(z, i, strArr);
+                for (yj9 yj9Var : this.a) {
+                    yj9Var.a(z, i, strArr);
                 }
             }
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void removeListener(uf9 uf9Var) {
+    public void removeListener(yj9 yj9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, uf9Var) == null) || uf9Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, yj9Var) == null) || yj9Var == null) {
             return;
         }
         synchronized (this.a) {
-            this.a.remove(uf9Var);
+            this.a.remove(yj9Var);
         }
     }
 
@@ -950,7 +949,7 @@ public abstract class BasePidLoader<A> implements PidLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048622, this, activity, viewGroup, str, a)) == null) {
             if (showInternal(activity, viewGroup, str, a)) {
-                return new vl9();
+                return new zp9();
             }
             return null;
         }

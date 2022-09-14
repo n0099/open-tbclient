@@ -16,25 +16,25 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l25;
+import com.baidu.tieba.do7;
+import com.baidu.tieba.eo7;
+import com.baidu.tieba.g55;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import com.baidu.tieba.om7;
-import com.baidu.tieba.tm7;
-import com.baidu.tieba.um7;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.yn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class TailToolController extends NoPressedLinearLayout implements x25 {
+public class TailToolController extends NoPressedLinearLayout implements g55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public um7 b;
-    public tm7 c;
-    public om7 d;
+    public eo7 b;
+    public do7 c;
+    public yn7 d;
     public Context e;
     public EditorTools f;
     public CustomMessageListener g;
@@ -177,24 +177,24 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         g(context);
     }
 
-    @Override // com.baidu.tieba.m25
-    public void A(l25 l25Var) {
+    @Override // com.baidu.tieba.v45
+    public void B(u45 u45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, l25Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, u45Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.x25
-    public void J(l25 l25Var) {
+    @Override // com.baidu.tieba.g55
+    public void K(u45 u45Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l25Var) == null) || (editorTools = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u45Var) == null) || (editorTools = this.f) == null) {
             return;
         }
-        editorTools.A(l25Var);
+        editorTools.A(u45Var);
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -207,15 +207,15 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.e = context;
-            this.b = new um7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0844, (ViewGroup) this, true));
-            this.c = new tm7(context);
-            om7 om7Var = new om7(context, this.c, this.i);
-            this.d = om7Var;
-            this.b.a(om7Var);
+            this.b = new eo7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d085e, (ViewGroup) this, true));
+            this.c = new do7(context);
+            yn7 yn7Var = new yn7(context, this.c, this.i);
+            this.d = yn7Var;
+            this.b.a(yn7Var);
         }
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         }
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -245,7 +245,7 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         }
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -257,9 +257,9 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                J(new l25(2, 16, " "));
+                K(new u45(2, 16, " "));
             } else {
-                J(new l25(2, 16, null));
+                K(new u45(2, 16, null));
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
@@ -288,7 +288,7 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         }
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -306,7 +306,7 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         }
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
@@ -314,7 +314,7 @@ public class TailToolController extends NoPressedLinearLayout implements x25 {
         }
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.g55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {

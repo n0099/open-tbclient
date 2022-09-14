@@ -1,18 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.NestedEvent;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class nm0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nm0 {
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
+    /* loaded from: classes5.dex */
+    public interface a {
     }
+
+    @Autowired
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Singleton
+        @Inject(force = false)
+        public static nm0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? dv0.a() : (nm0) invokeV.objValue;
+        }
+    }
+
+    void a(@Nullable String str, @Nullable String str2, @Nullable a aVar);
 }

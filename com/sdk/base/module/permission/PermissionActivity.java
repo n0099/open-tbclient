@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,12 +33,9 @@ public class PermissionActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            if (getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS") != null) {
-                LogUtil.logActivity(this, "onCreate");
-                return;
+            if (getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS") == null) {
+                finish();
             }
-            finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

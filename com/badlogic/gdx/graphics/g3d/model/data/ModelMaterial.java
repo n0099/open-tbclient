@@ -1,8 +1,8 @@
 package com.badlogic.gdx.graphics.g3d.model.data;
 
-import com.baidu.tieba.a7;
-import com.baidu.tieba.c5;
-import com.baidu.tieba.k3;
+import com.baidu.tieba.b7;
+import com.baidu.tieba.d5;
+import com.baidu.tieba.l3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +15,14 @@ public class ModelMaterial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public k3 b;
-    public k3 c;
-    public k3 d;
-    public k3 e;
-    public k3 f;
+    public l3 b;
+    public l3 c;
+    public l3 d;
+    public l3 e;
+    public l3 f;
     public float g;
     public float h;
-    public a7<c5> i;
+    public b7<d5> i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */

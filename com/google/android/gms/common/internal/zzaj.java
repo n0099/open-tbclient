@@ -2,8 +2,6 @@ package com.google.android.gms.common.internal;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tieba.jn9;
-import com.baidu.tieba.on9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@SafeParcelable.Class(creator = "ValidateAccountRequestCreator")
 @Deprecated
 /* loaded from: classes7.dex */
 public final class zzaj extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<zzaj> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.VersionField(id = 1)
     public final int zza;
 
     static {
@@ -33,10 +35,11 @@ public final class zzaj extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new on9();
+        CREATOR = new zzak();
     }
 
-    public zzaj(int i) {
+    @SafeParcelable.Constructor
+    public zzaj(@SafeParcelable.Param(id = 1) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,9 +61,9 @@ public final class zzaj extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = jn9.a(parcel);
-            jn9.g(parcel, 1, this.zza);
-            jn9.b(parcel, a);
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeInt(parcel, 1, this.zza);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 }

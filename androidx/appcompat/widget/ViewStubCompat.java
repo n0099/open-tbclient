@@ -12,7 +12,7 @@ import android.view.ViewParent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -206,10 +206,10 @@ public final class ViewStubCompat extends View {
             }
         }
         this.mLayoutResource = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ViewStubCompat, i, 0);
-        this.mInflatedId = obtainStyledAttributes.getResourceId(R$styleable.ViewStubCompat_android_inflatedId, -1);
-        this.mLayoutResource = obtainStyledAttributes.getResourceId(R$styleable.ViewStubCompat_android_layout, 0);
-        setId(obtainStyledAttributes.getResourceId(R$styleable.ViewStubCompat_android_id, -1));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ViewStubCompat, i, 0);
+        this.mInflatedId = obtainStyledAttributes.getResourceId(2, -1);
+        this.mLayoutResource = obtainStyledAttributes.getResourceId(1, 0);
+        setId(obtainStyledAttributes.getResourceId(0, -1));
         obtainStyledAttributes.recycle();
         setVisibility(8);
         setWillNotDraw(true);

@@ -1,172 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class ul3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Method b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public String f;
 
-    public ul3(Class<?> cls) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948214797, "Lcom/baidu/tieba/ul3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948214797, "Lcom/baidu/tieba/ul3;");
+                return;
+            }
+        }
+        a = ij1.a;
+    }
+
+    public ul3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        if (cls == null) {
-            return;
-        }
-        try {
-            Object m = d54.m(cls);
-            this.a = m;
-            if (m != null) {
-                Method i3 = d54.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
-                this.b = i3;
-                if (i3 != null) {
-                    i3.setAccessible(true);
-                }
-                Method i4 = d54.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
-                this.c = i4;
-                if (i4 != null) {
-                    i4.setAccessible(true);
-                }
-                Method i5 = d54.i(cls, "isHypnusOK", new Class[0]);
-                this.e = i5;
-                if (i5 != null) {
-                    i5.setAccessible(true);
-                }
-                f();
-            }
-        } catch (Throwable unused) {
         }
     }
 
-    public static ul3 a(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = d54.b("com.oppo.hypnus.HypnusManager", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new ul3(cls);
-        }
-        return (ul3) invokeL.objValue;
-    }
-
-    public final String b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f;
-            if (str != null) {
-                return str;
-            }
-            Method method = this.d;
-            if (method != null) {
-                try {
-                    Object invoke = method.invoke(null, new Object[0]);
-                    this.f = invoke == null ? "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4" : (String) invoke;
-                } catch (Throwable unused) {
-                    this.f = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
-                }
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.c == null || b() == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public void d(int i, int i2) {
-        Object obj;
-        Method method;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (obj = this.a) == null || (method = this.b) == null) {
-            return;
-        }
-        try {
-            method.invoke(obj, Integer.valueOf(i), Integer.valueOf(i2));
-        } catch (Throwable unused) {
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && this.a != null && this.c != null && b() != null) {
-            try {
-                this.c.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), this.f);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                Class<?> b = d54.b("com.oppo.hypnus.Hypnus", true);
-                if (b != null) {
-                    Method i = d54.i(b, "getLocalSignature", new Class[0]);
-                    this.d = i;
-                    if (i != null) {
-                        i.setAccessible(true);
-                    }
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object obj = this.a;
-            if (obj == null) {
-                return false;
-            }
-            Method method = this.e;
-            if (method == null) {
-                return true;
-            }
-            try {
-                Object invoke = method.invoke(obj, new Object[0]);
-                if (invoke != null) {
-                    return ((Boolean) invoke).booleanValue();
-                }
-            } catch (Throwable unused) {
+            fm2.g0().getSwitch("game_bdtls_switcher", false);
+            if (a) {
+                yz1.i("BDTLS", "isBdtlsSwitch=false");
             }
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage")) : invokeL.booleanValue;
     }
 }

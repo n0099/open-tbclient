@@ -1,8 +1,8 @@
 package com.baidu.tieba.danmu.ecs.system;
 
-import com.baidu.tieba.o0;
-import com.baidu.tieba.s46;
-import com.baidu.tieba.y0;
+import com.baidu.tieba.i66;
+import com.baidu.tieba.p0;
+import com.baidu.tieba.z0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a&\u0012\f\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002 \u0003*\u0012\u0012\f\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002\u0018\u00010\u00010\u0001H\n"}, d2 = {"<anonymous>", "Lcom/badlogic/ashley/utils/ImmutableArray;", "Lcom/badlogic/ashley/core/Entity;", "kotlin.jvm.PlatformType"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class RenderSystem$entities$2 extends Lambda implements Function0<y0<o0>> {
+public final class RenderSystem$entities$2 extends Lambda implements Function0<z0<p0>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ RenderSystem this$0;
@@ -42,9 +42,9 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<y
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final y0<o0> invoke() {
+    public final z0<p0> invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(s46.a.c()) : (y0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(i66.a.c()) : (z0) invokeV.objValue;
     }
 }

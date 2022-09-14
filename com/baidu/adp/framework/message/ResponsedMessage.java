@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tieba.fa;
-import com.baidu.tieba.ib;
+import com.baidu.tieba.ta;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public abstract class ResponsedMessage<T> {
     public Message<?> mOrginalMessage;
     public long mProcessTime;
     public long mStartTime;
-    public ib performanceData;
+    public wb performanceData;
 
     public ResponsedMessage(int i) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public abstract class ResponsedMessage<T> {
         this.mProcessTime = 0L;
         this.mDownSize = 0;
         this.mCostTime = 0L;
-        this.performanceData = new ib();
+        this.performanceData = new wb();
         this.mCmd = i;
     }
 
@@ -131,7 +131,7 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == fa.c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == ta.c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

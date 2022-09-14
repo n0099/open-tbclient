@@ -1,38 +1,46 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.Spanned;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes5.dex */
 public class ps4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2;
-        int i3;
+    public ps4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, fontMetricsInt, i) == null) || (i3 = (i2 = fontMetricsInt.descent) - fontMetricsInt.ascent) <= 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        int round = Math.round(i2 * ((i * 1.0f) / i3));
-        fontMetricsInt.descent = round;
-        fontMetricsInt.ascent = round - i;
     }
 
-    public static boolean b(CharSequence charSequence) {
-        InterceptResult invokeL;
+    public void a(NewsInfo newsInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (charSequence instanceof Spanned) {
-                Spanned spanned = (Spanned) charSequence;
-                return ((EMTextView.a[]) spanned.getSpans(0, spanned.length(), EMTextView.a.class)).length > 0;
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, newsInfo) == null) || newsInfo == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a = newsInfo.news_link;
+        this.b = newsInfo.summary;
+        newsInfo.position.intValue();
+        this.c = newsInfo.news_type.intValue();
+        this.d = newsInfo.news_icon;
+        this.e = newsInfo.subtitle;
+        this.f = newsInfo.button_text;
     }
 }

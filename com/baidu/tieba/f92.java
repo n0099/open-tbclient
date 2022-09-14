@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface f92 {
-    String a();
+public class f92 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    V8EngineConfiguration.CodeCacheSetting b();
+    public abstract void a();
 
-    void c(i82 i82Var);
+    public abstract void b();
 
-    void d(i82 i82Var);
-
-    String getInitBasePath();
+    public abstract void c();
 }

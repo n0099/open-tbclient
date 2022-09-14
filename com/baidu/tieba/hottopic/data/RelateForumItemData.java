@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class RelateForumItemData implements Serializable, pn {
+public class RelateForumItemData implements Serializable, Cdo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FORUM_CARD;
     public static final long serialVersionUID = 1;
@@ -66,7 +66,7 @@ public class RelateForumItemData implements Serializable, pn {
         this.isLiked = false;
     }
 
-    @Override // com.baidu.tieba.pn
+    @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

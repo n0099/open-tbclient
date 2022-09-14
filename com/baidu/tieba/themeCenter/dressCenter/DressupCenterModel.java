@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.jr8;
-import com.baidu.tieba.mr8;
-import com.baidu.tieba.nr8;
-import com.baidu.tieba.pk8;
+import com.baidu.tieba.ct8;
+import com.baidu.tieba.dm8;
+import com.baidu.tieba.dt8;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,15 +22,15 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mr8> a;
-    public nr8 b;
-    public List<jr8> c;
+    public List<ct8> a;
+    public dt8 b;
+    public List<zs8> c;
     public b d;
     public boolean e;
-    public bb f;
+    public pb f;
 
     /* loaded from: classes6.dex */
-    public class a extends bb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DressupCenterModel a;
@@ -57,7 +57,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             this.a = dressupCenterModel;
         }
 
-        @Override // com.baidu.tieba.bb
+        @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -92,7 +92,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, List<jr8> list, nr8 nr8Var, List<mr8> list2);
+        void a(int i, String str, List<zs8> list, dt8 dt8Var, List<ct8> list2);
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
@@ -160,8 +160,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pk8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            pk8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            dm8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            dm8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

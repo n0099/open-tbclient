@@ -1,97 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Build;
+import android.os.Process;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
 public class x02 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-
-        public a(String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = file;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (x02.class) {
-                    ch4.S(this.a, this.b, true);
-                }
-                x02.c();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Comparator<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Long l, Long l2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) ? l2.compareTo(l) : invokeLL.intValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -106,196 +30,135 @@ public class x02 {
                 return;
             }
         }
-        a = kh1.a;
+        a = ij1.a;
     }
 
-    public x02() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static File b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f + File.separator + j);
-            if (file.exists()) {
-                ch4.L(file);
-            }
-            ch4.h(file);
-            return file;
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static void c() {
-        a13 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (b0 = a13.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
-            return;
-        }
-        File file = new File(wj2.g().getPath() + File.separator + "launch_tips");
-        if (file.exists() && file.isDirectory()) {
-            ch4.j(file);
-        }
-    }
-
-    public static File d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            File[] g = g();
-            if (g != null && g.length != 0) {
-                File file = null;
-                for (File file2 : g) {
-                    try {
-                        long parseLong = Long.parseLong(file2.getName());
-                        if (parseLong == j) {
-                            file = file2;
-                        } else if (j - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
-                            ch4.j(file2);
-                        }
-                    } catch (NumberFormatException unused) {
-                        ch4.j(file2);
-                    }
-                }
-                return file == null ? b(j) : file;
-            }
-            return b(j);
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static String e() {
+    public static synchronized String a() {
         InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File[] g = g();
-            if (g == null) {
-                return null;
-            }
-            TreeMap treeMap = new TreeMap(new b());
-            long i = i(System.currentTimeMillis());
-            for (File file : g) {
-                try {
-                    long parseLong = Long.parseLong(file.getName());
-                    if (i - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
-                        ch4.j(file);
-                    } else {
-                        List<String> F = ch4.F(file);
-                        if (F != null && F.size() > 0) {
-                            treeMap.put(Long.valueOf(parseLong), F);
-                        }
-                    }
-                } catch (NumberFormatException unused) {
-                    ch4.j(file);
-                }
-            }
-            if (treeMap.size() == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder("\n（二）历史日志");
-            for (Map.Entry entry : treeMap.entrySet()) {
-                sb.append("\n----------【");
-                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
-                sb.append("】----------");
-                for (String str : (List) entry.getValue()) {
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append("\n");
-                        sb.append(str);
-                    }
-                }
-            }
-            sb.append("\n");
-            return sb.toString();
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (String) invokeV.objValue;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            a13 b0 = a13.b0();
-            if (b0 == null) {
-                return null;
+        synchronized (x02.class) {
+            if (a) {
+                Log.d("SwanCpuProperty", "start cpu monitor thread");
             }
-            String appId = b0.getAppId();
-            if (TextUtils.isEmpty(appId)) {
-                return null;
-            }
-            return wj2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f);
-            if (file.exists() && file.isDirectory()) {
-                return file.listFiles();
-            }
-            return null;
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static void h(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
-            long i = i(j);
-            if (i == -1) {
-                if (a) {
-                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
-                    return;
-                }
-                return;
-            }
-            File d = d(i);
-            if (d == null || !d.exists()) {
-                return;
-            }
-            ud3.k(new a(str, d), "saveLaunchTipsLog");
-        }
-    }
-
-    public static long i(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             try {
-                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
-                if (parse == null) {
-                    return -1L;
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
+                try {
+                    try {
+                        String c = c(bufferedReader);
+                        if (a) {
+                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
+                        }
+                        cj4.d(bufferedReader);
+                        return c;
+                    } catch (IOException e2) {
+                        e = e2;
+                        if (a) {
+                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
+                        }
+                        cj4.d(bufferedReader);
+                        return "";
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    cj4.d(bufferedReader);
+                    throw th;
                 }
-                return parse.getTime();
-            } catch (ParseException e) {
-                if (kh1.a) {
-                    e.printStackTrace();
-                }
-                return -1L;
+            } catch (IOException e3) {
+                bufferedReader = null;
+                e = e3;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
+                cj4.d(bufferedReader);
+                throw th;
             }
         }
-        return invokeJ.longValue;
+    }
+
+    public static float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a2 = a();
+            try {
+                if (a2.contains("%")) {
+                    return Float.parseFloat(a2.replace("%", "").trim());
+                }
+                return Float.parseFloat(a2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
+                    return 0.0f;
+                }
+                return 0.0f;
+            }
+        }
+        return invokeV.floatValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+        r11 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+        if (com.baidu.tieba.x02.a != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        char read;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
+            char[] cArr = new char[4];
+            int i = 0;
+            if (Build.VERSION.SDK_INT < 26) {
+                int i2 = 0;
+                do {
+                    read = (char) bufferedReader.read();
+                    if (read == ' ' || i2 == 4) {
+                        i2 = 0;
+                    } else {
+                        cArr[i2] = read;
+                        i2++;
+                    }
+                    if (read == '%') {
+                        break;
+                    }
+                } while (read != 65535);
+                return String.valueOf(cArr, 0, i2);
+            }
+            int i3 = 0;
+            int i4 = 0;
+            while (true) {
+                char read2 = (char) bufferedReader.read();
+                if (z && read2 != ' ') {
+                    i3++;
+                }
+                if (i3 == 9) {
+                    if (read2 != '.' && read2 != ' ') {
+                        cArr[i4] = read2;
+                        i4++;
+                    }
+                    i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                    return i + "%";
+                }
+                z = (i3 <= 9 && read2 != 65535 && i4 < 4) ? read2 == ' ' : true;
+                i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                return i + "%";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

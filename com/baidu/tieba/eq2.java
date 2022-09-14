@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,10 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class eq2 extends cq2 {
+public class eq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CallbackHandler a;
+    public JSONObject b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,46 +36,69 @@ public class eq2 extends cq2 {
                 return;
             }
         }
-        boolean z = kh1.a;
+        c = ij1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq2(String str) {
-        super(str);
+    public eq2(CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {callbackHandler, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = callbackHandler;
+        this.b = jSONObject;
     }
 
-    @Override // com.baidu.tieba.cq2
-    public boolean a(sp2 sp2Var, up2 up2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeCommon;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{sp2Var, up2Var, context, unitedSchemeEntity, callbackHandler, a13Var})) == null) {
-            ay1.i("video", "seek, video id:" + up2Var.j + " slave id: " + up2Var.c);
-            d(sp2Var, up2Var.r, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            b(str, null);
         }
-        return invokeCommon.booleanValue;
     }
 
-    public final void d(sp2 sp2Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sp2Var, i, unitedSchemeEntity, callbackHandler) == null) {
-            sp2Var.t(i * 1000);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) || this.b == null) {
+            return;
+        }
+        JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
+        this.a.handleSchemeDispatchCallback(this.b.optString(str), wrapCallbackParamsWithEncode.toString());
+        if (c) {
+            Log.d("AudioStatusCallback", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
+        }
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UnitedSchemeUtility.isInvokedFromSwanGame(this.a) : invokeV.booleanValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (c) {
+                    Log.d("AudioStatusCallback", "Audio Callback is Null");
+                    return;
+                }
+                return;
+            }
+            try {
+                this.b = new JSONObject(str);
+            } catch (JSONException e) {
+                ea3.b("audio", UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, "update json exception", -1, "");
+                bq2.c("AudioStatusCallback", "#setCallbacks error", e);
+            }
         }
     }
 }

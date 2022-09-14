@@ -1,105 +1,62 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kl2 {
+public class kl2 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947916856, "Lcom/baidu/tieba/kl2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947916856, "Lcom/baidu/tieba/kl2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kl2(v33 v33Var) {
+        super(v33Var, "/swanAPI/closeInput");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static String a(yz1 yz1Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, yz1Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (yz1Var != null) {
-                try {
-                    jSONObject.put("containerId", yz1Var.getContainerId());
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
-                } catch (JSONException e) {
-                    if (!a) {
-                        e.printStackTrace();
-                    } else {
-                        throw new RuntimeException(e);
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            SwanEditText c = ll2.d().c();
+            if (c == null) {
+                yz1.c("closeInput", "input组件不存在");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
+                return false;
+            } else if (lo2.U().V() == null) {
+                yz1.c("closeInput", "fragmentManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                c.clearFocus();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            String b = b(u72.U().T());
-            ay1.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + nc2.r(b));
-            jSONObject.put("sdkExtension", b);
-            jSONObject.put("gameSdkExtension", b(ik2.i().s()));
-            jSONObject.put("isDebugSdk", a);
-            if ((yz1Var instanceof NgWebView) && ((NgWebView) yz1Var).isSwanWebMode()) {
-                jSONObject.put("ctsEnabled", o93.a().getInt("aiapps_web_mode_cts_use_key", 0));
-            }
-            String string = o93.a().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && zw2.s()) {
-                jSONObject.put("ctsJsAddress", new JSONObject(string));
-            }
-            String i = hk2.o().i();
-            if (!TextUtils.isEmpty(i)) {
-                jSONObject.put("hostName", i);
-            }
-            jSONObject.put(Constants.PARAM_PLATFORM, "android");
-            JSONObject a2 = ga3.a();
-            a2.put("swanswitch_common_sys_info_binding", true);
-            a2.put("swanswitch_ab_sync_auth", true);
-            jSONObject.put("abTestSwitch", a2);
-            jSONObject.put("userDataPath", xc2.USER_DATA_PATH);
-            jSONObject.put("preloadId", u72.U().a0());
-            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
-            jSONObject.put("ttsExtractJSUrl", hd4.b().a());
-            jSONObject.put("coreJSPath", u72.U().c0());
-            if (kq1.d()) {
-                jSONObject.put("pendingList", new JSONArray((Collection) vs1.d()));
-            }
-            jSONObject.put("swanNativeVersion", lh1.a());
-            String jSONObject2 = jSONObject.toString();
-            return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(ExtensionCore extensionCore) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) ? (extensionCore == null || TextUtils.isEmpty(extensionCore.extensionCorePath)) ? "" : extensionCore.extensionCorePath : (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

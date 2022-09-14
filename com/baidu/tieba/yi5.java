@@ -1,107 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.view.ViewGroup;
-import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.app.Activity;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
 /* loaded from: classes6.dex */
-public class yi5 {
+public class yi5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context A;
-    public String B;
-    public String C;
-    public String D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public float Q;
-    public boolean R;
-    public boolean S;
-    public boolean T;
-    public WheelView.DividerType U;
-    public ej5 a;
-    public dj5 b;
-    public zi5 c;
-    public boolean[] d;
-    public Calendar e;
-    public Calendar f;
-    public Calendar g;
-    public int h;
-    public int i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public ViewGroup y;
-    public int z;
+    public final Activity a;
+    public jn8 b;
 
-    public yi5(int i) {
+    public yi5(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new boolean[]{true, true, true, false, false, false};
-        this.j = false;
-        this.k = false;
-        this.z = 17;
-        this.E = -16417281;
-        this.F = -16417281;
-        this.G = -16777216;
-        this.H = -1;
-        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
-        this.J = 17;
-        this.K = 18;
-        this.L = 18;
-        this.M = -5723992;
-        this.N = -14013910;
-        this.O = -2763307;
-        this.P = -1;
-        this.Q = 1.6f;
-        this.S = true;
-        this.T = false;
-        Typeface typeface = Typeface.MONOSPACE;
-        this.U = WheelView.DividerType.FILL;
-        if (i == 1) {
-            this.x = R.layout.obfuscated_res_0x7f0d071f;
-        } else {
-            this.x = R.layout.obfuscated_res_0x7f0d0720;
+        this.a = activity;
+    }
+
+    public final void a(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) || webView == null || dj.isEmpty(str) || dj.isEmpty(str2)) {
+            return;
         }
+        webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+    }
+
+    public void b(jn8 jn8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jn8Var) == null) {
+            this.b = jn8Var;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            if (ih.e(this.a)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            if (ih.e(this.a)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            if (ih.e(this.a)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        jn8 jn8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!z05.a(str) && str2.startsWith("tiebaapp")) {
+                mn8 mn8Var = new mn8();
+                mn8Var.v(qn8.b(str2));
+                mn8Var.x(301);
+                a(webView, mn8Var.c(), mn8Var.d());
+            }
+            if (z05.a(str) && (jn8Var = this.b) != null && jn8Var.onJsPrompt(str2, jsPromptResult)) {
+                return true;
+            }
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

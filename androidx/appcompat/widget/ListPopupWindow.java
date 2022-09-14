@@ -25,13 +25,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$styleable;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.PopupWindowCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -332,7 +331,7 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListPopupWindow(@NonNull Context context) {
-        this(context, null, R$attr.listPopupWindowStyle);
+        this(context, null, R.attr.obfuscated_res_0x7f04043d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1254,7 +1253,7 @@ public class ListPopupWindow implements ShowableListMenu {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ListPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.listPopupWindowStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04043d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1324,9 +1323,9 @@ public class ListPopupWindow implements ShowableListMenu {
         this.mTempRect = new Rect();
         this.mContext = context;
         this.mHandler = new Handler(context.getMainLooper());
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ListPopupWindow, i, i2);
-        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.ListPopupWindow_android_dropDownHorizontalOffset, 0);
-        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R$styleable.ListPopupWindow_android_dropDownVerticalOffset, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.appcompat.R.styleable.ListPopupWindow, i, i2);
+        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(0, 0);
+        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         this.mDropDownVerticalOffset = dimensionPixelOffset;
         if (dimensionPixelOffset != 0) {
             this.mDropDownVerticalOffsetSet = true;

@@ -12,7 +12,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -291,7 +290,6 @@ public class AssistActivity extends Activity {
                 SLog.e("openSDK_LOG.AssistActivity", "--onCreate--activityIntent is null");
                 finish();
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

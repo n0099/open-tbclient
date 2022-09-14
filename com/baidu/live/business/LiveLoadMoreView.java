@@ -13,7 +13,7 @@ import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb0;
+import com.baidu.tieba.hc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,38 +88,38 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setMinimumHeight(1);
             boolean equals = "baidu".equals(LiveFeedPageSdk.getInstance().getHost());
-            int i = R.layout.obfuscated_res_0x7f0d0529;
+            int i = R.layout.obfuscated_res_0x7f0d053e;
             if (!equals) {
                 if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d052a;
+                    i = R.layout.obfuscated_res_0x7f0d053f;
                 } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d052b;
+                    i = R.layout.obfuscated_res_0x7f0d0540;
                 } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d052c;
+                    i = R.layout.obfuscated_res_0x7f0d0541;
                 }
             }
             LayoutInflater.from(getContext()).inflate(i, this);
-            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c1c);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0913eb);
+            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c6a);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09140f);
             this.i = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ec);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091410);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            String g = bb0.f().g(str);
+            String g = hc0.f().g(str);
             if (TextUtils.isEmpty(g)) {
-                int h = bb0.f().h(str);
+                int h = hc0.f().h(str);
                 if (h != 0) {
                     this.i.setAnimation(h);
                 }
             } else {
                 this.i.setAnimation(g);
             }
-            this.j.setTextColor(bb0.f().a(getContext(), str, "color_1F1F1F"));
+            this.j.setTextColor(hc0.f().a(getContext(), str, "color_1F1F1F"));
         }
     }
 

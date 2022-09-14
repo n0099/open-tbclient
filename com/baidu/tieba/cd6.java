@@ -1,48 +1,39 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.ScaleAnimation;
+import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.forumMember.member.FrsMemberHeaderViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.flow.CoverFlowView;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.gd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
-public class cd6 extends af6<dd6, FrsMemberHeaderViewHolder> {
+public class cd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LikeModel l;
-    public int m;
-    public int n;
-    public View.OnClickListener o;
+    public Pattern a;
+    public TbPageContext<?> b;
+    public View c;
+    public CoverFlowView<zu4> d;
+    public gd6 e;
+    public cv4<zu4> f;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class a extends av4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cd6 a;
@@ -65,36 +56,49 @@ public class cd6 extends af6<dd6, FrsMemberHeaderViewHolder> {
             this.a = cd6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.av4, com.baidu.tieba.yu4
+        public bv4 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag();
-                if (tag instanceof Integer) {
-                    pn item = this.a.getItem(((Integer) tag).intValue());
-                    if (item instanceof dd6) {
-                        dd6 dd6Var = (dd6) item;
-                        if (view2.getId() == R.id.obfuscated_res_0x7f0912e0) {
-                            if (ViewHelper.checkUpIsLogin(this.a.c.getPageActivity())) {
-                                if (!pi.z()) {
-                                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c40);
-                                    return;
-                                }
-                                String a = dd6Var.a();
-                                this.a.l.Q(dd6Var.b(), a);
-                            }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f092456) {
-                            String a2 = dd6Var.a();
-                            this.a.c.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.mContext, dd6Var.b(), a2)));
-                        }
-                    }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                bv4 a = super.a();
+                if (a != null) {
+                    a.d(81);
+                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
                 }
+                return a;
             }
+            return (bv4) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.av4, com.baidu.tieba.yu4
+        public ev4 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ev4 ev4Var = new ev4();
+                ev4Var.a((int) (ej.k(this.a.b.getPageActivity()) / 2.5714285f));
+                return ev4Var;
+            }
+            return (ev4) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.av4, com.baidu.tieba.yu4
+        public TbImageView d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+                TbImageView tbImageView = new TbImageView(context);
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                tbImageView.setGifIconSupport(false);
+                return tbImageView;
+            }
+            return (TbImageView) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends c9 {
+    public class b implements cv4<zu4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cd6 a;
@@ -117,172 +121,96 @@ public class cd6 extends af6<dd6, FrsMemberHeaderViewHolder> {
             this.a = cd6Var;
         }
 
-        @Override // com.baidu.tieba.c9
-        public void c(Object obj) {
+        @Override // com.baidu.tieba.cv4
+        public void a(int i, zu4 zu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof hk8) || this.a.l.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
-                        AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
-                        return;
-                    } else {
-                        this.a.c.showToast(this.a.l.getErrorString());
-                        return;
-                    }
-                }
-                hk8 hk8Var = (hk8) obj;
-                hk8Var.x(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, hk8Var));
+            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, zu4Var) != null) || zu4Var == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.cv4
+        public void b(int i, String str) {
+            gd6.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (aVar = (gd6.a) this.a.d.n(i)) == null) {
+                return;
+            }
+            Matcher matcher = this.a.a.matcher(aVar.getPicLinkUrl());
+            if (matcher.find()) {
+                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cd6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public cd6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = 0;
-        this.n = 0;
-        this.o = new a(this);
+        this.a = Pattern.compile(UrlSchemaHelper.PB_URL);
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.f = new b(this);
+        this.b = tbPageContext;
+        d();
     }
 
-    public final int[] M(int i) {
-        InterceptResult invokeI;
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i <= 3 ? new int[]{-8331843, -10499102} : i <= 9 ? new int[]{-10499102, -154262} : i <= 15 ? new int[]{-154262, -148180} : new int[]{-148180, -100818} : (int[]) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    public final void N() {
+    public final void d() {
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.b) == null) {
             return;
         }
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.l = likeModel;
-        likeModel.setLoadDataCallBack(new b(this));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: O */
-    public FrsMemberHeaderViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (this.l == null) {
-                N();
-            }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02b6, (ViewGroup) null), this.o);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) null);
+        this.c = inflate;
+        if (inflate == null) {
+            return;
         }
-        return (FrsMemberHeaderViewHolder) invokeL.objValue;
+        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091f3e);
+        a aVar = new a(this);
+        this.d.setDisableParentEvent(false);
+        this.d.setCoverFlowFactory(aVar);
+        this.d.setCallback(this.f);
     }
 
-    public View P(int i, View view2, ViewGroup viewGroup, dd6 dd6Var, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
-        InterceptResult invokeCommon;
+    public void e(gd6 gd6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dd6Var, frsMemberHeaderViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, dd6Var, frsMemberHeaderViewHolder);
-            if (dd6Var != null && dd6Var.c() != null) {
-                int parseColor = Color.parseColor("#56cfa1");
-                int color = SkinManager.getColor(R.color.CAM_X0109);
-                hk8 c = dd6Var.c();
-                if (TbadkCoreApplication.isLogin()) {
-                    if (c.m() == 1) {
-                        frsMemberHeaderViewHolder.a.setVisibility(8);
-                        frsMemberHeaderViewHolder.b.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b5d);
-                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.l()));
-                        if (StringUtils.isNull(c.h())) {
-                            frsMemberHeaderViewHolder.d.setVisibility(8);
-                        } else {
-                            frsMemberHeaderViewHolder.d.setText(c.h());
-                            frsMemberHeaderViewHolder.d.setVisibility(0);
-                        }
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        SpannableString spannableString = new SpannableString(c.c() + "");
-                        spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                        SpannableString spannableString2 = new SpannableString("/" + c.i());
-                        spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
-                        spannableStringBuilder.append((CharSequence) spannableString);
-                        spannableStringBuilder.append((CharSequence) spannableString2);
-                        frsMemberHeaderViewHolder.g.setText(spannableStringBuilder);
-                        frsMemberHeaderViewHolder.g.setVisibility(0);
-                        frsMemberHeaderViewHolder.k.setVisibility(0);
-                        frsMemberHeaderViewHolder.l.setVisibility(0);
-                    } else {
-                        frsMemberHeaderViewHolder.a.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setVisibility(8);
-                        frsMemberHeaderViewHolder.c.setVisibility(8);
-                        frsMemberHeaderViewHolder.d.setVisibility(8);
-                        frsMemberHeaderViewHolder.g.setVisibility(8);
-                        frsMemberHeaderViewHolder.k.setVisibility(8);
-                        frsMemberHeaderViewHolder.l.setVisibility(8);
-                    }
-                } else {
-                    frsMemberHeaderViewHolder.a.setVisibility(8);
-                    frsMemberHeaderViewHolder.b.setVisibility(8);
-                    frsMemberHeaderViewHolder.c.setVisibility(8);
-                    frsMemberHeaderViewHolder.d.setVisibility(8);
-                    frsMemberHeaderViewHolder.g.setVisibility(8);
-                    frsMemberHeaderViewHolder.k.setVisibility(8);
-                    frsMemberHeaderViewHolder.l.setVisibility(8);
-                }
-                frsMemberHeaderViewHolder.a.setTag(Integer.valueOf(i));
-                frsMemberHeaderViewHolder.d.setTag(Integer.valueOf(i));
-                frsMemberHeaderViewHolder.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.h, R.color.CAM_X0201);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.e, R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.i, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.a, R.drawable.frs_btn_like);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.a, R.color.white_alpha100, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.b, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.d, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f080572);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
-                if (this.m != c.l() || this.n != c.c()) {
-                    this.m = c.l();
-                    this.n = c.c();
-                    frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, M(this.m)));
-                    int c2 = c.c();
-                    this.n = c2;
-                    if (c2 > c.i()) {
-                        this.n = c.i();
-                    }
-                    float i2 = c.i() != 0 ? this.n / c.i() : 0.0f;
-                    if (i2 > 0.999f) {
-                        i2 = 1.0f;
-                    }
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, i2, 1.0f, 1.0f);
-                    scaleAnimation.setFillAfter(true);
-                    scaleAnimation.setDuration(1000L);
-                    jj8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
-                }
-            }
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gd6Var) == null) || gd6Var == null || gd6Var == this.e) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.d.setData(gd6Var.a());
+        this.e = gd6Var;
     }
 
-    @Override // com.baidu.tieba.af6, com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        P(i, view2, viewGroup, (dd6) obj, (FrsMemberHeaderViewHolder) viewHolder);
-        return view2;
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
+        }
+    }
+
+    public void g() {
+        CoverFlowView<zu4> coverFlowView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.d) == null) {
+            return;
+        }
+        coverFlowView.v();
     }
 }

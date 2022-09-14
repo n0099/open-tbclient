@@ -1,90 +1,42 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.RomTypeUtil;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class fo4 {
+public abstract class fo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static fo4 a;
+    public static WeakReference<TbPageContext<?>> a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fo4 a;
-
-        public a(fo4 fo4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fo4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fo4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d(1);
-            }
-        }
+    public interface a {
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fo4 a;
-
-        public b(fo4 fo4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fo4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fo4Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947770846, "Lcom/baidu/tieba/fo4;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d(0);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947770846, "Lcom/baidu/tieba/fo4;");
         }
     }
 
@@ -92,63 +44,81 @@ public class fo4 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayList(5);
     }
 
-    public static fo4 c() {
+    public static fo4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, fo4.class, baseFragmentActivity);
+            if (runTask == null || runTask.getData() == null) {
+                return null;
+            }
+            return (fo4) runTask.getData();
+        }
+        return (fo4) invokeL.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (fo4.class) {
-                    if (a == null) {
-                        a = new fo4();
-                    }
-                }
-            }
-            return a;
-        }
-        return (fo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : invokeV.booleanValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g(int i);
+
+    public void h() {
+        WeakReference<TbPageContext<?>> weakReference;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RomTypeUtil.check("EMUI") : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = a) == null) {
+            return;
+        }
+        weakReference.get();
+        a.clear();
+        a = null;
     }
 
-    public void b() {
+    public abstract void i();
+
+    public void j(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (a() || DeviceInfoUtil.isHonor()) {
-                HandlerThread handlerThread = new HandlerThread("clearHonorCorner");
-                handlerThread.start();
-                Handler handler = new Handler(handlerThread.getLooper());
-                handler.post(new a(this));
-                handler.postDelayed(new b(this), 10000L);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
+            WeakReference<TbPageContext<?>> weakReference = a;
+            if (weakReference == null) {
+                a = new WeakReference<>(tbPageContext);
+                return;
             }
+            weakReference.clear();
+            a = null;
+            a = new WeakReference<>(tbPageContext);
         }
     }
 
-    public void d(int i) {
+    public abstract void k(a aVar);
+
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            try {
-                Bundle bundle = new Bundle();
-                bundle.putString("package", "com.baidu.tieba");
-                bundle.putString(DealIntentService.KEY_CLASS, SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
-                bundle.putInt("badgenumber", i);
-                TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
-            } catch (Throwable th) {
-                Log.i("huawei_corner", th.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
         }
     }
+
+    public abstract void m();
 }

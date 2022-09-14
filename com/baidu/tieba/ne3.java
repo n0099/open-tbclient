@@ -1,34 +1,92 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import android.graphics.Rect;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ne3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
+    public static le3 g;
+    public static volatile ne3 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public ViewTreeObserver.OnGlobalLayoutListener d;
+    public String e;
+
+    /* loaded from: classes5.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ ne3 b;
+
+        public a(ne3 ne3Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ne3Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ne3Var;
+            this.a = view2;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ne3.g != null) {
+                    ne3.g.c(this.b.e);
+                }
+                Rect rect = new Rect();
+                this.a.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.c == this.b.a) {
+                    this.b.c = height;
+                } else if (this.b.c == height) {
+                } else {
+                    if (this.b.c - height > this.b.b) {
+                        if (ne3.g != null) {
+                            ne3.g.b(this.b.e, this.b.c - height);
+                            if (ne3.f) {
+                                Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                            }
+                        }
+                        this.b.c = height;
+                    } else if (height - this.b.c > this.b.b) {
+                        if (ne3.g != null) {
+                            ne3.g.a(this.b.e, height - this.b.c);
+                        }
+                        if (ne3.f) {
+                            Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                        }
+                        this.b.c = height;
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,109 +101,77 @@ public class ne3 {
                 return;
             }
         }
-        a = kh1.a;
+        f = ij1.a;
     }
 
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
+    public ne3() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) ? b(file, str, null) : invokeLL.booleanValue;
-    }
-
-    public static boolean b(File file, String str, hf3 hf3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, hf3Var)) == null) {
-            boolean z = file == null;
-            if (z || !file.exists() || TextUtils.isEmpty(str)) {
-                if (hf3Var != null) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("zipfile: isEmpty=");
-                    sb.append(z);
-                    sb.append("; exists=");
-                    sb.append(z ? "" : Boolean.valueOf(file.exists()));
-                    hf3Var.a = sb.toString();
-                }
-                return false;
-            }
-            ReadableByteChannel readableByteChannel = null;
-            try {
-                readableByteChannel = Channels.newChannel(new FileInputStream(file));
-                return d(readableByteChannel, str, hf3Var);
-            } catch (IOException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return false;
-            } finally {
-                ch4.d(readableByteChannel);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLL.booleanValue;
+        this.a = 0;
+        this.b = 200;
     }
 
-    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
-        InterceptResult invokeLL;
+    public static ne3 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) ? d(readableByteChannel, str, null) : invokeLL.booleanValue;
-    }
-
-    public static boolean d(ReadableByteChannel readableByteChannel, String str, hf3 hf3Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, hf3Var)) == null) {
-            boolean z = readableByteChannel == null;
-            if (z || TextUtils.isEmpty(str)) {
-                if (hf3Var != null) {
-                    hf3Var.a = "zipSource isNullIs=" + z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (h == null) {
+                synchronized (ne3.class) {
+                    if (h == null) {
+                        h = new ne3();
+                    }
                 }
-                return false;
             }
-            String c = eh4.c(false, readableByteChannel);
-            if (hf3Var != null) {
-                hf3Var.a = c;
-            }
-            try {
-                String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
-                if (hf3Var != null) {
-                    hf3Var.b = str2;
-                }
-                return TextUtils.equals(str2, c);
-            } catch (Exception e) {
-                if (a) {
-                    Log.i("SwanAppSignChecker", e.toString());
-                    e.printStackTrace();
-                }
-                if (hf3Var != null) {
-                    hf3Var.b = e.getLocalizedMessage();
-                }
-                return false;
-            }
+            return h;
         }
-        return invokeLLL.booleanValue;
+        return (ne3) invokeV.objValue;
     }
 
-    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        InterceptResult invokeLL;
+    public static void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, publicKey);
-            return cipher.doFinal(bArr);
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            g = null;
+            h = null;
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static PublicKey f(String str) {
-        InterceptResult invokeL;
+    public final void h(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.d == null) {
+                this.d = new a(this, view2);
             }
+            view2.getViewTreeObserver().addOnGlobalLayoutListener(this.d);
         }
-        return (PublicKey) invokeL.objValue;
+    }
+
+    public void k(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.getViewTreeObserver().removeOnGlobalLayoutListener(this.d);
+            this.e = "";
+            g = null;
+            this.c = 0;
+        }
+    }
+
+    public void l(View view2, String str, le3 le3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, str, le3Var) == null) {
+            h(view2);
+            this.e = str;
+            g = le3Var;
+            this.c = 0;
+        }
     }
 }

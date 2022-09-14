@@ -2,10 +2,10 @@ package com.baidu.swan.facade.provider.processor;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fn3;
-import com.baidu.tieba.gn3;
-import com.baidu.tieba.hn3;
-import com.baidu.tieba.in3;
+import com.baidu.tieba.ep3;
+import com.baidu.tieba.fp3;
+import com.baidu.tieba.gp3;
+import com.baidu.tieba.hp3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ public final class ProcessorInfo {
     public static final ProcessorInfo HISTORY;
     public static final ProcessorInfo PARAMS;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<? extends fn3> mClass;
+    public Class<? extends ep3> mClass;
     public int mMatcherCode;
     public String mPath;
 
@@ -39,9 +39,9 @@ public final class ProcessorInfo {
                 return;
             }
         }
-        PARAMS = new ProcessorInfo("PARAMS", 0, in3.class, "params");
-        FAVORITE = new ProcessorInfo("FAVORITE", 1, gn3.class, "favorite");
-        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, hn3.class, "history");
+        PARAMS = new ProcessorInfo("PARAMS", 0, hp3.class, "params");
+        FAVORITE = new ProcessorInfo("FAVORITE", 1, fp3.class, "favorite");
+        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, gp3.class, "history");
         HISTORY = processorInfo;
         $VALUES = new ProcessorInfo[]{PARAMS, FAVORITE, processorInfo};
     }
@@ -69,7 +69,7 @@ public final class ProcessorInfo {
         this.mMatcherCode = ordinal();
     }
 
-    public static Class<? extends fn3> getProcessorClass(int i) {
+    public static Class<? extends ep3> getProcessorClass(int i) {
         InterceptResult invokeI;
         ProcessorInfo[] values;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public final class ProcessorInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPath : (String) invokeV.objValue;
     }
 
-    private Class<? extends fn3> getProcessorClass() {
+    private Class<? extends ep3> getProcessorClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mClass : (Class) invokeV.objValue;

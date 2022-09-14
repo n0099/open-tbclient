@@ -1,161 +1,106 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ve;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class sq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static sq6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, String> a;
-    public ve<String> b;
 
-    /* loaded from: classes5.dex */
-    public class a extends dn4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sq6 a;
-
-        public a(sq6 sq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sq6Var;
-        }
-
-        @Override // com.baidu.tieba.dn4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : this.a.a.snapshot().entrySet()) {
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                    sb.append(",");
-                }
-                if (sb.length() <= 1) {
-                    return;
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                this.a.b.a("transition_cache_key", sb.toString());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ve.a<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sq6 a;
-
-        public b(sq6 sq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ve.a
-        /* renamed from: b */
-        public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || str2 == null || str2.isEmpty()) {
-                return;
-            }
-            for (String str3 : str2.split(",")) {
-                String[] split = str3.split("=");
-                if (split != null && split.length == 2) {
-                    this.a.a.put(split[0], split[1]);
-                }
-            }
-        }
-    }
-
-    public sq6() {
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
-        this.a = new LruCache<>(10);
-        ur4.f();
-        this.b = ur4.g("tb.recently_vistited_forum_animation");
-        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
-        this.b.f("transition_cache_key", new b(this));
     }
 
-    public static sq6 d() {
-        InterceptResult invokeV;
+    public static void b(Context context, bm8 bm8Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (sq6.class) {
-                    if (c == null) {
-                        c = new sq6();
-                    }
-                }
-            }
-            return c;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, bm8Var) == null) || bm8Var == null) {
+            return;
         }
-        return (sq6) invokeV.objValue;
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        cm8 cm8Var = bm8Var.f;
+        if (cm8Var != null) {
+            zq5.b(cm8Var.b, cm8Var.c, "1191003700000000", cm8Var.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(bm8Var.d)) {
+                str = bm8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = bm8Var.d;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        }
+        ss6.a(tbPageContext, bm8Var.e);
     }
 
-    public tq6 c(String str) {
-        InterceptResult invokeL;
+    public static void c(bm8 bm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return new tq6(null);
-            }
-            return new tq6(this.a.get(str));
+        if (!(interceptable == null || interceptable.invokeL(65538, null, bm8Var) == null) || bm8Var == null) {
+            return;
         }
-        return (tq6) invokeL.objValue;
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", bm8Var.g);
+        statisticItem.param("obj_type", bm8Var.f == null ? 1 : 2);
+        statisticItem.param("obj_locate", bm8Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        cm8 cm8Var = bm8Var.f;
+        String str = cm8Var != null ? cm8Var.c : bm8Var.d;
+        cm8 cm8Var2 = bm8Var.f;
+        if (cm8Var2 != null) {
+            String str2 = cm8Var2.a;
+        } else {
+            String str3 = bm8Var.c;
+        }
+        statisticItem.param("obj_name", bm8Var.c);
+        statisticItem.param("obj_param1", bm8Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(bm8Var.i, 1));
     }
 
-    public void e(String str, tq6 tq6Var) {
+    public static void d(bm8 bm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tq6Var) == null) {
-            this.a.put(str, tq6Var.toString());
+        if (!(interceptable == null || interceptable.invokeL(65539, null, bm8Var) == null) || bm8Var == null) {
+            return;
         }
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", bm8Var.g);
+        statisticItem.param("obj_type", bm8Var.f == null ? 1 : 2);
+        statisticItem.param("obj_locate", bm8Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        cm8 cm8Var = bm8Var.f;
+        String str = cm8Var != null ? cm8Var.c : bm8Var.d;
+        cm8 cm8Var2 = bm8Var.f;
+        if (cm8Var2 != null) {
+            String str2 = cm8Var2.a;
+        } else {
+            String str3 = bm8Var.c;
+        }
+        statisticItem.param("obj_name", bm8Var.c);
+        statisticItem.param("obj_param1", bm8Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(bm8Var.i, 0));
     }
 }

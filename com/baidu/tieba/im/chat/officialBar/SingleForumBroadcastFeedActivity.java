@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.a77;
-import com.baidu.tieba.j87;
-import com.baidu.tieba.t75;
-import com.baidu.tieba.w87;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.da7;
+import com.baidu.tieba.h87;
+import com.baidu.tieba.q97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +25,15 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a77 a;
+    public h87 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public t75 e;
-    public a77.d f;
+    public ba5 e;
+    public h87.d f;
 
     /* loaded from: classes4.dex */
-    public class a extends t75<TopToastEvent> {
+    public class a extends ba5<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,7 +57,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m75
+        @Override // com.baidu.tieba.u95
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -74,7 +74,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a77.d {
+    public class b implements h87.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,16 +97,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.a77.d
-        public void a(List<w87> list) {
+        @Override // com.baidu.tieba.h87.d
+        public void a(List<da7> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.r(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.a77.d
-        public void onReadCountLoad(LongSparseArray<j87> longSparseArray) {
+        @Override // com.baidu.tieba.h87.d
+        public void onReadCountLoad(LongSparseArray<q97> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.s(longSparseArray);
@@ -145,9 +145,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            a77 a77Var = new a77(getPageContext());
-            this.a = a77Var;
-            a77Var.i(this.f);
+            h87 h87Var = new h87(getPageContext());
+            this.a = h87Var;
+            h87Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
@@ -164,9 +164,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            a77 a77Var = this.a;
-            if (a77Var != null) {
-                a77Var.e();
+            h87 h87Var = this.a;
+            if (h87Var != null) {
+                h87Var.e();
             }
             unRegisterResponsedEventListener();
         }

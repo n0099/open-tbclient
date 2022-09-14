@@ -1,83 +1,131 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class oe1 {
+public abstract class oe1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oe1 c;
+    public static final HashMap<String, oe1> a;
+    public static final ConcurrentHashMap<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ScheduledThreadPoolExecutor b;
 
-    public oe1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948029262, "Lcom/baidu/tieba/oe1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948029262, "Lcom/baidu/tieba/oe1;");
                 return;
             }
         }
-        b();
+        a = new HashMap<>();
+        b = new ConcurrentHashMap<>();
     }
 
-    public static oe1 a() {
-        InterceptResult invokeV;
+    public static void a(String str, IBinder iBinder, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (oe1.class) {
-                    if (c == null) {
-                        c = new oe1();
-                    }
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
+            if (Binder.getCallingUid() == Process.myUid()) {
+                if (a.get(str) == null) {
+                    b bVar = new b(null);
+                    bVar.a = iBinder;
+                    bVar.b = z;
+                    b.put(str, bVar);
+                    return;
+                }
+                throw new IllegalArgumentException();
+            }
+            throw new SecurityException();
+        }
+    }
+
+    public static IBinder d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            oe1 oe1Var = a.get(str);
+            if (oe1Var != null) {
+                oe1Var.b();
+                return oe1Var.c();
+            }
+            b bVar = b.get(str);
+            if (bVar != null) {
+                if (!bVar.b && Binder.getCallingUid() != Process.myUid()) {
+                    throw new SecurityException();
+                }
+                return bVar.a;
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (Binder.getCallingUid() == Process.myUid()) {
+                return b.remove(str) != null;
+            }
+            throw new SecurityException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Binder.getCallingUid() != Process.myUid()) {
+            throw new SecurityException();
+        }
+    }
+
+    public abstract IBinder c();
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public IBinder a;
+        public boolean b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return c;
+            this.b = false;
         }
-        return (oe1) invokeV.objValue;
-    }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = pe1.g(5, 15);
-            this.b = pe1.f(3);
-        }
-    }
-
-    public void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) || runnable == null) {
-            return;
-        }
-        try {
-            this.a.submit(runnable);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public void d(ne1 ne1Var, long j, long j2, TimeUnit timeUnit) {
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ne1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) || ne1Var == null || (scheduledThreadPoolExecutor = this.b) == null || scheduledThreadPoolExecutor.isShutdown()) {
-            return;
-        }
-        try {
-            ne1Var.i(System.currentTimeMillis());
-            ne1Var.h(this.b.scheduleAtFixedRate(ne1Var, j, j2, timeUnit));
-        } catch (Throwable unused) {
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 }

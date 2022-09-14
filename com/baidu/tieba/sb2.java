@@ -1,23 +1,64 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class sb2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? o93.a().getBoolean("SP-DebugPerformanceTest", false) : invokeV.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948145574, "Lcom/baidu/tieba/sb2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948145574, "Lcom/baidu/tieba/sb2;");
+                return;
+            }
+        }
+        a = ij1.a;
     }
 
-    public static void b(boolean z) {
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            o93.a().putBoolean("SP-DebugPerformanceTest", z);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            return "frame_type_" + i + "_" + str;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            long j = mb3.a().getLong(a(i, "launch_time"), 0L);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
+            }
+            return j;
+        }
+        return invokeI.longValue;
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            String a2 = a(i, "launch_time");
+            long currentTimeMillis = System.currentTimeMillis();
+            mb3.a().putLong(a2, currentTimeMillis);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
+            }
         }
     }
 }

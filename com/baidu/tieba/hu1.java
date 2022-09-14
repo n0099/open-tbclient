@@ -1,145 +1,332 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.text.TextPaint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hu1 implements Cloneable {
+public class hu1 extends xt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<hu1> a;
-    public Paint b;
-    public Paint c;
-    public Paint d;
-    public TextPaint e;
-    public Path f;
-    public boolean g;
-    public CanvasView h;
-    public qv1 i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
 
-    public hu1(CanvasView canvasView) {
+    /* loaded from: classes4.dex */
+    public class a implements ug3<yu1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hu1 a;
+
+        public a(hu1 hu1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hu1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.ug3
+        public yu1 call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject d = mw2.c().d("getSystemInfo");
+                if (d == null) {
+                    hu1 hu1Var = this.a;
+                    d = hu1Var.G(hu1Var.getContext());
+                    mw2.c().h("getSystemInfo", d);
+                    mw2.c().h("getSystemInfoSync", d);
+                }
+                if (d == null) {
+                    return new yu1(202, "empty joData");
+                }
+                return new yu1(0, d);
+            }
+            return (yu1) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ug3 b;
+        public final /* synthetic */ hu1 c;
+
+        public b(hu1 hu1Var, String str, ug3 ug3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu1Var, str, ug3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = hu1Var;
+            this.a = str;
+            this.b = ug3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, (yu1) this.b.call());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hu1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {canvasView};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Stack<>();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.d = new Paint();
-        this.e = new TextPaint();
-        this.f = new Path();
-        this.g = false;
-        this.j = -1;
-        this.k = 0;
-        this.l = 0;
-        this.m = -16777216;
-        this.h = canvasView;
-        d();
     }
 
-    public int a() {
+    public static void B(@NonNull JSONObject jSONObject) throws JSONException {
+        y23 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && (M = y23.M()) != null && M.e0().f("mapp_location")) {
+            ym2 I = fm2.I();
+            x53 h = I == null ? null : I.h();
+            if (h == null) {
+                return;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("city", h.k);
+            jSONObject2.put("cityCode", h.l);
+            jSONObject2.put("country", h.i);
+            jSONObject2.put("district", h.n);
+            jSONObject2.put("province", h.m);
+            jSONObject2.put("street", h.o);
+            jSONObject2.put("streetNumber", h.p);
+            jSONObject2.put("coord_gcj02", D(h, "gcj02"));
+            jSONObject2.put("coord_wgs84", D(h, CoordinateType.WGS84));
+            jSONObject.put("cacheLocation", jSONObject2);
+        }
+    }
+
+    public static JSONObject D(@NonNull x53 x53Var, @NonNull String str) throws JSONException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, x53Var, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] g = fm2.I().g(x53Var, str);
+            if (g != null && g.length >= 2) {
+                jSONObject.put("longitude", g[0]);
+                jSONObject.put("latitude", g[1]);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static String F(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int R = context instanceof SwanAppActivity ? ((SwanAppActivity) context).R() : 0;
+            if (R == 1) {
+                return dc3.i(gm2.i().m(), R);
+            }
+            return dc3.i(s92.U().d0(), R);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void A(@NonNull JSONObject jSONObject) throws JSONException {
+        y23 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (M = y23.M()) != null && M.e0().f("mapp_set_user_agent")) {
+            jSONObject.put(TTDownloadField.TT_USERAGENT, q94.b().getUserAgent());
+        }
+    }
+
+    public final void C(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull Pair<Integer, Integer> pair) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, pair) == null) {
+            int O = pg3.O(hg3.e(context));
+            int O2 = pg3.O(((Integer) pair.first).intValue());
+            int O3 = pg3.O(((Integer) pair.second).intValue());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("left", 0);
+            jSONObject2.put("right", O2);
+            jSONObject2.put("top", O);
+            jSONObject2.put("width", O2);
+            jSONObject2.put("bottom", O3);
+            jSONObject2.put("height", O3 - O);
+            jSONObject.put("safeArea", jSONObject2);
+        }
+    }
+
+    public yu1 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#getCommonSysInfoSync", false);
+            JSONObject d = mw2.c().d("getCommonSysInfoSync");
+            if (d == null) {
+                try {
+                    d = new JSONObject();
+                    d.put("imei", sg3.r());
+                    mw2.c().h("getCommonSysInfoSync", d);
+                } catch (JSONException unused) {
+                    return new yu1(1001, "exec fail");
+                }
+            }
+            return new yu1(0, d);
+        }
+        return (yu1) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public final JSONObject G(Context context) {
+        InterceptResult invokeL;
+        JSONObject a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.l = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (fm2.g0().o()) {
+                a2 = iu1.b(context);
+            } else {
+                a2 = iu1.a(context);
+            }
+            if (a2 == null) {
+                return null;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            Pair<Integer, Integer> r = lo2.U().r();
+            Pair<Integer, Integer> x = lo2.U().x();
+            try {
+                a2.put("SDKVersion", F(context));
+                a2.put("windowWidth", (int) (((Integer) r.first).intValue() / displayMetrics.density));
+                a2.put("windowHeight", (int) (((Integer) r.second).intValue() / displayMetrics.density));
+                a2.put("screenWidth", pg3.O(((Integer) x.first).intValue()));
+                a2.put("screenHeight", pg3.O(((Integer) x.second).intValue()));
+                a2.put("privacyMode", fm2.y0().c());
+                B(a2);
+                z(context, a2);
+                C(context, a2, x);
+                A(a2);
+            } catch (JSONException e) {
+                p("json put data fail", e, false);
+            }
+            return a2;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void c(Paint paint) {
-        qv1 qv1Var;
-        ou1 ou1Var;
+    public yu1 H() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) == null) || paint == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            q("#getSystemInfo", false);
+            return I(null);
         }
-        if (this.h != null && (qv1Var = this.i) != null && (ou1Var = qv1Var.d) != null && !ou1Var.c()) {
-            qv1 qv1Var2 = this.i;
-            paint.setShadowLayer(qv1Var2.c, qv1Var2.a, qv1Var2.b, qv1Var2.d.a());
-        }
-        int i = this.j;
-        if (i < 0 || i > 255) {
-            return;
-        }
-        paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
+        return (yu1) invokeV.objValue;
     }
 
-    public void d() {
+    public yu1 I(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m = -16777216;
-            this.c.setStyle(Paint.Style.STROKE);
-            this.b.setColor(-16777216);
-            this.c.setColor(-16777216);
-            this.d.setColor(-16777216);
-            this.e.setColor(-16777216);
-            this.c.setStrokeWidth(re3.g(1.0f));
-            this.c.setAntiAlias(true);
-            this.e.setAntiAlias(true);
-            this.d.setAntiAlias(true);
-            this.f.reset();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#getSystemInfoAsync", false);
+            a aVar = new a(this);
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    String optString = new JSONObject(str).optString("cb");
+                    if (!TextUtils.isEmpty(optString)) {
+                        sf3.k(new b(this, optString, aVar), "SystemInfoApi");
+                        return yu1.f();
+                    }
+                } catch (JSONException e) {
+                    p("json put data fail", e, false);
+                }
+            }
+            return aVar.call();
         }
+        return (yu1) invokeL.objValue;
     }
 
-    public void e() {
+    public yu1 J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a.empty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            q("#getSystemInfoSync", false);
+            JSONObject d = mw2.c().d("getSystemInfoSync");
+            if (d == null) {
+                d = G(getContext());
+                mw2.c().h("getSystemInfoSync", d);
+                mw2.c().h("getSystemInfo", d);
+            }
+            if (d == null) {
+                return new yu1(202, "empty joData");
+            }
+            return new yu1(0, d);
         }
-        hu1 pop = this.a.pop();
-        this.b = pop.b;
-        this.c = pop.c;
-        this.d = pop.d;
-        this.e = pop.e;
-        this.f = pop.f;
-        this.g = pop.g;
-        this.a = pop.a;
-        this.i = pop.i;
-        this.j = pop.j;
-        this.k = pop.k;
-        this.l = pop.l;
-        this.m = pop.m;
+        return (yu1) invokeV.objValue;
     }
 
-    public void f() throws CloneNotSupportedException {
+    @Override // com.baidu.tieba.br1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hu1 hu1Var = (hu1) super.clone();
-            hu1Var.b = new Paint(this.b);
-            hu1Var.c = new Paint(this.c);
-            hu1Var.d = new Paint(this.d);
-            hu1Var.e = new TextPaint(this.e);
-            hu1Var.f = new Path(this.f);
-            hu1Var.k = this.k;
-            hu1Var.l = this.l;
-            hu1Var.m = this.m;
-            this.a.push(hu1Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "SystemInfoApi" : (String) invokeV.objValue;
+    }
+
+    public final void z(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, jSONObject) == null) {
+            jSONObject.put("cameraAuthorized", cg3.j(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
+            jSONObject.put("locationAuthorized", cg3.j(context, com.kuaishou.weapon.p0.h.g));
+            jSONObject.put("microphoneAuthorized", cg3.j(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
+            jSONObject.put("notificationAuthorized", sg3.N(context));
+            jSONObject.put("locationEnabled", sg3.L(context));
+            jSONObject.put("wifiEnabled", sg3.V(context));
         }
     }
 }

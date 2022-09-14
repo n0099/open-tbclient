@@ -1,31 +1,61 @@
 package com.baidu.tieba;
 
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileDescriptor;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class pc1 implements IBinder, IBinder.DeathRecipient {
+public class pc1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile IBinder a;
-    public HashSet<IBinder.DeathRecipient> b;
-    public Object c;
+    public List<InstallmentEntity> a;
+    public Context b;
 
-    public pc1() {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public View c;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0918c6);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918ca);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c9);
+        }
+    }
+
+    public pc1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,155 +65,81 @@ public abstract class pc1 implements IBinder, IBinder.DeathRecipient {
                 return;
             }
         }
-        this.b = new HashSet<>();
-        this.c = new Object();
+        this.b = context;
     }
 
-    public static void b(String str, Exception exc) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public InstallmentEntity getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, exc) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
         }
+        return (InstallmentEntity) invokeI.objValue;
     }
 
-    public final IBinder a() throws RemoteException {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.c) {
-                IBinder iBinder = this.a;
-                if (iBinder != null) {
-                    return iBinder;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<InstallmentEntity> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            InstallmentEntity item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d06f2, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
+            }
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                aVar.a.setText(item.getTitle());
+                aVar.b.setText(item.getPayText());
+                if (item.isChecked()) {
+                    aVar.a.setTextSize(1, 14.0f);
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608ef));
+                    aVar.b.setTextSize(1, 10.0f);
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608ef));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ef1));
+                } else {
+                    aVar.a.setTextSize(1, 14.0f);
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060aed));
+                    aVar.b.setTextSize(1, 10.0f);
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0608f0));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ef0));
                 }
-                IBinder c = c();
-                this.a = c;
-                if (c != null) {
-                    c.linkToDeath(this, 0);
-                    return c;
-                }
-                throw new RemoteException();
             }
+            return view2;
         }
-        return (IBinder) invokeV.objValue;
-    }
-
-    @Override // android.os.IBinder.DeathRecipient
-    public void binderDied() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.c) {
-                IBinder iBinder = this.a;
-                if (iBinder != null) {
-                    iBinder.unlinkToDeath(this, 0);
-                    this.a = null;
-                }
-                ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-                synchronized (this.b) {
-                    arrayList.addAll(this.b);
-                }
-                for (IBinder.DeathRecipient deathRecipient : arrayList) {
-                    deathRecipient.binderDied();
-                }
-            }
-        }
-    }
-
-    public abstract IBinder c() throws RemoteException;
-
-    @Override // android.os.IBinder
-    public void dump(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, fileDescriptor, strArr) == null) {
-            a().dump(fileDescriptor, strArr);
-        }
-    }
-
-    @Override // android.os.IBinder
-    public void dumpAsync(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, fileDescriptor, strArr) == null) {
-            a().dumpAsync(fileDescriptor, strArr);
-        }
-    }
-
-    @Override // android.os.IBinder
-    public String getInterfaceDescriptor() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a().getInterfaceDescriptor() : (String) invokeV.objValue;
-    }
-
-    @Override // android.os.IBinder
-    public boolean isBinderAlive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            try {
-                return a().isBinderAlive();
-            } catch (RemoteException e) {
-                b("MultiProcess", e);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.os.IBinder
-    public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, deathRecipient, i) == null) {
-            synchronized (this.b) {
-                this.b.add(deathRecipient);
-            }
-        }
-    }
-
-    @Override // android.os.IBinder
-    public boolean pingBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            try {
-                return a().pingBinder();
-            } catch (RemoteException e) {
-                b("MultiProcess", e);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.os.IBinder
-    public IInterface queryLocalInterface(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            try {
-                return a().queryLocalInterface(str);
-            } catch (RemoteException e) {
-                b("MultiProcess", e);
-                return null;
-            }
-        }
-        return (IInterface) invokeL.objValue;
-    }
-
-    @Override // android.os.IBinder
-    public boolean transact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) ? a().transact(i, parcel, parcel2, i2) : invokeCommon.booleanValue;
-    }
-
-    @Override // android.os.IBinder
-    public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, deathRecipient, i)) == null) {
-            synchronized (this.b) {
-                this.b.remove(deathRecipient);
-            }
-            return this.a != null;
-        }
-        return invokeLI.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

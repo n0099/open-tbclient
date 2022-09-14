@@ -9,7 +9,6 @@ import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.utils.Constants;
 import com.baidu.location.Jni;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -213,7 +212,7 @@ public class o extends com.baidu.location.e.e {
                     if (!file.createNewFile()) {
                         return;
                     }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                     randomAccessFile.seek(2L);
                     randomAccessFile.writeInt(0);
                     randomAccessFile.seek(8L);
@@ -226,7 +225,7 @@ public class o extends com.baidu.location.e.e {
                     randomAccessFile.writeBoolean(false);
                     randomAccessFile.close();
                 }
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, rw.c);
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
                 randomAccessFile2.seek(200L);
                 randomAccessFile2.writeBoolean(true);
                 if (this.e == 1) {

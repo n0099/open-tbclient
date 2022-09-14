@@ -177,11 +177,11 @@ public class SlideableGridView extends LinearLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f0800fb, R.drawable.obfuscated_res_0x7f0800fc);
-            e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c8));
+            PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f0800fc, R.drawable.obfuscated_res_0x7f0800fd);
+            e.f((int) getResources().getDimension(R.dimen.common_grid_indicator_margin));
             this.h = e;
-            this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c6);
-            this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c7);
+            this.i[0] = (int) getResources().getDimension(R.dimen.common_grid_indicator_height);
+            this.i[1] = (int) getResources().getDimension(R.dimen.common_grid_indicator_height2);
             addView(this.h, e());
         }
     }
@@ -214,7 +214,7 @@ public class SlideableGridView extends LinearLayout {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c6) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) getResources().getDimension(R.dimen.common_grid_indicator_height) : invokeV.intValue;
     }
 
     public LinearLayout.LayoutParams e() {

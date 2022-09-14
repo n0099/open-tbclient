@@ -31,11 +31,11 @@ import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dh;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.k75;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.qz8;
+import com.baidu.tieba.j19;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,7 +79,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1592);
+                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f15b2);
                         return 1;
                     }
                 }
@@ -121,7 +121,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    nu4.d((Activity) data);
+                    ww4.d((Activity) data);
                 }
             }
         }
@@ -160,10 +160,10 @@ public class MainTabActivityStatic {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            nu4.f(tbPageContext.getPageActivity(), 1, true);
+                            ww4.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            nu4.f(tbPageContext.getPageActivity(), 2, true);
+                            ww4.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -173,7 +173,7 @@ public class MainTabActivityStatic {
                             if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
                                 i = -1;
                             } else {
-                                int e = pg.e(parse.getQueryParameter("subTabIndex"), 0);
+                                int e = dh.e(parse.getQueryParameter("subTabIndex"), 0);
                                 i = e == 1 ? 18 : 17;
                                 try {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e)));
@@ -190,7 +190,7 @@ public class MainTabActivityStatic {
                             i = -1;
                         }
                         if (i != -1) {
-                            nu4.f(tbPageContext.getPageActivity(), i, true);
+                            ww4.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -268,11 +268,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    k75.b().m(k75.b().j());
-                    k75.b().c();
-                } else if (k75.b().i() || !k75.b().k()) {
+                    s95.b().m(s95.b().j());
+                    s95.b().c();
+                } else if (s95.b().i() || !s95.b().k()) {
                 } else {
-                    k75.b().o();
+                    s95.b().o();
                 }
             }
         }
@@ -310,11 +310,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    k75.b().m(k75.b().j());
-                    k75.b().c();
-                } else if (k75.b().i() || !k75.b().k()) {
+                    s95.b().m(s95.b().j());
+                    s95.b().c();
+                } else if (s95.b().i() || !s95.b().k()) {
                 } else {
-                    k75.b().o();
+                    s95.b().o();
                 }
             }
         }
@@ -371,11 +371,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                qz8.j(tbPageContext, "", forumWriteData);
+                                j19.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                qz8.j(tbPageContext, str2, forumWriteData2);
+                                j19.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));

@@ -1,117 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.Vector;
 /* loaded from: classes4.dex */
-public class gd4 {
+public class gd4 implements wc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gd4 a;
+    public static final ag4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Vector<wc4> a;
+    public Object b;
 
-    public gd4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947790066, "Lcom/baidu/tieba/gd4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947790066, "Lcom/baidu/tieba/gd4;");
+                return;
+            }
+        }
+        c = ag4.e();
+    }
+
+    public gd4(wc4 wc4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wc4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = new Object();
+        this.a = new Vector<>();
+        c(wc4Var);
     }
 
-    public static gd4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wc4
+    public <T> void a(ad4<T> ad4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (gd4.class) {
-                    if (a == null) {
-                        a = new gd4();
+        if (interceptable == null || interceptable.invokeL(1048576, this, ad4Var) == null) {
+            try {
+                synchronized (this.b) {
+                    Iterator<wc4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        it.next().a(ad4Var);
                     }
                 }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
-            return a;
         }
-        return (gd4) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wc4
+    public <T> void b(ad4<T> ad4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? j84.b().i().getString("web_mode_version", "0") : (String) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j84.b().i().getInt("web_mode_switch", 1) == 1 : invokeV.booleanValue;
-    }
-
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String string = j84.b().i().getString("web_mode_degrade_list", "");
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad4Var) == null) {
+            Vector vector = new Vector();
             try {
-                jSONArray = new JSONArray(string);
-            } catch (JSONException unused) {
-            }
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(jSONArray.optString(i));
+                synchronized (this.b) {
+                    Iterator<wc4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        vector.add(it.next());
+                    }
                 }
+                Iterator it2 = vector.iterator();
+                while (it2.hasNext()) {
+                    ((wc4) it2.next()).b(ad4Var);
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
             }
-            return arrayList;
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public final String e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void c(wc4 wc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
-            return optJSONArray != null ? optJSONArray.toString() : "";
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wc4Var) == null) || wc4Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        synchronized (this.b) {
+            this.a.add(wc4Var);
+        }
     }
 
-    public void f(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void d(wc4 wc4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, wc4Var) == null) || wc4Var == null) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
-            return;
+        synchronized (this.b) {
+            if (!this.a.remove(wc4Var)) {
+                this.a.remove(this.a.indexOf(wc4Var));
+            }
         }
-        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
-        String e = e(optJSONObject);
-        h84 b = j84.b();
-        if (b == null) {
-            return;
-        }
-        ah4 i = b.i();
-        i.putInt("web_mode_switch", optInt);
-        i.putString("web_mode_degrade_list", e);
-        i.putString("web_mode_version", optString);
     }
 }

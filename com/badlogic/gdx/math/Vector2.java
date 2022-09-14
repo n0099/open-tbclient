@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.t7;
+import com.baidu.tieba.u7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +127,7 @@ public class Vector2 implements Serializable, e<Vector2> {
             }
             if (obj != null && Vector2.class == obj.getClass()) {
                 Vector2 vector2 = (Vector2) obj;
-                return t7.a(this.x) == t7.a(vector2.x) && t7.a(this.y) == t7.a(vector2.y);
+                return u7.a(this.x) == u7.a(vector2.x) && u7.a(this.y) == u7.a(vector2.y);
             }
             return false;
         }
@@ -153,7 +153,7 @@ public class Vector2 implements Serializable, e<Vector2> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? ((t7.a(this.x) + 31) * 31) + t7.a(this.y) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? ((u7.a(this.x) + 31) * 31) + u7.a(this.y) : invokeV.intValue;
     }
 
     public boolean isUnit() {

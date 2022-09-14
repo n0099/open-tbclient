@@ -1,216 +1,63 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b32 implements V8ThreadDelegatePolicy, em2 {
+public final class b32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public V8Engine c;
-    public Thread d;
-    public Handler e;
-    public final Thread f;
-    public Runnable g;
-    public int h;
+    public String a;
+    public String b;
+    public String c;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b32 a;
-
-        public a(b32 b32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b32Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Looper.prepare();
-                this.a.e = new Handler();
-                this.a.c.startEngineInternal();
-                Looper.loop();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947593960, "Lcom/baidu/tieba/b32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947593960, "Lcom/baidu/tieba/b32;");
-                return;
-            }
-        }
-        i = hd3.a();
-    }
-
-    public b32() {
+    public b32(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.g = null;
-        this.h = 0;
-        this.f = Looper.getMainLooper().getThread();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    public final boolean c(Runnable runnable) {
-        InterceptResult invokeL;
+    public static b32 a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            if (runnable != null && this.e != null) {
-                Thread currentThread = Thread.currentThread();
-                String name = currentThread.getName();
-                if (!TextUtils.isEmpty(name) && (name.startsWith("OkHttp") || name.equals("NetworkService"))) {
-                    this.e.postAtFrontOfQueue(runnable);
-                    return true;
-                }
-                if (this.f == currentThread) {
-                    if (i) {
-                        Runnable runnable2 = this.g;
-                        if (runnable2 == null) {
-                            this.e.postAtFrontOfQueue(runnable);
-                        } else if (this.e.hasCallbacks(runnable2)) {
-                            this.e.post(runnable);
-                        } else {
-                            this.e.postAtFrontOfQueue(runnable);
-                        }
-                        this.g = runnable;
-                    } else {
-                        boolean hasMessages = this.e.hasMessages(this.h);
-                        this.h++;
-                        Message obtain = Message.obtain(this.e, runnable);
-                        obtain.what = this.h;
-                        if (hasMessages) {
-                            this.e.sendMessage(obtain);
-                        } else {
-                            this.e.sendMessageAtFrontOfQueue(obtain);
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) ? new b32(str, str2, str3) : (b32) invokeLLL.objValue;
     }
 
-    public void d(@NonNull V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8Engine) == null) {
-            this.c = v8Engine;
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void doDelegateRunnable(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.e == null || c(runnable)) {
-            return;
-        }
-        this.e.post(runnable);
-    }
-
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void doDelegateRunnableDirectly(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, runnable) == null) || this.e == null || c(runnable)) {
-            return;
-        }
-        this.e.post(runnable);
-    }
-
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public Thread getThread() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Handler handler = this.e;
-            if (handler != null) {
-                return handler.getLooper().getThread();
-            }
-            return null;
-        }
-        return (Thread) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.c) : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void shutdown() {
-        Handler handler;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (handler = this.e) == null) {
-            return;
-        }
-        handler.removeCallbacksAndMessages(null);
-        this.e.getLooper().quitSafely();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.a) : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    @SuppressLint({"MobilebdThread"})
-    public void startV8Engine(@NonNull V8Engine v8Engine) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, v8Engine) == null) && this.d == null) {
-            Thread thread = new Thread(new a(this));
-            this.d = thread;
-            thread.setName(v8Engine.threadName());
-            this.d.setPriority(10);
-            this.d.start();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "JSErrorModel{mType='" + this.a + "', mContent='" + this.b + "', mSource='" + this.c + "'}";
         }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void doDelegateRunnable(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) || this.e == null || c(runnable)) {
-            return;
-        }
-        this.e.postDelayed(runnable, j);
+        return (String) invokeV.objValue;
     }
 }

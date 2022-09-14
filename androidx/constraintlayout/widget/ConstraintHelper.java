@@ -17,6 +17,7 @@ import androidx.constraintlayout.solver.widgets.Helper;
 import androidx.constraintlayout.solver.widgets.HelperWidget;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +163,7 @@ public abstract class ConstraintHelper extends View {
             }
             if (i == 0) {
                 try {
-                    i = R$id.class.getField(str).getInt(null);
+                    i = R.id.class.getField(str).getInt(null);
                 } catch (Exception unused) {
                 }
             }
@@ -231,15 +232,15 @@ public abstract class ConstraintHelper extends View {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
         int indexCount = obtainStyledAttributes.getIndexCount();
         for (int i = 0; i < indexCount; i++) {
             int index = obtainStyledAttributes.getIndex(i);
-            if (index == R$styleable.ConstraintLayout_Layout_constraint_referenced_ids) {
+            if (index == 19) {
                 String string = obtainStyledAttributes.getString(index);
                 this.mReferenceIds = string;
                 setIds(string);
-            } else if (index == R$styleable.ConstraintLayout_Layout_constraint_referenced_tags) {
+            } else if (index == 20) {
                 String string2 = obtainStyledAttributes.getString(index);
                 this.mReferenceTags = string2;
                 setReferenceTags(string2);

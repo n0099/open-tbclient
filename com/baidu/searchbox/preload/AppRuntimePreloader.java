@@ -4,7 +4,6 @@ import com.baidu.searchbox.launch.ScheduleStrategy;
 import com.baidu.searchbox.util.ChannelInitHelper;
 import com.baidu.searchbox.util.VersionInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +29,7 @@ public class AppRuntimePreloader {
 
     public static void preload(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && z && LaunchUpApplicationSwitch.getIsOn()) {
+        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && z) {
             Thread thread = new Thread(new Runnable() { // from class: com.baidu.searchbox.preload.AppRuntimePreloader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +54,6 @@ public class AppRuntimePreloader {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         VersionInitHelper.init();
                         TbadkCoreApplication.setClientId(TbadkCoreApplication.getInst().readClientId(TbadkCoreApplication.getInst().getContext()));
-                        TbadkCoreApplication.getInst().initImei();
                         ChannelInitHelper.init();
                         ScheduleStrategy.getDeviceScore();
                     }

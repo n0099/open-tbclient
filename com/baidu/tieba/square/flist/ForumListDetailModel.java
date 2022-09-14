@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d9;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.square.flist.ForumListModel;
-import com.baidu.tieba.ur4;
-import com.baidu.tieba.ve;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((d9) newInitContext.callArgs[0]);
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,8 +141,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        ur4.f();
-                        ve<String> g = ur4.g("tb.my_posts");
+                        zt4.f();
+                        jf<String> g = zt4.g("tb.my_posts");
                         if (g != null) {
                             str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {
@@ -176,7 +176,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
                 if (forumListModel != null && forumListModel.isOk()) {
                     this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
                 } else {
-                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c40), this.b.f);
+                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c59), this.b.f);
                 }
             }
         }

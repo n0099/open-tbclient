@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
+import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class ug6 {
     public static /* synthetic */ Interceptable $ic;
+    public static ug6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public int b;
-    public ValueAnimator c;
-    public TranslateAnimation d;
-    public Runnable e;
+    public FrsLinkHashMap<String, Long> a;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ug6 a;
@@ -46,17 +44,29 @@ public class ug6 {
             this.a = ug6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            FrsHotTopicListData frsHotTopicListData;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                zt4.f();
+                jf<String> h = zt4.h("tb.frs_hottopic", "");
+                if (h != null) {
+                    String str = h.get("hot_topic_key");
+                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
+                        this.a.a = frsHotTopicListData.mSceneMap;
+                    }
+                }
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
+    public class b extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ug6 a;
@@ -79,116 +89,26 @@ public class ug6 {
             this.a = ug6Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || this.a.a == null || valueAnimator == null) {
-                return;
-            }
-            this.a.a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug6 a;
-
-        public c(ug6 ug6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                zt4.f();
+                jf<String> h = zt4.h("tb.frs_hottopic", "");
+                if (h == null) {
+                    return null;
                 }
-            }
-            this.a = ug6Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.f();
-            this.a.a.setAlpha(1.0f);
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug6 a;
-
-        public d(ug6 ug6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
+                frsHotTopicListData.mSceneMap = this.a.a;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
+                if (!StringUtils.isNull(jsonStrWithObject)) {
+                    h.g("hot_topic_key", jsonStrWithObject);
                 }
+                return null;
             }
-            this.a = ug6Var;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                sg.a().postDelayed(this.a.e, this.a.b);
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
+            return (Void) invokeL.objValue;
         }
     }
 
@@ -202,83 +122,75 @@ public class ug6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = null;
-        this.b = 2000;
-        this.e = new a(this);
-        ValueAnimator valueAnimator = new ValueAnimator();
-        this.c = valueAnimator;
-        valueAnimator.setFloatValues(1.0f, 0.0f);
-        this.c.setDuration(400L);
-        this.c.addUpdateListener(new b(this));
-        this.c.addListener(new c(this));
-        TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702dd), 0.0f);
-        this.d = translateAnimation;
-        translateAnimation.setDuration(400L);
-        this.d.setAnimationListener(new d(this));
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sg.a().removeCallbacks(this.e);
-            View view2 = this.a;
-            if (view2 == null || view2.getParent() == null || this.a.getVisibility() != 0 || this.c.isRunning()) {
-                return;
-            }
-            this.c.start();
         }
     }
 
-    public void e() {
+    public static ug6 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (ug6.class) {
+                    if (b == null) {
+                        b = new ug6();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ug6) invokeV.objValue;
+    }
+
+    public boolean c(String str, long j) {
+        InterceptResult invokeLJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            if (this.a == null) {
+                this.a = new FrsLinkHashMap<>();
+                e(str, j);
+            }
+            if (StringUtils.isNull(str) || this.a.isEmpty()) {
+                return false;
+            }
+            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z = false;
+                    break;
+                }
+                Map.Entry<String, Long> next = it.next();
+                if (next != null && str.equals(next.getKey())) {
+                    z = true;
+                    break;
+                }
+            }
+            if (z && this.a.get(str).longValue() == j) {
+                return false;
+            }
+            this.a.put(str, Long.valueOf(j));
             f();
+            return true;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            a aVar = new a(this);
+            aVar.setPriority(3);
+            aVar.execute(new Void[0]);
         }
     }
 
-    public void f() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sg.a().removeCallbacks(this.e);
-            if (this.a != null) {
-                ValueAnimator valueAnimator = this.c;
-                if (valueAnimator != null && valueAnimator.isRunning()) {
-                    this.c.cancel();
-                }
-                this.a.clearAnimation();
-                if (this.a.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.a.getParent()).removeView(this.a);
-                }
-                this.a.setVisibility(8);
-            }
+            b bVar = new b(this);
+            bVar.setPriority(3);
+            bVar.execute(new Void[0]);
         }
-    }
-
-    public void g(View view2, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, view2, viewGroup, layoutParams) == null) || viewGroup == null || view2 == null) {
-            return;
-        }
-        this.a = view2;
-        f();
-        viewGroup.addView(this.a, layoutParams);
-        this.a.setVisibility(0);
-    }
-
-    public void h(View view2, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048580, this, view2, viewGroup, layoutParams, i) == null) || viewGroup == null || view2 == null) {
-            return;
-        }
-        this.a = view2;
-        f();
-        viewGroup.addView(this.a, layoutParams);
-        this.a.setVisibility(0);
-        this.b = i;
-        sg.a().removeCallbacks(this.e);
-        sg.a().postDelayed(this.e, this.b);
     }
 }

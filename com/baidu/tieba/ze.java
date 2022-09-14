@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,101 +10,133 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ze {
+public class ze extends af<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k9 a;
 
-    public ze(Context context, k9 k9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ze(y9 y9Var) {
+        super(y9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, k9Var};
+            Object[] objArr = {y9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((y9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = k9Var;
     }
 
-    public void a(re reVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, reVar) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("nameSpace", reVar.a);
-                contentValues.put("tableName", reVar.b);
-                contentValues.put("maxSize", Integer.valueOf(reVar.c));
-                contentValues.put("cacheVersion", Integer.valueOf(reVar.e));
-                contentValues.put("cacheType", reVar.d);
-                contentValues.put("lastActiveTime", Long.valueOf(reVar.f));
-                SQLiteDatabase f = this.a.f();
-                if (f == null || f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{reVar.a}) != 0) {
-                    return;
-                }
-                f.insert("cache_meta_info", null, contentValues);
-            } catch (Throwable th) {
-                this.a.i(th, "addOrUpdate");
-            }
-        }
-    }
-
-    public re b(String str) {
+    @Override // com.baidu.tieba.af
+    public boolean d(String str) {
         InterceptResult invokeL;
-        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            y9 y9Var = this.a;
+            y9Var.d("DROP TABLE IF EXISTS " + this.b);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.af
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v12, types: [T, byte[]] */
+    @Override // com.baidu.tieba.af
+    public ef<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) != null) {
+            return (ef) invokeLL.objValue;
+        }
+        Cursor cursor = null;
+        try {
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
             try {
-                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+                if (!rawQuery.moveToNext()) {
+                    ch.a(rawQuery);
+                    return null;
+                }
+                ef<byte[]> efVar = new ef<>();
+                efVar.a = rawQuery.getString(0);
+                efVar.d = rawQuery.getLong(1);
+                efVar.e = rawQuery.getLong(2);
+                efVar.f = rawQuery.getLong(3);
+                efVar.b = rawQuery.getBlob(4);
+                ch.a(rawQuery);
+                return efVar;
             } catch (Throwable th) {
                 th = th;
-                cursor = null;
+                cursor = rawQuery;
+                ch.a(cursor);
+                throw th;
             }
-            try {
-                if (cursor.moveToNext()) {
-                    re reVar = new re();
-                    reVar.a = cursor.getString(0);
-                    reVar.b = cursor.getString(1);
-                    reVar.c = cursor.getInt(2);
-                    reVar.d = cursor.getString(3);
-                    reVar.e = cursor.getInt(4);
-                    reVar.f = cursor.getLong(5);
-                    return reVar;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                try {
-                    this.a.i(th, "get");
-                    return null;
-                } finally {
-                    og.a(cursor);
-                }
-            }
-            return null;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return (re) invokeL.objValue;
     }
 
-    public int delete(String str) {
+    @Override // com.baidu.tieba.af
+    public void k(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.af
+    public String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                if (b(str) == null) {
-                    return 0;
-                }
-                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
-            } catch (Throwable th) {
-                this.a.i(th, "delete");
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
             }
+            String str2 = "cache_kv_b" + hashCode;
+            this.a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+            return str2;
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.af
+    public ContentValues p(ef<byte[]> efVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, efVar)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("m_key", efVar.a);
+            contentValues.put("m_value", efVar.b);
+            contentValues.put("saveTime", Long.valueOf(efVar.d));
+            contentValues.put("lastHitTime", Long.valueOf(efVar.e));
+            contentValues.put("timeToExpire", Long.valueOf(efVar.f));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.af
+    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
+            return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
+        }
+        return (Cursor) invokeLL.objValue;
     }
 }

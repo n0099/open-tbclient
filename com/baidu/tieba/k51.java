@@ -1,11 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
 public interface k51 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
+    void a(String str);
 
-    int a();
+    void b();
 
-    boolean b();
+    void cancel();
 }

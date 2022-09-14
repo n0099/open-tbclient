@@ -1,49 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Pattern;
+import tbclient.NovelInfo;
 /* loaded from: classes6.dex */
-public class z35 extends w25 {
+public class z35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocalInputContainer t;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public long f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z35(Context context, q35 q35Var) {
-        super(context, (String) null, 36);
+    public z35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, q35Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        g(context, q35Var);
-        this.m = this.t;
-        this.o = false;
-        this.n = 3;
-        this.p = new int[]{24, 3};
     }
 
-    public final void g(Context context, q35 q35Var) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, q35Var) == null) {
-            LocalInputContainer localInputContainer = new LocalInputContainer(context);
-            this.t = localInputContainer;
-            localInputContainer.e(q35Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = 0;
+            while (Pattern.compile("\\n").matcher(this.j).find()) {
+                i++;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "1".equals(this.e) : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? StringUtils.isNull(this.b) || StringUtils.isNull(this.c) || StringUtils.isNull(this.e) || StringUtils.isNull(this.d) : invokeV.booleanValue;
+    }
+
+    public void j(NovelInfo novelInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, novelInfo) == null) {
+            this.a = novelInfo.novel_id.longValue();
+            String str = novelInfo.img;
+            this.b = novelInfo.name;
+            String str2 = novelInfo.author;
+            String str3 = novelInfo.desc;
+            this.c = novelInfo.discount_price;
+            novelInfo.percent.longValue();
+            this.d = novelInfo.h5_url;
+            this.e = novelInfo.is_pay;
+            this.f = novelInfo.chapters.longValue();
+            this.g = novelInfo.member_text;
+            this.h = novelInfo.member_img;
+            this.i = novelInfo.buy_url;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.j = str;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (z) {
+                this.e = "1";
+            } else {
+                this.e = "0";
+            }
         }
     }
 }

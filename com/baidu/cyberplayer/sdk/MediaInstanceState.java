@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MediaInstanceState {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INSTANCE_STATE_ACTIVE = 1;

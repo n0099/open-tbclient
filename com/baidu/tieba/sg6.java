@@ -1,75 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sg6 implements dg6 {
+public class sg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sg6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ au4 a;
+
+        public a(au4 au4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {au4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = au4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
             }
         }
     }
 
-    @Override // com.baidu.tieba.dg6
-    public cn<? extends jr4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
+        int k;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) ? new wj6(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z) : (cn) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.dg6
-    public af6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) ? new bo6(tbPageContext, bdUniqueId, bdUniqueId2) : (af6) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dg6
-    public cn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == jk8.d) {
-                return new xi6(tbPageContext, bdUniqueId, z);
-            }
-            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
-                return new xj6(tbPageContext, bdUniqueId, bdUniqueId2, z);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) || activity == null || tbPageContext == null) {
+            return;
         }
-        return (cn) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.dg6
-    public cn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
-                return new zi6(tbPageContext, bdUniqueId, bdUniqueId2);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
+        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c97);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c94);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c95);
+        TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c96);
+        TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c93);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09229e);
+        au4 au4Var = new au4(activity);
+        au4Var.setContentView(inflate);
+        au4Var.setContentViewSize(2);
+        au4Var.setCanceledOnTouchOutside(true);
+        au4Var.setAutoNight(true);
+        au4Var.setCancelable(true);
+        int f = ej.f(activity, R.dimen.tbds31);
+        SkinManager.setBackgroundShapeDrawable(inflate, f, R.color.CAM_X0201, R.color.CAM_X0101);
+        tbImageView.setRadius(f);
+        tbImageView.setConrers(3);
+        tbImageView.setIsBitmapPic(true);
+        int f2 = ej.f(activity, R.dimen.tbds44);
+        if (UtilHelper.getRealScreenOrientation(activity) == 2) {
+            k = ej.i(activity);
+        } else {
+            k = ej.k(activity);
         }
-        return (cn) invokeLLL.objValue;
+        int i = k - (f2 * 2);
+        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+        layoutParams.width = -1;
+        layoutParams.height = (i * 556) / 988;
+        tbImageView.setLayoutParams(layoutParams);
+        SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080592);
+        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+        SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+        SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
+        SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
+        textView5.setOnClickListener(new a(au4Var));
+        au4Var.create(tbPageContext).show();
     }
 }

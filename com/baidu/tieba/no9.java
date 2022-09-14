@@ -1,58 +1,46 @@
 package com.baidu.tieba;
 
-import android.os.Parcel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.kwad.sdk.api.KsVideoPlayConfig;
 /* loaded from: classes5.dex */
-public final class no9 {
+public abstract class no9<A> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ModuleConfigKs e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009329, "Lcom/baidu/tieba/no9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948009329, "Lcom/baidu/tieba/no9;");
-                return;
-            }
-        }
-        no9.class.getClassLoader();
-    }
-
-    public no9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public no9(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = moduleConfigKs;
     }
 
-    public static void a(Parcel parcel, boolean z) {
+    public KsVideoPlayConfig e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, parcel, z) == null) {
-            parcel.writeInt(1);
-        }
-    }
-
-    public static boolean b(Parcel parcel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) ? parcel.readInt() != 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal).videoSoundEnable(this.e.ksVideoSoundEnable).build() : (KsVideoPlayConfig) invokeV.objValue;
     }
 }

@@ -1,55 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes3.dex */
-public class ah {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public String x;
-    public String y;
-    public String z;
+public interface ah<T> {
+    BdAsyncTaskParallel getAsyncTaskParallel();
 
-    public ah() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getAsyncTaskPriority();
+
+    T getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr);
+
+    T getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr);
+
+    T getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr);
+
+    boolean isNeedLoad();
+
+    void updateMemory(String str, Object obj, int i, int i2, Object... objArr);
 }

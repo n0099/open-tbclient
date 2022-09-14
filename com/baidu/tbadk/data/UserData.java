@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.nr4;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.y15;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.h45;
+import com.baidu.tieba.st4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,6 +54,7 @@ public class UserData extends MetaData {
     public String bimg_url;
     public int canChat;
     public CloseAdData closeAdData;
+    public String dynamic_url;
     public int favoriteNum;
     public String followFrom;
     public String grade;
@@ -80,13 +81,13 @@ public class UserData extends MetaData {
     public String lng;
     public long loginTime;
     public ActivitySponsorData mActivitySponsorData;
-    public nr4 mBirthdayInfo;
+    public st4 mBirthdayInfo;
     public List<MyGift> mGift;
     public int mGiftNum;
     public List<MyGroup> mGroup;
     public boolean mIsSelectTail;
     public List<MyLikeForum> mLikeForum;
-    public List<pn> mPhotoAlbum;
+    public List<Cdo> mPhotoAlbum;
     public long mTDouNum;
     public String mTiebaUid;
     public int managerLevel;
@@ -240,10 +241,10 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.bimg_url : (String) invokeV.objValue;
     }
 
-    public nr4 getBirthdayInfo() {
+    public st4 getBirthdayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mBirthdayInfo : (nr4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mBirthdayInfo : (st4) invokeV.objValue;
     }
 
     public int getCanChat() {
@@ -258,264 +259,270 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.closeAdData : (CloseAdData) invokeV.objValue;
     }
 
+    public String getDynamicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
     public int getFavoriteNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.favoriteNum : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.favoriteNum : invokeV.intValue;
     }
 
     public String getFollowFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.followFrom : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.followFrom : (String) invokeV.objValue;
     }
 
     public List<MyGift> getGift() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mGift : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mGift : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public int getGiftNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mGiftNum : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mGiftNum : invokeV.intValue;
     }
 
     public String getGrade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.grade : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.grade : (String) invokeV.objValue;
     }
 
     public List<MyGroup> getGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mGroup : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mGroup : (List) invokeV.objValue;
     }
 
     public int getHave_attention() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.have_attention : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.have_attention : invokeV.intValue;
     }
 
     public long getInTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.inTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.inTime : invokeV.longValue;
     }
 
     public String getIntro() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.intro : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.intro : (String) invokeV.objValue;
     }
 
     public String getIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.ip : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.ip : (String) invokeV.objValue;
     }
 
     public int getIsBlocked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.isBlocked : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.isBlocked : invokeV.intValue;
     }
 
     public int getIsFriend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.isFriend : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.isFriend : invokeV.intValue;
     }
 
     public boolean getIsGodInvited() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.isGodInvited : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.isGodInvited : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public int getIsMem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.is_mem : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.is_mem : invokeV.intValue;
     }
 
     public int getIsOfficialAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.isOfficialAccount : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.isOfficialAccount : invokeV.intValue;
     }
 
     public boolean getIsSelectTail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mIsSelectTail : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mIsSelectTail : invokeV.booleanValue;
     }
 
     public long getLastReplyTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.lastReplyTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.lastReplyTime : invokeV.longValue;
     }
 
     public String getLat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.lat : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.lat : (String) invokeV.objValue;
     }
 
     public List<MyLikeForum> getLikeForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mLikeForum : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mLikeForum : (List) invokeV.objValue;
     }
 
     public int getLike_bars() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.like_bars : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.like_bars : invokeV.intValue;
     }
 
     public String getLiveId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.liveId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.liveId : (String) invokeV.objValue;
     }
 
     public int getLiveLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.liveLevel : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.liveLevel : invokeV.intValue;
     }
 
     public long getLiveLevelExp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.liveLevelExp : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.liveLevelExp : invokeV.longValue;
     }
 
     public int getLiveStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.liveStatus : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.liveStatus : invokeV.intValue;
     }
 
     public String getLng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.lng : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.lng : (String) invokeV.objValue;
     }
 
     public long getLoginTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.loginTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.loginTime : invokeV.longValue;
     }
 
     public String getPassword() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.password : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.password : (String) invokeV.objValue;
     }
 
     public PayMemberInfoData getPayMemberInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.payMemberInfo : (PayMemberInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.payMemberInfo : (PayMemberInfoData) invokeV.objValue;
     }
 
     public Permission getPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.permission : (Permission) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.permission : (Permission) invokeV.objValue;
     }
 
     public PersonPrivateData getPersonPrivate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.personPrivate : (PersonPrivateData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.personPrivate : (PersonPrivateData) invokeV.objValue;
     }
 
-    public List<pn> getPhotoAlbum() {
+    public List<Cdo> getPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mPhotoAlbum : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mPhotoAlbum : (List) invokeV.objValue;
     }
 
     public String getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.position : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.position : (String) invokeV.objValue;
     }
 
     public int getPosts_num() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.posts_num : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.posts_num : invokeV.intValue;
     }
 
     public int getPrivateThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.privateThread : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.privateThread : invokeV.intValue;
     }
 
     public int getRelation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.relation : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.relation : invokeV.intValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.sex : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.sex : invokeV.intValue;
     }
 
     public long getTDouNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mTDouNum : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mTDouNum : invokeV.longValue;
     }
 
     public String getTb_age() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.tb_age : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.tb_age : (String) invokeV.objValue;
     }
 
     public int getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.userType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.userType : invokeV.intValue;
     }
 
     public UserVipInfoData getUserVipInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.vipInfo : (UserVipInfoData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.vipInfo : (UserVipInfoData) invokeV.objValue;
     }
 
     public int getVisitorNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.visitorNum : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.visitorNum : invokeV.intValue;
     }
 
     public String getmTiebaUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mTiebaUid : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mTiebaUid : (String) invokeV.objValue;
     }
 
     public boolean isBawu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             int i = this.managerLevel;
             return i == 1 || i == 2;
         }
@@ -525,31 +532,31 @@ public class UserData extends MetaData {
     public boolean isBlocked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.isBlocked == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.isBlocked == 1 : invokeV.booleanValue;
     }
 
     public boolean isLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.have_attention == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.have_attention == 1 : invokeV.booleanValue;
     }
 
     public boolean isMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.isMask : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.isMask : invokeV.booleanValue;
     }
 
     public boolean isNormal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.managerLevel == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.managerLevel == 0 : invokeV.booleanValue;
     }
 
     public boolean isOtherBawu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             int i = this.managerLevel;
             return i == 2 || i == 3 || i == 4;
         }
@@ -559,13 +566,13 @@ public class UserData extends MetaData {
     public boolean isShowDriftingBottle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.isShowDriftingBottle : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.isShowDriftingBottle : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
             super.parserJson(str);
             try {
                 parserJson(new JSONObject(str));
@@ -578,7 +585,7 @@ public class UserData extends MetaData {
     @Override // com.baidu.tbadk.data.MetaData
     public void parserProtobuf(User user) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048636, this, user) == null) || user == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048637, this, user) == null) || user == null) {
             return;
         }
         super.parserProtobuf(user);
@@ -605,20 +612,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        y15 y15Var = new y15();
-        y15Var.f(getPortraitH());
-        y15Var.h(getPortrait());
-        y15Var.g(true);
-        this.mPhotoAlbum.add(y15Var);
+        h45 h45Var = new h45();
+        h45Var.f(getPortraitH());
+        h45Var.h(getPortrait());
+        h45Var.g(true);
+        this.mPhotoAlbum.add(h45Var);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    y15 y15Var2 = new y15();
-                    y15Var2.f(userPics.big);
-                    y15Var2.h(userPics.small);
-                    y15Var2.g(false);
-                    this.mPhotoAlbum.add(y15Var2);
+                    h45 h45Var2 = new h45();
+                    h45Var2.f(userPics.big);
+                    h45Var2.h(userPics.small);
+                    h45Var2.g(false);
+                    this.mPhotoAlbum.add(h45Var2);
                 }
             }
         }
@@ -654,6 +661,7 @@ public class UserData extends MetaData {
         }
         this.bg_pic = user.bg_pic;
         this.bimg_url = user.bimg_url;
+        this.dynamic_url = user.dynamic_url;
         this.bimg_end_time = user.bimg_end_time.intValue();
         this.isFriend = user.is_friend.intValue();
         PrivSets privSets = user.priv_sets;
@@ -739,9 +747,9 @@ public class UserData extends MetaData {
         this.isShowRedPacket = user.is_show_redpacket.intValue() == 1;
         BirthdayInfo birthdayInfo = user.birthday_info;
         if (birthdayInfo != null) {
-            nr4 nr4Var = new nr4();
-            this.mBirthdayInfo = nr4Var;
-            nr4Var.b(birthdayInfo);
+            st4 st4Var = new st4();
+            this.mBirthdayInfo = st4Var;
+            st4Var.b(birthdayInfo);
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();
@@ -750,49 +758,55 @@ public class UserData extends MetaData {
 
     public void setBDUSS(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
             this.BDUSS = str;
         }
     }
 
     public void setBg_pic(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
             this.bg_pic = str;
         }
     }
 
     public void setBimg_end_time(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
             this.bimg_end_time = i;
         }
     }
 
     public void setBimg_url(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
             this.bimg_url = str;
         }
     }
 
     public void setCanChat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
             this.canChat = i;
+        }
+    }
+
+    public void setDynamicUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, str) == null) {
         }
     }
 
     public void setFavoriteNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
             this.favoriteNum = i;
         }
     }
 
     public void setGift(List<MyGift> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, list) == null) {
             this.mGift = list;
         }
     }
@@ -800,91 +814,91 @@ public class UserData extends MetaData {
     @Override // com.baidu.tbadk.data.MetaData
     public void setGiftNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048646, this, i) == null) {
             this.mGiftNum = i;
         }
     }
 
     public void setGrade(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
             this.grade = str;
         }
     }
 
     public void setGroup(List<MyGroup> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048648, this, list) == null) {
             this.mGroup = list;
         }
     }
 
     public void setHave_attention(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048649, this, i) == null) {
             setLikeStatus(i);
         }
     }
 
     public void setInTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048648, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
             this.inTime = j;
         }
     }
 
     public void setIntro(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048651, this, str) == null) {
             this.intro = str;
         }
     }
 
     public void setIp(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048652, this, str) == null) {
             this.ip = str;
         }
     }
 
     public void setIsBlocked(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048653, this, i) == null) {
             this.isBlocked = i;
         }
     }
 
     public void setIsFriend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048654, this, i) == null) {
             this.isFriend = i;
         }
     }
 
     public void setIsMem(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048653, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
             this.is_mem = i;
         }
     }
 
     public void setLastReplyTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048654, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048656, this, j) == null) {
             this.lastReplyTime = j;
         }
     }
 
     public void setLat(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048655, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048657, this, str) == null) {
             this.lat = str;
         }
     }
 
     public void setLike(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048656, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048658, this, z) == null) {
             if (z) {
                 this.have_attention = 1;
             } else {
@@ -895,15 +909,15 @@ public class UserData extends MetaData {
 
     public void setLikeForum(List<MyLikeForum> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048659, this, list) == null) {
             this.mLikeForum = list;
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.sw4
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.cz4
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048658, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048660, this, i) == null) {
             super.setLikeStatus(i);
             this.have_attention = i;
         }
@@ -911,91 +925,91 @@ public class UserData extends MetaData {
 
     public void setLike_bars(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048659, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
             this.like_bars = i;
         }
     }
 
     public void setLng(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048660, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048662, this, str) == null) {
             this.lng = str;
         }
     }
 
     public void setLoginTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048661, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048663, this, j) == null) {
             this.loginTime = j;
         }
     }
 
     public void setMask(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048662, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048664, this, z) == null) {
             this.isMask = z;
         }
     }
 
     public void setPermission(Permission permission) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, permission) == null) {
+        if (interceptable == null || interceptable.invokeL(1048665, this, permission) == null) {
             this.permission = permission;
         }
     }
 
     public void setPosition(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048664, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048666, this, str) == null) {
             this.position = str;
         }
     }
 
     public void setPosts_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048665, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
             this.posts_num = i;
         }
     }
 
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048666, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048668, this, i) == null) {
             this.privateThread = i;
         }
     }
 
     public void setRelation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
             this.relation = i;
         }
     }
 
     public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048668, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048670, this, i) == null) {
             this.sex = i;
         }
     }
 
     public void setTb_age(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048669, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048671, this, str) == null) {
             this.tb_age = str;
         }
     }
 
     public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048670, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048672, this, i) == null) {
             this.userType = i;
         }
     }
 
     public void setmTiebaUid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048671, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048673, this, str) == null) {
             this.mTiebaUid = str;
         }
     }
@@ -1003,13 +1017,13 @@ public class UserData extends MetaData {
     public boolean showPbPrivate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) ? this.showPbPrivateFlag == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? this.showPbPrivateFlag == 1 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048636, this, jSONObject) == null) {
             try {
                 super.parserJson(jSONObject);
                 if (jSONObject == null) {
@@ -1044,6 +1058,7 @@ public class UserData extends MetaData {
                 }
                 this.bg_pic = jSONObject.optString("bg_pic");
                 this.bimg_url = jSONObject.optString("bimg_url");
+                this.dynamic_url = jSONObject.optString("dynamic_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
                 this.is_mem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM);
                 JSONObject optJSONObject = jSONObject.optJSONObject("vipInfo");
@@ -1087,22 +1102,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                y15 y15Var = new y15();
-                y15Var.f(getPortraitH());
-                y15Var.h(getPortrait());
-                y15Var.g(true);
-                this.mPhotoAlbum.add(y15Var);
+                h45 h45Var = new h45();
+                h45Var.f(getPortraitH());
+                h45Var.h(getPortrait());
+                h45Var.g(true);
+                this.mPhotoAlbum.add(h45Var);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            y15 y15Var2 = new y15();
-                            y15Var2.f(jSONObject2.optString("big"));
-                            y15Var2.h(jSONObject2.optString("small"));
-                            y15Var2.g(false);
-                            this.mPhotoAlbum.add(y15Var2);
+                            h45 h45Var2 = new h45();
+                            h45Var2.f(jSONObject2.optString("big"));
+                            h45Var2.h(jSONObject2.optString("small"));
+                            h45Var2.g(false);
+                            this.mPhotoAlbum.add(h45Var2);
                         }
                     }
                 }
@@ -1156,9 +1171,9 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                 if (optJSONObject10 != null) {
-                    nr4 nr4Var = new nr4();
-                    this.mBirthdayInfo = nr4Var;
-                    nr4Var.a(optJSONObject10);
+                    st4 st4Var = new st4();
+                    this.mBirthdayInfo = st4Var;
+                    st4Var.a(optJSONObject10);
                 }
                 this.mTiebaUid = jSONObject.optString("tieba_uid");
                 this.isBlocked = jSONObject.optInt("is_blocked");

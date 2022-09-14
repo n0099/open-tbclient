@@ -1,167 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class yo5 implements xl1 {
+public class yo5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public AdWebViewActivity a;
+    public jn8 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948336906, "Lcom/baidu/tieba/yo5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948336906, "Lcom/baidu/tieba/yo5;");
-                return;
-            }
-        }
-        b = kh1.a;
-    }
-
-    public yo5() {
+    public yo5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adWebViewActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xl1
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
-            }
-            long m = su4.k().m("smart_app_tid", 0L);
-            String q = su4.k().q("smart_app_id", "");
-            String q2 = su4.k().q("smart_app_name", "");
-            if (this.a == 0 || m == 0) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            ca5 ca5Var = new ca5();
-            ca5Var.y(currentTimeMillis);
-            ca5Var.s(g());
-            ca5Var.C(m);
-            ca5Var.i = q;
-            ca5Var.j = q2;
-            ca5Var.x(h());
-            da5.b().j(true);
-            da5.b().k(TbadkApplication.getInst().getApplicationContext(), ca5Var, i());
-            su4.k().x("smart_app_tid", 0L);
         }
+        this.a = adWebViewActivity;
     }
 
-    @Override // com.baidu.tieba.xl1
-    public void b() {
+    public void a(jn8 jn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jn8Var) == null) {
+            this.b = jn8Var;
         }
     }
 
-    @Override // com.baidu.tieba.xl1
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + a13.M().b);
-            }
-            File file = new File(gm.b("libBaiduMapSDK_map_v5_4_4.so"));
-            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && im.a(BdBaseApplication.getInst().getContext(), gm.a("libBaiduMapSDK_map_v5_4_4.so"))) {
-                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK_map_v5_4_4.so", gm.a("libBaiduMapSDK_map_v5_4_4.so"));
-            }
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    @Override // com.baidu.tieba.xl1
-    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable xl2 xl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, xl2Var) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppExit");
-            }
-            if (su4.k().h("key_ai_app_guide_display", true)) {
-                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
-                intent.putExtra(DealIntentService.KEY_CLASS, 38);
-                swanAppActivity.startService(intent);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xl1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xl1
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
-
-    public String g() {
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
     }
 
-    public List<String> h() {
-        InterceptResult invokeV;
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("a001");
-            return arrayList;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
         }
-        return (List) invokeV.objValue;
     }
 
-    public aa5 i() {
-        InterceptResult invokeV;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity == null || !ih.f(adWebViewActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsAlert(webView, str, str2, jsResult);
         }
-        return (aa5) invokeV.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity == null || !ih.f(adWebViewActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity == null || !ih.f(adWebViewActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsConfirm(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        AdWebViewActivity adWebViewActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            jn8 jn8Var = this.b;
+            if ((jn8Var == null || !jn8Var.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.a) != null && ih.f(adWebViewActivity.getPageContext())) {
+                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            }
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

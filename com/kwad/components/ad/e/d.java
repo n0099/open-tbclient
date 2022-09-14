@@ -136,10 +136,10 @@ public final class d extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d043d, this);
-            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0441, this);
+            AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6);
             this.jK = adBasePvFrameLayout;
-            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f09120e);
+            DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f09122c);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
         }

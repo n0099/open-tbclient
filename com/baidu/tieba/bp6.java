@@ -1,96 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeColorInfo;
+import tbclient.RecentUpdate;
 /* loaded from: classes3.dex */
-public class bp6 extends cn<vj8, FrsLikeRecommendHolder> {
+public class bp6 extends lq4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThemeColorInfo a;
+    public RecentUpdate a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bp6(@NonNull Context context) {
-        super(context, vj8.e);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652705, "Lcom/baidu/tieba/bp6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947652705, "Lcom/baidu/tieba/bp6;");
                 return;
             }
         }
+        b = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vj8 vj8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        u(i, view2, viewGroup, vj8Var, frsLikeRecommendHolder);
-        return view2;
-    }
-
-    public /* synthetic */ void s(vj8 vj8Var, ViewGroup viewGroup, int i, View view2) {
-        if (getOnAdapterItemClickListener() != null) {
-            getOnAdapterItemClickListener().b(view2, vj8Var, vj8.e, viewGroup, i, view2.getId());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public bp6() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032c, viewGroup, false), this.a) : (FrsLikeRecommendHolder) invokeL.objValue;
-    }
-
-    public View u(final int i, View view2, final ViewGroup viewGroup, final vj8 vj8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vj8Var, frsLikeRecommendHolder})) == null) {
-            if (vj8Var != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.a(vj8Var);
-                frsLikeRecommendHolder.c(new View.OnClickListener() { // from class: com.baidu.tieba.xo6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                            bp6.this.s(vj8Var, viewGroup, i, view3);
-                        }
-                    }
-                });
-                frsLikeRecommendHolder.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public void v(ThemeColorInfo themeColorInfo) {
+    public RecentUpdate c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, themeColorInfo) == null) {
-            this.a = themeColorInfo;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RecentUpdate) invokeV.objValue;
+    }
+
+    public void f(RecentUpdate recentUpdate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
         }
+    }
+
+    @Override // com.baidu.tieba.lq4
+    public is4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (is4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lq4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

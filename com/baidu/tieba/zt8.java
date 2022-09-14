@@ -1,106 +1,140 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
 import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.TimeZone;
 /* loaded from: classes6.dex */
-public class zt8 extends BdAsyncTask<Void, Void, List<au8>> {
+public class zt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Context b;
-    public int c;
-    public SimpleDateFormat d;
-    public SimpleDateFormat e;
+    public KeyguardManager a;
+    public PowerManager b;
+    public PowerManager.WakeLock c;
+    public KeyguardManager.KeyguardLock d;
+    public Context e;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(List<au8> list);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948371595, "Lcom/baidu/tieba/zt8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948371595, "Lcom/baidu/tieba/zt8;");
-        }
-    }
-
-    public zt8(Context context) {
+    public zt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
-        this.e = new SimpleDateFormat("mm:ss");
-        this.d = new SimpleDateFormat("HH:mm:ss");
-        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.e.setTimeZone(timeZone);
-        this.d.setTimeZone(timeZone);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public List<au8> doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<au8> a2 = bu8.a(this.b);
-            bu8.d("/sdcard", a2, false);
-            bu8.d("/sdcard/DCIM", a2, true);
-            bu8.e(a2);
-            return a2;
+        try {
+            Application app = TbadkCoreApplication.getInst().getApp();
+            this.e = app;
+            PowerManager powerManager = (PowerManager) app.getSystemService("power");
+            this.b = powerManager;
+            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
+            this.c = newWakeLock;
+            newWakeLock.setReferenceCounted(false);
+            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
+            this.a = keyguardManager;
+            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(List<au8> list) {
+    public static Drawable a() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            super.onPostExecute(list);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(list);
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (Drawable) invokeV.objValue;
+        }
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        try {
+            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+            if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+                return null;
+            }
+            int min = Math.min(ej.k(inst), bitmap.getWidth());
+            int min2 = Math.min(ej.i(inst), bitmap.getHeight());
+            try {
+                try {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                } catch (Throwable unused) {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                }
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+                return null;
+            }
+        } catch (Exception unused2) {
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.isScreenOn() : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                this.d.reenableKeyguard();
+                if (this.c != null) {
+                    this.c.release();
+                    this.c = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
     }
 
-    public void d(a aVar) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.c == null) {
+                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
+                    this.c = newWakeLock;
+                    newWakeLock.setReferenceCounted(false);
+                }
+                if (this.c != null) {
+                    this.c.acquire(10000L);
+                    this.d.disableKeyguard();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 }

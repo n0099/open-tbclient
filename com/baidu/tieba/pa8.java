@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,57 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class pa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PushDialogActivity a;
-    public String b;
+    public long a;
+    public long b;
     public long c;
+    public ThreadData d;
+    public ma8 e;
+    public String f;
+    public boolean g;
+    public xo7 h;
 
-    /* loaded from: classes5.dex */
-    public class a extends bb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pa8 pa8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa8Var;
-        }
-
-        @Override // com.baidu.tieba.bb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof PushDialogHttpResMsg) {
-                    this.a.f((PushDialogHttpResMsg) responsedMessage);
-                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
-                    this.a.g((PushDialogSocketResMsg) responsedMessage);
-                }
-            }
-        }
-    }
-
-    public pa8(PushDialogActivity pushDialogActivity) {
+    public pa8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pushDialogActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,64 +39,181 @@ public class pa8 {
                 return;
             }
         }
-        this.a = pushDialogActivity;
-        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
-        Intent intent = this.a.getIntent();
-        if (intent != null) {
-            this.b = intent.getStringExtra("thread_id");
-            this.c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.b)) {
-                this.a.finish();
-            }
+        this.a = 0L;
+        this.b = 0L;
+        this.f = "1";
+        this.h = new xo7();
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.c;
+            float f = ((float) this.a) / ((float) j);
+            return j <= 60000 ? ((double) f) >= 0.9d : j <= LiveFeedPageSdk.REFRESH_TIME ? ((double) f) >= 0.8d : j <= 600000 ? ((double) f) >= 0.7d : ((double) f) >= 0.6d;
         }
+        return invokeV.booleanValue;
     }
 
-    public long c() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public String d() {
+    public ma8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (ma8) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b <= 0) {
+            return;
+        }
+        this.a += System.currentTimeMillis() - this.b;
+        this.b = 0L;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long g = pg.g(this.b, 0L);
-            if (g == 0) {
-                PushDialogActivity pushDialogActivity = this.a;
-                if (pushDialogActivity != null) {
-                    pushDialogActivity.C1(false, null);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.b > 0) {
+                this.a += System.currentTimeMillis() - this.b;
+                this.b = 0L;
+            }
+            this.g = false;
+        }
+    }
+
+    public void f(y98 y98Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, y98Var) == null) {
+            this.h.d(y98Var);
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.c = j;
+            this.h.c();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.h.e();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.b != 0) {
+                this.a += System.currentTimeMillis() - this.b;
+            }
+            this.b = System.currentTimeMillis();
+            this.g = true;
+            this.h.b();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.b > 0) {
+                this.a += System.currentTimeMillis() - this.b;
+                this.b = 0L;
+            }
+            k();
+            this.a = 0L;
+            this.b = 0L;
+            this.g = false;
+            this.h.a();
+        }
+    }
+
+    public final void k() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            long j = this.a;
+            if (j < 0 || j >= 86400000) {
                 return;
             }
-            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-            pushDialogReqNetMsg.setTask_id(this.c);
-            pushDialogReqNetMsg.setTid(g);
-            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
+            if (j > 0) {
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
+                statisticItem.param(TiebaStatic.Params.OBJ_DURATION, this.a);
+                statisticItem.param("obj_type", this.f);
+                statisticItem.param("playduration", this.c);
+                statisticItem.param("player_type", 1);
+                statisticItem.param("is_finish", a() ? 1 : 0);
+                if (!dj.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                    statisticItem.param("task_id", TbadkCoreApplication.getInst().getTaskId());
+                }
+                ma8 ma8Var = this.e;
+                if (ma8Var != null) {
+                    ma8Var.a(statisticItem);
+                }
+                if (!statisticItem.hasParam(TiebaStatic.Params.OBJ_PARAM5) && (threadData = this.d) != null) {
+                    if (threadData.getBaijiahaoData() != null) {
+                        if (this.d.getBaijiahaoData().oriUgcType == 2) {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                        } else if (this.d.getBaijiahaoData().oriUgcType == 4) {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                        }
+                    } else {
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                    }
+                }
+                ThreadData threadData2 = this.d;
+                if (threadData2 != null) {
+                    statisticItem.param(TiebaStatic.Params.IS_ZP, threadData2.isWorksInfo() ? 1 : 0);
+                }
+                TiebaStatic.log(statisticItem);
+                ba8.d(this.a, this.f, this.e, "", this.c);
+            } else if (this.g) {
+                ba8.d(j, this.f, this.e, "", this.c);
+            }
         }
     }
 
-    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        PushDialogActivity pushDialogActivity;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) || (pushDialogActivity = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f = str;
         }
-        pushDialogActivity.C1(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
     }
 
-    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        PushDialogActivity pushDialogActivity;
+    public void m(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) || (pushDialogActivity = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048588, this, threadData) == null) {
+            this.d = threadData;
         }
-        pushDialogActivity.C1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(ma8 ma8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, ma8Var) == null) {
+            this.e = ma8Var;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a = i;
+        }
     }
 }

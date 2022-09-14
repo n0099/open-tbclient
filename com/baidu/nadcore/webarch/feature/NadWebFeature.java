@@ -15,7 +15,6 @@ public class NadWebFeature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public STATUS a;
-    public Context b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -93,7 +92,6 @@ public class NadWebFeature {
             }
         }
         new HashMap();
-        this.b = context;
     }
 
     public void a() {

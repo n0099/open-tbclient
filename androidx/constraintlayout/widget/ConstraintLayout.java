@@ -433,21 +433,21 @@ public class ConstraintLayout extends ViewGroup {
             this.mChildrenByIds.put(getId(), this);
             this.mConstraintSet = null;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout, i, i2);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout, i, i2);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i3 = 0; i3 < indexCount; i3++) {
                     int index = obtainStyledAttributes.getIndex(i3);
-                    if (index == R$styleable.ConstraintLayout_Layout_android_minWidth) {
+                    if (index == 9) {
                         this.mMinWidth = obtainStyledAttributes.getDimensionPixelOffset(index, this.mMinWidth);
-                    } else if (index == R$styleable.ConstraintLayout_Layout_android_minHeight) {
+                    } else if (index == 10) {
                         this.mMinHeight = obtainStyledAttributes.getDimensionPixelOffset(index, this.mMinHeight);
-                    } else if (index == R$styleable.ConstraintLayout_Layout_android_maxWidth) {
+                    } else if (index == 7) {
                         this.mMaxWidth = obtainStyledAttributes.getDimensionPixelOffset(index, this.mMaxWidth);
-                    } else if (index == R$styleable.ConstraintLayout_Layout_android_maxHeight) {
+                    } else if (index == 8) {
                         this.mMaxHeight = obtainStyledAttributes.getDimensionPixelOffset(index, this.mMaxHeight);
-                    } else if (index == R$styleable.ConstraintLayout_Layout_layout_optimizationLevel) {
+                    } else if (index == 70) {
                         this.mOptimizationLevel = obtainStyledAttributes.getInt(index, this.mOptimizationLevel);
-                    } else if (index == R$styleable.ConstraintLayout_Layout_layoutDescription) {
+                    } else if (index == 89) {
                         int resourceId = obtainStyledAttributes.getResourceId(index, 0);
                         if (resourceId != 0) {
                             try {
@@ -456,7 +456,7 @@ public class ConstraintLayout extends ViewGroup {
                                 this.mConstraintLayoutSpec = null;
                             }
                         }
-                    } else if (index == R$styleable.ConstraintLayout_Layout_constraintSet) {
+                    } else if (index == 18) {
                         int resourceId2 = obtainStyledAttributes.getResourceId(index, 0);
                         try {
                             ConstraintSet constraintSet = new ConstraintSet();
@@ -1714,57 +1714,57 @@ public class ConstraintLayout extends ViewGroup {
                 }
                 SparseIntArray sparseIntArray = new SparseIntArray();
                 map = sparseIntArray;
-                sparseIntArray.append(R$styleable.ConstraintLayout_Layout_layout_constraintLeft_toLeftOf, 8);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintLeft_toRightOf, 9);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintRight_toLeftOf, 10);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintRight_toRightOf, 11);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintTop_toTopOf, 12);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintTop_toBottomOf, 13);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintBottom_toTopOf, 14);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintBottom_toBottomOf, 15);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf, 16);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintCircle, 2);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintCircleRadius, 3);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintCircleAngle, 4);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_editor_absoluteX, 49);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_editor_absoluteY, 50);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintGuide_begin, 5);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintGuide_end, 6);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintGuide_percent, 7);
-                map.append(R$styleable.ConstraintLayout_Layout_android_orientation, 1);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintStart_toEndOf, 17);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintStart_toStartOf, 18);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintEnd_toStartOf, 19);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintEnd_toEndOf, 20);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_goneMarginLeft, 21);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_goneMarginTop, 22);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_goneMarginRight, 23);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_goneMarginBottom, 24);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_goneMarginStart, 25);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_goneMarginEnd, 26);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHorizontal_bias, 29);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintVertical_bias, 30);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintDimensionRatio, 44);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHorizontal_weight, 45);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintVertical_weight, 46);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle, 47);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintVertical_chainStyle, 48);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constrainedWidth, 27);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constrainedHeight, 28);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintWidth_default, 31);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHeight_default, 32);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintWidth_min, 33);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintWidth_max, 34);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintWidth_percent, 35);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHeight_min, 36);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHeight_max, 37);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintHeight_percent, 38);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintLeft_creator, 39);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintTop_creator, 40);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintRight_creator, 41);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintBottom_creator, 42);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintBaseline_creator, 43);
-                map.append(R$styleable.ConstraintLayout_Layout_layout_constraintTag, 51);
+                sparseIntArray.append(45, 8);
+                map.append(46, 9);
+                map.append(48, 10);
+                map.append(49, 11);
+                map.append(54, 12);
+                map.append(53, 13);
+                map.append(27, 14);
+                map.append(26, 15);
+                map.append(24, 16);
+                map.append(28, 2);
+                map.append(30, 3);
+                map.append(29, 4);
+                map.append(62, 49);
+                map.append(63, 50);
+                map.append(34, 5);
+                map.append(35, 6);
+                map.append(36, 7);
+                map.append(0, 1);
+                map.append(50, 17);
+                map.append(51, 18);
+                map.append(33, 19);
+                map.append(32, 20);
+                map.append(66, 21);
+                map.append(69, 22);
+                map.append(67, 23);
+                map.append(64, 24);
+                map.append(68, 25);
+                map.append(65, 26);
+                map.append(41, 29);
+                map.append(55, 30);
+                map.append(31, 44);
+                map.append(43, 45);
+                map.append(57, 46);
+                map.append(42, 47);
+                map.append(56, 48);
+                map.append(22, 27);
+                map.append(21, 28);
+                map.append(58, 31);
+                map.append(37, 32);
+                map.append(60, 33);
+                map.append(59, 34);
+                map.append(61, 35);
+                map.append(39, 36);
+                map.append(38, 37);
+                map.append(40, 38);
+                map.append(44, 39);
+                map.append(52, 40);
+                map.append(47, 41);
+                map.append(25, 42);
+                map.append(23, 43);
+                map.append(90, 51);
             }
 
             public Table() {
@@ -2285,7 +2285,7 @@ public class ConstraintLayout extends ViewGroup {
             this.resolvedHorizontalBias = 0.5f;
             this.widget = new ConstraintWidget();
             this.helped = false;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_Layout);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i4 = 0; i4 < indexCount; i4++) {
                 int index = obtainStyledAttributes.getIndex(i4);

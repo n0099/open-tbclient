@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,17 +99,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0922e4);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092338);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(ri.f(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922e5);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092591);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912f9);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912fa);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e20);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0922e6);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090643);
+            roundRelativeLayout.setAllCornerRound(ej.f(this, R.dimen.tbds32));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092339);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0925ed);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091317);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091318);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e70);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09233a);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090656);
         }
     }
 
@@ -125,7 +125,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11f1));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f120f));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -153,18 +153,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080ad7);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080af4);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080ad8);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080af5);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080ad9);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080af6);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808ed);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080908);
             this.i.setSkinType(i);
         }
     }

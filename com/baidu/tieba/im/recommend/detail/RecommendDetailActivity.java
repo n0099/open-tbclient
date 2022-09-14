@@ -11,9 +11,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import com.baidu.tieba.j97;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.qa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j97 a;
+    public qa7 a;
     public RecommendDetailModel b;
     public long c;
     public String d;
@@ -179,20 +179,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
-    public void U(UserInfoBigVip userInfoBigVip, boolean z) {
-        j97 j97Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, userInfoBigVip, z) == null) || (j97Var = this.a) == null || userInfoBigVip == null) {
-            return;
-        }
-        j97Var.g();
-        this.a.p(userInfoBigVip, z);
-    }
-
-    @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void V0(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.a == null) {
             return;
         }
         if (z) {
@@ -203,14 +192,25 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.mHandler.postDelayed(new a(this), 500L);
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void i0(View view2, BdSwitchView.SwitchState switchState) {
-        j97 j97Var;
+    @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
+    public void W(UserInfoBigVip userInfoBigVip, boolean z) {
+        qa7 qa7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, view2, switchState) == null) || (j97Var = this.a) == null || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, userInfoBigVip, z) == null) || (qa7Var = this.a) == null || userInfoBigVip == null) {
             return;
         }
-        if (view2 == j97Var.c()) {
+        qa7Var.g();
+        this.a.p(userInfoBigVip, z);
+    }
+
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+    public void i0(View view2, BdSwitchView.SwitchState switchState) {
+        qa7 qa7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, view2, switchState) == null) || (qa7Var = this.a) == null || this.b == null) {
+            return;
+        }
+        if (view2 == qa7Var.c()) {
             this.b.O(1, switchState != BdSwitchView.SwitchState.OFF);
         } else if (view2 == this.a.d()) {
             this.b.O(2, switchState != BdSwitchView.SwitchState.OFF);
@@ -222,9 +222,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            j97 j97Var = this.a;
-            if (j97Var != null) {
-                j97Var.j(i);
+            qa7 qa7Var = this.a;
+            if (qa7Var != null) {
+                qa7Var.j(i);
             }
         }
     }
@@ -234,7 +234,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new j97(this);
+            this.a = new qa7(this);
             this.b = new RecommendDetailModel(getPageContext(), this, this);
             A1(bundle);
             this.a.a();
@@ -257,20 +257,20 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void onFailed(String str) {
         RecommendDetailModel recommendDetailModel;
-        j97 j97Var;
+        qa7 qa7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (!StringUtils.isNull(str) && (j97Var = this.a) != null) {
-                j97Var.g();
+            if (!StringUtils.isNull(str) && (qa7Var = this.a) != null) {
+                qa7Var.g();
                 this.a.b();
             }
             if (this.a == null || (recommendDetailModel = this.b) == null || !recommendDetailModel.I() || this.b.G() || !StringUtils.isNull(str)) {
                 return;
             }
-            if (ri.D()) {
-                this.a.o(R.string.obfuscated_res_0x7f0f0c5a);
+            if (ej.D()) {
+                this.a.o(R.string.obfuscated_res_0x7f0f0c73);
             } else {
-                this.a.o(R.string.obfuscated_res_0x7f0f079e);
+                this.a.o(R.string.obfuscated_res_0x7f0f07b1);
             }
         }
     }

@@ -1,11 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.rb6;
 /* loaded from: classes5.dex */
 public interface sb6 {
-    void H0(EmotionCenterData emotionCenterData);
+    boolean a(QmFilterItem qmFilterItem);
 
-    void T0(EmotionCenterData emotionCenterData);
+    QmFilterItem b();
 
-    void w0(EmotionCenterData emotionCenterData);
+    void c(QmFilterItem qmFilterItem);
+
+    void d(rb6.b bVar);
+
+    void e();
+
+    String f(String str);
+
+    void g();
+
+    void h();
+
+    void reset();
 }

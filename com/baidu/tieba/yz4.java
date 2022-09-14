@@ -1,155 +1,136 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class yz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static Map<String, String> b;
-    public static boolean c;
-    public static boolean d;
-    public static int e;
-    public static int f;
-    public static boolean g;
-    public static String h;
-    public static Map<String, String> i;
-    public static int j;
-    public static int k;
-    public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
+    public f05 a;
+    public int b;
+    public long c;
+    public long d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public boolean j;
+    public String k;
+    public String l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948347446, "Lcom/baidu/tieba/yz4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public yz4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948347446, "Lcom/baidu/tieba/yz4;");
-        }
+        this.e = 0;
+        this.f = 0;
+        this.g = 300;
+        this.h = 1;
+        this.a = new f05();
     }
 
-    public static int a() {
+    public f05 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!c) {
-                return su4.k().l("video_report_config_upload_number", 5);
-            }
-            return f;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (f05) invokeV.objValue;
     }
 
-    public static int b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!c) {
-                return su4.k().l("video_report_config_upload_type", 0);
-            }
-            return e;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public static boolean c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!c) {
-                return su4.k().h("video_report_config_switch", true);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e == 1 : invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b == 1) {
+                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                return this.c < currentTimeMillis && currentTimeMillis < this.d;
             }
-            return d;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static void d(JSONObject jSONObject) throws JSONException {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        c = true;
-        d = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 1) != 0;
-        su4.k().u("video_report_config_switch", d);
-        e = jSONObject.optInt("upload_type", 0);
-        su4.k().w("video_report_config_upload_type", e);
-        f = jSONObject.optInt("upload_number", 5);
-        su4.k().w("video_report_config_upload_number", f);
-        j = jSONObject.optInt("prepare_max_wait_time", 10000);
-        su4.k().w("video_report_prepare_max_wait_time", j);
-        k = jSONObject.optInt("prepare_max_loading_time", 3000);
-        su4.k().w("video_report_prepare_max_loading_time", k);
-        l = jSONObject.optInt("is_open_prepare_time", 0) == 1;
-        su4.k().u("video_report_is_open_prepare_time", l);
-        g = jSONObject.optInt("moov_check", 0) != 0;
-        su4.k().u("video_report_config_moov_check", g);
-        String optString = jSONObject.optString("android_debug_type");
-        h = optString;
-        if (!StringUtils.isNull(optString)) {
-            su4.k().y("video_report_config_debug_type", h);
-            e(h);
-        }
-        String optString2 = jSONObject.optString("step_cache_strategy");
-        a = optString2;
-        if (StringUtils.isNull(optString2)) {
-            return;
-        }
-        su4.k().y("video_report_config_step_cache_strategy", a);
-        f(a);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f == 1 : invokeV.booleanValue;
     }
 
-    public static void e(String str) {
+    public void g(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (i == null) {
-            i = new HashMap();
+        jSONObject.optInt("als_control", 1);
+        jSONObject.optInt("not_use_lego_patch", 0);
+        jSONObject.optInt("ad_video_not_autoplay", 1);
+        this.f = jSONObject.optInt("lp_video_not_autoplay", 0);
+        this.a.a(jSONObject);
+        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
+        if (optJSONObject != null) {
+            this.b = optJSONObject.optInt("log_feed_switch", 0);
+            this.c = optJSONObject.optLong("start_time", -1L);
+            this.d = optJSONObject.optLong("end_time", -1L);
+            optJSONObject.optString("ext_info");
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
-            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
-            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        this.e = jSONObject.optInt("ad_collect_switch", 0);
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+        if (optJSONObject2 != null) {
+            this.g = optJSONObject2.optInt("interval", 300);
         }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str)) {
+        this.h = jSONObject.optInt("video_page_style", 1);
+        bx4.k().w("video_page_style", this.h);
+        jSONObject.optInt("ad_download_lib", 0);
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
+        if (optJSONObject3 != null) {
+            this.i = optJSONObject3.optString("url");
+            optJSONObject3.optString("name");
+            optJSONObject3.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+            optJSONObject3.optString("text_color_pressed");
+        }
+        this.j = jSONObject.optInt("afd_jump_pb") == 1;
+        this.k = jSONObject.optString("afd_eid");
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("iadex_sniff_list_url");
+        if (optJSONObject4 != null) {
+            String optString = optJSONObject4.optString("os_type2_iadex_url");
+            this.l = optString;
+            ig5.h(optString);
             return;
         }
-        if (b == null) {
-            b = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
-            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
-            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
-            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
-            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
+        ig5.h(null);
     }
 }

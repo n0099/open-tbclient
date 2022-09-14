@@ -1,43 +1,41 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.lego.indicator.SlidingTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class fh7 extends BaseAdapter {
+public class fh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public ArrayList<String> b;
-    public final String c;
-    public boolean d;
+    public ImageView a;
+    public View b;
+    public TextView c;
+    public SlidingTabLayout d;
+    public Context e;
+    public Animation f;
+    public Animation g;
+    public boolean h;
+    public fh i;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public class a extends fh {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ fh7 a;
 
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
-
-        public b(fh7 fh7Var) {
+        public a(fh7 fh7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,21 +47,34 @@ public class fh7 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = fh7Var;
         }
 
-        public /* synthetic */ b(fh7 fh7Var, a aVar) {
-            this(fh7Var);
+        @Override // com.baidu.tieba.fh
+        public void a(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.c == null) {
+                return;
+            }
+            if (animation == this.a.f) {
+                this.a.c.setVisibility(0);
+                this.a.c.setClickable(true);
+            } else if (animation == this.a.g) {
+                this.a.c.setVisibility(8);
+                this.a.c.setClickable(false);
+            }
         }
     }
 
-    public fh7(Context context, ArrayList<String> arrayList) {
+    public fh7(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,92 +84,104 @@ public class fh7 extends BaseAdapter {
                 return;
             }
         }
-        this.a = context;
-        this.b = arrayList;
-        this.d = true;
-        this.c = context.getText(R.string.obfuscated_res_0x7f0f065b).toString();
+        this.h = true;
+        this.i = new a(this);
+        this.b = view2;
+        this.e = context;
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092025);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092023);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092024);
     }
 
-    public void a(ArrayList<String> arrayList) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.startAnimation(f());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
         }
     }
 
-    public void b(boolean z) {
+    public final Animation e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010063);
+                this.f = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
+            }
+            return this.f;
         }
+        return (Animation) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final Animation f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null) {
-                return 0;
+            if (this.g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.fade_out);
+                this.g = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
             }
-            return arrayList.size();
+            return this.g;
         }
-        return invokeV.intValue;
+        return (Animation) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int count = getCount();
-            if (count <= 0 || i >= count) {
-                return null;
-            }
-            return this.b.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    @SuppressLint({"ResourceAsColor"})
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d038b, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d77);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090d6e);
-                view2.setTag(bVar);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            if (this.h) {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
             } else {
-                bVar = (b) view2.getTag();
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
             }
-            Object item = getItem(i);
-            if (item == null) {
-                return view2;
+            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
+            SlidingTabLayout slidingTabLayout = this.d;
+            if (slidingTabLayout != null) {
+                slidingTabLayout.onChangeSkinType(i);
             }
-            String str = (String) item;
-            if (this.d) {
-                bVar.a.setText(str.concat(this.c));
-            } else {
-                bVar.a.setText(str);
-            }
-            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (imageView = this.a) == null) {
+            return;
+        }
+        imageView.setOnClickListener(onClickListener);
+    }
+
+    public void i(ViewPager viewPager, int i) {
+        SlidingTabLayout slidingTabLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) || (slidingTabLayout = this.d) == null) {
+            return;
+        }
+        slidingTabLayout.setViewPager(viewPager, i);
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = false;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.setVisibility(0);
+                this.c.startAnimation(e());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+        }
     }
 }

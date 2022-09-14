@@ -1039,9 +1039,9 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final Double m1945max(Sequence<Double> max) {
+    public static final Double m1946max(Sequence<Double> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1951maxOrNull(max);
+        return m1952maxOrNull(max);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0020 */
@@ -1134,7 +1134,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1949maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
+    public static final <T> Double m1950maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((T) it.next()).doubleValue();
@@ -1194,7 +1194,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Double m1951maxOrNull(Sequence<Double> maxOrNull) {
+    public static final Double m1952maxOrNull(Sequence<Double> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Double> it = maxOrNull.iterator();
         if (it.hasNext()) {
@@ -1240,9 +1240,9 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final Double m1953min(Sequence<Double> min) {
+    public static final Double m1954min(Sequence<Double> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1959minOrNull(min);
+        return m1960minOrNull(min);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0020 */
@@ -1335,7 +1335,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1957minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
+    public static final <T> Double m1958minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((T) it.next()).doubleValue();
@@ -1395,7 +1395,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Double m1959minOrNull(Sequence<Double> minOrNull) {
+    public static final Double m1960minOrNull(Sequence<Double> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Double> it = minOrNull.iterator();
         if (it.hasNext()) {
@@ -1799,12 +1799,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(Sequence<? extends T> sequence, Function1<? super T, UInt> function1) {
-        int m792constructorimpl = UInt.m792constructorimpl(0);
+        int m793constructorimpl = UInt.m793constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke((T) it.next()).m843unboximpl());
+            m793constructorimpl = UInt.m793constructorimpl(m793constructorimpl + function1.invoke((T) it.next()).m844unboximpl());
         }
-        return m792constructorimpl;
+        return m793constructorimpl;
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
@@ -1814,12 +1814,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(Sequence<? extends T> sequence, Function1<? super T, ULong> function1) {
-        long m870constructorimpl = ULong.m870constructorimpl(0);
+        long m871constructorimpl = ULong.m871constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke((T) it.next()).m921unboximpl());
+            m871constructorimpl = ULong.m871constructorimpl(m871constructorimpl + function1.invoke((T) it.next()).m922unboximpl());
         }
-        return m870constructorimpl;
+        return m871constructorimpl;
     }
 
     public static final <T> Sequence<T> take(Sequence<? extends T> take, int i) {
@@ -1951,18 +1951,18 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final Float m1946max(Sequence<Float> max) {
+    public static final Float m1947max(Sequence<Float> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1952maxOrNull(max);
+        return m1953maxOrNull(max);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final Float m1954min(Sequence<Float> min) {
+    public static final Float m1955min(Sequence<Float> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1960minOrNull(min);
+        return m1961minOrNull(min);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.sequences.Sequence<? extends T> */
@@ -2271,7 +2271,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T> float m1947maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> float m1948maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2289,7 +2289,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1950maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> Float m1951maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2303,7 +2303,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Float m1952maxOrNull(Sequence<Float> maxOrNull) {
+    public static final Float m1953maxOrNull(Sequence<Float> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Float> it = maxOrNull.iterator();
         if (it.hasNext()) {
@@ -2322,7 +2322,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T> float m1955minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> float m1956minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2340,7 +2340,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1958minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> Float m1959minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2354,7 +2354,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Float m1960minOrNull(Sequence<Float> minOrNull) {
+    public static final Float m1961minOrNull(Sequence<Float> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Float> it = minOrNull.iterator();
         if (it.hasNext()) {
@@ -2393,7 +2393,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1948maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1949maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());
@@ -2451,7 +2451,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1956minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1957minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());

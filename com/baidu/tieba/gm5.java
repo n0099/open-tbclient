@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.sb8;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,57 +11,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class gm5 implements sb8 {
+public class gm5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static gm5 e;
+    public static final gm5 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<sb8.a> a;
-    public final ConcurrentHashMap<String, sb8.b> b;
-    public sb8.c c;
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sb8.a a;
-        public final /* synthetic */ gm5 b;
-
-        public a(gm5 gm5Var, sb8.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gm5Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gm5Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.f(this.a);
-            }
-        }
-    }
+    public AtomicBoolean a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
 
     static {
         InterceptResult invokeClinit;
@@ -80,8 +43,7 @@ public final class gm5 implements sb8 {
                 return;
             }
         }
-        d = Pattern.compile(UrlManager.patternText, 2);
-        e = new gm5();
+        l = new gm5();
     }
 
     public gm5() {
@@ -97,178 +59,148 @@ public final class gm5 implements sb8 {
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = new ConcurrentHashMap<>();
-        this.c = null;
+        this.a = new AtomicBoolean(false);
     }
 
-    public static gm5 l() {
+    public static gm5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e : (gm5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? l : (gm5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sb8
-    public boolean a(String str) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && d.matcher(str).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sb8
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
-            h(context, strArr, false, null, z, bundle);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3) : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", -1) : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", -1) : invokeV.intValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g == 1 : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) == 1 : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b == 1 : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k == 1 : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h == 1 : invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i == 1 : invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d == 1 : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j == 1 : invokeV.booleanValue;
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            boolean z = this.a.get();
+            if (jSONObject == null || z) {
+                return;
+            }
+            this.a.set(true);
+            this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
+            this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
+            jSONObject.optInt("tieba_max_fake_progress", 50);
+            jSONObject.optInt("tieba_max_fake_time", 60);
+            jSONObject.optLong("tieba_max_fake_speed", 768000L);
+            SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 2));
+            edit.putInt("pic_page_request_num", jSONObject.optInt("pic_page_request_num", 5));
+            edit.putInt("pic_page_cache_time", jSONObject.optInt("pic_page_cache_time", 20));
+            edit.putInt("pic_page_first_floor", jSONObject.optInt("pic_page_first_floor", 2));
+            edit.putInt("pic_page_floor_interval", jSONObject.optInt("pic_page_floor_interval", 5));
+            edit.putInt("pic_page_pre_load_num", jSONObject.optInt("pic_page_pre_load_num", 5));
+            edit.putInt("pic_page_max_ad_num", jSONObject.optInt("pic_page_max_ad_num", 5));
+            edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
+            edit.commit();
+            this.k = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
+            this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
+            jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+            this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+            jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+            jSONObject.optInt("tieba_follow_up_expire_time", 7);
+            jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
+            jSONObject.optInt("tieba_follow_up_gap_time", 5);
+            this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
+            this.i = jSONObject.optInt("tieba_video_load_optimize_switch", 0);
+            this.j = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
+            SharedPreferences.Editor edit2 = sharedPreferences.edit();
+            edit2.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", -1));
+            edit2.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", -1));
+            int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
+            if (optInt != -1) {
+                edit2.putInt("ad_photo_browser_insert_mode", optInt);
+            }
+            int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
+            if (optInt2 != -1) {
+                edit2.putInt("tieba_pic_ad_req_num", optInt2);
+            }
+            edit2.commit();
         }
     }
 
-    @Override // com.baidu.tieba.sb8
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) ? h(context, strArr, false, null, false, bundle) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f == 1 : invokeV.booleanValue;
     }
 
-    public void e(sb8.a aVar) {
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (ri.C()) {
-                f(aVar);
-            } else {
-                sg.a().post(new a(this, aVar));
-            }
-        }
-    }
-
-    public final void f(sb8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.a.contains(aVar)) {
-            return;
-        }
-        this.a.add(aVar);
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, sb8.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-                return false;
-            }
-            String str2 = strArr[0];
-            sb8.b bVar = this.b.get(m(str2));
-            if (bVar != null) {
-                bVar.a(context, j(k(str2)));
-                return true;
-            }
-            Iterator<sb8.a> it = this.a.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z3 = false;
-                    break;
-                }
-                sb8.a next = it.next();
-                if (next != null && next.a(context, strArr) != 3) {
-                    z3 = true;
-                    break;
-                }
-            }
-            if (!z3 && this.c != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
-                }
-                n(context, str, strArr[0], z, dVar, z2, bundle);
-            }
-            return z3;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean h(Context context, String[] strArr, boolean z, sb8.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) ? g(context, "", strArr, z, dVar, z2, bundle) : invokeCommon.booleanValue;
-    }
-
-    public int i(Context context, String[] strArr) {
-        InterceptResult invokeLL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (sb8.a aVar : this.a) {
-                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                        return a2;
-                    }
-                }
-            }
-            return 3;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final Map<String, String> j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            String[] split = str.split("[&]");
-            if (split == null) {
-                hashMap.put(UrlManager.DEFAULT_PARAM, str);
-                return hashMap;
-            }
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final String k(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-                return str.substring(lastIndexOf + 1);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, sb8.d dVar, boolean z2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
-            this.c.a(context, str, str2, z, dVar, z2, bundle);
-        }
-    }
-
-    public void o(sb8.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.c = cVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.e == 1 : invokeV.booleanValue;
     }
 }

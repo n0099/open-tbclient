@@ -1,87 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.jr1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes5.dex */
-public class r54 extends l54<mn2> {
+public class r54 extends jr1 implements kk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072600, "Lcom/baidu/tieba/r54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948072600, "Lcom/baidu/tieba/r54;");
-                return;
-            }
-        }
-        boolean z = kh1.a;
-    }
+    public ArrayList<jr1.a> a;
 
     public r54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+    }
+
+    @Nullable
+    public static r54 c() {
+        InterceptResult invokeV;
+        vy3 vy3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            h22 V = lo2.U().V();
+            if (V == null || (vy3Var = (vy3) V.n(vy3.class)) == null) {
+                return null;
+            }
+            return vy3Var.u3();
+        }
+        return (r54) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jr1
+    public synchronized void a(jr1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
+                }
             }
         }
     }
 
-    public static r54 d() {
+    @Override // com.baidu.tieba.jr1
+    public synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                Iterator<jr1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
+                }
+            }
+        }
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Iterator<jr1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kk1
+    public jr1 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new r54() : (r54) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l54
-    public boolean b(Context context, mn2 mn2Var, jn2 jn2Var, a13 a13Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, mn2Var, jn2Var, a13Var, jSONObject)) == null) ? e(context, mn2Var, jn2Var, a13Var, jSONObject) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, mn2 mn2Var, jn2 jn2Var, a13 a13Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, mn2Var, jn2Var, a13Var, jSONObject)) == null) {
-            ay1.i("map", "GetScaleAction start");
-            in1 A = nm2.U().A(mn2Var.c);
-            if (!(A instanceof gn1)) {
-                ay1.c("map", "WebViewManager is null");
-                return false;
-            }
-            j64 d = i54.b().c((gn1) A).d(mn2Var.b);
-            if (d == null) {
-                ay1.c("map", "can not find map by id " + mn2Var.b);
-                return false;
-            }
-            try {
-                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            ay1.i("map", "GetScaleAction end");
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c() : (jr1) invokeV.objValue;
     }
 }

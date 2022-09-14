@@ -1,88 +1,569 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class zg extends cf {
+public class zg {
     public static /* synthetic */ Interceptable $ic;
+    public static zg d;
+    public static BdAsyncTaskParallel e;
+    public static BdAsyncTaskParallel f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public SparseArray<ah<?>> b;
+    public boolean c;
+
+    /* loaded from: classes6.dex */
+    public class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final int b;
+        public int c;
+        public int d;
+        public boolean e;
+        public Object[] f;
+        public int g;
+        public long h;
+        public final Map<yg<T>, BdUniqueId> i;
+        public final xg j;
+        public final /* synthetic */ zg k;
+
+        public a(zg zgVar, String str, int i, int i2, int i3, BdUniqueId bdUniqueId, yg<T> ygVar, boolean z, Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr2 = {zgVar, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bdUniqueId, ygVar, Boolean.valueOf(z), objArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.k = zgVar;
+            this.c = 0;
+            this.d = 0;
+            this.e = false;
+            this.f = null;
+            this.g = 2;
+            this.i = new HashMap();
+            this.j = new xg();
+            this.h = System.currentTimeMillis();
+            this.a = str;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+            this.e = z;
+            this.f = objArr;
+            b(ygVar, bdUniqueId);
+        }
+
+        public void b(yg<T> ygVar, BdUniqueId bdUniqueId) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, ygVar, bdUniqueId) == null) {
+                ej.c();
+                if (this.i.containsKey(ygVar)) {
+                    return;
+                }
+                this.i.put(ygVar, bdUniqueId);
+            }
+        }
+
+        public void c(BdUniqueId bdUniqueId) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+                ej.c();
+                if (this.i.size() == 0) {
+                    cancel();
+                    return;
+                }
+                Iterator<Map.Entry<yg<T>, BdUniqueId>> it = this.i.entrySet().iterator();
+                while (it.hasNext()) {
+                    BdUniqueId value = it.next().getValue();
+                    if (value != null && value == bdUniqueId) {
+                        it.remove();
+                    }
+                }
+                if (this.i.size() == 0) {
+                    cancel();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            xg.a aVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel();
+                xg xgVar = this.j;
+                if (xgVar != null && (aVar = xgVar.a) != null) {
+                    aVar.cancel();
+                }
+                if (this.i.size() == 0) {
+                    return;
+                }
+                for (Map.Entry<yg<T>, BdUniqueId> entry : this.i.entrySet()) {
+                    yg<T> key = entry.getKey();
+                    if (key != null) {
+                        key.onCancelled(this.a);
+                    }
+                }
+                this.i.clear();
+            }
+        }
+
+        public void d(BdUniqueId bdUniqueId, yg<T> ygVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, bdUniqueId, ygVar) == null) {
+                ej.c();
+                if (this.i.size() == 0) {
+                    cancel();
+                    return;
+                }
+                Iterator<Map.Entry<yg<T>, BdUniqueId>> it = this.i.entrySet().iterator();
+                while (it.hasNext()) {
+                    Map.Entry<yg<T>, BdUniqueId> next = it.next();
+                    yg<T> key = next.getKey();
+                    BdUniqueId value = next.getValue();
+                    if (value != null && value == bdUniqueId && key == ygVar) {
+                        it.remove();
+                    }
+                }
+                if (this.i.size() == 0) {
+                    cancel();
+                }
+            }
+        }
+
+        public void e(yg<T> ygVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, ygVar) == null) {
+                ej.c();
+                this.i.remove(ygVar);
+                if (ygVar != null) {
+                    ygVar.onCancelled(this.a);
+                }
+                if (this.i.size() == 0) {
+                    cancel();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: f */
+        public T doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            T t;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, strArr)) == null) {
+                wg.m(true, System.currentTimeMillis() - this.h);
+                ah ahVar = (ah) this.k.b.get(this.b);
+                if (ahVar == null) {
+                    return null;
+                }
+                String key = getKey();
+                try {
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    t = null;
+                }
+                if (isCancelled()) {
+                    return null;
+                }
+                T t2 = (T) ahVar.getFromLocal(this.a, key, this.c, this.d, this.j, this.f);
+                if (t2 != null) {
+                    return t2;
+                }
+                t = t2;
+                if (isCancelled() || this.e) {
+                    return null;
+                }
+                this.g = 3;
+                try {
+                    return (T) ahVar.getFromRemote(this.a, key, this.c, this.d, this.j, this.f);
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    return t;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            ah ahVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                if (t != null && (ahVar = (ah) this.k.b.get(this.b)) != null) {
+                    ahVar.updateMemory(this.k.g(this.a, this.b), t, this.c, this.d, this.f);
+                }
+                for (Map.Entry<yg<T>, BdUniqueId> entry : this.i.entrySet()) {
+                    yg<T> key = entry.getKey();
+                    if (key != null) {
+                        key.onLoaded(t, this.a, this.g);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objArr) == null) {
+                for (Map.Entry<yg<T>, BdUniqueId> entry : this.i.entrySet()) {
+                    yg<T> key = entry.getKey();
+                    if (key != null) {
+                        key.onProgressUpdate(objArr);
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448323616, "Lcom/baidu/tieba/zg;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448323616, "Lcom/baidu/tieba/zg;");
+        }
+    }
 
     public zg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = BdUniqueId.gen();
+        this.b = null;
+        this.c = false;
+        BdUniqueId gen = BdUniqueId.gen();
+        e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.b = new SparseArray<>();
+    }
+
+    public static zg h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (zg.class) {
+                    if (d == null) {
+                        d = new zg();
+                    }
+                }
+            }
+            return d;
+        }
+        return (zg) invokeV.objValue;
+    }
+
+    public void b(BdUniqueId bdUniqueId) {
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) || (searchAllTask = BdAsyncTask.searchAllTask(this.a)) == null || searchAllTask.size() == 0) {
+            return;
+        }
+        Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
+        while (it.hasNext()) {
+            BdAsyncTask<?, ?, ?> next = it.next();
+            if (next != null && (next instanceof a)) {
+                ((a) next).c(bdUniqueId);
             }
         }
     }
 
-    public static boolean isOn() {
-        InterceptResult invokeV;
+    public void c(String str, int i) {
+        a p;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType("android_should_open_ubc_log") == 1 : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) || (p = p(g(str, i))) == null) {
+            return;
+        }
+        p.cancel();
     }
 
-    @Override // com.baidu.tieba.cf
-    public void changeSettingByType(int i) {
+    public <T> void d(String str, int i, yg<T> ygVar) {
+        a<T> p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, ygVar) == null) || (p = p(g(str, i))) == null) {
+            return;
+        }
+        p.e(ygVar);
+    }
+
+    public void e(BdUniqueId bdUniqueId) {
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) || (searchWaitingTask = BdAsyncTask.searchWaitingTask(this.a)) == null || searchWaitingTask.size() == 0) {
+            return;
+        }
+        Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
+        while (it.hasNext()) {
+            BdAsyncTask<?, ?, ?> next = it.next();
+            if (next != null && (next instanceof a)) {
+                ((a) next).c(bdUniqueId);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.cf
-    public String[] getCrashKeys() {
-        InterceptResult invokeV;
+    public <T> void f(BdUniqueId bdUniqueId, yg<T> ygVar) {
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, bdUniqueId, ygVar) == null) || (searchWaitingTask = BdAsyncTask.searchWaitingTask(this.a)) == null || searchWaitingTask.size() == 0) {
+            return;
+        }
+        Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
+        while (it.hasNext()) {
+            BdAsyncTask<?, ?, ?> next = it.next();
+            if (next != null && (next instanceof a)) {
+                ((a) next).d(bdUniqueId, ygVar);
+            }
+        }
+    }
+
+    public String g(String str, int i) {
+        InterceptResult invokeLI;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            if (this.c && (indexOf = str.indexOf("?")) > 0) {
+                str = str.substring(0, indexOf - 1);
+            }
+            return str + i;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public ah i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            SparseArray<ah<?>> sparseArray = this.b;
+            if (sparseArray == null) {
+                return null;
+            }
+            return sparseArray.get(i);
+        }
+        return (ah) invokeI.objValue;
+    }
+
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            ah<?> ahVar = this.b.get(i);
+            if (ahVar == null) {
+                BdLog.e("Can't find the ResourceLoaderProc with type " + i);
+                return false;
+            }
+            return ahVar.isNeedLoad();
+        }
+        return invokeI.booleanValue;
+    }
+
+    public <T> Object k(String str, int i, yg<T> ygVar, int i2, int i3, BdUniqueId bdUniqueId, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), ygVar, Integer.valueOf(i2), Integer.valueOf(i3), bdUniqueId, objArr})) == null) ? l(str, i, ygVar, i2, i3, false, bdUniqueId, objArr) : invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a1  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00bc  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public <T> Object l(String str, int i, yg<T> ygVar, int i2, int i3, boolean z, BdUniqueId bdUniqueId, Object... objArr) {
+        InterceptResult invokeCommon;
+        ah<?> ahVar;
+        int i4;
+        int i5;
+        a<T> p;
+        boolean isWifiNet;
+        int asyncTaskPriority;
+        Object fromMemory;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i), ygVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), bdUniqueId, objArr})) == null) {
+            if (TextUtils.isEmpty(str) || (ahVar = this.b.get(i)) == null) {
+                return null;
+            }
+            if (i2 < 0 || i3 < 0) {
+                i4 = 0;
+                i5 = 0;
+            } else {
+                i4 = i2;
+                i5 = i3;
+            }
+            String g = g(str, i);
+            try {
+                fromMemory = ahVar.getFromMemory(g, str, i4, i5, true, objArr);
+            } catch (Exception e2) {
+                e = e2;
+            }
+            if (fromMemory != null) {
+                if (ygVar != 0) {
+                    try {
+                        ygVar.onLoaded(fromMemory, str, 1);
+                    } catch (Exception e3) {
+                        e = e3;
+                        BdLog.e(e.getMessage());
+                        p = p(g);
+                        if (p == null) {
+                        }
+                        isWifiNet = BdNetTypeUtil.isWifiNet();
+                        boolean is4GNet = BdNetTypeUtil.is4GNet();
+                        a aVar = new a(this, str, i, i4, i5, bdUniqueId, ygVar, z, objArr);
+                        aVar.setKey(g);
+                        aVar.setTag(this.a);
+                        asyncTaskPriority = ahVar.getAsyncTaskPriority();
+                        if (asyncTaskPriority == 0) {
+                        }
+                        aVar.setPriority(asyncTaskPriority);
+                        if (isWifiNet) {
+                        }
+                        if (ahVar.getAsyncTaskParallel() != null) {
+                        }
+                        aVar.execute(new String[0]);
+                        return null;
+                    }
+                }
+                return fromMemory;
+            }
+            p = p(g);
+            if (p == null && p.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+                p.b(ygVar, bdUniqueId);
+                return null;
+            }
+            isWifiNet = BdNetTypeUtil.isWifiNet();
+            boolean is4GNet2 = BdNetTypeUtil.is4GNet();
+            a aVar2 = new a(this, str, i, i4, i5, bdUniqueId, ygVar, z, objArr);
+            aVar2.setKey(g);
+            aVar2.setTag(this.a);
+            asyncTaskPriority = ahVar.getAsyncTaskPriority();
+            if (asyncTaskPriority == 0) {
+                asyncTaskPriority = 1;
+            }
+            aVar2.setPriority(asyncTaskPriority);
+            if (isWifiNet && !is4GNet2) {
+                aVar2.setParallel(e);
+            } else if (ahVar.getAsyncTaskParallel() != null) {
+                aVar2.setParallel(f);
+            } else {
+                aVar2.setParallel(ahVar.getAsyncTaskParallel());
+            }
+            aVar2.execute(new String[0]);
             return null;
         }
-        return (String[]) invokeV.objValue;
+        return invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public int getDefaultType() {
-        InterceptResult invokeV;
+    public <T> Object m(String str, int i, yg<T> ygVar, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048586, this, str, i, ygVar, bdUniqueId)) == null) ? k(str, i, ygVar, 0, 0, bdUniqueId, new Object[0]) : invokeLILL.objValue;
+    }
+
+    public Object n(String str, int i, Object... objArr) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048587, this, str, i, objArr)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            ah<?> ahVar = this.b.get(i);
+            if (ahVar == null) {
+                BdLog.e("Can't find the ResourceLoaderProc with type " + i);
+                return null;
+            }
+            return ahVar.getFromMemory(g(str, i), str, 0, 0, false, objArr);
         }
-        return invokeV.intValue;
+        return invokeLIL.objValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
+    public synchronized <T> void o(int i, ah<T> ahVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, ahVar) == null) {
+            synchronized (this) {
+                if (ahVar != null) {
+                    if (this.b.get(i) == null) {
+                        this.b.put(i, ahVar);
+                    } else {
+                        throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i);
+                    }
+                }
+            }
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cf
-    public String getName() {
-        InterceptResult invokeV;
+    public final <T> a<T> p(String str) {
+        InterceptResult invokeL;
+        BdAsyncTask<?, ?, ?> searchTask;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "android_should_open_ubc_log" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cf
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null) {
+                return null;
+            }
+            if (!(searchTask instanceof a)) {
+                BdLog.e("BdAsyncTask has encountered repeat key");
+                return null;
+            }
+            try {
+                return (a) searchTask;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
         }
-        return invokeV.intValue;
+        return (a) invokeL.objValue;
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.c = z;
+        }
     }
 }

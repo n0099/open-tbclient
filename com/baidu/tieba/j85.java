@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class j85 implements m75<PushRecevierEvent> {
+public class j85 extends e85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     public j85() {
         Interceptable interceptable = $ic;
@@ -23,23 +26,51 @@ public class j85 implements m75<PushRecevierEvent> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = "";
+    }
+
+    @Override // com.baidu.tieba.e85
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            u75.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.loadResizedBitmap(this.a, ej.k(TbadkCoreApplication.getInst()), ej.i(TbadkCoreApplication.getInst()));
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, ej.k(TbadkCoreApplication.getInst()), ej.i(TbadkCoreApplication.getInst())), true) : (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.e85
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m75
-    /* renamed from: a */
-    public boolean onEvent(PushRecevierEvent pushRecevierEvent) {
-        InterceptResult invokeL;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pushRecevierEvent)) == null) {
-            if (pushRecevierEvent == null) {
-                return false;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921711, pushRecevierEvent.generalData));
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
-        return invokeL.booleanValue;
     }
 }

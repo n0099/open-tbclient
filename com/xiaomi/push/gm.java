@@ -151,7 +151,7 @@ public class gm extends gn {
     @Override // com.xiaomi.push.gn
     public String a() {
         InterceptResult invokeV;
-        gr m369a;
+        gr m370a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -244,8 +244,8 @@ public class gm extends gn {
                 sb.append(this.c);
                 sb.append("</thread>");
             }
-            if ("error".equalsIgnoreCase(this.b) && (m369a = m369a()) != null) {
-                sb.append(m369a.m373a());
+            if ("error".equalsIgnoreCase(this.b) && (m370a = m370a()) != null) {
+                sb.append(m370a.m374a());
             }
             sb.append(o());
             sb.append("</message>");

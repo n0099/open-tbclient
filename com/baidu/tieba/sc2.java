@@ -1,61 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sc2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sc2 {
+    public static final boolean m0 = ij1.a;
 
-    public static String a() {
-        InterceptResult invokeV;
-        String optString;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            a13 b0 = a13.b0();
-            JSONObject jSONObject = new JSONObject();
-            if (b0 != null) {
-                jSONObject = b0.W().M();
-            }
-            return (jSONObject == null || (optString = jSONObject.optString("keyfeed")) == null || (indexOf = optString.indexOf("_")) < 0 || !TextUtils.equals("miniapp", optString.substring(0, indexOf))) ? "" : optString.substring(indexOf + 1);
-        }
-        return (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        String a();
+
+        JSONObject b();
+
+        boolean isValid();
     }
 
-    public static Map<String, Object> b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-            hashMap.put("op_type", str2);
-            String a = a();
-            if (!TextUtils.isEmpty(a)) {
-                hashMap.put("nid", a);
-            }
-            return hashMap;
-        }
-        return (Map) invokeLL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<String, a> a;
+        public boolean b;
+        public int c;
+        public int d;
 
-    public static Map<String, Object> c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
-            hashMap.put("op_type", "add");
-            return hashMap;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashMap();
+            this.b = true;
+            this.c = 0;
+            this.d = 0;
         }
-        return (Map) invokeLI.objValue;
     }
 }

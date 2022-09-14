@@ -1,122 +1,77 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.InputStream;
-import java.util.List;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jp2 implements hp2 {
+public class jp2 extends kp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890909, "Lcom/baidu/tieba/jp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947890909, "Lcom/baidu/tieba/jp2;");
-                return;
-            }
-        }
-        a = kh1.a;
-    }
+    public int[] A;
+    public ArrayList<rp2> z;
 
     public jp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.A = new int[]{0, 0, 0, 0};
+    }
+
+    @Override // com.baidu.tieba.kp2, com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    rp2 rp2Var = new rp2();
+                    rp2Var.a(jSONObject2);
+                    if (rp2Var.isValid()) {
+                        this.z.add(rp2Var);
+                    }
+                }
+            }
+        }
+        if (!jSONObject.has(CriusAttrConstants.PADDING) || (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) == null || jSONArray.length() <= 0) {
+            return;
+        }
+        int min = Math.min(jSONArray.length(), 4);
+        for (int i2 = 0; i2 < min; i2++) {
+            this.A[i2] = pg3.g(jSONArray.optInt(i2));
         }
     }
 
-    @Override // com.baidu.tieba.hp2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decode(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Bitmap bitmap;
-        Resources resourcesForApplication;
+    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ArrayList<rp2> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
-                }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                int i = 0;
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                    try {
-                        i = Integer.parseInt(pathSegments.get(0));
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
-            } else {
-                InputStream inputStream = null;
-                if (uri2.startsWith("file:///android_asset/")) {
-                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
-                } else if (uri2.startsWith("file://")) {
-                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
-                } else {
-                    try {
-                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                        try {
-                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                            ch4.d(openInputStream);
-                            bitmap = decodeStream;
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = openInputStream;
-                            ch4.d(inputStream);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
-            }
-            if (bitmap == null) {
-                if (!a) {
-                    ay1.k("SkiaImageDecoder", "bitmap is null");
-                } else {
-                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
-                }
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || (arrayList = this.z) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
     }
 }

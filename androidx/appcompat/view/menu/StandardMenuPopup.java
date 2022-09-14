@@ -14,13 +14,12 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import androidx.appcompat.R$dimen;
-import androidx.appcompat.R$layout;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.MenuPopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,8 +29,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class StandardMenuPopup extends MenuPopup implements PopupWindow.OnDismissListener, AdapterView.OnItemClickListener, MenuPresenter, View.OnKeyListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int ITEM_LAYOUT;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int ITEM_LAYOUT = 2131558419;
     public transient /* synthetic */ FieldHolder $fh;
     public final MenuAdapter mAdapter;
     public View mAnchorView;
@@ -57,17 +56,16 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-822608873, "Landroidx/appcompat/view/menu/StandardMenuPopup;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-822608873, "Landroidx/appcompat/view/menu/StandardMenuPopup;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-822608873, "Landroidx/appcompat/view/menu/StandardMenuPopup;")) == null) {
+            return;
         }
-        ITEM_LAYOUT = R$layout.abc_popup_menu_item_layout;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-822608873, "Landroidx/appcompat/view/menu/StandardMenuPopup;");
+        }
     }
 
     public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view2, int i, int i2, boolean z) {
@@ -175,7 +173,7 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         this.mPopupStyleAttr = i;
         this.mPopupStyleRes = i2;
         Resources resources = context.getResources();
-        this.mPopupMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R$dimen.abc_config_prefDialogWidth));
+        this.mPopupMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700a2));
         this.mAnchorView = view2;
         this.mPopup = new MenuPopupWindow(this.mContext, null, this.mPopupStyleAttr, this.mPopupStyleRes);
         menuBuilder.addMenuPresenter(this, context);
@@ -217,7 +215,7 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
             ListView listView = this.mPopup.getListView();
             listView.setOnKeyListener(this);
             if (this.mShowTitle && this.mMenu.getHeaderTitle() != null) {
-                FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.mContext).inflate(R$layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
+                FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0012, (ViewGroup) listView, false);
                 TextView textView = (TextView) frameLayout.findViewById(16908310);
                 if (textView != null) {
                     textView.setText(this.mMenu.getHeaderTitle());

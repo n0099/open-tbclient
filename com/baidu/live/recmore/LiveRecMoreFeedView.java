@@ -23,15 +23,16 @@ import com.baidu.live.recmore.ILiveRecMoreFeedView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ja0;
+import com.baidu.tieba.pb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\bB\u0010*J\u0011\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0011\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0011\u0010\b\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\b\u0010\u0004J\u0011\u0010\n\u001a\u0004\u0018\u00010\tH\u0016¢\u0006\u0004\b\n\u0010\u000bJ!\u0010\u0011\u001a\u00020\u00102\b\u0010\r\u001a\u0004\u0018\u00010\f2\u0006\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00102\u0006\u0010\u0014\u001a\u00020\u0013H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0019\u001a\u00020\u00102\u0006\u0010\u0018\u001a\u00020\u0017H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ+\u0010 \u001a\u00020\u00102\u0006\u0010\u001c\u001a\u00020\u001b2\b\u0010\u001e\u001a\u0004\u0018\u00010\u001d2\b\u0010\u001f\u001a\u0004\u0018\u00010\u001dH\u0016¢\u0006\u0004\b \u0010!J\u000f\u0010\"\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u000eH\u0016¢\u0006\u0004\b$\u0010#J\u0019\u0010'\u001a\u0004\u0018\u00010\u00022\u0006\u0010&\u001a\u00020%H\u0016¢\u0006\u0004\b'\u0010(J\u000f\u0010)\u001a\u00020\u0010H\u0016¢\u0006\u0004\b)\u0010*J#\u0010+\u001a\u00020\u00102\b\u0010\u001e\u001a\u0004\u0018\u00010\u001d2\b\u0010\u001f\u001a\u0004\u0018\u00010\u001dH\u0016¢\u0006\u0004\b+\u0010,J\u000f\u0010-\u001a\u00020\u0010H\u0016¢\u0006\u0004\b-\u0010*J\u0019\u0010/\u001a\u00020\u00102\b\u0010.\u001a\u0004\u0018\u00010\u001dH\u0016¢\u0006\u0004\b/\u00100J\u0019\u00103\u001a\u00020\u00102\b\u00102\u001a\u0004\u0018\u000101H\u0016¢\u0006\u0004\b3\u00104J\u0017\u00107\u001a\u00020\u00102\u0006\u00106\u001a\u000205H\u0016¢\u0006\u0004\b7\u00108J\u000f\u00109\u001a\u00020\u0010H\u0016¢\u0006\u0004\b9\u0010*J\u000f\u0010:\u001a\u00020\u0010H\u0016¢\u0006\u0004\b:\u0010*R\u0016\u0010;\u001a\u00020\u00138\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b;\u0010<R\u0018\u0010>\u001a\u0004\u0018\u00010=8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0018\u0010@\u001a\u0004\u0018\u0001058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010A¨\u0006C"}, d2 = {"Lcom/baidu/live/recmore/LiveRecMoreFeedView;", "Lcom/baidu/live/recmore/ILiveRecMoreFeedView;", "Landroid/view/View;", "getErrorView", "()Landroid/view/View;", "Landroid/view/ViewGroup;", "getTabIndicatorView", "()Landroid/view/ViewGroup;", "getView", "Landroidx/viewpager/widget/ViewPager;", "getViewPager", "()Landroidx/viewpager/widget/ViewPager;", "Lcom/baidu/live/business/model/data/LiveFollowWrapData;", "followWrapData", "", "useNewStyle", "", "handleFollowData", "(Lcom/baidu/live/business/model/data/LiveFollowWrapData;Z)V", "", CriusAttrConstants.POSITION, "handleSubTab", "(I)V", "Lcom/baidu/live/business/model/data/LiveFeedData;", "feedData", "handleTabData", "(Lcom/baidu/live/business/model/data/LiveFeedData;)V", "Landroidx/fragment/app/FragmentManager;", "fragmentManager", "", "subTabType", "thirdTabType", "initUiScene", "(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;Ljava/lang/String;)V", "isFirstTabIndicatorVisible", "()Z", "isViewPagerInFistPage", "Landroid/content/Context;", "context", "onCreate", "(Landroid/content/Context;)Landroid/view/View;", MissionEvent.MESSAGE_DESTROY, "()V", "onTabSelectedEvent", "(Ljava/lang/String;Ljava/lang/String;)V", "resetView", ILiveNPSPlugin.PARAMS_ROOM_ID, "setCurrentRoom", "(Ljava/lang/String;)V", "Lcom/baidu/live/business/model/ILiveFeedModel;", "model", "setLiveFeedModel", "(Lcom/baidu/live/business/model/ILiveFeedModel;)V", "Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;", "listener", "setSubTabPageListener", "(Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;)V", "showContentView", "showErrorView", "bdUniqueId", "I", "Lcom/baidu/live/business/LiveTabFeedView;", "feedView", "Lcom/baidu/live/business/LiveTabFeedView;", "mListener", "Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;", "<init>", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\bB\u0010*J\u0011\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0011\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0011\u0010\b\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\b\u0010\u0004J\u0011\u0010\n\u001a\u0004\u0018\u00010\tH\u0016¢\u0006\u0004\b\n\u0010\u000bJ!\u0010\u0011\u001a\u00020\u00102\b\u0010\r\u001a\u0004\u0018\u00010\f2\u0006\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00102\u0006\u0010\u0014\u001a\u00020\u0013H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0019\u001a\u00020\u00102\u0006\u0010\u0018\u001a\u00020\u0017H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ+\u0010 \u001a\u00020\u00102\u0006\u0010\u001c\u001a\u00020\u001b2\b\u0010\u001e\u001a\u0004\u0018\u00010\u001d2\b\u0010\u001f\u001a\u0004\u0018\u00010\u001dH\u0016¢\u0006\u0004\b \u0010!J\u000f\u0010\"\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u000eH\u0016¢\u0006\u0004\b$\u0010#J\u0019\u0010'\u001a\u0004\u0018\u00010\u00022\u0006\u0010&\u001a\u00020%H\u0016¢\u0006\u0004\b'\u0010(J\u000f\u0010)\u001a\u00020\u0010H\u0016¢\u0006\u0004\b)\u0010*J#\u0010+\u001a\u00020\u00102\b\u0010\u001e\u001a\u0004\u0018\u00010\u001d2\b\u0010\u001f\u001a\u0004\u0018\u00010\u001dH\u0016¢\u0006\u0004\b+\u0010,J\u000f\u0010-\u001a\u00020\u0010H\u0016¢\u0006\u0004\b-\u0010*J\u0019\u0010/\u001a\u00020\u00102\b\u0010.\u001a\u0004\u0018\u00010\u001dH\u0016¢\u0006\u0004\b/\u00100J\u0019\u00103\u001a\u00020\u00102\b\u00102\u001a\u0004\u0018\u000101H\u0016¢\u0006\u0004\b3\u00104J\u0017\u00107\u001a\u00020\u00102\u0006\u00106\u001a\u000205H\u0016¢\u0006\u0004\b7\u00108J\u000f\u00109\u001a\u00020\u0010H\u0016¢\u0006\u0004\b9\u0010*J\u000f\u0010:\u001a\u00020\u0010H\u0016¢\u0006\u0004\b:\u0010*R\u0016\u0010;\u001a\u00020\u00138\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b;\u0010<R\u0018\u0010>\u001a\u0004\u0018\u00010=8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0018\u0010@\u001a\u0004\u0018\u0001058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010A¨\u0006C"}, d2 = {"Lcom/baidu/live/recmore/LiveRecMoreFeedView;", "Lcom/baidu/live/recmore/ILiveRecMoreFeedView;", "Landroid/view/View;", "getErrorView", "()Landroid/view/View;", "Landroid/view/ViewGroup;", "getTabIndicatorView", "()Landroid/view/ViewGroup;", "getView", "Landroidx/viewpager/widget/ViewPager;", "getViewPager", "()Landroidx/viewpager/widget/ViewPager;", "Lcom/baidu/live/business/model/data/LiveFollowWrapData;", "followWrapData", "", "useNewStyle", "", "handleFollowData", "(Lcom/baidu/live/business/model/data/LiveFollowWrapData;Z)V", "", CriusAttrConstants.POSITION, "handleSubTab", "(I)V", "Lcom/baidu/live/business/model/data/LiveFeedData;", "feedData", "handleTabData", "(Lcom/baidu/live/business/model/data/LiveFeedData;)V", "Landroidx/fragment/app/FragmentManager;", "fragmentManager", "", "subTabType", "thirdTabType", "initUiScene", "(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;Ljava/lang/String;)V", "isFirstTabIndicatorVisible", "()Z", "isViewPagerInFistPage", "Landroid/content/Context;", "context", "onCreate", "(Landroid/content/Context;)Landroid/view/View;", MissionEvent.MESSAGE_DESTROY, "()V", "onTabSelectedEvent", "(Ljava/lang/String;Ljava/lang/String;)V", "resetView", ILiveNPSPlugin.PARAMS_ROOM_ID, "setCurrentRoom", "(Ljava/lang/String;)V", "Lcom/baidu/live/business/model/ILiveFeedModel;", "model", "setLiveFeedModel", "(Lcom/baidu/live/business/model/ILiveFeedModel;)V", "Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setSubTabPageListener", "(Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;)V", "showContentView", "showErrorView", "bdUniqueId", "I", "Lcom/baidu/live/business/LiveTabFeedView;", "feedView", "Lcom/baidu/live/business/LiveTabFeedView;", "mListener", "Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;", "<init>", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +54,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 return;
             }
         }
-        ja0 a = ja0.a();
+        pb0 a = pb0.a();
         Intrinsics.checkExpressionValueIsNotNull(a, "BdUniqueId.gen()");
         this.bdUniqueId = a.b();
     }
@@ -114,7 +115,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeLZ(1048580, this, liveFollowWrapData, z) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.y(liveFollowWrapData, z);
+        LiveTabFeedView.z(liveTabFeedView, liveFollowWrapData, z, null, 4, null);
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -124,7 +125,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.z(i);
+        liveTabFeedView.A(i);
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -134,7 +135,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, liveFeedData) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.A(liveFeedData);
+        liveTabFeedView.B(liveFeedData);
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -144,7 +145,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeLLL(1048583, this, fragmentManager, str, str2) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.E("recommend", false, this.bdUniqueId, fragmentManager, str, str2);
+        liveTabFeedView.F("recommend", false, this.bdUniqueId, fragmentManager, str, str2);
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -153,7 +154,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             LiveTabFeedView liveTabFeedView = this.feedView;
-            return liveTabFeedView != null && liveTabFeedView.H();
+            return liveTabFeedView != null && liveTabFeedView.I();
         }
         return invokeV.booleanValue;
     }
@@ -164,7 +165,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             LiveTabFeedView liveTabFeedView = this.feedView;
-            return liveTabFeedView != null && liveTabFeedView.J();
+            return liveTabFeedView != null && liveTabFeedView.K();
         }
         return invokeV.booleanValue;
     }
@@ -475,7 +476,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.O();
+        liveTabFeedView.P();
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -485,7 +486,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.W(str, str2);
+        liveTabFeedView.X(str, str2);
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -495,7 +496,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.a0();
+        liveTabFeedView.b0();
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -533,7 +534,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.e0();
+        liveTabFeedView.f0();
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -543,6 +544,6 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (liveTabFeedView = this.feedView) == null) {
             return;
         }
-        liveTabFeedView.f0();
+        liveTabFeedView.g0();
     }
 }

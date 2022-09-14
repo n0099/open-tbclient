@@ -1,187 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.HotThreadList.DataRes;
-import tbclient.HotThreadList.HotThreadListResIdl;
-import tbclient.ThreadInfo;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes4.dex */
-public class ix6 {
+public class ix6 extends ft4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean f;
+    public List<MetaData> g;
 
-    public static List<pn> a(List<ThreadData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868930, "Lcom/baidu/tieba/ix6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (ThreadData threadData : list) {
-                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                    threadData.position = i;
-                    jr4 jr4Var = new jr4();
-                    jr4Var.t = threadData;
-                    jr4Var.position = i;
-                    jr4Var.r = true;
-                    jr4Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(jr4Var);
-                    jr4 jr4Var2 = new jr4();
-                    jr4Var2.t = threadData;
-                    jr4Var2.position = i;
-                    if (threadData.isBJHNormalThreadType()) {
-                        jr4Var2.f = true;
-                    } else if (threadData.picCount() == 1) {
-                        jr4Var2.d = true;
-                        jr4Var2.u = imageWidthAndHeight[0];
-                        jr4Var2.v = imageWidthAndHeight[1];
-                    } else if (threadData.picCount() >= 2) {
-                        jr4Var2.e = true;
-                    } else {
-                        jr4Var2.b = true;
-                    }
-                    jr4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(jr4Var2);
-                    e(threadData, arrayList, i);
-                    jr4 jr4Var3 = new jr4();
-                    jr4Var3.g = true;
-                    jr4Var3.t = threadData;
-                    jr4Var3.position = i;
-                    jr4Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(jr4Var3);
-                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                    threadData.position = i;
-                    jr4 jr4Var4 = new jr4();
-                    jr4Var4.t = threadData;
-                    jr4Var4.position = i;
-                    jr4Var4.r = true;
-                    jr4Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(jr4Var4);
-                    jr4 jr4Var5 = new jr4();
-                    jr4Var5.t = threadData;
-                    jr4Var5.position = i;
-                    jr4Var5.i = true;
-                    jr4Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(jr4Var5);
-                    e(threadData, arrayList, i);
-                    jr4 jr4Var6 = new jr4();
-                    jr4Var6.g = true;
-                    jr4Var6.t = threadData;
-                    jr4Var6.position = i;
-                    jr4Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(jr4Var6);
-                } else {
-                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
-                }
-                i++;
-                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947868930, "Lcom/baidu/tieba/ix6;");
+                return;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        h = 6;
     }
 
-    public static List<pn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public ix6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.isFromHotRankTab = true;
-                threadData.parserProtobuf(threadInfo);
-                f(threadData);
-                arrayList.add(threadData);
-            }
-            return a(arrayList);
         }
-        return (List) invokeL.objValue;
+        this.g = new ArrayList();
     }
 
-    public static List<pn> c(HotThreadListResIdl hotThreadListResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
-            if (hotThreadListResIdl == null || (dataRes = hotThreadListResIdl.data) == null || ListUtils.isEmpty(dataRes.thread_info)) {
-                return null;
-            }
-            return b(hotThreadListResIdl.data.thread_info);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static wx6 d(List<FrsTabInfo> list) {
+    public static boolean j(ConcernData concernData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
-            ArrayList arrayList = new ArrayList();
-            frsTabInfoData.tabList = arrayList;
-            FrsTabItemData frsTabItemData = new FrsTabItemData();
-            frsTabItemData.tabCode = "all";
-            frsTabItemData.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0882);
-            int i = 0;
-            frsTabItemData.tabId = 0;
-            arrayList.add(frsTabItemData);
-            if (!ListUtils.isEmpty(list)) {
-                for (FrsTabInfo frsTabInfo : list) {
-                    if (frsTabInfo != null && !qi.isEmpty(frsTabInfo.tab_code) && !qi.isEmpty(frsTabInfo.tab_name)) {
-                        i++;
-                        FrsTabItemData frsTabItemData2 = new FrsTabItemData(frsTabInfo);
-                        frsTabItemData2.tabId = i;
-                        arrayList.add(frsTabItemData2);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
             }
-            return new wx6(frsTabInfoData);
+            return concernData.recom_type.equals(h);
         }
-        return (wx6) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void e(ThreadData threadData, ArrayList<pn> arrayList, int i) {
-        ThreadRecommendInfoData threadRecommendInfoData;
+    @Override // com.baidu.tieba.ft4
+    public List<MetaData> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, arrayList, i) == null) || threadData == null || arrayList == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) == null || TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ft4
+    public void f(List<User> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
             return;
         }
-        jr4 jr4Var = new jr4();
-        jr4Var.s = true;
-        jr4Var.t = threadData;
-        jr4Var.position = i;
-        jr4Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
-        arrayList.add(jr4Var);
+        int min = Math.min(list.size(), 10);
+        for (int i = 0; i < min; i++) {
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(list.get(i));
+            this.g.add(metaData);
+        }
     }
 
-    public static void f(ThreadData threadData) {
+    @Override // com.baidu.tieba.ft4, com.baidu.tieba.lq4
+    public is4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, threadData) == null) {
-            String lengthLimitName = threadData.getLengthLimitName();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
-            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
-            }
-            threadData.setThreadExtendInfo(lengthLimitName);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new is4() : (is4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ft4, com.baidu.tieba.lq4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ft4, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ft4.e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
     }
 }

@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -211,7 +211,7 @@ public class RankStarView extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.d = ri.f(context, R.dimen.tbds63);
+            this.d = ej.f(context, R.dimen.tbds63);
             this.l = new Rect(0, 0, 0, 0);
             this.m = new Rect(0, 0, 0, 0);
             f();

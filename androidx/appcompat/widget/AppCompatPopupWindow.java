@@ -9,7 +9,7 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$styleable;
+import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.PopupWindowCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -68,11 +68,11 @@ public class AppCompatPopupWindow extends PopupWindow {
     private void init(Context context, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, this, context, attributeSet, i, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.PopupWindow, i, i2);
-            if (obtainStyledAttributes.hasValue(R$styleable.PopupWindow_overlapAnchor)) {
-                setSupportOverlapAnchor(obtainStyledAttributes.getBoolean(R$styleable.PopupWindow_overlapAnchor, false));
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.PopupWindow, i, i2);
+            if (obtainStyledAttributes.hasValue(2)) {
+                setSupportOverlapAnchor(obtainStyledAttributes.getBoolean(2, false));
             }
-            setBackgroundDrawable(obtainStyledAttributes.getDrawable(R$styleable.PopupWindow_android_popupBackground));
+            setBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
             obtainStyledAttributes.recycle();
         }
     }

@@ -1,128 +1,34 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.view.SortSwitchButton;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public class s18 {
+public class s18 implements r18, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public TextView c;
-    public SortSwitchButton d;
-    public SortSwitchButton.f e;
-    public int f;
-    public View.OnClickListener g;
-    public int h;
-    public int i;
-    public SortSwitchButton.f j;
-    public View.OnClickListener k;
+    public String a;
+    public int b;
+    public int c;
+    public ArrayList<PreLoadImageInfo> d;
+    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements SortSwitchButton.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s18 a;
-
-        public a(s18 s18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s18Var;
-        }
-
-        @Override // com.baidu.tieba.view.SortSwitchButton.f
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a.e != null) {
-                    return this.a.e.a(i);
-                }
-                return true;
-            }
-            return invokeI.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s18 a;
-
-        public b(s18 s18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s18Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.g != null) {
-                    this.a.g.onClick(view2);
-                }
-                if (pi.z()) {
-                    if (view2 == null || !(view2.getTag() instanceof Boolean) || ((Boolean) view2.getTag()).booleanValue()) {
-                        if (view2 != this.a.b) {
-                            if (view2 == this.a.c) {
-                                this.a.k(1);
-                                return;
-                            }
-                            return;
-                        }
-                        this.a.k(0);
-                    }
-                }
-            }
-        }
-    }
-
-    public s18(View view2) {
+    public s18(ExcContent excContent) {
+        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,135 +38,73 @@ public class s18 {
                 return;
             }
         }
-        this.f = 0;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (view2 == null) {
+        if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
             return;
         }
-        this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090267);
-        this.b = textView;
-        textView.setOnClickListener(this.k);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09174b);
-        this.c = textView2;
-        textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f0924f5);
-        this.d = sortSwitchButton;
-        sortSwitchButton.setOnSwitchChangeListener(this.j);
-        this.d.w(2);
-        h(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void e(xt7 xt7Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, xt7Var) == null) || xt7Var == null) {
-            return;
+        this.d = new ArrayList<>(1);
+        this.a = excContent.src;
+        String str = excContent.bsize;
+        this.e = str;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.b = dh.e(split[0], 0);
+                this.c = dh.e(split[1], 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        int i = 0;
-        if (xt7Var.b == xt7.i) {
-            this.b.setClickable(true);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0273));
-            this.c.setVisibility(0);
-            f(xt7Var.d);
+        if (this.b <= 0) {
+            this.b = 1;
         }
-        if (xt7Var.e) {
-            this.c.setVisibility(8);
-            this.d.setVisibility(8);
-        } else if (xt7Var.f) {
-            this.c.setVisibility(8);
+        if (this.c <= 0) {
+            this.c = 1;
+        }
+        String str2 = excContent.cdn_src;
+        PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+        preLoadImageInfo.procType = 17;
+        preLoadImageInfo.height = this.c;
+        preLoadImageInfo.width = this.b;
+        if (StringUtils.isNull(str2)) {
+            preLoadImageInfo.imgUrl = this.a;
         } else {
-            this.c.setVisibility(0);
+            preLoadImageInfo.imgUrl = str2;
         }
-        if (!xt7Var.e && xt7Var.g != null) {
-            this.d.setVisibility(0);
-            int i2 = 0;
-            while (true) {
-                if (i2 < xt7Var.g.size()) {
-                    if (xt7Var.g.get(i2) != null && xt7Var.c == xt7Var.g.get(i2).sort_type.intValue()) {
-                        i = i2;
-                        break;
-                    }
-                    i2++;
-                } else {
-                    break;
-                }
+        this.d.add(preLoadImageInfo);
+    }
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
+                return 0;
             }
-            g(xt7Var.g, i);
+            return (i * this.c) / this.b;
         }
-        h(TbadkCoreApplication.getInst().getSkinType());
+        return invokeI.intValue;
     }
 
-    public void f(boolean z) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                k(1);
-            } else {
-                k(0);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void g(List<PbSortType> list, int i) {
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i) == null) {
-            if (ListUtils.isEmpty(list)) {
-                this.d.setVisibility(8);
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (PbSortType pbSortType : list) {
-                jl8 jl8Var = new jl8();
-                jl8Var.c(pbSortType.sort_type.intValue());
-                jl8Var.d(pbSortType.sort_name);
-                arrayList.add(jl8Var);
-            }
-            this.d.setVisibility(0);
-            this.d.setData(arrayList, i);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
     }
 
-    public void h(int i) {
+    @Override // com.baidu.tieba.r18
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
-            this.i = SkinManager.getColor(R.color.CAM_X0105);
-            this.h = SkinManager.getColor(R.color.CAM_X0107);
-            k(this.f);
-            this.d.H();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
         }
-    }
-
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    public void j(SortSwitchButton.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.e = fVar;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-            if (i == 0) {
-                this.b.setTypeface(Typeface.defaultFromStyle(1));
-                this.c.setTypeface(Typeface.defaultFromStyle(0));
-                this.b.setTextColor(this.i);
-                this.c.setTextColor(this.h);
-            } else if (i == 1) {
-                this.b.setTypeface(Typeface.defaultFromStyle(0));
-                this.c.setTypeface(Typeface.defaultFromStyle(1));
-                this.b.setTextColor(this.h);
-                this.c.setTextColor(this.i);
-            }
-        }
+        return invokeV.intValue;
     }
 }

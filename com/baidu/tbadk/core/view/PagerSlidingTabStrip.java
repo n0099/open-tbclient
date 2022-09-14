@@ -540,6 +540,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.r = null;
         this.s = 0;
         this.t = 0;
-        this.u = R.drawable.obfuscated_res_0x7f080e5c;
+        this.u = R.drawable.obfuscated_res_0x7f080e83;
     }
 }

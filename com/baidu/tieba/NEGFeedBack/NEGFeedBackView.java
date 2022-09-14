@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.dq4;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.is4;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public al5 h;
+    public jn5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -66,7 +66,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(i9.a(this.a.getContext()), null)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(w9.a(this.a.getContext()), null)) {
                 return;
             }
             this.a.o();
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, dq4 dq4Var);
+        void a(ArrayList<Integer> arrayList, String str, is4 is4Var);
 
-        void b(dq4 dq4Var, CompoundButton compoundButton, boolean z);
+        void b(is4 is4Var, CompoundButton compoundButton, boolean z);
 
-        void c(dq4 dq4Var);
+        void c(is4 is4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f080917;
+        this.f = R.drawable.obfuscated_res_0x7f080933;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -133,7 +133,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void n(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, i2) == null) {
-            int f = ri.f(this.a, R.dimen.tbds24);
+            int f = ej.f(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);
@@ -168,7 +168,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new al5(tbPageContext, this);
+            this.h = new jn5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -215,10 +215,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(dq4 dq4Var) {
+    public void setData(is4 is4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dq4Var) == null) {
-            this.h.v(dq4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, is4Var) == null) {
+            this.h.v(is4Var);
         }
     }
 

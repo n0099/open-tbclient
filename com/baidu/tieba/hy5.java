@@ -1,63 +1,53 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Search.DataRes;
 /* loaded from: classes4.dex */
-public class hy5 {
+public class hy5 extends ey5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public boolean k;
-    public long l;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947840069, "Lcom/baidu/tieba/hy5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947840069, "Lcom/baidu/tieba/hy5;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public hy5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(DataRes dataRes) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        Long l = dataRes.uid;
-        this.b = l == null ? 0L : l.longValue();
-        this.c = dataRes.portrait;
-        this.d = dataRes.name_show;
-        Long l2 = dataRes.apply_id;
-        this.e = l2 == null ? 0L : l2.longValue();
-        Integer num = dataRes.vote_num;
-        this.f = num == null ? 0 : num.intValue();
-        Integer num2 = dataRes.agree_num;
-        this.g = num2 == null ? 0 : num2.intValue();
-        Integer num3 = dataRes.thread_num;
-        this.h = num3 == null ? 0 : num3.intValue();
-        Integer num4 = dataRes.post_num;
-        this.i = num4 == null ? 0 : num4.intValue();
-        Boolean bool = dataRes.is_vote;
-        this.k = bool != null ? bool.booleanValue() : false;
-        Long l3 = dataRes.tid;
-        this.l = l3 != null ? l3.longValue() : 0L;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

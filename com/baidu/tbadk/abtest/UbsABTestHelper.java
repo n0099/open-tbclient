@@ -16,7 +16,6 @@ import com.baidu.tbadk.abtest.group.FrsNewAreaTabSortUbsABTest;
 import com.baidu.tbadk.abtest.group.FrsTabLocationUbsABTest;
 import com.baidu.tbadk.abtest.group.GetFrsFunAdPreLoadABTest;
 import com.baidu.tbadk.abtest.group.HomeElasticABTest;
-import com.baidu.tbadk.abtest.group.HomeLiveTabAbTest;
 import com.baidu.tbadk.abtest.group.HomePagePromoteLoginUbsABTest;
 import com.baidu.tbadk.abtest.group.HomeRecommendLoadMoreTest;
 import com.baidu.tbadk.abtest.group.HttpsABTest;
@@ -25,7 +24,6 @@ import com.baidu.tbadk.abtest.group.InduceSharingABTest;
 import com.baidu.tbadk.abtest.group.LaunchUpABTest;
 import com.baidu.tbadk.abtest.group.PbSubABTest;
 import com.baidu.tbadk.abtest.group.PlgRequestLimitABTest;
-import com.baidu.tbadk.abtest.group.PushOpenUbsABTest;
 import com.baidu.tbadk.abtest.group.RecommendBarUbsABTest;
 import com.baidu.tbadk.abtest.group.RecommendCardInterestABTest;
 import com.baidu.tbadk.abtest.group.SearchLoginUbsABTest;
@@ -34,9 +32,9 @@ import com.baidu.tbadk.abtest.group.TbNetABTest;
 import com.baidu.tbadk.abtest.group.TbVideoPlayerABTest;
 import com.baidu.tbadk.abtest.group.TiebaPlusCardModelABTest;
 import com.baidu.tbadk.abtest.group.VideoAdDrawUbsABTest;
+import com.baidu.tieba.bx4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,39 +99,53 @@ public class UbsABTestHelper {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId, strArr)) == null) ? isABTestByKeys(getUbsABTestByGroupKey(bdUniqueId), strArr) : invokeLL.booleanValue;
     }
 
+    @Modify(description = "12.28 冷启通知栏未安装/未打开提醒")
+    public static boolean isAdRetargetNotificationRemindTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? isExistSid(UsbAbTestConst.KEY_AD_RETARGET_NOTIFICATION_REMIND) : invokeV.booleanValue;
+    }
+
+    @Modify(description = "12.28 （安卓端）冷启未安装tips提醒")
+    public static boolean isAdRetargetTipsRemindTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isExistSid(UsbAbTestConst.KEY_AD_RETARGET_TIPS_REMIND) : invokeV.booleanValue;
+    }
+
     @Modify(description = "12.23版本 关于baiduid的获取优化策略开关")
     public static boolean isAddBaidIdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? TbSingleton.getInstance().getBaiduidCookieSwitch() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? TbSingleton.getInstance().getBaiduidCookieSwitch() : invokeV.booleanValue;
     }
 
     @Modify(description = "12.27版本 点赞区域不再挖孔处理")
     public static boolean isAgreeNumberCanClick() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isExistSid(UsbAbTestConst.KEY_AGREE_NUMBER_CAN_CLICK) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? isExistSid(UsbAbTestConst.KEY_AGREE_NUMBER_CAN_CLICK) : invokeV.booleanValue;
     }
 
     @Modify(description = "视频号取消自动播放下一个视频，视频中间页自动播放下一个视频abtest")
     public static boolean isAutoPlayNextVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? isExistSid(UsbAbTestConst.KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? isExistSid(UsbAbTestConst.KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.23 手百网络库POST实验")
     public static boolean isBdNetABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? isABTestByKeys(BdNetABTest.ABTEST_GROUP_KEY, BdNetABTest.BD_NET_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? isABTestByKeys(BdNetABTest.ABTEST_GROUP_KEY, BdNetABTest.BD_NET_SID_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "是否命中12.0b UI通栏小流量")
     public static boolean isCardAcr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -143,147 +155,134 @@ public class UbsABTestHelper {
     public static boolean isConcernForumCardShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? isABTestByKeys(ConcernForumCardUbsABTest.ABTEST_GROUP_KEY, ConcernForumCardUbsABTest.CONCERN_FORUM_SID_A) || isABTestByKeys(ConcernForumCardUbsABTest.ABTEST_GROUP_KEY, ConcernForumCardUbsABTest.CONCERN_FORUM_SID_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? isABTestByKeys(ConcernForumCardUbsABTest.ABTEST_GROUP_KEY, ConcernForumCardUbsABTest.CONCERN_FORUM_SID_A) || isABTestByKeys(ConcernForumCardUbsABTest.ABTEST_GROUP_KEY, ConcernForumCardUbsABTest.CONCERN_FORUM_SID_B) : invokeV.booleanValue;
     }
 
-    @Modify(description = "12.23版本 scheme/push启动速度优化实验:部分任务后置执行")
-    public static boolean isDelayTaskInSchemePush() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? isExistSid(UsbAbTestConst.KEY_SCHEME_START_OPTIMIZE_TEST_B) || isExistSid(UsbAbTestConst.KEY_SCHEME_START_OPTIMIZE_TEST_D) || isExistSid(UsbAbTestConst.KEY_SCHEME_START_OPTIMIZE_TEST_E) : invokeV.booleanValue;
-    }
-
-    @Modify(description = "是否命中PB、FRS和大图页命中小熊广告去重策略ABTest", type = 100)
+    @Modify(description = "是否命中PB、FRS和大图页命中小熊广告去重策略ABTest", type = 33)
     public static boolean isDuplicateRemovalFunAdABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_DUPLICATE_REMOVAL) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_DUPLICATE_REMOVAL) : invokeV.booleanValue;
     }
 
     public static boolean isEnterFrsNoAnmi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? isExistSid(UsbAbTestConst.KEY_ENTER_FRS_NO_ANMI) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? isExistSid(UsbAbTestConst.KEY_ENTER_FRS_NO_ANMI) : invokeV.booleanValue;
     }
 
     public static boolean isExistSid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             UsbAbTestSwitch aBTestSwitchData = UbsABTestDataManager.getInstance().getABTestSwitchData(str);
             return (aBTestSwitchData == null || TextUtils.isEmpty(aBTestSwitchData.uniquekey) || !aBTestSwitchData.uniquekey.equalsIgnoreCase(str)) ? false : true;
         }
         return invokeL.booleanValue;
     }
 
+    @Modify(description = "12.28版本 退出时生效未安装tips提醒")
+    public static boolean isExitShowInstallTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? isExistSid(UsbAbTestConst.KEY_EXIT_REMIND_TIP) : invokeV.booleanValue;
+    }
+
     @Modify(description = "12.19 视频中间页沉浸式转场")
     public static boolean isFeedVideoImmersionTransition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? isExistSid(UsbAbTestConst.KEY_FEED_VIDEO_TRANSITION) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? isExistSid(UsbAbTestConst.KEY_FEED_VIDEO_TRANSITION) : invokeV.booleanValue;
     }
 
     public static boolean isFirstLoginTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? isABTestByKeys(FirstLoginABTest.ABTEST_GROUP_KEY, FirstLoginABTest.FIRST_LOGIN_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? isABTestByKeys(FirstLoginABTest.ABTEST_GROUP_KEY, FirstLoginABTest.FIRST_LOGIN_SID_A) : invokeV.booleanValue;
     }
 
     public static boolean isFirstLoginTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? isABTestByKeys(FirstLoginABTest.ABTEST_GROUP_KEY, FirstLoginABTest.FIRST_LOGIN_SID_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? isABTestByKeys(FirstLoginABTest.ABTEST_GROUP_KEY, FirstLoginABTest.FIRST_LOGIN_SID_B) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.25版本 修复跳转三方SDK页面再返回也会触发热启动开屏广告问题")
     public static boolean isFixHotSplashRule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? isExistSid(UsbAbTestConst.KEY_HOT_SPLASH_FIX) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isExistSid(UsbAbTestConst.KEY_HOT_SPLASH_FIX) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.19 推荐页面吧卡片头部新增关注状态和推荐理由 实验组a：仅展示关注状态")
     public static boolean isForumRecReasonAndStatusUbsABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? isABTestByKeys(ForumRecReasonAndStatusUbsABTest.ABTEST_GROUP_KEY, ForumRecReasonAndStatusUbsABTest.FORUM_REC_TEST_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? isABTestByKeys(ForumRecReasonAndStatusUbsABTest.ABTEST_GROUP_KEY, ForumRecReasonAndStatusUbsABTest.FORUM_REC_TEST_SID_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.19 推荐页面吧卡片头部新增关注状态和推荐理由 实验组b：仅展示推荐理由")
     public static boolean isForumRecReasonAndStatusUbsABTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? isABTestByKeys(ForumRecReasonAndStatusUbsABTest.ABTEST_GROUP_KEY, ForumRecReasonAndStatusUbsABTest.FORUM_REC_TEST_SID_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? isABTestByKeys(ForumRecReasonAndStatusUbsABTest.ABTEST_GROUP_KEY, ForumRecReasonAndStatusUbsABTest.FORUM_REC_TEST_SID_B) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.19 推荐页面吧卡片头部新增关注状态和推荐理由 实验组c: 关注状态和推荐理由都显示")
     public static boolean isForumRecReasonAndStatusUbsABTestC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? isABTestByKeys(ForumRecReasonAndStatusUbsABTest.ABTEST_GROUP_KEY, ForumRecReasonAndStatusUbsABTest.FORUM_REC_TEST_SID_C) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? isABTestByKeys(ForumRecReasonAndStatusUbsABTest.ABTEST_GROUP_KEY, ForumRecReasonAndStatusUbsABTest.FORUM_REC_TEST_SID_C) : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-frs页小熊广告sdk小流量abtest")
+    @Modify(description = "小熊广告-frs页小熊广告sdk小流量abtest", type = 33)
     public static boolean isFrsFunAdSdkTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_FRS) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_FRS) : invokeV.booleanValue;
     }
 
     public static boolean isFrsNewAreaTabSortTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? isABTestByKeys(FrsNewAreaTabSortUbsABTest.ABTEST_GROUP_KEY, FrsNewAreaTabSortUbsABTest.FRS_NEW_AREA_TAB_SORT_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? isABTestByKeys(FrsNewAreaTabSortUbsABTest.ABTEST_GROUP_KEY, FrsNewAreaTabSortUbsABTest.FRS_NEW_AREA_TAB_SORT_SID_A) : invokeV.booleanValue;
     }
 
     public static boolean isFrsTabLocationTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? isFrsTabLocationTestA() || isFrsTabLocationTestB() || isFrsTabLocationTestC() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? isFrsTabLocationTestA() || isFrsTabLocationTestB() || isFrsTabLocationTestC() : invokeV.booleanValue;
     }
 
     public static boolean isFrsTabLocationTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_A) : invokeV.booleanValue;
     }
 
     public static boolean isFrsTabLocationTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_B) : invokeV.booleanValue;
     }
 
     public static boolean isFrsTabLocationTestC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_C) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? isABTestByKeys(FrsTabLocationUbsABTest.ABTEST_GROUP_KEY, FrsTabLocationUbsABTest.FRS_TAB_LOCATION_SID_C) : invokeV.booleanValue;
     }
 
-    @Modify(description = "是否命中预加载frs页面广告", type = 100)
+    @Modify(description = "是否命中预加载frs页面广告", type = 33)
     public static boolean isGetFunAdPreLoadABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? isABTestByKeys(GetFrsFunAdPreLoadABTest.ABTEST_GROUP_KEY, GetFrsFunAdPreLoadABTest.TYPE_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? isABTestByKeys(GetFrsFunAdPreLoadABTest.ABTEST_GROUP_KEY, GetFrsFunAdPreLoadABTest.TYPE_A) : invokeV.booleanValue;
     }
 
     public static boolean isHomeElasticABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? isABTestByKeys(HomeElasticABTest.ABTEST_GROUP_KEY, HomeElasticABTest.SID_HOME_ELASTIC_EXPERIMENTAL_GROUP) : invokeV.booleanValue;
-    }
-
-    @Modify(description = "12.25版本 展现频道&搜索框左上角，逻辑不变")
-    public static boolean isHomeLiveTestA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? isABTestByKeys(HomeLiveTabAbTest.ABTEST_GROUP_KEY, HomeLiveTabAbTest.LIVE_CHANNEL_A) : invokeV.booleanValue;
-    }
-
-    public static boolean isHomeLiveTestB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? isABTestByKeys(HomeLiveTabAbTest.ABTEST_GROUP_KEY, HomeLiveTabAbTest.LIVE_CHANNEL_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? isABTestByKeys(HomeElasticABTest.ABTEST_GROUP_KEY, HomeElasticABTest.SID_HOME_ELASTIC_EXPERIMENTAL_GROUP) : invokeV.booleanValue;
     }
 
     public static boolean isHomePagePromoteLoginUbsABTestA() {
@@ -292,15 +291,19 @@ public class UbsABTestHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) ? isABTestByKeys(HomePagePromoteLoginUbsABTest.ABTEST_GROUP_KEY, HomePagePromoteLoginUbsABTest.PROMOTE_LOGIN_SID_A) : invokeV.booleanValue;
     }
 
+    @Modify(description = "12.29版本 首页直播二楼展示")
+    public static boolean isHomePageRecommendLiveSencondFloorShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? isExistSid(UsbAbTestConst.KEY_HOMEPAGE_RECOMMEND_LIVE_SECOND_FLOOR) : invokeV.booleanValue;
+    }
+
     @Modify(description = "12.26版本 首页框架改版实验")
     public static boolean isHomeTabModifyABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            if (isHomeTabModifyABTestACache == null) {
-                isHomeTabModifyABTestACache = Boolean.valueOf(isExistSid("12_26_index_tab_show_a") && !isIndexTabListIsEmpty());
-            }
-            return isHomeTabModifyABTestACache.booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -309,34 +312,40 @@ public class UbsABTestHelper {
     public static boolean isHotRankShowABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? isExistSid(UsbAbTestConst.KEY_HOT_RANK_SHOW) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? isExistSid(UsbAbTestConst.KEY_HOT_RANK_SHOW) : invokeV.booleanValue;
+    }
+
+    public static boolean isImageNotCancel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? isExistSid(UsbAbTestConst.KEY_IMG_NOT_CANCEL) : invokeV.booleanValue;
     }
 
     public static boolean isImageViewerTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? isABTestByKeys(ImageViewerABTest.ABTEST_GROUP_KEY, ImageViewerABTest.IMAGE_VIEWER_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? isABTestByKeys(ImageViewerABTest.ABTEST_GROUP_KEY, ImageViewerABTest.IMAGE_VIEWER_SID_A) : invokeV.booleanValue;
     }
 
     public static boolean isImageViewerTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? isABTestByKeys(ImageViewerABTest.ABTEST_GROUP_KEY, ImageViewerABTest.IMAGE_VIEWER_SID_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? isABTestByKeys(ImageViewerABTest.ABTEST_GROUP_KEY, ImageViewerABTest.IMAGE_VIEWER_SID_B) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.24版本 首页/FRS帖子图片点击进入PB")
     public static boolean isImgClickToPb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? isExistSid(UsbAbTestConst.KEY_IMG_CLICK_TO_PB) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? isExistSid(UsbAbTestConst.KEY_IMG_CLICK_TO_PB) : invokeV.booleanValue;
     }
 
     public static boolean isIndexTabListIsEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
             try {
-                return new JSONArray(su4.k().q("key_index_tab_info_list", "[]")).length() == 0;
+                return new JSONArray(bx4.k().q("key_index_tab_info_list", "[]")).length() == 0;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return true;
@@ -349,286 +358,274 @@ public class UbsABTestHelper {
     public static boolean isLaunchUpA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? isABTestByKeys(LaunchUpABTest.ABTEST_GROUP_KEY, LaunchUpABTest.TYPE_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) ? isABTestByKeys(LaunchUpABTest.ABTEST_GROUP_KEY, LaunchUpABTest.TYPE_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.18 直播卡片右上角交互内容icon")
     public static boolean isLiveCardGameShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? isExistSid(UsbAbTestConst.KEY_LIVE_CARD_GAME_SHOW) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? isExistSid(UsbAbTestConst.KEY_LIVE_CARD_GAME_SHOW) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.20 首页load more加载优化")
     public static boolean isLoadMoreABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) ? isABTestByKeys(HomeRecommendLoadMoreTest.ABTEST_GROUP_KEY, HomeRecommendLoadMoreTest.FEED_REC_PRELOAD_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? isABTestByKeys(HomeRecommendLoadMoreTest.ABTEST_GROUP_KEY, HomeRecommendLoadMoreTest.FEED_REC_PRELOAD_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.21 启动优化-首页策略-缓存不失效")
     public static boolean isMainTabDataCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MAIN_TAB_DATA_CACHE) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MAIN_TAB_DATA_CACHE) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.21 启动优化-首页策略-无策略")
     public static boolean isMainTabDataOff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MAIN_TAB_DATA_OFF) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MAIN_TAB_DATA_OFF) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.21 启动优化-首页策略-预请求")
     public static boolean isMainTabDataPrefetch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MAIN_TAB_DATA_PREFETCH) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MAIN_TAB_DATA_PREFETCH) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.26版本 首页展示新的tab和发帖样式")
     public static boolean isMainTabShowA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) ? isHomeTabModifyABTestA() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) ? isHomeTabModifyABTestA() : invokeV.booleanValue;
     }
 
-    @Modify(description = "原生广告-视频物料自动播放", type = 100)
+    @Modify(description = "原生广告-视频物料自动播放", type = 33)
     public static boolean isNativeVideoAdsAutoPlayABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NATIVE_AD_AUTO_PLAY) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NATIVE_AD_AUTO_PLAY) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.20 手百网络库")
     public static boolean isNetABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) ? isABTestByKeys(TbNetABTest.ABTEST_GROUP_KEY, TbNetABTest.TB_NET_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) ? isABTestByKeys(TbNetABTest.ABTEST_GROUP_KEY, TbNetABTest.TB_NET_SID_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.27版本 新版首页热榜tab")
     public static boolean isNewHomeHotTopicTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NEW_HOME_HOT_TOPIC_TAB) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NEW_HOME_HOT_TOPIC_TAB) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.21版本 兴趣面板触发时机&场景梳理优化")
     public static boolean isNewInterestShowTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NEW_INTEREST_TEST_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NEW_INTEREST_TEST_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.11 昵称支持重名")
     public static boolean isNickNameABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NICK_NAME) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NICK_NAME) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.26版本 发回帖去掉专业区权限请求")
     public static boolean isNotRequestProPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NO_REQUEST_PRO_PERMISSION) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) ? isExistSid(UsbAbTestConst.KEY_NO_REQUEST_PRO_PERMISSION) : invokeV.booleanValue;
     }
 
     public static boolean isOnlinePushShowTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) ? isExistSid(UsbAbTestConst.KEY_ONLINE_PUSH_SHOW_TEST_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) ? isExistSid(UsbAbTestConst.KEY_ONLINE_PUSH_SHOW_TEST_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "pb操作区, 策略a, pb页评论区楼层用户昵称样式调整 pb楼中楼外露区样式调整 长按面板的样式改为抽屉")
     public static boolean isPBPlanA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) ? isABTestByKeys(PbSubABTest.ABTEST_GROUP_KEY, PbSubABTest.SID_PB_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) ? isABTestByKeys(PbSubABTest.ABTEST_GROUP_KEY, PbSubABTest.SID_PB_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "广告-小熊-PB评论区小熊广告sdk小流量", type = 100)
+    @Modify(description = "广告-小熊-PB评论区小熊广告sdk小流量", type = 33)
     public static boolean isPbCommentFunAdABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PB_COMMENT) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65593, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PB_COMMENT) : invokeV.booleanValue;
     }
 
     public static boolean isPbForumGuideTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PB_FORUM_GUIDE_TEST_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PB_FORUM_GUIDE_TEST_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-PB页Banner位小熊广告sdk小流量")
+    @Modify(description = "小熊广告-PB页Banner位小熊广告sdk小流量", type = 33)
     public static boolean isPbPageBannerFunAdSdkTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65593, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PB_BANNER) : invokeV.booleanValue;
-    }
-
-    @Modify(description = "12.23版本 scheme/push启动速度优化实验:前置pb请求的发送")
-    public static boolean isPbRequestEarlySendInSchemePush() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) ? isExistSid(UsbAbTestConst.KEY_SCHEME_START_OPTIMIZE_TEST_C) || isExistSid(UsbAbTestConst.KEY_SCHEME_START_OPTIMIZE_TEST_D) || isExistSid(UsbAbTestConst.KEY_SCHEME_START_OPTIMIZE_TEST_E) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65595, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PB_BANNER) : invokeV.booleanValue;
     }
 
     public static boolean isPbSharePathTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65595, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PB_SHARE_PATH_TEST_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65596, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PB_SHARE_PATH_TEST_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.10是否命中个人主页视频tab瀑布流")
     public static boolean isPersonalVideoTabFlowABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65596, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PERSONAL_VIDEO_TAB_FLOW) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PERSONAL_VIDEO_TAB_FLOW) : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-首页推荐小熊广告sdk小流量abtest", type = 100)
+    @Modify(description = "小熊广告-首页推荐小熊广告sdk小流量abtest", type = 33)
     public static boolean isPersonalizeFunAdABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PERSONALIZE) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65598, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PERSONALIZE) : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-大图页中插广告开关")
+    @Modify(description = "小熊广告-大图页中插广告开关", type = 33)
     public static boolean isPicPageFunAdInsert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65598, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR) : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-大图页小熊广告尾楼插入开关")
+    @Modify(description = "小熊广告-大图页小熊广告尾楼插入开关", type = 33)
     public static boolean isPicPageFunAdSdkTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PICPAGE_BEAR) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65600, null)) == null) ? Build.VERSION.SDK_INT >= 21 && isExistSid(UsbAbTestConst.KEY_FUN_AD_SDK_PICPAGE_BEAR) : invokeV.booleanValue;
     }
 
-    @Modify(description = "序章请求限制 实验组a")
     public static boolean isPlgRequestLimitA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65600, null)) == null) ? isABTestByKeys(PlgRequestLimitABTest.ABTEST_GROUP_KEY, PlgRequestLimitABTest.TYPE_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65601, null)) == null) ? isABTestByKeys(PlgRequestLimitABTest.ABTEST_GROUP_KEY, PlgRequestLimitABTest.TYPE_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "序章请求限制 实验组b")
     public static boolean isPlgRequestLimitB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65601, null)) == null) ? isABTestByKeys(PlgRequestLimitABTest.ABTEST_GROUP_KEY, PlgRequestLimitABTest.TYPE_B) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65602, null)) == null) ? isABTestByKeys(PlgRequestLimitABTest.ABTEST_GROUP_KEY, PlgRequestLimitABTest.TYPE_B) : invokeV.booleanValue;
     }
 
-    @Modify(description = "序章请求限制 实验组c")
     public static boolean isPlgRequestLimitC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65602, null)) == null) ? isABTestByKeys(PlgRequestLimitABTest.ABTEST_GROUP_KEY, PlgRequestLimitABTest.TYPE_C) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) ? isABTestByKeys(PlgRequestLimitABTest.ABTEST_GROUP_KEY, PlgRequestLimitABTest.TYPE_C) : invokeV.booleanValue;
     }
 
     public static boolean isPushOpenNewStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) ? isPushOpenPlan1() || isPushOpenPlan2() || isPushOpenPlan3() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Modify(description = "12.25版本 12.25消息权限打开实验a")
-    public static boolean isPushOpenPlan1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) ? isABTestByKeys(PushOpenUbsABTest.ABTEST_GROUP_KEY, PushOpenUbsABTest.MSG_PUSH_OPEN_TEST_SID_A) : invokeV.booleanValue;
-    }
-
-    @Modify(description = "12.25版本 12.25消息权限打开实验b")
-    public static boolean isPushOpenPlan2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) ? isABTestByKeys(PushOpenUbsABTest.ABTEST_GROUP_KEY, PushOpenUbsABTest.MSG_PUSH_OPEN_TEST_SID_B) : invokeV.booleanValue;
-    }
-
-    @Modify(description = "12.25版本 12.25消息权限打开实验C")
     public static boolean isPushOpenPlan3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) ? isABTestByKeys(PushOpenUbsABTest.ABTEST_GROUP_KEY, PushOpenUbsABTest.MSG_PUSH_OPEN_TEST_SID_C) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isPushPermissionDialogBtnBottom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65607, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PUSH_PERMISSION_BTN_BOTTOM) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) ? isExistSid(UsbAbTestConst.KEY_PUSH_PERMISSION_BTN_BOTTOM) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.26 QA抓包")
     public static boolean isQaHttpsTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65608, null)) == null) ? isABTestByKeys(HttpsABTest.ABTEST_GROUP_KEY, HttpsABTest.QA_HTTPS_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65607, null)) == null) ? isABTestByKeys(HttpsABTest.ABTEST_GROUP_KEY, HttpsABTest.QA_HTTPS_SID_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "吧推荐卡片是否显示hottext字段")
     public static boolean isRecommendBarHotText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65609, null)) == null) ? isABTestByKeys(RecommendBarUbsABTest.ABTEST_GROUP_KEY, RecommendBarUbsABTest.RECOMMEND_BAR_SID_HOT_TEXT) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65608, null)) == null) ? isABTestByKeys(RecommendBarUbsABTest.ABTEST_GROUP_KEY, RecommendBarUbsABTest.RECOMMEND_BAR_SID_HOT_TEXT) : invokeV.booleanValue;
     }
 
     @Modify(description = "吧推荐卡片是否显示slogan字段")
     public static boolean isRecommendBarSlogan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65610, null)) == null) ? isABTestByKeys(RecommendBarUbsABTest.ABTEST_GROUP_KEY, RecommendBarUbsABTest.RECOMMEND_BAR_SID_SLOGAN) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65609, null)) == null) ? isABTestByKeys(RecommendBarUbsABTest.ABTEST_GROUP_KEY, RecommendBarUbsABTest.RECOMMEND_BAR_SID_SLOGAN) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.12 首页-推荐-兴趣卡片 实验组a")
     public static boolean isRecommendCardInterestABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65611, null)) == null) ? isABTestByKeys(RecommendCardInterestABTest.ABTEST_GROUP_KEY, RecommendCardInterestABTest.TYPE_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65610, null)) == null) ? isABTestByKeys(RecommendCardInterestABTest.ABTEST_GROUP_KEY, RecommendCardInterestABTest.TYPE_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "12.20 插屏广告实验")
+    @Modify(description = "12.20 插屏广告实验", type = 33)
     public static boolean isRequestInsertAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65612, null)) == null) ? isExistSid(UsbAbTestConst.KEY_REQUEST_INSERT_AD) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65611, null)) == null) ? isExistSid(UsbAbTestConst.KEY_REQUEST_INSERT_AD) : invokeV.booleanValue;
     }
 
     public static boolean isResizeEmotionABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65613, null)) == null) ? isABTestByKeys(EmotionABTest.ABTEST_GROUP_KEY, EmotionABTest.EMOTION_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65612, null)) == null) ? isABTestByKeys(EmotionABTest.ABTEST_GROUP_KEY, EmotionABTest.EMOTION_SID_A) : invokeV.booleanValue;
     }
 
     public static boolean isResizeInduceSharingABTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65614, null)) == null) ? isABTestByKeys(InduceSharingABTest.ABTEST_GROUP_KEY, InduceSharingABTest.INDUCE_SHARING_SID) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65613, null)) == null) ? isABTestByKeys(InduceSharingABTest.ABTEST_GROUP_KEY, InduceSharingABTest.INDUCE_SHARING_SID) : invokeV.booleanValue;
     }
 
     public static boolean isResizeInduceSharingABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65615, null)) == null) ? isABTestByKeys(InduceSharingABTest.ABTEST_GROUP_KEY, InduceSharingABTest.INDUCE_SHARING_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65614, null)) == null) ? isABTestByKeys(InduceSharingABTest.ABTEST_GROUP_KEY, InduceSharingABTest.INDUCE_SHARING_SID_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "isSearchLoginTestA")
     public static boolean isSearchLoginTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65616, null)) == null) ? isABTestByKeys(SearchLoginUbsABTest.ABTEST_GROUP_KEY, SearchLoginUbsABTest.SEARCH_LOGIN_SID_A) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65615, null)) == null) ? isABTestByKeys(SearchLoginUbsABTest.ABTEST_GROUP_KEY, SearchLoginUbsABTest.SEARCH_LOGIN_SID_A) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.25版本 分享按钮右上角")
     public static boolean isShareTopRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) ? isExistSid(UsbAbTestConst.KEY_SHARE_BTN_TOP_RIGHT) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65616, null)) == null) ? isExistSid(UsbAbTestConst.KEY_SHARE_BTN_TOP_RIGHT) : invokeV.booleanValue;
+    }
+
+    @Modify(description = "12.28版本 我的页面下载卡片展示")
+    public static boolean isShowMyPageDownloadCard() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) ? isExistSid(UsbAbTestConst.KEY_MYPAGE_EXPOSED_REMIND_CARD) : invokeV.booleanValue;
     }
 
     @Modify(description = "12.15 沉浸态视频弹幕功能小流量")
@@ -677,14 +674,14 @@ public class UbsABTestHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65623, null)) == null) ? isVideoAdDrawABTestB() || isVideoAdDrawABTestA() : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-视频中间页及视频号广告模板渲染实验A", type = 100)
+    @Modify(description = "小熊广告-视频中间页及视频号广告模板渲染实验A", type = 33)
     public static boolean isVideoAdDrawABTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65624, null)) == null) ? isABTestByKeys(VideoAdDrawUbsABTest.ABTEST_GROUP_KEY, VideoAdDrawUbsABTest.VIDEO_AD_DRAW_SID_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "小熊广告-视频中间页及视频号广告自渲染实验B", type = 100)
+    @Modify(description = "小熊广告-视频中间页及视频号广告自渲染实验B", type = 33)
     public static boolean isVideoAdDrawABTestB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -733,7 +730,7 @@ public class UbsABTestHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65631, null)) == null) ? isABTestByKeys(AuthVideoIconABTest.ABTEST_GROUP_KEY, AuthVideoIconABTest.VIDEO_AUTHOR_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "是否命中视频号自动播放小流量abtest")
+    @Modify(description = "是否命中视频号自动播放小流量abtest", type = 33)
     public static boolean isVideoTabAutoPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

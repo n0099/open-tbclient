@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -801,7 +802,7 @@ public final class a {
                     c = 65535;
                     break;
                 case 98853:
-                    if (str.equals("ctv")) {
+                    if (str.equals(BaiduIdentityManager.PARAM_CTV)) {
                         c = 6;
                         break;
                     }

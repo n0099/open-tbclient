@@ -4,9 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
-import com.baidu.tieba.gq8;
-import com.baidu.tieba.hq8;
+import com.baidu.tieba.wr8;
+import com.baidu.tieba.xr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +33,7 @@ public class InitSDKAsyncTask extends LaunchTask {
     private void initJpusbSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            gq8.b().d(TbadkCoreApplication.getInst());
+            wr8.b().d(TbadkCoreApplication.getInst());
         }
     }
 
@@ -50,8 +49,8 @@ public class InitSDKAsyncTask extends LaunchTask {
     private void initStatSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            hq8.b().a(TbadkCoreApplication.getInst());
-            hq8 b = hq8.b();
+            xr8.b().a(TbadkCoreApplication.getInst());
+            xr8 b = xr8.b();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             TbadkCoreApplication.getInst();
             b.e(inst, TbadkCoreApplication.getFrom(), true);
@@ -64,9 +63,7 @@ public class InitSDKAsyncTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             initStatSdk();
             initJpusbSdk();
-            if (LaunchUpApplicationSwitch.getIsOn()) {
-                initRuka();
-            }
+            initRuka();
         }
     }
 

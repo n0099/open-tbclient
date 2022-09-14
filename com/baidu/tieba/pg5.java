@@ -1,559 +1,246 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.DownloadListener;
-import android.webkit.JsPromptResult;
-import android.webkit.RenderProcessGoneDetail;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.browser.UegTbJsBridge;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tbadk.widget.floatball.FloatWebLayout;
-import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
 /* loaded from: classes5.dex */
-public class pg5 implements lb5 {
+public class pg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Context a;
-    public LinearLayout b;
-    public final FloatWebLayout c;
-    public final NestedScrollWebView d;
-    public final FrameLayout e;
-    public l65 f;
-    public k65 g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public final tl8 m;
-    public final vl8 n;
 
-    /* loaded from: classes5.dex */
-    public class a implements vl8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg5 a;
-
-        public a(pg5 pg5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
+        InterceptResult invokeCommon;
+        int width;
+        int height;
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int i2 = i;
+            if (z) {
+                width = bitmap.getWidth() / 2;
+                height = bitmap.getHeight() / 4;
+            } else {
+                width = bitmap.getWidth();
+                height = bitmap.getHeight();
+            }
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
+            if (i2 < 1) {
+                return null;
+            }
+            int i3 = width * height;
+            int[] iArr2 = new int[i3];
+            createBitmap.getPixels(iArr2, 0, width, 0, 0, width, height);
+            int i4 = width - 1;
+            int i5 = height - 1;
+            int i6 = i2 + i2 + 1;
+            int[] iArr3 = new int[i3];
+            int[] iArr4 = new int[i3];
+            int[] iArr5 = new int[i3];
+            int[] iArr6 = new int[Math.max(width, height)];
+            int i7 = (i6 + 1) >> 1;
+            int i8 = i7 * i7;
+            int i9 = i8 * 256;
+            int[] iArr7 = new int[i9];
+            for (int i10 = 0; i10 < i9; i10++) {
+                iArr7[i10] = i10 / i8;
+            }
+            int[][] iArr8 = (int[][]) Array.newInstance(int.class, i6, 3);
+            int i11 = i2 + 1;
+            int i12 = 0;
+            int i13 = 0;
+            int i14 = 0;
+            while (i12 < height) {
+                Bitmap bitmap2 = createBitmap;
+                int i15 = 0;
+                int i16 = 0;
+                int i17 = 0;
+                int i18 = 0;
+                int i19 = 0;
+                int i20 = 0;
+                int i21 = 0;
+                int i22 = 0;
+                int i23 = -i2;
+                int i24 = 0;
+                while (i23 <= i2) {
+                    int i25 = height;
+                    int i26 = i5;
+                    int i27 = iArr2[i13 + Math.min(i4, Math.max(i23, 0))];
+                    int[] iArr9 = iArr8[i23 + i2];
+                    iArr9[0] = (i27 & 16711680) >> 16;
+                    iArr9[1] = (i27 & 65280) >> 8;
+                    iArr9[2] = i27 & 255;
+                    int abs = i11 - Math.abs(i23);
+                    i24 += iArr9[0] * abs;
+                    i15 += iArr9[1] * abs;
+                    i16 += iArr9[2] * abs;
+                    if (i23 > 0) {
+                        i20 += iArr9[0];
+                        i21 += iArr9[1];
+                        i22 += iArr9[2];
+                    } else {
+                        i17 += iArr9[0];
+                        i18 += iArr9[1];
+                        i19 += iArr9[2];
+                    }
+                    i23++;
+                    height = i25;
+                    i5 = i26;
                 }
-            }
-            this.a = pg5Var;
-        }
-
-        @Override // com.baidu.tieba.vl8
-        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                if (this.a.m != null) {
-                    return this.a.m.b(this.a.d, str, jsPromptResult);
+                int i28 = height;
+                int i29 = i5;
+                int i30 = i2;
+                int i31 = i24;
+                int i32 = 0;
+                while (i32 < width) {
+                    iArr3[i13] = iArr7[i31];
+                    iArr4[i13] = iArr7[i15];
+                    iArr5[i13] = iArr7[i16];
+                    int i33 = i31 - i17;
+                    int i34 = i15 - i18;
+                    int i35 = i16 - i19;
+                    int[] iArr10 = iArr8[((i30 - i2) + i6) % i6];
+                    int i36 = i17 - iArr10[0];
+                    int i37 = i18 - iArr10[1];
+                    int i38 = i19 - iArr10[2];
+                    if (i12 == 0) {
+                        iArr = iArr7;
+                        iArr6[i32] = Math.min(i32 + i2 + 1, i4);
+                    } else {
+                        iArr = iArr7;
+                    }
+                    int i39 = iArr2[i14 + iArr6[i32]];
+                    iArr10[0] = (i39 & 16711680) >> 16;
+                    iArr10[1] = (i39 & 65280) >> 8;
+                    iArr10[2] = i39 & 255;
+                    int i40 = i20 + iArr10[0];
+                    int i41 = i21 + iArr10[1];
+                    int i42 = i22 + iArr10[2];
+                    i31 = i33 + i40;
+                    i15 = i34 + i41;
+                    i16 = i35 + i42;
+                    i30 = (i30 + 1) % i6;
+                    int[] iArr11 = iArr8[i30 % i6];
+                    i17 = i36 + iArr11[0];
+                    i18 = i37 + iArr11[1];
+                    i19 = i38 + iArr11[2];
+                    i20 = i40 - iArr11[0];
+                    i21 = i41 - iArr11[1];
+                    i22 = i42 - iArr11[2];
+                    i13++;
+                    i32++;
+                    iArr7 = iArr;
                 }
-                return false;
+                i14 += width;
+                i12++;
+                createBitmap = bitmap2;
+                height = i28;
+                i5 = i29;
             }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg5 a;
-
-        public b(pg5 pg5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            int i43 = height;
+            int i44 = i5;
+            int[] iArr12 = iArr7;
+            Bitmap bitmap3 = createBitmap;
+            int i45 = 0;
+            while (i45 < width) {
+                int i46 = -i2;
+                int i47 = i6;
+                int[] iArr13 = iArr6;
+                int i48 = 0;
+                int i49 = 0;
+                int i50 = 0;
+                int i51 = 0;
+                int i52 = 0;
+                int i53 = 0;
+                int i54 = 0;
+                int i55 = i46;
+                int i56 = i46 * width;
+                int i57 = 0;
+                int i58 = 0;
+                while (i55 <= i2) {
+                    int i59 = width;
+                    int max = Math.max(0, i56) + i45;
+                    int[] iArr14 = iArr8[i55 + i2];
+                    iArr14[0] = iArr3[max];
+                    iArr14[1] = iArr4[max];
+                    iArr14[2] = iArr5[max];
+                    int abs2 = i11 - Math.abs(i55);
+                    i57 += iArr3[max] * abs2;
+                    i58 += iArr4[max] * abs2;
+                    i48 += iArr5[max] * abs2;
+                    if (i55 > 0) {
+                        i52 += iArr14[0];
+                        i53 += iArr14[1];
+                        i54 += iArr14[2];
+                    } else {
+                        i49 += iArr14[0];
+                        i50 += iArr14[1];
+                        i51 += iArr14[2];
+                    }
+                    int i60 = i44;
+                    if (i55 < i60) {
+                        i56 += i59;
+                    }
+                    i55++;
+                    i44 = i60;
+                    width = i59;
                 }
-            }
-            this.a = pg5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!pi.z()) {
-                    ri.M(this.a.a, R.string.obfuscated_res_0x7f0f0c40);
-                } else {
-                    this.a.u();
+                int i61 = width;
+                int i62 = i44;
+                int i63 = i2;
+                int i64 = i45;
+                int i65 = i43;
+                int i66 = 0;
+                while (i66 < i65) {
+                    iArr2[i64] = (iArr2[i64] & (-16777216)) | (iArr12[i57] << 16) | (iArr12[i58] << 8) | iArr12[i48];
+                    int i67 = i57 - i49;
+                    int i68 = i58 - i50;
+                    int i69 = i48 - i51;
+                    int[] iArr15 = iArr8[((i63 - i2) + i47) % i47];
+                    int i70 = i49 - iArr15[0];
+                    int i71 = i50 - iArr15[1];
+                    int i72 = i51 - iArr15[2];
+                    if (i45 == 0) {
+                        iArr13[i66] = Math.min(i66 + i11, i62) * i61;
+                    }
+                    int i73 = iArr13[i66] + i45;
+                    iArr15[0] = iArr3[i73];
+                    iArr15[1] = iArr4[i73];
+                    iArr15[2] = iArr5[i73];
+                    int i74 = i52 + iArr15[0];
+                    int i75 = i53 + iArr15[1];
+                    int i76 = i54 + iArr15[2];
+                    i57 = i67 + i74;
+                    i58 = i68 + i75;
+                    i48 = i69 + i76;
+                    i63 = (i63 + 1) % i47;
+                    int[] iArr16 = iArr8[i63];
+                    i49 = i70 + iArr16[0];
+                    i50 = i71 + iArr16[1];
+                    i51 = i72 + iArr16[2];
+                    i52 = i74 - iArr16[0];
+                    i53 = i75 - iArr16[1];
+                    i54 = i76 - iArr16[2];
+                    i64 += i61;
+                    i66++;
+                    i2 = i;
                 }
+                i45++;
+                i2 = i;
+                i44 = i62;
+                i43 = i65;
+                iArr6 = iArr13;
+                i6 = i47;
+                width = i61;
             }
+            int i77 = width;
+            bitmap3.setPixels(iArr2, 0, i77, 0, 0, i77, i43);
+            return bitmap3;
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends WebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg5 a;
-
-        public c(pg5 pg5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pg5Var;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                this.a.h = false;
-                if (this.a.d == null || this.a.e == null) {
-                    return;
-                }
-                if (this.a.i) {
-                    this.a.d.stopLoading();
-                    this.a.d.setVisibility(8);
-                    this.a.e.setVisibility(0);
-                    this.a.w();
-                    this.a.C();
-                    return;
-                }
-                this.a.j = false;
-                this.a.d.setVisibility(0);
-                this.a.e.setVisibility(8);
-                this.a.w();
-                this.a.x();
-                this.a.c.setCenterTitle(webView.getTitle());
-                if (this.a.d.canGoBack()) {
-                    this.a.c.k();
-                } else {
-                    this.a.c.d();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                super.onPageStarted(webView, str, bitmap);
-                if (this.a.d == null || this.a.e == null) {
-                    return;
-                }
-                this.a.i = false;
-                if (this.a.j) {
-                    this.a.h = true;
-                    this.a.e.setVisibility(0);
-                    this.a.B();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
-                super.onReceivedError(webView, i, str, str2);
-                this.a.i = true;
-                if (this.a.d == null || this.a.e == null) {
-                    return;
-                }
-                this.a.d.stopLoading();
-                this.a.d.setVisibility(8);
-                this.a.e.setVisibility(0);
-                this.a.w();
-                this.a.C();
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || this.a.d == null) {
-                    return false;
-                }
-                if (this.a.j) {
-                    this.a.j = false;
-                    return false;
-                } else if (this.a.t(str) && !TbadkCoreApplication.isLogin()) {
-                    ViewHelper.skipToLoginActivity(this.a.a);
-                    return false;
-                } else {
-                    return super.shouldOverrideUrlLoading(webView, str);
-                }
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements DownloadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pg5 a;
-
-        public d(pg5 pg5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pg5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pg5Var;
-        }
-
-        @Override // android.webkit.DownloadListener
-        public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || StringUtils.isNull(str)) {
-                return;
-            }
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                this.a.a.startActivity(intent);
-            }
-        }
-
-        public /* synthetic */ d(pg5 pg5Var, a aVar) {
-            this(pg5Var);
-        }
-    }
-
-    public pg5(@NonNull Context context, LinearLayout linearLayout, FloatWebLayout floatWebLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, linearLayout, floatWebLayout};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.j = true;
-        this.k = true;
-        this.n = new a(this);
-        this.a = context;
-        this.b = linearLayout;
-        this.c = floatWebLayout;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0493, (ViewGroup) linearLayout, true);
-        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f5);
-        this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913ed);
-        tl8 tl8Var = new tl8();
-        this.m = tl8Var;
-        tl8Var.a(new CommonTbJsBridge(context));
-        this.m.a(new UegTbJsBridge(context));
-        km4.g(context);
-        y();
-    }
-
-    public void A() {
-        NestedScrollWebView nestedScrollWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nestedScrollWebView = this.d) == null) {
-            return;
-        }
-        try {
-            nestedScrollWebView.onPause();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        r(MissionEvent.MESSAGE_PAUSE);
-        tl8 tl8Var = this.m;
-        if (tl8Var != null) {
-            tl8Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            k65 k65Var = this.g;
-            if (k65Var == null || !k65Var.isViewAttached()) {
-                if (this.g == null) {
-                    k65 k65Var2 = new k65(this.a);
-                    this.g = k65Var2;
-                    k65Var2.r(TbadkCoreApplication.getInst().getSkinType());
-                    this.g.onChangeSkinType();
-                }
-                this.g.attachView(this.e, false);
-            }
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f == null) {
-                this.f = new l65(this.a, new b(this));
-            }
-            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14d8));
-            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0fba));
-            this.f.i(R.drawable.new_pic_emotion_08);
-            this.f.attachView(this.e, false);
-            this.f.p();
-        }
-    }
-
-    @Override // com.baidu.tieba.mb5
-    public boolean I0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lb5
-    public void J(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mb5
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mb5
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-        }
-    }
-
-    public void onDestroy() {
-        tl8 tl8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (tl8Var = this.m) == null) {
-            return;
-        }
-        tl8Var.g();
-    }
-
-    public void onResume() {
-        NestedScrollWebView nestedScrollWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (nestedScrollWebView = this.d) == null) {
-            return;
-        }
-        try {
-            nestedScrollWebView.onResume();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        r("onResume");
-        tl8 tl8Var = this.m;
-        if (tl8Var != null) {
-            tl8Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
-            if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
-                this.m.i(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
-            }
-        }
-        this.k = false;
-    }
-
-    public final void r(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.d == null) {
-            return;
-        }
-        try {
-            WebView.class.getMethod(str, new Class[0]).invoke(this.d, new Object[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // com.baidu.tieba.mb5
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d.getScrollY() == 0 : invokeV.booleanValue;
-    }
-
-    public final boolean t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            return str.contains("tieba_check_login=1");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.e == null || this.d == null || this.h || TextUtils.isEmpty(this.l) || !pi.z()) {
-            return;
-        }
-        this.h = true;
-        this.j = true;
-        this.e.setVisibility(0);
-        this.d.setVisibility(8);
-        x();
-        B();
-        z(this.l, true);
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            NestedScrollWebView nestedScrollWebView = this.d;
-            if (nestedScrollWebView == null || !nestedScrollWebView.canGoBack()) {
-                return false;
-            }
-            this.d.goBack();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void w() {
-        k65 k65Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (k65Var = this.g) == null) {
-            return;
-        }
-        k65Var.dettachView(this.e);
-    }
-
-    public final void x() {
-        l65 l65Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (l65Var = this.f) == null) {
-            return;
-        }
-        l65Var.dettachView(this.e);
-    }
-
-    public void y() {
-        NestedScrollWebView nestedScrollWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (nestedScrollWebView = this.d) == null) {
-            return;
-        }
-        nestedScrollWebView.setNeedDisAllowParentInterceptTouchEvent(false);
-        this.d.getSettings().setJavaScriptEnabled(true);
-        this.d.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        this.d.getSettings().setAllowFileAccess(true);
-        this.d.getSettings().setDatabaseEnabled(true);
-        this.d.getSettings().setDomStorageEnabled(true);
-        this.d.getSettings().setSupportZoom(true);
-        this.d.getSettings().setBuiltInZoomControls(true);
-        this.d.getSettings().setUseWideViewPort(true);
-        this.d.getSettings().setLoadWithOverviewMode(true);
-        this.d.getSettings().setDatabasePath(this.a.getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
-        this.d.setHorizontalScrollBarEnabled(false);
-        this.d.setHorizontalScrollbarOverlay(false);
-        this.d.setInitialScale(100);
-        this.d.setScrollBarStyle(33554432);
-        this.d.setWebViewClient(new c(this));
-        this.d.setDownloadListener(new d(this, null));
-        if (this.a instanceof Activity) {
-            og5 og5Var = new og5((Activity) this.a);
-            og5Var.b(this.n);
-            this.d.setWebChromeClient(og5Var);
-        }
-        CompatibleUtile.getInstance().removeJavascriptInterface(this.d);
-    }
-
-    public void z(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048593, this, str, z) == null) || this.d == null) {
-            return;
-        }
-        if (z || this.j) {
-            this.l = str;
-            CompatibleUtile.getInstance().loadUrl(this.d, str);
-        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

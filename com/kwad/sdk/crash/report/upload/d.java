@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static void a(@NonNull final File file, boolean z, @Nullable final CountDownLatch countDownLatch) {
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "upload()" + Thread.currentThread());

@@ -1,112 +1,246 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.DownloadConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.toast.TaskToastViewData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.ov;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdConstant;
-import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
-import java.util.ArrayList;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.CharsKt__CharJVMKt;
 /* loaded from: classes5.dex */
-public final class nv {
+public final class nv extends lt<kq> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static byte[] b;
-    public static final nv c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ov a;
+    public final long b;
+    public final int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448312549, "Lcom/baidu/tieba/nv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static final class a<T> implements it<TaskToastViewData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nv a;
+
+        /* renamed from: com.baidu.tieba.nv$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static final class C0352a implements ov.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ TaskToastViewData b;
+            public final /* synthetic */ a c;
+
+            public C0352a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, taskToastViewData, aVar, taskToastViewData2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = taskToastViewData;
+                this.c = aVar;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448312549, "Lcom/baidu/tieba/nv;");
-                return;
+
+            @Override // com.baidu.tieba.ov.a
+            public final void a() {
+                us b;
+                pu d;
+                pu d2;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ou v = BDPTask.m.v();
+                    if (v != null && (d2 = v.d()) != null) {
+                        d2.b(this.b.getTaskInfoSingleKey(), kr.c.a());
+                    }
+                    ou v2 = BDPTask.m.v();
+                    if (v2 != null && (d = v2.d()) != null) {
+                        d.a(this.b.getTaskInfoSingleKey());
+                    }
+                    ou v3 = BDPTask.m.v();
+                    if (v3 != null && (b = v3.b()) != null) {
+                        b.a(this.a, 2);
+                    }
+                    this.c.a.h(this.b.getTaskInfo());
+                }
             }
         }
-        c = new nv();
-        a = new int[]{219, 74, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
+
+        /* loaded from: classes5.dex */
+        public static final class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+            public final /* synthetic */ a b;
+
+            public b(Context context, a aVar, TaskToastViewData taskToastViewData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context, aVar, taskToastViewData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = context;
+                this.b = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.a.a.k(this.a);
+                }
+            }
+        }
+
+        public a(nv nvVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nvVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nvVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.it
+        /* renamed from: a */
+        public final void onChanged(TaskToastViewData taskToastViewData) {
+            os h;
+            os h2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, taskToastViewData) == null) || taskToastViewData == null) {
+                return;
+            }
+            this.a.a.a(this.a.c);
+            this.a.a.d(taskToastViewData.getMessage());
+            this.a.a.e(taskToastViewData.getBackColor());
+            this.a.a.h(taskToastViewData.getDuration());
+            this.a.a.j(taskToastViewData.getTxtColor());
+            this.a.a.b(taskToastViewData.getToastLayoutParams());
+            this.a.a.q(taskToastViewData.getBgUrl());
+            String backBtnBgUrl = taskToastViewData.getBackBtnBgUrl();
+            if (backBtnBgUrl != null) {
+                this.a.a.o(backBtnBgUrl);
+            }
+            String backBtnColor = taskToastViewData.getBackBtnColor();
+            if (backBtnColor != null) {
+                this.a.a.n(backBtnColor);
+            }
+            String backBtnSchema = taskToastViewData.getBackBtnSchema();
+            if (backBtnSchema != null) {
+                this.a.a.c(new C0352a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+            }
+            String backBtnTxt = taskToastViewData.getBackBtnTxt();
+            if (backBtnTxt != null) {
+                this.a.a.i(backBtnTxt);
+            }
+            String backBtnTxtColor = taskToastViewData.getBackBtnTxtColor();
+            if (backBtnTxtColor != null) {
+                this.a.a.p(backBtnTxtColor);
+            }
+            ou v = BDPTask.m.v();
+            Activity activity = null;
+            Context appContext = (v == null || (h2 = v.h()) == null) ? null : h2.getAppContext();
+            ou v2 = BDPTask.m.v();
+            if (v2 != null && (h = v2.h()) != null) {
+                activity = h.a();
+            }
+            if (activity == null) {
+                activity = appContext;
+            }
+            if (activity != null) {
+                int showType = taskToastViewData.getShowType();
+                if (showType != 1) {
+                    if (showType == 2) {
+                        rt.d(new b(activity, this, taskToastViewData), this.a.b);
+                    }
+                } else if (appContext != null) {
+                    this.a.a.g(appContext);
+                }
+                this.a.i(taskToastViewData.getTaskInfo(), taskToastViewData.getTaskStatus());
+            }
+        }
     }
 
     public nv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ov();
+        this.b = 100L;
+        this.c = 2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.et
+    /* renamed from: g */
+    public void a(kq kqVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kqVar) == null) {
+            kqVar.a().l(new a(this));
         }
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
+    public final void h(TaskInfo taskInfo) {
+        ou v;
+        xu f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
-                try {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 1; i < str.length(); i += 2) {
-                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
-                    }
-                    if (arrayList.size() <= 16) {
-                        return "";
-                    }
-                    if (b == null) {
-                        b = new byte[a.length];
-                        int length = a.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            byte[] bArr = b;
-                            if (bArr == null) {
-                                Intrinsics.throwNpe();
-                            }
-                            bArr[i2] = (byte) a[i2];
-                        }
-                    }
-                    byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
-                    byte[] bArr2 = b;
-                    if (bArr2 == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    String a2 = ht.a(b(byteArray, bArr2, CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(16, arrayList.size()))));
-                    Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(decodeBytes)");
-                    return a2;
-                } catch (Exception unused) {
-                }
-            }
-            return "";
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskInfo) == null) || (v = BDPTask.m.v()) == null || (f = v.f()) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        f.a("y_task_toast", "icon_clk", yu.b(yu.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
     }
 
-    public final byte[] b(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
+    public final void i(TaskInfo taskInfo, TaskStatus taskStatus) {
+        xu f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-            cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
-            return cipher.doFinal(bArr3);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, taskInfo, taskStatus) == null) {
+            String c = yu.a.c(taskStatus);
+            ou v = BDPTask.m.v();
+            if (v == null || (f = v.f()) == null) {
+                return;
+            }
+            f.a("y_task_toast", "c_pv", yu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
         }
-        return (byte[]) invokeLLL.objValue;
     }
 }

@@ -1,39 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.cf5;
+import com.baidu.tieba.df5;
 /* loaded from: classes3.dex */
-public class ef5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ef5<Q extends cf5, P extends df5> {
+    int a();
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (StringUtils.isNull(a)) {
-                return null;
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
+    Q b();
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a = str;
-        }
-    }
+    String c();
 
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || a == null) {
-            return;
-        }
-        a = null;
-    }
+    P d();
+
+    int e();
 }

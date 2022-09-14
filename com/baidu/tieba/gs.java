@@ -1,55 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public interface gs {
+public class gs {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(252382628, "Lcom/baidu/tieba/gs$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(252382628, "Lcom/baidu/tieba/gs$a;");
-                    return;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static bs a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            bs bsVar = null;
+            if (bArr == null) {
+                return null;
+            }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                bsVar = new bs();
+                wrap.get();
+                wrap.get();
+                bsVar.a(wrap.get());
+                bsVar.f(wrap.get());
+                int i = wrap.getShort();
+                bsVar.c(i);
+                int i2 = wrap.getInt();
+                bsVar.b(i2);
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                bsVar.j(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    bsVar.l(bArr3);
                 }
             }
-            a = new a();
+            return bsVar;
         }
+        return (bs) invokeL.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+    public static byte[] b(bs bsVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bsVar)) == null) {
+            if (bsVar == null) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(bsVar.m() + 12 + bsVar.n());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (bsVar.e() != null && bsVar.e().length == 2) {
+                allocate.put(bsVar.e()[0]);
+                allocate.put(bsVar.e()[1]);
+                allocate.put(bsVar.i());
+                allocate.put(bsVar.k());
+                if (bsVar.o() != null && bsVar.o().length != 0) {
+                    int length = bsVar.o().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (bsVar.p() != null && bsVar.p().length != 0) {
+                        allocate.putInt(bsVar.p().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    if (bsVar.o() != null) {
+                        allocate.put(bsVar.o());
+                    }
+                    if (bsVar.p() != null) {
+                        allocate.put(bsVar.p());
+                    }
+                    return allocate.array();
                 }
             }
+            return null;
         }
+        return (byte[]) invokeL.objValue;
     }
-
-    static {
-        a aVar = a.a;
-    }
-
-    void a(String str, int i);
 }

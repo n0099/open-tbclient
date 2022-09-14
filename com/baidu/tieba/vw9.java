@@ -1,133 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.GenericScheduledExecutorServiceFactory;
 /* loaded from: classes6.dex */
-public final class vw9 implements zw9 {
+public abstract class vw9<T> implements xw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ScheduledExecutorService[] b;
-    public static final ScheduledExecutorService c;
-    public static final vw9 d;
-    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<ScheduledExecutorService[]> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255345, "Lcom/baidu/tieba/vw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255345, "Lcom/baidu/tieba/vw9;");
-                return;
-            }
-        }
-        b = new ScheduledExecutorService[0];
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(0);
-        c = newScheduledThreadPool;
-        newScheduledThreadPool.shutdown();
-        d = new vw9();
-    }
+    public final bz9 a;
 
     public vw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicReference<>(b);
-        start();
+        this.a = new bz9();
     }
 
-    public static ScheduledExecutorService a() {
+    public final void a(xw9 xw9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, xw9Var) == null) {
+            this.a.a(xw9Var);
+        }
+    }
+
+    public abstract void b(Throwable th);
+
+    public abstract void c(T t);
+
+    @Override // com.baidu.tieba.xw9
+    public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ScheduledExecutorService[] scheduledExecutorServiceArr = d.a.get();
-            if (scheduledExecutorServiceArr == b) {
-                return c;
-            }
-            int i = e + 1;
-            if (i >= scheduledExecutorServiceArr.length) {
-                i = 0;
-            }
-            e = i;
-            return scheduledExecutorServiceArr[i];
-        }
-        return (ScheduledExecutorService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zw9
-    public void shutdown() {
-        ScheduledExecutorService[] scheduledExecutorServiceArr;
-        ScheduledExecutorService[] scheduledExecutorServiceArr2;
+    @Override // com.baidu.tieba.xw9
+    public final void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            do {
-                scheduledExecutorServiceArr = this.a.get();
-                scheduledExecutorServiceArr2 = b;
-                if (scheduledExecutorServiceArr == scheduledExecutorServiceArr2) {
-                    return;
-                }
-            } while (!this.a.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
-            for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
-                yw9.d(scheduledExecutorService);
-                scheduledExecutorService.shutdownNow();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zw9
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int availableProcessors = Runtime.getRuntime().availableProcessors();
-            if (availableProcessors > 4) {
-                availableProcessors /= 2;
-            }
-            if (availableProcessors > 8) {
-                availableProcessors = 8;
-            }
-            ScheduledExecutorService[] scheduledExecutorServiceArr = new ScheduledExecutorService[availableProcessors];
-            int i = 0;
-            for (int i2 = 0; i2 < availableProcessors; i2++) {
-                scheduledExecutorServiceArr[i2] = GenericScheduledExecutorServiceFactory.create();
-            }
-            if (!this.a.compareAndSet(b, scheduledExecutorServiceArr)) {
-                while (i < availableProcessors) {
-                    scheduledExecutorServiceArr[i].shutdownNow();
-                    i++;
-                }
-                return;
-            }
-            while (i < availableProcessors) {
-                ScheduledExecutorService scheduledExecutorService = scheduledExecutorServiceArr[i];
-                if (!yw9.k(scheduledExecutorService) && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
-                    yw9.g((ScheduledThreadPoolExecutor) scheduledExecutorService);
-                }
-                i++;
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

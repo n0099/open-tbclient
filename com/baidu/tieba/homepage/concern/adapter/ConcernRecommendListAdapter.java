@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn4;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.uw4;
+import com.baidu.tieba.dp4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ez4;
+import com.baidu.tieba.uu4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public cn4<MetaData> f;
+    public dp4<MetaData> f;
 
     /* loaded from: classes4.dex */
     public class ForumViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +55,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public uw4 f;
+        public ez4 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,19 +77,19 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
             }
             this.g = false;
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906a1);
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0906ab);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b7);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0906c1);
             this.d = headPendantClickableView;
             headPendantClickableView.getHeadView().setIsRound(true);
             this.d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.d.getHeadView().setDefaultResource(17170445);
             this.d.getHeadView().setPlaceHolder(1);
-            this.d.getHeadView().setBorderWidth(ri.f(concernRecommendListAdapter.a, R.dimen.tbds1));
+            this.d.getHeadView().setBorderWidth(ej.f(concernRecommendListAdapter.a, R.dimen.tbds1));
             this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ac);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906aa);
-            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f09246d);
-            this.f = new uw4(concernRecommendListAdapter.b, this.e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c2);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c0);
+            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0924c8);
+            this.f = new ez4(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -102,7 +102,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.r(i);
-                ns4 d = ns4.d(this.a);
+                uu4 d = uu4.d(this.a);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
@@ -276,9 +276,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         r(metaData, forumViewHolder);
         p(metaData, forumViewHolder);
         q(metaData, forumViewHolder);
-        cn4<MetaData> cn4Var = this.f;
-        if (cn4Var != null) {
-            cn4Var.d(forumViewHolder.itemView, metaData, i, i);
+        dp4<MetaData> dp4Var = this.f;
+        if (dp4Var != null) {
+            dp4Var.d(forumViewHolder.itemView, metaData, i, i);
         }
         forumViewHolder.a(this.d);
     }
@@ -310,7 +310,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01ed, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01f1, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
     }
 
     public final void j(MetaData metaData, ForumViewHolder forumViewHolder) {
@@ -327,10 +327,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void l(cn4<MetaData> cn4Var) {
+    public void l(dp4<MetaData> dp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cn4Var) == null) {
-            this.f = cn4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dp4Var) == null) {
+            this.f = dp4Var;
         }
     }
 
@@ -368,10 +368,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            uw4 uw4Var = forumViewHolder.f;
-            if (uw4Var != null) {
-                uw4Var.l(this.c);
-                uw4Var.n(metaData);
+            ez4 ez4Var = forumViewHolder.f;
+            if (ez4Var != null) {
+                ez4Var.l(this.c);
+                ez4Var.n(metaData);
             }
         }
     }

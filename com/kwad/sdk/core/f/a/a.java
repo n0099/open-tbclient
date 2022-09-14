@@ -9,10 +9,10 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwad.sdk.core.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0605a implements a {
+    public static final class C0610a implements a {
         public IBinder Zy;
 
-        public C0605a(IBinder iBinder) {
+        public C0610a(IBinder iBinder) {
         }
 
         @Override // android.os.IInterface

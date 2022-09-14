@@ -21,8 +21,7 @@ import android.view.animation.Interpolator;
 import androidx.constraintlayout.motion.utils.Easing;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.constraintlayout.widget.R$id;
-import androidx.constraintlayout.widget.R$styleable;
+import androidx.constraintlayout.widget.R;
 import androidx.constraintlayout.widget.StateSet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -387,13 +386,13 @@ public class MotionScene {
     private void parseMotionSceneTags(Context context, XmlPullParser xmlPullParser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, context, xmlPullParser) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.MotionScene);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.MotionScene);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 int index = obtainStyledAttributes.getIndex(i);
-                if (index == R$styleable.MotionScene_defaultDuration) {
+                if (index == 0) {
                     this.mDefaultDuration = obtainStyledAttributes.getInt(index, this.mDefaultDuration);
-                } else if (index == R$styleable.MotionScene_layoutDuringTransition) {
+                } else if (index == 1) {
                     this.mLayoutDuringTransition = obtainStyledAttributes.getInteger(index, 0);
                 }
             }
@@ -1276,8 +1275,8 @@ public class MotionScene {
         this.mMotionOutsideRegion = false;
         this.mMotionLayout = motionLayout;
         load(context, i);
-        this.mConstraintSetMap.put(R$id.motion_base, new ConstraintSet());
-        this.mConstraintSetIdMap.put("motion_base", Integer.valueOf(R$id.motion_base));
+        this.mConstraintSetMap.put(com.baidu.tieba.R.id.motion_base, new ConstraintSet());
+        this.mConstraintSetIdMap.put("motion_base", Integer.valueOf((int) com.baidu.tieba.R.id.motion_base));
     }
 
     public void setTransition(Transition transition) {
@@ -1351,13 +1350,13 @@ public class MotionScene {
                 this.mTargetId = -1;
                 this.mMode = 17;
                 this.mTransition = transition;
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.OnClick);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.OnClick);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i3 = 0; i3 < indexCount; i3++) {
                     int index = obtainStyledAttributes.getIndex(i3);
-                    if (index == R$styleable.OnClick_targetId) {
+                    if (index == 1) {
                         this.mTargetId = obtainStyledAttributes.getResourceId(index, this.mTargetId);
-                    } else if (index == R$styleable.OnClick_clickAction) {
+                    } else if (index == 0) {
                         this.mMode = obtainStyledAttributes.getInt(index, this.mMode);
                     }
                 }
@@ -1540,21 +1539,21 @@ public class MotionScene {
                 int indexCount = typedArray.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = typedArray.getIndex(i);
-                    if (index == R$styleable.Transition_constraintSetEnd) {
+                    if (index == 2) {
                         this.mConstraintSetEnd = typedArray.getResourceId(index, this.mConstraintSetEnd);
                         if (TtmlNode.TAG_LAYOUT.equals(context.getResources().getResourceTypeName(this.mConstraintSetEnd))) {
                             ConstraintSet constraintSet = new ConstraintSet();
                             constraintSet.load(context, this.mConstraintSetEnd);
                             motionScene.mConstraintSetMap.append(this.mConstraintSetEnd, constraintSet);
                         }
-                    } else if (index == R$styleable.Transition_constraintSetStart) {
+                    } else if (index == 3) {
                         this.mConstraintSetStart = typedArray.getResourceId(index, this.mConstraintSetStart);
                         if (TtmlNode.TAG_LAYOUT.equals(context.getResources().getResourceTypeName(this.mConstraintSetStart))) {
                             ConstraintSet constraintSet2 = new ConstraintSet();
                             constraintSet2.load(context, this.mConstraintSetStart);
                             motionScene.mConstraintSetMap.append(this.mConstraintSetStart, constraintSet2);
                         }
-                    } else if (index == R$styleable.Transition_motionInterpolator) {
+                    } else if (index == 6) {
                         int i2 = typedArray.peekValue(index).type;
                         if (i2 == 1) {
                             int resourceId = typedArray.getResourceId(index, -1);
@@ -1574,21 +1573,21 @@ public class MotionScene {
                         } else {
                             this.mDefaultInterpolator = typedArray.getInteger(index, this.mDefaultInterpolator);
                         }
-                    } else if (index == R$styleable.Transition_duration) {
+                    } else if (index == 4) {
                         this.mDuration = typedArray.getInt(index, this.mDuration);
-                    } else if (index == R$styleable.Transition_staggered) {
+                    } else if (index == 8) {
                         this.mStagger = typedArray.getFloat(index, this.mStagger);
-                    } else if (index == R$styleable.Transition_autoTransition) {
+                    } else if (index == 1) {
                         this.mAutoTransition = typedArray.getInteger(index, this.mAutoTransition);
-                    } else if (index == R$styleable.Transition_android_id) {
+                    } else if (index == 0) {
                         this.mId = typedArray.getResourceId(index, this.mId);
-                    } else if (index == R$styleable.Transition_transitionDisable) {
+                    } else if (index == 9) {
                         this.mDisable = typedArray.getBoolean(index, this.mDisable);
-                    } else if (index == R$styleable.Transition_pathMotionArc) {
+                    } else if (index == 7) {
                         this.mPathMotionArc = typedArray.getInteger(index, -1);
-                    } else if (index == R$styleable.Transition_layoutDuringTransition) {
+                    } else if (index == 5) {
                         this.mLayoutDuringTransition = typedArray.getInteger(index, 0);
-                    } else if (index == R$styleable.Transition_transitionFlags) {
+                    } else if (index == 10) {
                         this.mTransitionFlags = typedArray.getInteger(index, 0);
                     }
                 }
@@ -1601,7 +1600,7 @@ public class MotionScene {
         private void fillFromAttributeList(MotionScene motionScene, Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65559, this, motionScene, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.Transition);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Transition);
                 fill(motionScene, context, obtainStyledAttributes);
                 obtainStyledAttributes.recycle();
             }

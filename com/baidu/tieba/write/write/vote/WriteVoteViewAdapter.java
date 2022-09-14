@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.wh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -173,9 +173,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c0);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925c2);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925c1);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09261c);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09261e);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09261d);
         }
     }
 
@@ -244,8 +244,8 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0925cd);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec1);
+            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f092629);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090edc);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
         }
@@ -315,10 +315,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (nf5.d(replace) > 28) {
-                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f15f4), 14));
+            if (wh5.d(replace) > 28) {
+                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1616), 14));
             }
-            String n = nf5.n(replace, 28);
+            String n = wh5.n(replace, 28);
             if (!n.equals(editable.toString())) {
                 this.a.a.setText(n);
                 this.a.a.setSelection(n.length());
@@ -370,18 +370,18 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(this.a.getResources().getDimension(R.dimen.tbds10));
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
-        gradientDrawable.setStroke(ri.f(this.a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
+        gradientDrawable.setStroke(ej.f(this.a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
         if (viewHolder instanceof e) {
             e eVar = (e) viewHolder;
             eVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             eVar.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
             eVar.a.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.b, R.drawable.obfuscated_res_0x7f0805de, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.b, R.drawable.obfuscated_res_0x7f0805f3, SvgManager.SvgResourceStateType.NORMAL);
         } else if (viewHolder instanceof d) {
             d dVar = (d) viewHolder;
             SkinManager.setViewTextColor(dVar.a, (int) R.color.CAM_X0302);
             dVar.c.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.b, R.drawable.obfuscated_res_0x7f0805ff, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.b, R.drawable.obfuscated_res_0x7f080614, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -443,7 +443,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
                 String text = this.b.get(i).getText();
-                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15ef), Integer.valueOf(i + 1)));
+                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1611), Integer.valueOf(i + 1)));
                 eVar.a.setGravity(19);
                 if (i < this.b.size() - 1) {
                     eVar.a.setImeOptions(5);
@@ -469,7 +469,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15c8), Integer.valueOf(20 - this.b.size())));
+                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15e8), Integer.valueOf(20 - this.b.size())));
                 dVar.c.setOnClickListener(new c(this));
             }
             g(viewHolder);
@@ -483,9 +483,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i == 1) {
-                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08de, viewGroup, false));
+                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08fd, viewGroup, false));
             }
-            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08db, viewGroup, false));
+            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08fa, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

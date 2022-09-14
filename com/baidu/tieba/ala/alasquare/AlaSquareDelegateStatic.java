@@ -8,7 +8,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
@@ -21,14 +20,12 @@ import com.baidu.tbadk.core.atomData.AlaLiveTabMyConcernActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ala.alasquare.live.AlaAllLiveSimpleActivity;
 import com.baidu.tieba.ala.alasquare.live.AlaLiveTabFeedActivity;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
@@ -38,13 +35,11 @@ import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResp
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import com.baidu.tieba.at5;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.q65;
-import com.baidu.tieba.r65;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.we6;
-import com.baidu.tieba.zf6;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.mg6;
+import com.baidu.tieba.ww4;
+import com.baidu.tieba.y85;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,42 +56,29 @@ public class AlaSquareDelegateStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends CustomMessageListener {
+    public static class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<String> run(CustomMessage customMessage) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
-            }
-            Object data = customResponsedMessage.getData();
-            if (data instanceof zf6) {
-                zf6 zf6Var = (zf6) data;
-                zf6Var.a(new at5(zf6Var.c(), zf6Var.d()));
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, bx4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -123,43 +105,16 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, su4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, bx4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements CustomMessageTask.CustomRunnable {
+    public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, su4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +136,7 @@ public class AlaSquareDelegateStatic {
                 if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                     String lowerCase = strArr[0].toLowerCase();
                     if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                        nu4.f(tbPageContext.getPageActivity(), 15, true);
+                        ww4.f(tbPageContext.getPageActivity(), 15, true);
                         return 1;
                     } else if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TO_FORUM_USER_LIVE)) {
                         Uri parse = Uri.parse(lowerCase);
@@ -214,11 +169,11 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements UrlManager.UrlDealListener {
+    public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public e() {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,45 +206,12 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class f implements CustomMessageTask.CustomRunnable<IntentConfig> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(AlaAllLiveSimpleActivity.class);
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class g extends CustomMessageListener {
+    public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(int i) {
+        public e(int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -311,31 +233,31 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            we6 we6Var;
+            mg6 mg6Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof we6) || (we6Var = (we6) customResponsedMessage.getData()) == null || ListUtils.isEmpty(we6Var.e())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof mg6) || (mg6Var = (mg6) customResponsedMessage.getData()) == null || ListUtils.isEmpty(mg6Var.e())) {
                 return;
             }
-            for (FrsTabInfo frsTabInfo : we6Var.e()) {
+            for (FrsTabInfo frsTabInfo : mg6Var.e()) {
                 if (frsTabInfo.tab_id.intValue() == 1120) {
-                    AlaSquareDelegateStatic.b(we6Var);
+                    AlaSquareDelegateStatic.b(mg6Var);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class h extends q65 {
+    public static class f extends y85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ we6 c;
+        public final /* synthetic */ mg6 c;
 
-        public h(we6 we6Var) {
+        public f(mg6 mg6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {we6Var};
+                Object[] objArr = {mg6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -345,26 +267,26 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.c = we6Var;
+            this.c = mg6Var;
         }
 
-        @Override // com.baidu.tieba.q65
-        public r65 a() {
+        @Override // com.baidu.tieba.y85
+        public z85 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LiveTabYYSubFragment J1 = LiveTabYYSubFragment.J1(false, 2);
-                J1.t1(this.c.b(), this.c.c());
-                r65 r65Var = new r65();
-                r65Var.a = J1;
-                r65Var.e = 1120;
-                r65Var.i = r65.k;
-                return r65Var;
+                LiveTabYYSubFragment I1 = LiveTabYYSubFragment.I1(false, 2, 3);
+                I1.s1(this.c.b(), this.c.c());
+                z85 z85Var = new z85();
+                z85Var.a = I1;
+                z85Var.e = 1120;
+                z85Var.i = z85.k;
+                return z85Var;
             }
-            return (r65) invokeV.objValue;
+            return (z85) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.q65
+        @Override // com.baidu.tieba.y85
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -374,7 +296,7 @@ public class AlaSquareDelegateStatic {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.q65
+        @Override // com.baidu.tieba.y85
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -386,11 +308,11 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class i implements CustomMessageTask.CustomRunnable<BaseFragment> {
+    public static class g implements CustomMessageTask.CustomRunnable<BaseFragment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public i() {
+        public g() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -426,23 +348,21 @@ public class AlaSquareDelegateStatic {
                 return;
             }
         }
-        j();
-        e();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921353));
-        h();
         i();
+        d();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921353));
+        g();
+        h();
         TbadkCoreApplication.getInst().RegisterIntent(AlaLiveTabMyConcernActivityConfig.class, AlaLiveTabMyConcernActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaNewSquareSubListActivityConfig.class, AlaNewSquareSubListActivity.class);
-        l();
-        g();
-        d();
-        MessageManager.getInstance().registerListener(new a(2001616));
-        f();
         k();
-        CustomMessageTask customMessageTask = new CustomMessageTask(2911006, new b());
+        f();
+        e();
+        j();
+        CustomMessageTask customMessageTask = new CustomMessageTask(2911006, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2911008, new c());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2911008, new b());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(ForumUserLiveActiivtyConfig.class, ForumUserLiveActivity.class);
@@ -453,21 +373,21 @@ public class AlaSquareDelegateStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(we6 we6Var) {
+    public static void b(mg6 mg6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, we6Var) == null) || we6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, mg6Var) == null) || mg6Var == null) {
             return;
         }
-        we6Var.a(new h(we6Var));
+        mg6Var.a(new f(mg6Var));
     }
 
     public static boolean c() {
@@ -482,22 +402,13 @@ public class AlaSquareDelegateStatic {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new f());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+            UrlManager.getInstance().addListener(new d());
         }
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            UrlManager.getInstance().addListener(new e());
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_CONCERN_TAB);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setIsNeedTbs(true);
@@ -507,28 +418,28 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void g() {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            g gVar = new g(2001623);
-            gVar.setPriority(1);
-            MessageManager.getInstance().registerListener(gVar);
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            e eVar = new e(2001623);
+            eVar.setPriority(1);
+            MessageManager.getInstance().registerListener(eVar);
         }
     }
 
-    public static void h() {
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921399, new i());
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921399, new g());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
             TbadkCoreApplication.getInst().RegisterIntent(AlaTabFeedActivityConfig.class, AlaLiveTabFeedActivity.class);
         }
     }
 
-    public static void i() {
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_TAB_LIVE_INFO);
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -539,16 +450,16 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void j() {
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            UrlManager.getInstance().addListener(new d());
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            UrlManager.getInstance().addListener(new c());
         }
     }
 
-    public static void k() {
+    public static void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_RECOMMEND_TAB);
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
@@ -558,9 +469,9 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void l() {
+    public static void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_NEW_SQUARE_SUB_LIVE_LIST);
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);

@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.y1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -238,7 +238,7 @@ public final class RoundImageView extends ImageView {
         }
         this.e = new Paint();
         this.f = new Paint();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, y1a.PayUi_RoundImageView, i, 0);
         this.a = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         this.b = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.c = obtainStyledAttributes.getDimensionPixelSize(0, 0);

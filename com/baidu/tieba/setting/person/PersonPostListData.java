@@ -8,7 +8,6 @@ import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
@@ -18,10 +17,8 @@ import tbclient.Abstract;
 import tbclient.PostInfoList;
 /* loaded from: classes5.dex */
 public class PersonPostListData extends OrmObject implements Serializable {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int MAX_IMAGE = 3;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int hide_post;
     public List<PostList> post_list;
 
     /* loaded from: classes5.dex */
@@ -138,37 +135,10 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static class Content implements Serializable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long create_time;
-        public Abs[] post_content;
-
-        public Content() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.post_content = new Abs[0];
-            this.create_time = 0L;
-        }
-    }
-
-    /* loaded from: classes5.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String lat;
-        public String lon;
-        public String town;
 
         public LbsInfo() {
             Interceptable interceptable = $ic;
@@ -184,8 +154,6 @@ public class PersonPostListData extends OrmObject implements Serializable {
                 }
             }
             this.lat = "";
-            this.lon = "";
-            this.town = "";
         }
 
         public void parserData(tbclient.LbsInfo lbsInfo) {
@@ -305,26 +273,6 @@ public class PersonPostListData extends OrmObject implements Serializable {
             this.lbs_info = new LbsInfo();
             this.is_post_deleted = 0;
         }
-
-        @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
-        public ArrayList<String> getImageUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList<String> arrayList = new ArrayList<>();
-                int i = 0;
-                for (Media media : this.media) {
-                    i++;
-                    if (i > 3) {
-                        break;
-                    } else if (media.type == 3) {
-                        arrayList.add(media.water_pic);
-                    }
-                }
-                return arrayList;
-            }
-            return (ArrayList) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes5.dex */
@@ -390,7 +338,6 @@ public class PersonPostListData extends OrmObject implements Serializable {
             }
         }
         this.post_list = new ArrayList();
-        this.hide_post = 0;
     }
 
     public void parserData(ProfileSocketResponseMessage profileSocketResponseMessage) {

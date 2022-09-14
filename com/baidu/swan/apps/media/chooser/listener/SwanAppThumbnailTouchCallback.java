@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
-import com.baidu.tieba.yo2;
+import com.baidu.tieba.wq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,15 +15,15 @@ import java.util.Collections;
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yo2 a;
+    public wq2 a;
     public SwanAppThumbnailAdapter b;
 
-    public SwanAppThumbnailTouchCallback(yo2 yo2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+    public SwanAppThumbnailTouchCallback(wq2 wq2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yo2Var, swanAppThumbnailAdapter};
+            Object[] objArr = {wq2Var, swanAppThumbnailAdapter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +33,7 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.a = yo2Var;
+        this.a = wq2Var;
         this.b = swanAppThumbnailAdapter;
     }
 
@@ -92,9 +92,9 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
                 this.b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            yo2 yo2Var = this.a;
-            if (yo2Var != null) {
-                yo2Var.onMove(adapterPosition, adapterPosition2);
+            wq2 wq2Var = this.a;
+            if (wq2Var != null) {
+                wq2Var.onMove(adapterPosition, adapterPosition2);
                 return true;
             }
             return true;

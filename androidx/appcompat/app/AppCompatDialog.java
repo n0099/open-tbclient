@@ -12,11 +12,11 @@ import androidx.annotation.IdRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.KeyEventDispatcher;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
             if (i == 0) {
                 TypedValue typedValue = new TypedValue();
-                context.getTheme().resolveAttribute(R$attr.dialogTheme, typedValue, true);
+                context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040211, typedValue, true);
                 return typedValue.resourceId;
             }
             return i;

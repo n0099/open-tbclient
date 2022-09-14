@@ -14,10 +14,10 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.R;
+import com.baidu.tieba.ro;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -349,7 +349,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
+                this.h.d = (int) (ro.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -372,7 +372,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
+                this.h.d = (int) (ro.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-104, this.f);
             }
@@ -394,7 +394,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
+                this.h.d = (int) (ro.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -417,7 +417,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.h.p();
                     return;
                 }
-                this.h.d = (int) (Cdo.a(f2, f, false) + this.d);
+                this.h.d = (int) (ro.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.o.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -704,7 +704,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040423, R.attr.obfuscated_res_0x7f040428, R.attr.obfuscated_res_0x7f0405c1, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f0406a2, R.attr.obfuscated_res_0x7f04073a, R.attr.obfuscated_res_0x7f04073b});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.HorizontalTranslateLayout);
             this.b = obtainStyledAttributes.getDimension(0, -1.0f);
             this.c = obtainStyledAttributes.getDimension(2, -1.0f);
             String string = obtainStyledAttributes.getString(6);

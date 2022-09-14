@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
+import androidx.annotation.IntRange;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qz1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pz1 implements qz1.b {
+public class pz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,44 +31,125 @@ public class pz1 implements qz1.b {
                 return;
             }
         }
-        a = kh1.a;
+        b = ij1.a;
+        c = 5;
     }
 
-    public pz1() {
+    public pz1(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c(i, false);
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i >> c : invokeI.intValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean b(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                yz1.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (b) {
+                    throw new IndexOutOfBoundsException("diff < 0: " + i);
+                }
+                return false;
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i <= length) {
+                return ((1 << i) & iArr[a(i)]) != 0;
+            }
+            String str = "diff > " + length + ": " + i;
+            yz1.c("Component-DiffBitMap", str);
+            if (b) {
+                throw new IndexOutOfBoundsException(str);
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void c(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i <= 0) {
+                String str = "number <= 0: " + i;
+                yz1.c("Component-DiffBitMap", str);
+                if (b) {
+                    throw new NegativeArraySizeException(str);
+                }
+                i = 500;
+            }
+            int[] iArr = new int[a(i - 1) + 1];
+            this.a = iArr;
+            int length = iArr.length;
+            if (z) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.a[i2] = -1;
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.qz1.b
-    public void a() {
+    @SuppressLint({"BDThrowableCheck"})
+    public void d(@IntRange(from = 0) int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
-            Log.d("SimplePreDownloadCallback", "pre download success");
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i < 0) {
+                yz1.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (b) {
+                    throw new IndexOutOfBoundsException("diff < 0: " + i);
+                }
+                return;
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                yz1.c("Component-DiffBitMap", str);
+                if (b) {
+                    throw new IndexOutOfBoundsException(str);
+                }
+                return;
+            }
+            int a = a(i);
+            iArr[a] = (1 << i) | iArr[a];
         }
     }
 
-    @Override // com.baidu.tieba.qz1.b
-    public void b(int i) {
+    public pz1(@IntRange(from = 1) int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.qz1.b
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
-        }
+        c(i, z);
     }
 }

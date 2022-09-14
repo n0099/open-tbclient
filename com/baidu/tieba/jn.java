@@ -1,114 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import android.view.animation.Interpolator;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jn<V extends TypeAdapter.ViewHolder> extends cn<in, V> {
+public final class jn {
     public static /* synthetic */ Interceptable $ic;
+    public static final Interpolator a;
     public transient /* synthetic */ FieldHolder $fh;
-    public cn<pn, V> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jn(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(context, bdUniqueId, bdUniqueId2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements Interpolator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                float f2 = f - 1.0f;
+                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+            }
+            return invokeF.floatValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308457, "Lcom/baidu/tieba/jn;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308457, "Lcom/baidu/tieba/jn;");
                 return;
             }
         }
+        a = new a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public V onCreateViewHolder(ViewGroup viewGroup, in inVar) {
-        InterceptResult invokeLL;
-        V onCreateViewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, inVar)) == null) {
-            cn<pn, V> cnVar = this.a;
-            if (cnVar == null) {
-                return null;
-            }
-            if (this.mType == cnVar.getHeaderId()) {
-                onCreateViewHolder = this.a.onCreateHeaderViewHolder(viewGroup, inVar.c());
-            } else if (this.mType == this.a.getContentId()) {
-                onCreateViewHolder = this.a.onCreateContentViewHolder(viewGroup, inVar.c());
-            } else if (this.mType == this.a.getExtendId()) {
-                onCreateViewHolder = this.a.onCreateExtendViewHolder(viewGroup, inVar.c());
-            } else if (this.mType == this.a.getBottomId()) {
-                onCreateViewHolder = this.a.onCreateBottomViewHolder(viewGroup, inVar.c());
-            } else {
-                onCreateViewHolder = this.a.onCreateViewHolder(viewGroup);
-            }
-            if (onCreateViewHolder != null) {
-                setOnAdapterItemClickListener(this.a.getOnAdapterItemClickListener());
-                return onCreateViewHolder;
-            }
-            throw new NullPointerException("Order error or holder created is NullPointerException");
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, in inVar, V v) {
+    public static int a(float f, float f2, boolean z) {
         InterceptResult invokeCommon;
+        float interpolation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, inVar, v})) == null) {
-            cn<pn, V> cnVar = this.a;
-            if (cnVar == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                interpolation = f - (a.getInterpolation(f2 / (f2 - f)) * f);
+            } else {
+                interpolation = f * a.getInterpolation(f2 / f);
             }
-            if (this.mType == cnVar.getHeaderId()) {
-                return this.a.onFillHeaderViewHolder(i, view2, viewGroup, inVar.c(), v);
-            }
-            if (this.mType == this.a.getContentId()) {
-                return this.a.onFillContentViewHolder(i, view2, viewGroup, inVar.c(), v);
-            }
-            if (this.mType == this.a.getExtendId()) {
-                return this.a.onFillExtendViewHolder(i, view2, viewGroup, inVar.c(), v);
-            }
-            if (this.mType == this.a.getBottomId()) {
-                return this.a.onFillBottomViewHolder(i, view2, viewGroup, inVar.c(), v);
-            }
-            return this.a.onFillViewHolder(i, view2, viewGroup, inVar.c(), v);
+            return (int) interpolation;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void u(cn cnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cnVar) == null) {
-            this.a = cnVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.cn
-    public V onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? onCreateViewHolder(viewGroup, new in()) : (V) invokeL.objValue;
+        return invokeCommon.intValue;
     }
 }

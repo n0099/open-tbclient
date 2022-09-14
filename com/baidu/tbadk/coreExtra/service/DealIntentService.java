@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.n9;
+import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -161,7 +161,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!qi.isEmpty(stringExtra2) && j == 0) {
+                if (!dj.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -199,9 +199,9 @@ public class DealIntentService extends BdBaseService {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
-                if (z8.g().b() != null) {
+                if (n9.g().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (z8.g().b().getClass().getName().equalsIgnoreCase(nu4.c())) {
+                        if (n9.g().b().getClass().getName().equalsIgnoreCase(ww4.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);

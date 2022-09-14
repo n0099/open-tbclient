@@ -1,82 +1,61 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.util.io.AssetUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class ld3 {
+public class ld3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ld3(v33 v33Var) {
+        super(v33Var, "/swanAPI/vibrateLong");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                ch4.d(context.getAssets().open(str, 0));
-                return true;
-            } catch (IOException unused) {
-                ch4.d(null);
-                return false;
-            } catch (Throwable th) {
-                ch4.d(null);
-                throw th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            InputStream inputStream2 = null;
-            r0 = null;
-            String str2 = null;
-            try {
-                inputStream = context.getAssets().open(str);
-            } catch (IOException e) {
-                e = e;
-                inputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                ch4.d(inputStream2);
-                throw th;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("LongVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (inputStream == null) {
-                ch4.d(inputStream);
-                return null;
-            }
-            try {
-                try {
-                    str2 = fh4.b(inputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    if (kh1.a) {
-                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
-                    }
-                    ch4.d(inputStream);
-                    return str2;
+            if (y23Var != null && y23Var.n0()) {
+                if (v43.b) {
+                    Log.d("LongVibrateAction", "LongVibrateAction does not supported when app is invisible.");
                 }
-                ch4.d(inputStream);
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream2 = inputStream;
-                ch4.d(inputStream2);
-                throw th;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
             }
+            nd3.d().f();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (String) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

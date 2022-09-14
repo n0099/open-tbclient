@@ -1,67 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
-import com.baidu.swan.gamecenter.network.models.ReservationGameResultData;
-import com.baidu.swan.gamecenter.network.models.ResultData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lt3 {
+public class lt3 extends yy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Gson a;
+    public String f;
+    public JSONObject g;
+    public ot3 h;
 
     /* loaded from: classes4.dex */
-    public class a extends StringResponseCallback {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt3 a;
+        public final /* synthetic */ JSONObject a;
         public final /* synthetic */ lt3 b;
 
-        /* renamed from: com.baidu.tieba.lt3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0322a extends TypeToken<ResultData<ReservationGameResultData>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0322a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public a(lt3 lt3Var, mt3 mt3Var) {
+        public a(lt3 lt3Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lt3Var, mt3Var};
+                Object[] objArr = {lt3Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,148 +42,116 @@ public class lt3 {
                 }
             }
             this.b = lt3Var;
-            this.a = mt3Var;
+            this.a = jSONObject;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
+        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+        @Override // java.lang.Runnable
+        public void run() {
+            char c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str) || this.a == null) {
-                return;
-            }
-            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0322a(this).getType());
-            if (resultData == null) {
-                this.a.onFail("result is null");
-            } else if (resultData.errno == 0) {
-                T t = resultData.data;
-                if (t != 0 && ((ReservationGameResultData) t).apps != null) {
-                    this.a.onSuccess(((ReservationGameResultData) t).apps);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                kt3.t().I(this.b.g);
+                String str = this.b.f;
+                switch (str.hashCode()) {
+                    case -1261560102:
+                        if (str.equals("queryStatus")) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -625158317:
+                        if (str.equals("deleteDownload")) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -451216226:
+                        if (str.equals("pauseDownload")) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -234424485:
+                        if (str.equals("open_manual")) {
+                            c = 7;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 184711125:
+                        if (str.equals("resumeDownload")) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 900412038:
+                        if (str.equals("installApp")) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1554935562:
+                        if (str.equals("startDownload")) {
+                            c = 0;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1921860518:
+                        if (str.equals("startDownloadFile")) {
+                            c = '\b';
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1944785703:
+                        if (str.equals("checkPackageExpired")) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
                 }
-                this.a.onFail("result data is null");
-            } else {
-                mt3 mt3Var = this.a;
-                if (mt3Var != null) {
-                    mt3Var.onFail(resultData.errmsg);
+                switch (c) {
+                    case 0:
+                        this.b.w(this.a);
+                        return;
+                    case 1:
+                        this.b.u(this.a);
+                        return;
+                    case 2:
+                        this.b.t(this.a);
+                        return;
+                    case 3:
+                        this.b.v(this.a);
+                        return;
+                    case 4:
+                        this.b.p(this.a);
+                        return;
+                    case 5:
+                        this.b.q(this.a);
+                        return;
+                    case 6:
+                        this.b.s(this.a);
+                        return;
+                    case 7:
+                        this.b.r(this.a);
+                        return;
+                    case '\b':
+                        this.b.x(this.a);
+                        return;
+                    default:
+                        return;
                 }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            mt3 mt3Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) || (mt3Var = this.a) == null) {
-                return;
-            }
-            mt3Var.onFail(exc.toString());
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(lt3 lt3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lt3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final lt3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-621614305, "Lcom/baidu/tieba/lt3$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-621614305, "Lcom/baidu/tieba/lt3$c;");
-                    return;
-                }
-            }
-            a = new lt3(null);
-        }
-    }
-
-    public /* synthetic */ lt3(a aVar) {
-        this();
-    }
-
-    public static final lt3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a : (lt3) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-                s03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f019e).G();
-            } else if (TextUtils.isEmpty(str)) {
-            } else {
-                String n = qx3.b().n();
-                c63 a2 = hk2.q().a();
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("app_id", Long.valueOf(str));
-                    c84.g().getRequest().cookieManager(a2).url(n).addUrlParam("data", jSONObject.toString()).build().executeAsync(new b(this));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void d(mt3<List<ReservationGameInfo>> mt3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mt3Var) == null) && SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-            String c2 = qx3.b().c();
-            c63 a2 = hk2.q().a();
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("status", 2);
-                c84.g().getRequest().cookieManager(a2).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new a(this, mt3Var));
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }
@@ -228,9 +166,89 @@ public class lt3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new Gson();
+    }
+
+    @Override // com.baidu.tieba.yy2
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            this.f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
+            this.g = yf3.d(bundle.getString("ubc_params", ""));
+            JSONObject d = yf3.d(bundle.getString("data", ""));
+            if (this.h == null) {
+                this.h = new ot3(this);
+            }
+            kt3.t().H(this.h);
+            kt3.m.execute(new a(this, d));
+        }
+    }
+
+    public final void p(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            kt3.t().s(jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void q(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            String optString = jSONObject.optString("key_download_url");
+            String optString2 = jSONObject.optString("key_download_package_name");
+            String optString3 = jSONObject.optString("download_params");
+            ut3.n().h("manualInstall", new tt3(this.g), optString2, optString3, optString);
+            kt3.t().L(optString, optString2, optString3);
+        }
+    }
+
+    public final void r(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            kt3.t().x(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void s(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            kt3.t().p(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optLong(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, 0L));
+        }
+    }
+
+    public final void t(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            kt3.t().y(jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void u(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            kt3.t().z(jSONObject.optString("key_download_package_name"));
+        }
+    }
+
+    public final void v(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            kt3.t().G(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
+        }
+    }
+
+    public final void w(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            kt3.t().J(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
+        }
+    }
+
+    public final void x(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            kt3.t().K(jSONObject.optString("key_download_url"), jSONObject.optString(ct3.b), jSONObject.optString(ct3.c));
+        }
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pn;
-import com.baidu.tieba.u37;
-import com.baidu.tieba.w37;
+import com.baidu.tieba.b57;
+import com.baidu.tieba.d57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pn> mTopicDataList;
+    public List<Cdo> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -44,7 +44,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<pn> getTopicDataList() {
+    public List<Cdo> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;
@@ -68,18 +68,18 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         int i2 = 1;
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                u37 u37Var = new u37();
-                u37Var.R = i2;
-                u37Var.O(newTopicList);
-                this.mTopicDataList.add(u37Var);
-                w37 w37Var = new w37();
-                w37Var.a = R.dimen.tbds1;
-                w37Var.b = R.color.CAM_X0203;
-                this.mTopicDataList.add(w37Var);
+                b57 b57Var = new b57();
+                b57Var.R = i2;
+                b57Var.O(newTopicList);
+                this.mTopicDataList.add(b57Var);
+                d57 d57Var = new d57();
+                d57Var.a = R.dimen.tbds1;
+                d57Var.b = R.color.CAM_X0203;
+                this.mTopicDataList.add(d57Var);
                 i2++;
             }
         }
-        List<pn> list = this.mTopicDataList;
-        ((w37) ListUtils.getItem(list, list.size() - 1)).a = 0;
+        List<Cdo> list = this.mTopicDataList;
+        ((d57) ListUtils.getItem(list, list.size() - 1)).a = 0;
     }
 }

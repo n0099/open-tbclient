@@ -1,167 +1,131 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.lu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONObject;
-import tbclient.StarTrends.DataRes;
-import tbclient.StarTrends.StarTrendsResIdl;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class qi6 implements s85, y85 {
+public class qi6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Wire e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pn> a;
-    public HashMap<String, MetaData> b;
-    public boolean c;
-    public int d;
+    public ju4 a;
+    public lu4 b;
+    public String c;
+    public String[] d;
+    public String e;
+    public lu4.e f;
+    public r9 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092843, "Lcom/baidu/tieba/qi6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948092843, "Lcom/baidu/tieba/qi6;");
-                return;
-            }
-        }
-        e = new Wire(new Class[0]);
-    }
-
-    public qi6() {
+    public qi6(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new HashMap<>();
+        this.g = r9Var;
     }
 
-    public StarTrendsResIdl a(byte[] bArr) {
+    public static qi6 c(r9 r9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            try {
-                StarTrendsResIdl starTrendsResIdl = (StarTrendsResIdl) e.parseFrom(bArr, StarTrendsResIdl.class);
-                if (starTrendsResIdl != null && starTrendsResIdl.data != null) {
-                    b(starTrendsResIdl.data);
-                }
-                return starTrendsResIdl;
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
-                return null;
-            }
-        }
-        return (StarTrendsResIdl) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, r9Var)) == null) ? new qi6(r9Var) : (qi6) invokeL.objValue;
     }
 
-    public final void b(DataRes dataRes) {
+    public final List<hu4> a(String[] strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < strArr.length; i++) {
+                String str = strArr[i];
+                hu4 hu4Var = new hu4(i, str, this.b);
+                if (!StringUtils.isNull(this.e) && this.e.equals(str)) {
+                    hu4Var.q(R.color.CAM_X0304);
+                    hu4Var.p();
+                }
+                arrayList.add(hu4Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void b() {
+        ju4 ju4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ju4Var = this.a) == null) {
             return;
         }
-        if (!ListUtils.isEmpty(dataRes.user_list)) {
-            for (User user : dataRes.user_list) {
-                if (user != null) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(user);
-                    String userId = metaData.getUserId();
-                    if (userId != null && !"0".equals(userId)) {
-                        this.b.put(userId, metaData);
-                    }
-                }
-            }
-        }
-        if (!ListUtils.isEmpty(dataRes.thread_list)) {
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.setUserMap(this.b);
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.insertItemToTitleOrAbstractText();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL || threadData.getType() == ThreadData.TYPE_GOD_NORMAL || threadData.getType() == ThreadData.TYPE_SHARE_THREAD || threadData.getType() == ThreadData.TYPE_VIDEO || threadData.getType() == ThreadData.TYPE_VIDEO_GOD || threadData.getType() == ThreadData.TYPE_FRS_HOTTOPIC) {
-                        this.a.add(threadData);
-                    }
-                }
-            }
-        }
-        AbsGroupUbsABTest.setCardInfoUbsABTest(this.a);
-        this.c = dataRes.has_more.intValue() == 1;
+        ju4Var.dismiss();
     }
 
-    @Override // com.baidu.tieba.t85
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s85
-    public boolean initByByteArray(byte[] bArr) {
+    public qi6 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.e = str;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (qi6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y85
-    public void initByJson(JSONObject jSONObject) {
+    public qi6 e(lu4.e eVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
+            this.f = eVar;
+            return this;
         }
+        return (qi6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y85
-    public void initByProtobuf(Message message) {
+    public qi6 f(String[] strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            this.d = strArr;
+            return this;
         }
+        return (qi6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s85
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
+    public qi6 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.c = str;
+            return this;
         }
-        return (byte[]) invokeV.objValue;
+        return (qi6) invokeL.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            lu4 lu4Var = new lu4(this.g.getPageActivity());
+            this.b = lu4Var;
+            lu4Var.q(this.c);
+            this.b.n(this.f);
+            this.b.j(a(this.d));
+            this.b.l(ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07075d));
+            ju4 ju4Var = new ju4(this.g, this.b);
+            this.a = ju4Var;
+            ju4Var.k();
+        }
     }
 }

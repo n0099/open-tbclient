@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.R$styleable;
+import androidx.fragment.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -320,9 +320,9 @@ public final class FragmentContainerView extends FrameLayout {
         }
         this.mDrawDisappearingViewsFirst = true;
         String classAttribute = attributeSet.getClassAttribute();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.FragmentContainerView);
-        classAttribute = classAttribute == null ? obtainStyledAttributes.getString(R$styleable.FragmentContainerView_android_name) : classAttribute;
-        String string = obtainStyledAttributes.getString(R$styleable.FragmentContainerView_android_tag);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FragmentContainerView);
+        classAttribute = classAttribute == null ? obtainStyledAttributes.getString(0) : classAttribute;
+        String string = obtainStyledAttributes.getString(1);
         obtainStyledAttributes.recycle();
         int id = getId();
         Fragment findFragmentById = fragmentManager.findFragmentById(id);

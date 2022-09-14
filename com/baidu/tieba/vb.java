@@ -1,94 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class vb extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
+public class vb extends ub<SocketMessage, SocketMessageTask, ob, SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ub a;
-    public volatile xb b;
-    public DiskFileOperate c;
+    public sa i;
 
-    public vb(ub ubVar, DiskFileOperate diskFileOperate) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vb(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ubVar, diskFileOperate};
+            Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        if (ubVar != null && diskFileOperate != null) {
-            this.a = ubVar;
-            this.c = diskFileOperate;
-            return;
+        this.i = null;
+        this.i = new sa(messageManager);
+        this.e = zb.c();
+    }
+
+    @Override // com.baidu.tieba.ha
+    public LinkedList<SocketMessage> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) ? this.i.e(i, bdUniqueId) : (LinkedList) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ha
+    public void h(int i, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
         }
-        throw new InvalidParameterException("DiskFileTask parameter null");
+    }
+
+    public sa w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (sa) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ub
+    /* renamed from: x */
+    public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
-            this.b = new xb(this.a, this.c);
-            this.b.call();
-            return this.c;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, socketMessage, socketMessageTask)) == null) ? this.a.getController().k(socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
+    }
+
+    public void y(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
+            this.i.B(bdUniqueId);
         }
-        return (DiskFileOperate) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(DiskFileOperate diskFileOperate) {
+    @Override // com.baidu.tieba.ha
+    /* renamed from: z */
+    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
-            super.onPostExecute(diskFileOperate);
-            if (diskFileOperate != null) {
-                this.c.callback(diskFileOperate.isSuccess());
-            } else {
-                this.c.callback(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.cancel();
-            if (this.b != null) {
-                this.b.b();
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onPreCancel();
-            this.c.callback(false);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, socketMessage, socketMessageTask) == null) {
+            this.i.f(socketMessage, socketMessageTask);
         }
     }
 }

@@ -20,10 +20,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.PersonalChatUtil;
-import com.baidu.tieba.cb5;
-import com.baidu.tieba.mn4;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ld5;
+import com.baidu.tieba.np4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -83,8 +83,8 @@ public class UrlSchemaJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, checkSchemeFlutterCallBack) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(2002015);
-            if (mn4.c().contains("-Flutter") && findTask == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new cb5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.7
+            if (np4.c().contains("-Flutter") && findTask == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new ld5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ CheckSchemeFlutterCallBack val$callBack;
@@ -107,7 +107,7 @@ public class UrlSchemaJumpHelper {
                         this.val$callBack = checkSchemeFlutterCallBack;
                     }
 
-                    @Override // com.baidu.tieba.cb5
+                    @Override // com.baidu.tieba.ld5
                     public void onFail() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
@@ -117,7 +117,7 @@ public class UrlSchemaJumpHelper {
                         checkSchemeFlutterCallBack2.toJump();
                     }
 
-                    @Override // com.baidu.tieba.cb5
+                    @Override // com.baidu.tieba.ld5
                     public void onSuccess() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
@@ -136,7 +136,7 @@ public class UrlSchemaJumpHelper {
     public static void ensureBlackList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
-            String q = su4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
+            String q = bx4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
             if (TextUtils.isEmpty(q)) {
                 return;
             }
@@ -475,7 +475,7 @@ public class UrlSchemaJumpHelper {
                 httpMessage.addParam(BdUniDispatchSchemeController.PARAM_GAME_ID, queryParameter6);
                 MessageManager.getInstance().sendMessage(httpMessage);
             }
-            PersonalChatUtil.a(context, pg.g(queryParameter, 0L), queryParameter3, queryParameter4, queryParameter7);
+            PersonalChatUtil.a(context, dh.g(queryParameter, 0L), queryParameter3, queryParameter4, queryParameter7);
         }
     }
 
@@ -519,10 +519,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                su4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                bx4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            su4.k().D(KEY_APP_JUMP_BLACK_LIST);
+            bx4.k().D(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

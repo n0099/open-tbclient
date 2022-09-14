@@ -5,7 +5,7 @@ import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.at;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int amE = -1;
     public int amF = -1;

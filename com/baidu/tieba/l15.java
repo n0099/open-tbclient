@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.coreExtra.data.VcodeExtra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l15 {
     public static /* synthetic */ Interceptable $ic;
-    public static l15 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public HashMap<String, String> c;
+    public String a;
+    public String b;
+    public String c;
+    public VcodeExtra d;
 
     public l15() {
         Interceptable interceptable = $ic;
@@ -30,93 +33,83 @@ public class l15 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
-    public static synchronized l15 a() {
+    public VcodeExtra a() {
         InterceptResult invokeV;
-        l15 l15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (l15.class) {
-                if (d == null) {
-                    d = new l15();
-                }
-                l15Var = d;
-            }
-            return l15Var;
-        }
-        return (l15) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (VcodeExtra) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                g(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                g(jSONObject);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("2g");
-                String optString2 = optJSONObject.optString("3g");
-                String optString3 = optJSONObject.optString("4g");
-                String optString4 = optJSONObject.optString("wifi");
-                if (optString != null) {
-                    this.a.put("2g", optString);
-                }
-                if (optString2 != null) {
-                    this.a.put("3g", optString2);
-                }
-                if (optString3 != null) {
-                    this.a.put("4g", optString3);
-                }
-                if (optString4 != null) {
-                    this.a.put("wifi", optString4);
-                }
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-            if (optJSONObject2 != null) {
-                String optString5 = optJSONObject2.optString("2g");
-                String optString6 = optJSONObject2.optString("3g");
-                String optString7 = optJSONObject2.optString("4g");
-                String optString8 = optJSONObject2.optString("wifi");
-                if (optString5 != null) {
-                    this.b.put("2g", optString5);
-                }
-                if (optString6 != null) {
-                    this.b.put("3g", optString6);
-                }
-                if (optString7 != null) {
-                    this.b.put("4g", optString7);
-                }
-                if (optString8 != null) {
-                    this.b.put("wifi", optString8);
-                }
+            if (optJSONObject == null) {
+                return;
             }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-            if (optJSONObject3 != null) {
-                String optString9 = optJSONObject3.optString("2g");
-                String optString10 = optJSONObject3.optString("3g");
-                String optString11 = optJSONObject3.optString("4g");
-                String optString12 = optJSONObject3.optString("wifi");
-                if (optString9 != null) {
-                    this.c.put("2g", optString9);
-                }
-                if (optString10 != null) {
-                    this.c.put("3g", optString10);
-                }
-                if (optString11 != null) {
-                    this.c.put("4g", optString11);
-                }
-                if (optString12 != null) {
-                    this.c.put("wifi", optString12);
-                }
-            }
-            jSONObject.optString("is_on");
+            this.a = optJSONObject.optString("vcode_md5");
+            this.b = optJSONObject.optString("vcode_pic_url");
+            this.c = optJSONObject.optString("vcode_type");
+            JSONObject jSONObject2 = optJSONObject.getJSONObject("vcode_extra");
+            VcodeExtra vcodeExtra = new VcodeExtra();
+            this.d = vcodeExtra;
+            vcodeExtra.textImg = jSONObject2.optString("textimg");
+            this.d.slideImg = jSONObject2.optString("slideimg");
+            this.d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
+            this.d.successImg = jSONObject2.optString("successimg");
+            this.d.slideEndPoint = jSONObject2.optString("slideendpoint");
         } catch (Exception e) {
-            BdLog.detailException(e);
+            BdLog.e(e.getMessage());
         }
     }
 }

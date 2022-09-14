@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,139 +8,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class x53<ResultDataT> {
+public class x53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static boolean q;
+    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d63<ResultDataT> a;
-    public final Set<tf3<d63<ResultDataT>>> b;
-    public final LinkedList<z53> c;
-    public boolean d;
-    public boolean e;
-
-    /* loaded from: classes6.dex */
-    public class a extends z53 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x53 c;
-
-        public a(x53 x53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = x53Var;
-        }
-
-        @Override // com.baidu.tieba.z53
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.k()) {
-                    return true;
-                }
-                y53.k("initialPrepare failed", Boolean.TRUE);
-                throw new OAuthException(10001);
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends z53 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x53 c;
-
-        public b(x53 x53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = x53Var;
-        }
-
-        @Override // com.baidu.tieba.z53
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.c.j()) {
-                    return true;
-                }
-                y53.k("finalPrepare failed", Boolean.TRUE);
-                if (x53.f) {
-                    throw new OAuthException(10001);
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tf3 a;
-        public final /* synthetic */ x53 b;
-
-        public c(x53 x53Var, tf3 tf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x53Var, tf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x53Var;
-            this.a = tf3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            tf3 tf3Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tf3Var = this.a) == null) {
-                return;
-            }
-            tf3Var.a(this.b.a);
-        }
-    }
+    public final String a;
+    public final double b;
+    public final double c;
+    public final float d;
+    public final double e;
+    public final double f;
+    public final double g;
+    public final double h;
+    public final String i;
+    public final String j;
+    public final String k;
+    public final String l;
+    public final String m;
+    public final String n;
+    public final String o;
+    public final String p;
 
     static {
         InterceptResult invokeClinit;
@@ -160,13 +46,16 @@ public abstract class x53<ResultDataT> {
                 return;
             }
         }
-        f = kh1.a;
+        q = ij1.a;
+        r = "LocationResult";
     }
 
-    public x53() {
+    public x53(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -176,198 +65,54 @@ public abstract class x53<ResultDataT> {
                 return;
             }
         }
-        this.a = new d63<>();
-        this.b = new HashSet();
-        this.c = new LinkedList<>();
-        this.d = false;
-        this.e = false;
+        this.a = str;
+        this.b = d;
+        this.c = d2;
+        this.d = f;
+        this.e = d3;
+        this.f = d4;
+        this.g = 0.0d;
+        this.h = d3;
+        this.i = str2;
+        this.j = str3;
+        this.k = str4;
+        this.l = str5;
+        this.m = str6;
+        this.n = str7;
+        this.o = str8;
+        this.p = str9;
     }
 
-    public final synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                i();
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = new b(this);
-            bVar.h(this);
-            bVar.g();
-            this.e = true;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(null);
-        }
-    }
-
-    @NonNull
-    public x53 call() {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TaskState.INIT == e()) {
-                s(TaskState.CALLING);
-                n();
-            }
-            return this;
-        }
-        return (x53) invokeV.objValue;
-    }
-
-    public void d(@Nullable Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (exc instanceof OAuthException) {
-                this.a.c = (OAuthException) exc;
-            } else if (exc != null) {
-                y53.t("OAuthTask#finish", exc.getMessage());
-                this.a.c = new OAuthException(exc, 10001);
-            }
-            if (!this.a.c() && f && exc != null) {
-                exc.printStackTrace();
-            }
-            s(TaskState.FINISHED);
-            y53.k(toString(), Boolean.FALSE);
-            g();
-            this.b.clear();
-        }
-    }
-
-    public TaskState e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.b : (TaskState) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a aVar = new a(this);
-            aVar.h(this);
-            aVar.g();
-            this.d = true;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (tf3<d63<ResultDataT>> tf3Var : this.b) {
-                y53.l(new c(this, tf3Var));
-            }
-        }
-    }
-
-    public x53 h(@NonNull z53 z53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z53Var)) == null) {
-            z53Var.h(this);
-            this.c.offer(z53Var);
-            return this;
-        }
-        return (x53) invokeL.objValue;
-    }
-
-    public abstract void i();
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(z53 z53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, z53Var) == null) {
-            if (z53Var.c()) {
-                n();
-            } else {
-                d(z53Var.b());
-            }
-        }
-    }
-
-    public abstract ResultDataT m(JSONObject jSONObject) throws JSONException;
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!TaskState.CALLING.equals(e())) {
-                if (f) {
-                    y53.k("IllegalState on prepare", Boolean.FALSE);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("longitude", this.b);
+                jSONObject.put("latitude", this.c);
+                jSONObject.put("speed", this.d);
+                jSONObject.put("accuracy", this.e);
+                jSONObject.put("altitude", this.f);
+                jSONObject.put("verticalAccuracy", this.g);
+                jSONObject.put("horizontalAccuracy", this.h);
+                jSONObject.put("country", this.i);
+                jSONObject.put("countryCode", this.j);
+                jSONObject.put("city", this.k);
+                jSONObject.put("cityCode", this.l);
+                jSONObject.put("province", this.m);
+                jSONObject.put("district", this.n);
+                jSONObject.put("street", this.o);
+                jSONObject.put("streetNumber", this.p);
+                jSONObject.put("isFullAccuracy", true);
+            } catch (JSONException e) {
+                if (q) {
+                    String str = r;
+                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
                 }
-            } else if (!this.d) {
-                f();
-            } else if (!this.c.isEmpty()) {
-                this.c.poll().g();
-            } else if (!this.e) {
-                b();
-            } else {
-                a();
             }
+            return jSONObject;
         }
-    }
-
-    public x53<ResultDataT> o(tf3<d63<ResultDataT>> tf3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, tf3Var)) == null) {
-            if (this.a.b.isCallbackAvailable()) {
-                this.b.add(tf3Var);
-            }
-            return this;
-        }
-        return (x53) invokeL.objValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.b = TaskState.INIT;
-            this.d = false;
-            this.e = false;
-        }
-    }
-
-    public x53<ResultDataT> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? this : (x53) invokeL.objValue;
-    }
-
-    public void r(ResultDataT resultdatat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, resultdatat) == null) {
-            this.a.a = resultdatat;
-        }
-    }
-
-    public final void s(TaskState taskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, taskState) == null) {
-            this.a.b = taskState;
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

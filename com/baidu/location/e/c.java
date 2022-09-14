@@ -1,7 +1,6 @@
 package com.baidu.location.e;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +60,7 @@ public class c {
             RandomAccessFile randomAccessFile2 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(j + File.separator + this.a, rw.c);
+                    randomAccessFile = new RandomAccessFile(j + File.separator + this.a, "rw");
                 } catch (IOException unused) {
                 }
                 try {
@@ -121,7 +120,7 @@ public class c {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.a, rw.c);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(j2 + File.separator + this.a, "rw");
             randomAccessFile.seek(i);
             randomAccessFile.writeInt(this.b);
             randomAccessFile.writeLong(j);

@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes6.dex */
-public interface vo2<T> {
-    void f(String str);
+public interface vo2 {
+    int a();
 
-    void h(List<T> list);
+    boolean b();
+
+    boolean c();
+
+    boolean d();
+
+    boolean e();
 }

@@ -12,7 +12,7 @@ import android.os.Build;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.bg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public final class EglCore {
             }
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
             if (!EGL14.eglChooseConfig(this.mEGLDisplay, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                yb9.l("Grafika", "unable to find RGB8888 / " + i2 + " EGLConfig");
+                bg9.l("Grafika", "unable to find RGB8888 / " + i2 + " EGLConfig");
                 return null;
             }
             return eGLConfigArr[0];
@@ -87,7 +87,7 @@ public final class EglCore {
             EGLDisplay eglGetCurrentDisplay = EGL14.eglGetCurrentDisplay();
             EGLContext eglGetCurrentContext = EGL14.eglGetCurrentContext();
             EGLSurface eglGetCurrentSurface = EGL14.eglGetCurrentSurface(12377);
-            yb9.j("Grafika", "Current EGL (" + str + "): display=" + eglGetCurrentDisplay + ", context=" + eglGetCurrentContext + ", surface=" + eglGetCurrentSurface);
+            bg9.j("Grafika", "Current EGL (" + str + "): display=" + eglGetCurrentDisplay + ", context=" + eglGetCurrentContext + ", surface=" + eglGetCurrentSurface);
         }
     }
 
@@ -127,7 +127,7 @@ public final class EglCore {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (this.mEGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                    yb9.l("Grafika", "WARNING: EglCore was not explicitly released -- state may be leaked");
+                    bg9.l("Grafika", "WARNING: EglCore was not explicitly released -- state may be leaked");
                     release();
                 }
             } finally {
@@ -152,7 +152,7 @@ public final class EglCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eGLSurface) == null) {
             if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
-                yb9.c("Grafika", "NOTE: makeCurrent w/o display");
+                bg9.c("Grafika", "NOTE: makeCurrent w/o display");
             }
             if (!EGL14.eglMakeCurrent(this.mEGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
                 throw new RuntimeException("eglMakeCurrent failed");
@@ -275,7 +275,7 @@ public final class EglCore {
                     }
                     int[] iArr2 = new int[1];
                     EGL14.eglQueryContext(this.mEGLDisplay, this.mEGLContext, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
-                    yb9.c("Grafika", "EGLContext created, client version " + iArr2[0]);
+                    bg9.c("Grafika", "EGLContext created, client version " + iArr2[0]);
                     return;
                 }
                 this.mEGLDisplay = null;
@@ -290,7 +290,7 @@ public final class EglCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, eGLSurface, eGLSurface2) == null) {
             if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
-                yb9.c("Grafika", "NOTE: makeCurrent w/o display");
+                bg9.c("Grafika", "NOTE: makeCurrent w/o display");
             }
             if (!EGL14.eglMakeCurrent(this.mEGLDisplay, eGLSurface, eGLSurface2, this.mEGLContext)) {
                 throw new RuntimeException("eglMakeCurrent(draw,read) failed");

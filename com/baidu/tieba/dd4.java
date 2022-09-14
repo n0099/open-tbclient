@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class dd4 {
+public class dd4 implements wc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dd4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+    public List<kc4> a;
+    public qa4 b;
+    public List<wb4> c;
+    public List<wb4> d;
+    public List<wb4> e;
 
-    public dd4() {
+    public dd4(qa4 qa4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qa4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,74 +34,77 @@ public class dd4 {
                 return;
             }
         }
-        this.b = 0;
-        this.a = j84.b().i().getInt("max_emit_app_close_num", 1);
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.b = qa4Var;
+        this.a = new ArrayList();
+        yc4.b().e(this);
     }
 
-    public static dd4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wc4
+    public <T> void a(ad4<T> ad4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (dd4.class) {
-                    if (c == null) {
-                        c = new dd4();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ad4Var) == null) {
         }
-        return (dd4) invokeV.objValue;
     }
 
-    public static void f() {
+    @Override // com.baidu.tieba.wc4
+    public <T> void b(ad4<T> ad4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad4Var) == null) || ad4Var.k()) {
             return;
         }
-        c = null;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? j84.b().i().getString("simple_control_item_version", "0") : (String) invokeV.objValue;
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b++;
+        Iterator<kc4> it = this.a.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            kc4 next = it.next();
+            if (next.b(ad4Var)) {
+                int i = ad4Var.i();
+                this.a.remove(next);
+                if (i == 2) {
+                    this.e.add(next.a().a.b);
+                } else if (i == 3) {
+                    this.d.add(next.a().a.b);
+                } else if (i == 10) {
+                    this.c.add(next.a().a.b);
+                }
             }
         }
+        d();
     }
 
-    public synchronized boolean d() {
-        InterceptResult invokeV;
-        boolean z;
+    public void c(kc4 kc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = this.b < this.a;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kc4Var) == null) || kc4Var == null) {
+            return;
+        }
+        this.a.add(kc4Var);
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.isEmpty()) {
+                this.b.b();
+                yc4.b().g(this);
+                return true;
             }
-            return z;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || d()) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
-            return;
+        for (kc4 kc4Var : this.a) {
+            kc4Var.c(false);
         }
-        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
-        j84.b().i().putString("simple_control_item_version", optString);
-        j84.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

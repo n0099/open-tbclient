@@ -1,39 +1,18 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.nio.channels.Channel;
 /* loaded from: classes4.dex */
-public class lh3 {
+public final class lh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Map<String, String> b;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(lh3 lh3Var);
-
-        void b(lh3 lh3Var);
-
-        void onFinish();
-
-        void onStart();
-    }
-
-    public lh3() {
+    public static void a(@Nullable Channel channel) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, channel) == null) && channel != null && channel.isOpen()) {
+            cj4.d(channel);
         }
     }
 }

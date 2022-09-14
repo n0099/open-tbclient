@@ -11,7 +11,7 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b {
     public static final String FILE_NAME_BASE = UUID.randomUUID().toString();
     public static final int REAL_TIME_UPLOAD_THRESHOLD = 2;

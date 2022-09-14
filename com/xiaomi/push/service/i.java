@@ -36,12 +36,12 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iiVar)) == null) {
             if (a == null || iiVar == null) {
                 str = "rc params is null, not cpra";
-            } else if (com.xiaomi.push.m.m561a(com.xiaomi.push.v.m687a())) {
+            } else if (com.xiaomi.push.m.m562a(com.xiaomi.push.v.m688a())) {
                 return a.a(iiVar);
             } else {
                 str = "rc app not permission to cpra";
             }
-            com.xiaomi.channel.commonutils.logger.b.m89a(str);
+            com.xiaomi.channel.commonutils.logger.b.m90a(str);
             return false;
         }
         return invokeL.booleanValue;

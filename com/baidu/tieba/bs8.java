@@ -1,95 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetPendantByCategory.ThemePendantInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes3.dex */
 public class bs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<DressItemData> b;
 
-    public static void a(is4 is4Var, int i) {
+    public bs8() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, is4Var, i) == null) || is4Var == null || i < 0) {
-            return;
-        }
-        int i2 = i + 1;
-        boolean d = is4Var.d();
-        TiebaStatic.log(new StatisticItem("c14633").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())).param("obj_locate", i2).param("obj_type", d ? 2 : 1));
-    }
-
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLIL.booleanValue;
     }
 
-    public static String c(View view2) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof PostData) {
-                PostData postData = (PostData) tag;
-                if (postData.s() != null) {
-                    return postData.s().getUserId();
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public List<DressItemData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public static void e(Activity activity, String str) {
+    public void c(ThemePendantInMain themePendantInMain) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) || activity == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) == null) || themePendantInMain == null) {
             return;
         }
-        g((ViewGroup) activity.findViewById(16908290), str, false);
-    }
-
-    public static void f(View view2, PostData postData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, view2, postData) == null) || view2 == null) {
-            return;
+        this.a = themePendantInMain.pendant_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
         }
-        view2.setTag(postData);
-    }
-
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) || viewGroup == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-        bdTopToast.h(z);
-        bdTopToast.g(str);
-        bdTopToast.i(viewGroup);
     }
 }

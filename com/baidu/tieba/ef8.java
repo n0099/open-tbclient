@@ -1,66 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ff8;
-import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes3.dex */
 public class ef8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ff8 a;
-    public String b;
-    public boolean c;
-    public Context d;
-    public ff8.a e;
+    public int a;
+    public final Context b;
+    public final ViewGroup c;
 
-    /* loaded from: classes3.dex */
-    public class a implements ff8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ef8 a;
-
-        public a(ef8 ef8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ef8Var;
-        }
-
-        @Override // com.baidu.tieba.ff8.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c) {
-                this.a.c = false;
-            }
-        }
-    }
-
-    public ef8(Context context) {
+    public ef8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,121 +33,56 @@ public class ef8 {
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        this.e = new a(this);
-        this.d = context;
+        this.a = 0;
+        this.b = context;
+        this.c = viewGroup;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.b)) {
-                return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if ("apk_download".equals(str)) {
+                return "apk_download".equals(str2);
             }
-            String b = gf8.b();
-            this.b = b;
-            if (TextUtils.isEmpty(b)) {
-                this.b = gf8.c();
-            } else if (!this.b.endsWith(File.separator)) {
-                this.b += File.separator;
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
+                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
             }
-            return this.b;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public ff8 b(pe8 pe8Var, ff8 ff8Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                if (file.mkdirs()) {
-                    BdLog.d("folder mkdir success: " + str);
-                } else if (!file.exists()) {
-                    BdLog.d("folder mkdir failed");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe8Var, ff8Var)) == null) {
+            if (pe8Var == null || (str = pe8Var.a) == null) {
+                return ff8Var;
+            }
+            if (ff8Var == null || !a(str, ff8Var.a)) {
+                ViewGroup viewGroup = this.c;
+                if (viewGroup == null) {
+                    return null;
                 }
-            }
-            if (file.isDirectory()) {
-                return;
-            }
-            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
-        }
-    }
-
-    public final boolean f(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
-            if (this.a == null) {
-                e(str);
-                ff8 ff8Var = new ff8(str, str2, z);
-                this.a = ff8Var;
-                ff8Var.b(this.e);
-                try {
-                    this.a.start();
-                    return true;
-                } catch (IllegalThreadStateException unused) {
-                    return true;
-                } catch (Exception e) {
-                    this.a = null;
-                    BdLog.e(e);
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String c = c();
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            h();
-            if (gf8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
-                this.c = true;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.ff8 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.ff8, com.baidu.tieba.ff8$a] */
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ff8 ff8Var = this.a;
-            if (ff8Var != null) {
-                try {
-                    try {
-                        ff8Var.c();
-                    } catch (Exception e) {
-                        BdLog.e(e);
+                viewGroup.removeAllViews();
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(pe8Var.a)) {
+                    if (this.a == 2) {
+                        return new df8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08d0, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                } finally {
-                    this.a.b(null);
-                    this.a = null;
+                    return new bf8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d085a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                } else if ("apk_download".equals(pe8Var.a)) {
+                    if (this.a == 2) {
+                        return new cf8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08cf, this.c, true), "apk_download");
+                    }
+                    return new af8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0859, this.c, true), "apk_download");
+                } else {
+                    return null;
                 }
             }
-            this.c = false;
+            return ff8Var;
         }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            h();
-        }
+        return (ff8) invokeLL.objValue;
     }
 }

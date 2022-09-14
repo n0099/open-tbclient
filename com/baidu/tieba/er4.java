@@ -1,102 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class er4 implements bj8 {
+public class er4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public List<a> b;
-
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public String c;
-        public String d;
-        public int e;
-        public boolean f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
-        }
-
-        public void g(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("icon_name");
-            this.b = jSONObject.optInt("icon_level");
-            this.c = jSONObject.optString("icon_small_pic");
-            this.d = jSONObject.optString("icon_pic");
-            this.e = jSONObject.optInt("light_up");
-        }
-
-        public void h(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f = z;
-            }
-        }
-    }
+    public int b;
+    public int c;
 
     public er4() {
         Interceptable interceptable = $ic;
@@ -112,34 +32,48 @@ public class er4 implements bj8 {
         }
     }
 
-    public List<a> a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("levelup");
-        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
-        if (optJSONArray != null) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (optJSONArray.optJSONObject(i) != null) {
-                    a aVar = new a();
-                    aVar.g(optJSONArray.optJSONObject(i));
-                    this.b.add(aVar);
-                }
+        try {
+            jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH);
+            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
+            if (optJSONObject != null) {
+                this.c = optJSONObject.optInt("num");
             }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
+            if (optJSONObject2 != null) {
+                this.b = optJSONObject2.optInt("time");
+                this.a = optJSONObject2.optInt("num");
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
+            if (optJSONObject3 != null) {
+                optJSONObject3.optInt("succ");
+                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                optJSONObject3.optInt("slow");
+            }
+            if (this.b <= 0 || this.a <= 0) {
+                return;
+            }
+            int i = this.c;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

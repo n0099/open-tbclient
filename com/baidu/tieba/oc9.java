@@ -1,24 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class oc9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface oc9 {
+    int availableBytes();
 
-    public static Object a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Class.forName(str).newInstance();
-            } catch (Exception e) {
-                e.printStackTrace(System.out);
-                return null;
-            }
-        }
-        return invokeL.objValue;
-    }
+    void close();
+
+    void flush();
+
+    byte[] getOutPutBytes();
+
+    void init(int i, int i2);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    int receiveBytes(byte[] bArr, int i);
+
+    void setSpeed(float f);
 }

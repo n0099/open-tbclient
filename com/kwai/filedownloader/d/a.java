@@ -1,7 +1,7 @@
 package com.kwai.filedownloader.d;
 
 import java.io.Closeable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a extends Closeable {
     void EI();
 

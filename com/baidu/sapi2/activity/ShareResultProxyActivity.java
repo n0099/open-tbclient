@@ -7,7 +7,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
@@ -164,10 +163,10 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
             if (bundle != null) {
                 this.g = bundle.getBoolean(i, false);
             }
-            if (!this.g) {
-                a();
+            if (this.g) {
+                return;
             }
-            LogUtil.logActivity(this, "onCreate");
+            a();
         }
     }
 

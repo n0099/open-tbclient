@@ -14,13 +14,10 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$dimen;
-import androidx.appcompat.R$id;
-import androidx.appcompat.R$layout;
-import androidx.appcompat.R$style;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,9 +57,9 @@ public class TooltipPopup {
         this.mTmpAnchorPos = new int[2];
         this.mTmpAppPos = new int[2];
         this.mContext = context;
-        View inflate = LayoutInflater.from(context).inflate(R$layout.abc_tooltip, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d001b, (ViewGroup) null);
         this.mContentView = inflate;
-        this.mMessageView = (TextView) inflate.findViewById(R$id.message);
+        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091515);
         this.mLayoutParams.setTitle(TooltipPopup.class.getSimpleName());
         this.mLayoutParams.packageName = this.mContext.getPackageName();
         WindowManager.LayoutParams layoutParams = this.mLayoutParams;
@@ -70,7 +67,7 @@ public class TooltipPopup {
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R$style.obfuscated_res_0x7f100008;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100008;
         layoutParams.flags = 24;
     }
 
@@ -80,12 +77,12 @@ public class TooltipPopup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), layoutParams}) == null) {
             layoutParams.token = view2.getApplicationWindowToken();
-            int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R$dimen.tooltip_precise_anchor_threshold);
+            int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07099d);
             if (view2.getWidth() < dimensionPixelOffset) {
                 i = view2.getWidth() / 2;
             }
             if (view2.getHeight() >= dimensionPixelOffset) {
-                int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R$dimen.tooltip_precise_anchor_extra_offset);
+                int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07099c);
                 height = i2 + dimensionPixelOffset2;
                 i3 = i2 - dimensionPixelOffset2;
             } else {
@@ -93,7 +90,7 @@ public class TooltipPopup {
                 i3 = 0;
             }
             layoutParams.gravity = 49;
-            int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R$dimen.tooltip_y_offset_touch : R$dimen.tooltip_y_offset_non_touch);
+            int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R.dimen.obfuscated_res_0x7f0709a0 : R.dimen.obfuscated_res_0x7f07099f);
             View appRootView = getAppRootView(view2);
             if (appRootView == null) {
                 Log.e(TAG, "Cannot find app view");

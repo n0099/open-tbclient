@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.model.message;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NativeExceptionMessage extends ExceptionMessage {
     public static final long serialVersionUID = -7790706181005700630L;
     public String mFingerprint = "Unknown";

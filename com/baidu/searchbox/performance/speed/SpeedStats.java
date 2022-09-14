@@ -20,7 +20,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.gc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,6 +76,7 @@ public class SpeedStats {
     public int mIntroductionType;
     public boolean mIsStartAppFromLauncher;
     public int mLaunchType;
+    public String mSid;
     public SpeedStatsManager mSpeedStatsManager;
     public int mStartMainActivityType;
     public String mUbcFrom;
@@ -137,7 +138,7 @@ public class SpeedStats {
 
     private void asyncUploadSpeedInfo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             Runnable runnable = new Runnable(this) { // from class: com.baidu.searchbox.performance.speed.SpeedStats.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -221,6 +222,9 @@ public class SpeedStats {
                             hashMap.put("cpu", String.valueOf(this.this$0.mCpuCore));
                             hashMap.put("device_score", String.valueOf(ScheduleStrategy.getDeviceScore()));
                             hashMap.put(SpeedStatsUtils.UBC_KEY_DRAW_COUNT, String.valueOf(this.this$0.mSpeedStatsManager.getDrawCount()));
+                            if (!TextUtils.isEmpty(this.this$0.mSid)) {
+                                hashMap.put("sid", this.this$0.mSid);
+                            }
                             this.this$0.mFlow.setValue(hashMap);
                             this.this$0.mFlow.end();
                             this.this$0.mFlow = null;
@@ -253,7 +257,7 @@ public class SpeedStats {
     /* JADX INFO: Access modifiers changed from: private */
     public void asyncWriteSpeedInfoToSdcard(Map map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65562, this, map) == null) || map == null || map.size() <= 0 || !SpeedStatsUtils.hasPermission(this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        if (!(interceptable == null || interceptable.invokeL(65563, this, map) == null) || map == null || map.size() <= 0 || !SpeedStatsUtils.hasPermission(this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             return;
         }
         ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, map) { // from class: com.baidu.searchbox.performance.speed.SpeedStats.2
@@ -281,7 +285,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0097 -> B:37:0x009a). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0099 -> B:37:0x009c). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -343,7 +347,7 @@ public class SpeedStats {
     public int calculateCpuCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
             Runtime runtime = Runtime.getRuntime();
             if (runtime != null) {
                 return runtime.availableProcessors();
@@ -358,7 +362,7 @@ public class SpeedStats {
         InterceptResult invokeV;
         long appLaunchDuration;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
             int i = this.mStartMainActivityType;
             if (i != 8 && i != 9) {
                 appLaunchDuration = i == 4 ? this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getAdShowDuration() : 0L;
@@ -377,7 +381,7 @@ public class SpeedStats {
     public String calculateStage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
             if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, "push") || TextUtils.equals(this.mUbcType, "scheme")) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE))) {
                 JSONObject jSONObject = new JSONObject();
                 if (this.mSpeedStatsManager.packData(jSONObject)) {
@@ -393,14 +397,14 @@ public class SpeedStats {
     public String calculateUbcPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) ? !TextUtils.isEmpty(this.mUbcPage) ? this.mUbcPage : "unknown" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) ? !TextUtils.isEmpty(this.mUbcPage) ? this.mUbcPage : "unknown" : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String calculateUbcType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
             switch (this.mStartMainActivityType) {
                 case 0:
                     return SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_DIRECT;
@@ -432,7 +436,7 @@ public class SpeedStats {
     public String calculateUbcValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
             int i = this.mIntroductionType;
             if (i == -1) {
                 if (this.mHasBanner && this.mHasSkin) {
@@ -487,18 +491,18 @@ public class SpeedStats {
     public String calcultateUbcFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) ? SpeedStatsUtils.UBC_FROM_MAINLINE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? SpeedStatsUtils.UBC_FROM_MAINLINE : (String) invokeV.objValue;
     }
 
     private boolean checkValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? getAppLaunchDuration() >= 0 && getAppStartTime() >= 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, this)) == null) ? getAppLaunchDuration() >= 0 && getAppStartTime() >= 0 : invokeV.booleanValue;
     }
 
     private void detectStartAppFrom(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65571, this, activity) == null) || activity == null || this.mHasActivityCreate) {
+        if (!(interceptable == null || interceptable.invokeL(65572, this, activity) == null) || activity == null || this.mHasActivityCreate) {
             return;
         }
         if (!this.mHasDetectStartAppFromLauncher) {
@@ -527,7 +531,7 @@ public class SpeedStats {
     public static SpeedStats getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             if (mInstance == null) {
                 mInstance = new SpeedStats();
             }
@@ -538,7 +542,7 @@ public class SpeedStats {
 
     private void getMainActivityStartType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
             int i = this.mLaunchType;
             if (i == 0) {
                 this.mStartMainActivityType = this.mIsStartAppFromLauncher ? 4 : 5;
@@ -556,7 +560,7 @@ public class SpeedStats {
     private boolean isMainTabActivity(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, this, activity)) == null) {
             ComponentName componentName = activity.getComponentName();
             return componentName != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(componentName.getClassName());
         }
@@ -566,7 +570,7 @@ public class SpeedStats {
     /* JADX INFO: Access modifiers changed from: private */
     public void printUBCFlow(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65575, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(65576, this, map) == null) {
             Log.d(TAG, "*****************UBC start*****************");
             Log.d(TAG, "************" + map.get(SpeedStatsUtils.UBC_KEY_OPTION) + "*************");
             Log.d(TAG, "************duration:" + map.get("duration") + "*************");
@@ -582,7 +586,7 @@ public class SpeedStats {
     /* JADX INFO: Access modifiers changed from: private */
     public void resetMainActivityStatsPeriod() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65577, this) == null) {
             this.mSpeedStatsManager.reset();
             this.mHasBanner = false;
             this.mFeedDataType = 0;
@@ -738,23 +742,23 @@ public class SpeedStats {
             return;
         }
         this.isMainPageStatsEnd = true;
-        sb.b().d();
+        gc.b().d();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
+        if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
+            SmartLaunchStats.tryToFindFirstIdleTimeStamp();
+        }
         if (this.mSpeedStatsManager.getStatsFlag() == 0) {
             this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
             Log.d(TAG, "*****************统计终点*****************");
             if (!checkValid()) {
                 resetMainActivityStatsPeriod();
                 return;
+            } else {
+                asyncUploadSpeedInfo();
+                return;
             }
-            asyncUploadSpeedInfo();
-        } else {
-            LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
         }
-        if (SmartLaunchStats.hasTriedToFindFirstAvailableTime() || hasForegroundToBackground()) {
-            return;
-        }
-        SmartLaunchStats.tryToFindFirstIdleTimeStamp();
+        LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
     }
 
     @DebugTrace
@@ -765,7 +769,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        sb.b().d();
+        gc.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;
@@ -782,6 +786,13 @@ public class SpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             this.mContext = context;
+        }
+    }
+
+    public void setSid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.mSid = str;
         }
     }
 }

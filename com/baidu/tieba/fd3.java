@@ -1,84 +1,124 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.view.View;
-import android.widget.AbsoluteLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fd3 {
+public class fd3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760244, "Lcom/baidu/tieba/fd3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements cd3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+
+        public a(fd3 fd3Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd3Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947760244, "Lcom/baidu/tieba/fd3;");
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.cd3
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                yz1.i("MemoryWarningAction", "trimMemory consume level:" + i);
+                if (i == 10 || i == 15) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put(PollingModel.LEVEL, i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fd3(v33 v33Var) {
+        super(v33Var, "/swanAPI/memoryWarning");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
     }
 
-    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
-        AbsoluteLayout webView;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = bf4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081118);
-            Drawable d2 = bf4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081117);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                webView = bdSailorWebView.getCurrentWebView();
-            } else {
-                webView = bdSailorWebView.getCurrentWebView().getWebView();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (context != null && callbackHandler != null && y23Var != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    yz1.c("MemoryWarningAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    yz1.c("MemoryWarningAction", "callback is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                j(context, callbackHandler, optString);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            if (Build.VERSION.SDK_INT >= 29) {
-                webView.setVerticalScrollbarThumbDrawable(d);
-                webView.setHorizontalScrollbarThumbDrawable(d2);
-                return;
-            }
-            b(webView, d, d2);
+            yz1.c("MemoryWarningAction", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
+    public void j(Context context, CallbackHandler callbackHandler, String str) {
+        dd3 b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, drawable, drawable2) == null) || view2 == null) {
-            return;
-        }
-        try {
-            Field declaredField = View.class.getDeclaredField("mScrollCache");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(view2);
-            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
-            declaredField2.setAccessible(true);
-            Object obj2 = declaredField2.get(obj);
-            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(obj2, drawable);
-            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
-            declaredMethod2.setAccessible(true);
-            declaredMethod2.invoke(obj2, drawable2);
-        } catch (Throwable th) {
-            if (a) {
-                th.printStackTrace();
-            }
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, callbackHandler, str) == null) && (context instanceof ed3) && (b = ((ed3) context).b()) != null) {
+            b.b(new a(this, callbackHandler, str));
         }
     }
 }

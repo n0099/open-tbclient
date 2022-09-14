@@ -35,7 +35,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0530a BU;
+    public InterfaceC0535a BU;
     public boolean BV;
     public boolean BW;
     public boolean BX;
@@ -53,7 +53,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0530a {
+    public interface InterfaceC0535a {
         void V(boolean z);
     }
 
@@ -96,7 +96,7 @@ public final class a {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091220);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09123e);
             this.BQ = ksAdWebView;
             ksAdWebView.setBackgroundColor(-1);
             u.b bVar = new u.b();
@@ -138,7 +138,7 @@ public final class a {
                     }
                 }
             });
-            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09108c);
+            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f0910aa);
             this.mBackIcon = imageView;
             imageView.setVisibility(8);
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.i.a.2
@@ -179,7 +179,7 @@ public final class a {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0408 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d040c : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -325,10 +325,10 @@ public final class a {
         }
     }
 
-    public final void a(InterfaceC0530a interfaceC0530a) {
+    public final void a(InterfaceC0535a interfaceC0535a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0530a) == null) {
-            this.BU = interfaceC0530a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0535a) == null) {
+            this.BU = interfaceC0535a;
         }
     }
 

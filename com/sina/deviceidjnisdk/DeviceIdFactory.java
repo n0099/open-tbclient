@@ -2,6 +2,7 @@ package com.sina.deviceidjnisdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,7 @@ public class DeviceIdFactory {
                         deviceId = DeviceInfo.getMacAddress(context);
                     }
                     if (TextUtils.isEmpty(deviceId)) {
-                        deviceId = "000000000000000";
+                        deviceId = Config.NULL_DEVICE_ID;
                     }
                     if (!TextUtils.isEmpty(deviceId)) {
                         return getIValueNative(context, deviceId);

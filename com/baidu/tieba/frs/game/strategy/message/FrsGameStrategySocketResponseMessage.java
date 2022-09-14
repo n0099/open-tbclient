@@ -4,10 +4,10 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.il6;
-import com.baidu.tieba.jl6;
-import com.baidu.tieba.pl6;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.nm6;
+import com.baidu.tieba.om6;
+import com.baidu.tieba.um6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List<pl6> mTabList;
-    public List<pn> mThreadList;
+    public List<um6> mTabList;
+    public List<Cdo> mThreadList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsGameStrategySocketResponseMessage() {
@@ -59,21 +59,21 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = il6.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = il6.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = nm6.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = nm6.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
             return gameForumGuideTabResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public List<pl6> getTabList() {
+    public List<um6> getTabList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTabList : (List) invokeV.objValue;
     }
 
-    public List<pn> getThreadList() {
+    public List<Cdo> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mThreadList : (List) invokeV.objValue;
@@ -93,7 +93,7 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
             Message<?> orginalMessage = getOrginalMessage();
             FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = (orginalMessage == null || !(orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) ? null : (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
             if (frsGameStrategyRequestMessage != null) {
-                new jl6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+                new om6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
             }
         }
     }

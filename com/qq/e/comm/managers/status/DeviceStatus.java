@@ -13,6 +13,7 @@ import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -149,7 +150,7 @@ public class DeviceStatus {
                 if (GDTADManager.getInstance().getSM().getInteger("imeion", 1) == 1 && hasReadPhoneStatePermission()) {
                     try {
                         TelephonyManager telephonyManager = (TelephonyManager) this.l.getSystemService("phone");
-                        String deviceId = telephonyManager == null ? null : telephonyManager.getDeviceId();
+                        String deviceId = telephonyManager == null ? null : ApiReplaceUtil.getDeviceId(telephonyManager);
                         this.i = deviceId;
                         if (deviceId != null) {
                             str = deviceId;

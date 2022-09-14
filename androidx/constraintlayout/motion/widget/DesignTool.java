@@ -4,10 +4,10 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.constraintlayout.widget.R$id;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -537,7 +537,7 @@ public class DesignTool implements ProxyInterface {
             if (motionLayout.mScene == null) {
                 motionLayout.mScene = this.mSceneCache;
             }
-            int lookUpConstraintId = str != null ? this.mMotionLayout.lookUpConstraintId(str) : R$id.motion_base;
+            int lookUpConstraintId = str != null ? this.mMotionLayout.lookUpConstraintId(str) : R.id.motion_base;
             this.mLastStartStateId = lookUpConstraintId;
             if (lookUpConstraintId != 0) {
                 if (lookUpConstraintId == this.mMotionLayout.getStartState()) {

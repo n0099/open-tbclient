@@ -323,10 +323,10 @@ public class EventAnalysis {
         return invokeLI.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0166, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0169, code lost:
         if (r4.equalsIgnoreCase(r23) != false) goto L88;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x001f, code lost:
         if (r37.equals("") != false) goto L5;
      */
     /*
@@ -436,12 +436,68 @@ public class EventAnalysis {
                             str24 = str15;
                             jSONArray4 = jSONArray;
                         }
-                    } catch (JSONException unused4) {
+                        try {
+                            optInt = jSONObject3.optInt("v");
+                            str11 = str21;
+                            try {
+                                optInt2 = jSONObject3.optInt("at");
+                                str15 = str24;
+                                str16 = str23;
+                                if (optInt2 != 3) {
+                                    try {
+                                        str17 = jSONArray5;
+                                        optJSONArray = jSONObject3.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                                        jSONArray5 = jSONObject3.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
+                                        str18 = str15;
+                                        str19 = str18;
+                                    } catch (JSONException unused4) {
+                                        jSONObject2 = jSONObject;
+                                        str12 = jSONArray5;
+                                    }
+                                } else {
+                                    str18 = jSONObject3.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                                    str17 = jSONArray5;
+                                    jSONArray5 = null;
+                                    optJSONArray = null;
+                                    str19 = jSONObject3.optString(Config.EVENT_H5_VIEW_HIERARCHY);
+                                }
+                                try {
+                                    optString5 = jSONObject3.optString("ext");
+                                    str20 = str18;
+                                    optString6 = jSONObject3.optString(Config.EVENT_ATTR);
+                                    optInt3 = jSONObject3.optInt("h5");
+                                    optString7 = jSONObject3.optString("sign");
+                                } catch (JSONException unused5) {
+                                }
+                            } catch (JSONException unused6) {
+                                jSONObject2 = jSONObject4;
+                                str12 = jSONArray5;
+                                str14 = str23;
+                                str15 = str24;
+                            }
+                        } catch (JSONException unused7) {
+                            str11 = str21;
+                            str12 = jSONArray5;
+                            str14 = str23;
+                            str15 = str24;
+                            jSONObject2 = jSONObject4;
+                            jSONArray5 = str12;
+                            i11 = i7 + 1;
+                            str23 = str14;
+                            jSONObject4 = jSONObject2;
+                            str22 = str13;
+                            i10 = i8;
+                            length = i6;
+                            str21 = str11;
+                            str24 = str15;
+                            jSONArray4 = jSONArray;
+                        }
+                    } catch (JSONException unused8) {
                         str11 = str21;
                         str12 = jSONArray5;
                         i6 = length;
                     }
-                } catch (JSONException unused5) {
+                } catch (JSONException unused9) {
                     str11 = str21;
                     str12 = jSONArray5;
                     i6 = length;
@@ -449,62 +505,6 @@ public class EventAnalysis {
                     str15 = str24;
                     i7 = i11;
                     i8 = i10;
-                    jSONObject2 = jSONObject4;
-                    jSONArray5 = str12;
-                    i11 = i7 + 1;
-                    str23 = str14;
-                    jSONObject4 = jSONObject2;
-                    str22 = str13;
-                    i10 = i8;
-                    length = i6;
-                    str21 = str11;
-                    str24 = str15;
-                    jSONArray4 = jSONArray;
-                }
-                try {
-                    optInt = jSONObject3.optInt("v");
-                    str11 = str21;
-                    try {
-                        optInt2 = jSONObject3.optInt("at");
-                        str15 = str24;
-                        str16 = str23;
-                        if (optInt2 != 3) {
-                            try {
-                                str17 = jSONArray5;
-                                optJSONArray = jSONObject3.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                                jSONArray5 = jSONObject3.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-                                str18 = str15;
-                                str19 = str18;
-                            } catch (JSONException unused6) {
-                                jSONObject2 = jSONObject;
-                                str12 = jSONArray5;
-                            }
-                        } else {
-                            str18 = jSONObject3.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                            str17 = jSONArray5;
-                            jSONArray5 = null;
-                            optJSONArray = null;
-                            str19 = jSONObject3.optString(Config.EVENT_H5_VIEW_HIERARCHY);
-                        }
-                        try {
-                            optString5 = jSONObject3.optString("ext");
-                            str20 = str18;
-                            optString6 = jSONObject3.optString(Config.EVENT_ATTR);
-                            optInt3 = jSONObject3.optInt("h5");
-                            optString7 = jSONObject3.optString("sign");
-                        } catch (JSONException unused7) {
-                        }
-                    } catch (JSONException unused8) {
-                        jSONObject2 = jSONObject4;
-                        str12 = jSONArray5;
-                        str14 = str23;
-                        str15 = str24;
-                    }
-                } catch (JSONException unused9) {
-                    str11 = str21;
-                    str12 = jSONArray5;
-                    str14 = str23;
-                    str15 = str24;
                     jSONObject2 = jSONObject4;
                     jSONArray5 = str12;
                     i11 = i7 + 1;

@@ -1,21 +1,70 @@
 package com.baidu.tieba;
 
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
-import java.util.List;
-import java.util.Set;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface im1 {
-    String a();
+public abstract class im1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @AnyThread
-    void b(@NonNull String str, @NonNull Set<String> set, @NonNull SubscribeHelper.i iVar);
+    public im1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(@NonNull String str, ud2 ud2Var);
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? mb3.a().getBoolean("PREFS_NIGHT_MODE", false) : invokeV.booleanValue;
+    }
 
-    void d(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, ud2 ud2Var);
+    public Resources b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Resources) invokeV.objValue;
+    }
 
-    void e(String str, wt2 wt2Var);
+    public abstract void c(boolean z);
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            mb3.a().putBoolean("PREFS_NIGHT_MODE", z);
+        }
+    }
+
+    public void f(Object obj, m83 m83Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, m83Var) == null) {
+        }
+    }
+
+    public void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+        }
+    }
 }

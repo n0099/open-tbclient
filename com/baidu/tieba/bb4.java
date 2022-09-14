@@ -1,90 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bb4 implements Runnable {
+public class bb4 extends ya4<vb4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ae4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public wa4 a;
-    public AtomicBoolean b;
-    public va4 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947639189, "Lcom/baidu/tieba/bb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947639189, "Lcom/baidu/tieba/bb4;");
-                return;
-            }
-        }
-        d = ae4.e();
-    }
-
-    public bb4(AtomicBoolean atomicBoolean, wa4 wa4Var, va4 va4Var) {
+    public bb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, wa4Var, va4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = atomicBoolean;
-        this.a = wa4Var;
-        this.c = va4Var;
-    }
-
-    public final <T> void a(ab4<T> ab4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ab4Var) == null) {
-            this.a.a(ab4Var);
-            try {
-                try {
-                    ab4Var.run();
-                } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
-                }
-            } finally {
-                this.a.b(ab4Var);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tieba.ya4
+    public List<vb4> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (!(a instanceof ab4)) {
-                    return;
-                }
-                try {
-                    a((ab4) a);
-                } catch (Throwable th) {
-                    d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
             }
+            do {
+                vb4 vb4Var = new vb4();
+                if (b(cursor, vb4Var)) {
+                    arrayList.add(vb4Var);
+                }
+            } while (cursor.moveToNext());
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya4
+    /* renamed from: f */
+    public ContentValues c(vb4 vb4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vb4Var)) == null) ? a(vb4Var) : (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ya4
+    /* renamed from: g */
+    public vb4 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
+            }
+            vb4 vb4Var = new vb4();
+            if (b(cursor, vb4Var)) {
+                return vb4Var;
+            }
+            return null;
+        }
+        return (vb4) invokeL.objValue;
     }
 }

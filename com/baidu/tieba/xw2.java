@@ -1,120 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import androidx.annotation.AnyThread;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialOperation;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class xw2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            y23 b0;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b0 = y23.b0()) == null) {
+                return;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("appKey", b0.getAppId());
+            contentValues.put("launch_type", Integer.valueOf(q93.c()));
+            contentValues.put("source", b0.W().T());
+            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
+            ContentResolver contentResolver = fm2.c().getContentResolver();
+            if (contentResolver != null) {
+                contentResolver.insert(z92.b(), contentValues);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314710, "Lcom/baidu/tieba/xw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948314710, "Lcom/baidu/tieba/xw2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948314710, "Lcom/baidu/tieba/xw2;")) == null) {
+            return;
         }
-        a = kh1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948314710, "Lcom/baidu/tieba/xw2;");
+        }
     }
 
-    public static String a(String str, long j, String str2) {
-        InterceptResult invokeCommon;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            a13 M = a13.M();
-            String[] strArr = {M != null ? ct1.a(M.O()) : "", str, String.valueOf(j), str2};
-            Arrays.sort(strArr);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                sb.append(strArr[i]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = a;
+            if (i != -1) {
+                return i;
             }
-            try {
-                return sd3.c("SHA-1", sb.toString().getBytes(), false);
-            } catch (NoSuchAlgorithmException e) {
-                if (a) {
-                    Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
-                    return "";
-                }
-                return "";
+            fm2.g0().getSwitch("swan_backstage_policy", 0);
+            a = 300;
+            if (300 < 60) {
+                a = 60;
+            } else if (300 > 3600) {
+                a = 3600;
             }
+            return a;
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public static String b(z94 z94Var) {
-        InterceptResult invokeL;
+    @AnyThread
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, z94Var)) == null) {
-            if (z94Var == null) {
-                return "";
-            }
-            String str = z94Var.p;
-            JSONObject jSONObject = new JSONObject();
-            String uuid = UUID.randomUUID().toString();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            try {
-                jSONObject.put("noncestr", uuid);
-                jSONObject.put("timestamp", currentTimeMillis);
-                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
-            } catch (JSONException e) {
-                sw2.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            sf3.k(new a(), "SwanLaunchBehavior");
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(String str, String str2, z94 z94Var) {
-        InterceptResult invokeLLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, z94Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && z94Var != null) {
-                String str3 = z94Var.q;
-                if (TextUtils.isEmpty(str3)) {
-                    return false;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
-                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
-                        return false;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                    return r13.b(new URI(str2).getHost(), arrayList);
-                } catch (URISyntaxException | JSONException e) {
-                    sw2.b(Log.getStackTraceString(e));
-                }
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
     }
 }

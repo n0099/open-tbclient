@@ -1,300 +1,274 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.media.AudioRecord;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class bp {
     public static /* synthetic */ Interceptable $ic;
+    public static bp e;
+    public static int[] f;
+    public static short[] g;
+    public static short[] h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public gs b;
-    public es c;
-    public String d;
-    public is e;
-    public hs f;
-    public final WeakReference<Context> g;
-    public bs h;
-    public final Context i;
-    public cs j;
-    public fs k;
+    public int a;
+    public short b;
+    public short c;
+    public int d;
 
-    /* loaded from: classes3.dex */
-    public class a implements gs {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bp bpVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300831, "Lcom/baidu/tieba/bp;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bpVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448300831, "Lcom/baidu/tieba/bp;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.gs
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
+        f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
+        g = new short[]{2, 3};
+        h = new short[]{2, 16, 12, 3};
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Context a;
-        public boolean b;
-        public String c;
-        public is d;
-        public hs e;
-        public gs f;
-        public bs g;
-        public es h;
-        public cs i;
-        public fs j;
-
-        public b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-            this.c = "";
-            this.d = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.j = null;
-            this.a = context;
-        }
-
-        public bp a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                bp bpVar = new bp(this.a);
-                bpVar.a = this.b;
-                if (TextUtils.isEmpty(this.c)) {
-                    bpVar.d = this.c;
-                }
-                gs gsVar = this.f;
-                if (gsVar != null) {
-                    bpVar.b = gsVar;
-                }
-                is isVar = this.d;
-                if (isVar != null) {
-                    bpVar.e = isVar;
-                }
-                hs hsVar = this.e;
-                if (hsVar != null) {
-                    bpVar.f = hsVar;
-                }
-                cs csVar = this.i;
-                if (csVar != null) {
-                    bpVar.j = csVar;
-                }
-                bs bsVar = this.g;
-                if (bsVar != null) {
-                    bpVar.h = bsVar;
-                }
-                es esVar = this.h;
-                if (esVar != null) {
-                    bpVar.c = esVar;
-                }
-                fs fsVar = this.j;
-                if (fsVar != null) {
-                    bpVar.k = fsVar;
-                }
-                return bpVar;
-            }
-            return (bp) invokeV.objValue;
-        }
-
-        public b b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.b = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b c(hs hsVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hsVar)) == null) {
-                this.e = hsVar;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b d(cs csVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, csVar)) == null) {
-                this.i = csVar;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b e(es esVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, esVar)) == null) {
-                this.h = esVar;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b f(gs gsVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gsVar)) == null) {
-                this.f = gsVar;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b g(is isVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, isVar)) == null) {
-                this.d = isVar;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public bp(Context context) {
+    public bp() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = new a(this);
-        this.c = new du();
-        this.d = "";
-        this.h = bs.c();
-        this.j = new zt();
-        this.k = new iu();
-        this.i = context.getApplicationContext();
-        this.g = new WeakReference<>(context);
+        this.d = -2;
     }
 
-    public Context getContext() {
+    public static bp b() {
         InterceptResult invokeV;
+        bp bpVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            bp bpVar2 = e;
+            if (bpVar2 == null) {
+                synchronized (bp.class) {
+                    if (e == null) {
+                        e = new bp();
+                    }
+                    bpVar = e;
+                }
+                return bpVar;
+            }
+            return bpVar2;
+        }
+        return (bp) invokeV.objValue;
     }
 
-    public fs j() {
+    /* JADX WARN: Removed duplicated region for block: B:125:0x011c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0111  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public AudioRecord a() throws IllegalArgumentException {
         InterceptResult invokeV;
+        int[] iArr;
+        int i;
+        int i2;
+        short[] sArr;
+        short s;
+        int i3;
+        int i4;
+        int minBufferSize;
+        AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (fs) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public hs l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (hs) invokeV.objValue;
-    }
-
-    public cs m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (cs) invokeV.objValue;
-    }
-
-    public es n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (es) invokeV.objValue;
-    }
-
-    public WeakReference<Context> o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (WeakReference) invokeV.objValue;
-    }
-
-    public gs p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (gs) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "1.7.14" : (String) invokeV.objValue;
-    }
-
-    public bs r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : (bs) invokeV.objValue;
-    }
-
-    public is s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : (is) invokeV.objValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a > 0 && this.b > 0 && this.c > 0) {
+                return new AudioRecord(1, this.a, this.c, this.b, this.d);
+            }
+            int[] iArr2 = f;
+            int length = iArr2.length;
+            AudioRecord audioRecord2 = null;
+            for (int i5 = 0; i5 < length; i5++) {
+                int i6 = iArr2[i5];
+                short[] sArr2 = g;
+                int length2 = sArr2.length;
+                int i7 = 0;
+                while (i7 < length2) {
+                    short s2 = sArr2[i7];
+                    short[] sArr3 = h;
+                    int length3 = sArr3.length;
+                    AudioRecord audioRecord3 = audioRecord2;
+                    int i8 = 0;
+                    while (i8 < length3) {
+                        short s3 = sArr3[i8];
+                        try {
+                            minBufferSize = AudioRecord.getMinBufferSize(i6, s3, s2);
+                            this.d = minBufferSize;
+                        } catch (Throwable th) {
+                            th = th;
+                            iArr = iArr2;
+                            i = i8;
+                            i2 = length3;
+                            sArr = sArr3;
+                            s = s2;
+                            i3 = i7;
+                            i4 = 1;
+                        }
+                        if (minBufferSize == -2) {
+                            if (audioRecord3 == null || audioRecord3.getState() == 1) {
+                                iArr = iArr2;
+                                i = i8;
+                                i2 = length3;
+                                sArr = sArr3;
+                                s = s2;
+                                i3 = i7;
+                            } else {
+                                audioRecord3.release();
+                                iArr = iArr2;
+                                i = i8;
+                                i2 = length3;
+                                sArr = sArr3;
+                                s = s2;
+                                i3 = i7;
+                                audioRecord3 = null;
+                            }
+                        } else {
+                            int min = Math.min(minBufferSize * 8, 4096);
+                            iArr = iArr2;
+                            i4 = 1;
+                            i = i8;
+                            i2 = length3;
+                            sArr = sArr3;
+                            short s4 = s2;
+                            i3 = i7;
+                            try {
+                                audioRecord = new AudioRecord(1, i6, s3, s2, min);
+                                try {
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    s = s4;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                            }
+                            try {
+                                if (audioRecord.getState() == 1) {
+                                    try {
+                                        this.a = i6;
+                                        try {
+                                            this.b = s4;
+                                            this.c = s3;
+                                            this.d = min;
+                                            if (audioRecord.getState() != 1) {
+                                                audioRecord.release();
+                                            }
+                                            return audioRecord;
+                                        } catch (Throwable th4) {
+                                            th = th4;
+                                            audioRecord3 = audioRecord;
+                                            s = s4;
+                                        }
+                                    } catch (Throwable th5) {
+                                        th = th5;
+                                        audioRecord3 = audioRecord;
+                                        s = s4;
+                                        th.printStackTrace();
+                                        if (audioRecord3 != null) {
+                                        }
+                                        i8 = i + 1;
+                                        s2 = s;
+                                        length3 = i2;
+                                        iArr2 = iArr;
+                                        sArr3 = sArr;
+                                        i7 = i3;
+                                    }
+                                } else {
+                                    try {
+                                        audioRecord.release();
+                                    } catch (Throwable th6) {
+                                        th = th6;
+                                        s = s4;
+                                    }
+                                    try {
+                                        audioRecord3 = new AudioRecord(1, i6, s3, s4, this.d);
+                                        try {
+                                        } catch (Throwable th7) {
+                                            th = th7;
+                                            s = s4;
+                                        }
+                                    } catch (Throwable th8) {
+                                        th = th8;
+                                        s = s4;
+                                        audioRecord3 = audioRecord;
+                                        th.printStackTrace();
+                                        if (audioRecord3 != null) {
+                                        }
+                                        i8 = i + 1;
+                                        s2 = s;
+                                        length3 = i2;
+                                        iArr2 = iArr;
+                                        sArr3 = sArr;
+                                        i7 = i3;
+                                    }
+                                    if (audioRecord3.getState() == 1) {
+                                        this.a = i6;
+                                        s = s4;
+                                        try {
+                                            this.b = s;
+                                            this.c = s3;
+                                            if (audioRecord3.getState() != 1) {
+                                                audioRecord3.release();
+                                            }
+                                            return audioRecord3;
+                                        } catch (Throwable th9) {
+                                            th = th9;
+                                        }
+                                    } else {
+                                        s = s4;
+                                        if (audioRecord3.getState() == 1) {
+                                        }
+                                        audioRecord3.release();
+                                        audioRecord3 = null;
+                                    }
+                                }
+                                th.printStackTrace();
+                                if (audioRecord3 != null) {
+                                    if (audioRecord3.getState() == i4) {
+                                    }
+                                    audioRecord3.release();
+                                    audioRecord3 = null;
+                                }
+                            } catch (Throwable th10) {
+                                if (audioRecord3 != null && audioRecord3.getState() != i4) {
+                                    audioRecord3.release();
+                                }
+                                throw th10;
+                            }
+                        }
+                        i8 = i + 1;
+                        s2 = s;
+                        length3 = i2;
+                        iArr2 = iArr;
+                        sArr3 = sArr;
+                        i7 = i3;
+                    }
+                    i7++;
+                    audioRecord2 = audioRecord3;
+                }
+            }
+            throw new IllegalArgumentException("getInstance() failed : no suitable audio configurations on this device.");
+        }
+        return (AudioRecord) invokeV.objValue;
     }
 }

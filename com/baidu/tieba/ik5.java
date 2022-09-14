@@ -1,28 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import java.util.List;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface ik5 extends lk5<nk5> {
-    void a(int i);
+public abstract class ik5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public fk5 b;
 
-    List<Integer> d();
+    public ik5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void e(List<hk5> list, String str, String str2, String str3, String str4, boolean z, int i);
+    public abstract void a();
 
-    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
+    public ek5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ek5) invokeV.objValue;
+    }
 
-    void i(List<hk5> list, int i);
+    public fk5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (fk5) invokeV.objValue;
+    }
 
-    void k(List<Object> list);
+    public abstract void d(int i);
 
-    View m(int i, View view2, ViewGroup viewGroup, Object obj);
-
-    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
-
-    void o(List<hk5> list, List<hk5> list2, boolean z, int i);
-
-    void p(String str);
+    public abstract void e();
 }

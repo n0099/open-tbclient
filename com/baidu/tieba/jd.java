@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes4.dex */
-public class jd implements nd {
+public class jd implements bd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Byte a;
+    public short a;
 
-    public jd(byte b) {
+    public jd(short s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b)};
+            Object[] objArr = {Short.valueOf(s)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,55 +27,48 @@ public class jd implements nd {
                 return;
             }
         }
-        this.a = Byte.valueOf(b);
+        this.a = s;
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.bd
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) {
-            Class<?> a = deVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        if (a == Boolean.class || a == Boolean.TYPE) {
-                                            return Boolean.valueOf(this.a.byteValue() == 0);
-                                        } else if (a == String.class) {
-                                            return String.valueOf(this.a);
-                                        } else {
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return ii.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                    }
-                                    return Character.valueOf((char) this.a.intValue());
-                                }
-                                return Double.valueOf(this.a.doubleValue());
-                            }
-                            return Float.valueOf(this.a.floatValue());
-                        }
-                        return Long.valueOf(this.a.longValue());
-                    }
-                    return Integer.valueOf(this.a.intValue());
-                }
-                return Short.valueOf(this.a.shortValue());
-            }
-            return Byte.valueOf(this.a.byteValue());
-        }
-        return invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object b(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object c(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, reVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object d(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reVar)) == null) ? Short.valueOf(this.a) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object e(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, reVar)) == null) ? d(reVar) : invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bd
+    public Object f(re reVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reVar)) == null) ? Integer.valueOf(this.a) : invokeL.objValue;
     }
 }

@@ -1,125 +1,252 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class tg {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class tg<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LinkedHashMap<K, V> a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
 
-    public static boolean a(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public tg(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
-            try {
-                context.sendBroadcast(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        this.c = i;
+        this.a = new LinkedHashMap<>(0, 0.75f, true);
     }
 
-    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
-        InterceptResult invokeLLLI;
+    public final synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
-            try {
-                context.bindService(intent, serviceConnection, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                c();
+                this.d = 0;
+                this.e = 0;
+                this.f = 0;
+                this.g = 0;
             }
         }
-        return invokeLLLI.booleanValue;
     }
 
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public void b(boolean z, K k, V v, V v2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            n(-1);
+        }
+    }
+
+    public final synchronized int d() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                i = this.e;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            synchronized (this) {
+                if (this.b + i > this.c * 0.8d) {
+                    n(this.b - i);
                 }
-                context.startActivity(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
             }
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
-        InterceptResult invokeLLI;
+    public final V f(K k) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
-            try {
-                activity.startActivityForResult(intent, i);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            if (k == null) {
+                return null;
+            }
+            synchronized (this) {
+                V v = this.a.get(k);
+                if (v != null) {
+                    this.f++;
+                    return v;
+                }
+                this.g++;
+                return null;
             }
         }
-        return invokeLLI.booleanValue;
+        return (V) invokeL.objValue;
     }
 
-    public static boolean startService(Context context, Intent intent) {
+    public final synchronized int g() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                i = this.c;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public final V h(K k, V v) {
+        InterceptResult invokeLL;
+        V put;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, k, v)) == null) {
+            if (k == null || v == null) {
+                return null;
+            }
+            synchronized (this) {
+                this.d++;
+                this.b += j(k, v);
+                put = this.a.put(k, v);
+                if (put != null) {
+                    this.b -= j(k, put);
+                }
+            }
+            if (put != null) {
+                b(false, k, put, v);
+            }
+            n(this.c);
+            return put;
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public final V i(K k) {
+        InterceptResult invokeL;
+        V remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) {
+            if (k == null) {
+                return null;
+            }
+            synchronized (this) {
+                remove = this.a.remove(k);
+                if (remove != null) {
+                    this.b -= j(k, remove);
+                }
+            }
+            if (remove != null) {
+                b(false, k, remove, null);
+            }
+            return remove;
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public final int j(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
-            try {
-                context.startService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+            int m = m(k, v);
+            if (m >= 0) {
+                return m;
             }
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
         }
-        return invokeLL.booleanValue;
+        return invokeLL.intValue;
     }
 
-    public static boolean stopService(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    public final void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
-            try {
-                context.stopService(intent);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            synchronized (this) {
+                this.c = i;
+                n(i);
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
+    public final synchronized int l() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                i = this.b;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int m(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
-            try {
-                context.unbindService(serviceConnection);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, v)) == null) {
+            return 1;
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
+        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void n(int i) {
+        K key;
+        V value;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (true) {
+                synchronized (this) {
+                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
+                        if (this.b <= i || this.a.isEmpty()) {
+                            break;
+                        }
+                        Map.Entry<K, V> next = this.a.entrySet().iterator().next();
+                        key = next.getKey();
+                        value = next.getValue();
+                        this.a.remove(key);
+                        this.b -= j(key, value);
+                        this.e++;
+                    } else {
+                        break;
+                    }
+                }
+                b(true, key, value, null);
             }
         }
-        return invokeLL.booleanValue;
     }
 }

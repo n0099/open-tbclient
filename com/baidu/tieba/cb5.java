@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
-public interface cb5 {
-    void onFail();
+public interface cb5 extends bb5 {
+    boolean isNeedUid();
 
-    void onSuccess();
+    boolean o();
+
+    String y();
 }

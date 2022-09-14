@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
-import com.baidu.searchbox.live.nps.MultiPluginHelper;
-import com.baidu.searchbox.live.nps.util.PluginUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pi7 implements AbConfigService {
+public class pi7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,30 +31,31 @@ public class pi7 implements AbConfigService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public Object getSwitch(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
+                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                zt4.f();
+                jf<String> h = zt4.h("tb.searchperson_history", currentAccount);
+                if (requestSearchPersonHistoryWriteMessage.isClear()) {
+                    BdCacheService.k().j(h);
+                } else {
+                    Object data = requestSearchPersonHistoryWriteMessage.getData();
+                    if (data != null && (data instanceof String)) {
+                        h.g((String) data, null);
+                    }
+                }
+                return new ResponseSearchPersonHistoryWriteMessage();
+            }
             return null;
         }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public String getSwitch(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public boolean getSwitch(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) ? MultiPluginHelper.AB_TEST_ENABLE_NPS_MULTI_PLUGIN.equals(str) || !"android_live_enable_nps_multi_plugin".equals(str) || PluginUtils.isLivenpsMatchMultiNps() : invokeLZ.booleanValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a57;
+import com.baidu.tieba.h67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.ThreadInfo;
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a57 hotThreadItemListData;
+    public h67 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -57,19 +57,19 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
                 DataRes dataRes = getTopicRelateThreadResIdl.data;
                 this.thread_list = dataRes.thread_list;
                 this.page = dataRes.page;
-                a57 a57Var = new a57();
-                this.hotThreadItemListData = a57Var;
-                a57Var.n(getTopicRelateThreadResIdl.data);
+                h67 h67Var = new h67();
+                this.hotThreadItemListData = h67Var;
+                h67Var.n(getTopicRelateThreadResIdl.data);
             }
             return getTopicRelateThreadResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public a57 getHotThreadItemListData() {
+    public h67 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hotThreadItemListData : (a57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hotThreadItemListData : (h67) invokeV.objValue;
     }
 
     public Page getPage() {

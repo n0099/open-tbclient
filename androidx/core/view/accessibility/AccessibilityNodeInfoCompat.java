@@ -16,12 +16,12 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.R$id;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -690,7 +690,7 @@ public class AccessibilityNodeInfoCompat {
             SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view2.setTag(R$id.tag_accessibility_clickable_spans, sparseArray);
+                view2.setTag(R.id.obfuscated_res_0x7f092033, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -701,7 +701,7 @@ public class AccessibilityNodeInfoCompat {
     private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) ? (SparseArray) view2.getTag(R$id.tag_accessibility_clickable_spans) : (SparseArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) ? (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092033) : (SparseArray) invokeL.objValue;
     }
 
     private boolean hasSpans() {
@@ -809,7 +809,7 @@ public class AccessibilityNodeInfoCompat {
         if (clickableSpans == null || clickableSpans.length <= 0) {
             return;
         }
-        getExtras().putInt(SPANS_ACTION_ID_KEY, R$id.accessibility_action_clickable_span);
+        getExtras().putInt(SPANS_ACTION_ID_KEY, R.id.obfuscated_res_0x7f090030);
         SparseArray<WeakReference<ClickableSpan>> orCreateSpansFromViewTags = getOrCreateSpansFromViewTags(view2);
         for (int i2 = 0; clickableSpans != null && i2 < clickableSpans.length; i2++) {
             int idForClickableSpan = idForClickableSpan(clickableSpans[i2], orCreateSpansFromViewTags);

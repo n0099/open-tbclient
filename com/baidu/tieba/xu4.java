@@ -1,35 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.feedManager.FeedRecModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
 public class xu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xu4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public Context b;
-    public View c;
-    public TextView d;
-    public ImageView e;
-    public Toast f;
-    public Handler g;
-    public Runnable h;
+    public FeedRecModel a;
+    public DataRes b;
+    public FeedRecModel.b c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements FeedRecModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xu4 a;
@@ -52,17 +41,19 @@ public class xu4 {
             this.a = xu4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
+        public void a(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f != null) {
-                    this.a.f.cancel();
-                }
-                if (this.a.c == null || !(this.a.c.getParent() instanceof ViewGroup)) {
-                    return;
-                }
-                ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                this.a.b = dataRes;
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
+        public void onLoadError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.b = null;
             }
         }
     }
@@ -80,58 +71,31 @@ public class xu4 {
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.h = new a(this);
-        this.b = TbadkCoreApplication.getInst().getContext();
-        this.g = new Handler();
+        this.c = new a(this);
+        FeedRecModel feedRecModel = new FeedRecModel();
+        this.a = feedRecModel;
+        feedRecModel.B(this.c);
     }
 
-    public void c(CharSequence charSequence) {
+    public static xu4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c3, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921bb);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ae);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aab);
-            e(this.c);
-        }
-    }
-
-    public void d(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c3, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921bb);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ae);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aac);
-            e(this.c);
-        }
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.g.removeCallbacks(this.h);
-            if (this.f == null) {
-                this.f = new Toast(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (xu4.class) {
+                    if (d == null) {
+                        d = new xu4();
+                    }
+                }
             }
-            this.g.postDelayed(this.h, this.a);
-            this.f.setView(view2);
-            this.f.setDuration(1);
-            this.f.setGravity(17, 0, 0);
-            this.f.show();
+            return d;
         }
+        return (xu4) invokeV.objValue;
+    }
+
+    public DataRes c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (DataRes) invokeV.objValue;
     }
 }

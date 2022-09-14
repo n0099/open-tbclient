@@ -1,37 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.Base64;
-import com.bumptech.glide.disklrucache.StrictLineReader;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import java.math.BigInteger;
+import javax.crypto.BadPaddingException;
 /* loaded from: classes5.dex */
 public final class s40 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101306, "Lcom/baidu/tieba/s40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(BigInteger bigInteger) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bigInteger)) == null) ? (bigInteger.bitLength() + 7) >> 3 : invokeL.intValue;
+    }
+
+    public static BigInteger b(byte[] bArr, BigInteger bigInteger) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bigInteger)) == null) {
+            BigInteger bigInteger2 = new BigInteger(1, bArr);
+            if (bigInteger2.compareTo(bigInteger) < 0) {
+                return bigInteger2;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948101306, "Lcom/baidu/tieba/s40;");
-                return;
+            throw new BadPaddingException("Message is larger than modulus");
+        }
+        return (BigInteger) invokeLL.objValue;
+    }
+
+    public static byte[] c(BigInteger bigInteger, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bigInteger, i)) == null) {
+            byte[] byteArray = bigInteger.toByteArray();
+            int length = byteArray.length;
+            if (length == i) {
+                return byteArray;
+            }
+            if (length == i + 1 && byteArray[0] == 0) {
+                byte[] bArr = new byte[i];
+                System.arraycopy(byteArray, 1, bArr, 0, i);
+                return bArr;
+            } else if (length >= i) {
+                return null;
+            } else {
+                byte[] bArr2 = new byte[i];
+                System.arraycopy(byteArray, 0, bArr2, i - length, length);
+                return bArr2;
             }
         }
-        a = new byte[]{0, -118, 109, 108, -43, -56, 63, 62, 108, -63, -94, 72, -110, -122, -111, -109, 102, -12, 17, 110, 123, 1, -110, 124, 18, 78, -48, -23, 85, -21, -48, 4, -50, -68, 88, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -32, -14, 54, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -61, -110, -61, 113, -21, -60, 66, -122, -52, Base64.INTERNAL_PADDING, 28, -48, -24, -96, -25, StrictLineReader.CR, -88, -96, -98, 23, -14, -89, 24, 90, 82, -16, -65, 107, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -22, 113, 24, -46, 120, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -13, 2, Constants.SHORT_PING_CMD_TYPE, 92, 9, 69, 91, 107, -49, -127, 54, -70, 104, 34, -13, 76, 26, 84, -1, -99, 80, -98, 43, -38, -60, 86, 58, 107, 40, -69, -43, -109, -124, 103, -79, -43, -22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -11, -52, 55, 86, 75, -43, 114, -18, 2, 77, -53, -65, 3, 8, 45, 106, -117, -42, 56, 51, -11, -76, 21, 68, 116, -52, -71, 81, -17, 49, 71, 4, -1, -60, 52, -55, -72, 8, -100, 90, -12, 15, 108, 45, 86, 97, 20, 53, 70, -106, -36, -1, 10, -115, 53, -109, -52, -73, 108, 122, -8, 113, 98, Byte.MIN_VALUE, -81, 79, 98, -15, -36, 119, 118, -55, -125, BaseNCodec.PAD_DEFAULT, -98, 59, 111, 16, 22, 118, 40, -18, -5, 2, -17, 71, -114, 42, -45, 96, 10, -104, 64, 95, -47, 73, ByteCompanionObject.MAX_VALUE, 88, -54, -3, -99, 16, -58, 27, -7, -36, 60, -60, -13, -99, 55, 55, -7, -96, -34, 7, -34, 28, -31, -26, -96, -31, 54, -108, 45, 6, -27, -106, -104, -58, -22, -71, -81, -30, 100, BaseNCodec.PAD_DEFAULT, -1, -59, 56, 48, -61, -11};
-        b = new byte[]{1, 0, 1};
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
+            if (i == 0 && i2 == bArr.length) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public static byte[] e(byte[] bArr, a50 a50Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, a50Var)) == null) ? f(bArr, a50Var.b(), a50Var.a()) : (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] f(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bArr, bigInteger, bigInteger2)) == null) ? c(b(bArr, bigInteger).modPow(bigInteger2, bigInteger), a(bigInteger)) : (byte[]) invokeLLL.objValue;
     }
 }

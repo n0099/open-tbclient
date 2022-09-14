@@ -1,280 +1,249 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t10;
+import com.baidu.android.util.connect.ConnectManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
+import java.util.HashMap;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public class x10 extends t10 {
+public class x10 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean g;
+    public static String h;
+    public static HashMap<String, Integer> i;
+    public static HashMap<String, Integer> j;
+    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile com.baidu.helios.bridge.multiprocess.g c;
-    public volatile v10 d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public volatile boolean g;
-    public volatile Future<Boolean> h;
-    public volatile Future<Boolean> i;
-    public volatile boolean j;
-    public String k;
-    public Object l;
-    public Object m;
+    public Context a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
 
-    /* loaded from: classes6.dex */
-    public class a implements Callable<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x10 a;
-
-        public a(x10 x10Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247378, "Lcom/baidu/tieba/x10;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = x10Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public Boolean call() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.d = new v10();
-                this.a.d.b(this.a.a);
-                this.a.d.c(this.a.b);
-                this.a.f = true;
-                return Boolean.TRUE;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948247378, "Lcom/baidu/tieba/x10;");
+                return;
             }
-            return (Boolean) invokeV.objValue;
         }
+        g = AppConfig.isDebug();
+        h = "networkparam";
+        i = new HashMap<>();
+        j = new HashMap<>();
+        k = null;
+        i.put("WIFI", 1);
+        i.put("3GNET", 21);
+        i.put("3GWAP", 22);
+        i.put("CMNET", 31);
+        i.put("UNINET", 32);
+        i.put("CTNET", 33);
+        i.put("CMWAP", 41);
+        i.put("UNIWAP", 42);
+        i.put("CTWAP", 43);
+        j.put("46000", 1);
+        j.put("46001", 2);
+        j.put("46002", 1);
+        j.put("46003", 3);
+        j.put("46004", 1);
+        j.put("46005", 3);
+        j.put("46006", 2);
+        j.put("46007", 1);
+        j.put("46008", 1);
+        j.put("46009", 2);
+        j.put("46010", 2);
+        j.put("46011", 3);
+        j.put("46012", 3);
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Callable<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x10 a;
-
-        public b(x10 x10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x10Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.concurrent.Callable
-        /* renamed from: a */
-        public Boolean call() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                x10 x10Var = this.a;
-                x10Var.c = new com.baidu.helios.bridge.multiprocess.g(x10Var, x10Var.k);
-                this.a.c.b(this.a.a);
-                this.a.c.c(this.a.b);
-                this.a.g = true;
-                if (this.a.c.o()) {
-                    this.a.j = true;
-                    return Boolean.TRUE;
-                }
-                this.a.j = false;
-                this.a.e = false;
-                this.a.n();
-                return Boolean.FALSE;
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    public x10(String str) {
+    public x10() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = new Object();
-        this.m = new Object();
-        this.e = true;
-        this.f = false;
-        this.k = str;
+        this.a = AppRuntime.getAppContext();
     }
 
-    @Override // com.baidu.tieba.t10
-    public void a(String str, Bundle bundle, t10.c<String> cVar) {
+    @Deprecated
+    public String a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
-            if (this.e) {
-                w();
-                if (this.j) {
-                    this.c.a(str, bundle, cVar);
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long uptimeMillis = g ? SystemClock.uptimeMillis() : 0L;
+            ConnectManager connectManager = new ConnectManager(this.a);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                netType = netType.toUpperCase(Locale.getDefault());
+                Integer num = i.get(netType);
+                if (num == null) {
+                    num = 5;
+                }
+                str = num + "_" + subType;
+            } else {
+                str = ((Object) 5) + "_" + subType;
+            }
+            if (g) {
+                long uptimeMillis2 = SystemClock.uptimeMillis();
+                Log.i(h, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (r10.b().f() && !this.b) {
+                DeviceIdBag operator = DeviceInfoManager.INSTANCE.getOperator(AppRuntime.getAppContext(), "pub_param", "");
+                if (operator.errorCode != 3) {
+                    return true;
+                }
+                return !f(operator.deviceId, this.f);
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                Integer num = j.get(str);
+                if (num != null) {
+                    if (i2 > 30 && (i2 - num.intValue()) % 10 == 0) {
+                        return true;
+                    }
+                    if ((i2 == 21 || i2 == 22) && num.intValue() == 2) {
+                        return true;
+                    }
+                } else {
+                    r10.b().g(new y10(3));
                 }
             }
-            t();
-            this.d.a(str, bundle, cVar);
+            r10.b().g(new y10(2));
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            ConnectManager connectManager = new ConnectManager(this.a);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                String upperCase = netType.toUpperCase(Locale.getDefault());
+                if (i.get(upperCase) == null) {
+                    this.f = 5;
+                    r10.b().g(new y10(4));
+                } else {
+                    this.f = i.get(upperCase).intValue();
+                }
+                this.c = this.f + "_" + subType;
+                this.d = h(this.f, subType);
+            } else {
+                this.f = 5;
+                String str = this.f + "_" + subType;
+                this.c = str;
+                this.d = str;
+            }
+            this.e = subType;
+            int i2 = this.f;
+            if (i2 != 5 && i2 != 1) {
+                this.b = false;
+            } else {
+                this.b = true;
+            }
+            if (z) {
+                this.c = i(this.c);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.t10
-    public void d() {
+    public final String h(int i2, int i3) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.e) {
-                w();
-                if (this.j && this.c != null) {
-                    this.c.d();
-                    return;
-                }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
+            if (i2 == 21 || i2 == 22 || i2 == 42) {
+                i2 = 32;
+            } else if (i2 == 41) {
+                i2 = 31;
+            } else if (i2 == 43) {
+                i2 = 33;
             }
-            t();
-            if (this.d != null) {
-                this.d.d();
-            }
+            return i2 + "_" + i3;
         }
+        return (String) invokeII.objValue;
     }
 
-    @Override // com.baidu.tieba.t10
-    public boolean e(String str) {
+    public String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.e) {
-                w();
-                if (this.j) {
-                    return this.c.e(str);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.equals(str, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                return !TextUtils.isEmpty(k) ? k : str;
             }
-            t();
-            return this.d.e(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t10
-    public void f(t10.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (this.e) {
-                synchronized (this.l) {
-                    p();
-                }
-                return;
+            if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                k = str;
             }
-            synchronized (this.m) {
-                n();
-            }
+            return str;
         }
-    }
-
-    @Override // com.baidu.tieba.t10
-    public t10.d g(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) {
-            if (this.e) {
-                w();
-                if (this.j) {
-                    t10.d g = this.c.g(str, bundle);
-                    if (g.b()) {
-                        return g;
-                    }
-                    this.e = false;
-                }
-            }
-            t();
-            return this.d.g(str, bundle);
-        }
-        return (t10.d) invokeLL.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.e = false;
-            n();
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.f && this.i == null) {
-            this.i = this.a.d.submit(new a(this));
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.g && this.h == null) {
-            this.h = this.a.d.submit(new b(this));
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.e || this.f) {
-            return;
-        }
-        synchronized (this.m) {
-            n();
-        }
-        try {
-            this.i.get();
-        } catch (Exception unused) {
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.e) {
-            if (!this.g) {
-                synchronized (this.l) {
-                    p();
-                }
-            }
-            try {
-                this.h.get();
-            } catch (Exception unused) {
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

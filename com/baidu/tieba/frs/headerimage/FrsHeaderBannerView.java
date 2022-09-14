@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,20 +76,20 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b3d);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b32);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b3c);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b3e);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b49);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0315, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b57);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b4c);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b56);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b58);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b63);
             this.a.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
             this.a.setDefaultResource(0);
-            this.a.setRadius(ri.f(getContext(), R.dimen.tbds20));
+            this.a.setRadius(ej.f(getContext(), R.dimen.tbds20));
             this.a.setConrers(15);
             this.a.setPlaceHolder(2);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f070e));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0721));
             this.g = getTbPageContext();
         }
     }

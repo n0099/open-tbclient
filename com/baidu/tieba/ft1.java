@@ -1,42 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.br1;
+import com.baidu.tieba.kc3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ft1 extends x23 {
+public class ft1 extends et1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements tf3<Map<String, a63>> {
+    public class a implements br1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ft1 c;
+        public final /* synthetic */ ft1 a;
 
-        public a(ft1 ft1Var, CallbackHandler callbackHandler, String str) {
+        /* renamed from: com.baidu.tieba.ft1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0266a implements kc3.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ qt1 b;
+            public final /* synthetic */ a c;
+
+            public C0266a(a aVar, String str, qt1 qt1Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, str, qt1Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = str;
+                this.b = qt1Var;
+            }
+
+            @Override // com.baidu.tieba.kc3.a
+            public void a(double[] dArr) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                    if (dArr == null || dArr.length != 3) {
+                        this.c.a.p("illegal accelerometers", null, true);
+                        this.c.a.d(this.a, new yu1(1001));
+                        return;
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("x", dArr[0]);
+                        jSONObject.put("y", dArr[1]);
+                        jSONObject.put("z", dArr[2]);
+                        this.b.d(this.c.a, jSONObject);
+                    } catch (JSONException e) {
+                        this.c.a.p("json put data fail", e, true);
+                        this.b.f(this.c.a, "json put data fail");
+                    }
+                }
+            }
+        }
+
+        public a(ft1 ft1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ft1Var, callbackHandler, str};
+                Object[] objArr = {ft1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,40 +93,79 @@ public class ft1 extends x23 {
                     return;
                 }
             }
-            this.c = ft1Var;
-            this.a = callbackHandler;
-            this.b = str;
+            this.a = ft1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(Map<String, a63> map) {
+        @Override // com.baidu.tieba.br1.a
+        public yu1 a(y23 y23Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-                if (map != null) {
-                    this.c.l(this.b, this.a, map);
-                } else {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, y23Var, jSONObject, str)) == null) {
+                qt1 qt1Var = new qt1("accelerometerChange", jSONObject, str);
+                kc3 a = kc3.a();
+                a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
+                a.e(new C0266a(this, str, qt1Var));
+                a.f();
+                qt1Var.b(this.a);
+                return yu1.f();
+            }
+            return (yu1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ArrayMap<String, Integer> a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-793448824, "Lcom/baidu/tieba/ft1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-793448824, "Lcom/baidu/tieba/ft1$b;");
+                    return;
                 }
             }
+            ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
+            a = arrayMap;
+            arrayMap.put("ui", 60);
+            a.put("game", 20);
+            a.put("normal", 200);
+        }
+
+        public static int a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                Integer num = a.get(str);
+                if (num != null) {
+                    return num.intValue();
+                }
+                return 200;
+            }
+            return invokeL.intValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft1(x13 x13Var) {
-        super(x13Var, "/swanAPI/getLaunchAppInfo");
+    public ft1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,66 +173,31 @@ public class ft1 extends x23 {
         }
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public yu1 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            String optString = ae3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            k(optString, callbackHandler);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#startAccelerometer", false);
+            return l(str, true, new a(this));
         }
-        return invokeLLLL.booleanValue;
+        return (yu1) invokeL.objValue;
     }
 
-    public final void k(String str, CallbackHandler callbackHandler) {
+    public yu1 B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
-            ys2.h(new a(this, callbackHandler, str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#stopAccelerometer", true);
+            kc3.a().g();
+            return yu1.f();
         }
+        return (yu1) invokeV.objValue;
     }
 
-    public final void l(String str, CallbackHandler callbackHandler, Map<String, a63> map) {
+    @Override // com.baidu.tieba.br1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, map) == null) {
-            a63 a63Var = map.get("scope_open_app");
-            if (a63Var == null) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                return;
-            }
-            boolean z = a63Var.d;
-            int c = te3.c();
-            long e = te3.e();
-            List<String> list = a63Var.i;
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (String str2 : list) {
-                    jSONArray.put(str2);
-                }
-                jSONObject.put("launchCount", c);
-                jSONObject.put("visitDuration", e);
-                jSONObject.put("forbidden", z);
-                jSONObject.put("ext", jSONArray);
-                if (x23.b) {
-                    Log.i("GetBehaviorInfoAction", "launchCount:" + c + " visitDuration:" + e + " forbidden:" + z + " ext:" + jSONArray.toString());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            } catch (JSONException e2) {
-                if (x23.b) {
-                    e2.printStackTrace();
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "AccelerometerApi" : (String) invokeV.objValue;
     }
 }

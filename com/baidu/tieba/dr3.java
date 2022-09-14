@@ -1,30 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes3.dex */
-public class dr3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.gamenow";
-    public static String b = "file_name";
-    public static String c = "file_unzip_path";
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dr3 {
+    void a(DownloadException downloadException);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947714116, "Lcom/baidu/tieba/dr3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947714116, "Lcom/baidu/tieba/dr3;");
-        }
-    }
+    void b(DownloadInfo downloadInfo);
 }

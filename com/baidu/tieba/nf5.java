@@ -1,273 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.m85;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.rf5.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nf5 {
+public abstract class nf5<T extends m85, D extends rf5.e> {
     public static /* synthetic */ Interceptable $ic;
-    public static TextView a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public ViewType b;
+    public T c;
+    public D d;
 
-    public static int a(char c) {
-        InterceptResult invokeCommon;
+    public nf5() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Character.valueOf(c)})) == null) ? f(c) ? 1 : 2 : invokeCommon.intValue;
-    }
-
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                i = f(str.charAt(i2)) ? i + 1 : i + 2;
-            }
-            return i;
         }
-        return invokeL.intValue;
+        this.a = 3;
     }
 
-    public static int c(String str) {
-        InterceptResult invokeL;
+    public final void a(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
-                i++;
-            }
-            return i;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (t = this.c) == null) {
+            return;
         }
-        return invokeL.intValue;
+        t.attachView(view2);
     }
 
-    public static int d(String str) {
-        InterceptResult invokeL;
+    public final void b(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
-                i = substring.length() >= 2 ? i + 2 : i + b(substring);
-            }
-            return i;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (t = this.c) == null) {
+            return;
         }
-        return invokeL.intValue;
+        t.dettachView(view2);
     }
 
-    public static String e(String str, int i) {
-        InterceptResult invokeLI;
+    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
+            this.b = viewType;
+            this.d = d;
+            if (this.c == null) {
+                this.c = f(viewType, viewGroup);
             }
-            if (b(str) > i) {
-                return k(str, 0, i - 2) + StringHelper.STRING_MORE;
-            }
-            return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static boolean f(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < 'a' || c > 'z') {
-                if (c < 'A' || c > 'Z') {
-                    return (c >= '0' && c <= '9') || c == ' ';
+            View view2 = this.c.getView();
+            if (viewGroup.indexOfChild(view2) < 0) {
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                if (layoutParams != null) {
+                    layoutParams.width = -1;
+                    layoutParams.height = -1;
                 }
-                return true;
+                a(viewGroup);
+            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
+                view2.bringToFront();
             }
-            return true;
+            d(viewType, this.c, d);
+            return view2;
         }
-        return invokeCommon.booleanValue;
+        return (View) invokeLLL.objValue;
     }
 
-    public static boolean g(char c) {
-        InterceptResult invokeCommon;
+    public abstract void d(ViewType viewType, T t, D d);
+
+    public void e(int i) {
+        ViewType viewType;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < 'a' || c > 'z') {
-                return (c >= '0' && c <= '9') || c == ' ';
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
+                d(viewType, t, this.d);
             }
-            return true;
+            this.a = i;
         }
-        return invokeCommon.booleanValue;
     }
 
-    public static boolean h(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
-    }
-
-    public static Pair<Integer, Integer> i(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
-            try {
-                if (a == null) {
-                    a = new TextView(TbadkCoreApplication.getInst().getContext());
-                }
-                TextView textView = a;
-                if (textView.getLayoutParams() == null) {
-                    textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                }
-                textView.setText(str);
-                textView.setTextSize(0, i);
-                textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-                return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Pair) invokeLII.objValue;
-    }
-
-    public static int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (' ' == str.charAt(i2)) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String k(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(str) && i <= i2) {
-                if (i >= 0 && i2 >= 0) {
-                    int i3 = 0;
-                    for (int i4 = 0; i4 < str.length(); i4++) {
-                        char charAt = str.charAt(i4);
-                        if (i3 >= i2) {
-                            if (i3 == i2) {
-                                if (h(sb.charAt(sb.length() - 1))) {
-                                    sb.append(charAt);
-                                    return sb.toString();
-                                }
-                                return sb.toString();
-                            } else if (sb.length() > 2 && h(sb.charAt(sb.length() - 2))) {
-                                return sb.toString();
-                            } else {
-                                return sb.deleteCharAt(sb.length() - 1).toString();
-                            }
-                        }
-                        if (i3 >= i) {
-                            sb.append(charAt);
-                        }
-                        i3 = f(charAt) ? i3 + 1 : i3 + 2;
-                    }
-                }
-                return sb.toString();
-            }
-            return sb.toString();
-        }
-        return (String) invokeLII.objValue;
-    }
-
-    public static String l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (TextUtils.isEmpty(str)) {
-                return sb.toString();
-            }
-            if (i > 0) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < str.length(); i3++) {
-                    char charAt = str.charAt(i3);
-                    if (i2 >= i) {
-                        if (i2 == i) {
-                            return sb.toString();
-                        }
-                        return sb.deleteCharAt(sb.length() - 1).toString();
-                    }
-                    if (i2 >= 0) {
-                        sb.append(charAt);
-                    }
-                    i2 = g(charAt) ? i2 + 1 : i2 + 2;
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String m(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (c(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
-            }
-            return str2;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String n(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (d(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
-            }
-            return str2;
-        }
-        return (String) invokeLI.objValue;
-    }
+    public abstract T f(ViewType viewType, ViewGroup viewGroup);
 }

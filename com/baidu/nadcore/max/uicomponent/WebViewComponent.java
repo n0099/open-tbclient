@@ -16,18 +16,18 @@ import com.baidu.nadcore.max.event.WebEventTypeEnum;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ch0;
-import com.baidu.tieba.dm0;
-import com.baidu.tieba.i31;
-import com.baidu.tieba.km0;
+import com.baidu.tieba.a51;
+import com.baidu.tieba.bp0;
+import com.baidu.tieba.co0;
+import com.baidu.tieba.g21;
+import com.baidu.tieba.jn0;
+import com.baidu.tieba.k41;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.kz0;
+import com.baidu.tieba.l41;
+import com.baidu.tieba.m41;
 import com.baidu.tieba.pn0;
-import com.baidu.tieba.q01;
-import com.baidu.tieba.qm0;
-import com.baidu.tieba.s21;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.u21;
-import com.baidu.tieba.xl0;
-import com.baidu.tieba.yx0;
+import com.baidu.tieba.wn0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,9 +41,9 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u0007¢\u0006\u0004\bS\u0010\nJ\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J!\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u00142\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001a\u0010\u000eJ\u0017\u0010\u001c\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001e\u0010\u000eJ\u0019\u0010!\u001a\u00020\f2\b\u0010 \u001a\u0004\u0018\u00010\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u0011\u0010$\u001a\u0004\u0018\u00010#H\u0016¢\u0006\u0004\b$\u0010%J\u000f\u0010&\u001a\u00020\u0006H\u0002¢\u0006\u0004\b&\u0010\nJ\u000f\u0010'\u001a\u00020\u0006H\u0016¢\u0006\u0004\b'\u0010\nJ\u000f\u0010(\u001a\u00020\fH\u0016¢\u0006\u0004\b(\u0010\u000eJ\u000f\u0010)\u001a\u00020\fH\u0016¢\u0006\u0004\b)\u0010\u000eJ\u000f\u0010*\u001a\u00020\u001fH\u0016¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\u001fH\u0016¢\u0006\u0004\b,\u0010+J\u000f\u0010-\u001a\u00020\u001fH\u0016¢\u0006\u0004\b-\u0010+J\u000f\u0010.\u001a\u00020\u001fH\u0016¢\u0006\u0004\b.\u0010+J\u000f\u00100\u001a\u00020/H\u0016¢\u0006\u0004\b0\u00101J\u001f\u00102\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b2\u0010\u0019J\u0017\u00103\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b3\u0010\bJ\u000f\u00104\u001a\u00020\u0006H\u0016¢\u0006\u0004\b4\u0010\nJ\u000f\u00105\u001a\u00020\u0006H\u0016¢\u0006\u0004\b5\u0010\nJ\u000f\u00106\u001a\u00020\u0006H\u0016¢\u0006\u0004\b6\u0010\nJ\u000f\u00107\u001a\u00020\u0006H\u0016¢\u0006\u0004\b7\u0010\nJ\u000f\u00108\u001a\u00020\u0006H\u0016¢\u0006\u0004\b8\u0010\nJ\u0017\u00109\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0002¢\u0006\u0004\b9\u0010\bJ\u0017\u0010;\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020:H\u0016¢\u0006\u0004\b;\u0010<J\u0017\u0010>\u001a\u00020\u00062\u0006\u0010=\u001a\u00020\u0014H\u0002¢\u0006\u0004\b>\u0010?R\u001d\u0010E\u001a\u00020@8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bA\u0010B\u001a\u0004\bC\u0010DR\u001d\u0010J\u001a\u00020F8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bG\u0010B\u001a\u0004\bH\u0010IR\u0018\u0010L\u001a\u0004\u0018\u00010K8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010MR\u001d\u0010R\u001a\u00020N8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bO\u0010B\u001a\u0004\bP\u0010Q¨\u0006T"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/WebViewComponent;", "Lcom/baidu/tieba/t21;", "Lcom/baidu/tieba/u21;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Landroid/content/Intent;", IntentData.KEY, "", "addSpeedLogOnCreateBegin", "(Landroid/content/Intent;)V", "addSpeedLogOnCreateEnd", "()V", "doFinish", "", "enableUpdateTitle", "()Z", "Landroid/app/Activity;", "getActivity", "()Landroid/app/Activity;", "getIntent", "()Landroid/content/Intent;", "", "keyCode", "Landroid/view/KeyEvent;", "event", "handleKeyDown", "(ILandroid/view/KeyEvent;)Z", "handleLoadUrl", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "handleNestedScrollEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "handleSetContentView", "", "favorData", "handleUpdateFavorUI", "(Ljava/lang/String;)Z", "Landroid/widget/LinearLayout;", "initBrowserLayout", "()Landroid/widget/LinearLayout;", "initWebView", "injectService", "needAddSpeedLogInBase", "needAppendPublicParam", "obtainDemoteFavorUrl", "()Ljava/lang/String;", "obtainHost", "obtainNid", "obtainPageTitle", "Lorg/json/JSONObject;", "obtainSuspensionBallData", "()Lorg/json/JSONObject;", "onKeyDown", "onNewIntent", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "visibility", "setUIVisible", "(I)V", "Lcom/baidu/nadcore/webview/container/base/AbsContainer;", "baseBrowserContainer$delegate", "Lkotlin/Lazy;", "getBaseBrowserContainer", "()Lcom/baidu/nadcore/webview/container/base/AbsContainer;", "baseBrowserContainer", "Lcom/baidu/nadcore/webview/listener/BdPageDialogsHandler;", "bdPageDialogsHandler$delegate", "getBdPageDialogsHandler", "()Lcom/baidu/nadcore/webview/listener/BdPageDialogsHandler;", "bdPageDialogsHandler", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService$delegate", "getWebviewService", "()Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u0007¢\u0006\u0004\bS\u0010\nJ\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0012\u0010\u0013J!\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u00142\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001a\u0010\u000eJ\u0017\u0010\u001c\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u00020\fH\u0016¢\u0006\u0004\b\u001e\u0010\u000eJ\u0019\u0010!\u001a\u00020\f2\b\u0010 \u001a\u0004\u0018\u00010\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u0011\u0010$\u001a\u0004\u0018\u00010#H\u0016¢\u0006\u0004\b$\u0010%J\u000f\u0010&\u001a\u00020\u0006H\u0002¢\u0006\u0004\b&\u0010\nJ\u000f\u0010'\u001a\u00020\u0006H\u0016¢\u0006\u0004\b'\u0010\nJ\u000f\u0010(\u001a\u00020\fH\u0016¢\u0006\u0004\b(\u0010\u000eJ\u000f\u0010)\u001a\u00020\fH\u0016¢\u0006\u0004\b)\u0010\u000eJ\u000f\u0010*\u001a\u00020\u001fH\u0016¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\u001fH\u0016¢\u0006\u0004\b,\u0010+J\u000f\u0010-\u001a\u00020\u001fH\u0016¢\u0006\u0004\b-\u0010+J\u000f\u0010.\u001a\u00020\u001fH\u0016¢\u0006\u0004\b.\u0010+J\u000f\u00100\u001a\u00020/H\u0016¢\u0006\u0004\b0\u00101J\u001f\u00102\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u00142\u0006\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b2\u0010\u0019J\u0017\u00103\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b3\u0010\bJ\u000f\u00104\u001a\u00020\u0006H\u0016¢\u0006\u0004\b4\u0010\nJ\u000f\u00105\u001a\u00020\u0006H\u0016¢\u0006\u0004\b5\u0010\nJ\u000f\u00106\u001a\u00020\u0006H\u0016¢\u0006\u0004\b6\u0010\nJ\u000f\u00107\u001a\u00020\u0006H\u0016¢\u0006\u0004\b7\u0010\nJ\u000f\u00108\u001a\u00020\u0006H\u0016¢\u0006\u0004\b8\u0010\nJ\u0017\u00109\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0002¢\u0006\u0004\b9\u0010\bJ\u0017\u0010;\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020:H\u0016¢\u0006\u0004\b;\u0010<J\u0017\u0010>\u001a\u00020\u00062\u0006\u0010=\u001a\u00020\u0014H\u0002¢\u0006\u0004\b>\u0010?R\u001d\u0010E\u001a\u00020@8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bA\u0010B\u001a\u0004\bC\u0010DR\u001d\u0010J\u001a\u00020F8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bG\u0010B\u001a\u0004\bH\u0010IR\u0018\u0010L\u001a\u0004\u0018\u00010K8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010MR\u001d\u0010R\u001a\u00020N8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bO\u0010B\u001a\u0004\bP\u0010Q¨\u0006T"}, d2 = {"Lcom/baidu/nadcore/max/uicomponent/WebViewComponent;", "Lcom/baidu/tieba/l41;", "Lcom/baidu/tieba/m41;", "Lcom/baidu/nadcore/component/AbsComponentPlugin;", "Landroid/content/Intent;", IntentData.KEY, "", "addSpeedLogOnCreateBegin", "(Landroid/content/Intent;)V", "addSpeedLogOnCreateEnd", "()V", "doFinish", "", "enableUpdateTitle", "()Z", "Landroid/app/Activity;", "getActivity", "()Landroid/app/Activity;", "getIntent", "()Landroid/content/Intent;", "", "keyCode", "Landroid/view/KeyEvent;", "event", "handleKeyDown", "(ILandroid/view/KeyEvent;)Z", "handleLoadUrl", "Lcom/baidu/nadcore/max/event/NestedScrollEvent;", "handleNestedScrollEvent", "(Lcom/baidu/nadcore/max/event/NestedScrollEvent;)V", "handleSetContentView", "", "favorData", "handleUpdateFavorUI", "(Ljava/lang/String;)Z", "Landroid/widget/LinearLayout;", "initBrowserLayout", "()Landroid/widget/LinearLayout;", "initWebView", "injectService", "needAddSpeedLogInBase", "needAppendPublicParam", "obtainDemoteFavorUrl", "()Ljava/lang/String;", "obtainHost", "obtainNid", "obtainPageTitle", "Lorg/json/JSONObject;", "obtainSuspensionBallData", "()Lorg/json/JSONObject;", "onKeyDown", "onNewIntent", MissionEvent.MESSAGE_PAUSE, "onRelease", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "parseData", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "receiveEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "visibility", "setUIVisible", "(I)V", "Lcom/baidu/nadcore/webview/container/base/AbsContainer;", "baseBrowserContainer$delegate", "Lkotlin/Lazy;", "getBaseBrowserContainer", "()Lcom/baidu/nadcore/webview/container/base/AbsContainer;", "baseBrowserContainer", "Lcom/baidu/nadcore/webview/listener/BdPageDialogsHandler;", "bdPageDialogsHandler$delegate", "getBdPageDialogsHandler", "()Lcom/baidu/nadcore/webview/listener/BdPageDialogsHandler;", "bdPageDialogsHandler", "Lcom/baidu/nadcore/model/CmdPolicy;", "switchModel", "Lcom/baidu/nadcore/model/CmdPolicy;", "Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService$delegate", "getWebviewService", "()Lcom/baidu/nadcore/max/service/IWebViewService;", "webviewService", "<init>", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class WebViewComponent extends AbsComponentPlugin implements t21, u21 {
+public final class WebViewComponent extends AbsComponentPlugin implements l41, m41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy d;
@@ -123,7 +123,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
                 int measuredWidth = i.getMeasuredWidth();
                 View i2 = this.a.n().i();
                 Intrinsics.checkNotNullExpressionValue(i2, "baseBrowserContainer.containerLayout");
-                outline.setRoundRect(new Rect(0, 0, measuredWidth, i2.getMeasuredHeight()), q01.c.a(this.a.getContext(), 18.0f));
+                outline.setRoundRect(new Rect(0, 0, measuredWidth, i2.getMeasuredHeight()), g21.c.a(this.a.getContext(), 18.0f));
             }
         }
     }
@@ -146,14 +146,24 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
         this.f = LazyKt__LazyJVMKt.lazy(new WebViewComponent$webviewService$2(this));
     }
 
-    @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void b(ch0 event) {
+    @Override // com.baidu.tieba.m41
+    public boolean D0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
+    public void b(ki0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.b(event);
-            if (Intrinsics.areEqual(event.a(), xl0.class.getSimpleName())) {
-                r((xl0) event);
+            if (Intrinsics.areEqual(event.a(), jn0.class.getSimpleName())) {
+                q((jn0) event);
             }
         }
     }
@@ -161,56 +171,56 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.d();
-            j().s(km0.class, p());
-        }
-    }
-
-    @Override // com.baidu.tieba.t21
-    public void f() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n().f(a.a);
+            super.d();
+            j().s(wn0.class, p());
         }
     }
 
-    @Override // com.baidu.tieba.t21
+    @Override // com.baidu.tieba.l41
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? i() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? h() : (Activity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t21
+    @Override // com.baidu.tieba.l41
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Intent intent = i().getIntent();
+            Intent intent = h().getIntent();
             Intrinsics.checkNotNullExpressionValue(intent, "hostActivity.intent");
             return intent;
         }
         return (Intent) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.l41
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n().f(a.a);
+        }
+    }
+
     public final AbsContainer n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (AbsContainer) this.d.getValue() : (AbsContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (AbsContainer) this.d.getValue() : (AbsContainer) invokeV.objValue;
     }
 
-    public final i31 o() {
+    public final a51 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (i31) this.e.getValue() : (i31) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (a51) this.e.getValue() : (a51) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public boolean onKeyDown(int i, KeyEvent event) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             if (n().onKeyDown(i, event)) {
                 return true;
@@ -223,21 +233,21 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
-            t(intent);
-            int b2 = s21.b(getContext().getApplicationContext(), null);
+            s(intent);
+            int b2 = k41.b(getContext().getApplicationContext(), null);
             if (4 == b2 || b2 == 0 || 2 == b2 || 1 == b2) {
                 return;
             }
-            s();
+            r();
         }
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
             n().r();
         }
@@ -246,8 +256,8 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void onRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            j().k(new dm0(WebEventTypeEnum.WEB_DESTROY));
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            j().k(new pn0(WebEventTypeEnum.WEB_DESTROY));
             super.onRelease();
             o().i();
             n().q();
@@ -257,7 +267,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             n().t();
         }
@@ -266,7 +276,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onStart();
             n().u();
         }
@@ -275,50 +285,40 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
     @Override // com.baidu.nadcore.component.AbsComponentPlugin
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
             n().v();
         }
     }
 
-    public final km0 p() {
+    public final wn0 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (km0) this.f.getValue() : (km0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (wn0) this.f.getValue() : (wn0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t21
-    public boolean q() {
-        InterceptResult invokeV;
+    public final void q(jn0 jn0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void r(xl0 xl0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, xl0Var) == null) {
-            int i = qm0.$EnumSwitchMapping$0[xl0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048592, this, jn0Var) == null) {
+            int i = co0.$EnumSwitchMapping$0[jn0Var.getType().ordinal()];
             if (i == 1) {
-                u(8);
+                t(8);
                 o().o(false);
             } else if (i != 2) {
             } else {
-                u(0);
+                t(0);
                 o().l();
             }
         }
     }
 
-    public final void s() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             n().y("1");
             n().z(false);
             n().p();
-            j().k(new dm0(WebEventTypeEnum.WEB_INIT_SUCCESS));
+            j().k(new pn0(WebEventTypeEnum.WEB_INIT_SUCCESS));
             if (Build.VERSION.SDK_INT >= 21) {
                 View i = n().i();
                 Intrinsics.checkNotNullExpressionValue(i, "baseBrowserContainer.containerLayout");
@@ -329,11 +329,11 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
             }
             View it = n().i();
             Intrinsics.checkNotNullExpressionValue(it, "it");
-            it.setPadding(it.getPaddingLeft(), it.getPaddingTop(), it.getPaddingRight(), q01.c.a(getContext(), 49.0f));
+            it.setPadding(it.getPaddingLeft(), it.getPaddingTop(), it.getPaddingRight(), g21.c.a(getContext(), 49.0f));
         }
     }
 
-    public final void t(Intent intent) {
+    public final void s(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, intent) == null) {
             Serializable serializableExtra = intent.getSerializableExtra("map");
@@ -347,23 +347,23 @@ public final class WebViewComponent extends AbsComponentPlugin implements t21, u
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                pn0.g.a(yx0.c(str));
+                bp0.f.a(kz0.c(str));
             }
         }
     }
 
-    public final void u(int i) {
+    public final void t(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.u21
-    public boolean w0() {
+    @Override // com.baidu.tieba.l41
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }

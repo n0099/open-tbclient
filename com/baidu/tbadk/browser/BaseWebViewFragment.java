@@ -41,72 +41,61 @@ public class BaseWebViewFragment extends BaseFragment {
     public void A1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
-                this.a = str;
-            } else {
-                this.a = z1(str);
-            }
-        }
-    }
-
-    public void B1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.c = str;
         }
     }
 
-    public ShareItem r1(String str, String str2, String str3, String str4) {
+    public ShareItem q1(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.c, true)) {
-                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f1138);
+                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1155);
             } else {
-                shareItem.u = this.c;
+                shareItem.v = this.c;
             }
-            shareItem.w = this.a;
+            shareItem.x = this.a;
             if (StringUtils.isNull(this.b, true)) {
-                shareItem.v = this.a;
+                shareItem.w = this.a;
             } else {
-                String s1 = s1(BaseWebViewActivity.SHARE_CONTENT_START, "\"");
-                if (StringUtils.isNull(s1, true)) {
-                    shareItem.v = this.a;
+                String r1 = r1(BaseWebViewActivity.SHARE_CONTENT_START, "\"");
+                if (StringUtils.isNull(r1, true)) {
+                    shareItem.w = this.a;
                 } else {
-                    shareItem.v = s1;
+                    shareItem.w = r1;
                 }
-                String s12 = s1(BaseWebViewActivity.SHARE_IMG_START, "\"");
-                if (!StringUtils.isNull(s12, true)) {
-                    shareItem.y = Uri.parse(s12);
+                String r12 = r1(BaseWebViewActivity.SHARE_IMG_START, "\"");
+                if (!StringUtils.isNull(r12, true)) {
+                    shareItem.z = Uri.parse(r12);
                 }
-                String s13 = s1(BaseWebViewActivity.SHARE_URL_START, "\"");
-                if (!StringUtils.isNull(s13, true)) {
-                    shareItem.w = s13;
+                String r13 = r1(BaseWebViewActivity.SHARE_URL_START, "\"");
+                if (!StringUtils.isNull(r13, true)) {
+                    shareItem.x = r13;
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                shareItem.u = str;
+                shareItem.v = str;
             }
             if (!TextUtils.isEmpty(str2)) {
-                shareItem.w = str2;
+                shareItem.x = str2;
             }
             if (!TextUtils.isEmpty(str3)) {
-                shareItem.v = str3;
+                shareItem.w = str3;
             }
             if (!TextUtils.isEmpty(str4)) {
-                shareItem.y = Uri.parse(str4);
+                shareItem.z = Uri.parse(str4);
             }
             return shareItem;
         }
         return (ShareItem) invokeLLLL.objValue;
     }
 
-    public final String s1(String str, String str2) {
+    public final String r1(String str, String str2) {
         InterceptResult invokeLL;
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.b.indexOf(str)) < 0) {
                 return null;
             }
@@ -122,35 +111,35 @@ public class BaseWebViewFragment extends BaseFragment {
         return (String) invokeLL.objValue;
     }
 
-    public boolean t1(String str) {
+    public boolean s1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? x1(str, "blank") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? w1(str, "blank") : invokeL.booleanValue;
+    }
+
+    public boolean t1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? w1(this.a, BaseWebViewActivity.KEY_NO_MENU) : invokeV.booleanValue;
     }
 
     public boolean u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? x1(this.a, BaseWebViewActivity.KEY_NO_MENU) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? w1(this.a, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR) : invokeV.booleanValue;
     }
 
     public boolean v1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? x1(this.a, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? w1(this.a, BaseWebViewActivity.KEY_NO_SHARE) : invokeV.booleanValue;
     }
 
-    public boolean w1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? x1(this.a, BaseWebViewActivity.KEY_NO_SHARE) : invokeV.booleanValue;
-    }
-
-    public boolean x1(String str, String str2) {
+    public boolean w1(String str, String str2) {
         InterceptResult invokeLL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 try {
                     String query = new URL(str).getQuery();
@@ -176,9 +165,20 @@ public class BaseWebViewFragment extends BaseFragment {
         return invokeLL.booleanValue;
     }
 
-    public final String z1(String str) {
+    public final String x1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? (str == null || str.startsWith("http://") || str.startsWith("https://")) ? str : "http://".concat(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? (str == null || str.startsWith("http://") || str.startsWith("https://")) ? str : "http://".concat(str) : (String) invokeL.objValue;
+    }
+
+    public void z1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
+                this.a = str;
+            } else {
+                this.a = x1(str);
+            }
+        }
     }
 }

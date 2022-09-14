@@ -1,178 +1,112 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.async.BdRunnable;
+import com.baidu.down.manage.DownloadConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.CharsKt__CharJVMKt;
 /* loaded from: classes3.dex */
-public class bw {
+public final class bw {
     public static /* synthetic */ Interceptable $ic;
-    public static bw e;
+    public static final int[] a;
+    public static byte[] b;
+    public static final bw c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService a;
-    public Handler b;
-    public Handler c;
-    public List<aw> d;
 
-    /* loaded from: classes3.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bw a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bw bwVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301048, "Lcom/baidu/tieba/bw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bwVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bwVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 0) {
-                    if (this.a.d != null) {
-                        Iterator it = this.a.d.iterator();
-                        while (it.hasNext()) {
-                            aw awVar = (aw) it.next();
-                            if (this.a.e(awVar)) {
-                                this.a.a.submit(awVar);
-                                it.remove();
-                            }
-                        }
-                    }
-                } else if (i == 1) {
-                    if (message.obj instanceof aw) {
-                        this.a.d.add((aw) message.obj);
-                    }
-                } else if (i != 2) {
-                } else {
-                    Object obj = message.obj;
-                    if (obj instanceof BdRunnable) {
-                        post((BdRunnable) obj);
-                    }
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448301048, "Lcom/baidu/tieba/bw;");
+                return;
             }
         }
+        c = new bw();
+        a = new int[]{219, 74, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
     public bw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = new ArrayList();
-        this.a = Executors.newFixedThreadPool(5);
-        Executors.newSingleThreadExecutor();
-        this.b = new a(this, zv.a("threadpool").getLooper());
-        this.c = new Handler(Looper.getMainLooper());
     }
 
-    public static bw f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (bw.class) {
-                    if (e == null) {
-                        e = new bw();
-                    }
-                }
-            }
-            return e;
-        }
-        return (bw) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.removeMessages(0);
-            this.b.sendEmptyMessage(0);
-        }
-    }
-
-    public final boolean e(aw awVar) {
+    public final String a(String str) {
         InterceptResult invokeL;
-        List<BdRunnable> d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, awVar)) == null) {
-            if (awVar != null && (d = awVar.d()) != null) {
-                for (int i = 0; i < d.size(); i++) {
-                    BdRunnable bdRunnable = d.get(i);
-                    if (bdRunnable != null && !bdRunnable.c()) {
-                        return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
+                try {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 1; i < str.length(); i += 2) {
+                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
                     }
+                    if (arrayList.size() <= 16) {
+                        return "";
+                    }
+                    if (b == null) {
+                        b = new byte[a.length];
+                        int length = a.length;
+                        for (int i2 = 0; i2 < length; i2++) {
+                            byte[] bArr = b;
+                            if (bArr == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            bArr[i2] = (byte) a[i2];
+                        }
+                    }
+                    byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
+                    byte[] bArr2 = b;
+                    if (bArr2 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    String a2 = vt.a(b(byteArray, bArr2, CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(16, arrayList.size()))));
+                    Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(decodeBytes)");
+                    return a2;
+                } catch (Exception unused) {
                 }
             }
-            return true;
+            return "";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void g(BdRunnable bdRunnable) {
+    public final byte[] b(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdRunnable) == null) || bdRunnable == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+            cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
+            return cipher.doFinal(bArr3);
         }
-        if (bdRunnable instanceof aw) {
-            if (e((aw) bdRunnable)) {
-                this.a.submit(bdRunnable);
-                return;
-            } else {
-                this.b.obtainMessage(1, bdRunnable).sendToTarget();
-                return;
-            }
-        }
-        try {
-            this.a.submit(bdRunnable);
-        } catch (Error e2) {
-            bdRunnable.a(e2);
-        } catch (Exception e3) {
-            bdRunnable.onException(e3);
-        }
-    }
-
-    public void h(BdRunnable bdRunnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
-            this.c.post(bdRunnable);
-        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
+import com.baidu.tieba.frs.mc.FrsModelController;
 /* loaded from: classes6.dex */
 public interface vp6 {
-    void a(@NonNull View view2, @NonNull View.OnClickListener onClickListener);
+    FrsModelController J0();
+
+    mp6 Z0();
+
+    void b();
+
+    wg6 j1();
+
+    jt6 n0();
 }

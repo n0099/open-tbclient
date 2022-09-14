@@ -12,8 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ke3;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.ig3;
+import com.baidu.tieba.pg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public class GameGuideViewContainer extends FrameLayout {
             int i5 = i4 / 2;
             if (i >= i5) {
                 i2 = (int) (((i4 - i) / i5) * 400.0f);
-                i3 = re3.g(10.0f);
+                i3 = pg3.g(10.0f);
             } else {
                 i2 = (int) ((i / i5) * 400.0f);
                 i3 = i4 - this.a;
@@ -120,9 +120,9 @@ public class GameGuideViewContainer extends FrameLayout {
             this.d = getContext().getResources().getDisplayMetrics().widthPixels;
             this.c = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.d += ke3.c();
+                this.d += ig3.c();
             } else {
-                this.c += ke3.c();
+                this.c += ig3.c();
             }
             this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
@@ -138,7 +138,7 @@ public class GameGuideViewContainer extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int g = i < re3.g(10.0f) ? re3.g(10.0f) : i;
+            int g = i < pg3.g(10.0f) ? pg3.g(10.0f) : i;
             int i2 = this.d;
             int i3 = this.a;
             return i > i2 - i3 ? i2 - i3 : g;

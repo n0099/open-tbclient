@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ol5;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.zn5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -140,7 +140,7 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!ol5.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
+                    if (!zn5.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
                         FileHelper.DelFile(this.c.mMainApkFileName + ".tmp");
                         FileHelper.DelFile(this.c.mMainApkFileName);
@@ -255,7 +255,7 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!ol5.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
+                    if (!zn5.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
                         FileHelper.DelFile(this.c.mOtherApkFileName + ".tmp");
                         FileHelper.DelFile(this.c.mOtherApkFileName);
@@ -351,7 +351,7 @@ public class TiebaUpdateService extends BdBaseService {
                 if (i != 0) {
                     if (i != 1) {
                         if (i == 3) {
-                            ri.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f14c4);
+                            ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f14e4);
                         }
                     } else if (this.a.mMainApkInstallEnable) {
                         if (this.a.mHasAs) {
@@ -547,7 +547,7 @@ public class TiebaUpdateService extends BdBaseService {
                     handler.sendMessageDelayed(handler.obtainMessage(1, null), 300L);
                     return;
                 }
-                ri.M(this, R.string.obfuscated_res_0x7f0f04ff);
+                ej.M(this, R.string.obfuscated_res_0x7f0f050b);
                 if (GetFile != null) {
                     GetFile.delete();
                 }
@@ -702,7 +702,7 @@ public class TiebaUpdateService extends BdBaseService {
             sHasStart = true;
             this.mMainTaskWaitingTimestamp = System.currentTimeMillis();
             this.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
-            this.mMainApkUrl = intent.getStringExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL);
+            this.mMainApkUrl = intent.getStringExtra("key_tieba_apk_url");
             this.mMainApkMd5RSA = intent.getStringExtra("MD5_RSA_tieba_apk");
             this.mVersionData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
             if (URLUtil.isNetworkUrl(this.mMainApkUrl) && !TextUtils.isEmpty(this.mMainApkMd5RSA)) {
@@ -710,14 +710,14 @@ public class TiebaUpdateService extends BdBaseService {
                 this.mMainApkFileName = getString(R.string.obfuscated_res_0x7f0f029e) + TbadkCoreApplication.getInst().getVersionName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             } else {
                 this.mMainApkMd5RSA = intent.getStringExtra("MD5_RSA_as_apk");
-                String stringExtra = intent.getStringExtra(UpdateDialogConfig.KEY_AS_APK_URL);
+                String stringExtra = intent.getStringExtra("as_apk_url");
                 this.mMainApkUrl = stringExtra;
                 if (URLUtil.isNetworkUrl(stringExtra) && !TextUtils.isEmpty(this.mMainApkMd5RSA)) {
                     this.mHasAs = true;
                     this.mMainApkFileName = getFileOfUrl(this.mMainApkUrl);
                 }
             }
-            this.mOtherApkUrl = intent.getStringExtra(UpdateDialogConfig.KEY_OTHER_APK_URL);
+            this.mOtherApkUrl = intent.getStringExtra("other_apk_url");
             this.mOtherApkMd5RSA = intent.getStringExtra("MD5_RSA_other_apk");
             this.mOtherApkFileName = getFileOfUrl(this.mOtherApkUrl);
             if (URLUtil.isNetworkUrl(this.mOtherApkUrl) && this.mOtherApkFileName.length() >= 4 && !TextUtils.isEmpty(this.mOtherApkMd5RSA)) {
@@ -728,13 +728,13 @@ public class TiebaUpdateService extends BdBaseService {
             if (!this.mHasTieba && !this.mHasAs && !this.mHasOther) {
                 stopSelf(i);
             } else if (!this.mHasTieba && !this.mHasAs) {
-                this.info = getString(R.string.obfuscated_res_0x7f0f0516);
+                this.info = getString(R.string.obfuscated_res_0x7f0f0522);
                 downloadOtherApk();
             } else {
                 if (this.mHasTieba) {
-                    string = getString(R.string.obfuscated_res_0x7f0f13e6);
+                    string = getString(R.string.obfuscated_res_0x7f0f1405);
                 } else {
-                    string = getString(R.string.obfuscated_res_0x7f0f02a5);
+                    string = getString(R.string.obfuscated_res_0x7f0f02a9);
                 }
                 downloadMainApk(string);
                 if (this.mHasOther) {

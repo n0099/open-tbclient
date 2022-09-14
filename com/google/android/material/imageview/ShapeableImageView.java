@@ -25,7 +25,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,6 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
@@ -42,9 +42,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100380 = 2131755904;
+    public static final int DEF_STYLE_RES = 2131755905;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint borderPaint;
     public final Paint clearPaint;
@@ -284,7 +282,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100380), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -312,14 +310,14 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         this.destination = new RectF();
         this.maskRect = new RectF();
         this.maskPath = new Path();
-        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f04065f, R.attr.obfuscated_res_0x7f040660}, i, obfuscated_res_0x7f100380);
+        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, R.styleable.ShapeableImageView, i, DEF_STYLE_RES);
         this.strokeColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 2);
         this.strokeWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         Paint paint2 = new Paint();
         this.borderPaint = paint2;
         paint2.setStyle(Paint.Style.STROKE);
         this.borderPaint.setAntiAlias(true);
-        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100380).build();
+        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES).build();
         this.shadowDrawable = new MaterialShapeDrawable(this.shapeAppearanceModel);
         if (Build.VERSION.SDK_INT >= 21) {
             setOutlineProvider(new OutlineProvider(this));

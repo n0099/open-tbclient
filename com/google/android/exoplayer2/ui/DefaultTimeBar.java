@@ -20,7 +20,6 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +127,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         int dpToPx5 = dpToPx(displayMetrics, 0);
         int dpToPx6 = dpToPx(displayMetrics, 16);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04007b, R.attr.obfuscated_res_0x7f04007c, R.attr.obfuscated_res_0x7f0400ca, R.attr.obfuscated_res_0x7f04011a, R.attr.obfuscated_res_0x7f04055a, R.attr.obfuscated_res_0x7f04055b, R.attr.obfuscated_res_0x7f0405fb, R.attr.obfuscated_res_0x7f0405fc, R.attr.obfuscated_res_0x7f0405fd, R.attr.obfuscated_res_0x7f0405fe, R.attr.obfuscated_res_0x7f0405ff, R.attr.obfuscated_res_0x7f040731, R.attr.obfuscated_res_0x7f04074b}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.DefaultTimeBar, 0, 0);
             try {
                 Drawable drawable = obtainStyledAttributes.getDrawable(9);
                 this.scrubberDrawable = drawable;

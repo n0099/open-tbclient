@@ -16,9 +16,9 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.re3;
-import com.baidu.tieba.ud3;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.pg3;
+import com.baidu.tieba.sf3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NeutralRefreshAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean s;
@@ -54,7 +54,7 @@ public class NeutralRefreshAnimView extends View {
     public int q;
     public int r;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,10 +310,10 @@ public class NeutralRefreshAnimView extends View {
                 return;
             }
         }
-        s = kh1.a;
-        t = re3.g(3.5f);
+        s = ij1.a;
+        t = pg3.g(3.5f);
         u = Color.parseColor("#000000");
-        int g = re3.g(18.0f);
+        int g = pg3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -417,7 +417,7 @@ public class NeutralRefreshAnimView extends View {
             if (i <= 0 || i2 <= 0) {
                 return;
             }
-            ud3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
+            sf3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
         }
     }
 

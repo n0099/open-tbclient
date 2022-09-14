@@ -1,91 +1,221 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes4.dex */
-public class lh4 implements mh4<String> {
+public class lh4<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public boolean a;
+    public int[] b;
+    public Object[] c;
+    public int d;
 
-    public lh4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947942865, "Lcom/baidu/tieba/lh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947942865, "Lcom/baidu/tieba/lh4;");
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        e = new Object();
     }
 
-    @Override // com.baidu.tieba.mh4
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public lh4() {
+        this(10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && uh4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return true;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.d;
+            Object[] objArr = this.c;
+            for (int i2 = 0; i2 < i; i2++) {
+                objArr[i2] = null;
+            }
+            this.d = 0;
+            this.a = false;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mh4
     /* renamed from: b */
-    public String get() {
+    public lh4<E> clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() : (String) invokeV.objValue;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return (lh4) invokeV.objValue;
+        }
+        lh4<E> lh4Var = null;
+        try {
+            lh4<E> lh4Var2 = (lh4) super.clone();
+            try {
+                lh4Var2.b = (int[]) this.b.clone();
+                lh4Var2.c = (Object[]) this.c.clone();
+                return lh4Var2;
+            } catch (CloneNotSupportedException unused) {
+                lh4Var = lh4Var2;
+                return lh4Var;
+            }
+        } catch (CloneNotSupportedException unused2) {
+        }
     }
 
-    public final String c() {
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.d;
+            int[] iArr = this.b;
+            Object[] objArr = this.c;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                Object obj = objArr[i3];
+                if (obj != e) {
+                    if (i3 != i2) {
+                        iArr[i2] = iArr[i3];
+                        objArr[i2] = obj;
+                        objArr[i3] = null;
+                    }
+                    i2++;
+                }
+            }
+            this.a = false;
+            this.d = i2;
+        }
+    }
+
+    public int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.b[i];
+        }
+        return invokeI.intValue;
+    }
+
+    public void delete(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (a = gh4.a(this.b, this.d, i)) < 0) {
+            return;
+        }
+        Object[] objArr = this.c;
+        Object obj = objArr[a];
+        Object obj2 = e;
+        if (obj != obj2) {
+            objArr[a] = obj2;
+            this.a = true;
+        }
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && uh4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
-                if (file.exists()) {
-                    return sh4.c(file);
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a) {
+                c();
             }
-            return null;
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public E f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return (E) this.c[i];
+        }
+        return (E) invokeI.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (e() <= 0) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            StringBuilder sb = new StringBuilder(this.d * 28);
+            sb.append('{');
+            for (int i = 0; i < this.d; i++) {
+                if (i > 0) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(d(i));
+                sb.append('=');
+                E f = f(i);
+                if (f != this) {
+                    sb.append(f);
+                } else {
+                    sb.append("(this Map)");
+                }
+            }
+            sb.append('}');
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mh4
-    /* renamed from: d */
-    public void put(String str) {
+    public lh4(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState()) && uh4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            sh4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
+        this.a = false;
+        if (i == 0) {
+            this.b = gh4.a;
+            this.c = gh4.b;
+        } else {
+            int d = gh4.d(i);
+            this.b = new int[d];
+            this.c = new Object[d];
         }
+        this.d = 0;
     }
 }

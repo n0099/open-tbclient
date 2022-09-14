@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,92 +11,104 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ai0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    @NonNull
+    public final HashMap<String, String> e;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ai0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-946783101, "Lcom/baidu/tieba/ai0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-946783101, "Lcom/baidu/tieba/ai0$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616001, "Lcom/baidu/tieba/ai0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new ai0(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947616001, "Lcom/baidu/tieba/ai0;");
+                return;
+            }
         }
+        f = mi0.c().a().p() + "://";
     }
 
-    public /* synthetic */ ai0(a aVar) {
-        this();
-    }
-
-    public static ai0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ai0) invokeV.objValue;
-    }
-
-    public void b(pi0 pi0Var) {
-        ti0 ti0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pi0Var) == null) || pi0Var == null || (ti0Var = pi0Var.p) == null || pi0Var.q == null || TextUtils.isEmpty(ti0Var.a)) {
-            return;
-        }
-        qi0 qi0Var = pi0Var.q;
-        long j = qi0Var.p;
-        if (j < 0) {
-            return;
-        }
-        String str = pi0Var.d;
-        qi0Var.o = p01.c(j, System.currentTimeMillis());
-        ClogBuilder n = new ClogBuilder().y(ClogBuilder.LogType.DOWNLOAD_KEEP).p(pi0Var.p.a).k(str).n(String.valueOf(pi0Var.q.o));
-        JSONObject jSONObject = new JSONObject();
-        try {
-            PackageInfo packageInfo = eh0.b().getPackageManager().getPackageInfo(str, 0);
-            n.l(packageInfo.versionName).m(String.valueOf(packageInfo.versionCode));
-            yx0.d(jSONObject, "installed", 1);
-        } catch (PackageManager.NameNotFoundException unused) {
-            yx0.d(jSONObject, "installed", 0);
-            pi0Var.q.p = -2L;
-        } catch (Throwable unused2) {
-            return;
-        }
-        n.o(jSONObject.toString());
-        iy0.b(n);
-        fi0.a().c(pi0Var);
-    }
-
-    public ai0() {
+    public ai0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Uri parse = Uri.parse(str);
+        this.a = str;
+        this.b = ji0.m(parse);
+        this.c = ji0.k(parse);
+        this.d = ji0.i(parse);
+        this.e = ji0.l(parse);
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public HashMap<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (HashMap) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d)) {
+                ji0.q(this.a, this.e.get("ext_info"));
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SchemeModel{command='" + this.a + "', scheme='" + this.b + "', module='" + this.c + "', action='" + this.d + "', params=" + this.e + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

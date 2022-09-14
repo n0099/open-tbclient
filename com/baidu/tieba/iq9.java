@@ -3,25 +3,59 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.proto.AudioEntity;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public final class iq9 {
+public abstract class iq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public Integer c;
-    public Integer d;
+    public AtomicBoolean a;
+    public long b;
+    public Runnable c;
 
-    public iq9(AudioEntity audioEntity) {
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iq9 a;
+
+        public a(iq9 iq9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iq9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iq9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+                if (this.a.a.get()) {
+                    mq9.a().postDelayed(this.a.c, this.a.b);
+                }
+            }
+        }
+    }
+
+    public iq9(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {audioEntity};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,56 +65,28 @@ public final class iq9 {
                 return;
             }
         }
-        String str = audioEntity.audioKey;
-        Integer num = audioEntity.startFrame;
-        this.a = num != null ? num.intValue() : 0;
-        Integer num2 = audioEntity.endFrame;
-        this.b = num2 != null ? num2.intValue() : 0;
-        Integer num3 = audioEntity.startTime;
-        if (num3 != null) {
-            num3.intValue();
+        this.a = new AtomicBoolean(false);
+        this.c = new a(this);
+        this.b = 0 == j ? 300L : j;
+    }
+
+    public abstract void b();
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.get()) {
+            return;
         }
-        Integer num4 = audioEntity.totalTime;
-        if (num4 != null) {
-            num4.intValue();
-        }
+        this.a.set(true);
+        mq9.a().removeCallbacks(this.c);
+        mq9.a().postDelayed(this.c, kq9.e().i());
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final Integer b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Integer) invokeV.objValue;
-    }
-
-    public final Integer c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (Integer) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final void e(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.d = num;
-        }
-    }
-
-    public final void f(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-            this.c = num;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.get()) {
+            this.a.set(false);
+            mq9.a().removeCallbacks(this.c);
         }
     }
 }

@@ -28,15 +28,16 @@ public final class DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2 exten
     public final /* synthetic */ String $purpose$inlined;
     public final /* synthetic */ String $scene$inlined;
     public final /* synthetic */ DeviceIdBagMap $this_apply;
+    public final /* synthetic */ boolean $useMapping$inlined;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2(DeviceIdBagMap deviceIdBagMap, Ref.ObjectRef objectRef, Ref.IntRef intRef, int i, boolean z, Context context, String str, String str2) {
+    public DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2(DeviceIdBagMap deviceIdBagMap, Ref.ObjectRef objectRef, Ref.IntRef intRef, int i, boolean z, Context context, String str, String str2, boolean z2) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {deviceIdBagMap, objectRef, intRef, Integer.valueOf(i), Boolean.valueOf(z), context, str, str2};
+            Object[] objArr = {deviceIdBagMap, objectRef, intRef, Integer.valueOf(i), Boolean.valueOf(z), context, str, str2, Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -55,6 +56,7 @@ public final class DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2 exten
         this.$context$inlined = context;
         this.$scene$inlined = str;
         this.$purpose$inlined = str2;
+        this.$useMapping$inlined = z2;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -95,9 +97,11 @@ public final class DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2 exten
                         t2 = (DeviceIdBag) ((Function3) sparseArray.get(i)).invoke(this.$context$inlined, this.$scene$inlined, this.$purpose$inlined);
                     }
                     objectRef.element = t2;
-                    T t3 = this.$deviceInfo.element;
-                    if (((DeviceIdBag) t3).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t3).deviceId)) {
-                        this.$needSyncDeviceFlag.element |= i;
+                    if (this.$useMapping$inlined) {
+                        T t3 = this.$deviceInfo.element;
+                        if (((DeviceIdBag) t3).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t3).deviceId)) {
+                            this.$needSyncDeviceFlag.element |= i;
+                        }
                     }
                     this.$this_apply.put(i, (DeviceIdBag) this.$deviceInfo.element);
                     return;
@@ -121,9 +125,11 @@ public final class DeviceInfoManager$getDeviceInfo$$inlined$apply$lambda$2 exten
                 t = deviceIdBag3;
             }
             objectRef2.element = t;
-            T t4 = this.$deviceInfo.element;
-            if (((DeviceIdBag) t4).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t4).deviceId)) {
-                this.$needSyncDeviceFlag.element |= i;
+            if (this.$useMapping$inlined) {
+                T t4 = this.$deviceInfo.element;
+                if (((DeviceIdBag) t4).errorCode != 3 && !TextUtils.isEmpty(((DeviceIdBag) t4).deviceId)) {
+                    this.$needSyncDeviceFlag.element |= i;
+                }
             }
             this.$this_apply.put(i, (DeviceIdBag) this.$deviceInfo.element);
         }

@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class rz1 {
+public class rz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile rz1 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, Long> b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,74 +28,32 @@ public final class rz1 {
                 return;
             }
         }
-        c = kh1.a;
+        a = ij1.a;
     }
 
-    public rz1() {
+    public static void a(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            b(str, str2, null);
         }
-        this.a = false;
-        this.b = new HashMap<>();
     }
 
-    public static rz1 a() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public static void b(@NonNull String str, @NonNull String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (rz1.class) {
-                    if (d == null) {
-                        d = new rz1();
-                    }
-                }
-            }
-            return d;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (rz1) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (th == null) {
+            yz1.c(str, str2);
+            if (a) {
+                throw new RuntimeException(str2);
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
-                if (c) {
-                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
-                    return true;
-                }
-                return true;
-            }
-            if (c) {
-                HashMap<String, Long> hashMap2 = this.b;
-                if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
-                } else {
-                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
-                }
-            }
-            return false;
+            return;
         }
-        return invokeL.booleanValue;
+        yz1.d(str, str2, th);
+        if (a) {
+            throw new RuntimeException(str2, th);
+        }
     }
 }

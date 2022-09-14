@@ -86,7 +86,7 @@ public class bw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m211a(String str, String str2, long j) {
+    public synchronized void m212a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             synchronized (this) {
@@ -98,7 +98,7 @@ public class bw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m212a(String str, String str2, String str3) {
+    public synchronized void m213a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             synchronized (this) {

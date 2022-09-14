@@ -1,57 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActivityPage.HotTopic;
-import tbclient.RecomTopicList;
 /* loaded from: classes5.dex */
-public class t27 extends yx6 {
+public class t27 extends mx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public ra8 z;
 
-    public t27() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t27(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb5);
     }
 
-    public void h(HotTopic hotTopic) {
+    @Override // com.baidu.tieba.mx, com.baidu.tieba.az
+    public ra8 q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotTopic) == null) || hotTopic == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.k) && this.k.equals("index")) {
+                this.z = new v27(this.b, this.i);
+            } else {
+                this.z = new u27(this.b, this.i);
+            }
+            this.z.setStageType("2001");
+            return this.z;
         }
-        this.floorPosition = hotTopic.floor_position.intValue();
-        parserProtobuf(hotTopic.topic_list);
-    }
-
-    public void parserProtobuf(List<RecomTopicList> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        int min = Math.min(list.size(), 6);
-        ArrayList arrayList = new ArrayList(list.size());
-        for (int i = 0; i < min; i++) {
-            arrayList.add(new xx6(list.get(i), i));
-        }
-        f(arrayList);
+        return (ra8) invokeV.objValue;
     }
 }

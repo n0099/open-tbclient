@@ -71,7 +71,7 @@ public final class ThemeEnforcement {
     public static void checkCompatibleTheme(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, context, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040286}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.ThemeEnforcement, i, i2);
             boolean z = obtainStyledAttributes.getBoolean(1, false);
             obtainStyledAttributes.recycle();
             if (z) {
@@ -95,7 +95,7 @@ public final class ThemeEnforcement {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2}) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040286}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.ThemeEnforcement, i, i2);
             if (!obtainStyledAttributes.getBoolean(2, false)) {
                 obtainStyledAttributes.recycle();
                 return;

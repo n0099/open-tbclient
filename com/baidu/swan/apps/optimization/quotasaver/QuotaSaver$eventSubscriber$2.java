@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import com.baidu.tieba.x03;
+import com.baidu.tieba.v23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001H\n¢\u0006\u0002\b\u0003"}, d2 = {"<anonymous>", "Lcom/baidu/swan/apps/runtime/EventSubscriber;", "kotlin.jvm.PlatformType", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Function0<x03> {
+public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Function0<v23> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$eventSubscriber$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public final class QuotaSaver$eventSubscriber$2 extends Lambda implements Functi
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final x03 invoke() {
+    public final v23 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            x03 x03Var = new x03();
-            x03Var.f(QuotaSaver.l, "event_messenger_call");
-            return x03Var;
+            v23 v23Var = new v23();
+            v23Var.f(QuotaSaver.l, "event_messenger_call");
+            return v23Var;
         }
-        return (x03) invokeV.objValue;
+        return (v23) invokeV.objValue;
     }
 }

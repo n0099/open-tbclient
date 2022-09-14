@@ -69,18 +69,4 @@ public class NodeInfo implements Serializable {
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nodeTag : (String) invokeV.objValue;
     }
-
-    public void setNodeName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.nodeName = str;
-        }
-    }
-
-    public void setNodeTag(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.nodeTag = str;
-        }
-    }
 }

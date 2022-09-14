@@ -2,10 +2,10 @@ package com.baidu.sofire.k;
 
 import android.content.Context;
 import android.os.Environment;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,7 +104,7 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 try {
-                    String string = m.c(context) ? Settings.System.getString(context.getContentResolver(), a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug=")) : "";
+                    String string = m.c(context) ? ApiReplaceUtil.getString(context.getContentResolver(), a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug=")) : "";
                     if (TextUtils.isEmpty(string)) {
                         string = m.h(context);
                     }
@@ -118,20 +118,20 @@ public final class c {
                         return "";
                     }
                     return a2 + "|" + stringBuffer;
-                } catch (Exception unused) {
+                } catch (Throwable unused) {
+                    int i = com.baidu.sofire.a.b.a;
                     return "";
                 }
-            } catch (Throwable unused2) {
-                int i = com.baidu.sofire.a.b.a;
+            } catch (Exception unused2) {
                 return "";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x003a A[Catch: all -> 0x0094, TryCatch #2 {all -> 0x0094, blocks: (B:5:0x0006, B:13:0x0026, B:15:0x003a, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x003a A[Catch: all -> 0x0095, TryCatch #2 {all -> 0x0095, blocks: (B:5:0x0006, B:13:0x0026, B:15:0x003a, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0065 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0066 A[Catch: all -> 0x0094, TRY_LEAVE, TryCatch #2 {all -> 0x0094, blocks: (B:5:0x0006, B:13:0x0026, B:15:0x003a, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0066 A[Catch: all -> 0x0095, TRY_LEAVE, TryCatch #2 {all -> 0x0095, blocks: (B:5:0x0006, B:13:0x0026, B:15:0x003a, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -144,7 +144,7 @@ public final class c {
             try {
                 String f = m.f(context);
                 try {
-                    str = Settings.System.getString(context.getContentResolver(), a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug="));
+                    str = ApiReplaceUtil.getString(context.getContentResolver(), a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug="));
                 } catch (Throwable unused) {
                     str = "";
                 }
@@ -154,15 +154,15 @@ public final class c {
                     }
                 } catch (Throwable unused2) {
                     int i = com.baidu.sofire.a.b.a;
-                    string = Settings.System.getString(context.getContentResolver(), a.b("FLI7RPHK558lhmIMdK5V18TV2libLOeHJlQPRa8lKBaxRs4pujQo1mXKtiCUFVkg"));
+                    string = ApiReplaceUtil.getString(context.getContentResolver(), a.b("FLI7RPHK558lhmIMdK5V18TV2libLOeHJlQPRa8lKBaxRs4pujQo1mXKtiCUFVkg"));
                     if (TextUtils.isEmpty(string)) {
                     }
                     if (string != null) {
                     }
                 }
-                string = Settings.System.getString(context.getContentResolver(), a.b("FLI7RPHK558lhmIMdK5V18TV2libLOeHJlQPRa8lKBaxRs4pujQo1mXKtiCUFVkg"));
+                string = ApiReplaceUtil.getString(context.getContentResolver(), a.b("FLI7RPHK558lhmIMdK5V18TV2libLOeHJlQPRa8lKBaxRs4pujQo1mXKtiCUFVkg"));
                 if (TextUtils.isEmpty(string)) {
-                    string = Settings.System.getString(context.getContentResolver(), a((a.b("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + str + f).getBytes(), true));
+                    string = ApiReplaceUtil.getString(context.getContentResolver(), a((a.b("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + str + f).getBytes(), true));
                 }
                 if (string != null) {
                     return "";

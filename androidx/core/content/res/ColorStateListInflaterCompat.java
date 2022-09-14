@@ -14,8 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
-import androidx.core.R$attr;
-import androidx.core.R$styleable;
+import androidx.core.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -130,13 +129,13 @@ public final class ColorStateListInflaterCompat {
                     break;
                 }
                 if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
-                    TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R$styleable.ColorStateListItem);
-                    int color = obtainAttributes.getColor(R$styleable.ColorStateListItem_android_color, -65281);
+                    TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R.styleable.ColorStateListItem);
+                    int color = obtainAttributes.getColor(0, -65281);
                     float f = 1.0f;
-                    if (obtainAttributes.hasValue(R$styleable.ColorStateListItem_android_alpha)) {
-                        f = obtainAttributes.getFloat(R$styleable.ColorStateListItem_android_alpha, 1.0f);
-                    } else if (obtainAttributes.hasValue(R$styleable.ColorStateListItem_alpha)) {
-                        f = obtainAttributes.getFloat(R$styleable.ColorStateListItem_alpha, 1.0f);
+                    if (obtainAttributes.hasValue(i)) {
+                        f = obtainAttributes.getFloat(i, 1.0f);
+                    } else if (obtainAttributes.hasValue(2)) {
+                        f = obtainAttributes.getFloat(2, 1.0f);
                     }
                     obtainAttributes.recycle();
                     int attributeCount = attributeSet.getAttributeCount();
@@ -144,7 +143,7 @@ public final class ColorStateListInflaterCompat {
                     int i3 = 0;
                     for (int i4 = 0; i4 < attributeCount; i4++) {
                         int attributeNameResource = attributeSet.getAttributeNameResource(i4);
-                        if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != R$attr.alpha) {
+                        if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != com.baidu.tieba.R.attr.obfuscated_res_0x7f04008a) {
                             int i5 = i3 + 1;
                             if (!attributeSet.getAttributeBooleanValue(i4, false)) {
                                 attributeNameResource = -attributeNameResource;

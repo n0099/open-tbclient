@@ -1,88 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class wd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
 
-    public wd8(Context context, ViewGroup viewGroup) {
+    public static int a(int i, vd8 vd8Var) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, vd8Var)) == null) {
+            if (i <= 0) {
+                return vd8Var.a();
             }
+            if (vd8Var.c()) {
+                return i + vd8Var.b();
+            }
+            return i + vd8Var.b() + 1;
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        return invokeIL.intValue;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull vd8 vd8Var, int i2, @Nullable T t, @Nullable xd8 xd8Var, @Nullable yd8 yd8Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), vd8Var, Integer.valueOf(i2), t, xd8Var, yd8Var})) == null) {
+            if (vd8Var.a() != -1 && vd8Var.b() != -1) {
+                int a = a(i2, vd8Var);
+                if (xd8Var != null && t != null) {
+                    if (i <= i2) {
+                        if (yd8Var != 0) {
+                            yd8Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    int i3 = i + 1;
+                    if (i3 < a) {
+                        if (yd8Var != 0) {
+                            yd8Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    int i4 = i > a ? i3 : a;
+                    int i5 = mg7.i(list);
+                    if (i4 >= i5 && (xd8Var.b() || i4 > i5)) {
+                        if (yd8Var != 0) {
+                            yd8Var.d(i, i4, i5, xd8Var, t);
+                        }
+                        return false;
+                    }
+                    xd8Var.a(i4);
+                    if (xd8Var.b()) {
+                        if (yd8Var != 0) {
+                            yd8Var.e(i, i4, mg7.d(list, i4), xd8Var, t);
+                            return true;
+                        }
+                        return true;
+                    }
+                    mg7.b(list, t, i4);
+                    if (yd8Var != 0) {
+                        yd8Var.c(i, i4, xd8Var, t);
+                        return true;
+                    }
+                    return true;
+                } else if (yd8Var != 0) {
+                    yd8Var.a(i, a);
+                }
             }
             return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public xd8 b(hd8 hd8Var, xd8 xd8Var) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hd8Var, xd8Var)) == null) {
-            if (hd8Var == null || (str = hd8Var.a) == null) {
-                return xd8Var;
-            }
-            if (xd8Var == null || !a(str, xd8Var.a)) {
-                ViewGroup viewGroup = this.c;
-                if (viewGroup == null) {
-                    return null;
-                }
-                viewGroup.removeAllViews();
-                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(hd8Var.a)) {
-                    if (this.a == 2) {
-                        return new vd8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08b1, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                    }
-                    return new td8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0840, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                } else if ("apk_download".equals(hd8Var.a)) {
-                    if (this.a == 2) {
-                        return new ud8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08b0, this.c, true), "apk_download");
-                    }
-                    return new sd8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d083f, this.c, true), "apk_download");
-                } else {
-                    return null;
-                }
-            }
-            return xd8Var;
-        }
-        return (xd8) invokeLL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

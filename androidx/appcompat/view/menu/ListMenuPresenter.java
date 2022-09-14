@@ -12,11 +12,11 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$layout;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -230,7 +230,7 @@ public class ListMenuPresenter implements MenuPresenter, AdapterView.OnItemClick
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
             if (this.mMenuView == null) {
-                this.mMenuView = (ExpandedMenuView) this.mInflater.inflate(R$layout.abc_expanded_menu_layout, viewGroup, false);
+                this.mMenuView = (ExpandedMenuView) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d000d, viewGroup, false);
                 if (this.mAdapter == null) {
                     this.mAdapter = new MenuAdapter(this);
                 }

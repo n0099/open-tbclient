@@ -1,157 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j9;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
+import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public abstract class m9 implements j9 {
+public class m9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j9.a callback;
-    public SQLiteDatabase database;
-    public final String dbFileFullPath;
-    public int mVersion;
 
-    public m9(String str, int i) {
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0 && i != 1 && i != 11 && i != 12) {
+                switch (i) {
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                        break;
+                    default:
+                        return false;
+                }
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void b(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && d(activity)) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
+                if (a(activityInfo.screenOrientation)) {
+                    activityInfo.screenOrientation = -1;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        this.mVersion = 1;
-        this.database = null;
-        this.mVersion = i;
-        this.dbFileFullPath = str;
     }
 
-    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        j9.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (aVar = this.callback) == null) {
-            return;
-        }
-        aVar.onDatabaseCreated(sQLiteDatabase);
-    }
-
-    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
-            onCreate(sQLiteDatabase);
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
-            if (i2 > i) {
-                onUpgrade(sQLiteDatabase, i, i2);
-            } else {
-                onDowngrade(sQLiteDatabase, i, i2);
-            }
-            exeCallback(sQLiteDatabase);
-        }
-    }
-
-    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
-
-    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
-
-    @Override // com.baidu.tieba.j9
-    public boolean dropDatabase(Context context) {
+    public static boolean c(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.exists()) {
-                return file.delete();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            try {
+                Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
+                declaredField.setAccessible(true);
+                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
+                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
+                declaredMethod.setAccessible(true);
+                return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
-            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
-            try {
-                sQLiteDatabase.execSQL(str);
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(str + ":" + th);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j9
-    public SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(this.dbFileFullPath);
-            if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
-                boolean exists = file.exists();
-                SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
-                this.database = openOrCreateDatabase;
-                if (openOrCreateDatabase != null) {
-                    if (!exists) {
-                        onCreateDatabase(openOrCreateDatabase);
-                        this.database.setVersion(this.mVersion);
-                    } else {
-                        int version = openOrCreateDatabase.getVersion();
-                        int i = this.mVersion;
-                        if (version != i) {
-                            onUpdateDatabase(this.database, version, i);
-                            this.database.setVersion(this.mVersion);
-                        }
-                    }
-                }
-            }
-            return this.database;
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
-            clearAllTables(sQLiteDatabase);
-            createAllTables(sQLiteDatabase);
-        }
-    }
-
-    @Override // com.baidu.tieba.j9
-    public void setOnCreateCallback(j9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.callback = aVar;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? Build.VERSION.SDK_INT == 26 && c(activity) : invokeL.booleanValue;
     }
 }

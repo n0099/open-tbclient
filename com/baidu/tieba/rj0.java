@@ -1,120 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.q01;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class rj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
-        PackageInfo packageArchiveInfo;
-        ApplicationInfo applicationInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) ? (file == null || TextUtils.isEmpty(file.getPath()) || (packageManager = eh0.b().getPackageManager()) == null || (packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 1)) == null || (applicationInfo = packageArchiveInfo.applicationInfo) == null) ? "" : applicationInfo.packageName : (String) invokeL.objValue;
-    }
-
-    public static boolean b(String str) {
+    public static sz0 a(@NonNull yj0 yj0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                eh0.b().getPackageManager().getApplicationInfo(str, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yj0Var)) == null) {
+            sz0 sz0Var = new sz0();
+            sz0Var.o(yj0Var.e());
+            sz0Var.u(yj0Var.b);
+            sz0Var.t(yj0Var.c.status);
+            sz0Var.q(yj0Var.d);
+            sz0Var.v(yj0Var.g);
+            File file = yj0Var.h;
+            if (file != null) {
+                sz0Var.m(file.getAbsolutePath());
+            } else {
+                sz0Var.m("");
             }
+            sz0Var.r((int) (yj0Var.i * 1000.0f));
+            sz0Var.w((int) (yj0Var.j * 1000.0f));
+            sz0Var.s(yj0Var.l);
+            sz0Var.n(yj0Var.m);
+            ck0 ck0Var = yj0Var.p;
+            if (ck0Var != null) {
+                sz0Var.p(ck0.b(ck0Var));
+            } else {
+                sz0Var.p("");
+            }
+            zj0 zj0Var = yj0Var.q;
+            if (zj0Var != null) {
+                sz0Var.k(zj0.b(zj0Var));
+            } else {
+                sz0Var.k("");
+            }
+            bk0 bk0Var = yj0Var.r;
+            if (bk0Var != null) {
+                sz0Var.l(bk0.b(bk0Var));
+            } else {
+                sz0Var.l("");
+            }
+            return sz0Var;
         }
-        return invokeL.booleanValue;
+        return (sz0) invokeL.objValue;
     }
 
-    public static boolean c(File file) {
+    public static yj0 b(@NonNull sz0 sz0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) ? d(file, false) : invokeL.booleanValue;
-    }
-
-    public static boolean d(File file, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, file, z)) == null) {
-            if (e(file)) {
-                Context b = eh0.b();
-                Intent intent = new Intent("android.intent.action.VIEW");
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", b.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (!q01.b.e()) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                    }
-                    k01.a(b, file, intent);
-                    k01.d(b, intent);
-                } catch (Exception unused) {
-                    intent.setComponent(null);
-                    k01.a(b, file, intent);
-                    try {
-                        b.startActivity(intent);
-                    } catch (Exception unused2) {
-                        return false;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sz0Var)) == null) {
+            yj0 yj0Var = new yj0();
+            yj0Var.h(sz0Var.g());
+            yj0Var.b = sz0Var.z();
+            yj0Var.c = AdDownloadStatus.NONE;
+            AdDownloadStatus[] values = AdDownloadStatus.values();
+            int length = values.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    break;
                 }
-                return true;
+                AdDownloadStatus adDownloadStatus = values[i];
+                if (adDownloadStatus.status == sz0Var.y()) {
+                    yj0Var.c = adDownloadStatus;
+                    break;
+                }
+                i++;
             }
-            return false;
+            yj0Var.d = sz0Var.i();
+            yj0Var.g = sz0Var.A();
+            if (!TextUtils.isEmpty(sz0Var.e())) {
+                yj0Var.h = new File(sz0Var.e());
+            }
+            yj0Var.i = sz0Var.j() / 1000.0f;
+            yj0Var.j = sz0Var.B() / 1000.0f;
+            yj0Var.l = sz0Var.x();
+            yj0Var.m = sz0Var.f();
+            yj0Var.p = ck0.a(sz0Var.h());
+            yj0Var.q = zj0.a(sz0Var.c());
+            yj0Var.r = bk0.a(sz0Var.d());
+            return yj0Var;
         }
-        return invokeLZ.booleanValue;
-    }
-
-    public static boolean e(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) ? (file == null || TextUtils.isEmpty(file.getAbsolutePath()) || !file.exists() || (packageManager = eh0.b().getPackageManager()) == null || packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 1) == null) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        ResolveInfo next;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = eh0.b().getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
-                return false;
-            }
-            String str2 = next.activityInfo.name;
-            Intent intent2 = new Intent("android.intent.action.MAIN");
-            intent2.addCategory("android.intent.category.LAUNCHER");
-            intent2.setComponent(new ComponentName(str, str2));
-            intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return k01.e(eh0.b(), intent2, true);
-        }
-        return invokeL.booleanValue;
+        return (yj0) invokeL.objValue;
     }
 }

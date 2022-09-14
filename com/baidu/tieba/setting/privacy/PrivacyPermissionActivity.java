@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.km4;
+import com.baidu.tieba.lo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    km4.o(this.a.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
+                    lo4.o(this.a.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
                 }
             }
         }
@@ -188,10 +188,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             }
             this.c = 3;
             this.d = new a(this);
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091a40);
+            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091a7f);
             this.a = tbSettingTextTipView;
             tbSettingTextTipView.setOnClickListener(this.d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a3e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a7d);
         }
 
         public void a(b bVar) {
@@ -203,9 +203,9 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             this.a.setText(bVar.b);
             TbSettingTextTipView tbSettingTextTipView = this.a;
             if (bVar.d) {
-                string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0f01);
+                string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0f1e);
             } else {
-                string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0eff);
+                string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0f1c);
             }
             tbSettingTextTipView.setTip(string);
             this.b.setText(bVar.c);
@@ -290,10 +290,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
                 if (i == 0) {
-                    return new PermissionViewHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ba, viewGroup, false));
+                    return new PermissionViewHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d04c8, viewGroup, false));
                 }
                 if (i == 1) {
-                    return new PermissionDetailHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0862, viewGroup, false));
+                    return new PermissionDetailHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d087d, viewGroup, false));
                 }
                 return null;
             }
@@ -342,8 +342,8 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         }
         this.d = new ArrayList();
         this.f = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE", PermissionRequest.RESOURCE_AUDIO_CAPTURE, h.g};
-        this.g = new String[]{getString(R.string.obfuscated_res_0x7f0f0275), getString(R.string.obfuscated_res_0x7f0f0278), getString(R.string.obfuscated_res_0x7f0f0277), getString(R.string.obfuscated_res_0x7f0f0276)};
-        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f0ef5), getString(R.string.obfuscated_res_0x7f0f0f07), getString(R.string.obfuscated_res_0x7f0f0f06), getString(R.string.obfuscated_res_0x7f0f0efc)};
+        this.g = new String[]{getString(R.string.obfuscated_res_0x7f0f0279), getString(R.string.obfuscated_res_0x7f0f027c), getString(R.string.obfuscated_res_0x7f0f027b), getString(R.string.obfuscated_res_0x7f0f027a)};
+        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f0f12), getString(R.string.obfuscated_res_0x7f0f0f24), getString(R.string.obfuscated_res_0x7f0f0f23), getString(R.string.obfuscated_res_0x7f0f0f19)};
         this.i = new a(this);
     }
 
@@ -363,14 +363,14 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0738);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c33);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092566);
+            setContentView(R.layout.obfuscated_res_0x7f0d0752);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c81);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
             this.a = navigationBar;
             navigationBar.showBottomLine();
             this.b = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0efe));
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b76);
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1b));
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb8);
             this.c = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             this.c.setAdapter(this.i);

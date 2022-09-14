@@ -38,7 +38,7 @@ public class ba implements au {
         }
         this.f130a = az.a(context);
         this.f129a = az.a;
-        com.xiaomi.channel.commonutils.logger.b.m89a("create id manager is: " + this.f129a);
+        com.xiaomi.channel.commonutils.logger.b.m90a("create id manager is: " + this.f129a);
     }
 
     public static ba a(Context context) {
@@ -105,7 +105,7 @@ public class ba implements au {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f130a.m173a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f130a.m174a() : invokeV.booleanValue;
     }
 
     public String b() {

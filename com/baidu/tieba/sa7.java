@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sa7 implements CustomMessageTask.CustomRunnable<Object> {
+public class sa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,25 +26,29 @@ public class sa7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public String a(String str) {
         InterceptResult invokeL;
+        m05 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str != null) {
+                try {
+                    pz4 pz4Var = new pz4(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+                    String storeFile = FileHelper.getStoreFile(str, 1);
+                    pz4Var.a("type", 2);
+                    n05 d = pz4Var.d(storeFile);
+                    if (d == null || !d.d() || (a = d.a()) == null) {
+                        return null;
+                    }
+                    String b = a.b();
+                    mz4.b(str, b);
+                    return b;
+                } catch (Exception unused) {
+                    return null;
+                }
             }
-            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
-            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
-            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
-            responseSearchGroupLocalMessage.setError(0);
-            responseSearchGroupLocalMessage.setGid(groupId);
-            String str = groupId + "";
-            ur4.f();
-            ve<String> g = ur4.g("tb.im_group_search_history");
-            g.g(str, g.get(str));
-            return responseSearchGroupLocalMessage;
+            return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

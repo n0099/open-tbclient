@@ -1,84 +1,50 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
+import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class ci8 extends ln4 {
+public class ci8 implements ILooperNeedContext {
     public static /* synthetic */ Interceptable $ic;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675831, "Lcom/baidu/tieba/ci8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947675831, "Lcom/baidu/tieba/ci8;");
-                return;
-            }
-        }
-        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
-    }
 
     public ci8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public long g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void addLooperPrinter(Printer printer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getStat().stat.c;
-            }
-            return 0L;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, printer) == null) || printer == null) {
+            return;
         }
-        return invokeV.longValue;
+        Looper.getMainLooper().setMessageLogging(printer);
     }
 
-    public long h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void removeLooperPrinter(Printer printer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getStat().stat.d;
-            }
-            return 0L;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
+            Looper.getMainLooper().setMessageLogging(null);
         }
-        return invokeV.longValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(c);
-            return d();
-        }
-        return (String) invokeV.objValue;
     }
 }

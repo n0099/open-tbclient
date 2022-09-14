@@ -10,14 +10,12 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$color;
-import androidx.appcompat.R$drawable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -126,12 +124,12 @@ public final class AppCompatDrawableManager {
                                     return;
                                 }
                             }
-                            this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL = new int[]{R$drawable.abc_textfield_search_default_mtrl_alpha, R$drawable.abc_textfield_default_mtrl_alpha, R$drawable.abc_ab_share_pack_mtrl_alpha};
-                            this.TINT_COLOR_CONTROL_NORMAL = new int[]{R$drawable.abc_ic_commit_search_api_mtrl_alpha, R$drawable.abc_seekbar_tick_mark_material, R$drawable.abc_ic_menu_share_mtrl_alpha, R$drawable.abc_ic_menu_copy_mtrl_am_alpha, R$drawable.abc_ic_menu_cut_mtrl_alpha, R$drawable.abc_ic_menu_selectall_mtrl_alpha, R$drawable.abc_ic_menu_paste_mtrl_am_alpha};
-                            this.COLORFILTER_COLOR_CONTROL_ACTIVATED = new int[]{R$drawable.abc_textfield_activated_mtrl_alpha, R$drawable.abc_textfield_search_activated_mtrl_alpha, R$drawable.abc_cab_background_top_mtrl_alpha, R$drawable.abc_text_cursor_material, R$drawable.abc_text_select_handle_left_mtrl_dark, R$drawable.abc_text_select_handle_middle_mtrl_dark, R$drawable.abc_text_select_handle_right_mtrl_dark, R$drawable.abc_text_select_handle_left_mtrl_light, R$drawable.abc_text_select_handle_middle_mtrl_light, R$drawable.abc_text_select_handle_right_mtrl_light};
-                            this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY = new int[]{R$drawable.abc_popup_background_mtrl_mult, R$drawable.abc_cab_background_internal_bg, R$drawable.abc_menu_hardkey_panel_mtrl_mult};
-                            this.TINT_COLOR_CONTROL_STATE_LIST = new int[]{R$drawable.abc_tab_indicator_material, R$drawable.abc_textfield_search_material};
-                            this.TINT_CHECKABLE_BUTTON_LIST = new int[]{R$drawable.abc_btn_check_material, R$drawable.abc_btn_radio_material, R$drawable.abc_btn_check_material_anim, R$drawable.abc_btn_radio_material_anim};
+                            this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL = new int[]{R.drawable.obfuscated_res_0x7f0800b2, R.drawable.obfuscated_res_0x7f0800b0, R.drawable.obfuscated_res_0x7f08005f};
+                            this.TINT_COLOR_CONTROL_NORMAL = new int[]{R.drawable.obfuscated_res_0x7f080077, R.drawable.obfuscated_res_0x7f0800a0, R.drawable.obfuscated_res_0x7f08007e, R.drawable.obfuscated_res_0x7f080079, R.drawable.obfuscated_res_0x7f08007a, R.drawable.obfuscated_res_0x7f08007d, R.drawable.obfuscated_res_0x7f08007c};
+                            this.COLORFILTER_COLOR_CONTROL_ACTIVATED = new int[]{R.drawable.obfuscated_res_0x7f0800af, R.drawable.obfuscated_res_0x7f0800b1, R.drawable.obfuscated_res_0x7f080070, R.drawable.obfuscated_res_0x7f0800a8, R.drawable.obfuscated_res_0x7f0800a9, R.drawable.obfuscated_res_0x7f0800ab, R.drawable.obfuscated_res_0x7f0800ad, R.drawable.obfuscated_res_0x7f0800aa, R.drawable.obfuscated_res_0x7f0800ac, R.drawable.obfuscated_res_0x7f0800ae};
+                            this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY = new int[]{R.drawable.obfuscated_res_0x7f080096, R.drawable.obfuscated_res_0x7f08006e, R.drawable.obfuscated_res_0x7f080095};
+                            this.TINT_COLOR_CONTROL_STATE_LIST = new int[]{R.drawable.obfuscated_res_0x7f0800a6, R.drawable.obfuscated_res_0x7f0800b3};
+                            this.TINT_CHECKABLE_BUTTON_LIST = new int[]{R.drawable.obfuscated_res_0x7f080062, R.drawable.obfuscated_res_0x7f080068, R.drawable.obfuscated_res_0x7f080063, R.drawable.obfuscated_res_0x7f080069};
                         }
 
                         private boolean arrayContains(int[] iArr, int i) {
@@ -158,8 +156,8 @@ public final class AppCompatDrawableManager {
                             InterceptResult invokeLI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(65539, this, context, i)) == null) {
-                                int themeAttrColor = ThemeUtils.getThemeAttrColor(context, R$attr.colorControlHighlight);
-                                return new ColorStateList(new int[][]{ThemeUtils.DISABLED_STATE_SET, ThemeUtils.PRESSED_STATE_SET, ThemeUtils.FOCUSED_STATE_SET, ThemeUtils.EMPTY_STATE_SET}, new int[]{ThemeUtils.getDisabledThemeAttrColor(context, R$attr.colorButtonNormal), ColorUtils.compositeColors(themeAttrColor, i), ColorUtils.compositeColors(themeAttrColor, i), i});
+                                int themeAttrColor = ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016f);
+                                return new ColorStateList(new int[][]{ThemeUtils.DISABLED_STATE_SET, ThemeUtils.PRESSED_STATE_SET, ThemeUtils.FOCUSED_STATE_SET, ThemeUtils.EMPTY_STATE_SET}, new int[]{ThemeUtils.getDisabledThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016d), ColorUtils.compositeColors(themeAttrColor, i), ColorUtils.compositeColors(themeAttrColor, i), i});
                             }
                             return (ColorStateList) invokeLI.objValue;
                         }
@@ -167,13 +165,13 @@ public final class AppCompatDrawableManager {
                         private ColorStateList createColoredButtonColorStateList(@NonNull Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R$attr.colorAccent)) : (ColorStateList) invokeL.objValue;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016b)) : (ColorStateList) invokeL.objValue;
                         }
 
                         private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(65541, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R$attr.colorButtonNormal)) : (ColorStateList) invokeL.objValue;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(65541, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016d)) : (ColorStateList) invokeL.objValue;
                         }
 
                         private ColorStateList createSwitchThumbColorStateList(Context context) {
@@ -182,21 +180,21 @@ public final class AppCompatDrawableManager {
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(65542, this, context)) == null) {
                                 int[][] iArr = new int[3];
                                 int[] iArr2 = new int[3];
-                                ColorStateList themeAttrColorStateList = ThemeUtils.getThemeAttrColorStateList(context, R$attr.colorSwitchThumbNormal);
+                                ColorStateList themeAttrColorStateList = ThemeUtils.getThemeAttrColorStateList(context, R.attr.obfuscated_res_0x7f04017f);
                                 if (themeAttrColorStateList != null && themeAttrColorStateList.isStateful()) {
                                     iArr[0] = ThemeUtils.DISABLED_STATE_SET;
                                     iArr2[0] = themeAttrColorStateList.getColorForState(iArr[0], 0);
                                     iArr[1] = ThemeUtils.CHECKED_STATE_SET;
-                                    iArr2[1] = ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated);
+                                    iArr2[1] = ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e);
                                     iArr[2] = ThemeUtils.EMPTY_STATE_SET;
                                     iArr2[2] = themeAttrColorStateList.getDefaultColor();
                                 } else {
                                     iArr[0] = ThemeUtils.DISABLED_STATE_SET;
-                                    iArr2[0] = ThemeUtils.getDisabledThemeAttrColor(context, R$attr.colorSwitchThumbNormal);
+                                    iArr2[0] = ThemeUtils.getDisabledThemeAttrColor(context, R.attr.obfuscated_res_0x7f04017f);
                                     iArr[1] = ThemeUtils.CHECKED_STATE_SET;
-                                    iArr2[1] = ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated);
+                                    iArr2[1] = ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e);
                                     iArr[2] = ThemeUtils.EMPTY_STATE_SET;
-                                    iArr2[2] = ThemeUtils.getThemeAttrColor(context, R$attr.colorSwitchThumbNormal);
+                                    iArr2[2] = ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04017f);
                                 }
                                 return new ColorStateList(iArr, iArr2);
                             }
@@ -221,8 +219,8 @@ public final class AppCompatDrawableManager {
                             InterceptResult invokeLLI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048576, this, resourceManagerInternal, context, i)) == null) {
-                                if (i == R$drawable.abc_cab_background_top_material) {
-                                    return new LayerDrawable(new Drawable[]{resourceManagerInternal.getDrawable(context, R$drawable.abc_cab_background_internal_bg), resourceManagerInternal.getDrawable(context, R$drawable.abc_cab_background_top_mtrl_alpha)});
+                                if (i == R.drawable.obfuscated_res_0x7f08006f) {
+                                    return new LayerDrawable(new Drawable[]{resourceManagerInternal.getDrawable(context, R.drawable.obfuscated_res_0x7f08006e), resourceManagerInternal.getDrawable(context, R.drawable.obfuscated_res_0x7f080070)});
                                 }
                                 return null;
                             }
@@ -234,40 +232,40 @@ public final class AppCompatDrawableManager {
                             InterceptResult invokeLI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i)) == null) {
-                                if (i == R$drawable.abc_edit_text_material) {
-                                    return AppCompatResources.getColorStateList(context, R$color.abc_tint_edittext);
+                                if (i == R.drawable.obfuscated_res_0x7f080073) {
+                                    return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f060379);
                                 }
-                                if (i == R$drawable.abc_switch_track_mtrl_alpha) {
-                                    return AppCompatResources.getColorStateList(context, R$color.abc_tint_switch_track);
+                                if (i == R.drawable.obfuscated_res_0x7f0800a5) {
+                                    return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06037c);
                                 }
-                                if (i == R$drawable.abc_switch_thumb_material) {
+                                if (i == R.drawable.obfuscated_res_0x7f0800a4) {
                                     return createSwitchThumbColorStateList(context);
                                 }
-                                if (i == R$drawable.abc_btn_default_mtrl_shape) {
+                                if (i == R.drawable.obfuscated_res_0x7f080067) {
                                     return createDefaultButtonColorStateList(context);
                                 }
-                                if (i == R$drawable.abc_btn_borderless_material) {
+                                if (i == R.drawable.obfuscated_res_0x7f080061) {
                                     return createBorderlessButtonColorStateList(context);
                                 }
-                                if (i == R$drawable.abc_btn_colored_material) {
+                                if (i == R.drawable.obfuscated_res_0x7f080066) {
                                     return createColoredButtonColorStateList(context);
                                 }
-                                if (i != R$drawable.abc_spinner_mtrl_am_alpha && i != R$drawable.abc_spinner_textfield_background_material) {
+                                if (i != R.drawable.obfuscated_res_0x7f0800a2 && i != R.drawable.obfuscated_res_0x7f0800a3) {
                                     if (arrayContains(this.TINT_COLOR_CONTROL_NORMAL, i)) {
-                                        return ThemeUtils.getThemeAttrColorStateList(context, R$attr.colorControlNormal);
+                                        return ThemeUtils.getThemeAttrColorStateList(context, R.attr.obfuscated_res_0x7f040170);
                                     }
                                     if (arrayContains(this.TINT_COLOR_CONTROL_STATE_LIST, i)) {
-                                        return AppCompatResources.getColorStateList(context, R$color.abc_tint_default);
+                                        return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f060378);
                                     }
                                     if (arrayContains(this.TINT_CHECKABLE_BUTTON_LIST, i)) {
-                                        return AppCompatResources.getColorStateList(context, R$color.abc_tint_btn_checkable);
+                                        return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f060377);
                                     }
-                                    if (i == R$drawable.abc_seekbar_thumb_material) {
-                                        return AppCompatResources.getColorStateList(context, R$color.abc_tint_seek_thumb);
+                                    if (i == R.drawable.obfuscated_res_0x7f08009f) {
+                                        return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06037a);
                                     }
                                     return null;
                                 }
-                                return AppCompatResources.getColorStateList(context, R$color.abc_tint_spinner);
+                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f06037b);
                             }
                             return (ColorStateList) invokeLI.objValue;
                         }
@@ -277,7 +275,7 @@ public final class AppCompatDrawableManager {
                             InterceptResult invokeI;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                                if (i == R$drawable.abc_switch_thumb_material) {
+                                if (i == R.drawable.obfuscated_res_0x7f0800a4) {
                                     return PorterDuff.Mode.MULTIPLY;
                                 }
                                 return null;
@@ -290,17 +288,17 @@ public final class AppCompatDrawableManager {
                             InterceptResult invokeLIL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048579, this, context, i, drawable)) == null) {
-                                if (i == R$drawable.abc_seekbar_track_material) {
+                                if (i == R.drawable.obfuscated_res_0x7f0800a1) {
                                     LayerDrawable layerDrawable = (LayerDrawable) drawable;
-                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908288), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlNormal), AppCompatDrawableManager.DEFAULT_MODE);
-                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlNormal), AppCompatDrawableManager.DEFAULT_MODE);
-                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908288), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f040170), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f040170), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e), AppCompatDrawableManager.DEFAULT_MODE);
                                     return true;
-                                } else if (i == R$drawable.abc_ratingbar_material || i == R$drawable.abc_ratingbar_indicator_material || i == R$drawable.abc_ratingbar_small_material) {
+                                } else if (i == R.drawable.obfuscated_res_0x7f080098 || i == R.drawable.obfuscated_res_0x7f080097 || i == R.drawable.obfuscated_res_0x7f080099) {
                                     LayerDrawable layerDrawable2 = (LayerDrawable) drawable;
-                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908288), ThemeUtils.getDisabledThemeAttrColor(context, R$attr.colorControlNormal), AppCompatDrawableManager.DEFAULT_MODE);
-                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated), AppCompatDrawableManager.DEFAULT_MODE);
-                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R$attr.colorControlActivated), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908288), ThemeUtils.getDisabledThemeAttrColor(context, R.attr.obfuscated_res_0x7f040170), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908303), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e), AppCompatDrawableManager.DEFAULT_MODE);
+                                    setPorterDuffColorFilter(layerDrawable2.findDrawableByLayerId(16908301), ThemeUtils.getThemeAttrColor(context, R.attr.obfuscated_res_0x7f04016e), AppCompatDrawableManager.DEFAULT_MODE);
                                     return true;
                                 } else {
                                     return false;
@@ -309,8 +307,8 @@ public final class AppCompatDrawableManager {
                             return invokeLIL.booleanValue;
                         }
 
-                        /* JADX WARN: Removed duplicated region for block: B:23:0x004a  */
-                        /* JADX WARN: Removed duplicated region for block: B:30:0x0065 A[RETURN] */
+                        /* JADX WARN: Removed duplicated region for block: B:23:0x004e  */
+                        /* JADX WARN: Removed duplicated region for block: B:30:0x0069 A[RETURN] */
                         @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.
@@ -326,12 +324,12 @@ public final class AppCompatDrawableManager {
                             PorterDuff.Mode mode = AppCompatDrawableManager.DEFAULT_MODE;
                             int i3 = 16842801;
                             if (arrayContains(this.COLORFILTER_TINT_COLOR_CONTROL_NORMAL, i)) {
-                                i3 = R$attr.colorControlNormal;
+                                i3 = R.attr.obfuscated_res_0x7f040170;
                             } else if (arrayContains(this.COLORFILTER_COLOR_CONTROL_ACTIVATED, i)) {
-                                i3 = R$attr.colorControlActivated;
+                                i3 = R.attr.obfuscated_res_0x7f04016e;
                             } else if (arrayContains(this.COLORFILTER_COLOR_BACKGROUND_MULTIPLY, i)) {
                                 mode = PorterDuff.Mode.MULTIPLY;
-                            } else if (i == R$drawable.abc_list_divider_mtrl_alpha) {
+                            } else if (i == R.drawable.obfuscated_res_0x7f08008a) {
                                 i3 = 16842800;
                                 i2 = Math.round(40.8f);
                                 z = true;
@@ -346,7 +344,7 @@ public final class AppCompatDrawableManager {
                                     return true;
                                 }
                                 return false;
-                            } else if (i != R$drawable.abc_dialog_material_background) {
+                            } else if (i != R.drawable.obfuscated_res_0x7f080072) {
                                 i2 = -1;
                                 z = false;
                                 i3 = 0;

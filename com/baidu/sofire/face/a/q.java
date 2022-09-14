@@ -27,7 +27,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.io.File;
 import java.util.TimeZone;
 import org.json.JSONArray;
@@ -859,7 +858,7 @@ public class q implements TextureView.SurfaceTextureListener, Camera.PreviewCall
                                 jSONObject6.put("zid", FH.gzfi(this.a, "", 5002));
                                 jSONObject6.put(Config.EVENT_PART, "face");
                                 jSONObject6.put(NotificationStyle.NOTIFICATION_STYLE, this.G);
-                                jSONObject6.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
+                                jSONObject6.put("ts", System.currentTimeMillis());
                                 TimeZone timeZone = TimeZone.getDefault();
                                 if (timeZone != null) {
                                     jSONObject6.put("tz", timeZone.getID());

@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.ur4;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,8 +163,8 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
-        ur4.f();
-        ur4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
+        zt4.f();
+        zt4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

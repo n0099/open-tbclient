@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tbadk.coreExtra.data.WriteVoteData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface u49 {
-    boolean a();
+public class u49 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public WriteVoteData a;
 
-    int b();
-
-    boolean c(String str);
-
-    boolean d();
-
-    boolean e();
-
-    int f();
-
-    int g();
-
-    String h();
-
-    boolean i();
-
-    List<String> j();
-
-    boolean k();
-
-    boolean l();
-
-    boolean m();
-
-    boolean n();
-
-    boolean o();
-
-    boolean p();
-
-    boolean q();
+    public u49() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

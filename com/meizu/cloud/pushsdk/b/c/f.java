@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     public final String b;
@@ -26,37 +26,37 @@ public class f {
     public final String j;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
         static {
-            int[] iArr = new int[a.EnumC0639a.values().length];
+            int[] iArr = new int[a.EnumC0644a.values().length];
             a = iArr;
             try {
-                iArr[a.EnumC0639a.SUCCESS.ordinal()] = 1;
+                iArr[a.EnumC0644a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[a.EnumC0639a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC0644a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[a.EnumC0639a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC0644a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[a.EnumC0639a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC0644a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[a.EnumC0639a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC0644a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public String a;
         public String d;
@@ -68,8 +68,8 @@ public class f {
         public int e = -1;
 
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public enum EnumC0639a {
+        /* loaded from: classes8.dex */
+        public enum EnumC0644a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -436,7 +436,7 @@ public class f {
             return i != -1 ? i : f.a(this.a);
         }
 
-        public EnumC0639a a(f fVar, String str) {
+        public EnumC0644a a(f fVar, String str) {
             int a;
             int i;
             int a2 = m.a(str, 0, str.length());
@@ -446,13 +446,13 @@ public class f {
                     this.a = "https";
                     a2 += 6;
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC0639a.UNSUPPORTED_SCHEME;
+                    return EnumC0644a.UNSUPPORTED_SCHEME;
                 } else {
                     this.a = "http";
                     a2 += 5;
                 }
             } else if (fVar == null) {
-                return EnumC0639a.MISSING_SCHEME;
+                return EnumC0644a.MISSING_SCHEME;
             } else {
                 this.a = fVar.b;
             }
@@ -499,13 +499,13 @@ public class f {
                     int g = g(str, i3, a);
                     this.e = g;
                     if (g == -1) {
-                        return EnumC0639a.INVALID_PORT;
+                        return EnumC0644a.INVALID_PORT;
                     }
                 } else {
                     this.e = f.a(this.a);
                 }
                 if (this.d == null) {
-                    return EnumC0639a.INVALID_HOST;
+                    return EnumC0644a.INVALID_HOST;
                 }
                 a2 = a;
             } else {
@@ -529,7 +529,7 @@ public class f {
             if (a5 < b && str.charAt(a5) == '#') {
                 this.h = f.a(str, 1 + a5, b, "", true, false, false, false);
             }
-            return EnumC0639a.SUCCESS;
+            return EnumC0644a.SUCCESS;
         }
 
         public a a(String str) {
@@ -785,7 +785,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0639a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC0644a.SUCCESS) {
             return aVar.b();
         }
         return null;

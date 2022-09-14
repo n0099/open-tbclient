@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.tieba.R;
+import com.baidu.tieba.n91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +70,7 @@ public class RoundWebview extends SapiWebView {
             Paint paint2 = new Paint();
             this.j = paint2;
             paint2.setXfermode(null);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405dc, R.attr.obfuscated_res_0x7f0405dd, R.attr.obfuscated_res_0x7f0405e3, R.attr.obfuscated_res_0x7f0405e4});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n91.sapi_sdk_RoundWebview);
             this.a = obtainStyledAttributes.getDimension(2, 0.0f);
             this.b = obtainStyledAttributes.getDimension(3, 0.0f);
             this.c = obtainStyledAttributes.getDimension(0, 0.0f);

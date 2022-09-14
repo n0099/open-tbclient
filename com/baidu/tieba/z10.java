@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,14 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class z10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public String b;
 
-    public z10(Context context) {
+    public z10() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,12 +30,61 @@ public class z10 {
                 return;
             }
         }
-        this.a = context;
+        d();
     }
 
-    public t10 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? p10.a(this.a) : (t10) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public final String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
+            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
+            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(displayWidth);
+            stringBuffer.append("_");
+            stringBuffer.append(displayHeight);
+            stringBuffer.append("_");
+            stringBuffer.append("android");
+            stringBuffer.append("_");
+            stringBuffer.append(this.a);
+            stringBuffer.append("_");
+            stringBuffer.append(densityDpi);
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            String appVersion = r10.c().getAppVersion();
+            if (TextUtils.isEmpty(appVersion)) {
+                try {
+                    return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "0.8";
+                }
+            }
+            return appVersion;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            this.a = c(appContext);
+            this.b = b(appContext);
+        }
     }
 }

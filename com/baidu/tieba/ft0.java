@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ft0 {
+public class ft0 extends ht0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile et0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized et0 a() {
-        InterceptResult invokeV;
-        et0 et0Var;
+    public ft0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ft0.class) {
-                if (a == null) {
-                    a = new et0();
-                }
-                et0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return et0Var;
         }
-        return (et0) invokeV.objValue;
+    }
+
+    public static ht0 w(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? ht0.m(str, 1) : (ht0) invokeL.objValue;
     }
 }

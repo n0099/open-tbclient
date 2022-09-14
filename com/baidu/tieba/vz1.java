@@ -1,64 +1,92 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.c23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class vz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948257980, "Lcom/baidu/tieba/vz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y23 a;
+
+        public a(y23 y23Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948257980, "Lcom/baidu/tieba/vz1;");
-                return;
-            }
+            this.a = y23Var;
         }
-        boolean z = kh1.a;
-    }
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put("data", str2);
-            nm2.U().m(nm2.U().q().a(), new bb2(str, hashMap));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            in1 A = nm2.U().A(nm2.U().C());
-            if (A != null) {
-                ay1.i("ConsoleMessageHelper", "send full San request");
-                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                SwanAppActivity w = this.a.w();
+                if (w != null && Build.VERSION.SDK_INT >= 21) {
+                    w.finishAndRemoveTask();
+                }
+                System.exit(0);
             }
         }
     }
 
-    public static void c(String str) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a("sanFullData2Console", str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
         }
     }
 
-    public static void d(String str) {
+    public static void c(Context context, boolean z) {
+        y23 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a("sanIncData2Console", str);
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (M = y23.M()) == null) {
+            return;
+        }
+        wz1.c(z);
+        int i = z ? R.string.obfuscated_res_0x7f0f01a3 : R.string.obfuscated_res_0x7f0f0117;
+        c23.a aVar = new c23.a(context);
+        aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0153));
+        aVar.x(context.getString(i));
+        aVar.n(new gi3());
+        aVar.m(false);
+        aVar.O(R.string.obfuscated_res_0x7f0f011a, new a(M));
+        aVar.X();
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            c(context, !a());
         }
     }
 }

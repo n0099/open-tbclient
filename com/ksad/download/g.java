@@ -11,6 +11,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.gms.common.internal.BaseGmsClient;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import com.kwad.sdk.core.download.DownloadParams;
 import java.io.File;
@@ -46,7 +47,7 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
             Intent intent2 = new Intent("intent.action.requestInstallPermission");
             intent2.putExtra("fromNotification", true);
-            intent2.putExtra("pendingIntent", intent);
+            intent2.putExtra(BaseGmsClient.KEY_PENDING_INTENT, intent);
             intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             return intent2;
         }

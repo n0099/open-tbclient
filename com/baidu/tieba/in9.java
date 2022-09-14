@@ -1,85 +1,117 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.RootTelemetryConfiguration;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.express2.AdEventListener;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes4.dex */
-public final class in9 {
+public class in9 implements AdEventListener {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static in9 b;
-    public static final RootTelemetryConfiguration c;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public RootTelemetryConfiguration a;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ NativeExpressADData2 c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ hn9 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859413, "Lcom/baidu/tieba/in9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947859413, "Lcom/baidu/tieba/in9;");
-                return;
-            }
-        }
-        c = new RootTelemetryConfiguration(0, false, false, 0, 0);
-    }
-
-    public in9() {
+    public in9(hn9 hn9Var, NativeExpressADData2 nativeExpressADData2, ExpressAdListenerWrapper expressAdListenerWrapper, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hn9Var, nativeExpressADData2, expressAdListenerWrapper, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = hn9Var;
+        this.c = nativeExpressADData2;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onAdClosed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.f.onAdClose(this.c);
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdClose(this.e);
             }
         }
     }
 
-    @NonNull
-    public static synchronized in9 a() {
-        InterceptResult invokeV;
-        in9 in9Var;
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onClick() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (in9.class) {
-                if (b == null) {
-                    b = new in9();
-                }
-                in9Var = b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.f.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
-            return in9Var;
         }
-        return (in9) invokeV.objValue;
     }
 
-    public final synchronized void b(@Nullable RootTelemetryConfiguration rootTelemetryConfiguration) {
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onExposed() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rootTelemetryConfiguration) == null) {
-            synchronized (this) {
-                if (rootTelemetryConfiguration == null) {
-                    this.a = c;
-                    return;
-                }
-                RootTelemetryConfiguration rootTelemetryConfiguration2 = this.a;
-                if (rootTelemetryConfiguration2 == null || rootTelemetryConfiguration2.getVersion() < rootTelemetryConfiguration.getVersion()) {
-                    this.a = rootTelemetryConfiguration;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.e();
+            this.f.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.f.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.f.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onRenderFail() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.f.onError(0, "RenderFail");
+        }
+    }
+
+    @Override // com.qq.e.ads.nativ.express2.AdEventListener
+    public void onRenderSuccess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.f.e.put(this.c, this.d);
+            this.f.onAdLoaded((hn9) this.c);
         }
     }
 }

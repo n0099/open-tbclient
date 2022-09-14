@@ -1,97 +1,64 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class es0 implements bs0 {
+public class es0 extends ks0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    @NonNull
-    public cp0 b;
-    public ViewGroup c;
 
-    public es0(@NonNull cp0 cp0Var) {
+    public es0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cp0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = cp0Var;
     }
 
-    public void a(boolean z, @Nullable Activity activity) {
+    @Override // com.baidu.tieba.ks0
+    public boolean C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) {
-            if (z) {
-                int i = this.a;
-                if (i != -1) {
-                    c11.d(activity, i);
-                    return;
-                }
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? q().V() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ks0
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean C = C();
+            if (C && ty0.c(getContext()) == 0) {
+                ty0.d(getContext(), (int) (ty0.b(getContext()) * 0.35d));
             }
-            c11.f(activity);
+            K(C);
+            boolean z = !C;
+            L(z);
+            O(z);
         }
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void b(@Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
-            return;
-        }
-        ex0.b("NormalSwitchHelper", "SCREEN_ORIENTATION_PORTRAIT ");
-        activity.setRequestedOrientation(1);
-        activity.getWindow().clearFlags(1024);
-        gx0.l(activity);
-    }
-
-    @Override // com.baidu.tieba.bs0
-    public void switchToFullStyle() {
+    @Override // com.baidu.tieba.ks0
+    public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = this.b.n();
-            this.b.Y0(true);
-            Activity activity = this.b.getActivity();
-            a(true, activity);
-            fx0.b(activity, this.b.X0());
-            fx0.c(activity, true);
-            gx0.b(activity, this.b.v());
+            L(q().V());
         }
     }
 
-    @Override // com.baidu.tieba.bs0
-    public void switchToNormalStyle() {
+    public void O(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q().w0(z);
         }
-        this.c = this.b.n();
-        this.b.Y0(false);
-        Activity activity = this.b.getActivity();
-        a(false, activity);
-        b(activity);
-        gx0.k(this.b.v());
-        gx0.j(this.b.n());
-        gx0.c(this.b.v(), this.c);
     }
 }

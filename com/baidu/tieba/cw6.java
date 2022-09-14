@@ -1,37 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.homepage.concern.adapter.ConcernEmotionTipAdapter;
+import com.baidu.tieba.homepage.concern.adapter.ConcernTipAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-import org.json.JSONObject;
-import tbclient.ThreadInfo;
-import tbclient.Userlike.ConcernData;
-import tbclient.Userlike.DataRes;
-import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes3.dex */
 public class cw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y07 a;
-    public boolean b;
+    public hw6 A;
+    public zw6 B;
+    public kw6 C;
+    public ww6 D;
+    public lw6 E;
+    public xw6 F;
+    public ConcernEmotionTipAdapter G;
+    public hx6 H;
+    public ArrayList<qn> I;
+    public List<Cdo> J;
+    public List<qn> a;
+    public BdTypeRecyclerView b;
+    public TbPageContext<?> c;
+    public ConcernTipAdapter d;
+    public ConcernEmotionTipAdapter e;
+    public iw6 f;
+    public gw6 g;
+    public cx6 h;
+    public ArrayList<yw6> i;
+    public ex6 j;
+    public ex6 k;
+    public qw6 l;
+    public dx6 m;
+    public sw6 n;
+    public bx6 o;
+    public pw6 p;
+    public ow6 q;
+    public nw6 r;
+    public mw6 s;
+    public fx6 t;
+    public rw6 u;
+    public tw6 v;
+    public uw6 w;
+    public ax6 x;
+    public vw6 y;
+    public gx6 z;
 
-    public cw6() {
+    public cw6(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,292 +74,225 @@ public class cw6 {
                 return;
             }
         }
-        this.b = false;
-        this.a = new y07();
+        this.i = new ArrayList<>();
+        this.a = new ArrayList();
+        this.b = bdTypeRecyclerView;
+        this.c = (TbPageContext) w9.a(context);
+        b(context);
+        i(bdTypeRecyclerView);
+        bdTypeRecyclerView.a(this.a);
     }
 
-    public static void a(DataRes.Builder builder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, builder) == null) && builder != null && builder.thread_info == null) {
-            builder.thread_info = new LinkedList();
-        }
-    }
-
-    public final yv6 b() {
+    public List<Cdo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            y07 y07Var = this.a;
-            if (y07Var != null && !ListUtils.isEmpty(y07Var.a)) {
-                for (pn pnVar : this.a.a) {
-                    if (pnVar instanceof yv6) {
-                        return (yv6) pnVar;
-                    }
-                }
-            }
-            return null;
-        }
-        return (yv6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.J : (List) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x006c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public y07 c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        InterceptResult invokeCommon;
-        int i2;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i)})) == null) {
-            if (i == 0 || i == 1) {
-                if (builder == null) {
-                    builder = new DataRes.Builder();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            for (int i = 0; i < c26.O.size(); i++) {
+                for (int i2 = 0; i2 < c26.P.size(); i2++) {
+                    this.i.add(new yw6(this.c, c26.Q[i][i2], c26.O.get(i), c26.P.get(i2)));
                 }
-                if (builder2 == null) {
-                    builder2 = new DataRes.Builder();
-                }
-                a(builder);
-                a(builder2);
-                e(z, builder, builder2, i);
-                LinkedList linkedList = new LinkedList();
-                ArrayList arrayList = new ArrayList();
-                UserFollowLive userFollowLive = builder2.user_follow_live;
-                if (i == 0 && userFollowLive != null && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
-                    yv6 yv6Var = new yv6();
-                    yv6Var.f(userFollowLive);
-                    linkedList.add(0, yv6Var);
-                    yv6Var.position = -1;
-                    this.b = true;
-                } else {
-                    if (i == 1) {
-                        yv6 b = b();
-                        if (b != null) {
-                            linkedList.add(0, b);
-                            b.position = -1;
-                            this.b = true;
-                        }
-                    } else {
-                        this.b = false;
-                    }
-                    i2 = 0;
-                    for (ConcernData concernData : builder.thread_info) {
-                        if (concernData != null) {
-                            if (aw6.n(builder.hot_recomforum, i2)) {
-                                aw6 aw6Var = new aw6();
-                                if (aw6Var.j(builder.hot_recomforum.tab_list)) {
-                                    aw6Var.position = i2;
-                                    linkedList.add(aw6Var);
-                                    i2++;
-                                }
-                            }
-                            if (xv6.j(concernData)) {
-                                xv6 xv6Var = new xv6();
-                                if (concernData.recom_user_list.size() >= 4) {
-                                    xv6Var.f(concernData.recom_user_list);
-                                    xv6Var.position = i2;
-                                    xv6Var.l(builder.thread_info.size() > 1);
-                                    linkedList.add(xv6Var);
-                                }
-                            } else {
-                                ThreadData threadData = new ThreadData();
-                                threadData.setFromConcern(true);
-                                AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                                threadData.parserProtobuf(concernData.thread_list);
-                                JSONObject b2 = qd8.b(concernData.thread_list);
-                                if (b2 != null) {
-                                    arrayList.add(b2);
-                                }
-                                linkedList.addAll(f(threadData, i2, concernData));
-                            }
-                            i2++;
-                        }
-                    }
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(linkedList);
-                    qd8.f().h("CONCERN", arrayList);
-                    y07 y07Var = this.a;
-                    y07Var.a = linkedList;
-                    return y07Var;
-                }
-                i2 = 1;
-                while (r11.hasNext()) {
-                }
-                AbsGroupUbsABTest.setCardInfoUbsABTest(linkedList);
-                qd8.f().h("CONCERN", arrayList);
-                y07 y07Var2 = this.a;
-                y07Var2.a = linkedList;
-                return y07Var2;
             }
-            return null;
+            this.j = new ex6(this.c, ThreadData.TYPE_VIDEO, c26.D);
+            this.k = new ex6(this.c, ThreadData.TYPE_VIDEO_WITH_FORUM_HEADER, c26.E);
+            this.l = new qw6(this.c, ThreadData.TYPE_FAKE_VIDEO, c26.D);
+            this.m = new dx6(this.c, k26.z0);
+            this.n = new sw6(this.c, k26.A0);
+            this.u = new rw6(this.c, k26.H0);
+            this.v = new tw6(this.c, k26.I0);
+            this.o = new bx6(this.c, k26.G0);
+            this.p = new pw6(this.c, k26.B0);
+            this.q = new ow6(this.c, k26.C0);
+            this.r = new nw6(this.c, k26.D0);
+            this.t = new fx6(this.c, l26.U);
+            this.C = new kw6(this.c, f26.N0);
+            this.s = new mw6(this.c, k26.E0);
+            this.B = new zw6(this.c, ft4.e);
+            this.w = new uw6(this.c, k26.J0);
+            this.x = new ax6(this.c, k26.K0);
+            this.y = new vw6(this.c, k26.L0);
+            this.z = new gx6(this.c, ThreadData.TYPE_CONTENT_VOICE_ROOM);
+            this.a.addAll(this.i);
+            this.a.add(this.j);
+            this.a.add(this.k);
+            this.a.add(this.l);
+            this.a.add(this.m);
+            this.a.add(this.n);
+            this.a.add(this.u);
+            this.a.add(this.v);
+            this.a.add(this.o);
+            this.a.add(this.p);
+            this.a.add(this.q);
+            this.a.add(this.r);
+            this.a.add(this.t);
+            this.a.add(this.s);
+            this.a.add(this.B);
+            this.a.add(this.w);
+            this.a.add(this.x);
+            this.a.add(this.y);
+            this.a.add(this.z);
+            this.d = new ConcernTipAdapter(this.c.getContext());
+            this.e = new ConcernEmotionTipAdapter(this.c.getContext());
+            this.f = new iw6(this.c, j26.N0);
+            this.A = new hw6(this.c, jx6.b);
+            this.g = new gw6(this.c, j26.O0);
+            this.h = new cx6(this.c, k26.r0);
+            this.D = new ww6(this.c, k26.s0);
+            this.E = new lw6(this.c, k26.t0);
+            this.F = new xw6(this.c, k26.u0);
+            this.G = new ConcernEmotionTipAdapter(this.c.getContext(), kx6.f);
+            this.H = new hx6(this.c, k26.x0, (byte) 4);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            this.a.add(this.f);
+            this.a.add(this.A);
+            this.a.add(this.g);
+            this.a.add(this.h);
+            this.a.add(this.D);
+            this.a.add(this.E);
+            this.a.add(this.F);
+            this.a.add(this.C);
+            this.a.add(this.G);
+            this.a.add(this.H);
+            g("page_concern");
+            c();
         }
-        return (y07) invokeCommon.objValue;
     }
 
-    public final void d(boolean z, List<ConcernData> list, List<ConcernData> list2, int i) {
-        ThreadInfo threadInfo;
-        ThreadInfo threadInfo2;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), list, list2, Integer.valueOf(i)}) == null) || list == null || list2 == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (!ThreadData.isRecAppLoaded.get()) {
+                AdvertAppInfo.v.set(false);
+                return;
+            }
+            this.I = new ArrayList<>();
+            qn<?, ?> g = md8.l().g(this.c, AdvertAppInfo.y, "CONCERN");
+            qn<?, ?> g2 = md8.l().g(this.c, AdvertAppInfo.z, "CONCERN");
+            qn<?, ?> g3 = md8.l().g(this.c, AdvertAppInfo.A, "CONCERN");
+            qn<?, ?> g4 = md8.l().g(this.c, AdvertAppInfo.B, "CONCERN");
+            qn<?, ?> g5 = md8.l().g(this.c, AdvertAppInfo.C, "CONCERN");
+            qn<?, ?> g6 = md8.l().g(this.c, AdvertAppInfo.E, "CONCERN");
+            qn<?, ?> g7 = md8.l().g(this.c, AdvertAppInfo.D, "CONCERN");
+            this.I.add(g);
+            this.I.add(g2);
+            this.I.add(g3);
+            this.I.add(g4);
+            this.I.add(g5);
+            this.I.add(g6);
+            this.I.add(g7);
+            this.a.addAll(this.I);
+            AdvertAppInfo.v.set(true);
+        }
+    }
+
+    public void d() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bdTypeRecyclerView = this.b) == null) {
             return;
         }
-        int count = ListUtils.getCount(list);
-        if (i == 1) {
-            for (ConcernData concernData : list2) {
-                if (xv6.j(concernData)) {
-                    list.add(concernData);
-                } else if (concernData != null && (threadInfo2 = concernData.thread_list) != null && threadInfo2.tid != null) {
-                    list.add(concernData);
-                }
-            }
-        } else {
-            if (!uu6.H()) {
-                list.clear();
-            }
-            for (int count2 = ListUtils.getCount(list2) - 1; count2 >= 0; count2--) {
-                ConcernData concernData2 = (ConcernData) ListUtils.getItem(list2, count2);
-                if (concernData2 != null && xv6.j(concernData2)) {
-                    list.add(0, concernData2);
-                } else if (concernData2 != null && (threadInfo = concernData2.thread_list) != null && threadInfo.tid != null) {
-                    list.add(0, concernData2);
-                }
-            }
-        }
-        this.a.b = ListUtils.getCount(list) - count;
+        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
     }
 
-    public final void e(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        List<ConcernData> list;
-        List<ConcernData> list2;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i)}) == null) || (list = builder.thread_info) == null || (list2 = builder2.thread_info) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            d();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || mg7.e(this.J)) {
             return;
         }
-        d(z, list, list2, i);
-        builder.hot_recomforum = builder2.hot_recomforum;
+        Iterator<qn> it = this.I.iterator();
+        while (it.hasNext()) {
+            qn next = it.next();
+            if (next instanceof dd8) {
+                ((dd8) next).onDestroy();
+            }
+        }
     }
 
-    public List<pn> f(ThreadData threadData, int i, ConcernData concernData) {
-        InterceptResult invokeLIL;
-        l06 t06Var;
-        ThreadInfo threadInfo;
-        boolean hadConcerned;
+    public final void g(String str) {
+        List<qn> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, threadData, i, concernData)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if ((t06.W(threadData) || u06.R(threadData) || v06.W(threadData)) && threadData.getType() != ThreadData.TYPE_SHARE_THREAD) {
-                if (v06.W(threadData)) {
-                    t06Var = new v06(threadData);
-                } else if (u06.R(threadData)) {
-                    t06Var = new u06(threadData);
-                } else {
-                    t06Var = new t06();
-                    threadData.isLinkThread();
-                    threadData.isSmartAppThreadType();
-                    if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
-                        threadData.isGodThread();
-                    }
-                    t06Var.a = threadData;
-                }
-                t06Var.g = threadData.getTid();
-                if (t06.W(threadData)) {
-                    t06Var.L("1");
-                } else if (u06.R(threadData)) {
-                    t06Var.L("2");
-                }
-                t06Var.B = true;
-                if (UbsABTestHelper.isConcernForumCardShow() && t06Var.getThreadData() != null && t06Var.getThreadData().getAuthor() != null) {
-                    if (!t06Var.getThreadData().getAuthor().hadConcerned() && !ThreadCardUtils.isSelf(threadData)) {
-                        z07.r(t06Var);
-                        z07.o(threadData);
-                    } else {
-                        z07.t(t06Var);
-                    }
-                } else if (t06Var instanceof v06) {
-                    z07.t(t06Var);
-                } else {
-                    z07.t(t06Var);
-                }
-                t06Var.a.insertItemToTitleOrAbstractText();
-                if (t06Var instanceof t06) {
-                    if (threadData.isBJHNormalThreadType()) {
-                        z07.u(t06Var);
-                    } else if (threadData.picCount() == 1) {
-                        z07.w(t06Var);
-                        int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                        t06Var.j = imageWidthAndHeight[0];
-                        t06Var.k = imageWidthAndHeight[1];
-                    } else if (threadData.picCount() >= 2) {
-                        z07.v(t06Var);
-                    } else {
-                        z07.x(t06Var);
-                    }
-                } else if (t06Var instanceof u06) {
-                    z07.y(t06Var);
-                }
-                if (t06Var instanceof v06) {
-                    z07.z(t06Var);
-                }
-                if (threadData.getItem() != null) {
-                    z07.A(t06Var);
-                }
-                if (!ListUtils.isEmpty(threadData.getLinkDataList()) || !ListUtils.isEmpty(threadData.getGoodsDataList())) {
-                    if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) == 1) {
-                        z07.D(t06Var);
-                    } else {
-                        z07.B(t06Var);
-                    }
-                }
-                z07.q(t06Var);
-                if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.top_agree_post != null) {
-                    z07.s(t06Var);
-                }
-                z07.p(t06Var);
-                t06Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                t06Var.position = i;
-                arrayList.add(t06Var);
-            } else {
-                if (UbsABTestHelper.isConcernForumCardShow() && threadData.getThreadData() != null && threadData.getThreadData().getAuthor() != null && !(hadConcerned = threadData.getThreadData().getAuthor().hadConcerned()) && (hadConcerned || !ThreadCardUtils.isSelf(threadData))) {
-                    z07.o(threadData);
-                }
-                if (threadData.isShareThread) {
-                    t06 t06Var2 = new t06();
-                    t06Var2.a = threadData;
-                    t06Var2.position = i;
-                    arrayList.add(t06Var2);
-                } else if (u06.R(threadData)) {
-                    u06 u06Var = new u06(threadData);
-                    u06Var.g = threadData.getTid();
-                    if (concernData != null) {
-                        u06Var.K(concernData.source.intValue());
-                    }
-                    if (u06Var.isValid()) {
-                        arrayList.add(u06Var);
-                    }
-                } else if (s06.W(threadData)) {
-                    s06 s06Var = new s06(threadData);
-                    s06Var.g = threadData.getTid();
-                    s06Var.L("3");
-                    if (s06Var.isValid()) {
-                        arrayList.add(s06Var);
-                    }
-                } else if (o06.W(threadData) && threadData.isBJHArticleThreadType()) {
-                    o06 o06Var = new o06(threadData);
-                    o06Var.position = i;
-                    arrayList.add(o06Var);
-                } else {
-                    t06 t06Var3 = new t06();
-                    t06Var3.a = threadData;
-                    t06Var3.L(threadData.isLinkThread() ? "4" : "1");
-                    t06Var3.position = i;
-                    if (concernData != null) {
-                        t06Var3.K(concernData.source.intValue());
-                    }
-                    if (t06Var3.a != null && t06Var3.isValid() && !StringUtils.isNull(t06Var3.a.getId()) && !"0".equals(t06Var3.a.getTid())) {
-                        arrayList.add(t06Var3);
-                    }
-                }
-            }
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (list = this.a) == null) {
+            return;
         }
-        return (List) invokeLIL.objValue;
+        for (qn qnVar : list) {
+            if (qnVar instanceof go5) {
+                ((go5) qnVar).g(str);
+            }
+        }
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            Iterator<yw6> it = this.i.iterator();
+            while (it.hasNext()) {
+                it.next().a = bdUniqueId;
+            }
+            this.f.a = bdUniqueId;
+            this.g.a = bdUniqueId;
+            this.h.a = bdUniqueId;
+            this.F.a = bdUniqueId;
+            this.D.a = bdUniqueId;
+            this.E.a = bdUniqueId;
+            this.C.a = bdUniqueId;
+            this.s.a = bdUniqueId;
+            this.B.a = bdUniqueId;
+            this.H.b = bdUniqueId;
+            this.z.a = bdUniqueId;
+            this.A.u(bdUniqueId);
+        }
+    }
+
+    public final void i(jo joVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, joVar) == null) {
+            Iterator<yw6> it = this.i.iterator();
+            while (it.hasNext()) {
+                it.next().H(joVar);
+            }
+            this.j.C(joVar);
+            this.k.C(joVar);
+            this.l.x(joVar);
+            this.m.x(joVar);
+            this.n.y(joVar);
+            this.u.x(joVar);
+            this.v.x(joVar);
+            this.o.x(joVar);
+            this.B.v(joVar);
+            this.w.u(joVar);
+            this.x.v(joVar);
+            this.y.u(joVar);
+            this.z.x(joVar);
+            this.p.x(joVar);
+            this.q.x(joVar);
+            this.r.x(joVar);
+            this.t.A(joVar);
+            this.s.y(joVar);
+            this.C.y(joVar);
+            this.E.x(joVar);
+            this.D.y(joVar);
+            this.F.y(joVar);
+            this.H.u(joVar);
+        }
+    }
+
+    public void j(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.J = list;
+            this.b.setData(list);
+        }
     }
 }

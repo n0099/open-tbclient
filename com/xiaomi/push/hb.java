@@ -162,7 +162,7 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m389a(Context context) {
+    public static com.xiaomi.push.providers.a m390a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -178,7 +178,7 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m390a(Context context) {
+    public static synchronized String m391a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -190,7 +190,7 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m392a(Context context) {
+    public static void m393a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             a = b(context);
@@ -206,7 +206,7 @@ public class hb {
         }
         synchronized (f456a) {
             isEmpty = f458a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m390a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m391a(context) : "", j));
         }
         if (isEmpty) {
             f454a.a(new hc(context), 5000L);
@@ -234,11 +234,11 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m393a(String str) {
+    public static synchronized void m394a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (hb.class) {
-                if (!m.m566d() && !TextUtils.isEmpty(str)) {
+                if (!m.m567d() && !TextUtils.isEmpty(str)) {
                     f457a = str;
                 }
             }
@@ -271,7 +271,7 @@ public class hb {
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
                 synchronized (com.xiaomi.push.providers.a.f824a) {
-                    SQLiteDatabase writableDatabase = m389a(context).getWritableDatabase();
+                    SQLiteDatabase writableDatabase = m390a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
                     for (a aVar : list) {
                         ContentValues contentValues = new ContentValues();

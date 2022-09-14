@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Service
 /* loaded from: classes6.dex */
-public class wi3 extends ActivityDelegation implements mh1 {
+public class wi3 implements po3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,35 +31,39 @@ public class wi3 extends ActivityDelegation implements mh1 {
         }
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.qo3
+    public void a(v33 v33Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xi3.b();
-            finish();
+        if (interceptable == null || interceptable.invokeL(1048576, this, v33Var) == null) {
+            v33Var.b(new ok3(v33Var));
+            v33Var.b(new sk3(v33Var));
+            v33Var.b(new ml3(v33Var));
+            v33Var.b(new ll3(v33Var));
+            v33Var.b(new bl3(v33Var));
+            v33Var.b(new tk3(v33Var));
+            v33Var.b(new qk3(v33Var));
+            v33Var.b(new zk3(v33Var));
+            v33Var.b(new pk3(v33Var));
+            v33Var.b(new nk3(v33Var));
+            v33Var.b(new mk3(v33Var));
+            v33Var.b(new rk3(v33Var));
+            v33Var.b(new ql3(v33Var));
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qo3
+    @Nullable
+    public Map<String, Object> b(@NonNull zq1 zq1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
-            intent.putExtras(this.mParams);
-            getAgent().startActivity(intent);
-            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f010099, 0);
-            xi3.c(this);
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zq1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(zq1Var) : (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.mh1
-    public void onResult(int i) {
+    @Override // com.baidu.tieba.qo3
+    @Nullable
+    public Map<String, Object> c(@NonNull zq1 zq1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mResult.putInt("loginStatusCode", i);
-            c();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zq1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(zq1Var) : (Map) invokeL.objValue;
     }
 }

@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b48;
-import com.baidu.tieba.km4;
-import com.baidu.tieba.no5;
-import com.baidu.tieba.p95;
-import com.baidu.tieba.ql4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.g58;
+import com.baidu.tieba.lo4;
+import com.baidu.tieba.rn4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.zq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,10 +48,10 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public TextView b;
-    public b48 c;
+    public g58 c;
 
     /* loaded from: classes5.dex */
-    public class a implements ql4 {
+    public class a implements rn4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -82,7 +82,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.ql4
+        @Override // com.baidu.tieba.rn4
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -97,7 +97,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             }
         }
 
-        @Override // com.baidu.tieba.ql4
+        @Override // com.baidu.tieba.rn4
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -127,22 +127,22 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         }
     }
 
-    public void a(b48 b48Var) {
+    public void a(g58 g58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b48Var) == null) {
-            this.c = b48Var;
-            this.a.setImageResource(b48Var.b);
-            this.b.setText(b48Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, g58Var) == null) {
+            this.c = g58Var;
+            this.a.setImageResource(g58Var.b);
+            this.b.setText(g58Var.e);
         }
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e8, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06ff, this);
             inflate.setOnClickListener(this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091449);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09144a);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09146d);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09146e);
         }
     }
 
@@ -155,14 +155,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        b48 b48Var;
+        g58 g58Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b48Var = this.c) != null && b48Var.a == 59 && TbSingleton.getInstance().isMyTabClicked()) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (g58Var = this.c) != null && g58Var.a == 59 && TbSingleton.getInstance().isMyTabClicked()) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
             int i = iArr[1];
             int height = getHeight();
-            int i2 = ri.i(TbadkCoreApplication.getInst());
+            int i2 = ej.i(TbadkCoreApplication.getInst());
             int i3 = height + i;
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070306);
             int mainTabBottomBarHeight = i2 - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
@@ -174,23 +174,23 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         }
     }
 
-    public final void e(String str) {
+    public final void e(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
             TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getContext(), "", str, true);
-            tbWebViewActivityConfig.setFixTitle(true);
+            tbWebViewActivityConfig.setFixTitle(z);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        b48 b48Var;
+        g58 g58Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (b48Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (g58Var = this.c) == null) {
             return;
         }
-        int i = b48Var.a;
+        int i = g58Var.a;
         String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         String displayName = currentAccountInfo.getDisplayName();
@@ -202,16 +202,16 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         } else if (i == 12) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(getContext())));
         } else if (i == 15) {
-            e("https://tieba.baidu.com/mo/q/wise-business-merchant/serviceCenter");
+            e(TbConfig.TIEBA_ADDRESS + "mo/q/wise-business-merchant/serviceCenter", true);
         } else if (i == 18) {
-            e(TbConfig.URL_JUMP_TAG_CARDBOX);
+            e(TbConfig.TIEBA_ADDRESS + "mo/q/packetpage/myPacket?tieba_hybrid_enabled=1", true);
         } else if (i != 25) {
             switch (i) {
                 case 50:
-                    e("https://wappass.baidu.com/v6/safetyInspection?adapter=3");
+                    e("https://wappass.baidu.com/v6/safetyInspection?adapter=3", true);
                     return;
                 case 51:
-                    e("https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&opacitybtnhex=ffffff&user_id=" + String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+                    e(TbConfig.TIEBA_ADDRESS + "mo/q/icon/panelIcon?opacity=0&opacitybtnhex=ffffff&user_id=" + String.valueOf(TbadkCoreApplication.getCurrentAccountId()), true);
                     return;
                 case 52:
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new DownloadManagerActivityConfig(getContext(), 1)));
@@ -223,27 +223,30 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
                     return;
                 case 54:
-                    km4.o(getContext(), p95.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
+                    lo4.o(getContext(), xb5.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
                     return;
                 case 55:
-                    e(TbConfig.COMMUNITY_CONVENTION);
+                    e(TbConfig.COMMUNITY_CONVENTION, true);
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_COMMUNITY_CONVENTION_CLICK).addParam("obj_locate", "1").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 case 56:
-                    e(TbConfig.CREATE_BA + TbConfig.getVersion());
+                    e(TbConfig.CREATE_BA + TbConfig.getVersion(), true);
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CREATE_BA_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 case 57:
-                    e(TbConfig.EARN_MONEY + TbConfig.getVersion());
+                    e(TbConfig.EARN_MONEY + TbConfig.getVersion(), true);
                     TiebaStatic.log(new StatisticItem("c14711").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 case 58:
-                    no5.b("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "", "1191000600000000", 0);
+                    zq5.b("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "", "1191000600000000", 0);
                     TiebaStatic.log(new StatisticItem("c14710").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 case 59:
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/Lfi6Kbvh1amhBhGpSVNSCXgoqg7eEi6F/pages/home/shelf"));
                     TiebaStatic.log(new StatisticItem("c14905").addParam("obj_locate", "1").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                    return;
+                case 60:
+                    e(TbConfig.EXCHANGE_MALL + TbConfig.getVersion(), false);
                     return;
                 default:
                     return;

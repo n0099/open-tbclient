@@ -1,167 +1,176 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class y03 extends z03 {
+public class y03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a13 l;
 
-    public y03() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a extends ImageSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context, Bitmap bitmap) {
+            super(context, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        this.l = new a13(this, "");
-    }
 
-    @Override // com.baidu.tieba.d13
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+                Drawable drawable = getDrawable();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (i3 != 0) {
+                    i3 -= 4;
+                }
+                canvas.save();
+                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+            }
         }
-        return invokeV.booleanValue;
-    }
 
-    @Override // com.baidu.tieba.d13
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.z03
-    public ha4 I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (ha4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z03
-    public k33 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (k33) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z03
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+                Rect bounds = getDrawable().getBounds();
+                if (fontMetricsInt != null) {
+                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    int i8 = i6 + 8;
+                    fontMetricsInt.bottom = i8;
+                    fontMetricsInt.descent = i8;
+                }
+                return bounds.right + 5;
+            }
+            return invokeCommon.intValue;
         }
     }
 
-    @Override // com.baidu.tieba.d13
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b extends ImageSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.d13
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -1;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Context context, Bitmap bitmap) {
+            super(context, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
-        return invokeV.intValue;
-    }
 
-    @Override // com.baidu.tieba.d13
-    public void l(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+                Drawable drawable = getDrawable();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (i3 != 0) {
+                    i3 -= 4;
+                }
+                canvas.save();
+                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+            }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+                Rect bounds = getDrawable().getBounds();
+                if (fontMetricsInt != null) {
+                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    int i8 = i6 + 3;
+                    fontMetricsInt.bottom = i8;
+                    fontMetricsInt.descent = i8;
+                }
+                return bounds.right + 5;
+            }
+            return invokeCommon.intValue;
         }
     }
 
-    @Override // com.baidu.tieba.d13
-    public SwanAppCores m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (SwanAppCores) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d13
-    public String n(String... strArr) {
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d13
-    public a13 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : (a13) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d13
-    public void r(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, swanAppActivity) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            int length = str.length();
+            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
+            int i = 0;
+            int i2 = 0;
+            while (matcher.find()) {
+                i += matcher.group().length();
+                i2++;
+            }
+            return (length - i) + i2;
         }
-    }
-
-    @Override // com.baidu.tieba.d13
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d13
-    public void t(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d13
-    public SwanAppActivity w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (SwanAppActivity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d13
-    public vx2 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (vx2) invokeV.objValue;
+        return invokeL.intValue;
     }
 }

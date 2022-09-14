@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,109 +13,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 /* loaded from: classes3.dex */
 public final class br2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static String h;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public final Uri a;
+    public final Bitmap b;
+    public final Integer c;
     public boolean d;
-    public String e;
-    public String f;
-
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public br2 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new br2();
-        }
-
-        public br2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (br2) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.d = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.a.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
+    public int e;
+    public int f;
+    public Rect g;
+    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -127,109 +44,220 @@ public final class br2 {
                 return;
             }
         }
-        g = kh1.a;
-        h = "SwanAppParam";
+        i = ij1.a;
     }
 
-    public br2() {
+    public br2(Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
+        this.b = bitmap;
+        this.a = null;
+        this.c = null;
+        this.d = false;
+        this.e = bitmap.getWidth();
+        this.f = bitmap.getHeight();
+        this.h = z;
     }
 
-    public static br2 g(String str) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static br2 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                br2 br2Var = new br2();
-                JSONObject jSONObject = new JSONObject(str);
-                br2Var.a = jSONObject.optString("page");
-                br2Var.c = jSONObject.optString("params");
-                br2Var.b = jSONObject.optString("baseUrl");
-                br2Var.d = jSONObject.optBoolean("isFirstPage");
-                br2Var.e = jSONObject.optString("routeType");
-                br2Var.f = jSONObject.optString("routeId");
-                return br2Var;
-            } catch (JSONException e) {
-                if (g) {
-                    String str2 = h;
-                    Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str == null) {
+                if (!i) {
+                    yz1.k("ImageSource", "asset name is null");
+                    return null;
                 }
-                return null;
+                throw new NullPointerException("Asset name must not be null");
             }
+            return o("file:///android_asset/" + str);
         }
         return (br2) invokeL.objValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public static br2 b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", this.a);
-                jSONObject.put("params", this.c);
-                jSONObject.put("baseUrl", this.b);
-                jSONObject.put("isFirstPage", this.d);
-                jSONObject.put("routeType", this.e);
-                jSONObject.put("routeId", this.f);
-            } catch (JSONException e) {
-                if (g) {
-                    String str = h;
-                    Log.e(str, "toJSONString error: " + Log.getStackTraceString(e));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap == null) {
+                if (!i) {
+                    yz1.k("ImageSource", "bitmap is null");
+                    return null;
                 }
+                throw new NullPointerException("Bitmap must not be null");
             }
-            return jSONObject.toString();
+            return new br2(bitmap, true);
         }
-        return (String) invokeV.objValue;
+        return (br2) invokeL.objValue;
     }
 
-    public void n() {
+    public static br2 k(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = false;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new br2(i2) : (br2) invokeI.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static br2 o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (str == null) {
+                if (!i) {
+                    yz1.k("ImageSource", "uri is null");
+                    return null;
+                }
+                throw new NullPointerException("Uri must not be null");
+            }
+            if (!str.contains("://")) {
+                if (str.startsWith("/")) {
+                    str = str.substring(1);
+                }
+                str = ImageSource.FILE_SCHEME + str;
+            }
+            return new br2(Uri.parse(str));
         }
+        return (br2) invokeL.objValue;
+    }
+
+    public final Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Bitmap) invokeV.objValue;
+    }
+
+    public final Integer d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Integer) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public final Rect f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (Rect) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public final Uri i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (Uri) invokeV.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public br2 l(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            this.d = z;
+            return this;
+        }
+        return (br2) invokeZ.objValue;
+    }
+
+    public br2 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            l(false);
+            return this;
+        }
+        return (br2) invokeV.objValue;
+    }
+
+    public br2 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            l(true);
+            return this;
+        }
+        return (br2) invokeV.objValue;
+    }
+
+    public br2(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        String uri2 = uri.toString();
+        if (uri2.startsWith(ImageSource.FILE_SCHEME) && !new File(uri2.substring(7)).exists()) {
+            try {
+                uri = Uri.parse(URLDecoder.decode(uri2, "UTF-8"));
+            } catch (UnsupportedEncodingException unused) {
+            }
+        }
+        this.b = null;
+        this.a = uri;
+        this.c = null;
+        this.d = true;
+    }
+
+    public br2(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = null;
+        this.c = Integer.valueOf(i2);
+        this.d = true;
     }
 }

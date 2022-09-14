@@ -24,27 +24,27 @@ public final class a extends KSFrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final b DG;
-    public final b.C0571b DH;
+    public final b.C0576b DH;
     public d DI;
-    public InterfaceC0570a DJ;
+    public InterfaceC0575a DJ;
     public final AdTemplate mAdTemplate;
     public Presenter mPresenter;
     public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0570a {
+    public interface InterfaceC0575a {
         void mp();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@Nullable b bVar, b.C0571b c0571b) {
-        super(c0571b.context);
+    public a(@Nullable b bVar, b.C0576b c0576b) {
+        super(c0576b.context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, c0571b};
+            Object[] objArr = {bVar, c0576b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,10 +56,10 @@ public final class a extends KSFrameLayout {
             }
         }
         this.DG = bVar;
-        this.DH = c0571b;
-        this.mAdTemplate = c0571b.adTemplate;
-        FrameLayout.inflate(c0571b.context, R.layout.obfuscated_res_0x7f0d0413, this);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b8);
+        this.DH = c0576b;
+        this.mAdTemplate = c0576b.adTemplate;
+        FrameLayout.inflate(c0576b.context, R.layout.obfuscated_res_0x7f0d0417, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6);
     }
 
     public static Presenter ap() {
@@ -125,17 +125,17 @@ public final class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            InterfaceC0570a interfaceC0570a = this.DJ;
-            if (interfaceC0570a != null) {
-                interfaceC0570a.mp();
+            InterfaceC0575a interfaceC0575a = this.DJ;
+            if (interfaceC0575a != null) {
+                interfaceC0575a.mp();
             }
         }
     }
 
-    public final void setChangeListener(InterfaceC0570a interfaceC0570a) {
+    public final void setChangeListener(InterfaceC0575a interfaceC0575a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0570a) == null) {
-            this.DJ = interfaceC0570a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0575a) == null) {
+            this.DJ = interfaceC0575a;
         }
     }
 }

@@ -43,7 +43,6 @@ public final class AlaSquareDelegateStaticAutoGenerateUrlCollectorImpl implement
             hashMap.put("2911006", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
             hashMap.put("2001616", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
             hashMap.put("2911008", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
-            hashMap.put("2913033", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
             hashMap.put("3001000", "com.baidu.tieba.ala.alasquare.AlaSquareDelegateStatic");
             return hashMap;
         }

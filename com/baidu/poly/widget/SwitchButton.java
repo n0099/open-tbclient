@@ -27,8 +27,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pa1;
+import com.baidu.tieba.ea1;
+import com.baidu.tieba.mc1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -381,7 +381,7 @@ public class SwitchButton extends CompoundButton {
             duration.setInterpolator(new AccelerateDecelerateInterpolator());
             this.H = new RectF();
             float f12 = getResources().getDisplayMetrics().density * 2.0f;
-            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f0403e1, R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0403eb, R.attr.obfuscated_res_0x7f0403ec, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f0403ef, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f0403f1, R.attr.obfuscated_res_0x7f0403f2, R.attr.obfuscated_res_0x7f0403f3, R.attr.obfuscated_res_0x7f0403f4, R.attr.obfuscated_res_0x7f0403f5});
+            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, ea1.SwitchButton);
             if (obtainStyledAttributes2 != null) {
                 drawable = obtainStyledAttributes2.getDrawable(11);
                 ColorStateList colorStateList4 = obtainStyledAttributes2.getColorStateList(10);
@@ -484,7 +484,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = pa1.b(this.k);
+                ColorStateList b = mc1.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -495,7 +495,7 @@ public class SwitchButton extends CompoundButton {
             boolean z5 = drawable2 != null;
             this.D = z5;
             if (!z5 && this.c == null) {
-                ColorStateList a2 = pa1.a(this.k);
+                ColorStateList a2 = mc1.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;
@@ -1362,8 +1362,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = pa1.b(i);
-            this.c = pa1.a(this.k);
+            this.d = mc1.b(i);
+            this.c = mc1.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();

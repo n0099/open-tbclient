@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
 public class w86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wq4 a;
-    public ArrayList<pn> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public x86 g;
-    public boolean h;
+    public ArrayList<v86> a;
 
     public w86() {
         Interceptable interceptable = $ic;
@@ -28,15 +24,25 @@ public class w86 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.h = true;
-        this.b = new ArrayList<>();
-        this.a = new wq4();
+    }
+
+    public void a(List<FrsTabInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList<>();
+            }
+            this.a.clear();
+            if (list == null) {
+                return;
+            }
+            for (FrsTabInfo frsTabInfo : list) {
+                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                    this.a.add(new v86(frsTabInfo));
+                }
+            }
+        }
     }
 }

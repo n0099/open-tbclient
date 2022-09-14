@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.os.Looper;
-import android.os.Message;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.ur2;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.tieba.ce4;
+import com.baidu.tieba.sd4;
+import com.baidu.tieba.zd4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,27 +18,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class o12 extends j12<n12> {
+public final class o12 implements sc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ur2 a;
-    public final vr2 b;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a extends s52 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n12 a;
-        public final /* synthetic */ o12 b;
+        public boolean a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ Map c;
 
-        public a(o12 o12Var, n12 n12Var) {
+        public a(b bVar, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o12Var, n12Var};
+                Object[] objArr = {bVar, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,19 +54,117 @@ public final class o12 extends j12<n12> {
                     return;
                 }
             }
-            this.b = o12Var;
-            this.a = n12Var;
+            this.b = bVar;
+            this.c = map;
+            this.a = false;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap p;
+        @Override // com.baidu.tieba.s52
+        public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (p = re3.p()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.a();
+                b bVar = this.b;
+                if (bVar != null) {
+                    bVar.a();
+                }
             }
-            Message.obtain(this.b, 2, n12.a(this.a.b, p)).sendToTarget();
         }
+
+        @Override // com.baidu.tieba.s52
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                super.b(i);
+                b bVar = this.b;
+                if (bVar != null) {
+                    if (i == 1010) {
+                        bVar.a();
+                    } else {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s52
+        public void c(@NonNull sd4.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                super.c(aVar);
+                j(aVar.b);
+                o62.c(aVar.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.s52
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                i();
+                b bVar = this.b;
+                if (bVar == null || this.a) {
+                    return;
+                }
+                bVar.a();
+            }
+        }
+
+        @Override // com.baidu.tieba.s52
+        public void f(sb4 sb4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, sb4Var) == null) {
+                super.f(sb4Var);
+                if (sb4Var.a != 1010) {
+                    this.a = true;
+                    b bVar = this.b;
+                    if (bVar != null) {
+                        bVar.b(3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s52
+        public void g(@NonNull yb4 yb4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, yb4Var) == null) {
+                super.g(yb4Var);
+                j(yb4Var.o);
+            }
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                for (String str : this.c.keySet()) {
+                    j(str);
+                }
+            }
+        }
+
+        public final void j(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.c.containsKey(str)) {
+                Set<String> set = (Set) this.c.get(str);
+                if (set != null && !set.isEmpty()) {
+                    for (String str2 : set) {
+                        o62.d(str, str2);
+                    }
+                    return;
+                }
+                o62.c(str);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
+
+        void b(int i);
+
+        void c();
     }
 
     static {
@@ -75,118 +180,202 @@ public final class o12 extends j12<n12> {
                 return;
             }
         }
-        c = kh1.a;
+        a = ij1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o12(Looper looper) {
-        super(looper);
+    public static void a(@NonNull List<ce4.b> list, @Nullable String str, b bVar) {
+        String[] i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
+            if (!c(mb3.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
+                }
+                if (bVar != null) {
+                    bVar.b(6);
+                    return;
+                }
                 return;
             }
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            for (ce4.b bVar2 : list) {
+                if (bVar2 != null) {
+                    if (bVar2.i() != null && bVar2.i().length != 0) {
+                        Set set = (Set) hashMap.get(bVar2.b());
+                        if (set == null) {
+                            set = new HashSet();
+                        }
+                        boolean z = false;
+                        for (String str2 : bVar2.i()) {
+                            if (o62.f(bVar2.b(), str2) && !z) {
+                                arrayList.add(bVar2);
+                                z = true;
+                            }
+                            set.add(str2);
+                        }
+                        hashMap.put(bVar2.b(), set);
+                    } else if (o62.e(bVar2.b())) {
+                        arrayList.add(bVar2);
+                        hashMap.put(bVar2.b(), null);
+                    }
+                }
+            }
+            if (arrayList.isEmpty()) {
+                if (a) {
+                    Log.i("SwanPreDownload", "preDownload list empty");
+                }
+                if (bVar != null) {
+                    bVar.a();
+                    return;
+                }
+                return;
+            }
+            ce4 ce4Var = new ce4(arrayList, wg3.b());
+            ce4Var.e(str);
+            ce4Var.d("1");
+            v52 v52Var = new v52(new a(bVar, hashMap));
+            v52Var.L(e62.a(str));
+            ia4.f(ce4Var, v52Var);
         }
-        this.a = ur2.a.a("simple_parser");
-        this.b = (vr2) ur2.a.a("hsv_parser");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j12
-    /* renamed from: c */
-    public void a(n12 n12Var) {
+    public static void b(@NonNull List<zd4.a> list, @NonNull String str, @NonNull s52 s52Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n12Var) == null) || n12Var == null) {
-            return;
-        }
-        if (!e(n12Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + n12Var.b);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, s52Var) == null) {
+            if (!c(mb3.a().getString("predownload_network_switch", "1"))) {
+                s52Var.b(6);
                 return;
             }
-            return;
-        }
-        f(n12Var);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j12
-    /* renamed from: d */
-    public void b(n12 n12Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, n12Var) == null) || n12Var == null) {
-            return;
-        }
-        if (!e(n12Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + n12Var.b);
+            List<zd4.a> i = o62.i(list);
+            if (i.isEmpty()) {
+                s52Var.d();
                 return;
             }
-            return;
-        }
-        Bitmap bitmap = n12Var.d;
-        i02 f = jr2.f();
-        View B = nm2.U().B(n12Var.b);
-        if (bitmap != null && f != null && B != null) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> start parsing capture");
-            }
-            Rect b = jr2.b(bitmap, f, B);
-            this.a.c(jr2.d(f));
-            if (!jr2.h() && this.a.a(bitmap, b)) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is full white screen.");
-                }
-                a22 a22Var = new a22();
-                a22Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                a22Var.d(n12Var.b);
-                return;
-            }
-            double d = this.b.d(bitmap, b);
-            a22 a22Var2 = new a22();
-            if (jr2.g() && d >= 0.5d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                a22Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
-                a22Var2.d(n12Var.b);
-            } else if (d >= 0.7d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                a22Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
-                a22Var2.d(n12Var.b);
-            } else {
-                p12.b().a();
-            }
-        } else if (c) {
-            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
+            zd4 zd4Var = new zd4((List<? extends zd4.a>) i, (bg4) wg3.b());
+            zd4Var.d("1");
+            zd4Var.e(str);
+            v52 v52Var = new v52(s52Var);
+            v52Var.L(e62.a(str));
+            ia4.f(zd4Var, v52Var);
         }
     }
 
-    public final boolean e(String str) {
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (com.baidu.swan.apps.network.SwanAppNetworkUtils.j(com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()) != false) goto L8;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? TextUtils.equals(ue3.B(), str) : invokeL.booleanValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return invokeL.booleanValue;
+        }
+        boolean z = true;
+        if (!TextUtils.equals(str, "0")) {
+            if (!TextUtils.equals(str, "1")) {
+                TextUtils.equals(str, "2");
+                z = false;
+            }
+            if (a) {
+                Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
+            }
+            return z;
+        }
     }
 
-    public final void f(n12 n12Var) {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, n12Var) == null) || n12Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.equals(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME, str)) {
+                fm2.g0().getSwitch("swan_game_feed_predownload", 0);
+                return false;
+            }
+            return true;
         }
-        if (c) {
-            Log.d("WhitePageHandler", ">> start to get capture.");
+        return invokeL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
+            ce4.b bVar2 = new ce4.b(str);
+            if (!TextUtils.isEmpty(str2)) {
+                bVar2.l(new String[]{str2});
+            }
+            a(Collections.singletonList(bVar2), str3, bVar);
         }
-        ue3.e0(new a(this, n12Var));
+    }
+
+    public static void f(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download swanAppId invalid");
+                }
+            } else if (!c(mb3.a().getString("predownload_network_switch", "1"))) {
+                if (a) {
+                    Log.e("SwanPreDownload", "pre download net invalid");
+                }
+            } else {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new zd4.a(str));
+                List<zd4.a> i = o62.i(arrayList);
+                if (i.isEmpty()) {
+                    if (a) {
+                        Log.e("SwanPreDownload", "pre download has record");
+                        return;
+                    }
+                    return;
+                }
+                zd4 zd4Var = new zd4((List<? extends zd4.a>) i, (bg4) wg3.b());
+                zd4Var.e(str2);
+                zd4Var.d("1");
+                v52 v52Var = new v52();
+                v52Var.L(e62.a(str2));
+                ia4.f(zd4Var, v52Var);
+            }
+        }
+    }
+
+    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, bVar}) == null) {
+            if (a) {
+                Log.d("SwanPreDownload", "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4);
+            }
+            if (z) {
+                if (bVar != null) {
+                    bVar.a();
+                }
+            } else if (TextUtils.isEmpty(str)) {
+                if (bVar != null) {
+                    bVar.c();
+                }
+            } else if (!d(str2)) {
+                if (bVar != null) {
+                    bVar.b(6);
+                }
+            } else {
+                String str5 = null;
+                if (!TextUtils.isEmpty(str4)) {
+                    try {
+                        Uri parse = Uri.parse(str4);
+                        if (parse != null) {
+                            str5 = qg3.n(str, parse, false);
+                        }
+                    } catch (Exception e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                e(str, str5, str3, bVar);
+            }
+        }
     }
 }

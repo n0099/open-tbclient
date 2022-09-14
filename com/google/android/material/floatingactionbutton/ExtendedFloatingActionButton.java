@@ -43,9 +43,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100365 = 2131755877;
+    public static final int DEF_STYLE_RES = 2131755878;
     public static final Property<View, Float> HEIGHT;
     public static final Property<View, Float> WIDTH;
     public transient /* synthetic */ FieldHolder $fh;
@@ -411,7 +409,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d2, R.attr.obfuscated_res_0x7f0400d3});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.ExtendedFloatingActionButton_Behavior_Layout);
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, false);
             this.autoShrinkEnabled = obtainStyledAttributes.getBoolean(1, true);
             obtainStyledAttributes.recycle();
@@ -1132,7 +1130,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100365), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1157,7 +1155,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.isExtended = true;
         Context context2 = getContext();
         this.behavior = new ExtendedFloatingActionButtonBehavior(context2, attributeSet);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04029b, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f040627}, i, obfuscated_res_0x7f100365, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.ExtendedFloatingActionButton, i, DEF_STYLE_RES, new int[0]);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 3);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 2);
         MotionSpec createFromAttribute3 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 1);
@@ -1256,6 +1254,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.extendStrategy.setMotionSpec(createFromAttribute3);
         this.shrinkStrategy.setMotionSpec(createFromAttribute4);
         obtainStyledAttributes.recycle();
-        setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100365, ShapeAppearanceModel.PILL).build());
+        setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES, ShapeAppearanceModel.PILL).build());
     }
 }

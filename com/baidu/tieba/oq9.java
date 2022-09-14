@@ -1,145 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
+import android.os.Debug;
+import android.os.SystemClock;
+import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class oq9 {
+public class oq9 implements Printer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public rq9 b;
-    public Matrix c;
-    public jq9 d;
-    public List<SVGAVideoShapeEntity> e;
+    public long a;
+    public long b;
+    public long c;
+    public b d;
+    public final boolean e;
 
-    public oq9(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        oq9 oq9Var = this;
-        oq9Var.b = new rq9(0.0d, 0.0d, 0.0d, 0.0d);
-        oq9Var.c = new Matrix();
-        oq9Var.e = CollectionsKt__CollectionsKt.emptyList();
-        oq9Var.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            oq9Var.b = new rq9(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble("tx", 0.0d);
-            double optDouble6 = optJSONObject2.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            oq9Var = this;
-            oq9Var.c.setValues(fArr);
-        } else {
-            z = true;
-        }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                oq9Var.d = new jq9(optString);
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ oq9 e;
+
+        public a(oq9 oq9Var, long j, long j2, long j3, long j4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oq9Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            oq9Var.e = CollectionsKt___CollectionsKt.toList(arrayList);
+            this.e = oq9Var;
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
+            this.d = j4;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.d.a(this.a, this.b, this.c, this.d);
+            }
         }
     }
 
-    public final double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.doubleValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(long j, long j2, long j3, long j4);
     }
 
-    public final rq9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (rq9) invokeV.objValue;
-    }
-
-    public final jq9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (jq9) invokeV.objValue;
-    }
-
-    public final List<SVGAVideoShapeEntity> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Matrix) invokeV.objValue;
-    }
-
-    public final void f(List<SVGAVideoShapeEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
-        }
-    }
-
-    public oq9(FrameEntity frameEntity) {
-        Float f;
-        Float f2;
+    public oq9(b bVar, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
+            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -149,59 +80,74 @@ public final class oq9 {
                 return;
             }
         }
-        this.b = new rq9(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        this.a = frameEntity.alpha != null ? f.floatValue() : 0.0f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f3 = layout.x;
-            double floatValue = f3 != null ? f3.floatValue() : 0.0f;
-            Float f4 = layout.y;
-            double floatValue2 = f4 != null ? f4.floatValue() : 0.0f;
-            Float f5 = layout.width;
-            this.b = new rq9(floatValue, floatValue2, f5 != null ? f5.floatValue() : 0.0f, layout.height != null ? f2.floatValue() : 0.0f);
+        this.a = 3000L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = null;
+        if (bVar != null) {
+            this.d = bVar;
+            this.a = j;
+            this.e = z;
+            return;
         }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f6 = transform.a;
-            float floatValue3 = f6 != null ? f6.floatValue() : 1.0f;
-            Float f7 = transform.b;
-            float floatValue4 = f7 != null ? f7.floatValue() : 0.0f;
-            Float f8 = transform.c;
-            float floatValue5 = f8 != null ? f8.floatValue() : 0.0f;
-            Float f9 = transform.d;
-            float floatValue6 = f9 != null ? f9.floatValue() : 1.0f;
-            Float f10 = transform.tx;
-            float floatValue7 = f10 != null ? f10.floatValue() : 0.0f;
-            Float f11 = transform.ty;
-            float floatValue8 = f11 != null ? f11.floatValue() : 0.0f;
-            fArr[0] = floatValue3;
-            fArr[1] = floatValue5;
-            fArr[2] = floatValue7;
-            fArr[3] = floatValue4;
-            fArr[4] = floatValue6;
-            fArr[5] = floatValue8;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
+        throw new IllegalArgumentException("blockListener should not be null.");
+    }
+
+    public final boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.b > this.a : invokeJ.booleanValue;
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            mq9.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
         }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new jq9(str);
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (kq9.e().b != null) {
+                kq9.e().b.c();
+            }
+            if (kq9.e().c != null) {
+                kq9.e().c.c();
             }
         }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (kq9.e().b != null) {
+                kq9.e().b.d();
+            }
+            if (kq9.e().c != null) {
+                kq9.e().c.d();
+            }
         }
-        this.e = arrayList;
+    }
+
+    @Override // android.util.Printer
+    public void println(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.e && Debug.isDebuggerConnected()) {
+                return;
+            }
+            if (str.charAt(0) == '>') {
+                this.b = System.currentTimeMillis();
+                this.c = SystemClock.currentThreadTimeMillis();
+                d();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (b(currentTimeMillis)) {
+                c(currentTimeMillis);
+            }
+            e();
+        }
     }
 }

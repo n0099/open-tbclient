@@ -1,64 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d79;
-import com.baidu.tieba.g79;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.AutoChangeLineView;
+import com.baidu.tieba.write.write.work.selectview.SelectTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+/* compiled from: lambda */
 /* loaded from: classes4.dex */
-public final class f79 implements d79.a {
+public final /* synthetic */ class f79 implements AutoChangeLineView.b {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ f79 a = new f79();
     public transient /* synthetic */ FieldHolder $fh;
 
-    public f79() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    private /* synthetic */ f79() {
     }
 
-    @Override // com.baidu.tieba.d79.a
-    public final void U() {
+    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
+    public final CharSequence a(TextView textView, int i, Object obj) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
+            String str = (String) obj;
+            SelectTagView.d(textView, i, str);
+            return str;
         }
-    }
-
-    @Override // com.baidu.tieba.d79.a
-    public final void a(Activity activity) {
-        g79 g79Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            g79Var = g79.a.a;
-            g79Var.c(new WeakReference<>(activity));
-        }
-    }
-
-    @Override // com.baidu.tieba.d79.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d79.a
-    public final void onActivityDestroyed(Activity activity) {
-        g79 g79Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            g79Var = g79.a.a;
-            g79Var.d(activity);
-        }
+        return (CharSequence) invokeLIL.objValue;
     }
 }

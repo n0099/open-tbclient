@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ud implements nd {
+public class ud implements be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object a;
@@ -26,13 +26,23 @@ public class ud implements nd {
                 return;
             }
         }
+        if (obj == null || !obj.getClass().isArray()) {
+            return;
+        }
         this.a = obj;
     }
 
-    @Override // com.baidu.tieba.nd
-    public Object a(de deVar) {
+    @Override // com.baidu.tieba.be
+    public Object a(re reVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deVar)) == null) ? this.a : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
+            Object obj = this.a;
+            if (obj != null) {
+                return qe.b(obj, reVar);
+            }
+            return null;
+        }
+        return invokeL.objValue;
     }
 }

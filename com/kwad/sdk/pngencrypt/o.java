@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt;
 import com.kwad.sdk.pngencrypt.chunk.w;
 import java.io.Closeable;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class o implements Closeable {
     public ErrorBehaviour ajJ = ErrorBehaviour.STRICT;
     public final k akJ;

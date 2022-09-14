@@ -1,72 +1,90 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.SendCardInfo;
+import com.google.gson.Gson;
 /* loaded from: classes4.dex */
-public class gt7 {
+public class gt7 extends bt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
+    public ViewStub o;
+    public View p;
+    public TbImageView q;
+    public TextView r;
+    public TextView s;
 
-    public gt7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gt7(TbPageContext tbPageContext, View view2) {
+        super(tbPageContext, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e1);
+        this.o = viewStub;
+        viewStub.inflate();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+        layoutParams.topMargin = ej.i(tbPageContext.getPageActivity()) / 2;
+        this.o.setLayoutParams(layoutParams);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0924ab);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092486);
+        this.q = tbImageView;
+        tbImageView.setIsRound(true);
+        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b4);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924cf);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bt7
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e == 3 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
+            uu4 d = uu4.d(this.p);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0204);
+            uu4 d2 = uu4.d(this.r);
+            d2.v(R.color.CAM_X0105);
+            d2.z(R.dimen.T_X05);
+            d2.A(R.string.F_X02);
+            uu4 d3 = uu4.d(this.s);
+            d3.v(R.color.CAM_X0108);
+            d3.z(R.dimen.T_X08);
+            d3.A(R.string.F_X01);
+        }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bt7
+    public void c(ct7 ct7Var) {
+        ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e == 1 : invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ct7Var) == null) || ct7Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(ct7Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
             return;
         }
-        this.b = jSONObject.optString("card_logo");
-        this.c = jSONObject.optString("card_name");
-        this.d = jSONObject.optString("card_pro");
-        this.e = jSONObject.optInt("card_get_status");
-        this.a = jSONObject.optLong("packet_id");
-        this.f = jSONObject.optString("card_num");
-    }
-
-    public void d(SendCardInfo sendCardInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) || sendCardInfo == null) {
-            return;
-        }
-        this.b = sendCardInfo.card_logo;
-        this.c = sendCardInfo.card_name;
-        this.d = sendCardInfo.card_pro;
-        this.e = sendCardInfo.card_get_status.intValue();
-        this.a = sendCardInfo.packet_id.longValue();
+        this.q.K(storageModel.url, 10, false);
+        this.r.setText(storageModel.displayname);
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1159, storageModel.app));
     }
 }

@@ -1,107 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class y84<T> {
+public class y84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public BaiduMap b;
+    public Marker c;
+    public BitmapDescriptor d;
+    public b e;
+    public LocationClient f;
+    public BDLocation g;
+    public boolean h;
 
-    public y84() {
+    /* loaded from: classes6.dex */
+    public class a extends BDAbstractLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y84 a;
+
+        public a(y84 y84Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y84Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y84Var;
+        }
+
+        @Override // com.baidu.location.BDAbstractLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if (bDLocation == null) {
+                    this.a.m();
+                    return;
+                }
+                this.a.b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
+                if (this.a.c != null) {
+                    this.a.c.remove();
+                    this.a.c = null;
+                }
+                MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d).anchor(0.5f, 0.5f);
+                y84 y84Var = this.a;
+                y84Var.c = (Marker) y84Var.b.addOverlay(anchor);
+                if (this.a.g == null) {
+                    MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
+                    if (this.a.e != null) {
+                        this.a.e.a(bDLocation);
+                    }
+                }
+                this.a.g = bDLocation;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(BDLocation bDLocation);
+    }
+
+    public y84(Context context, BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, baiduMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = false;
+        this.a = context;
+        this.b = baiduMap;
+    }
+
+    public BDLocation i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (BDLocation) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
+            LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
+            this.f = locationClient;
+            locationClient.registerLocationListener(new a(this));
+            LocationClientOption locationClientOption = new LocationClientOption();
+            locationClientOption.setOpenGps(true);
+            locationClientOption.setCoorType(CoordType.GCJ02.name());
+            locationClientOption.setScanSpan(1000);
+            this.f.setLocOption(locationClientOption);
+            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f08018c);
+        }
+    }
+
+    public void k(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.h) {
+            return;
+        }
+        j();
+        LocationClient locationClient = this.f;
+        if (locationClient == null || locationClient.isStarted()) {
+            return;
+        }
+        this.f.start();
+        this.h = true;
+    }
+
+    public final void m() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && (locationClient = this.f) != null && locationClient.isStarted()) {
+            this.f.stop();
+            this.h = false;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            if (z) {
+                l();
+            } else {
+                m();
             }
         }
     }
-
-    public ContentValues a(w94 w94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w94Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", w94Var.g);
-            contentValues.put("category", Integer.valueOf(w94Var.h));
-            contentValues.put("version_name", w94Var.j);
-            contentValues.put("version_code", Long.valueOf(w94Var.i));
-            contentValues.put("size", Long.valueOf(w94Var.k));
-            contentValues.put(PackageTable.MD5, w94Var.l);
-            contentValues.put("sign", w94Var.m);
-            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, w94Var.n);
-            contentValues.put(PackageTable.FILE_PATH, w94Var.a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(w94Var.b));
-            contentValues.put("create_time", Long.valueOf(w94Var.c));
-            contentValues.put("update_time", Long.valueOf(w94Var.d));
-            contentValues.put("state", Integer.valueOf(w94Var.e));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public boolean b(Cursor cursor, w94 w94Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, w94Var)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("bundle_id");
-                int columnIndex2 = cursor.getColumnIndex("category");
-                int columnIndex3 = cursor.getColumnIndex("version_name");
-                int columnIndex4 = cursor.getColumnIndex("version_code");
-                int columnIndex5 = cursor.getColumnIndex("size");
-                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
-                int columnIndex7 = cursor.getColumnIndex("sign");
-                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
-                int columnIndex9 = cursor.getColumnIndex("_id");
-                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
-                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
-                int columnIndex12 = cursor.getColumnIndex("create_time");
-                int columnIndex13 = cursor.getColumnIndex("update_time");
-                int columnIndex14 = cursor.getColumnIndex("state");
-                String string = cursor.getString(columnIndex);
-                if (TextUtils.isEmpty(string)) {
-                    return false;
-                }
-                w94Var.g = string;
-                w94Var.h = cursor.getInt(columnIndex2);
-                w94Var.j = cursor.getString(columnIndex3);
-                w94Var.i = cursor.getLong(columnIndex4);
-                w94Var.k = cursor.getLong(columnIndex5);
-                w94Var.l = cursor.getString(columnIndex6);
-                w94Var.m = cursor.getString(columnIndex7);
-                w94Var.n = cursor.getString(columnIndex8);
-                w94Var.a = cursor.getString(columnIndex10);
-                w94Var.b = cursor.getLong(columnIndex11);
-                w94Var.c = cursor.getLong(columnIndex12);
-                w94Var.d = cursor.getLong(columnIndex13);
-                w94Var.f = cursor.getLong(columnIndex9);
-                w94Var.e = cursor.getInt(columnIndex14);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public abstract ContentValues c(T t);
-
-    public abstract T d(Cursor cursor) throws SQLException;
-
-    public abstract List<T> e(Cursor cursor) throws SQLException;
 }

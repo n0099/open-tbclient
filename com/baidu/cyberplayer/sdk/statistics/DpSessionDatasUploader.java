@@ -164,22 +164,22 @@ public final class DpSessionDatasUploader {
         this.c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00df */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0088, code lost:
-        if (r10 == null) goto L17;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00e1 */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x008a, code lost:
+        if (r10 == null) goto L18;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x008a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x008c, code lost:
         r10.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b5, code lost:
-        if (r10 == null) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
+        if (r10 == null) goto L18;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d6, code lost:
-        if (r10 == null) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d8, code lost:
+        if (r10 == null) goto L18;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x00e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x00ee A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r10v1 */
     /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */
@@ -203,55 +203,13 @@ public final class DpSessionDatasUploader {
         try {
             try {
                 httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                try {
-                    httpURLConnection.setUseCaches(false);
-                    httpURLConnection.setDoOutput(true);
-                    httpURLConnection.setRequestMethod("POST");
-                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-                    if (z) {
-                        httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-                    }
-                    outputStream = httpURLConnection.getOutputStream();
-                    outputStream.write(bArr);
-                    outputStream.flush();
-                    i = httpURLConnection.getResponseCode();
-                    CyberLog.d("SessionDatasUploader", "upload response : " + i);
-                    if (outputStream != null) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } catch (Error e2) {
-                    e = e2;
-                    CyberLog.e("SessionDatasUploader", "upload error " + e);
-                    if (outputStream != null) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    CyberLog.e("SessionDatasUploader", "upload error " + e);
-                    if (outputStream != null) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                }
             } catch (Throwable th) {
                 th = th;
                 if (0 != 0) {
                     try {
                         outputStream.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 if (str != 0) {
@@ -262,11 +220,11 @@ public final class DpSessionDatasUploader {
                 }
                 throw th;
             }
-        } catch (Error e7) {
-            e = e7;
+        } catch (Error e2) {
+            e = e2;
             httpURLConnection = null;
-        } catch (Exception e8) {
-            e = e8;
+        } catch (Exception e3) {
+            e = e3;
             httpURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
@@ -276,6 +234,48 @@ public final class DpSessionDatasUploader {
             if (str != 0) {
             }
             throw th;
+        }
+        try {
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            httpURLConnection.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
+            if (z) {
+                httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
+            }
+            outputStream = httpURLConnection.getOutputStream();
+            outputStream.write(bArr);
+            outputStream.flush();
+            i = httpURLConnection.getResponseCode();
+            CyberLog.d("SessionDatasUploader", "upload response : " + i);
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+        } catch (Error e5) {
+            e = e5;
+            CyberLog.e("SessionDatasUploader", "upload error " + e);
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                }
+            }
+        } catch (Exception e7) {
+            e = e7;
+            CyberLog.e("SessionDatasUploader", "upload error " + e);
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (Exception e8) {
+                    e8.printStackTrace();
+                }
+            }
         }
         return i == 200;
     }

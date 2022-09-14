@@ -63,7 +63,6 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
             addGroupInfoData.setStatus(groupInfo.status.intValue());
             addGroupInfoData.setAuthorId(groupInfo.authorId.longValue());
             addGroupInfoData.setAuthorName(groupInfo.authorName);
-            addGroupInfoData.setAuthorNameShow(groupInfo.authorNameShow);
             addGroupInfoData.setCreateTime(groupInfo.createTime.intValue());
             addGroupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
             addGroupInfoData.setMemberNum(groupInfo.memberNum.intValue());

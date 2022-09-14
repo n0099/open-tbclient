@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public final class vw1 extends ow1 {
+public class vw1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public String w;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vw1() {
-        super("animateview", "sanId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,41 +25,32 @@ public final class vw1 extends ow1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = false;
-        this.v = true;
-        this.w = null;
+        this.e = false;
     }
 
-    @Override // com.baidu.tieba.ow1, com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) && this.e) {
+            fw1Var.f.quadTo(this.a, this.b, this.c, this.d);
+        }
+    }
+
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 3) {
             return;
         }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("path");
-        this.u = jSONObject.optBoolean("loop");
-        this.v = jSONObject.optBoolean("autoPlay");
-        this.w = jSONObject.optString("action");
-    }
-
-    @Override // com.baidu.tieba.qw1, com.baidu.tieba.zq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b)) ? false : true : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? isValid() && !TextUtils.isEmpty(this.t) : invokeV.booleanValue;
+        this.a = pg3.g((float) jSONArray.optDouble(0));
+        this.b = pg3.g((float) jSONArray.optDouble(1));
+        this.c = pg3.g((float) jSONArray.optDouble(2));
+        this.d = pg3.g((float) jSONArray.optDouble(3));
+        this.e = true;
     }
 }

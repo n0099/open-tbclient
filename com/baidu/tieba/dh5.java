@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import android.app.Activity;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class dh5 extends ih5 {
+public class dh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConstrainImageLayout.c e;
+    public AlertDialog a;
 
     /* loaded from: classes3.dex */
-    public class a implements ConstrainImageLayout.c {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dh5 a;
 
         public a(dh5 dh5Var) {
             Interceptable interceptable = $ic;
@@ -32,63 +36,106 @@ public class dh5 extends ih5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = dh5Var;
         }
 
-        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
-        public void a(TbImageView tbImageView, int i, int i2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
-                tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.s();
-                tbImageView.setDrawCorner(true);
-                tbImageView.setConrers(0);
-                if (i2 == 1) {
-                    tbImageView.setConrers(15);
-                } else if (i2 > 1) {
-                    if (i == 0) {
-                        tbImageView.setConrers(5);
-                    } else if (i == i2 - 1) {
-                        tbImageView.setConrers(10);
-                    }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a == null) {
+                return;
+            }
+            this.a.a.dismiss();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ dh5 b;
+
+        public b(dh5 dh5Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dh5Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.b = dh5Var;
+            this.a = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.b.a != null) {
+                    this.b.a.dismiss();
+                }
+                if (StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
+                    return;
+                }
+                lo4.o(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dh5(int i) {
-        super(i);
+    public dh5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new a(this);
     }
 
-    @Override // com.baidu.tieba.ih5, com.baidu.tieba.fh5
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (list.size() < this.b) {
-                list.size();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? bx4.k().h("key_member_auto_ban_renewal_show", false) : invokeV.booleanValue;
+    }
+
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null && alertDialog.isShowing()) {
+                this.a.dismiss();
             }
-            constrainImageLayout.setTbImageViewConfiguration(this.e);
-            return super.a(constrainImageLayout, list, i, i2);
+            if (activity == null) {
+                return;
+            }
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f4f, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0804, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0adb);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037c);
+            tBAlertBuilder.r(aVar2, aVar);
+            tBAlertBuilder.m(true);
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.l(3);
+            this.a = tBAlertBuilder.w();
+            bx4.k().u("key_member_auto_ban_renewal_show", true);
+            aVar.a(new a(this));
+            aVar2.a(new b(this, activity));
         }
-        return invokeLLII.intValue;
     }
 }

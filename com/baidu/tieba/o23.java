@@ -1,152 +1,344 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.StyleRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o23 extends x23 {
+public class o23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public Context b;
+    public WindowManager c;
+    public volatile int d;
+    public View e;
+    public View f;
+    public WindowManager.LayoutParams g;
+    public Handler h;
+    public Runnable i;
+    public Runnable j;
+    public q23.b k;
+    public boolean l;
+    public View m;
+    public View n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o23(x13 x13Var) {
-        super(x13Var, "/swanAPI/openStatisticFlowJar");
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o23 a;
+
+        public a(o23 o23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o23Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e != null) {
+                    if (this.a.e.getParent() != null) {
+                        this.a.c.removeView(this.a.e);
+                        if (this.a.k != null) {
+                            this.a.k.onDismiss();
+                            this.a.k = null;
+                        }
+                    }
+                    this.a.e = null;
+                }
+                if (this.a.m != null) {
+                    if (this.a.m.getParent() != null) {
+                        this.a.c.removeView(this.a.m);
+                    }
+                    this.a.m = null;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o23 a;
+
+        public b(o23 o23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o23Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            try {
+                if (this.a.l) {
+                    if (this.a.m != null && (this.a.m.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) this.a.m.getParent()).removeView(this.a.m);
+                    }
+                    WindowManager.LayoutParams t = this.a.t();
+                    this.a.n = new FrameLayout(this.a.b);
+                    this.a.n.setClickable(true);
+                    this.a.c.addView(this.a.n, t);
+                    this.a.m = this.a.n;
+                }
+                if (this.a.f != null && (this.a.f.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.a.f.getParent()).removeView(this.a.f);
+                }
+                this.a.c.addView(this.a.f, this.a.g);
+                this.a.e = this.a.f;
+                this.a.h.postDelayed(this.a.j, this.a.d * 1000);
+                if (this.a.a) {
+                    Log.d("ToastCustom", "add mView");
+                }
+            } finally {
+                if (!z) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o23 a;
+
+        public c(o23 o23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o23Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            try {
+                if (this.a.e != null) {
+                    if (this.a.e.getParent() != null) {
+                        this.a.c.removeViewImmediate(this.a.e);
+                    }
+                    if (this.a.k != null) {
+                        this.a.k.onDismiss();
+                        this.a.k = null;
+                    }
+                    if (this.a.a) {
+                        Log.d("ToastCustom", "remove mView");
+                    }
+                    this.a.e = null;
+                }
+                if (this.a.m != null) {
+                    if (this.a.m.getParent() != null) {
+                        this.a.c.removeViewImmediate(this.a.m);
+                    }
+                    if (this.a.a) {
+                        Log.d("ToastCustom", "remove mMaskView");
+                    }
+                    this.a.m = null;
+                }
+            } finally {
+                if (!z) {
+                }
+            }
+        }
+    }
+
+    public o23(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = context;
+        this.c = (WindowManager) context.getSystemService("window");
+        this.h = new Handler(Looper.getMainLooper());
+        this.j = new a(this);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        this.g = layoutParams;
+        layoutParams.height = -2;
+        layoutParams.width = -2;
+        layoutParams.format = -3;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100418;
+        layoutParams.type = 2005;
+        layoutParams.setTitle("Toast");
+        WindowManager.LayoutParams layoutParams2 = this.g;
+        layoutParams2.flags = 168;
+        layoutParams2.gravity = 81;
+        layoutParams2.y = -30;
+        this.d = 2;
+        this.a = false;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public void A(@StyleRes int i) {
+        WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("flowId");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-                return false;
-            }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 53647) {
-                if (hashCode == 55357 && optString.equals("805")) {
-                    c = 1;
-                }
-            } else if (optString.equals("670")) {
-                c = 0;
-            }
-            if (c == 0) {
-                HybridUbcFlow o = fu2.o();
-                o.G(l(optParamsAsJo.optJSONArray("data")));
-                o.n();
-            } else if (c != 1) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
-                return false;
-            } else {
-                j(optParamsAsJo.optJSONArray("data"));
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j(JSONArray jSONArray) {
-        i02 H;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || (H = nm2.U().H()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (layoutParams = this.g) == null) {
             return;
         }
-        try {
-            JSONObject jSONObject = jSONArray.getJSONObject(0);
-            if (jSONObject != null) {
-                String string = jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
-                long j = 0;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        j = Long.valueOf(optString).longValue();
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                H.L3(new e83(string, j));
+        layoutParams.windowAnimations = i;
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Runnable runnable = this.i;
+            if (runnable != null) {
+                this.h.removeCallbacks(runnable);
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            b bVar = new b(this);
+            this.i = bVar;
+            this.h.post(bVar);
         }
     }
 
-    public UbcFlowEvent k(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void s() {
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("actionId");
-            long optLong = jSONObject.optLong("timestamp");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-            ubcFlowEvent.h(optLong);
-            return ubcFlowEvent;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (handler = this.h) == null) {
+            return;
         }
-        return (UbcFlowEvent) invokeL.objValue;
+        handler.post(new c(this));
+        this.h.removeCallbacks(this.j);
+        if (this.a) {
+            Log.d("ToastCustom", "cancel");
+        }
     }
 
-    public List<UbcFlowEvent> l(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public final WindowManager.LayoutParams t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                UbcFlowEvent k = k(jSONArray.optJSONObject(i));
-                if (k != null) {
-                    k.e("FE");
-                    arrayList.add(k);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.verticalMargin = q23.c(this.b);
+            layoutParams.flags = 2176;
+            layoutParams.type = 2005;
+            return layoutParams;
         }
-        return (List) invokeL.objValue;
+        return (WindowManager.LayoutParams) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            View view2 = this.e;
+            return (view2 == null || view2.getParent() == null) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i <= 0) {
+                i = 2;
+            }
+            this.d = i;
+        }
+    }
+
+    public void w(int i, int i2, int i3) {
+        WindowManager.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) || (layoutParams = this.g) == null) {
+            return;
+        }
+        layoutParams.gravity = i;
+        layoutParams.x = i2;
+        layoutParams.y = i3;
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void y(q23.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.k = bVar;
+        }
+    }
+
+    public void z(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.f = view2;
+            view2.setClickable(true);
+        }
     }
 }

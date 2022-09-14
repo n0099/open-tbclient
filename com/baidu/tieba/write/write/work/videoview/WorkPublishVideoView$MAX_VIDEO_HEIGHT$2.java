@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.videoview;
 
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,6 +44,6 @@ public final class WorkPublishVideoView$MAX_VIDEO_HEIGHT$2 extends Lambda implem
     public final Integer invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.valueOf(ri.f(this.this$0.getContext(), R.dimen.tbds866)) : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.valueOf(ej.f(this.this$0.getContext(), R.dimen.tbds866)) : (Integer) invokeV.objValue;
     }
 }

@@ -1,248 +1,170 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class e30 extends u20 {
+public class e30 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[][] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public e30() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public byte[] a;
+
+        public a(byte[] bArr, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bArr, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = bArr;
+        }
+
+        public byte[] a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (byte[]) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:125:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x00fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x00eb  */
-    @Override // com.baidu.tieba.w20
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str, String str2, Map<String, String> map, JSONObject jSONObject) {
-        InterceptResult invokeLLLL;
-        Throwable th;
-        HttpURLConnection httpURLConnection;
-        OutputStream outputStream;
-        OutputStream outputStream2;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, map, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("urlStr should not be null");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683271, "Lcom/baidu/tieba/e30;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            OutputStream outputStream3 = null;
-            try {
-                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                try {
-                    try {
-                        httpURLConnection.setConnectTimeout(15000);
-                        httpURLConnection.setReadTimeout(15000);
-                        httpURLConnection.setDoOutput(true);
-                        httpURLConnection.setRequestMethod(str2);
-                        if (map != null) {
-                            try {
-                                if (map.size() > 0) {
-                                    for (String str3 : map.keySet()) {
-                                        httpURLConnection.setRequestProperty(str3, map.get(str3));
-                                    }
-                                    httpURLConnection.setRequestProperty("Content-type", "application/json");
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                bufferedReader = null;
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                }
-                                if (outputStream3 != null) {
-                                    try {
-                                        outputStream3.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                        outputStream2 = httpURLConnection.getOutputStream();
-                    } catch (Throwable th3) {
-                        th = th3;
-                        outputStream = null;
-                    }
-                } catch (UnsupportedEncodingException unused) {
-                    outputStream2 = null;
-                } catch (MalformedURLException unused2) {
-                    outputStream2 = null;
-                } catch (ProtocolException unused3) {
-                    outputStream2 = null;
-                } catch (IOException unused4) {
-                    outputStream2 = null;
-                }
-            } catch (UnsupportedEncodingException unused5) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (MalformedURLException unused6) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (ProtocolException unused7) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (IOException unused8) {
-                httpURLConnection = null;
-                outputStream2 = null;
-            } catch (Throwable th4) {
-                th = th4;
-                httpURLConnection = null;
-                outputStream = null;
-            }
-            try {
-                outputStream2.write(jSONObject.toString().getBytes(IMAudioTransRequest.CHARSET));
-                outputStream2.flush();
-                if (httpURLConnection.getResponseCode() != 200) {
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return null;
-                }
-                bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), IMAudioTransRequest.CHARSET));
-                String str4 = "";
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        str4 = str4 + readLine;
-                    } catch (IOException unused9) {
-                    } catch (Throwable th5) {
-                        outputStream3 = outputStream2;
-                        th = th5;
-                        if (httpURLConnection != null) {
-                        }
-                        if (outputStream3 != null) {
-                        }
-                        if (bufferedReader != null) {
-                        }
-                        throw th;
-                    }
-                }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                try {
-                    bufferedReader.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
-                return str4;
-            } catch (UnsupportedEncodingException unused10) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (MalformedURLException unused11) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (ProtocolException unused12) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (IOException unused13) {
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e9) {
-                        e9.printStackTrace();
-                    }
-                }
-                return null;
-            } catch (Throwable th6) {
-                outputStream = outputStream2;
-                th = th6;
-                outputStream3 = outputStream;
-                bufferedReader = null;
-                if (httpURLConnection != null) {
-                }
-                if (outputStream3 != null) {
-                }
-                if (bufferedReader != null) {
-                }
-                throw th;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683271, "Lcom/baidu/tieba/e30;");
+                return;
             }
         }
-        return (String) invokeLLLL.objValue;
+        a = new byte[][]{new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+    }
+
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i % 3;
+            char c = 1;
+            if (i2 == 1) {
+                i += 2;
+                c = 2;
+            } else if (i2 == 2) {
+                i++;
+            } else {
+                c = 0;
+            }
+            int i3 = (i / 3) * 2;
+            return c > 0 ? i3 + 1 : i3;
+        }
+        return invokeI.intValue;
+    }
+
+    public static a b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
+            int i = length / 8;
+            if (length % 8 > 0) {
+                i++;
+            }
+            byte[] bArr2 = new byte[i];
+            int i2 = 0;
+            int i3 = 8;
+            for (int i4 = 0; i4 < bArr.length - 1; i4 += 2) {
+                byte b = (byte) (((bArr[i4] * 3) + bArr[i4 + 1]) & 255);
+                for (int i5 = 2; i5 >= 0; i5--) {
+                    if (i3 <= 0) {
+                        i2++;
+                        i3 = 8;
+                    }
+                    if (i2 >= i) {
+                        break;
+                    }
+                    bArr2[i2] = (byte) ((bArr2[i2] << 1) | ((b >> i5) & 1));
+                    i3--;
+                }
+            }
+            if (i3 > 0 && i2 < i) {
+                bArr2[i2] = (byte) (bArr2[i2] << i3);
+            }
+            return new a(bArr2, length);
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        byte b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            int i3 = i % 3;
+            if (i3 == 1) {
+                i2 = i + 2;
+                b = 2;
+            } else if (i3 == 2) {
+                i2 = i + 1;
+                b = 1;
+            } else {
+                i2 = i;
+                b = 0;
+            }
+            int i4 = (i2 / 3) * 2;
+            if (b > 0) {
+                i4++;
+            }
+            byte[] bArr2 = new byte[i4];
+            int i5 = 0;
+            int i6 = 0;
+            for (byte b2 : bArr) {
+                for (int i7 = 7; i7 >= 0; i7--) {
+                    bArr2[i5] = (byte) ((bArr2[i5] << 1) | ((b2 >> i7) & 1));
+                    if (i6 % 3 == 2) {
+                        byte[][] bArr3 = a;
+                        bArr2[i5 + 1] = bArr3[bArr2[i5]][1];
+                        bArr2[i5] = bArr3[bArr2[i5]][0];
+                        i5 += 2;
+                    }
+                    i6++;
+                    if (i6 == i) {
+                        break;
+                    }
+                }
+                if (i6 == i) {
+                    break;
+                }
+            }
+            if (b > 0) {
+                bArr2[i5] = (byte) (bArr2[i5] << b);
+                byte[][] bArr4 = a;
+                bArr2[i5 + 1] = bArr4[bArr2[i5]][1];
+                bArr2[i5] = bArr4[bArr2[i5]][0];
+                bArr2[i5 + 2] = b;
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeLI.objValue;
     }
 }

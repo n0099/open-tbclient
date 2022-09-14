@@ -1,135 +1,165 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class s12 {
+public class s12 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u12 a;
-    public long b;
 
-    public s12() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s12(v33 v33Var) {
+        super(v33Var, "/swanAPI/sConsole");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.a = new u12();
     }
 
-    public void a(q12 q12Var) {
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q12Var) == null) {
-            this.a.a(q12Var);
-        }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int size = this.a.d().size();
-            int i = this.a.i();
-            return i > 0 && (((double) size) * 1.0d) / ((double) i) > 0.5d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<q12> d = this.a.d();
-            if (d.size() <= 0) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
                 return false;
-            }
-            for (q12 q12Var : d) {
-                if (k62.k().i(q12Var.f)) {
-                    return true;
-                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, y23 y23Var) {
+        InterceptResult invokeLLLLL;
+        boolean optBoolean;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((double) this.a.g().size()) >= 2.0d : invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.i() <= 2 || System.currentTimeMillis() - this.b < 3000 : invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int size = this.a.f().size();
-            int i = this.a.i();
-            return i > 0 && (((double) size) * 1.0d) / ((double) i) > 0.5d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public t12 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            t12 t12Var = new t12();
-            t12Var.i(this.b);
-            t12Var.h(this.a.d());
-            t12Var.k(this.a.g());
-            t12Var.l(this.a.i());
-            if (c()) {
-                t12Var.j(RequestStatus.STATUS_CORE_FAILED);
-            } else if (e()) {
-                t12Var.j(RequestStatus.STATUS_UNKNOWN);
-            } else if (f()) {
-                t12Var.j(RequestStatus.STATUS_SERVER_FAILED);
-            } else if (b()) {
-                t12Var.j(RequestStatus.STATUS_FAILED);
-            } else if (d()) {
-                t12Var.j(RequestStatus.STATUS_SLOW);
-            } else {
-                t12Var.j(RequestStatus.STATUS_SUCCESS);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, y23Var)) == null) {
+            if (v43.b) {
+                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
             }
-            return t12Var;
+            if (!vz1.a() && !yz1.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+                return super.i(context, unitedSchemeEntity, callbackHandler, str, y23Var);
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1923550429:
+                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -1792428120:
+                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -797920904:
+                    if (str.equals("/swanAPI/sConsole/hide")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -797593805:
+                    if (str.equals("/swanAPI/sConsole/show")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -161927599:
+                    if (str.equals("/swanAPI/sConsole/postMessage")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1089933937:
+                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 2136057821:
+                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != vz1.a()) {
+                        vz1.c(context, optBoolean);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        yz1.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
+                    }
+                    return true;
+                case 1:
+                    lo2.U().q().P(true);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    yz1.i("ConsoleAction", "sConsole show");
+                    return true;
+                case 2:
+                    lo2.U().q().P(false);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    yz1.i("ConsoleAction", "sConsole hide");
+                    return true;
+                case 3:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        yz1.i("ConsoleAction", "send san inc data");
+                        t12.d(optParamsAsJo.toString());
+                    } else {
+                        yz1.c("ConsoleAction", "san inc data is null");
+                    }
+                    return true;
+                case 4:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        yz1.i("ConsoleAction", "send san full data");
+                        t12.c(optParamsAsJo.toString());
+                    } else {
+                        yz1.c("ConsoleAction", "san full data is null");
+                    }
+                    return true;
+                case 5:
+                    yz1.i("ConsoleAction", "request san full data");
+                    t12.b();
+                    return true;
+                case 6:
+                    hk1 h = gm2.h();
+                    if (h != null) {
+                        h.c(optParamsAsJo);
+                    }
+                    return true;
+                default:
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, y23Var);
+            }
         }
-        return (t12) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.b();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = System.currentTimeMillis();
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

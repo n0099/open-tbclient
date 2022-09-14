@@ -31,9 +31,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$layout;
-import androidx.appcompat.R$styleable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ContextThemeWrapper;
@@ -42,6 +39,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1307,7 +1305,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSpinner(@NonNull Context context, int i) {
-        this(context, null, R$attr.spinnerStyle, i);
+        this(context, null, R.attr.obfuscated_res_0x7f040647, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1348,7 +1346,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.spinnerStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040647);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1410,16 +1408,15 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0053, code lost:
-        if (r13 != null) goto L30;
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0052, code lost:
+        if (r13 != null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0055, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0054, code lost:
         r13.recycle();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0066, code lost:
-        if (r13 == null) goto L8;
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0065, code lost:
+        if (r13 == null) goto L9;
      */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x006d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1444,12 +1441,12 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         }
         this.mTempRect = new Rect();
         ThemeUtils.checkAppCompatTheme(this, getContext());
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.Spinner, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, androidx.appcompat.R.styleable.Spinner, i, 0);
         this.mBackgroundTintHelper = new AppCompatBackgroundHelper(this);
         if (theme != null) {
             this.mPopupContext = new ContextThemeWrapper(context, theme);
         } else {
-            int resourceId = obtainStyledAttributes.getResourceId(R$styleable.Spinner_popupTheme, 0);
+            int resourceId = obtainStyledAttributes.getResourceId(4, 0);
             if (resourceId != 0) {
                 this.mPopupContext = new ContextThemeWrapper(context, resourceId);
             } else {
@@ -1457,110 +1454,107 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             }
         }
         TypedArray typedArray2 = null;
-        if (i2 == -1) {
-            try {
-                typedArray = context.obtainStyledAttributes(attributeSet, ATTRS_ANDROID_SPINNERMODE, i, 0);
+        try {
+            if (i2 == -1) {
                 try {
+                    typedArray = context.obtainStyledAttributes(attributeSet, ATTRS_ANDROID_SPINNERMODE, i, 0);
                     try {
                         i2 = typedArray.hasValue(0) ? typedArray.getInt(0, 0) : i2;
                     } catch (Exception e) {
                         e = e;
                         Log.i(TAG, "Could not read android:spinnerMode", e);
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                    typedArray = null;
                 } catch (Throwable th) {
                     th = th;
-                    typedArray2 = typedArray;
                     if (typedArray2 != null) {
                         typedArray2.recycle();
                     }
                     throw th;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                typedArray = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (typedArray2 != null) {
-                }
-                throw th;
             }
-        }
-        if (i2 == 0) {
-            DialogPopup dialogPopup = new DialogPopup(this);
-            this.mPopup = dialogPopup;
-            dialogPopup.setPromptText(obtainStyledAttributes.getString(R$styleable.Spinner_android_prompt));
-        } else if (i2 == 1) {
-            DropdownPopup dropdownPopup = new DropdownPopup(this, this.mPopupContext, attributeSet, i);
-            TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(this.mPopupContext, attributeSet, R$styleable.Spinner, i, 0);
-            this.mDropDownWidth = obtainStyledAttributes2.getLayoutDimension(R$styleable.Spinner_android_dropDownWidth, -2);
-            dropdownPopup.setBackgroundDrawable(obtainStyledAttributes2.getDrawable(R$styleable.Spinner_android_popupBackground));
-            dropdownPopup.setPromptText(obtainStyledAttributes.getString(R$styleable.Spinner_android_prompt));
-            obtainStyledAttributes2.recycle();
-            this.mPopup = dropdownPopup;
-            this.mForwardingListener = new ForwardingListener(this, this, dropdownPopup) { // from class: androidx.appcompat.widget.AppCompatSpinner.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AppCompatSpinner this$0;
-                public final /* synthetic */ DropdownPopup val$popup;
+            if (i2 == 0) {
+                DialogPopup dialogPopup = new DialogPopup(this);
+                this.mPopup = dialogPopup;
+                dialogPopup.setPromptText(obtainStyledAttributes.getString(2));
+            } else if (i2 == 1) {
+                DropdownPopup dropdownPopup = new DropdownPopup(this, this.mPopupContext, attributeSet, i);
+                TintTypedArray obtainStyledAttributes2 = TintTypedArray.obtainStyledAttributes(this.mPopupContext, attributeSet, androidx.appcompat.R.styleable.Spinner, i, 0);
+                this.mDropDownWidth = obtainStyledAttributes2.getLayoutDimension(3, -2);
+                dropdownPopup.setBackgroundDrawable(obtainStyledAttributes2.getDrawable(1));
+                dropdownPopup.setPromptText(obtainStyledAttributes.getString(2));
+                obtainStyledAttributes2.recycle();
+                this.mPopup = dropdownPopup;
+                this.mForwardingListener = new ForwardingListener(this, this, dropdownPopup) { // from class: androidx.appcompat.widget.AppCompatSpinner.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ AppCompatSpinner this$0;
+                    public final /* synthetic */ DropdownPopup val$popup;
 
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(this);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr3 = {this, this, dropdownPopup};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i5 = newInitContext2.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
-                            super((View) newInitContext2.callArgs[0]);
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(this);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext2 = TitanRuntime.newInitContext();
+                            newInitContext2.initArgs = r2;
+                            Object[] objArr3 = {this, this, dropdownPopup};
+                            interceptable2.invokeUnInit(65536, newInitContext2);
+                            int i5 = newInitContext2.flag;
+                            if ((i5 & 1) != 0) {
+                                int i6 = i5 & 2;
+                                super((View) newInitContext2.callArgs[0]);
+                                newInitContext2.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext2);
+                                return;
+                            }
                         }
+                        this.this$0 = this;
+                        this.val$popup = dropdownPopup;
                     }
-                    this.this$0 = this;
-                    this.val$popup = dropdownPopup;
-                }
 
-                @Override // androidx.appcompat.widget.ForwardingListener
-                public ShowableListMenu getPopup() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$popup : (ShowableListMenu) invokeV.objValue;
-                }
+                    @Override // androidx.appcompat.widget.ForwardingListener
+                    public ShowableListMenu getPopup() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$popup : (ShowableListMenu) invokeV.objValue;
+                    }
 
-                @Override // androidx.appcompat.widget.ForwardingListener
-                @SuppressLint({"SyntheticAccessor"})
-                public boolean onForwardingStarted() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        if (this.this$0.getInternalPopup().isShowing()) {
+                    @Override // androidx.appcompat.widget.ForwardingListener
+                    @SuppressLint({"SyntheticAccessor"})
+                    public boolean onForwardingStarted() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            if (this.this$0.getInternalPopup().isShowing()) {
+                                return true;
+                            }
+                            this.this$0.showPopup();
                             return true;
                         }
-                        this.this$0.showPopup();
-                        return true;
+                        return invokeV.booleanValue;
                     }
-                    return invokeV.booleanValue;
-                }
-            };
+                };
+            }
+            CharSequence[] textArray = obtainStyledAttributes.getTextArray(0);
+            if (textArray != null) {
+                ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
+                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d0808);
+                setAdapter((SpinnerAdapter) arrayAdapter);
+            }
+            obtainStyledAttributes.recycle();
+            this.mPopupSet = true;
+            SpinnerAdapter spinnerAdapter = this.mTempAdapter;
+            if (spinnerAdapter != null) {
+                setAdapter(spinnerAdapter);
+                this.mTempAdapter = null;
+            }
+            this.mBackgroundTintHelper.loadFromAttributes(attributeSet, i);
+        } catch (Throwable th2) {
+            th = th2;
+            typedArray2 = -1;
         }
-        CharSequence[] textArray = obtainStyledAttributes.getTextArray(R$styleable.Spinner_android_entries);
-        if (textArray != null) {
-            ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
-            arrayAdapter.setDropDownViewResource(R$layout.support_simple_spinner_dropdown_item);
-            setAdapter((SpinnerAdapter) arrayAdapter);
-        }
-        obtainStyledAttributes.recycle();
-        this.mPopupSet = true;
-        SpinnerAdapter spinnerAdapter = this.mTempAdapter;
-        if (spinnerAdapter != null) {
-            setAdapter(spinnerAdapter);
-            this.mTempAdapter = null;
-        }
-        this.mBackgroundTintHelper.loadFromAttributes(attributeSet, i);
     }
 }

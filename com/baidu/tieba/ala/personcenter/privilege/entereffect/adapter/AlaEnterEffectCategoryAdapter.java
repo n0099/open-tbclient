@@ -11,15 +11,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.vx5;
+import com.baidu.tieba.jz5;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectCategoryAdapter extends cn<vx5, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends qn<jz5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,14 +48,14 @@ public class AlaEnterEffectCategoryAdapter extends cn<vx5, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0908e8);
-            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901cf);
+            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0908fd);
+            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901d0);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, vx5.b);
+        super(context, jz5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,23 +85,23 @@ public class AlaEnterEffectCategoryAdapter extends cn<vx5, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: t */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vx5 vx5Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jz5 jz5Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vx5Var, viewHolder})) == null) {
-            if (vx5Var != null) {
-                viewHolder.a.setText(vx5Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jz5Var, viewHolder})) == null) {
+            if (jz5Var != null) {
+                viewHolder.a.setText(jz5Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);

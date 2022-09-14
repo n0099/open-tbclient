@@ -1,44 +1,58 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class fz extends dz {
+public class fz {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fz(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304985, "Lcom/baidu/tieba/fz;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448304985, "Lcom/baidu/tieba/fz;");
                 return;
             }
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
     }
 
-    @Override // com.baidu.tieba.dz
-    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            gz gzVar = new gz();
-            gzVar.c(bArr, i, i2);
-            return com.baidu.cesium.i.b.a(new long[]{gzVar.b()});
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(1.0f);
+            animate.scaleX(1.0f);
+            animate.translationY(0.0f);
+            animate.setDuration(0L);
+            animate.start();
         }
-        return (com.baidu.cesium.i.b) invokeLII.objValue;
+    }
+
+    public static void b(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY(-a);
+            animate.setDuration(i);
+            animate.start();
+        }
     }
 }

@@ -1,86 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f63;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONArray;
+import java.io.File;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qr1 extends gr1 {
+public class qr1 extends pr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
 
     /* loaded from: classes5.dex */
-    public class a implements tf3<d63<f63.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ int b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ qr1 d;
+        public final /* synthetic */ y23 d;
+        public final /* synthetic */ qr1 e;
 
-        public a(qr1 qr1Var, String str, String str2, String str3) {
+        public a(qr1 qr1Var, File file, int i, String str, y23 y23Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qr1Var, str, str2, str3};
+                Object[] objArr = {qr1Var, file, Integer.valueOf(i), str, y23Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = qr1Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.e = qr1Var;
+            this.a = file;
+            this.b = i;
+            this.c = str;
+            this.d = y23Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(d63<f63.e> d63Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var) == null) {
-                if (!y53.h(d63Var)) {
-                    int b = d63Var.b();
-                    this.d.d(this.a, new at1(b, y53.f(b)));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                File k = wf3.k(this.a.getName());
+                if (!wf3.b(this.a, k, this.b)) {
+                    yz1.c("ImageApi", "compress image failed");
+                    this.e.d(this.c, new yu1(1001, "compress image failed"));
                     return;
                 }
-                this.d.z(this.b, this.c);
-                this.d.d(this.a, new at1(0));
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("tempFilePath", ga3.J(k.getAbsolutePath(), this.d.b));
+                } catch (JSONException e) {
+                    yz1.c("ImageApi", e.toString());
+                }
+                this.e.d(this.c, new yu1(0, jSONObject));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qr1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    public qr1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -88,88 +91,66 @@ public class qr1 extends gr1 {
         }
     }
 
-    public at1 A(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#openSystemSMSPanel", false);
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                ay1.b("ShowSMSPanelApi", "params: ", jSONObject);
-                String optString = jSONObject.optString("content");
-                JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
-                if (optJSONArray == null) {
-                    return new at1(202);
-                }
-                String y = y(optJSONArray);
-                if (!TextUtils.isEmpty(y) && !TextUtils.isEmpty(optString)) {
-                    String optString2 = jSONObject.optString("cb");
-                    if (TextUtils.isEmpty(optString2)) {
-                        return new at1(202);
-                    }
-                    z03.K().q().e0().g(getContext(), "scope_show_sms_panel", new a(this, optString2, y, optString));
-                    return at1.f();
-                }
-                return new at1(202);
-            }
-            return at1Var;
-        }
-        return (at1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dp1
+    @Override // com.baidu.tieba.br1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
     }
 
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d83 d83Var = new d83();
-            d83Var.b = "sms_panel";
-            d83Var.e = String.valueOf(this.f);
-            d83Var.a("appid", z03.K().getAppId());
-            t73.x("1639", d83Var);
-        }
-    }
-
-    public final String y(JSONArray jSONArray) {
+    public yu1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            this.f = jSONArray.length();
-            for (int i = 0; i < this.f; i++) {
-                String optString = jSONArray.optString(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#compressImage", false);
+            Pair<yu1, JSONObject> s = s(str);
+            yu1 yu1Var = (yu1) s.first;
+            if (yu1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    return null;
+                    yz1.c("ImageApi", "cb is empty");
+                    return new yu1(202, "cb is empty");
                 }
-                sb.append(optString);
-                if (i != this.f - 1) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
+                return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
             }
-            return sb.toString();
+            return yu1Var;
         }
-        return (String) invokeL.objValue;
+        return (yu1) invokeL.objValue;
     }
 
-    public void z(@NonNull String str, @NonNull String str2) {
+    public final yu1 y(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.SENDTO");
-            intent.setData(Uri.parse("smsto:" + str));
-            intent.putExtra("sms_body", str2);
-            getContext().startActivity(intent);
-            x();
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+            y23 b0 = y23.b0();
+            if (b0 == null) {
+                return new yu1(1001, "swan app is null");
+            }
+            int i2 = (i < 0 || i > 100) ? 80 : i;
+            if (TextUtils.isEmpty(str2)) {
+                yz1.c("ImageApi", "src is null");
+                return new yu1(202, "src is null");
+            }
+            PathType s = ga3.s(str2);
+            String str3 = null;
+            if (s == PathType.BD_FILE) {
+                str3 = ga3.M(str2, b0.b);
+            } else if (s == PathType.RELATIVE) {
+                str3 = ga3.L(str2, b0, b0.k0());
+            }
+            if (TextUtils.isEmpty(str3)) {
+                yz1.c("ImageApi", "file path error");
+                return new yu1(2001, "file path error");
+            }
+            File file = new File(str3);
+            if (!file.exists()) {
+                yz1.c("ImageApi", "file does not exist");
+                return new yu1(2001, "file does not exist");
+            }
+            sf3.k(new a(this, file, i2, str, b0), "compressImage");
+            return yu1.f();
         }
+        return (yu1) invokeLLI.objValue;
     }
 }

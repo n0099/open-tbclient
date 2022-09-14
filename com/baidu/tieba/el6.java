@@ -1,77 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.frsfeedforums.FrsFeedItemViewHolder;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class el6 extends af6<uj8, FrsFeedItemViewHolder> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public cl6 l;
-    public boolean m;
+public interface el6 {
+    void a(String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public el6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.m = z;
-    }
+    void b();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: E */
-    public FrsFeedItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0301, (ViewGroup) null);
-            this.l = new cl6(this.c, inflate, 2, this.m, this.mPageId);
-            return new FrsFeedItemViewHolder(inflate);
-        }
-        return (FrsFeedItemViewHolder) invokeL.objValue;
-    }
+    int c();
 
-    public View F(int i, View view2, ViewGroup viewGroup, uj8 uj8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uj8Var, frsFeedItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, uj8Var, frsFeedItemViewHolder);
-            if (uj8Var != null) {
-                this.l.o(uj8Var.b(), uj8Var.a());
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
+    void d(no noVar);
 
-    @Override // com.baidu.tieba.af6, com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (uj8) obj, (FrsFeedItemViewHolder) viewHolder);
-        return view2;
-    }
+    void e();
+
+    List<Cdo> f();
+
+    void g(ArrayList<Cdo> arrayList, FrsViewData frsViewData);
+
+    HashMap<Integer, ThreadData> h();
+
+    int i();
+
+    int j();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void l(lg6 lg6Var);
+
+    void m(boolean z);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setFromCDN(boolean z);
 }

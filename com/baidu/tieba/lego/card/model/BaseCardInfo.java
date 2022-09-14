@@ -3,8 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.oe7;
-import com.baidu.tieba.vf7;
+import com.baidu.tieba.bh7;
+import com.baidu.tieba.uf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,13 +39,13 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     public String getFidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? oe7.b.a(str).d("fid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? uf7.b.a(str).d("fid") : "" : (String) invokeL.objValue;
     }
 
     public String getTouidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? oe7.b.a(str).d("touid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? uf7.b.a(str).d("touid") : "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -57,9 +57,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
                     return responseAttentionUser(aVar.c, aVar.d);
-                } else if (obj instanceof vf7) {
-                    vf7 vf7Var = (vf7) obj;
-                    return responseAttentionForum(vf7Var.a, vf7Var.b);
+                } else if (obj instanceof bh7) {
+                    bh7 bh7Var = (bh7) obj;
+                    return responseAttentionForum(bh7Var.a, bh7Var.b);
                 } else {
                     return false;
                 }

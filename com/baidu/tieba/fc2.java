@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.wj2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class fc2 extends x23 {
+public class fc2 implements gc2, xb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lb2 a;
+    public nk1 b;
+    public volatile xb2[] c;
+    public ec2 d;
 
     /* loaded from: classes4.dex */
-    public class a implements wj2.c {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fc2 a;
 
         public a(fc2 fc2Var) {
             Interceptable interceptable = $ic;
@@ -37,83 +38,104 @@ public class fc2 extends x23 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Toast.makeText(hk2.c(), (int) R.string.obfuscated_res_0x7f0f014f, 1).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.wj2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File d = ha3.d();
-                File c = ha3.c();
-                if (d.exists() && ch4.U(d.getPath(), c.getPath())) {
-                    zw2.M(true);
-                    Toast.makeText(hk2.c(), (int) R.string.obfuscated_res_0x7f0f0150, 1).show();
                     return;
                 }
-                Toast.makeText(hk2.c(), (int) R.string.obfuscated_res_0x7f0f014f, 1).show();
+            }
+            this.a = fc2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fc2(x13 x13Var) {
-        super(x13Var, "/swanAPI/debugSwanCore");
+    public fc2(@NonNull ec2 ec2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {ec2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new lb2();
+        this.b = gm2.m();
+        this.c = new xb2[]{new bc2(), new zb2(), new yb2(), new ac2()};
+        this.d = ec2Var;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.xb2
+    public synchronized ArraySet<String> a() {
+        InterceptResult invokeV;
+        ArraySet<String> arraySet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (x23.b) {
-                JSONObject a2 = x23.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0147, 1).show();
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                yz1.k("RecoveryPolicy", "renameAllPlatformFiles start");
+                arraySet = new ArraySet<>();
+                for (xb2 xb2Var : this.c) {
+                    arraySet.addAll((ArraySet<? extends String>) xb2Var.a());
                 }
-                String optString = a2.optString("downloadurl");
-                if (TextUtils.isEmpty(optString)) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f011c, 1).show();
-                    return false;
-                }
-                wj2.J(optString, new a(this));
-                return true;
+                yz1.k("RecoveryPolicy", "renameAllPlatformFiles end");
             }
-            return false;
+            return arraySet;
         }
-        return invokeLLLL.booleanValue;
+        return (ArraySet) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gc2
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            sf3.k(new a(this), "performRecovery");
+        }
+    }
+
+    public void c(ArraySet<String> arraySet) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arraySet) == null) || arraySet == null || arraySet.isEmpty()) {
+            return;
+        }
+        yz1.k("RecoveryPolicy", "deleteFiles start");
+        Iterator<String> it = arraySet.iterator();
+        while (it.hasNext()) {
+            cj4.k(it.next());
+        }
+        yz1.k("RecoveryPolicy", "deleteFiles end");
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            oz2 e = oz2.e();
+            qz2 qz2Var = new qz2(132);
+            qz2Var.d();
+            e.h(qz2Var);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void f(Collection<String> collection) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, collection) == null) || collection == null || collection.isEmpty()) {
+            return;
+        }
+        yz1.k("RecoveryPolicy", "resetAccredit appIds=" + collection);
+        this.a.g(new ArrayList(collection));
     }
 }

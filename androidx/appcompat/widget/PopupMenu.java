@@ -13,13 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$attr;
 import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -212,7 +212,7 @@ public class PopupMenu {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PopupMenu(@NonNull Context context, @NonNull View view2, int i) {
-        this(context, view2, i, R$attr.popupMenuStyle, 0);
+        this(context, view2, i, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -13,6 +13,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BarVoteActivityConfig;
 import com.baidu.tbadk.core.atomData.CommonEmotionManagerActivityConfig;
@@ -25,15 +26,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.au4;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.forum.detail.BarEmotionResponseMessage;
 import com.baidu.tieba.im.forum.detail.ForumDetailModel;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import com.baidu.tieba.l87;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.r97;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.vr4;
+import com.baidu.tieba.s97;
+import com.baidu.tieba.x15;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +52,7 @@ import tbclient.SimpleThreadInfo;
 public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> implements ForumDetailModel.f, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l87 a;
+    public s97 a;
     public ForumDetailModel b;
     public RecommendForumInfo c;
     public List<SimpleThreadInfo> d;
@@ -67,18 +68,18 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public String n;
 
     /* loaded from: classes4.dex */
-    public class a implements vr4.e {
+    public class a implements au4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr4 a;
+        public final /* synthetic */ au4 a;
         public final /* synthetic */ ForumDetailActivity b;
 
-        public a(ForumDetailActivity forumDetailActivity, vr4 vr4Var) {
+        public a(ForumDetailActivity forumDetailActivity, au4 au4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailActivity, vr4Var};
+                Object[] objArr = {forumDetailActivity, au4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,13 +90,13 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 }
             }
             this.b = forumDetailActivity;
-            this.a = vr4Var;
+            this.a = au4Var;
         }
 
-        @Override // com.baidu.tieba.vr4.e
-        public void onClick(vr4 vr4Var) {
+        @Override // com.baidu.tieba.au4.e
+        public void onClick(au4 au4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -235,7 +236,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 if (TextUtils.isEmpty(this.b.l)) {
                     return null;
                 }
-                r97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.l), this.a);
+                ya7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.l), this.a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -281,7 +282,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
                 forumDetailActivity.a.n();
-                this.a.a.z(R.string.obfuscated_res_0x7f0f0fbd);
+                this.a.a.z(R.string.obfuscated_res_0x7f0f0fd9);
             }
         }
     }
@@ -313,7 +314,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ri.D()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ej.D()) {
                 this.a.a.o();
                 this.a.a.y();
                 this.a.b.I(this.a.l);
@@ -385,7 +386,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             this.a.o();
             if (this.c == null && ((list = this.d) == null || list.size() <= 0)) {
                 this.m = false;
-                this.a.z(R.string.obfuscated_res_0x7f0f0c59);
+                this.a.z(R.string.obfuscated_res_0x7f0f0c72);
                 return;
             }
             this.m = true;
@@ -398,15 +399,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (ri.D()) {
+            if (ej.D()) {
                 this.a.y();
                 this.b.I(this.l);
                 this.b.H(this.l);
                 return;
             }
             this.a.n();
-            this.a.z(R.string.obfuscated_res_0x7f0f0fbd);
-            showToast(R.string.obfuscated_res_0x7f0f0c40);
+            this.a.z(R.string.obfuscated_res_0x7f0f0fd9);
+            showToast(R.string.obfuscated_res_0x7f0f0c59);
         }
     }
 
@@ -479,7 +480,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f121f);
+                showToast(R.string.obfuscated_res_0x7f0f123d);
                 H1(true);
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "like_add ", "like_add", 1, new Object[0]);
                 return;
@@ -510,14 +511,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.a.n();
             if (TextUtils.isEmpty(str)) {
-                showToast(R.string.obfuscated_res_0x7f0f0c40);
+                showToast(R.string.obfuscated_res_0x7f0f0c59);
             } else {
                 showToast(str);
             }
-            if (ri.D()) {
-                this.a.z(R.string.obfuscated_res_0x7f0f0c59);
+            if (ej.D()) {
+                this.a.z(R.string.obfuscated_res_0x7f0f0c72);
             } else {
-                this.a.z(R.string.obfuscated_res_0x7f0f0fbd);
+                this.a.z(R.string.obfuscated_res_0x7f0f0fd9);
             }
         }
     }
@@ -528,14 +529,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeLL(1048590, this, view2, switchState) == null) {
             if (switchState == BdSwitchView.SwitchState.OFF) {
                 this.b.subscribeBar(false, this.l);
-            } else if (nz4.d().x() && nz4.d().u()) {
+            } else if (x15.d().x() && x15.d().u()) {
                 this.b.subscribeBar(true, this.l);
             } else {
-                vr4 vr4Var = new vr4(getActivity());
-                vr4Var.setMessageId(R.string.obfuscated_res_0x7f0f05ae);
-                vr4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f119b), new a(this, vr4Var));
-                vr4Var.create(getPageContext());
-                vr4Var.show();
+                au4 au4Var = new au4(getActivity());
+                au4Var.setMessageId(R.string.obfuscated_res_0x7f0f05ba);
+                au4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f11b8), new a(this, au4Var));
+                au4Var.create(getPageContext());
+                au4Var.show();
                 this.mHandler.postDelayed(new b(this), 500L);
             }
         }
@@ -586,15 +587,15 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f090332) {
+            if (id == R.id.obfuscated_res_0x7f09033c) {
                 RecommendForumInfo recommendForumInfo = this.c;
                 if (recommendForumInfo == null || recommendForumInfo.forum_id == null) {
                     return;
                 }
                 sendMessage(new CustomMessage(2002001, new ForumMemberActivityConfig(getActivity(), String.valueOf(this.c.forum_id), this.c.forum_name)));
-            } else if (id == R.id.obfuscated_res_0x7f09032b) {
+            } else if (id == R.id.obfuscated_res_0x7f090335) {
                 this.a.x();
-            } else if (id == R.id.obfuscated_res_0x7f09032f) {
+            } else if (id == R.id.obfuscated_res_0x7f090339) {
                 if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                     return;
@@ -605,21 +606,21 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 }
                 Activity pageActivity = getPageContext().getPageActivity();
                 sendMessage(new CustomMessage(2002001, new CommonEmotionManagerActivityConfig(pageActivity, this.g.url + "?forum_id=" + this.c.forum_id)));
-            } else if (id == R.id.obfuscated_res_0x7f090331) {
+            } else if (id == R.id.obfuscated_res_0x7f09033b) {
                 RecommendForumInfo recommendForumInfo2 = this.c;
                 if (recommendForumInfo2 != null) {
                     if (recommendForumInfo2.is_private_forum.intValue() == 0) {
-                        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/bawuindex?fn=" + this.c.forum_name + "&fid=" + this.c.forum_id});
+                        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{TbConfig.MANAGE_ADDRESS + "?fn=" + this.c.forum_name + "&fid=" + this.c.forum_id});
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_BAR_DETAIL_CLICK));
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/pribawuindex?fid=" + this.c.forum_id + "&fn=" + this.c.forum_name + "&nomenu=1"});
+                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "mo/q/pribawuindex?fid=" + this.c.forum_id + "&fn=" + this.c.forum_name + "&nomenu=1"});
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09032d) {
+            } else if (id == R.id.obfuscated_res_0x7f090337) {
                 if (this.c != null) {
-                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/pritousu/complainforum?fid=" + this.c.forum_id + "&nomenu=1"});
+                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "mo/q/pritousu/complainforum?fid=" + this.c.forum_id + "&nomenu=1"});
                 }
-            } else if (id == R.id.obfuscated_res_0x7f090334) {
+            } else if (id == R.id.obfuscated_res_0x7f09033e) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_BAR_ENTRANCE_DETAIL).eventStat();
                 if (this.c == null || (managerElectionTab = this.j) == null) {
                     return;
@@ -634,13 +635,13 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this).createNormalConfig(this.c.forum_id.longValue(), 2)));
                 } else if (intValue == 5) {
                     if (TextUtils.isEmpty(this.j.toast_text)) {
-                        ri.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02dd);
+                        ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02e1);
                     } else {
-                        ri.N(TbadkCoreApplication.getInst(), this.j.toast_text);
+                        ej.N(TbadkCoreApplication.getInst(), this.j.toast_text);
                     }
                 } else if (intValue != 1 || TextUtils.isEmpty(this.j.toast_text)) {
                 } else {
-                    ri.N(TbadkCoreApplication.getInst(), this.j.toast_text);
+                    ej.N(TbadkCoreApplication.getInst(), this.j.toast_text);
                 }
             }
         }
@@ -651,10 +652,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02a1);
-            l87 l87Var = new l87(this);
-            this.a = l87Var;
-            l87Var.m().a(new f(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d02a6);
+            s97 s97Var = new s97(this);
+            this.a = s97Var;
+            s97Var.m().a(new f(this));
             this.a.u(new g(this));
             this.b = new ForumDetailModel(this);
             this.l = getIntent().getStringExtra("forum_id");
@@ -686,7 +687,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f121f);
+                showToast(R.string.obfuscated_res_0x7f0f123d);
                 H1(false);
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "like_cancel ", "like_canel", 1, new Object[0]);
                 return;

@@ -30,7 +30,6 @@ import androidx.collection.ArraySet;
 import androidx.core.os.CancellationSignal;
 import androidx.core.util.LogWriter;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.R$id;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentAnim;
 import androidx.fragment.app.FragmentTransition;
@@ -39,6 +38,7 @@ import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -983,7 +983,7 @@ public abstract class FragmentManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, view2)) == null) {
-            Object tag = view2.getTag(R$id.fragment_container_view_tag);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f090acd);
             if (tag instanceof Fragment) {
                 return (Fragment) tag;
             }
@@ -1132,10 +1132,10 @@ public abstract class FragmentManager {
         if (!(interceptable == null || interceptable.invokeL(65570, this, fragment) == null) || (fragmentContainer = getFragmentContainer(fragment)) == null) {
             return;
         }
-        if (fragmentContainer.getTag(R$id.visible_removing_fragment_view_tag) == null) {
-            fragmentContainer.setTag(R$id.visible_removing_fragment_view_tag, fragment);
+        if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f09260a) == null) {
+            fragmentContainer.setTag(R.id.obfuscated_res_0x7f09260a, fragment);
         }
-        ((Fragment) fragmentContainer.getTag(R$id.visible_removing_fragment_view_tag)).setNextAnim(fragment.getNextAnim());
+        ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f09260a)).setNextAnim(fragment.getNextAnim());
     }
 
     private void startPendingDeferredFragments() {

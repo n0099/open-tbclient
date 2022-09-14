@@ -28,7 +28,7 @@ public final class b extends AlertDialog {
     public static b DG;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final C0571b DH;
+    public final C0576b DH;
     public com.kwad.components.core.c.kwai.a DK;
     public boolean DL;
 
@@ -109,22 +109,22 @@ public final class b extends AlertDialog {
             return (a) invokeL.objValue;
         }
 
-        public final C0571b ms() {
+        public final C0576b ms() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (com.kwad.components.core.a.aw.booleanValue() && (this.context == null || this.adTemplate == null || TextUtils.isEmpty(this.url))) {
                     throw new IllegalArgumentException("param is error, please check it");
                 }
-                return new C0571b(this, (byte) 0);
+                return new C0576b(this, (byte) 0);
             }
-            return (C0571b) invokeV.objValue;
+            return (C0576b) invokeV.objValue;
         }
     }
 
     /* renamed from: com.kwad.components.core.c.kwai.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0571b {
+    public static class C0576b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -135,7 +135,7 @@ public final class b extends AlertDialog {
         public Context context;
         public String url;
 
-        public C0571b(a aVar) {
+        public C0576b(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -157,19 +157,19 @@ public final class b extends AlertDialog {
             this.DO = aVar.DO;
         }
 
-        public /* synthetic */ C0571b(a aVar, byte b) {
+        public /* synthetic */ C0576b(a aVar, byte b) {
             this(aVar);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(Activity activity, C0571b c0571b) {
+    public b(Activity activity, C0576b c0576b) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, c0571b};
+            Object[] objArr = {activity, c0576b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -182,30 +182,30 @@ public final class b extends AlertDialog {
         }
         this.DL = false;
         setOwnerActivity(activity);
-        this.DH = c0571b;
-        c0571b.context = Wrapper.wrapContextIfNeed(c0571b.context);
+        this.DH = c0576b;
+        c0576b.context = Wrapper.wrapContextIfNeed(c0576b.context);
         if (com.kwad.sdk.b.kwai.a.a(activity)) {
             getWindow().addFlags(1024);
         }
-        setOnShowListener(c0571b.DN);
-        setOnDismissListener(c0571b.DO);
+        setOnShowListener(c0576b.DN);
+        setOnDismissListener(c0576b.DO);
     }
 
-    public static boolean a(C0571b c0571b) {
+    public static boolean a(C0576b c0576b) {
         InterceptResult invokeL;
         Activity dB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0571b)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c0576b)) == null) {
             b bVar = DG;
-            if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0571b.context)) == null || dB.isFinishing()) {
+            if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0576b.context)) == null || dB.isFinishing()) {
                 return false;
             }
             com.kwad.sdk.kwai.kwai.c.rd().dismiss();
             try {
-                b bVar2 = new b(dB, c0571b);
+                b bVar2 = new b(dB, c0576b);
                 DG = bVar2;
                 bVar2.show();
-                com.kwad.sdk.core.report.a.c(c0571b.adTemplate, 86, (JSONObject) null);
+                com.kwad.sdk.core.report.a.c(c0576b.adTemplate, 86, (JSONObject) null);
                 return true;
             } catch (Throwable th) {
                 com.kwad.sdk.core.e.b.printStackTrace(th);
@@ -275,7 +275,7 @@ public final class b extends AlertDialog {
             if (this.DK == null) {
                 com.kwad.components.core.c.kwai.a aVar = new com.kwad.components.core.c.kwai.a(this, this.DH);
                 this.DK = aVar;
-                aVar.setChangeListener(new a.InterfaceC0570a(this) { // from class: com.kwad.components.core.c.kwai.b.1
+                aVar.setChangeListener(new a.InterfaceC0575a(this) { // from class: com.kwad.components.core.c.kwai.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ b DM;
@@ -298,7 +298,7 @@ public final class b extends AlertDialog {
                         this.DM = this;
                     }
 
-                    @Override // com.kwad.components.core.c.kwai.a.InterfaceC0570a
+                    @Override // com.kwad.components.core.c.kwai.a.InterfaceC0575a
                     public final void mp() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

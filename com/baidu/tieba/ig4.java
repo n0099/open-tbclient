@@ -1,176 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ig4 {
+public class ig4 extends bh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public JSONObject e;
-    public long f;
-    public int g;
-    public String h;
-    public String i;
-    public boolean j;
-    public String k;
 
-    public ig4(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ int c;
+
+        public a(String[] strArr, Activity activity, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = strArr;
+            this.b = activity;
+            this.c = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[this.a.length];
+                PackageManager packageManager = this.b.getPackageManager();
+                String packageName = this.b.getPackageName();
+                int length = this.a.length;
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                }
+                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
             }
         }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.d = str2;
-        this.g = i;
-        if ((i & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
-        try {
-            this.e = new JSONObject(this.d);
-        } catch (JSONException unused) {
-        }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.e;
-            return jSONObject != null ? jSONObject.optString("bizId") : "";
-        }
-        return (String) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    public void b() {
-        String str;
+    public static void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.b) && dg4.g().a(this.a)) {
-            this.h = eg4.g().h();
-        }
-    }
-
-    public ig4(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.e = jSONObject;
-        this.g = i;
-        if ((i & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
-    }
-
-    public ig4(String str, String str2, int i, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str2;
-        this.b = str;
-        this.c = i;
-        this.d = str3;
-        this.g = i2;
-        if ((i2 & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
-        try {
-            this.e = new JSONObject(this.d);
-        } catch (JSONException unused) {
-        }
-    }
-
-    public ig4(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.a = str2;
-        this.b = str;
-        this.c = i;
-        this.d = str3;
-        this.g = i2;
-        if ((i2 & 2) == 0) {
-            if (j > 0) {
-                this.f = j;
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                jg4.a(activity);
             } else {
-                this.f = System.currentTimeMillis();
+                activity.finish();
             }
         }
-        if (TextUtils.isEmpty(this.d)) {
-            return;
+    }
+
+    public static boolean f(@NonNull Activity activity, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return kg4.a(activity, str);
+            }
+            return false;
         }
-        try {
-            this.e = new JSONObject(this.d);
-        } catch (JSONException unused) {
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                kg4.requestPermissions(activity, strArr, i);
+            } else if (activity instanceof b) {
+                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+            }
+        }
+    }
+
+    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                mg4.startActivity(activity, intent, bundle);
+            } else {
+                activity.startActivity(intent);
+            }
+        }
+    }
+
+    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                mg4.startActivityForResult(activity, intent, i, bundle);
+            } else {
+                activity.startActivityForResult(intent, i);
+            }
         }
     }
 }

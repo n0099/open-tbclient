@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,8 +41,8 @@ public final class BridgeActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0072  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0076  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0073  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -60,7 +59,6 @@ public final class BridgeActivity extends Activity {
             if (getIntent() == null) {
                 setResult(444222000);
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             Log.d("BridgeActivity", "onCreate");
@@ -75,7 +73,6 @@ public final class BridgeActivity extends Activity {
                             Log.e("YYOpenSdk", "resultCode getIntExtra exception " + e);
                             if (intent == null) {
                             }
-                            LogUtil.logActivity(this, "onCreate");
                         }
                     }
                 } catch (Exception e3) {
@@ -84,12 +81,11 @@ public final class BridgeActivity extends Activity {
                 }
                 if (intent == null) {
                     startActivityForResult(intent, i);
-                } else {
-                    setResult(444222000);
-                    finish();
+                    return;
                 }
+                setResult(444222000);
+                finish();
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

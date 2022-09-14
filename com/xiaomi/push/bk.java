@@ -132,7 +132,7 @@ public class bk {
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m198a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m199a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static <T> T a(Object obj, String str) {
@@ -280,7 +280,7 @@ public class bk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Object[] m198a(Object... objArr) {
+    public static Object[] m199a(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, objArr)) == null) {
@@ -304,7 +304,7 @@ public class bk {
     public static <T> T b(Object obj, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m198a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m199a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static void b(Object obj, String str, Object obj2) {

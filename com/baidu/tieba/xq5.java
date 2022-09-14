@@ -1,277 +1,408 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.bv4;
+import com.baidu.tieba.advert.sdk.widget.scalablevideoview.PivotPoint;
+import com.baidu.tieba.advert.sdk.widget.scalablevideoview.ScalableType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class xq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public cv4 c;
-    public FrameLayout d;
-    public LinearLayout e;
-    public NoNetworkView f;
-    public PbListView g;
-    public qq5 h;
-    public int i;
-    public ju5 j;
+    public yq5 a;
+    public yq5 b;
 
     /* loaded from: classes6.dex */
-    public class a implements ju5 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xq5 a;
 
-        public a(xq5 xq5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xq5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280775536, "Lcom/baidu/tieba/xq5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-280775536, "Lcom/baidu/tieba/xq5$a;");
                     return;
                 }
             }
-            this.a = xq5Var;
-        }
-
-        @Override // com.baidu.tieba.ju5
-        public void a(int i, String str, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, threadData) == null) {
-                TiebaStatic.log(ts5.c().e(this.a.i, "c12118", i, str, threadData));
-                xq5 xq5Var = this.a;
-                xq5Var.h(xq5Var.a, threadData, str);
+            int[] iArr = new int[PivotPoint.values().length];
+            b = iArr;
+            try {
+                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-
-        @Override // com.baidu.tieba.ju5
-        public void b(cu5 cu5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu5Var) == null) {
+            try {
+                b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[PivotPoint.CENTER.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            int[] iArr2 = new int[ScalableType.values().length];
+            a = iArr2;
+            try {
+                iArr2[ScalableType.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[ScalableType.FIT_XY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[ScalableType.FIT_CENTER.ordinal()] = 3;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[ScalableType.FIT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                a[ScalableType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP.ordinal()] = 6;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
+            } catch (NoSuchFieldError unused17) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP.ordinal()] = 9;
+            } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                a[ScalableType.CENTER.ordinal()] = 10;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP.ordinal()] = 12;
+            } catch (NoSuchFieldError unused21) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
+            } catch (NoSuchFieldError unused22) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
+            } catch (NoSuchFieldError unused23) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
+            } catch (NoSuchFieldError unused24) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
+            } catch (NoSuchFieldError unused25) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
+            } catch (NoSuchFieldError unused26) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
+            } catch (NoSuchFieldError unused27) {
+            }
+            try {
+                a[ScalableType.CENTER_CROP.ordinal()] = 19;
+            } catch (NoSuchFieldError unused28) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
+            } catch (NoSuchFieldError unused29) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
+            } catch (NoSuchFieldError unused30) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
+            } catch (NoSuchFieldError unused31) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
+            } catch (NoSuchFieldError unused32) {
+            }
+            try {
+                a[ScalableType.START_INSIDE.ordinal()] = 24;
+            } catch (NoSuchFieldError unused33) {
+            }
+            try {
+                a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
+            } catch (NoSuchFieldError unused34) {
+            }
+            try {
+                a[ScalableType.END_INSIDE.ordinal()] = 26;
+            } catch (NoSuchFieldError unused35) {
             }
         }
     }
 
-    public xq5(TbPageContext tbPageContext, BdUniqueId bdUniqueId, int i) {
+    public xq5(yq5 yq5Var, yq5 yq5Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Integer.valueOf(i)};
+            Object[] objArr = {yq5Var, yq5Var2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new a(this);
-        this.a = tbPageContext;
-        LinearLayout linearLayout = new LinearLayout(tbPageContext.getPageActivity());
-        this.e = linearLayout;
-        linearLayout.setOrientation(1);
-        this.f = new NoNetworkView(tbPageContext.getPageActivity());
-        if (pi.z()) {
-            this.f.setVisibility(8);
-        }
-        this.e.addView(this.f);
-        FrameLayout frameLayout = new FrameLayout(tbPageContext.getPageActivity());
-        this.d = frameLayout;
-        this.e.addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-        this.e.setPadding(0, 0, 0, 0);
-        BdTypeListView bdTypeListView = new BdTypeListView(this.a.getPageActivity());
-        this.b = bdTypeListView;
-        bdTypeListView.setDivider(null);
-        this.d.addView(this.b, new FrameLayout.LayoutParams(-1, -1));
-        cv4 cv4Var = new cv4(this.a);
-        this.c = cv4Var;
-        cv4Var.b0(bdUniqueId);
-        this.b.setPullRefresh(this.c);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.g = pbListView;
-        pbListView.a();
-        qq5 qq5Var = new qq5(tbPageContext, this.b);
-        this.h = qq5Var;
-        qq5Var.c(this.j);
+        this.a = yq5Var;
+        this.b = yq5Var2;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.z();
-        }
-    }
-
-    public FrameLayout e() {
+    public final Matrix a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (FrameLayout) invokeV.objValue;
-    }
-
-    public BdTypeListView f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (BdTypeListView) invokeV.objValue;
-    }
-
-    public View g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (View) invokeV.objValue;
-    }
-
-    public final void h(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
-        String str2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, threadData, str) == null) || tbPageContext == null || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
-            return;
-        }
-        if (TbadkCoreApplication.getCurrentAccount() != null) {
-            String userId = threadData.getAuthor().getUserId();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            z = TextUtils.equals(userId, currentAccount);
-            str2 = currentAccount;
-        } else {
-            str2 = "";
-            z = false;
-        }
-        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-        alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
-        Activity pageActivity = tbPageContext.getPageActivity();
-        if (!"颜值".equals(str)) {
-            str = null;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(pageActivity, alaLiveInfoCoreData, null, AlaLiveRoomActivityConfig.FROM_TYPE_SQUARE_LIVE, str2, z, str, null)));
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g.p(R.color.CAM_X0204);
-            this.g.d(i);
-            this.c.H(i);
-            this.h.b();
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            this.f.d(this.a, i);
-        }
-    }
-
-    public void j(List<pn> list, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (list == null) {
-                list = new LinkedList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.CENTER);
             }
-            this.i = i;
-            this.h.d(list);
-            this.h.e(i);
-            if (z) {
-                p();
-            } else {
-                q();
+            return c();
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.RIGHT_BOTTOM);
+            }
+            return d();
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h(PivotPoint.CENTER) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? h(PivotPoint.RIGHT_BOTTOM) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h(PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? j(1.0f, 1.0f, PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix g(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float max = Math.max(b, a2);
+            return j(max / b, max / a2, pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix h(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float min = Math.min(b, a2);
+            return j(min / b, min / a2, pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix i(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.setScale(f, f2, f3, f4);
+            return matrix;
+        }
+        return (Matrix) invokeCommon.objValue;
+    }
+
+    public final Matrix j(float f, float f2, PivotPoint pivotPoint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pivotPoint})) == null) {
+            switch (a.b[pivotPoint.ordinal()]) {
+                case 1:
+                    return i(f, f2, 0.0f, 0.0f);
+                case 2:
+                    return i(f, f2, 0.0f, this.a.a() / 2.0f);
+                case 3:
+                    return i(f, f2, 0.0f, this.a.a());
+                case 4:
+                    return i(f, f2, this.a.b() / 2.0f, 0.0f);
+                case 5:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a() / 2.0f);
+                case 6:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a());
+                case 7:
+                    return i(f, f2, this.a.b(), 0.0f);
+                case 8:
+                    return i(f, f2, this.a.b(), this.a.a() / 2.0f);
+                case 9:
+                    return i(f, f2, this.a.b(), this.a.a());
+                default:
+                    throw new IllegalArgumentException("Illegal PivotPoint");
             }
         }
+        return (Matrix) invokeCommon.objValue;
     }
 
-    public void k(bv4.g gVar) {
+    public final Matrix k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) {
-            this.c.f(gVar);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
     }
 
-    public void l(AbsListView.OnScrollListener onScrollListener) {
+    public final Matrix l(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onScrollListener) == null) {
-            this.b.setOnScrollListener(onScrollListener);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) ? j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), pivotPoint) : (Matrix) invokeL.objValue;
     }
 
-    public void m(BdListView.o oVar, int i) {
+    public Matrix m(ScalableType scalableType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, oVar, i) == null) {
-            this.b.setOnScrollStopDelayedListener(oVar, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
+            switch (a.a[scalableType.ordinal()]) {
+                case 1:
+                    return k();
+                case 2:
+                    return f();
+                case 3:
+                    return c();
+                case 4:
+                    return e();
+                case 5:
+                    return d();
+                case 6:
+                    return l(PivotPoint.LEFT_TOP);
+                case 7:
+                    return l(PivotPoint.LEFT_CENTER);
+                case 8:
+                    return l(PivotPoint.LEFT_BOTTOM);
+                case 9:
+                    return l(PivotPoint.CENTER_TOP);
+                case 10:
+                    return l(PivotPoint.CENTER);
+                case 11:
+                    return l(PivotPoint.CENTER_BOTTOM);
+                case 12:
+                    return l(PivotPoint.RIGHT_TOP);
+                case 13:
+                    return l(PivotPoint.RIGHT_CENTER);
+                case 14:
+                    return l(PivotPoint.RIGHT_BOTTOM);
+                case 15:
+                    return g(PivotPoint.LEFT_TOP);
+                case 16:
+                    return g(PivotPoint.LEFT_CENTER);
+                case 17:
+                    return g(PivotPoint.LEFT_BOTTOM);
+                case 18:
+                    return g(PivotPoint.CENTER_TOP);
+                case 19:
+                    return g(PivotPoint.CENTER);
+                case 20:
+                    return g(PivotPoint.CENTER_BOTTOM);
+                case 21:
+                    return g(PivotPoint.RIGHT_TOP);
+                case 22:
+                    return g(PivotPoint.RIGHT_CENTER);
+                case 23:
+                    return g(PivotPoint.RIGHT_BOTTOM);
+                case 24:
+                    return n();
+                case 25:
+                    return a();
+                case 26:
+                    return b();
+                default:
+                    return null;
+            }
         }
+        return (Matrix) invokeL.objValue;
     }
 
-    public void n(BdListView.p pVar) {
+    public final Matrix n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pVar) == null) {
-            this.b.setOnSrollToBottomListener(pVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.LEFT_TOP);
+            }
+            return e();
         }
-    }
-
-    public void o(IAlaSquareTabController iAlaSquareTabController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, iAlaSquareTabController) == null) {
-            this.h.f(iAlaSquareTabController);
-        }
-    }
-
-    public void p() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (pbListView = this.g) == null) {
-            return;
-        }
-        if (pbListView.b().getParent() == null) {
-            this.b.setNextPage(this.g);
-        }
-        this.g.O();
-        this.g.Q();
-    }
-
-    public void q() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pbListView = this.g) == null) {
-            return;
-        }
-        if (pbListView.b().getParent() == null) {
-            this.b.setNextPage(this.g);
-        }
-        this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ee));
-        this.g.f();
+        return (Matrix) invokeV.objValue;
     }
 }

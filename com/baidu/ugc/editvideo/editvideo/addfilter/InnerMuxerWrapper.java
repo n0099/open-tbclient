@@ -6,7 +6,7 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.bg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class InnerMuxerWrapper {
         if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        yb9.i(str2);
+        bg9.i(str2);
     }
 
     public synchronized int addTrack(MediaFormat mediaFormat) {

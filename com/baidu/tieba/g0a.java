@@ -1,56 +1,16 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.view.View;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tv.athena.revenue.payui.activity.immersion.BarHide;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes4.dex */
-public class g0a implements Cloneable {
+public final class g0a<E> extends iz9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentObserver A;
-    @ColorInt
-    public int a;
-    @ColorInt
-    public int b;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float c;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float d;
-    public boolean e;
-    public boolean f;
-    public BarHide g;
-    public boolean h;
-    public boolean i;
-    @ColorInt
-    public int j;
-    @ColorInt
-    public int k;
-    public Map<View, Map<Integer, Integer>> l;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float m;
-    public boolean n;
-    public View o;
-    public View p;
-    public View q;
-    @ColorInt
-    public int r;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public j0a y;
-    public l0a z;
 
     public g0a() {
         Interceptable interceptable = $ic;
@@ -65,41 +25,54 @@ public class g0a implements Cloneable {
                 return;
             }
         }
-        this.a = 0;
-        this.b = -16777216;
-        this.c = 0.0f;
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = BarHide.FLAG_SHOW_BAR;
-        this.h = false;
-        this.i = true;
-        this.j = -16777216;
-        this.k = -16777216;
-        this.l = new HashMap();
-        this.m = 0.0f;
-        this.n = false;
-        this.s = false;
-        this.t = false;
-        this.u = 18;
-        this.v = true;
-        this.w = true;
-        this.x = false;
+        b(new LinkedQueueNode<>());
+        d(this.producerNode);
+        this.consumerNode.soNext(null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public g0a clone() {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                this.producerNode.soNext(linkedQueueNode);
+                this.producerNode = linkedQueueNode;
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (g0a) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
             }
+            return null;
         }
-        return (g0a) invokeV.objValue;
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                this.consumerNode = lvNext;
+                return andNullValue;
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
     }
 }

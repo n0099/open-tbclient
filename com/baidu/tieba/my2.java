@@ -1,43 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.tieba.n62;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.miniapp.MiniApp;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class my2 {
+public abstract class my2 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static my2 d;
-    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText a;
-    public boolean b;
-    public Runnable c;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements n62.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my2 a;
+        public final /* synthetic */ iy2 a;
+        public final /* synthetic */ k42 b;
+        public final /* synthetic */ my2 c;
 
-        public a(my2 my2Var) {
+        public a(my2 my2Var, iy2 iy2Var, k42 k42Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {my2Var};
+                Object[] objArr = {my2Var, iy2Var, k42Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,31 +38,50 @@ public class my2 {
                     return;
                 }
             }
-            this.a = my2Var;
+            this.c = my2Var;
+            this.a = iy2Var;
+            this.b = k42Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.n62.b
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                this.a.a.postDelayed(this.a.c, 60L);
+                qy2.b("payment fun page, your pkg is latest");
+            }
+        }
+
+        @Override // com.baidu.tieba.n62.b
+        public void b(re3 re3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, re3Var) == null) {
+                this.c.d(this.a, false, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.n62.b
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c.d(this.a, true, this.b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements AdapterView.OnItemClickListener {
+    public class b implements t52 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my2 a;
+        public final /* synthetic */ iy2 a;
+        public final /* synthetic */ k42 b;
+        public final /* synthetic */ my2 c;
 
-        public b(my2 my2Var) {
+        public b(my2 my2Var, iy2 iy2Var, k42 k42Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {my2Var};
+                Object[] objArr = {my2Var, iy2Var, k42Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,118 +91,25 @@ public class my2 {
                     return;
                 }
             }
-            this.a = my2Var;
+            this.c = my2Var;
+            this.a = iy2Var;
+            this.b = k42Var;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        @Override // com.baidu.tieba.t52
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                Object adapter = adapterView.getAdapter();
-                if (adapter instanceof EmojiBagLayout.b) {
-                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                    if (this.a.a == null) {
-                        return;
-                    }
-                    if (i == bVar.getCount() - 1) {
-                        if (this.a.b) {
-                            this.a.a.removeCallbacks(this.a.c);
-                            this.a.b = false;
-                            return;
-                        }
-                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                        return;
-                    }
-                    String item = bVar.getItem(i);
-                    if (TextUtils.isEmpty(item)) {
-                        return;
-                    }
-                    this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), ny2.c().g(my2.e, item, this.a.a));
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, true, this.b);
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class c implements AdapterView.OnItemLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my2 a;
-
-        public c(my2 my2Var) {
+        @Override // com.baidu.tieba.t52
+        public void b(int i, re3 re3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {my2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, re3Var) == null) {
+                this.c.d(this.a, false, this.b);
             }
-            this.a = my2Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                Object adapter = adapterView.getAdapter();
-                if ((adapter instanceof EmojiBagLayout.b) && i == ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                    this.a.b = true;
-                    if (this.a.a != null) {
-                        this.a.a.post(this.a.c);
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my2 a;
-
-        public d(my2 my2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {my2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = my2Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.k();
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
         }
     }
 
@@ -206,60 +123,116 @@ public class my2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public abstract yu1 b(JSONObject jSONObject);
+
+    public final void c(iy2 iy2Var, String str, k42<jy2> k42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iy2Var, str, k42Var) == null) {
+            qy2.b("local has not main pkg, download fun page main pkg");
+            ae4 ae4Var = new ae4(str, x23.K().k());
+            ae4Var.q(0L);
+            ae4Var.t(iy2Var.c);
+            ae4Var.d("3");
+            ia4.c(ae4Var, new n62(str, new a(this, iy2Var, k42Var)));
+        }
+    }
+
+    public final void d(iy2 iy2Var, boolean z, k42<jy2> k42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{iy2Var, Boolean.valueOf(z), k42Var}) == null) {
+            if (z) {
+                hy2 f = f(iy2Var);
+                if (f != null && f.f) {
+                    qy2.b("payment fun page, download success, ready to jump");
+                    j(f.c, iy2Var);
+                    return;
+                }
+                qy2.b("payment fun page, download success, but not exist");
+                jy2 jy2Var = new jy2(iy2Var.f);
+                jy2Var.a = iy2Var.e;
+                k42Var.a(jy2Var);
                 return;
             }
+            qy2.b("payment fun page, download failed");
+            jy2 jy2Var2 = new jy2(iy2Var.f);
+            jy2Var2.a = iy2Var.e;
+            k42Var.a(jy2Var2);
         }
-        this.c = new a(this);
     }
 
-    public static my2 g(Context context) {
+    public final void e(iy2 iy2Var, hy2 hy2Var, k42<jy2> k42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, iy2Var, hy2Var, k42Var) == null) {
+            qy2.b("main pkg is exist, download fun page sub pkg");
+            String str = hy2Var.a;
+            int i = hy2Var.d;
+            ia4.h(new de4(str, i, wy2.e(hy2Var.c, hy2Var.b), 0), new p62(str, String.valueOf(i), new b(this, iy2Var, k42Var)));
+        }
+    }
+
+    public abstract hy2 f(iy2 iy2Var);
+
+    public abstract String g();
+
+    public abstract String h();
+
+    public final boolean i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            e = context.getApplicationContext();
-            if (d == null) {
-                synchronized (my2.class) {
-                    if (d == null) {
-                        d = new my2();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? TextUtils.equals(str, MiniApp.MINIAPP_VERSION_DEVELOP) : invokeL.booleanValue;
+    }
+
+    public abstract yu1 j(String str, iy2 iy2Var);
+
+    public abstract boolean k();
+
+    public final yu1 l(iy2 iy2Var, k42<jy2> k42Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, iy2Var, k42Var)) == null) {
+            qy2.b("open fun page start");
+            if (iy2Var != null && iy2Var.a()) {
+                yu1 b2 = b(iy2Var.g);
+                if (b2 != null) {
+                    qy2.b("fun page args params invalid");
+                    return b2;
+                } else if (k()) {
+                    qy2.b("open payment fun page");
+                    hy2 f = f(iy2Var);
+                    if (f == null) {
+                        return new yu1(1001, "fun page not exists");
                     }
+                    if (!f.f) {
+                        qy2.b("payment fun page, " + iy2Var.d + " mode");
+                        if (i(iy2Var.d)) {
+                            if (f.e) {
+                                e(iy2Var, f, k42Var);
+                            } else {
+                                return new yu1(1001, "fun page not exists");
+                            }
+                        } else if (f.e) {
+                            e(iy2Var, f, k42Var);
+                        } else {
+                            c(iy2Var, f.a, k42Var);
+                        }
+                        qy2.b("open fun page end");
+                        return new yu1(0);
+                    }
+                    return j(f.c, iy2Var);
+                } else {
+                    qy2.b("open user info or choose address fun page");
+                    return m(iy2Var, k42Var);
                 }
             }
-            return d;
+            qy2.b("params parse fail");
+            return new yu1(202, "params parse fail");
         }
-        return (my2) invokeL.objValue;
+        return (yu1) invokeLL.objValue;
     }
 
-    public void f(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
-            this.a = editText;
-        }
-    }
-
-    public AdapterView.OnItemClickListener h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b(this) : (AdapterView.OnItemClickListener) invokeV.objValue;
-    }
-
-    public AdapterView.OnItemLongClickListener i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c(this) : (AdapterView.OnItemLongClickListener) invokeV.objValue;
-    }
-
-    public View.OnTouchListener j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this) : (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public void k() {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (editText = this.a) == null) {
-            return;
-        }
-        editText.removeCallbacks(this.c);
-    }
+    public abstract yu1 m(iy2 iy2Var, k42<jy2> k42Var);
 }

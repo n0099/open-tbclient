@@ -7,6 +7,7 @@ import android.util.TypedValue;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -15,16 +16,15 @@ import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac;
-import com.baidu.tieba.an;
-import com.baidu.tieba.eg;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.og;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.se5;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.kc;
+import com.baidu.tieba.oc;
+import com.baidu.tieba.on;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.xg;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,31 +62,31 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         this.isNeedFormat = z2;
     }
 
-    public an createImageByteFromDiskPicOperate(ac acVar, String str, int i, int i2) {
+    public on createImageByteFromDiskPicOperate(oc ocVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, acVar, str, i, i2)) == null) {
-            if (acVar == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, ocVar, str, i, i2)) == null) {
+            if (ocVar == null) {
                 return null;
             }
-            an anVar = new an((Bitmap) null, false, str, acVar.getData());
-            acVar.formatData(acVar.getData());
-            Bitmap checkBitmapSize = checkBitmapSize(acVar.getBitmap(), i, i2);
-            return checkBitmapSize != null ? new an(checkBitmapSize, acVar.isGif(), str) : anVar;
+            on onVar = new on((Bitmap) null, false, str, ocVar.getData());
+            ocVar.formatData(ocVar.getData());
+            Bitmap checkBitmapSize = checkBitmapSize(ocVar.getBitmap(), i, i2);
+            return checkBitmapSize != null ? new on(checkBitmapSize, ocVar.isGif(), str) : onVar;
         }
-        return (an) invokeLLII.objValue;
+        return (on) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public an getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             return null;
         }
-        return (an) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -100,14 +100,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     public int getSuggestHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ri.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ej.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ri.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ej.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -129,32 +129,32 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             return;
         }
         boolean booleanValue3 = ((Boolean) objArr[2]).booleanValue();
-        ac acVar = new ac("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-        acVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        acVar.setSubFolder(true);
-        acVar.setData(bArr);
-        acVar.setSdCard(false);
-        acVar.setSavedCache(true);
-        acVar.setGif(booleanValue3);
-        acVar.f(this.isNeedFormat);
-        wb.f().a(acVar);
-        jg jgVar = (jg) objArr[3];
-        if (jgVar != null) {
+        oc ocVar = new oc("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+        ocVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+        ocVar.setSubFolder(true);
+        ocVar.setData(bArr);
+        ocVar.setSdCard(false);
+        ocVar.setSavedCache(true);
+        ocVar.setGif(booleanValue3);
+        ocVar.f(this.isNeedFormat);
+        kc.f().a(ocVar);
+        xg xgVar = (xg) objArr[3];
+        if (xgVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(acVar);
-            jgVar.a = diskCancelWorker;
+            diskCancelWorker.setOperate(ocVar);
+            xgVar.a = diskCancelWorker;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public an getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             byte[] bArr = new byte[0];
-            ac createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
+            oc createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
             if (createDiskPicOperate == null) {
                 return null;
             }
@@ -164,14 +164,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             createDiskPicOperate.setSavedCache(true);
             createDiskPicOperate.setIsFormatData(false);
             createDiskPicOperate.setLock(bArr);
-            if (jgVar != null) {
+            if (xgVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(createDiskPicOperate);
-                jgVar.a = diskCancelWorker;
+                xgVar.a = diskCancelWorker;
             }
-            boolean H = pi.H();
-            if (wb.f().a(createDiskPicOperate)) {
-                int i3 = H ? 300 : 2000;
+            boolean isWifiNet = BdNetTypeUtil.isWifiNet();
+            if (kc.f().a(createDiskPicOperate)) {
+                int i3 = isWifiNet ? 300 : 2000;
                 synchronized (bArr) {
                     try {
                         bArr.wait(i3);
@@ -185,13 +185,13 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             }
             return null;
         }
-        return (an) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public an getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z;
         boolean z2;
@@ -203,7 +203,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         char c2;
         boolean z4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -211,15 +211,15 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             int suggestWidth = i == 0 ? getSuggestWidth() : i;
             int suggestHeight = i2 == 0 ? getSuggestHeight() : i2;
             if (suggestWidth == 0) {
-                suggestWidth = ri.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                suggestWidth = ej.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             if (suggestHeight == 0) {
-                suggestHeight = ri.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                suggestHeight = ej.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, suggestWidth, suggestHeight);
-            se5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = se5.d(urlbyClientServerAddr);
+            zg5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = zg5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;
@@ -227,8 +227,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 z = false;
             }
             WebClient webClient3 = new WebClient();
-            if (jgVar != null) {
-                jgVar.a = webClient3;
+            if (xgVar != null) {
+                xgVar.a = webClient3;
             }
             byte[] downloadImageBytes = webClient3.downloadImageBytes(urlbyClientServerAddr, !isFromCDN);
             boolean needCache = webClient3.needCache();
@@ -247,38 +247,38 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080bc4, new TypedValue());
-                    byte[] d2 = eg.d(openRawResource);
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be1, new TypedValue());
+                    byte[] d2 = sg.d(openRawResource);
                     try {
-                        if (!webClient2.isGif && !ri.B(d2)) {
+                        if (!webClient2.isGif && !ej.B(d2)) {
                             z4 = false;
-                            an anVar = new an((Bitmap) null, z4, str, d2);
-                            anVar.y(z3);
+                            on onVar = new on((Bitmap) null, z4, str, d2);
+                            onVar.y(z3);
                             Object[] objArr2 = new Object[4];
                             objArr2[0] = Boolean.valueOf(z3);
                             objArr2[c2] = Boolean.valueOf(webClient2.isCrackPic);
                             objArr2[2] = Boolean.valueOf(z4);
-                            objArr2[3] = jgVar;
+                            objArr2[3] = xgVar;
                             storeLocal(str2, d2, objArr2);
-                            og.c(openRawResource);
-                            return anVar;
+                            ch.c(openRawResource);
+                            return onVar;
                         }
                         storeLocal(str2, d2, objArr2);
-                        og.c(openRawResource);
-                        return anVar;
+                        ch.c(openRawResource);
+                        return onVar;
                     } catch (Throwable th) {
                         th = th;
                         BdLog.e(th);
                         return null;
                     }
                     z4 = true;
-                    an anVar2 = new an((Bitmap) null, z4, str, d2);
-                    anVar2.y(z3);
+                    on onVar2 = new on((Bitmap) null, z4, str, d2);
+                    onVar2.y(z3);
                     Object[] objArr22 = new Object[4];
                     objArr22[0] = Boolean.valueOf(z3);
                     objArr22[c2] = Boolean.valueOf(webClient2.isCrackPic);
                     objArr22[2] = Boolean.valueOf(z4);
-                    objArr22[3] = jgVar;
+                    objArr22[3] = xgVar;
                 } catch (Throwable th2) {
                     th = th2;
                 }
@@ -309,18 +309,18 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr2 = bArr;
-            m55.k().i(TbConfig.getPbImageSize() + bArr2.length);
-            boolean z5 = webClient.isGif || ri.B(bArr2);
-            an anVar3 = new an((Bitmap) null, z5, str, bArr2);
-            anVar3.y(z2);
+            u75.k().i(TbConfig.getPbImageSize() + bArr2.length);
+            boolean z5 = webClient.isGif || ej.B(bArr2);
+            on onVar3 = new on((Bitmap) null, z5, str, bArr2);
+            onVar3.y(z2);
             Object[] objArr3 = new Object[4];
             objArr3[0] = Boolean.valueOf(z2);
             objArr3[c] = Boolean.valueOf(webClient.isCrackPic);
             objArr3[2] = Boolean.valueOf(z5);
-            objArr3[3] = jgVar;
+            objArr3[3] = xgVar;
             storeLocal(str2, bArr2, objArr3);
-            return anVar3;
+            return onVar3;
         }
-        return (an) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 }

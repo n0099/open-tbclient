@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaCmdConfigCustom {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CMD_ALA_ALL_GAME_LIVE_ENTRY = 2913032;
-    public static final int CMD_ALA_ALL_LIVE_SIMPLE = 2913033;
     public static final int CMD_ALA_ENTER_EFFECT_BUY_SUCCESS = 2913089;
     public static final int CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER = 2913083;
     public static final int CMD_ALA_LIVE_FRAGMENT_NET_BTN_CLICKED = 2913061;

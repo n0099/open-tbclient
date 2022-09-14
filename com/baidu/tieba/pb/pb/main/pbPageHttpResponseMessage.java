@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.cw7;
-import com.baidu.tieba.it7;
-import com.baidu.tieba.kt7;
+import com.baidu.tieba.ix7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.qd8;
+import com.baidu.tieba.tu7;
+import com.baidu.tieba.vu7;
+import com.baidu.tieba.ye8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +26,8 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public it7 mAppealInfo;
-    public kt7 pbData;
+    public tu7 mAppealInfo;
+    public vu7 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,16 +50,16 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public it7 getAppealInfo() {
+    public tu7 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (it7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (tu7) invokeV.objValue;
     }
 
-    public kt7 getPbData() {
+    public vu7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (kt7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (vu7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -89,10 +89,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                cw7.b().e(this.cacheKey, this.isFromMark, bArr);
+                ix7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                cw7.b().f(this.cacheKey, bArr);
+                ix7.b().f(this.cacheKey, bArr);
             }
         }
     }
@@ -109,12 +109,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return;
                 }
-                it7 it7Var = new it7();
-                this.mAppealInfo = it7Var;
+                tu7 tu7Var = new tu7();
+                this.mAppealInfo = tu7Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    it7Var.a = appealInfo.source;
-                    it7Var.c = appealInfo.appeal_url;
+                    tu7Var.a = appealInfo.source;
+                    tu7Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -123,19 +123,19 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 }
                 return;
             }
-            kt7 kt7Var = new kt7();
-            this.pbData = kt7Var;
-            kt7Var.B0(2);
+            vu7 vu7Var = new vu7();
+            this.pbData = vu7Var;
+            vu7Var.B0(2);
             this.pbData.A0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
                 SimpleForum simpleForum2 = dataRes.forum;
-                JSONObject c = qd8.c(pbPageResIdl.data.thread, simpleForum2 != null ? simpleForum2.name : "");
+                JSONObject c = ye8.c(pbPageResIdl.data.thread, simpleForum2 != null ? simpleForum2.name : "");
                 ArrayList arrayList = new ArrayList();
                 if (c != null) {
                     arrayList.add(c);
                 }
-                qd8.f().h("PB", arrayList);
+                ye8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
         }

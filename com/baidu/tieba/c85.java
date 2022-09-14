@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes3.dex */
-public class c85 implements m75<HistoryEvent> {
+public class c85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FutureTask<Boolean>> a;
+    public List<b85> b;
+    public ErrorData c;
 
     public c85() {
         Interceptable interceptable = $ic;
@@ -26,19 +30,30 @@ public class c85 implements m75<HistoryEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m75
-    /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
-        InterceptResult invokeL;
+    public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
-            if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.c == null) {
+            this.c = errorData;
+            for (FutureTask<Boolean> futureTask : this.a) {
+                futureTask.cancel(true);
             }
-            sz5.a(historyEvent.tid);
-            return true;
+            for (b85 b85Var : this.b) {
+                b85Var.a();
+            }
         }
-        return invokeL.booleanValue;
+    }
+
+    public void b(List<b85> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void c(List<FutureTask<Boolean>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
+        }
     }
 }

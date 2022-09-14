@@ -1,59 +1,48 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.xl2;
-import com.baidu.tieba.yl2;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.g93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import okhttp3.Response;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sy1 extends x23 {
+public final class sy1 extends ly1<LottieAnimationView, ty1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uy1 c;
-    public ExecutorService d;
-    public int e;
+    @NonNull
+    public String i;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ CallbackHandler d;
-        public final /* synthetic */ sy1 e;
+        public final /* synthetic */ ty1 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ LottieAnimationView c;
 
-        public a(sy1 sy1Var, Context context, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        public a(sy1 sy1Var, ty1 ty1Var, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sy1Var, context, file, unitedSchemeEntity, callbackHandler};
+                Object[] objArr = {sy1Var, ty1Var, jSONObject, lottieAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,244 +52,196 @@ public class sy1 extends x23 {
                     return;
                 }
             }
-            this.e = sy1Var;
-            this.a = context;
-            this.b = file;
-            this.c = unitedSchemeEntity;
-            this.d = callbackHandler;
+            this.a = ty1Var;
+            this.b = jSONObject;
+            this.c = lottieAnimationView;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sy1 sy1Var = this.e;
-                sy1Var.q(this.a, sy1Var.c.b, this.e.c.c, this.b, this.c, this.d);
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ File d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ CallbackHandler f;
-        public final /* synthetic */ sy1 g;
-
-        public b(sy1 sy1Var, Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy1Var, context, str, str2, file, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                ty1 ty1Var = this.a;
+                fi3.d(ty1Var.c, ty1Var.b, "animateview", "ended", this.b);
+                yz1.i("Component-AnimationView", "progress: " + this.c.getProgress());
             }
-            this.g = sy1Var;
-            this.a = context;
-            this.b = str;
-            this.c = str2;
-            this.d = file;
-            this.e = unitedSchemeEntity;
-            this.f = callbackHandler;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.g.q(this.a, this.b, this.c, this.d, this.e, this.f);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                yz1.i("Component-AnimationView", "onAnimationRepeat ");
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sy1(x13 x13Var) {
-        super(x13Var, "/swanAPI/wirelessdebuglaunch");
+    public sy1(@Nullable Context context, @NonNull ty1 ty1Var, @NonNull String str) {
+        super(context, ty1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
+            Object[] objArr = {context, ty1Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (my1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = str;
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static void Z(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                uy1 e = uy1.e(optParamsAsJo);
-                this.c = e;
-                if (e != null && !e.d()) {
-                    l(context, unitedSchemeEntity, callbackHandler);
-                    return true;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("json", str);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
+            } catch (Exception e) {
+                if (ny1.h) {
+                    e.printStackTrace();
                 }
-                if (x23.b) {
-                    Log.e("WirelessDebugAction", "Wireless Debug params is invalid");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
             }
-            ay1.c("WirelessDebugAction", "param is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler) == null) {
-            File b2 = ty1.b();
-            if (b2.exists()) {
-                b2.delete();
-            }
-            this.d = Executors.newFixedThreadPool(4);
-            this.e = 0;
-            JSONArray jSONArray = this.c.g;
-            if (jSONArray != null && jSONArray.length() > 0) {
-                int length = this.c.g.length();
-                for (int i = 0; i < length; i++) {
-                    String a2 = this.c.a(i);
-                    if (TextUtils.isEmpty(a2)) {
-                        int i2 = this.e + 1;
-                        this.e = i2;
-                        if (i2 >= length) {
-                            ay1.c("WirelessDebugAction", "Hosts are invalid");
-                            p(context, "404");
-                        }
-                    } else {
-                        this.d.execute(new b(this, context, a2, this.c.c(i), b2, unitedSchemeEntity, callbackHandler));
-                    }
-                }
+            String jSONObject2 = jSONObject.toString();
+            if (ny1.h && TextUtils.isEmpty(jSONObject2)) {
+                Log.d("Component-AnimationView", "reportLottieAnimationCrash: empty");
                 return;
             }
-            ExecutorUtilsExt.postOnSerial(new a(this, context, b2, unitedSchemeEntity, callbackHandler), "WirelessDebugAction");
+            if (ny1.h) {
+                Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
+            }
+            g93.b bVar = new g93.b(10009);
+            bVar.i(jSONObject2);
+            bVar.h(y23.g0());
+            bVar.m();
         }
     }
 
-    public final String m(String str) {
+    public final void S(@NonNull LottieAnimationView lottieAnimationView, @NonNull ty1 ty1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, lottieAnimationView, ty1Var) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ty1Var.c);
+                jSONObject.put("vtype", "ended");
+                jSONObject2.putOpt("animationViewId", ty1Var.b);
+                jSONObject.put("data", jSONObject2.toString());
+            } catch (JSONException e) {
+                if (ny1.h) {
+                    e.printStackTrace();
+                }
+            }
+            lottieAnimationView.addAnimatorListener(new a(this, ty1Var, jSONObject, lottieAnimationView));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    @NonNull
+    /* renamed from: T */
+    public LottieAnimationView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new LottieAnimationView(context) : (LottieAnimationView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ny1
+    /* renamed from: U */
+    public void A(@NonNull LottieAnimationView lottieAnimationView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lottieAnimationView) == null) {
+            super.A(lottieAnimationView);
             try {
-                return URLEncoder.encode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                if (x23.b) {
-                    Log.e("WirelessDebugAction", "url encode fail", e);
-                    return str;
+                ty1 ty1Var = (ty1) n();
+                lottieAnimationView.loop(ty1Var.u);
+                lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
+                lottieAnimationView.setImageAssetDelegate(new ry1(ty1Var.t));
+                lottieAnimationView.setAnimationFromJson(this.i, ty1Var.b);
+                if (ty1Var.v) {
+                    lottieAnimationView.playAnimation();
                 }
-                return str;
+                if (ty1Var.u) {
+                    return;
+                }
+                S(lottieAnimationView, ty1Var);
+            } catch (Exception unused) {
+                Z(this.i, y23.g0());
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public final void n() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ly1
+    /* renamed from: V */
+    public void O(@NonNull LottieAnimationView lottieAnimationView, @NonNull ty1 ty1Var, @NonNull qz1 qz1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xl2.a W = z03.K().q().W();
-            d83 d83Var = new d83();
-            d83Var.j(W);
-            d83Var.a = t73.n(W.G());
-            d83Var.b = "launch";
-            d83Var.c = "adb-debug";
-            d83Var.e = "download_fail";
-            t73.onEvent(d83Var);
-        }
-    }
-
-    public final yl2.a o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (yl2.a) ((yl2.a) ((yl2.a) new yl2.a().v0(this.c.a)).A0(false)).P0(this.c.d) : (yl2.a) invokeV.objValue;
-    }
-
-    public final void p(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-            String string = o93.a().getString("errorURL", "");
-            if (TextUtils.isEmpty(string)) {
-                s03.g(context, "IPs are invalid ：" + str).G();
-                return;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(SchemeConfig.getSchemeHead());
-            sb.append("://v1/easybrowse/open?url=");
-            sb.append(m(string + "?" + str));
-            SchemeRouter.invoke(context, sb.toString());
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lottieAnimationView, ty1Var, qz1Var) == null) {
+            super.C(lottieAnimationView, ty1Var, qz1Var);
+            W(lottieAnimationView, ty1Var);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b9, code lost:
-        if (r6 >= r4.c.g.length()) goto L38;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void q(Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public final void W(@NonNull LottieAnimationView lottieAnimationView, @NonNull ty1 ty1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, str2, file, unitedSchemeEntity, callbackHandler}) == null) {
-            try {
-                Response executeSync = c84.g().getRequest().url(str).connectionTimeout(1500).build().executeSync();
-                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    fh4.a(executeSync.body().byteStream(), file);
-                    Intent g1 = yl2.g1(context, o());
-                    g1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.c.e);
-                    g1.putExtra("slavePreload", this.c.f);
-                    g1.putExtra("extraWSUrl", str2);
-                    context.startActivity(g1);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.d != null) {
-                        this.d.shutdownNow();
-                        this.d = null;
-                    }
-                    if (!ProcessUtils.isMainProcess()) {
-                        if (x23.b) {
-                            Log.d("WirelessDebugAction", "Suicide for reload.");
-                        }
-                        vy1.d();
-                    }
-                }
-                if (executeSync != null) {
-                    executeSync.close();
-                }
-            } catch (IOException unused) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                synchronized (this) {
-                    if (this.c.g != null) {
-                        int i = this.e + 1;
-                        this.e = i;
-                    }
-                    ay1.c("WirelessDebugAction", "Host IPs are invalid");
-                    p(context, "404");
-                    n();
-                }
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, lottieAnimationView, ty1Var) == null) && t()) {
+            if (ny1.h) {
+                Log.d("Component-AnimationView", "renderAction");
             }
+            String str = ty1Var.w;
+            if (TextUtils.equals(str, "play")) {
+                lottieAnimationView.resumeAnimation();
+            } else if (TextUtils.equals(str, "pause")) {
+                lottieAnimationView.pauseAnimation();
+            } else if (TextUtils.equals(str, IntentConfig.STOP)) {
+                lottieAnimationView.cancelAnimation();
+                lottieAnimationView.setProgress(0.0f);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ly1
+    /* renamed from: X */
+    public void Q(@NonNull LottieAnimationView lottieAnimationView, @NonNull ty1 ty1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, lottieAnimationView, ty1Var) == null) {
+            if (ny1.h) {
+                Log.d("Component-AnimationView", "renderBackground");
+            }
+            lottieAnimationView.setColorFilter(new PorterDuffColorFilter(ty1Var.k, PorterDuff.Mode.ADD));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ly1
+    /* renamed from: Y */
+    public void R(@NonNull LottieAnimationView lottieAnimationView, @NonNull ty1 ty1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, lottieAnimationView, ty1Var) == null) {
         }
     }
 }

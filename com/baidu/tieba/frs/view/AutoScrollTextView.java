@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.math.BigDecimal;
 /* loaded from: classes4.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -203,9 +204,8 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             String charSequence = getText().toString();
             this.h = charSequence;
             this.a = this.g.measureText(charSequence);
-            float width = getWidth();
-            this.b = width;
-            if (width == 0.0f && windowManager != null) {
+            this.b = getWidth();
+            if (new BigDecimal(this.b).compareTo(BigDecimal.ZERO) == 0 && windowManager != null) {
                 this.b = windowManager.getDefaultDisplay().getWidth();
             }
             float f = this.a;

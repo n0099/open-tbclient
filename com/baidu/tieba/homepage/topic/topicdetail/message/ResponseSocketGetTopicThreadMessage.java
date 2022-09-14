@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.h37;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.o47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<pn> mDataList;
+    public List<Cdo> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicThreadMessage() {
@@ -63,9 +63,9 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
                 this.mDataList = new ArrayList();
                 for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                     if (topicThread != null) {
-                        h37 h37Var = new h37();
-                        h37Var.f(topicThread);
-                        this.mDataList.add(h37Var);
+                        o47 o47Var = new o47();
+                        o47Var.f(topicThread);
+                        this.mDataList.add(o47Var);
                     }
                 }
             }
@@ -74,7 +74,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
         return invokeIL.objValue;
     }
 
-    public List<pn> getDataList() {
+    public List<Cdo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDataList : (List) invokeV.objValue;

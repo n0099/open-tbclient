@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.TooltipCompatHandler;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class ou2 implements em2 {
+public class ou2 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long c;
-    public ConcurrentHashMap<String, JSONObject> d;
-    public ConcurrentHashMap<String, Integer> e;
-    public wv2 f;
+    public b a;
+    @SuppressLint({"BDThrowableCheck"})
+    public final eu2 b;
 
     /* loaded from: classes5.dex */
-    public class a implements wv2 {
+    public class a implements eu2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ou2 c;
+        public final /* synthetic */ ou2 a;
 
         public a(ou2 ou2Var) {
             Interceptable interceptable = $ic;
@@ -47,147 +39,40 @@ public class ou2 implements em2 {
                     return;
                 }
             }
-            this.c = ou2Var;
+            this.a = ou2Var;
         }
 
-        @Override // com.baidu.tieba.wv2
-        public void a(String str) {
+        @Override // com.baidu.tieba.eu2
+        public void a(long j, long j2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+                if (this.a.a == null) {
+                    if (ij1.a) {
+                        throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
+                    }
+                } else if (j2 == -1 && j != 0) {
+                    this.a.a.b(0, j, j2);
+                } else if (j2 > 52428800) {
+                    this.a.a.a(j2);
+                } else if (j2 <= 0 || j > j2 || j == 0) {
+                    this.a.a.c(j, j2);
+                } else {
+                    int floor = (int) Math.floor((100 * j) / j2);
+                    if (floor <= 100) {
+                        this.a.a.b(floor, j, j2);
+                    }
+                }
             }
-        }
-
-        @Override // com.baidu.tieba.wv2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.g();
-            }
-        }
-
-        @Override // com.baidu.tieba.wv2
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.wv2
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c.g();
-            }
-        }
-
-        @Override // com.baidu.tieba.wv2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.c.c = System.currentTimeMillis();
-            }
-        }
-
-        @Override // com.baidu.tieba.wv2
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ou2 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(long j);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-534833153, "Lcom/baidu/tieba/ou2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-534833153, "Lcom/baidu/tieba/ou2$b;");
-                    return;
-                }
-            }
-            a = new ou2(null);
-        }
-    }
+        void b(int i, long j, long j2);
 
-    public /* synthetic */ ou2(a aVar) {
-        this();
-    }
-
-    public static ou2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a : (ou2) invokeV.objValue;
-    }
-
-    public JSONObject d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && e()) {
-                JSONObject jSONObject = this.d.get(str);
-                if (em2.a && jSONObject != null) {
-                    Integer num = this.e.get(str);
-                    if (num == null) {
-                        num = 0;
-                    }
-                    this.e.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-                return jSONObject;
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c != -1 && System.currentTimeMillis() - this.c <= TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS : invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            uv2.g().i(this.f, 2500);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = -1L;
-            if (em2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("adopt cache api = [ ");
-                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
-                    sb.append((Object) entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append(" ");
-                }
-                sb.append(PreferencesUtil.RIGHT_MOUNT);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            this.e.clear();
-            this.d.clear();
-        }
-    }
-
-    public void h(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && e()) {
-            this.d.put(str, jSONObject);
-        }
+        void c(long j, long j2);
     }
 
     public ou2() {
@@ -203,9 +88,24 @@ public class ou2 implements em2 {
                 return;
             }
         }
-        this.c = -1L;
-        this.d = new ConcurrentHashMap<>(10);
-        this.e = new ConcurrentHashMap<>(10);
-        this.f = new a(this);
+        this.b = new a(this);
+    }
+
+    public void b(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            Response proceed = chain.proceed(chain.request());
+            return proceed.newBuilder().body(new hu2(proceed.body(), this.b)).build();
+        }
+        return (Response) invokeL.objValue;
     }
 }

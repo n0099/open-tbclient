@@ -12,7 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ii6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +75,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406c2, R.attr.obfuscated_res_0x7f0406c3});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ii6.EntelechyPullUpRefreshView);
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
@@ -89,9 +90,9 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             addView(this.a);
         }
         this.b = new TbImageView(context);
-        int f = ri.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
+        int f = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
-        layoutParams.topMargin = ri.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        layoutParams.topMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.b.setLayoutParams(layoutParams);
         SkinManager.setImageResource(this.b, this.e);
         addView(this.b);

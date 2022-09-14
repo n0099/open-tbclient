@@ -1,88 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.interfaces.player.ExtAction;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.searchbox.player.event.VideoEvent;
+import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class sk7 implements pn {
+public final class sk7 extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public tk7 a;
-    public List<VipSpecialItem> b;
-    public int c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948154378, "Lcom/baidu/tieba/sk7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948154378, "Lcom/baidu/tieba/sk7;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public sk7(VipBasicList vipBasicList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sk7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipBasicList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.d = "";
-        if (vipBasicList == null || vipBasicList.item.size() <= 0) {
-            return;
-        }
-        this.d = vipBasicList.card_id;
-        this.c = vipBasicList.card_type.intValue();
-        tk7 tk7Var = new tk7();
-        this.a = tk7Var;
-        tk7Var.e(5);
-        this.a.d(vipBasicList.class_name);
-        this.a.f(vipBasicList.class_url_name);
-        this.a.g(vipBasicList.class_url);
-        this.b = new ArrayList();
-        for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-            this.b.add(vipSpecialItem);
+        Intrinsics.checkNotNullParameter(context, "context");
+    }
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1, 4} : (int[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
         }
     }
 
-    public List<VipSpecialItem> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    @SuppressLint({"WrongConstant"})
+    public void onSystemEventNotify(VideoEvent event) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String action = event.getAction();
+            if (action.hashCode() == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                BDVideoPlayer bindPlayer = getBindPlayer();
+                if (bindPlayer == null ? true : bindPlayer.isStop()) {
+                    return;
+                }
+                BDVideoPlayer bindPlayer2 = getBindPlayer();
+                if (bindPlayer2 != null ? bindPlayer2.isComplete() : true) {
+                    return;
+                }
+                ExtAction extAction = new ExtAction(event.getAction());
+                extAction.put(5, Integer.valueOf(event.getIntExtra(5)));
+                BDVideoPlayer bindPlayer3 = getBindPlayer();
+                if (bindPlayer3 == null) {
+                    return;
+                }
+                bindPlayer3.onInfo(0, 0, extAction);
+            }
+        }
     }
 }

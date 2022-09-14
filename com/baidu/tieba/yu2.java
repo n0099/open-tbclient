@@ -1,105 +1,72 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yu2 {
+public final class yu2 extends xu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static final int c;
-    public static int d;
-    public static int e;
-    public static final boolean f;
-    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948342579, "Lcom/baidu/tieba/yu2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948342579, "Lcom/baidu/tieba/yu2;");
+    public yu2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
-        d = -1;
-        e = -1;
-        b = f("swan_get_swan_id_cache");
-        hk2.g0().getSwitch("swan_pms_use_outback_switch", 0);
-        hk2.g0().getSwitch("swan_preload_game_strategy", 0);
-        c = 0;
-        f = f("swan_670_append_request_info");
-        hk2.g0().getSwitch("swan_description_online_control", 0);
-        fd4.a = 0;
-        hk2.g0().getSwitch("swan_bdtls_use_cache", false);
-        g = false;
+        this.a = "SwanAppPayCheckNode";
     }
 
-    public static int a() {
+    @Override // com.baidu.tieba.xu2
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == -1) {
-                hk2.g0().getSwitch("swan_use_extra_connect_pool", 0);
-                e = 0;
-            }
-            return e;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "payinfo" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xu2
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            Log.d(this.a, "onFail: ");
         }
-        return invokeV.intValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xu2
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == -1) {
-                hk2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
-                d = 0;
-            }
-            return d;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            Log.d(this.a, "onFiltered: ");
         }
-        return invokeV.intValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xu2
+    public void d(String str, JSONObject jSONObject, String str2) {
+        y23 b0;
+        h73 e0;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? g : invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c : invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            hk2.g0().getSwitch(str, 0);
-            if (a) {
-                Log.d("SwanApiCostOpt", str + " value : 0");
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
+            if (this.b) {
+                Log.d(this.a, "onUpdate: ");
             }
-            return false;
+            if (jSONObject == null || (b0 = y23.b0()) == null || (e0 = b0.e0()) == null) {
+                return;
+            }
+            e0.B("note_data_pay_check_list", jSONObject.toString());
         }
-        return invokeL.booleanValue;
     }
 }

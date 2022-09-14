@@ -1,11 +1,11 @@
 package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface v {
-    boolean d(a.InterfaceC0620a interfaceC0620a);
+    boolean d(a.InterfaceC0625a interfaceC0625a);
 
-    void e(a.InterfaceC0620a interfaceC0620a);
+    void e(a.InterfaceC0625a interfaceC0625a);
 
-    boolean f(a.InterfaceC0620a interfaceC0620a);
+    boolean f(a.InterfaceC0625a interfaceC0625a);
 }

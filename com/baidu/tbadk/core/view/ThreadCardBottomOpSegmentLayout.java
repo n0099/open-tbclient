@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 }
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = ri.f(this.C, R.dimen.tbds50);
+                layoutParams.leftMargin = ej.f(this.C, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
                 this.e.setLayoutParams(layoutParams);
                 return;
@@ -127,7 +127,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 T(0, -1, 0, 1.0f, true, this.e.E());
                 return;
             }
-            T(-2, -1, ri.f(getContext(), R.dimen.tbds78), 0.0f, false, this.e.E());
+            T(-2, -1, ej.f(getContext(), R.dimen.tbds78), 0.0f, false, this.e.E());
         }
     }
 
@@ -192,7 +192,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public View k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d063d, (ViewGroup) this, true) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0654, (ViewGroup) this, true) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout

@@ -1,56 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class be3 {
+public abstract class be3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642041, "Lcom/baidu/tieba/be3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947642041, "Lcom/baidu/tieba/be3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be3(v33 v33Var, String str) {
+        super(v33Var, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = kh1.a;
     }
 
-    public static void a(Context context, IBinder iBinder) {
-        InputMethodManager inputMethodManager;
+    public static ke3 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
-            return;
-        }
-        try {
-            inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? yr1.z() : (ke3) invokeV.objValue;
     }
 
-    public static void b(Context context, boolean z) {
-        InputMethodManager inputMethodManager;
+    public static boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
-            return;
-        }
-        inputMethodManager.toggleSoftInput(z ? 2 : 0, 2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? yr1.B() : invokeV.booleanValue;
     }
 }

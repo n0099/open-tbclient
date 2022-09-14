@@ -1,86 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class qz0 {
     public static /* synthetic */ Interceptable $ic;
+    public static nz0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ElasticTask> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948108994, "Lcom/baidu/tieba/qz0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948108994, "Lcom/baidu/tieba/qz0;");
+        }
+    }
 
     public qz0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new LinkedList<>();
     }
 
-    public long a() {
+    public static nz0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator<ElasticTask> it = this.a.iterator();
-            long j = 0;
-            while (it.hasNext()) {
-                j += it.next().d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (qz0.class) {
+                    if (a == null) {
+                        a = (nz0) ServiceManager.getService(nz0.a);
+                    }
+                    if (a == null) {
+                        a = nz0.b;
+                    }
+                }
             }
-            return j;
+            return a;
         }
-        return invokeV.longValue;
-    }
-
-    public ElasticTask b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.isEmpty()) {
-                return null;
-            }
-            return this.a.get(0);
-        }
-        return (ElasticTask) invokeV.objValue;
-    }
-
-    public void c(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                ElasticTask a = wz0.b().a(runnable, str, i);
-                this.a.add(a);
-                a.f();
-                return;
-            }
-            throw new IllegalArgumentException("illegal params");
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isEmpty() : invokeV.booleanValue;
-    }
-
-    public void e(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            this.a.remove(elasticTask);
-        }
+        return (nz0) invokeV.objValue;
     }
 }

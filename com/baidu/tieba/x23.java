@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.bo2;
+import com.baidu.tieba.c33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,13 +17,173 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class x23 extends b23<UnitedSchemeBaseDispatcher> {
+public abstract class x23 extends u23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean i;
+    public static volatile x23 j;
+    public static Handler k;
     public transient /* synthetic */ FieldHolder $fh;
+    public bk1 a;
+    public final Set<rh3<c33.a>> b;
+    public volatile int c;
+    public final Queue<Runnable> d;
+    public Runnable e;
+    public hc4 f;
+    public i53 g;
+    public boolean h;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c33.a a;
+        public final /* synthetic */ x23 b;
+
+        /* renamed from: com.baidu.tieba.x23$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0468a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ rh3 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0468a(a aVar, rh3 rh3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, rh3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = rh3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a(this.b.a);
+                }
+            }
+        }
+
+        public a(x23 x23Var, c33.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x23Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = x23Var;
+            this.a = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean z = Looper.getMainLooper() == Looper.myLooper();
+                for (rh3 rh3Var : this.b.b) {
+                    if (z && !this.a.e("event_flag_force_post", false)) {
+                        rh3Var.a(this.a);
+                    } else {
+                        x23.M().post(new RunnableC0468a(this, rh3Var));
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rh3 a;
+        public final /* synthetic */ x23 b;
+
+        public b(x23 x23Var, rh3 rh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x23Var, rh3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = x23Var;
+            this.a = rh3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.add(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rh3 a;
+        public final /* synthetic */ x23 b;
+
+        public c(x23 x23Var, rh3 rh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x23Var, rh3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = x23Var;
+            this.a = rh3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.remove(this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,89 +198,220 @@ public abstract class x23 extends b23<UnitedSchemeBaseDispatcher> {
                 return;
             }
         }
-        b = kh1.a;
+        i = ij1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x23(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
-        super(unitedSchemeBaseDispatcher, str);
+    public x23() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeBaseDispatcher, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeAbsDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        new bo2.a();
+        this.b = new HashSet();
+        this.c = 0;
+        this.d = new ArrayDeque();
+        this.e = null;
+        this.h = false;
     }
 
-    @Nullable
-    public static JSONObject a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, unitedSchemeEntity, str)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            String param = unitedSchemeEntity.getParam(str);
-            if (TextUtils.isEmpty(param)) {
-                return null;
-            }
-            try {
-                return new JSONObject(param);
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public a13 c() {
+    public static x23 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a13.M() : (a13) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            x23 L = L();
+            if (!L.h) {
+                L.O();
+            }
+            return L;
+        }
+        return (x23) invokeV.objValue;
     }
 
-    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var);
-
-    public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        InterceptResult invokeLLLL;
+    public static x23 L() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str)) == null) {
-            try {
-                if (TextUtils.equals(this.a, str)) {
-                    return d(context, unitedSchemeEntity, callbackHandler, c());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (j instanceof d33) {
+                return j;
+            }
+            synchronized (x23.class) {
+                if (j instanceof d33) {
+                    return j;
                 }
-                return i(context, unitedSchemeEntity, callbackHandler, str, c());
-            } catch (Throwable th) {
-                if (b) {
-                    Log.e("SwanAppAction", Log.getStackTraceString(th));
+                SwanAppProcessInfo current = SwanAppProcessInfo.current();
+                if (current.isSwanClient) {
+                    if (i && j != null) {
+                        throw new IllegalStateException("When convinced current process is swan client，but Swan instance already init with: " + j);
+                    }
+                    j = new d33();
+                    return j;
+                } else if (current.isSwanService) {
+                    if (!(j instanceof f33)) {
+                        if (i && j != null) {
+                            throw new IllegalStateException("When convinced current process is swan service，but Swan instance already init with: " + j);
+                        }
+                        j = new f33();
+                    }
+                    return j;
+                } else {
+                    if (j == null) {
+                        j = new w23();
+                    }
+                    return j;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
-                return false;
             }
         }
-        return invokeLLLL.booleanValue;
+        return (x23) invokeV.objValue;
     }
 
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, a13 a13Var) {
-        InterceptResult invokeLLLLL;
+    public static Handler M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, a13Var)) == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + unitedSchemeEntity.getUri().getPath());
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (k == null) {
+                k = new Handler(Looper.getMainLooper());
+            }
+            return k;
         }
-        return invokeLLLLL.booleanValue;
+        return (Handler) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b33
+    public void A(c33.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (i) {
+                Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.b.size());
+            }
+            if (aVar != null) {
+                R(new a(this, aVar));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.b33
+    public i53 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.g == null) {
+                this.g = J();
+            }
+            return this.g;
+        }
+        return (i53) invokeV.objValue;
+    }
+
+    public abstract hc4 I();
+
+    public abstract i53 J();
+
+    public hc4 N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f == null) {
+                this.f = I();
+            }
+            return this.f;
+        }
+        return (hc4) invokeV.objValue;
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.h) {
+            return;
+        }
+        P();
+        N();
+        kz2.S();
+        Q();
+        this.h = true;
+    }
+
+    public final void P() {
+        i53 B;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (B = B()) == null) {
+            return;
+        }
+        B.J();
+    }
+
+    public abstract void Q();
+
+    public final synchronized void R(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) {
+            synchronized (this) {
+                this.d.offer(runnable);
+                if (this.e == null) {
+                    while (!this.d.isEmpty()) {
+                        Runnable poll = this.d.poll();
+                        this.e = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.e = null;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.b33
+    public void o(rh3<c33.a> rh3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, rh3Var) == null) || rh3Var == null) {
+            return;
+        }
+        R(new c(this, rh3Var));
+    }
+
+    @Override // com.baidu.tieba.b33
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            v(str, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.b33
+    public void u(rh3<c33.a> rh3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, rh3Var) == null) || rh3Var == null) {
+            return;
+        }
+        R(new b(this, rh3Var));
+    }
+
+    @Override // com.baidu.tieba.b33
+    public void v(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, bundle) == null) {
+            A(new c33.a(str, bundle));
+        }
+    }
+
+    @Override // com.baidu.tieba.b33
+    public bk1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.a == null) {
+                this.a = new bk1();
+            }
+            return this.a;
+        }
+        return (bk1) invokeV.objValue;
     }
 }

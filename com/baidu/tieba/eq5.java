@@ -1,66 +1,51 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes3.dex */
-public class eq5 implements hl2 {
+public class eq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
 
-    public eq5() {
+    public eq5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? TbadkCoreApplication.getInst().getZid(context, null, 0, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString(SpeedStatsUtils.UBC_VALUE_SPLASH, "") : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hl2
-    public String a(Context context) {
-        InterceptResult invokeL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return c(context);
-            }
-            return b(context);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString(SpeedStatsUtils.UBC_VALUE_SPLASH, str);
+            edit.commit();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, dq5.class, null);
-            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString(TiebaStatic.LogFields.RESULT, "") : "";
-        }
-        return (String) invokeL.objValue;
     }
 }

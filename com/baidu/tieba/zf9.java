@@ -1,66 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class zf9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, PidLoaderCreator> a;
-    public final Map<Ssp.Pid, PidLoader> b;
 
-    public zf9(Map<String, PidLoaderCreator> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948358172, "Lcom/baidu/tieba/zf9;")) == null) {
+            return;
         }
-        this.b = new HashMap();
-        this.a = map;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948358172, "Lcom/baidu/tieba/zf9;");
+        }
     }
 
-    public PidLoader a(Ssp.Pid pid) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.b) {
-                PidLoader pidLoader = this.b.get(pid);
-                if (pidLoader != null) {
-                    return pidLoader;
-                }
-                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
-                if (pidLoaderCreator == null) {
-                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
-                    return null;
-                }
-                PidLoader create = pidLoaderCreator.create(pid);
-                if (create == null) {
-                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
-                    return null;
-                }
-                tl9 tl9Var = new tl9(create);
-                this.b.put(pid, tl9Var);
-                return tl9Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return b;
         }
-        return (PidLoader) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i = a;
+            if (i >= 0) {
+                return i;
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return a;
+        }
+        return invokeL.intValue;
     }
 }

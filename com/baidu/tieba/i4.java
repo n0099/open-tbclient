@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i4 extends d4 {
+public class i4 extends e4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long e;
-    public static final long f;
-    public static final long g;
     public static final long h;
-    public static final long i;
-    public static final long j;
-    public static final long k;
-    public static long l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k3 d;
+    public boolean d;
+    public int e;
+    public int f;
+    public float g;
 
     static {
         InterceptResult invokeClinit;
@@ -37,88 +32,136 @@ public class i4 extends d4 {
                 return;
             }
         }
-        e = d4.d("diffuseColor");
-        f = d4.d("specularColor");
-        g = d4.d("ambientColor");
-        h = d4.d("emissiveColor");
-        i = d4.d("reflectionColor");
-        j = d4.d("ambientLightColor");
-        long d = d4.d("fogColor");
-        k = d;
-        l = d | g | e | f | h | i | j;
+        h = e4.d("blended");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i4(long j2) {
-        super(j2);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public i4() {
+        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((i4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new k3();
-        if (!f(j2)) {
-            throw new GdxRuntimeException("Invalid type specified");
-        }
-    }
-
-    public static final boolean f(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? (j2 & l) != 0 : invokeJ.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: e */
-    public int compareTo(d4 d4Var) {
+    public int compareTo(e4 e4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d4Var)) == null) {
-            long j2 = this.a;
-            long j3 = d4Var.a;
-            return j2 != j3 ? (int) (j2 - j3) : ((i4) d4Var).d.g() - this.d.g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e4Var)) == null) {
+            long j = this.a;
+            long j2 = e4Var.a;
+            if (j != j2) {
+                return (int) (j - j2);
+            }
+            i4 i4Var = (i4) e4Var;
+            boolean z = this.d;
+            if (z != i4Var.d) {
+                return z ? 1 : -1;
+            }
+            int i = this.e;
+            int i2 = i4Var.e;
+            if (i != i2) {
+                return i - i2;
+            }
+            int i3 = this.f;
+            int i4 = i4Var.f;
+            if (i3 != i4) {
+                return i3 - i4;
+            }
+            if (com.badlogic.gdx.math.d.e(this.g, i4Var.g)) {
+                return 0;
+            }
+            return this.g < i4Var.g ? 1 : -1;
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.d4
+    @Override // com.baidu.tieba.e4
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.d.g() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (((((((super.hashCode() * 947) + (this.d ? 1 : 0)) * 947) + this.e) * 947) + this.f) * 947) + u7.b(this.g);
+        }
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public i4(long j2, k3 k3Var) {
-        this(j2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i4(boolean z, int i, int i2, float f) {
+        super(h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), k3Var};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.g = 1.0f;
+        this.d = z;
+        this.e = i;
+        this.f = i2;
+        this.g = f;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public i4(int i, int i2, float f) {
+        this(true, i, i2, f);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        if (k3Var != null) {
-            this.d.e(k3Var);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public i4(i4 i4Var) {
+        this(i4Var == null || i4Var.d, i4Var == null ? 770 : i4Var.e, i4Var == null ? 771 : i4Var.f, i4Var == null ? 1.0f : i4Var.g);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i4Var};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
         }
     }
 }

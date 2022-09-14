@@ -3,7 +3,7 @@ package com.baidu.tieba.livesdk.share.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.rg7;
+import com.baidu.tieba.zh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg7 data;
+    public zh7 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaShareInBarResponsedMessage() {
@@ -42,15 +42,15 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
             if (getStatusCode() != 200 || jSONObject == null) {
                 return;
             }
-            rg7 rg7Var = new rg7();
-            this.data = rg7Var;
-            rg7Var.a(jSONObject);
+            zh7 zh7Var = new zh7();
+            this.data = zh7Var;
+            zh7Var.a(jSONObject);
         }
     }
 
-    public rg7 getShareInBarData() {
+    public zh7 getShareInBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (rg7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (zh7) invokeV.objValue;
     }
 }

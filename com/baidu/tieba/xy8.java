@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.external.music.data.MusicData;
-import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
+import com.baidu.tieba.view.bubbleView.ArrowDirection;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,338 +17,402 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class xy8 extends BaseAdapter implements View.OnClickListener {
+public class xy8 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<az8> a;
-    public String b;
-    public int c;
-    public RecordEffectLayout.i d;
+    public RectF a;
+    public Path b;
+    public Paint c;
+    public Path d;
+    public Paint e;
+    public float f;
+    public float g;
+    public float h;
+    public float i;
+    public float j;
 
     /* loaded from: classes6.dex */
-    public class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public ProgressBar b;
-        public TextView c;
-        public int d;
 
-        public a(xy8 xy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-273297995, "Lcom/baidu/tieba/xy8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-273297995, "Lcom/baidu/tieba/xy8$a;");
+                    return;
                 }
             }
+            int[] iArr = new int[ArrowDirection.values().length];
+            a = iArr;
+            try {
+                iArr[ArrowDirection.LEFT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[ArrowDirection.TOP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ArrowDirection.RIGHT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ArrowDirection.BOTTOM.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316818, "Lcom/baidu/tieba/xy8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948316818, "Lcom/baidu/tieba/xy8;");
-                return;
-            }
-        }
-        e = UtilHelper.getDimenPixelSize(R.dimen.tbds156);
-    }
-
-    public xy8() {
+    public xy8(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, ArrowDirection arrowDirection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rectF, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), arrowDirection};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = -1;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public az8 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<az8> list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (az8) invokeI.objValue;
-    }
-
-    public final void b(a aVar, View view2, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fe9);
-            aVar.a = tbImageView;
-            tbImageView.setIsRound(true);
-            aVar.a.setDrawerType(1);
-            aVar.a.setDefaultBgResource(R.color.transparent);
-            aVar.a.setBorderWidth(ri.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
-            aVar.a.setConrers(15);
-            aVar.a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092373);
-        }
-    }
-
-    public void c(TbMusicData tbMusicData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMusicData) == null) || getCount() <= 1 || getItem(1) == null || getItem(1).getType() != 3) {
+        this.b = new Path();
+        Paint paint = new Paint(1);
+        this.c = paint;
+        this.a = rectF;
+        this.f = f;
+        this.g = f2;
+        this.h = f3;
+        this.i = f4;
+        this.j = f5;
+        paint.setColor(i2);
+        if (f5 > 0.0f) {
+            Paint paint2 = new Paint(1);
+            this.e = paint2;
+            paint2.setColor(i);
+            this.d = new Path();
+            e(arrowDirection, this.b, f5);
+            e(arrowDirection, this.d, 0.0f);
             return;
         }
-        this.c = 1;
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b2c);
-        notifyDataSetChanged();
+        e(arrowDirection, this.b, 0.0f);
     }
 
-    public void d(String str) {
+    public final void a(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.g + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = rectF.top;
+            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, ((rectF.bottom - this.h) - this.g) - f);
+            float f5 = rectF.right;
+            float f6 = this.g;
+            float f7 = rectF.bottom;
+            float f8 = this.h;
+            path.arcTo(new RectF(f5 - f6, (f7 - f6) - f8, f5 - f, (f7 - f8) - f), 0.0f, 90.0f);
+            float f9 = f / 2.0f;
+            path.lineTo(((rectF.left + this.f) + this.i) - f9, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
+            path.lineTo(rectF.left + this.i + f9, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + Math.min(this.g, this.i) + f, (rectF.bottom - this.h) - f);
+            float f10 = rectF.left;
+            float f11 = rectF.bottom;
+            float f12 = this.g;
+            float f13 = this.h;
+            path.arcTo(new RectF(f10 + f, (f11 - f12) - f13, f12 + f10, (f11 - f13) - f), 90.0f, 90.0f);
+            path.lineTo(rectF.left + f, rectF.top + this.g + f);
+            float f14 = rectF.left;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    public void e(List<az8> list, String str) {
+    public final void b(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + f, rectF.top + f);
+            path.lineTo(rectF.right - f, rectF.top + f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.h) - f);
+            float f2 = f / 2.0f;
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
+            path.lineTo(rectF.left + this.i + f2, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + f, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + f, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + f, rectF.top + f);
+            path.close();
         }
     }
 
-    public void f(RecordEffectLayout.i iVar) {
+    public final void c(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) {
-            this.d = iVar;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(this.f + rectF.left + this.g + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = rectF.top;
+            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
+            float f5 = rectF.right;
+            float f6 = this.g;
+            float f7 = rectF.bottom;
+            path.arcTo(new RectF(f5 - f6, f7 - f6, f5 - f, f7 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.f + this.g + f, rectF.bottom - f);
+            float f8 = rectF.left;
+            float f9 = this.f;
+            float f10 = rectF.bottom;
+            float f11 = this.g;
+            path.arcTo(new RectF(f8 + f9 + f, f10 - f11, f11 + f8 + f9, f10 - f), 90.0f, 90.0f);
+            float f12 = f / 2.0f;
+            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f12);
+            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
+            path.lineTo(rectF.left + this.f + f, this.i + f12);
+            path.lineTo(rectF.left + this.f + f, rectF.top + this.g + f);
+            float f13 = rectF.left;
+            float f14 = this.f;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f13 + f14 + f, f + f15, f13 + f16 + f14, f16 + f15), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    public void g(String str) {
+    public final void d(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && getCount() > 1 && getItem(1) != null && getItem(1).getType() == 3 && (getItem(1).c() instanceof MusicData)) {
-            ((MusicData) getItem(1).c()).img = str;
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(this.f + rectF.left + f, rectF.top + f);
+            path.lineTo(rectF.width() - f, rectF.top + f);
+            path.lineTo(rectF.right - f, rectF.bottom - f);
+            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f2);
+            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
+            path.lineTo(rectF.left + this.f + f, this.i + f2);
+            path.lineTo(rectF.left + this.f + f, rectF.top + f);
+            path.close();
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<az8> list = this.a;
-            if (list != null) {
-                return list.size();
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            if (this.j > 0.0f) {
+                canvas.drawPath(this.d, this.e);
             }
-            return 0;
+            canvas.drawPath(this.b, this.c);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public final void e(ArrowDirection arrowDirection, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            az8 item = getItem(i);
-            if (item == null) {
-                return 0;
-            }
-            int type = item.getType();
-            if (type != 1) {
-                return type != 3 ? 0 : 1;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        View view3;
-        az8 az8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                int itemViewType = getItemViewType(i);
-                if (itemViewType == 0) {
-                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
-                    b(aVar, view3, viewGroup);
-                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090ff8);
-                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
-                } else if (itemViewType == 1) {
-                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) null);
-                    b(aVar, view3, viewGroup);
-                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090ff8);
-                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0802ff);
-                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
-                } else if (itemViewType != 2) {
-                    view3 = view2;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{arrowDirection, path, Float.valueOf(f)}) == null) {
+            int i = a.a[arrowDirection.ordinal()];
+            if (i == 1) {
+                float f2 = this.g;
+                if (f2 <= 0.0f) {
+                    d(this.a, path, f);
+                } else if (f > 0.0f && f > f2) {
+                    d(this.a, path, f);
                 } else {
-                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
-                    b(aVar, view3, viewGroup);
-                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                    c(this.a, path, f);
                 }
-                view3.setTag(aVar);
+            } else if (i == 2) {
+                float f3 = this.g;
+                if (f3 <= 0.0f) {
+                    i(this.a, path, f);
+                } else if (f > 0.0f && f > f3) {
+                    i(this.a, path, f);
+                } else {
+                    h(this.a, path, f);
+                }
+            } else if (i == 3) {
+                float f4 = this.g;
+                if (f4 <= 0.0f) {
+                    g(this.a, path, f);
+                } else if (f > 0.0f && f > f4) {
+                    g(this.a, path, f);
+                } else {
+                    f(this.a, path, f);
+                }
+            } else if (i != 4) {
             } else {
-                aVar = (a) view2.getTag();
-                view3 = view2;
-            }
-            List<az8> list = this.a;
-            if (list != null && i >= 0 && i <= list.size() - 1 && (az8Var = this.a.get(i)) != null) {
-                int itemViewType2 = getItemViewType(i);
-                if (itemViewType2 == 0) {
-                    QmFilterItem qmFilterItem = (QmFilterItem) az8Var.c();
-                    if ("-1".equals(qmFilterItem.id)) {
-                        TbImageView tbImageView = aVar.a;
-                        String str = qmFilterItem.bgurl;
-                        int i2 = e;
-                        tbImageView.G(str, 24, i2, i2, false);
-                    } else {
-                        TbImageView tbImageView2 = aVar.a;
-                        String str2 = qmFilterItem.bgurl;
-                        int i3 = e;
-                        tbImageView2.G(str2, 10, i3, i3, false);
-                    }
-                    if (!TextUtils.isEmpty(qmFilterItem.id) && qmFilterItem.id.equals(this.b)) {
-                        aVar.a.setDrawBorder(true);
-                    } else {
-                        aVar.a.setDrawBorder(false);
-                    }
-                    if (qmFilterItem.isDownLoading) {
-                        aVar.b.setVisibility(0);
-                    } else {
-                        aVar.b.setVisibility(4);
-                    }
-                    if (this.c != i) {
-                        aVar.b.setVisibility(4);
-                    } else if (aVar.b.getVisibility() == 0) {
-                        aVar.a.setDrawBorder(false);
-                    }
-                    aVar.c.setText(az8Var.b());
-                } else if (itemViewType2 == 1) {
-                    MusicData musicData = (MusicData) az8Var.c();
-                    int i4 = musicData.editMusicType;
-                    if (i4 != 0 && (i4 != 2 || TextUtils.isEmpty(musicData.img))) {
-                        TbImageView tbImageView3 = aVar.a;
-                        String valueOf = String.valueOf(az8Var.a());
-                        int i5 = e;
-                        tbImageView3.G(valueOf, 24, i5, i5, false);
-                    } else {
-                        TbImageView tbImageView4 = aVar.a;
-                        String str3 = musicData.img;
-                        int i6 = e;
-                        tbImageView4.G(str3, 10, i6, i6, false);
-                    }
-                    if (!TextUtils.isEmpty(az8Var.b()) && az8Var.b().equals(this.b)) {
-                        aVar.a.setDrawBorder(true);
-                    } else {
-                        aVar.a.setDrawBorder(false);
-                    }
-                    if (this.c != i) {
-                        aVar.b.setVisibility(4);
-                    } else if (aVar.b.getVisibility() == 0) {
-                        aVar.a.setDrawBorder(false);
-                    }
-                    aVar.c.setText(musicData.name);
-                } else if (itemViewType2 == 2) {
-                    if (!TextUtils.isEmpty(az8Var.b()) && az8Var.b().equals(this.b)) {
-                        aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080246);
-                    } else {
-                        aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080245);
-                    }
-                    aVar.c.setText(az8Var.b());
+                float f5 = this.g;
+                if (f5 <= 0.0f) {
+                    b(this.a, path, f);
+                } else if (f > 0.0f && f > f5) {
+                    b(this.a, path, f);
+                } else {
+                    a(this.a, path, f);
                 }
-                aVar.a.setTag(az8Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091b6f, aVar);
-                aVar.a.setOnClickListener(this);
-                aVar.d = i;
             }
-            return view3;
         }
-        return (View) invokeILL.objValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final void f(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.g + f, rectF.top + f);
+            path.lineTo(((rectF.width() - this.g) - this.f) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = this.f;
+            float f5 = rectF.top;
+            path.arcTo(new RectF((f2 - f3) - f4, f5 + f, (f2 - f4) - f, f3 + f5), 270.0f, 90.0f);
+            float f6 = f / 2.0f;
+            path.lineTo((rectF.right - this.f) - f, this.i + f6);
+            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
+            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f6);
+            path.lineTo((rectF.right - this.f) - f, (rectF.bottom - this.g) - f);
+            float f7 = rectF.right;
+            float f8 = this.g;
+            float f9 = this.f;
+            float f10 = rectF.bottom;
+            path.arcTo(new RectF((f7 - f8) - f9, f10 - f8, (f7 - f9) - f, f10 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
+            float f11 = rectF.left;
+            float f12 = rectF.bottom;
+            float f13 = this.g;
+            path.arcTo(new RectF(f11 + f, f12 - f13, f13 + f11, f12 - f), 90.0f, 90.0f);
+            float f14 = rectF.left;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
+            path.close();
+        }
+    }
+
+    public final void g(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.f) - f, rectF.top + f);
+            float f2 = f / 2.0f;
+            path.lineTo((rectF.right - this.f) - f, this.i + f2);
+            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
+            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f2);
+            path.lineTo((rectF.right - this.f) - f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.top + f);
+            path.close();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return 3;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (int) this.a.height() : invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (int) this.a.width() : invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return -3;
         }
         return invokeV.intValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        RecordEffectLayout.i iVar;
+    public final void h(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090fe9 && (view2.getTag() instanceof az8)) {
-            az8 az8Var = (az8) view2.getTag();
-            if (az8Var.getType() == 3 && (az8Var.c() instanceof MusicData)) {
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b2c).equals(az8Var.b()) && (iVar = this.d) != null) {
-                    iVar.b(az8Var, view2.getTag(R.id.obfuscated_res_0x7f091b6f));
-                    this.c = this.a.indexOf(az8Var);
-                    this.b = az8Var.b();
-                }
-                if (!TextUtils.isEmpty(az8Var.b()) && az8Var.b().equals(this.b)) {
-                    return;
-                }
-                if (!az8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b2c))) {
-                    this.c = this.a.indexOf(az8Var);
-                }
-            } else {
-                this.c = this.a.indexOf(az8Var);
-            }
-            if (az8Var.getType() == 2 && (az8Var.c() instanceof QmFilterItem)) {
-                this.b = ((QmFilterItem) az8Var.c()).id;
-            } else {
-                this.b = az8Var.b();
-            }
-            notifyDataSetChanged();
-            RecordEffectLayout.i iVar2 = this.d;
-            if (iVar2 != null) {
-                iVar2.b(az8Var, view2.getTag(R.id.obfuscated_res_0x7f091b6f));
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + Math.min(this.i, this.g) + f, rectF.top + this.h + f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
+            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
+            path.lineTo((rectF.right - this.g) - f, rectF.top + this.h + f);
+            float f3 = rectF.right;
+            float f4 = this.g;
+            float f5 = rectF.top;
+            float f6 = this.h;
+            path.arcTo(new RectF(f3 - f4, f5 + f6 + f, f3 - f, f4 + f5 + f6), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
+            float f7 = rectF.right;
+            float f8 = this.g;
+            float f9 = rectF.bottom;
+            path.arcTo(new RectF(f7 - f8, f9 - f8, f7 - f, f9 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.g + f, rectF.bottom - f);
+            float f10 = rectF.left;
+            float f11 = rectF.bottom;
+            float f12 = this.g;
+            path.arcTo(new RectF(f10 + f, f11 - f12, f12 + f10, f11 - f), 90.0f, 90.0f);
+            path.lineTo(rectF.left + f, rectF.top + this.h + this.g + f);
+            float f13 = rectF.left;
+            float f14 = f13 + f;
+            float f15 = rectF.top;
+            float f16 = this.h;
+            float f17 = f15 + f16 + f;
+            float f18 = this.g;
+            path.arcTo(new RectF(f14, f17, f13 + f18, f18 + f15 + f16), 180.0f, 90.0f);
+            path.close();
+        }
+    }
+
+    public final void i(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.i + f, rectF.top + this.h + f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
+            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
+            path.lineTo(rectF.right - f, rectF.top + this.h + f);
+            path.lineTo(rectF.right - f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.top + this.h + f);
+            path.lineTo(rectF.left + this.i + f, rectF.top + this.h + f);
+            path.close();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
+            super.onBoundsChange(rect);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.setAlpha(i);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
+            this.c.setColorFilter(colorFilter);
         }
     }
 }

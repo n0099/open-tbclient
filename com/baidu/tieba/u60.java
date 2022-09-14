@@ -1,233 +1,208 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Headers;
+import com.baidu.searchbox.network.outback.core.HttpMethod;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.ProxySelector;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes6.dex */
-public class u60 {
+public class u60 implements r60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public p60 a;
+    public s60 b;
+    public o60 c;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SharedPreferences a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Object c;
+    }
 
-        public a(SharedPreferences sharedPreferences, String str, Object obj) {
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public o60 a;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public u60 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new u60(this, null) : (u60) invokeV.objValue;
+        }
+
+        public b c(o60 o60Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o60Var)) == null) {
+                this.a = o60Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sharedPreferences, str, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = sharedPreferences;
-            this.b = str;
-            this.c = obj;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u60.n(this.a, this.b, this.c);
-            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Set c;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948162810, "Lcom/baidu/tieba/u60;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948162810, "Lcom/baidu/tieba/u60;");
+        }
+    }
 
-        public b(Context context, String str, Set set) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, set};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public /* synthetic */ u60(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public static b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new b(null) : (b) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r60
+    public p60 a(Request request) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            HttpURLConnection a2 = this.b.a(request.url().url());
+            boolean equals = "CronetHttpURLConnection".equals(a2.getClass().getSimpleName());
+            int i = !equals ? 4 : 5;
+            NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+            if (networkStatRecord != null) {
+                networkStatRecord.netEngine = i;
+            }
+            if (request.getConnectionTimeout() > 0) {
+                a2.setConnectTimeout(request.getConnectionTimeout());
+            } else if (this.c.o() > 0) {
+                a2.setConnectTimeout(this.c.o());
+            }
+            if (request.getReadTimeout() > 0) {
+                a2.setReadTimeout(request.getReadTimeout());
+            } else if (this.c.w() > 0) {
+                a2.setReadTimeout(this.c.w());
+            }
+            a2.setInstanceFollowRedirects(request.isFollowRedirects());
+            if ("https".equalsIgnoreCase(request.url().scheme()) && !equals) {
+                SSLSocketFactory x = this.c.x();
+                if (x != null) {
+                    ((HttpsURLConnection) a2).setSSLSocketFactory(x);
+                }
+                HostnameVerifier q = this.c.q();
+                if (q != null) {
+                    ((HttpsURLConnection) a2).setHostnameVerifier(q);
                 }
             }
-            this.a = context;
-            this.b = str;
-            this.c = set;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getSharedPreferences("track_sp", 0).edit().putStringSet(this.b, this.c).apply();
-            }
-        }
-    }
-
-    public static Set<String> b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? h(context, "track_connection", new HashSet()) : (Set) invokeL.objValue;
-    }
-
-    public static int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? g(context, Constants.KEY_LOGIN_OPEN_TYPE, -1) : invokeL.intValue;
-    }
-
-    public static Set<String> d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? h(context, "track_request", new HashSet()) : (Set) invokeL.objValue;
-    }
-
-    public static boolean e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(i);
-            sb.append("real_time_track");
-            return g(context, sb.toString(), 0) == 1;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? g(context, "track_upload_state", 1) == 1 : invokeL.booleanValue;
-    }
-
-    public static int g(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, str, i)) == null) ? context.getSharedPreferences("track_sp", 0).getInt(str, i) : invokeLLI.intValue;
-    }
-
-    public static Set<String> h(Context context, String str, Set<String> set) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, set)) == null) ? context.getSharedPreferences("track_sp", 0).getStringSet(str, set) : (Set) invokeLLL.objValue;
-    }
-
-    public static void i(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, context, i, i2) == null) {
-            l(context, i + "real_time_track", i2);
-        }
-    }
-
-    public static void j(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, context, i) == null) {
-            l(context, "track_upload_state", i);
-        }
-    }
-
-    public static void k(Context context, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, set) == null) {
-            q(context, "track_connection", set);
-        }
-    }
-
-    public static void l(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65547, null, context, str, i) == null) {
-            p(context, str, Integer.valueOf(i));
-        }
-    }
-
-    public static void m(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, context, i) == null) {
-            l(context, Constants.KEY_LOGIN_OPEN_TYPE, i);
-        }
-    }
-
-    public static void n(SharedPreferences sharedPreferences, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, sharedPreferences, str, obj) == null) {
-            if (obj instanceof Boolean) {
-                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
-            } else if (obj instanceof Integer) {
-                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
-            } else if (obj instanceof Long) {
-                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
-            } else if (obj instanceof Float) {
-                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
-            } else if (obj instanceof String) {
-                sharedPreferences.edit().putString(str, (String) obj).apply();
-            }
-        }
-    }
-
-    public static void o(Context context, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, set) == null) {
-            q(context, "track_request", set);
-        }
-    }
-
-    public static void p(Context context, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65551, null, context, str, obj) == null) {
-            try {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("track_sp", 0);
-                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                    r70.a(context).b(new a(sharedPreferences, str, obj));
+            String method = request.method();
+            a2.setRequestMethod(method);
+            a2.setDoInput(true);
+            boolean permitsRequestBody = HttpMethod.permitsRequestBody(method);
+            a2.setDoOutput(permitsRequestBody);
+            Headers headers = request.headers();
+            if (permitsRequestBody) {
+                long contentLength = request.body().contentLength();
+                int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
+                if (i2 < 0 && !"chunked".equals(headers.get("Transfer-Encoding"))) {
+                    throw new IOException("content length < 0 but transfer-encoding is not set to chunked");
+                }
+                if (i2 < 0 && "chunked".equals(headers.get("Transfer-Encoding"))) {
+                    a2.setChunkedStreamingMode(-1);
                 } else {
-                    n(sharedPreferences, str, obj);
+                    a2.setFixedLengthStreamingMode((int) contentLength);
                 }
-            } catch (Throwable th) {
-                w70.b("TrackUtils", th.getMessage());
+            }
+            int size = headers.size();
+            for (int i3 = 0; i3 < size; i3++) {
+                a2.setRequestProperty(headers.name(i3), headers.value(i3));
+            }
+            if (permitsRequestBody) {
+                c(request, a2);
+            }
+            a2.connect();
+            t60 t60Var = new t60(a2);
+            this.a = t60Var;
+            t60Var.t(i);
+            return this.a;
+        }
+        return (p60) invokeL.objValue;
+    }
+
+    public final void c(Request request, HttpURLConnection httpURLConnection) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, httpURLConnection) == null) {
+            OutputStream outputStream = null;
+            try {
+                try {
+                    outputStream = httpURLConnection.getOutputStream();
+                    request.body().writeTo(outputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+            } finally {
+                Util.closeQuietly(outputStream);
             }
         }
     }
 
-    @SuppressLint({"CommitPrefEdits"})
-    public static void q(Context context, String str, Set<String> set) {
+    public u60(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, context, str, set) == null) {
-            try {
-                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                    r70.a(context).b(new b(context, str, set));
-                } else {
-                    context.getSharedPreferences("track_sp", 0).edit().putStringSet(str, set).apply();
-                }
-            } catch (Throwable th) {
-                w70.b("TrackUtils", th.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        o60 o60Var = bVar.a;
+        this.c = o60Var;
+        ProxySelector.setDefault(o60Var.v());
+        this.b = this.c.r();
     }
 }

@@ -5,10 +5,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.bx4;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +85,7 @@ public class ABTestSwitchManager {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("name");
-                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
+                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString("log")));
                     }
                 }
             } catch (Exception e) {
@@ -172,7 +171,7 @@ public class ABTestSwitchManager {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("name");
-                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
+                        hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString("log")));
                     }
                 }
                 synchronized (this.mSwitchs) {
@@ -180,7 +179,7 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                su4.k().w("perf_start_open", isATest(ABTestConst.KEY_PERF_START_TEST) ? 1 : 0);
+                bx4.k().w("perf_start_open", isATest(ABTestConst.KEY_PERF_START_TEST) ? 1 : 0);
             } catch (Exception e) {
                 e.printStackTrace();
             }

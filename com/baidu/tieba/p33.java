@@ -1,259 +1,423 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.env.SwanAppDeleteInfo;
-import com.baidu.tieba.f63;
-import com.baidu.tieba.ua2;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import rx.schedulers.Schedulers;
+import com.facebook.common.internal.Sets;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.List;
+import java.util.Set;
+import okhttp3.CertificatePinner;
 /* loaded from: classes5.dex */
-public class p33 extends x23 {
+public final class p33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements tf3<d63<f63.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ p33 h;
-
-        public a(p33 p33Var, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity, String str2, String str3, String str4, String str5) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011065, "Lcom/baidu/tieba/p33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p33Var, callbackHandler, str, unitedSchemeEntity, str2, str3, str4, str5};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.h = p33Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = unitedSchemeEntity;
-            this.d = str2;
-            this.e = str3;
-            this.f = str4;
-            this.g = str5;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(d63<f63.e> d63Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var) == null) {
-                if (y53.h(d63Var)) {
-                    this.h.m(this.c, this.a, this.d, this.e, this.f, this.g, this.b);
-                } else {
-                    y53.q(d63Var, this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements mv9<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ua2.b b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ String e;
-
-        public b(p33 p33Var, String str, ua2.b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p33Var, str, bVar, callbackHandler, unitedSchemeEntity, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = bVar;
-            this.c = callbackHandler;
-            this.d = unitedSchemeEntity;
-            this.e = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mv9
-        public void call(Boolean bool) {
-            a13 M;
-            vx2 y;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                if (bool.booleanValue()) {
-                    if (!TextUtils.isEmpty(this.a) && (M = a13.M()) != null && (y = M.y()) != null) {
-                        y.a0(8, new SwanAppDeleteInfo(this.a).setPurgerScenes(va2.m(this.b).c()));
-                    }
-                    ay1.i("history", "remove success");
-                    if (x23.b) {
-                        Log.d("SwanAppAction", "RMSwanHistory --- success & appid : " + this.a);
-                    }
-                    UnitedSchemeUtility.safeCallback(this.c, this.d, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.e);
-                    return;
-                }
-                ay1.o("history", "execute fail --- no match app id");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "RMSwanHistory --- no match app id");
-                }
-                UnitedSchemeUtility.safeCallback(this.c, this.d, UnitedSchemeUtility.wrapCallbackParams(1001, "no match app id").toString(), this.e);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements qv9<String, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ ua2.b d;
-
-        public c(p33 p33Var, String str, String str2, String str3, ua2.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p33Var, str, str2, str3, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qv9
-        public Boolean call(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Boolean.valueOf(d82.g(AppRuntime.getAppContext().getContentResolver(), this.a, str, this.b, this.c, false, this.d)) : (Boolean) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p33(x13 x13Var) {
-        super(x13Var, "/swanAPI/deleteHistory");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011065, "Lcom/baidu/tieba/p33;");
                 return;
             }
         }
+        a = ij1.a;
+        b = Sets.newHashSet("https", "wss");
     }
 
-    @Override // com.baidu.tieba.x23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeLLLL;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, a13Var)) == null) {
-            if (a13Var == null) {
-                ay1.c("history", "none swanApp");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "RMSwanHistory --- empty swanApp");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a && !xy2.A()) {
+                Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
+                return true;
+            } else if (TextUtils.isEmpty(str)) {
+                yz1.i("WebSafeCheckers", "action is not in white list: action=" + str);
+                return false;
+            } else {
+                y23 M = y23.M();
+                if (M == null) {
+                    yz1.o("WebSafeCheckers", "get swanApp Null " + str);
+                    return false;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty swanApp");
+                List<String> b2 = M.l0().b();
+                if (b2 != null && b2.contains(str)) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2);
+                    }
+                    return true;
+                }
+                yz1.i("WebSafeCheckers", "action is not in adLanding white list: action=" + str);
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                ay1.c("history", "empty joParams");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "RMSwanHistory --- empty joParams");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str, List<String> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (TextUtils.equals(str, str2)) {
+                            return true;
+                        }
+                        if (str2.startsWith(CertificatePinner.Pin.WILDCARD) && str.endsWith(str2.substring(2))) {
+                            return true;
+                        }
+                    }
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:61:0x014a  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0157  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        boolean z;
+        String host;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (a) {
+                    Log.i("WebSafeCheckers", "requestName : " + str);
+                    Log.i("WebSafeCheckers", "requestUrl : " + str2);
+                }
+                boolean z2 = !xy2.w();
+                boolean z3 = false;
+                if (z2) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "debug包serverDomains鉴权关闭： " + z2);
+                    }
+                    return 0;
+                }
+                boolean i = i();
+                if (!i) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + i);
+                    }
+                    return 0;
+                } else if (d(str2)) {
+                    boolean r = fm2.g0().r();
+                    if (!r) {
+                        if (a) {
+                            Log.d("WebSafeCheckers", "AB实验serverDomains鉴权关闭： " + r);
+                        }
+                        return 0;
+                    }
+                    y23 M = y23.M();
+                    if (M == null) {
+                        return 1;
+                    }
+                    String str4 = M.b;
+                    if (TextUtils.isEmpty(str4)) {
+                        return 1;
+                    }
+                    if (TextUtils.isEmpty(str3)) {
+                        if (!new File(q33.i(str4)).exists()) {
+                            if (a) {
+                                Log.w("WebSafeCheckers", "服务器域名配置文件未下发放行");
+                            }
+                            return 0;
+                        }
+                        long currentTimeMillis = System.currentTimeMillis();
+                        try {
+                            host = new URI(str2).getHost();
+                            list = M.l0().c(y23.g0(), str, false).b;
+                            z = b(host, list);
+                        } catch (URISyntaxException e) {
+                            e = e;
+                        }
+                        try {
+                            yz1.b("WebSafeCheckers", "serverDomain: " + host + ", ServerDomains: ", list);
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("domain: ");
+                            sb.append(host);
+                            yz1.i("WebSafeCheckers", sb.toString());
+                        } catch (URISyntaxException e2) {
+                            e = e2;
+                            z3 = z;
+                            if (a) {
+                                Log.e("WebSafeCheckers", Log.getStackTraceString(e));
+                            }
+                            z = z3;
+                            if (!z) {
+                            }
+                            long currentTimeMillis2 = System.currentTimeMillis();
+                            if (a) {
+                            }
+                            return !z;
+                        }
+                        if (!z) {
+                            yz1.i("WebSafeCheckers", "domain is not in white list");
+                        }
+                        long currentTimeMillis22 = System.currentTimeMillis();
+                        if (a) {
+                            Log.d("WebSafeCheckers", "serverDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms");
+                            if (z != 0) {
+                                Log.d("WebSafeCheckers", "serverDomain in white list");
+                            } else {
+                                Log.d("WebSafeCheckers", "serverDomain not in white list");
+                            }
+                        }
+                        return !z;
+                    }
+                    return !vy2.c(str, str2, wy2.h(str3)) ? 1 : 0;
+                } else {
+                    return 2;
+                }
+            }
+            if (a) {
+                Log.d("WebSafeCheckers", "server domains: requestName or requestUrl is empty");
+            }
+            return 1;
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            for (String str2 : b) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            if (xy2.o()) {
+                return true;
+            }
+            boolean p = fm2.g0().p();
+            if (a) {
+                Log.d("WebSafeCheckers", "abTestHttpsProtocolSwitch=" + p);
+            }
+            return !p && str.startsWith("http");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("weixin://wap/pay") : invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("alipays://platformapi/startapp") : invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (a && !xy2.A()) {
+                Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
+                return true;
+            } else if (TextUtils.isEmpty(str)) {
+                yz1.o("WebSafeCheckers", "action is not in white list: action=" + str);
+                return false;
+            } else {
+                y23 M = y23.M();
+                if (M == null) {
+                    yz1.o("WebSafeCheckers", "get swanApp Null " + str);
+                    return false;
+                }
+                List<String> d = M.l0().d(false);
+                if (d != null && d.contains(str)) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + d);
+                    }
+                    return true;
+                }
+                yz1.b("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=", d);
+                StringBuilder sb = new StringBuilder();
+                sb.append("action is not in white list: action=");
+                sb.append(str);
+                yz1.i("WebSafeCheckers", sb.toString());
                 return false;
             }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                ay1.c("history", "empty cb");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "RMSwanHistory --- empty cb");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty cb");
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:81:0x017f  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0197  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean h(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        String host;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            y23 b0 = y23.b0();
+            boolean z2 = false;
+            if (b0 == null) {
                 return false;
             }
-            String optString2 = optParamsAsJo.optString("appid");
-            String optString3 = optParamsAsJo.optString("appKey");
-            String optString4 = optParamsAsJo.optString("version");
-            String optString5 = optParamsAsJo.optString("type");
-            if (TextUtils.isEmpty(optString2) && TextUtils.isEmpty(optString3)) {
-                ay1.c("history", "empty appKey");
-                if (x23.b) {
-                    Log.d("SwanAppAction", "RMSwanHistory --- empty appKey");
+            String lowerCase = str.toLowerCase();
+            if (!xy2.A()) {
+                if (a) {
+                    Log.w("WebSafeCheckers", "checkWebHost: Debug下鉴权未开启");
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty appId");
+                return true;
+            }
+            boolean z3 = fm2.g0().z();
+            if (!z3) {
+                if (a) {
+                    Log.w("WebSafeCheckers", "ABTest : webDomains switch " + z3);
+                }
+                return true;
+            } else if (!i()) {
+                if (a) {
+                    Log.d("WebSafeCheckers", "checkWebDomains: 线下环境开发者授权跳过域名校验");
+                }
+                return true;
+            } else {
+                String g0 = y23.g0();
+                if (q33.n(g0)) {
+                    List<String> e = b0.l0().e(g0, false);
+                    if (lowerCase.startsWith("weixin://wap/pay") && e.contains("wx.tenpay.com")) {
+                        yz1.k("WebSafeCheckers", "url is weixin pay, Domain in white list url: " + str + " name: " + b0.Z());
+                        r93.K("wechatH5", "intoPayment", 0);
+                        r93.G("wechatH5", str, e);
+                        return true;
+                    } else if (lowerCase.startsWith("alipays://platformapi/startapp") && (e.contains("*.alipay.com") || e.contains("*.alipayobjects.com"))) {
+                        yz1.k("WebSafeCheckers", "url is ali pay, Domain in white list url: " + str + " whiteDomains: " + e + " name: " + b0.Z());
+                        r93.K("alipayH5", "intoPayment", 0);
+                        r93.G("alipayH5", str, e);
+                        return true;
+                    } else {
+                        long nanoTime = a ? System.nanoTime() : 0L;
+                        if (TextUtils.isEmpty(str)) {
+                            if (a) {
+                                Log.w("WebSafeCheckers", "checkWebDomain: url is empty");
+                            }
+                            return false;
+                        }
+                        try {
+                            host = new URL(str).getHost();
+                            if (!TextUtils.isEmpty(host) && e != null) {
+                                for (String str2 : e) {
+                                    if (str2 != null) {
+                                        if (str2.startsWith(CertificatePinner.Pin.WILDCARD)) {
+                                            if (host.endsWith(str2.substring(2))) {
+                                                z = true;
+                                                break;
+                                            }
+                                        } else if (TextUtils.equals(str2, host)) {
+                                            z = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            z = false;
+                        } catch (MalformedURLException e2) {
+                            e = e2;
+                        }
+                        try {
+                            yz1.b("WebSafeCheckers", "domain: ", host, ", domains: ", e);
+                            yz1.i("WebSafeCheckers", "domain: " + host);
+                        } catch (MalformedURLException e3) {
+                            e = e3;
+                            z2 = z;
+                            if (a) {
+                                Log.e("WebSafeCheckers", Log.getStackTraceString(e));
+                            }
+                            z = z2;
+                            if (!z) {
+                            }
+                            if (a) {
+                            }
+                            return z;
+                        }
+                        if (!z) {
+                            yz1.i("WebSafeCheckers", "domain is not in white list：" + e);
+                        }
+                        if (a) {
+                            long nanoTime2 = System.nanoTime();
+                            Log.d("WebSafeCheckers", z ? "Domain in white list" : "Domain not in white list");
+                            Log.d("WebSafeCheckers", "checkWebDomain耗时(ms): " + (((float) (nanoTime2 - nanoTime)) / 1000000.0f));
+                        }
+                        return z;
+                    }
+                }
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (x23.K().k() == 0 && SwanAppConfigData.j.d()) {
+                if (a) {
+                    Log.d("WebSafeCheckers", "授权跳过url校验");
+                    return false;
+                }
                 return false;
             }
-            a13Var.e0().g(context, "mapp_i_delete_history", new a(this, callbackHandler, optString, unitedSchemeEntity, optString2, optString3, optString4, optString5));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, String str2, String str3, String str4, String str5) {
+    public static boolean j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, str, str2, str3, str4, str5}) == null) {
-            ay1.i("history", "start remove history");
-            va2 l = va2.l();
-            l.n(4);
-            ua2.b k = l.k();
-            yu9.f(str2).y(Schedulers.io()).h(new c(this, str, str3, str4, k)).k(iv9.b()).w(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            String lowerCase = str.toLowerCase();
+            return lowerCase.startsWith("weixin://wap/pay") || lowerCase.startsWith("alipays://platformapi/startapp");
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (y23.M() == null) {
+                return false;
+            }
+            return dt2.g().j(x23.K().q().W().f0());
+        }
+        return invokeV.booleanValue;
     }
 }

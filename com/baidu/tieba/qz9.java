@@ -1,45 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.yu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class qz9<T, R> extends yu9<R> implements zu9<T> {
+public final class qz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qz9(yu9.a<R> aVar) {
-        super(aVar);
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yu9.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
     }
 
-    public final pz9<T, R> C() {
-        InterceptResult invokeV;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getClass() == pz9.class) {
-                return (pz9) this;
-            }
-            return new pz9<>(this);
-        }
-        return (pz9) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? 1 << (32 - Integer.numberOfLeadingZeros(i - 1)) : invokeI.intValue;
     }
 }

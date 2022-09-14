@@ -2,7 +2,7 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.f56;
+import com.baidu.tieba.v66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,6 +32,6 @@ public class ClearCacheRuntime {
     public static IClearCacheContext getClearCacheContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f56.a() : (IClearCacheContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? v66.a() : (IClearCacheContext) invokeV.objValue;
     }
 }

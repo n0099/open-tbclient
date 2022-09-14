@@ -3,16 +3,14 @@ package com.google.android.gms.common.internal;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.dynamic.IObjectWrapper;
-import com.google.android.gms.internal.common.zza;
 /* loaded from: classes7.dex */
-public final class zzx extends zza implements zzz {
+public final class zzx extends com.google.android.gms.internal.common.zza implements zzz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +52,7 @@ public final class zzx extends zza implements zzz {
     public final IObjectWrapper zzd() throws RemoteException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Parcel zzB = zzB(1, zza());
             IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());
             zzB.recycle();

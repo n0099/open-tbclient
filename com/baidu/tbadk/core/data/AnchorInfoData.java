@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -145,7 +144,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         try {
             this.portrait = jSONObject.getString("portrait");
             this.name = jSONObject.getString("name");
-            this.startTime = jSONObject.getInt(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+            this.startTime = jSONObject.getInt("start_time");
             this.status = jSONObject.getInt("status");
             this.authorId = jSONObject.getLong("author_id");
             this.authorName = jSONObject.getString("author_name");

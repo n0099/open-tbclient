@@ -55,13 +55,13 @@ public class Placeholder extends View {
             super.setVisibility(this.mEmptyVisibility);
             this.mContentId = -1;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_placeholder);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_placeholder);
                 int indexCount = obtainStyledAttributes.getIndexCount();
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
-                    if (index == R$styleable.ConstraintLayout_placeholder_content) {
+                    if (index == 0) {
                         this.mContentId = obtainStyledAttributes.getResourceId(index, this.mContentId);
-                    } else if (index == R$styleable.ConstraintLayout_placeholder_placeholder_emptyVisibility) {
+                    } else if (index == 1) {
                         this.mEmptyVisibility = obtainStyledAttributes.getInt(index, this.mEmptyVisibility);
                     }
                 }

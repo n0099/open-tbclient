@@ -1,53 +1,71 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tieba.gz2;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class fz2 extends ax2 {
+public abstract class fz2 implements dz2<bz2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781355, "Lcom/baidu/tieba/fz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947781355, "Lcom/baidu/tieba/fz2;");
+                return;
+            }
+        }
+        b = ij1.a;
+    }
 
     public fz2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ax2
-    public void b(Bundle params) {
-        gz2.a b;
-        gz2.a b2;
+    @Override // com.baidu.tieba.dz2
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
-            String string2 = params.getString("swanId");
-            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            String string4 = params.getString("hostName");
-            if (ProcessUtils.isMainProcess()) {
-                if (string != null && (b2 = gz2.c.b()) != null) {
-                    b2.a(string, string3, string4);
-                }
-                if (string2 == null || (b = gz2.c.b()) == null) {
-                    return;
-                }
-                b.b(string2, string3, string4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && gz2.a(str)) {
+                throw new RuntimeException("illegal observer id");
+            }
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
+
+    @Override // com.baidu.tieba.dz2
+    public abstract /* synthetic */ void onEvent(@NonNull T t);
 }

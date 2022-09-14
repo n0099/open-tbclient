@@ -2,6 +2,7 @@ package com.baidu.tieba.ala.alasquare;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
@@ -10,19 +11,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.lq5;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements lq5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements xs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
-    public LiveTabYYSubFragment b;
-    public String c;
+    public View b;
+    public LiveTabYYSubFragment c;
+    public String d;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -52,7 +55,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements lq5 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b.a();
+                this.a.c.a();
             }
         }
     }
@@ -71,29 +74,20 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements lq5 {
         }
     }
 
-    @Override // com.baidu.tieba.lq5
+    @Override // com.baidu.tieba.xs5
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lq5
-    public boolean n0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            LiveTabYYSubFragment liveTabYYSubFragment = this.b;
+            uu4.d(this.b).f(R.color.CAM_X0202);
+            LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);
             }
@@ -103,21 +97,32 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements lq5 {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02cb);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091601);
+            setContentView(R.layout.obfuscated_res_0x7f0d02d0);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09162a);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06c9));
-            this.b = LiveTabYYSubFragment.J1(false, 2);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906bd, this.b).commitAllowingStateLoss();
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06dc));
+            this.c = LiveTabYYSubFragment.I1(false, 2, 4);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0906d3);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906d3, this.c).commitAllowingStateLoss();
             String stringExtra = getIntent().getStringExtra("KEY_FORUM_ID");
             String stringExtra2 = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
-            this.c = getIntent().getStringExtra("from");
-            this.b.t1(stringExtra, stringExtra2);
+            this.d = getIntent().getStringExtra("from");
+            this.c.s1(stringExtra, stringExtra2);
             this.a.post(new a(this));
-            TiebaStatic.log(new StatisticItem("c14703").param("fid", stringExtra).param("obj_source", TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, this.c) ? 1 : 2));
+            TiebaStatic.log(new StatisticItem("c14703").param("fid", stringExtra).param("obj_source", TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, this.d) ? 1 : 2));
         }
+    }
+
+    @Override // com.baidu.tieba.xs5
+    public boolean x0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

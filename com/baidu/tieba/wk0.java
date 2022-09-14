@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface wk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final ServiceReference a = new ServiceReference("nad.core", "uad.retainUI");
     public static final wk0 b = new a();
 
     /* loaded from: classes6.dex */
@@ -33,25 +32,21 @@ public interface wk0 {
         }
 
         @Override // com.baidu.tieba.wk0
-        @NonNull
-        public vk0 a() {
+        public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? vk0.a : (vk0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e7 : invokeV.intValue;
         }
 
         @Override // com.baidu.tieba.wk0
-        @NonNull
-        public xk0 request() {
+        public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? xk0.a : (xk0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d060c : invokeV.intValue;
         }
     }
 
-    @NonNull
-    vk0 a();
+    int a();
 
-    @NonNull
-    xk0 request();
+    int b();
 }

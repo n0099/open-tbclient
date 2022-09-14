@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sg;
+import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,10 +156,10 @@ public class BdTopToast extends LinearLayout {
                 this.a = new View(getContext());
                 addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d014d, this);
-            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f09035a);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09035b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090359);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0150, this);
+            this.b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f090365);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090366);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090364);
             d();
         }
     }
@@ -180,10 +180,10 @@ public class BdTopToast extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
             if (this.i) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080606, R.color.CAM_X0302, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08061b, R.color.CAM_X0302, null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805f2, R.color.CAM_X0301, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080607, R.color.CAM_X0301, null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0301);
             }
             this.b.b();
@@ -193,7 +193,7 @@ public class BdTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sg.a().removeCallbacks(this.g);
+            gh.a().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -231,9 +231,9 @@ public class BdTopToast extends LinearLayout {
         e();
         startAnimation(this.e);
         if (this.h >= 0) {
-            sg.a().postDelayed(this.g, this.h);
+            gh.a().postDelayed(this.g, this.h);
         } else {
-            sg.a().postDelayed(this.g, 5000L);
+            gh.a().postDelayed(this.g, 5000L);
         }
     }
 

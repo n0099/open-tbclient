@@ -3,7 +3,6 @@ package com.baidu.nps.hook.component;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,7 +44,6 @@ public final class ProtectActivity extends Activity {
                 finish();
             } catch (Exception unused2) {
             }
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

@@ -1,83 +1,92 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushManager;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bu3 {
+public class bu3 extends ev3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void i(String str);
-    }
-
-    public bu3(@NonNull ht1 ht1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ht1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657417, "Lcom/baidu/tieba/bu3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657417, "Lcom/baidu/tieba/bu3;");
                 return;
             }
         }
-        a(ht1Var);
+        c = ij1.a;
     }
 
-    public final void a(@NonNull ht1 ht1Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu3() {
+        super("checkAppInstalled");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ht1Var) == null) {
-            this.left = ht1Var.r("left", this.left);
-            this.top = ht1Var.r("top", this.top);
-            this.width = ht1Var.r("width", this.width);
-            this.height = ht1Var.r("height", this.height);
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (kh1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.i(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ev3
+    public yu1 a(@NonNull JSONObject jSONObject, @NonNull cg2 cg2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cg2Var)) == null) {
+            if (c) {
+                Log.d("checkAppInstalled", "handle: " + jSONObject);
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                cg2Var.onFail(31010, "package name is empty");
+                return null;
+            }
+            try {
+                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
+                if (c) {
+                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+                }
+                if (packageInfo != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
+                    jSONObject2.put("data", jSONObject3);
+                    cg2Var.a(jSONObject2);
+                } else {
+                    cg2Var.onFail(31016, "no package info");
+                }
+            } catch (Exception unused) {
+                cg2Var.onFail(31011, "app is not installed");
+            }
+            return null;
+        }
+        return (yu1) invokeLL.objValue;
     }
 }

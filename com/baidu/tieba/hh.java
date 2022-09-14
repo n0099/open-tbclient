@@ -1,76 +1,125 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class hh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList<String> arrayList, boolean z) {
+    public static boolean a(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            cc ccVar = new cc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            ccVar.setSdCard(z);
-            ccVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            wb.f().a(ccVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, intent)) == null) {
+            try {
+                context.sendBroadcast(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    public static File[] b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
+    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            wb.f().call(diskFileOperate);
-            File[] listFiles2 = (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) ? null : diskFileOperate.getFileInfo().listFiles();
-            if (z2) {
-                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-                diskFileOperate2.setSdCard(z);
-                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                wb.f().call(diskFileOperate2);
-                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
-                    if (listFiles2 == null || listFiles2.length == 0) {
-                        return listFiles;
-                    }
-                    File[] fileArr = new File[listFiles.length + listFiles2.length];
-                    System.arraycopy(listFiles2, 0, fileArr, 0, listFiles2.length);
-                    System.arraycopy(listFiles, 0, fileArr, listFiles2.length, listFiles.length);
-                    return fileArr;
-                }
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
+            try {
+                context.bindService(intent, serviceConnection, i);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
-            return listFiles2;
         }
-        return (File[]) invokeCommon.objValue;
+        return invokeLLLI.booleanValue;
     }
 
-    public static ArrayList<jh> c(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean startActivity(Context context, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            ArrayList<jh> arrayList = new ArrayList<>();
-            File[] b = b(z, true);
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            arrayList.add(new jh(name, file.length(), file.lastModified()));
-                        }
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+            try {
+                if (!(context instanceof Activity) && intent != null) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
+                context.startActivity(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
-            return arrayList;
         }
-        return (ArrayList) invokeZ.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
+            try {
+                activity.startActivityForResult(intent, i);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean startService(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent)) == null) {
+            try {
+                context.startService(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean stopService(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, intent)) == null) {
+            try {
+                context.stopService(intent);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean unbindService(Context context, ServiceConnection serviceConnection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, serviceConnection)) == null) {
+            try {
+                context.unbindService(serviceConnection);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

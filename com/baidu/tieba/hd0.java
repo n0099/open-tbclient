@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface hd0 {
-    void a(long j, long j2, int i);
+    void a(long j);
 
-    void b(String str);
+    void onRecorderComplete(boolean z, String str);
 
-    void onFailed(Exception exc);
+    void onRecorderError(int i);
 
-    void onStarted();
+    void onRecorderStart(boolean z);
 }

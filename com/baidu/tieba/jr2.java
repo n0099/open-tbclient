@@ -1,25 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
-import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.tieba.ol1;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,96 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.util.Arrays;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class jr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.jr2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0307a implements ol1.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File[] a;
-
-            public C0307a(a aVar, File[] fileArr) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, fileArr};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = fileArr;
-            }
-
-            @Override // com.baidu.tieba.ol1.a
-            public void onResult(String str) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.contains("success")) {
-                    for (File file : this.a) {
-                        ch4.L(file);
-                    }
-                }
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            File[] fileArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap p = re3.p();
-                ol1 u = hk2.u();
-                a73.d().b();
-                File[] c = a73.d().f().c();
-                File b = hk2.i().b(AppRuntime.getAppContext(), a13.g0());
-                if (c != null) {
-                    int length = c.length;
-                    fileArr = (File[]) Arrays.copyOf(c, length + 1);
-                    fileArr[length] = b;
-                } else {
-                    fileArr = new File[]{b};
-                }
-                if (u != null) {
-                    u.d(p, null, fileArr, new C0307a(this, fileArr));
-                }
-            }
-        }
-    }
+    public int a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -131,180 +37,173 @@ public class jr2 {
                 return;
             }
         }
-        a = kh1.a;
+        boolean z = ij1.a;
     }
 
-    public static void a() {
-        j02 V;
+    public jr2() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (V = nm2.U().V()) == null || V.m() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        ud3.k(new a(), "feedback error page");
+        this.a = 60000;
+        this.b = "aac";
+        this.c = 1;
+        this.d = 8000;
+        this.e = 16000;
+        this.f = 1;
     }
 
-    public static Rect b(Bitmap bitmap, i02 i02Var, View view2) {
-        InterceptResult invokeLLL;
+    public static jr2 a(JSONObject jSONObject, jr2 jr2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bitmap, i02Var, view2)) == null) {
-            if (bitmap == null || i02Var == null || view2 == null) {
-                return null;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int min = Math.min(iArr[0] + view2.getMeasuredWidth(), bitmap.getWidth());
-            int min2 = Math.min(iArr[1] + view2.getMeasuredHeight(), bitmap.getHeight());
-            SwanAppActionBar K1 = i02Var.K1();
-            if (K1 == null) {
-                return null;
-            }
-            int[] iArr2 = new int[2];
-            K1.getLocationOnScreen(iArr2);
-            iArr[1] = Math.max(iArr[1], iArr2[1] + K1.getHeight() + 1);
-            gn1 o3 = i02Var.o3();
-            if (o3 != null) {
-                jn1 j = o3.j();
-                if (j instanceof SwanAppWebViewWidget) {
-                    if (a) {
-                        Log.d("MonitorUtils", "getCheckRect: hit webview widget");
-                    }
-                    int M1 = ((SwanAppWebViewWidget) j).M1();
-                    if (a) {
-                        Log.d("MonitorUtils", "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + M1);
-                    }
-                    if (M1 > 0) {
-                        iArr[1] = iArr[1] + M1 + 1;
-                    }
-                    if (a) {
-                        Log.d("MonitorUtils", "getCheckRect: webview widget newY=" + iArr[1]);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, jr2Var)) == null) {
+            if (jSONObject != null && jSONObject.length() > 0) {
+                jr2Var = new jr2();
+                jr2Var.a = jSONObject.optInt("duration", 60000);
+                String optString = jSONObject.optString("format");
+                jr2Var.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    jr2Var.b = "aac";
+                }
+                jr2Var.c = jSONObject.optInt("numberOfChannels", 1);
+                jr2Var.d = jSONObject.optInt("sampleRate", 8000);
+                int optInt = jSONObject.optInt("encodeBitRate");
+                jr2Var.e = optInt;
+                if (optInt == 0) {
+                    int i = jr2Var.d;
+                    if (i == 8000) {
+                        jr2Var.e = 16000;
+                    } else if (i == 16000) {
+                        jr2Var.e = 24000;
+                    } else if (i == 44100) {
+                        jr2Var.e = 64000;
                     }
                 }
+                jr2Var.f = b(jSONObject.optString("audioSource", "auto"));
+                jr2Var.g = jSONObject.optString("cb");
             }
-            return new Rect(iArr[0], iArr[1], min, min2);
+            return jr2Var;
         }
-        return (Rect) invokeLLL.objValue;
+        return (jr2) invokeLL.objValue;
     }
 
-    public static String c(Bitmap bitmap) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static int b(String str) {
         InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bitmap)) == null) {
-            if (bitmap == null) {
-                return "";
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.WEBP, 0, byteArrayOutputStream);
-            return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int d(i02 i02Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, i02Var)) == null) {
-            if (i02Var != null) {
-                p13 G1 = i02Var.G1();
-                if (G1 != null) {
-                    return G1.e;
-                }
-                FrameLayout x3 = i02Var.x3();
-                if (x3 != null) {
-                    Drawable background = x3.getBackground();
-                    if (background instanceof ColorDrawable) {
-                        return ((ColorDrawable) background).getColor();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -401509030:
+                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
+                        c = 2;
+                        break;
                     }
-                    return -1;
-                }
-                return -1;
+                    c = 65535;
+                    break;
+                case 108103:
+                    if (str.equals("mic")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3005871:
+                    if (str.equals("auto")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1059882026:
+                    if (str.equals("voice_recognition")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1611170697:
+                    if (str.equals("voice_communication")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return -1;
+            if (c == 0 || c == 1) {
+                return 1;
+            }
+            if (c != 2) {
+                if (c != 3) {
+                    return c != 4 ? -1 : 6;
+                }
+                return 7;
+            }
+            return 5;
         }
         return invokeL.intValue;
     }
 
-    public static JSONObject e() {
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
+        r2 = false;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (a13.M() != null) {
-                    jSONObject.put("name", a13.M().Z());
-                } else {
-                    jSONObject.put("name", RomUtils.UNKNOWN);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.a;
+            if (i <= 600000 && i >= 0) {
+                int i2 = this.c;
+                boolean z = true;
+                if (i2 != 1 && i2 != 2) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
                 }
-                jSONObject.put(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, hk2.o().z(AppRuntime.getAppContext()));
-                jSONObject.put("net", SwanAppNetworkUtils.e());
-                jSONObject.put("swaninfo", fa3.e(z03.K().k()).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
+                }
+                int i3 = this.d;
+                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
+                }
+                if (!TextUtils.equals(this.b, "pcm")) {
+                    if ((r3 = this.d) != 8000) {
+                        if (z) {
+                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
+                        }
+                    } else if (z) {
+                    }
+                }
+                if (this.f < 0) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
+                }
+                return null;
             }
-            return jSONObject;
+            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         return (JSONObject) invokeV.objValue;
     }
 
-    public static i02 f() {
-        InterceptResult invokeV;
-        j02 X;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            SwanAppActivity activity = nm2.U().getActivity();
-            if (activity == null || (X = activity.X()) == null) {
-                return null;
-            }
-            g02 m = X.m();
-            if (m instanceof i02) {
-                return (i02) m;
-            }
-            return null;
-        }
-        return (i02) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        h03 d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            SwanAppActivity activity = nm2.U().getActivity();
-            if (activity == null || (d = activity.d()) == null || !(d.d() instanceof FrameLayout)) {
-                return false;
-            }
-            return ((FrameLayout) d.d()).getChildAt(0) instanceof LoadingView;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? nm2.U().getActivity().d().f() : invokeV.booleanValue;
-    }
-
-    public static void i(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65545, null, z, str) == null) {
-            String g0 = a13.g0();
-            Context activity = nm2.U().getActivity();
-            if (activity == null) {
-                activity = AppRuntime.getAppContext();
-            }
-            if (TextUtils.isEmpty(g0)) {
-                return;
-            }
-            if (g0.lastIndexOf("_dev") > 0 || g0.lastIndexOf("_trial") > 0) {
-                s03 f = s03.f(activity, R.string.obfuscated_res_0x7f0f01d8);
-                f.l(5);
-                f.q(3);
-                f.G();
-            }
-            if (z) {
-                a22 a22Var = new a22();
-                a22Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                a22Var.d(str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
         }
+        return (String) invokeV.objValue;
     }
 }

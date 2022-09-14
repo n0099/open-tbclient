@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Matrix4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b5 {
+public class b5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public b7<String, Matrix4> c;
+    public float a;
+    public T b;
 
     public b5() {
         Interceptable interceptable = $ic;
@@ -23,7 +21,9 @@ public class b5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
     }
 }

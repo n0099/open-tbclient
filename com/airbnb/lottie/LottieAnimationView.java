@@ -29,7 +29,6 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.SimpleLottieValueCallback;
-import com.baidu.tieba.R;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.HashSet;
@@ -178,7 +177,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(null, R.attr.obfuscated_res_0x7f04049c);
+        init(null, com.baidu.tieba.R.attr.lottieAnimationViewStyle);
     }
 
     private void cancelLoaderTask() {
@@ -250,7 +249,7 @@ public class LottieAnimationView extends AppCompatImageView {
 
     private void init(@Nullable AttributeSet attributeSet, @AttrRes int i) {
         String string;
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040274, R.attr.obfuscated_res_0x7f040275, R.attr.obfuscated_res_0x7f040276, R.attr.obfuscated_res_0x7f040277, R.attr.obfuscated_res_0x7f040278, R.attr.obfuscated_res_0x7f040279, R.attr.obfuscated_res_0x7f04027a, R.attr.obfuscated_res_0x7f04027b, R.attr.obfuscated_res_0x7f04027c, R.attr.obfuscated_res_0x7f04027d, R.attr.obfuscated_res_0x7f04027e, R.attr.obfuscated_res_0x7f04027f, R.attr.obfuscated_res_0x7f04049d, R.attr.obfuscated_res_0x7f04049e, R.attr.obfuscated_res_0x7f04049f, R.attr.obfuscated_res_0x7f0404a0}, i, 0);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.LottieAnimationView, i, 0);
         this.cacheComposition = obtainStyledAttributes.getBoolean(12, true);
         boolean hasValue = obtainStyledAttributes.hasValue(7);
         boolean hasValue2 = obtainStyledAttributes.hasValue(3);
@@ -835,7 +834,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(attributeSet, R.attr.obfuscated_res_0x7f04049c);
+        init(attributeSet, com.baidu.tieba.R.attr.lottieAnimationViewStyle);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {

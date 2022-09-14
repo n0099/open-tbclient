@@ -80,7 +80,7 @@ public final class MiddleReportConfig extends ReportConfig {
         }
 
         /* renamed from: setAppName  reason: collision with other method in class */
-        public final void m2117setAppName(String str) {
+        public final void m2118setAppName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 this.appName = str;
@@ -88,7 +88,7 @@ public final class MiddleReportConfig extends ReportConfig {
         }
 
         /* renamed from: setDeviceId  reason: collision with other method in class */
-        public final void m2118setDeviceId(String str) {
+        public final void m2119setDeviceId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
                 this.deviceId = str;
@@ -96,7 +96,7 @@ public final class MiddleReportConfig extends ReportConfig {
         }
 
         /* renamed from: setReportRatio  reason: collision with other method in class */
-        public final void m2119setReportRatio(float f) {
+        public final void m2120setReportRatio(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
                 this.reportRatio = f;
@@ -104,7 +104,7 @@ public final class MiddleReportConfig extends ReportConfig {
         }
 
         /* renamed from: setReporter  reason: collision with other method in class */
-        public final void m2120setReporter(IReporter iReporter) {
+        public final void m2121setReporter(IReporter iReporter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, iReporter) == null) {
                 this.reporter = iReporter;

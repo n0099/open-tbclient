@@ -1,88 +1,119 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.LiveRemindNormalConfigData;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class fu4 {
+public class fu4 extends eu4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fu4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveRemindData a;
-    public LiveRemindNormalConfigData b;
-    public List<LiveRemindRecommendData> c;
+    public TextView l;
+    public TextView m;
+    public View.OnClickListener n;
+    public int o;
+    public int p;
 
-    public fu4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fu4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = R.color.CAM_X0304;
+        this.p = R.color.CAM_X0107;
+        this.l = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092236);
+        this.m = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092224);
+        i(true);
     }
 
-    public static fu4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.eu4
+    public void b(r9<?> r9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (fu4.class) {
-                    if (d == null) {
-                        d = new fu4();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, r9Var) == null) {
+            super.b(r9Var);
+            o();
+        }
+    }
+
+    @Override // com.baidu.tieba.eu4
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.eu4
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            j(i);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            uu4.d(this.l).x(this.o);
+            uu4.d(this.m).x(this.p);
+        }
+    }
+
+    public fu4 p(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
+            this.m.setText(i);
+            this.m.setOnClickListener(onClickListener);
+            this.m.setVisibility(0);
+            return this;
+        }
+        return (fu4) invokeIL.objValue;
+    }
+
+    public fu4 q(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
+            this.l.setText(i);
+            this.l.setOnClickListener(onClickListener);
+            this.l.setVisibility(0);
+            this.n = onClickListener;
+            return this;
+        }
+        return (fu4) invokeIL.objValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.o = R.color.CAM_X0304;
+                this.l.setEnabled(true);
+                this.l.setOnClickListener(this.n);
+            } else {
+                this.o = R.color.CAM_X0110;
+                this.l.setEnabled(false);
+                this.l.setOnClickListener(null);
             }
-            return d;
+            o();
         }
-        return (fu4) invokeV.objValue;
-    }
-
-    public final void b() {
-        List<LiveRemindRecommendData> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.c) == null || list.size() < 1) {
-            return;
-        }
-        LiveRemindConfig.c().e(this.c.get(0));
-    }
-
-    public LiveRemindRecommendData c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.c != null) {
-                for (int i2 = 0; i2 < this.c.size(); i2++) {
-                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
-                        return this.c.get(i2);
-                    }
-                }
-            }
-            return null;
-        }
-        return (LiveRemindRecommendData) invokeI.objValue;
-    }
-
-    public void d(LiveRemindData liveRemindData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) == null) || liveRemindData == null) {
-            return;
-        }
-        this.a = liveRemindData;
-        this.b = liveRemindData.getNormalConfig();
-        this.c = liveRemindData.getLiveRecommendList();
-        b();
     }
 }

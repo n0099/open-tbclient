@@ -1,23 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Vector;
-import org.json.JSONArray;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class vd0 {
+public final class vd0 {
     public static /* synthetic */ Interceptable $ic;
+    public static vd0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<Integer> a;
-    public long b;
-    public long c;
-    public Vector<Integer> d;
+    public ExecutorService a;
+
+    /* loaded from: classes6.dex */
+    public static class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+        public final String b;
+        public int c;
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new AtomicInteger(1);
+            this.c = 5;
+            this.b = str + "-";
+            this.c = i;
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+                if (thread.isDaemon()) {
+                    thread.setDaemon(true);
+                }
+                thread.setPriority(this.c);
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
 
     public vd0() {
         Interceptable interceptable = $ic;
@@ -32,130 +76,30 @@ public class vd0 {
                 return;
             }
         }
-        this.a = new Vector<>();
-        this.c = 0L;
-        this.d = new Vector<>();
+        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
+        this.a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
     }
 
-    public String a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            Vector<Integer> vector = this.a;
-            if (vector == null || vector.size() == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                Integer num = this.a.get(i);
-                if (num != null) {
-                    f += num.intValue();
-                    jSONArray.put(num);
-                }
-            }
-            if (z) {
-                String jSONArray2 = jSONArray.toString();
-                return TextUtils.isEmpty(jSONArray2) ? "" : jSONArray2;
-            }
-            return new DecimalFormat(".0").format(f / size);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public int b() {
+    public static synchronized vd0 b() {
         InterceptResult invokeV;
+        vd0 vd0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Vector<Integer> vector = this.a;
-            if (vector == null || vector.size() == 0) {
-                return 0;
-            }
-            int size = this.a.size();
-            int i = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                Integer num = this.a.get(i2);
-                if (num != null) {
-                    i += num.intValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (vd0.class) {
+                if (b == null) {
+                    b = new vd0();
                 }
+                vd0Var = b;
             }
-            float f = (i * 1.0f) / size;
-            if (f == 0.0f) {
-                return 0;
-            }
-            return Math.round(1000.0f / f);
+            return vd0Var;
         }
-        return invokeV.intValue;
+        return (vd0) invokeV.objValue;
     }
 
-    public String c(boolean z) {
-        InterceptResult invokeZ;
+    public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            Vector<Integer> vector = this.d;
-            if (vector == null || vector.size() == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            int size = this.d.size();
-            for (int i = 0; i < size; i++) {
-                Integer num = this.d.get(i);
-                if (num != null) {
-                    f += num.intValue();
-                    jSONArray.put(num);
-                }
-            }
-            if (z) {
-                String jSONArray2 = jSONArray.toString();
-                return TextUtils.isEmpty(jSONArray2) ? "" : jSONArray2;
-            }
-            return new DecimalFormat(".0").format(f / size);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.b <= 0) {
-                this.b = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i = (int) (currentTimeMillis - this.b);
-            if (i < 0) {
-                return;
-            }
-            this.a.add(Integer.valueOf(i));
-            this.b = currentTimeMillis;
-        }
-    }
-
-    public void e() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.c)) < 0) {
-            return;
-        }
-        this.d.add(Integer.valueOf(currentTimeMillis));
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = 0L;
-            this.c = 0L;
-            this.a.clear();
-            this.d.clear();
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

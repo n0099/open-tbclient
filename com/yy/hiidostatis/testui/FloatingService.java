@@ -16,7 +16,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -188,14 +187,14 @@ public final class FloatingService {
                     linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                     linearLayout2.setDividerPadding(0);
                     textView = new TextView(viewGroup.getContext());
-                    textView.setTag(TbConfig.TMP_LOG_DIR_NAME);
+                    textView.setTag("log");
                     textView.setTextColor(-1);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     textView.setLayoutParams(layoutParams);
                     linearLayout2.addView(textView, layoutParams);
                     linearLayout = linearLayout2;
                 } else {
-                    textView = (TextView) view2.findViewWithTag(TbConfig.TMP_LOG_DIR_NAME);
+                    textView = (TextView) view2.findViewWithTag("log");
                     linearLayout = view2;
                 }
                 textView.setText((CharSequence) this.this$0.logs.get(i));

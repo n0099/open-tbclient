@@ -1,74 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class pq2 extends nq2 {
+public class pq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070616, "Lcom/baidu/tieba/pq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948070616, "Lcom/baidu/tieba/pq2;");
-                return;
-            }
+    public static void a() {
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (arrayList = a) == null) {
+            return;
         }
-        boolean z = kh1.a;
+        arrayList.clear();
+        a = null;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pq2(String str) {
-        super(str);
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null || arrayList.size() == 0 || a.get(0) == null) {
+                return null;
             }
+            return a.get(0).getType();
         }
+        return (String) invokeV.objValue;
     }
 
-    private void update(iq2 iq2Var, kq2 kq2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public static int c(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, this, iq2Var, kq2Var, unitedSchemeEntity, callbackHandler) == null) {
-            iq2Var.h(kq2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
+            if (mediaModel == null || (arrayList = a) == null) {
+                return -1;
+            }
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                if (mediaModel.equals(a.get(i))) {
+                    return i;
+                }
+            }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.nq2
-    public boolean a(iq2 iq2Var, kq2 kq2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeCommon;
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{iq2Var, kq2Var, context, unitedSchemeEntity, callbackHandler, a13Var})) == null) {
-            ay1.b("vrvideo", "update, video id:" + kq2Var.j + " slave id: " + kq2Var.c);
-            update(iq2Var, kq2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
         }
-        return invokeCommon.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static ArrayList<MediaModel> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (ArrayList) invokeV.objValue;
+    }
+
+    public static boolean f(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return false;
+            }
+            return arrayList.contains(mediaModel);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null || arrayList.size() == 0) {
+                return false;
+            }
+            return a.contains(mediaModel);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(MediaModel mediaModel) {
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) || (arrayList = a) == null) {
+            return;
+        }
+        arrayList.remove(mediaModel);
+    }
+
+    public static void i(MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, mediaModel) == null) || mediaModel == null) {
+            return;
+        }
+        if (a == null) {
+            a = new ArrayList<>();
+        }
+        a.add(mediaModel);
     }
 }

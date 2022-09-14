@@ -7,8 +7,8 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh0;
-import com.baidu.tieba.yz0;
+import com.baidu.tieba.mi0;
+import com.baidu.tieba.n11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class BdNetUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                return ((ConnectivityManager) eh0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+                return ((ConnectivityManager) mi0.b().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused) {
                 return null;
             }
@@ -186,14 +186,14 @@ public class BdNetUtils {
     public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bd6));
+            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bef));
             if (!TextUtils.isEmpty(str)) {
                 sb.append("，\n");
-                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0c0b));
+                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0c24));
                 sb.append(str);
                 sb.append("MB");
             }
-            yz0.a().showToast(context, sb.toString());
+            n11.a().showToast(context, sb.toString());
         }
     }
 }

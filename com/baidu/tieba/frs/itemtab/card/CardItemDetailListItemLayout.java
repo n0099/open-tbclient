@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.xn6;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.dp6;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -145,8 +145,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !qi.isEmpty(this.a.d) && (i9.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) i9.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !dj.isEmpty(this.a.d) && (w9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -176,12 +176,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (e == null) {
-                e = getContext().getString(R.string.obfuscated_res_0x7f0f09e9);
+                e = getContext().getString(R.string.obfuscated_res_0x7f0f09fc);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03e8, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915f7);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f09248b);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0907e4);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03ec, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091620);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0924e6);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0907f9);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ns4.d(this.a).v(R.color.CAM_X0108);
-            if (qi.isEmpty(this.d)) {
-                ns4 d = ns4.d(this.b);
+            uu4.d(this.a).v(R.color.CAM_X0108);
+            if (dj.isEmpty(this.d)) {
+                uu4 d = uu4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                ns4 d2 = ns4.d(this.b);
+                uu4 d2 = uu4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }
@@ -203,12 +203,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    public void setData(xn6 xn6Var) {
+    public void setData(dp6 dp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xn6Var) == null) {
-            this.a.setText(xn6Var.a);
-            this.b.setText(xn6Var.b);
-            this.d = xn6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dp6Var) == null) {
+            this.a.setText(dp6Var.a);
+            this.b.setText(dp6Var.b);
+            this.d = dp6Var.c;
         }
     }
 

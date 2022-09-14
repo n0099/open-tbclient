@@ -14,15 +14,16 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.module.voiceFloat.TiebaAudioFloatView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns4;
+import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002:\u0001\u001eB\u000f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005B\u0017\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bB\u001f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0010\u0010\u0014\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\b\u0010\u0017\u001a\u00020\u0018H\u0002J\b\u0010\u0019\u001a\u00020\u0018H\u0002J\u0012\u0010\u001a\u001a\u00020\u00182\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cH\u0016J\u000e\u0010\u001d\u001a\u00020\u00182\u0006\u0010\u0011\u001a\u00020\u0012R\u0010\u0010\f\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tbadk/module/voiceFloat/TiebaAudioFloatView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attributeSet", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "audioAvatar", "closeBtn", "Landroid/widget/ImageView;", "floatLottie", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", "listener", "Lcom/baidu/tbadk/module/voiceFloat/TiebaAudioFloatView$OnItemClickListener;", "userAvatar", "dp2px", "dpVal", "", "initListener", "", "initView", "onClick", "v", "Landroid/view/View;", "setListener", "OnItemClickListener", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002:\u0001\u001eB\u000f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005B\u0017\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bB\u001f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0010\u0010\u0014\u001a\u00020\n2\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\b\u0010\u0017\u001a\u00020\u0018H\u0002J\b\u0010\u0019\u001a\u00020\u0018H\u0002J\u0012\u0010\u001a\u001a\u00020\u00182\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cH\u0016J\u000e\u0010\u001d\u001a\u00020\u00182\u0006\u0010\u0011\u001a\u00020\u0012R\u0010\u0010\f\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tbadk/module/voiceFloat/TiebaAudioFloatView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attributeSet", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "audioAvatar", "closeBtn", "Landroid/widget/ImageView;", "floatLottie", "Lcom/baidu/tbadk/widget/lottie/TBLottieAnimationView;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/tbadk/module/voiceFloat/TiebaAudioFloatView$OnItemClickListener;", "userAvatar", "dp2px", "dpVal", "", "initListener", "", "initView", "onClick", "v", "Landroid/view/View;", "setListener", "OnItemClickListener", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
 public final class TiebaAudioFloatView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -59,7 +60,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0547, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) this, true);
         c();
         b();
     }
@@ -101,17 +102,17 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09242b);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e0);
-            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909e4);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09064a);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092486);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e8);
+            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909f8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09065d);
             this.d = imageView;
             if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2d, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a49, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             ImageView imageView2 = this.a;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b1e, false));
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b3b, false));
             }
             SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110062);
             TBLottieAnimationView tBLottieAnimationView = this.c;
@@ -126,7 +127,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             if (tBLottieAnimationView3 != null) {
                 tBLottieAnimationView3.playAnimation();
             }
-            ns4 d = ns4.d(this);
+            uu4 d = uu4.d(this);
             d.n(R.string.J_X01);
             d.g(SkinManager.getColor(0, (int) R.color.CAM_X0201));
         }
@@ -153,7 +154,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     if (imageView3 == null) {
                         return;
                     }
-                    imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.i75
+                    imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.q95
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,7 +210,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0547, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) this, true);
         c();
         b();
     }
@@ -235,7 +236,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0547, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) this, true);
         c();
         b();
     }

@@ -1,35 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class c54 {
+public final class c54 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<z44> a;
+    public static ArrayList<Integer> b;
+    public static final c54 c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) ? (obj == null || TextUtils.isEmpty(str)) ? false : true : invokeLL.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625735, "Lcom/baidu/tieba/c54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947625735, "Lcom/baidu/tieba/c54;");
+                return;
+            }
+        }
+        c = new c54();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
     }
 
-    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeLLL;
+    public c54() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
-            if (a(obj, str)) {
-                if (b54.g()) {
-                    return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
-                }
-                return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (Method) invokeLLL.objValue;
+    }
+
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || b.contains(Integer.valueOf(i))) {
+            return;
+        }
+        b.add(Integer.valueOf(i));
+    }
+
+    public final z44 b(JSRuntime jsRuntime) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            z44 z44Var = new z44(jsRuntime);
+            a.add(z44Var);
+            return z44Var;
+        }
+        return (z44) invokeL.objValue;
+    }
+
+    public final boolean c(z44 socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            return !a.contains(socket);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
+    }
+
+    public final void e(z44 socket) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.A());
+                a.remove(socket);
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<z44> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
+            }
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
+        }
     }
 }

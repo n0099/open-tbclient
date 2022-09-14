@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ch0;
+import com.baidu.tieba.ki0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void b(ch0 event) {
+    public void b(ki0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -84,16 +84,24 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void g() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.nadcore.component.api.IComponentPlugin
+    public void g(ViewGroup parent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, parent) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
         }
     }
 
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Context context = this.a;
             if (context == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("context");
@@ -103,15 +111,7 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void h(ViewGroup parent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, parent) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-        }
-    }
-
-    public final Activity i() {
+    public final Activity h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

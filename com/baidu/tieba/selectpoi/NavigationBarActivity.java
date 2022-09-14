@@ -98,12 +98,12 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.obfuscated_res_0x7f0d0620);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091626);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09162b);
+            super.setContentView(R.layout.obfuscated_res_0x7f0d0637);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09165c);
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (z1()) {
-                this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0916a8)).inflate();
+                this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0916dd)).inflate();
             }
         }
     }
@@ -136,9 +136,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (z1()) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0916a7);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0916dc);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0916a8);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0916dd);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;

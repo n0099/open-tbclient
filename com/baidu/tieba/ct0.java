@@ -1,51 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ct0 {
+public class ct0 extends ht0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mu0 a;
 
-    public ct0(mu0 mu0Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ct0() {
+        super(StateEvent.ACTION_STATE_CHANGED);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mu0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mu0Var;
+        v(5);
     }
 
-    public void c() {
+    public static ht0 w(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, playerStatus, playerStatus2)) == null) {
+            ht0 m = ht0.m(StateEvent.ACTION_STATE_CHANGED, 5);
+            m.n(1, playerStatus);
+            m.n(2, playerStatus2);
+            return m;
         }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mu0 mu0Var = this.a;
-            if (mu0Var != null) {
-                return !mu0Var.u().V0();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (ht0) invokeLL.objValue;
     }
 }

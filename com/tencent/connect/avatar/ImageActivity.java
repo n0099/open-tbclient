@@ -25,7 +25,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -527,7 +526,6 @@ public class ImageActivity extends Activity {
             e();
             this.m = System.currentTimeMillis();
             a("10653", 0L);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

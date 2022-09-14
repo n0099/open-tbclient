@@ -44,13 +44,13 @@ public class g1 {
         this.a = -1;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0064, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0065, code lost:
         if (r7 != null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x006a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x006b, code lost:
         if (r7 != null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x006d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x006e, code lost:
         r7.close();
      */
     /*

@@ -1,121 +1,100 @@
 package com.baidu.tieba;
 
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xy4 {
+public class xy4 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<ShareDialogConfig.From, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public SpanGroupManager a;
     public int b;
-    public String c;
-    public int d;
-    public List<Integer> e;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316694, "Lcom/baidu/tieba/xy4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948316694, "Lcom/baidu/tieba/xy4;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        f = hashMap;
-        hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f.put(ShareDialogConfig.From.Concern, 2);
-        f.put(ShareDialogConfig.From.PB, 3);
-        f.put(ShareDialogConfig.From.FRS, 4);
-        f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f.put(ShareDialogConfig.From.HomeGameTab, 9);
-    }
-
-    public xy4() {
+    public xy4(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spanGroupManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = spanGroupManager;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
+        SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.b) : invokeV.booleanValue;
-    }
-
-    public boolean d(ShareDialogConfig.From from) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.e == null || (num = f.get(from)) == null || !this.e.contains(num)) ? false : true : invokeL.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (spanGroupManager = this.a) == null) {
             return;
         }
-        this.a = jSONObject.optInt("begin_time");
-        this.b = jSONObject.optInt("end_time");
-        this.c = jSONObject.optString("text");
-        this.d = jSONObject.optInt("icon_exp");
-        f(jSONObject.optString("page_list"));
-    }
-
-    public final void f(String str) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || qi.isEmpty(str) || (split = str.split(",")) == null) {
-            return;
-        }
-        for (String str2 : split) {
-            int e = pg.e(str2, -1);
-            if (e != -1) {
-                if (this.e == null) {
-                    this.e = new ArrayList();
+        if (obj == Selection.SELECTION_END && this.c != i3) {
+            this.c = i3;
+            vy4 D = spanGroupManager.D(i3);
+            if (D != null) {
+                int f = D.f();
+                int c = D.c();
+                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
+                    f = c;
                 }
-                this.e.add(Integer.valueOf(e));
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
+                }
+                if (f > spannable.length()) {
+                    f = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f);
             }
+        }
+        if (obj != Selection.SELECTION_START || this.b == i3) {
+            return;
+        }
+        this.b = i3;
+        vy4 D2 = this.a.D(i3);
+        if (D2 != null) {
+            int f2 = D2.f();
+            int c2 = D2.c();
+            if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
+                f2 = c2;
+            }
+            int selectionEnd = Selection.getSelectionEnd(spannable);
+            if (selectionEnd > spannable.length()) {
+                selectionEnd = spannable.length();
+            }
+            if (f2 > spannable.length()) {
+                f2 = spannable.length();
+            }
+            Selection.setSelection(spannable, f2, selectionEnd);
+        }
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) {
         }
     }
 }

@@ -8,7 +8,7 @@ import com.kwad.sdk.c;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class v {
     public static AtomicInteger anB = new AtomicInteger(0);
     public static volatile boolean anC = false;

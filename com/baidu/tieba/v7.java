@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
@@ -18,7 +17,7 @@ public class v7<K> implements Iterable<b<K>> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public K[] b;
-    public int[] c;
+    public float[] c;
     public float d;
     public int e;
     public int f;
@@ -110,7 +109,7 @@ public class v7<K> implements Iterable<b<K>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public K a;
-        public int b;
+        public float b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -200,7 +199,7 @@ public class v7<K> implements Iterable<b<K>> {
                 if (i >= 0) {
                     v7<K> v7Var = this.b;
                     K[] kArr = v7Var.b;
-                    int[] iArr = v7Var.c;
+                    float[] fArr = v7Var.c;
                     int i2 = v7Var.g;
                     int i3 = i + 1;
                     while (true) {
@@ -209,10 +208,10 @@ public class v7<K> implements Iterable<b<K>> {
                         if (k == null) {
                             break;
                         }
-                        int g = this.b.g(k);
-                        if (((i4 - g) & i2) > ((i - g) & i2)) {
+                        int f = this.b.f(k);
+                        if (((i4 - f) & i2) > ((i - f) & i2)) {
                             kArr[i] = k;
-                            iArr[i] = iArr[i4];
+                            fArr[i] = fArr[i4];
                             i = i4;
                         }
                         i3 = i4 + 1;
@@ -253,14 +252,14 @@ public class v7<K> implements Iterable<b<K>> {
     public boolean a(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? f(k) >= 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? e(k) >= 0 : invokeL.booleanValue;
     }
 
     public a<K> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (f7.a) {
+            if (g7.a) {
                 return new a<>(this);
             }
             if (this.h == null) {
@@ -284,64 +283,53 @@ public class v7<K> implements Iterable<b<K>> {
         return (a) invokeV.objValue;
     }
 
-    public int c(K k, int i) {
-        InterceptResult invokeLI;
+    public float c(K k, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, k, i)) == null) {
-            int f = f(k);
-            return f < 0 ? i : this.c[f];
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, k, f)) == null) {
+            int e = e(k);
+            return e < 0 ? f : this.c[e];
         }
-        return invokeLI.intValue;
-    }
-
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == 0) {
-            return;
-        }
-        this.a = 0;
-        Arrays.fill(this.b, (Object) null);
-    }
-
-    public int d(K k, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, k, i, i2)) == null) {
-            int f = f(k);
-            if (f >= 0) {
-                int[] iArr = this.c;
-                int i3 = iArr[f];
-                iArr[f] = iArr[f] + i2;
-                return i3;
-            }
-            int i4 = -(f + 1);
-            K[] kArr = this.b;
-            kArr[i4] = k;
-            this.c[i4] = i2 + i;
-            int i5 = this.a + 1;
-            this.a = i5;
-            if (i5 >= this.e) {
-                j(kArr.length << 1);
-            }
-            return i;
-        }
-        return invokeLII.intValue;
+        return invokeLF.floatValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: e */
+    /* renamed from: d */
     public a<K> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b() : (a) invokeV.objValue;
+    }
+
+    public int e(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, k)) != null) {
+            return invokeL.intValue;
+        }
+        if (k != null) {
+            K[] kArr = this.b;
+            int f = f(k);
+            while (true) {
+                K k2 = kArr[f];
+                if (k2 == null) {
+                    return -(f + 1);
+                }
+                if (k2.equals(k)) {
+                    return f;
+                }
+                f = (f + 1) & this.g;
+            }
+        } else {
+            throw new IllegalArgumentException("key cannot be null.");
+        }
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
-        int c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (obj == this) {
                 return true;
             }
@@ -351,12 +339,15 @@ public class v7<K> implements Iterable<b<K>> {
                     return false;
                 }
                 K[] kArr = this.b;
-                int[] iArr = this.c;
+                float[] fArr = this.c;
                 int length = kArr.length;
                 for (int i = 0; i < length; i++) {
                     K k = kArr[i];
-                    if (k != null && (((c2 = v7Var.c(k, 0)) == 0 && !v7Var.a(k)) || c2 != iArr[i])) {
-                        return false;
+                    if (k != null) {
+                        float c2 = v7Var.c(k, 0.0f);
+                        if ((c2 == 0.0f && !v7Var.a(k)) || c2 != fArr[i]) {
+                            return false;
+                        }
                     }
                 }
                 return true;
@@ -369,65 +360,54 @@ public class v7<K> implements Iterable<b<K>> {
     public int f(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, k)) != null) {
-            return invokeL.intValue;
-        }
-        if (k != null) {
-            K[] kArr = this.b;
-            int g = g(k);
-            while (true) {
-                K k2 = kArr[g];
-                if (k2 == null) {
-                    return -(g + 1);
-                }
-                if (k2.equals(k)) {
-                    return g;
-                }
-                g = (g + 1) & this.g;
-            }
-        } else {
-            throw new IllegalArgumentException("key cannot be null.");
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) ? (int) ((k.hashCode() * (-7046029254386353131L)) >>> this.f) : invokeL.intValue;
     }
 
-    public int g(K k) {
-        InterceptResult invokeL;
+    public void g(K k, float f) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) ? (int) ((k.hashCode() * (-7046029254386353131L)) >>> this.f) : invokeL.intValue;
-    }
-
-    public void h(K k, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, k, i) == null) {
-            int f = f(k);
-            if (f >= 0) {
-                this.c[f] = i;
+        if (interceptable == null || interceptable.invokeLF(1048583, this, k, f) == null) {
+            int e = e(k);
+            if (e >= 0) {
+                this.c[e] = f;
                 return;
             }
-            int i2 = -(f + 1);
+            int i = -(e + 1);
             K[] kArr = this.b;
-            kArr[i2] = k;
-            this.c[i2] = i;
-            int i3 = this.a + 1;
-            this.a = i3;
-            if (i3 >= this.e) {
-                j(kArr.length << 1);
+            kArr[i] = k;
+            this.c[i] = f;
+            int i2 = this.a + 1;
+            this.a = i2;
+            if (i2 >= this.e) {
+                i(kArr.length << 1);
             }
+        }
+    }
+
+    public final void h(K k, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, f) == null) {
+            K[] kArr = this.b;
+            int f2 = f(k);
+            while (kArr[f2] != null) {
+                f2 = (f2 + 1) & this.g;
+            }
+            kArr[f2] = k;
+            this.c[f2] = f;
         }
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int i = this.a;
             K[] kArr = this.b;
-            int[] iArr = this.c;
+            float[] fArr = this.c;
             int length = kArr.length;
             for (int i2 = 0; i2 < length; i2++) {
                 K k = kArr[i2];
                 if (k != null) {
-                    i += k.hashCode() + iArr[i2];
+                    i += k.hashCode() + u7.b(fArr[i2]);
                 }
             }
             return i;
@@ -435,47 +415,34 @@ public class v7<K> implements Iterable<b<K>> {
         return invokeV.intValue;
     }
 
-    public final void i(K k, int i) {
+    public final void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, k, i) == null) {
-            K[] kArr = this.b;
-            int g = g(k);
-            while (kArr[g] != null) {
-                g = (g + 1) & this.g;
-            }
-            kArr[g] = k;
-            this.c[g] = i;
-        }
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             int length = this.b.length;
             this.e = (int) (i * this.d);
             int i2 = i - 1;
             this.g = i2;
             this.f = Long.numberOfLeadingZeros(i2);
             K[] kArr = this.b;
-            int[] iArr = this.c;
+            float[] fArr = this.c;
             this.b = (K[]) new Object[i];
-            this.c = new int[i];
+            this.c = new float[i];
             if (this.a > 0) {
                 for (int i3 = 0; i3 < length; i3++) {
                     K k = kArr[i3];
                     if (k != null) {
-                        i(k, iArr[i3]);
+                        h(k, fArr[i3]);
                     }
                 }
             }
         }
     }
 
-    public final String k(String str, boolean z) {
+    public final String j(String str, boolean z) {
         InterceptResult invokeLZ;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             if (this.a == 0) {
                 return z ? StringUtil.EMPTY_ARRAY : "";
             }
@@ -484,7 +451,7 @@ public class v7<K> implements Iterable<b<K>> {
                 sb.append('{');
             }
             K[] kArr = this.b;
-            int[] iArr = this.c;
+            float[] fArr = this.c;
             int length = kArr.length;
             while (true) {
                 i = length - 1;
@@ -493,7 +460,7 @@ public class v7<K> implements Iterable<b<K>> {
                     if (k != null) {
                         sb.append(k);
                         sb.append('=');
-                        sb.append(iArr[i]);
+                        sb.append(fArr[i]);
                         break;
                     }
                     length = i;
@@ -511,7 +478,7 @@ public class v7<K> implements Iterable<b<K>> {
                     sb.append(str);
                     sb.append(k2);
                     sb.append('=');
-                    sb.append(iArr[i2]);
+                    sb.append(fArr[i2]);
                 }
                 i = i2;
             }
@@ -526,7 +493,7 @@ public class v7<K> implements Iterable<b<K>> {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? k(StringUtil.ARRAY_ELEMENT_SEPARATOR, true) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? j(StringUtil.ARRAY_ELEMENT_SEPARATOR, true) : (String) invokeV.objValue;
     }
 
     public v7(int i, float f) {
@@ -546,13 +513,13 @@ public class v7<K> implements Iterable<b<K>> {
         }
         if (f > 0.0f && f < 1.0f) {
             this.d = f;
-            int h = x7.h(i, f);
+            int h = y7.h(i, f);
             this.e = (int) (h * f);
             int i4 = h - 1;
             this.g = i4;
             this.f = Long.numberOfLeadingZeros(i4);
             this.b = (K[]) new Object[h];
-            this.c = new int[h];
+            this.c = new float[h];
             return;
         }
         throw new IllegalArgumentException("loadFactor must be > 0 and < 1: " + f);

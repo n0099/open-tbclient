@@ -118,7 +118,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                 } else if (action != 2) {
                     SwipeBackLayout.c cVar2 = this.mSwipeControlInterface;
                     if (cVar2 != null) {
-                        cVar2.a0();
+                        cVar2.b0();
                     }
                 } else {
                     SwipeBackLayout.c cVar3 = this.mSwipeControlInterface;
@@ -135,7 +135,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
             this.isIntercept = false;
             SwipeBackLayout.c cVar4 = this.mSwipeControlInterface;
             if (cVar4 != null) {
-                cVar4.a0();
+                cVar4.b0();
             }
             return super.onFilterTouchEventForSecurity(motionEvent);
         }
@@ -158,12 +158,12 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                 this.isIntercept = false;
                 SwipeBackLayout.c cVar2 = this.mSwipeControlInterface;
                 if (cVar2 != null) {
-                    cVar2.a0();
+                    cVar2.b0();
                 }
             } else if (action != 2) {
                 SwipeBackLayout.c cVar3 = this.mSwipeControlInterface;
                 if (cVar3 != null) {
-                    cVar3.a0();
+                    cVar3.b0();
                 }
             } else {
                 SwipeBackLayout.c cVar4 = this.mSwipeControlInterface;

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +110,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!qi.isEmpty(this.mAuthorName)) {
+            if (!dj.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -336,7 +336,7 @@ public class MarkData implements Serializable {
                 if (this.isShareThread) {
                     OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                     this.originalThreadInfo = originalThreadInfo;
-                    originalThreadInfo.q(optJSONObject);
+                    originalThreadInfo.r(optJSONObject);
                 }
                 int optInt = jSONObject.optInt("thread_type");
                 this.threadType = optInt;
@@ -366,7 +366,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (qi.isEmpty(this.portrait)) {
+                if (dj.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

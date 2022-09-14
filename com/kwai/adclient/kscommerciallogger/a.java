@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.adclient.kscommerciallogger.model.c;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,8 +22,8 @@ public final class a {
     public boolean arw;
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0619a {
+    /* loaded from: classes8.dex */
+    public static final class C0624a {
         public static /* synthetic */ Interceptable $ic;
         public static a arx;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public final class a {
     public static a BE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0619a.BE() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0624a.BE() : (a) invokeV.objValue;
     }
 
     private void a(@NonNull com.kwai.adclient.kscommerciallogger.kwai.a aVar, @NonNull com.kwai.adclient.kscommerciallogger.kwai.b bVar, @Nullable JSONObject jSONObject, boolean z, boolean z2) {

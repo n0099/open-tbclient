@@ -1,42 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ov;
+import com.baidu.tieba.pv;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class sv implements SharedPreferences {
+public class sv extends pv {
     public static /* synthetic */ Interceptable $ic;
+    public static View a;
+    public static Runnable b;
+    public static View c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public b b;
-    public uv c;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ FrameLayout.LayoutParams d;
+        public final /* synthetic */ Animation e;
 
-    /* loaded from: classes5.dex */
-    public class b implements SharedPreferences.Editor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sv a;
-
-        public b(sv svVar) {
+        public a(View view2, Context context, View view3, FrameLayout.LayoutParams layoutParams, Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {svVar};
+                Object[] objArr = {view2, context, view3, layoutParams, animation};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,220 +52,395 @@ public class sv implements SharedPreferences {
                     return;
                 }
             }
-            this.a = svVar;
+            this.a = view2;
+            this.b = context;
+            this.c = view3;
+            this.d = layoutParams;
+            this.e = animation;
         }
 
-        @Override // android.content.SharedPreferences.Editor
-        public void apply() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.apply();
+                if (sv.d && this.a != null) {
+                    if (sv.c != null && (sv.c.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) sv.c.getParent()).removeView(sv.c);
+                    }
+                    Context context = this.b;
+                    if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
+                        return;
+                    }
+                    FrameLayout frameLayout = new FrameLayout(this.b);
+                    frameLayout.setClickable(true);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                    layoutParams.topMargin = ov.m(this.b);
+                    View view2 = this.a;
+                    if (view2 instanceof ViewGroup) {
+                        ((ViewGroup) view2).addView(frameLayout, layoutParams);
+                        View unused = sv.c = frameLayout;
+                    }
+                }
+                if (sv.a != null && (sv.a.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) sv.a.getParent()).removeView(sv.a);
+                }
+                Context context2 = this.b;
+                if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
+                    return;
+                }
+                ((ViewGroup) this.a).addView(this.c, this.d);
+                this.c.startAnimation(this.e);
+                View unused2 = sv.a = this.c;
             }
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor clear() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                this.a.c.clear();
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeV.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public boolean commit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c.commit() : invokeV.booleanValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putBoolean(String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-                this.a.c.putBoolean(str, z);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeLZ.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putFloat(String str, float f) {
-            InterceptResult invokeLF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
-                this.a.c.putFloat(str, f);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeLF.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putInt(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-                this.a.c.putInt(str, i);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeLI.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putLong(String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-                this.a.c.putLong(str, j);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeLJ.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putString(String str, @Nullable String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-                this.a.c.putString(str, str2);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeLL.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {
-                this.a.c.putStringSet(str, set);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeLL.objValue;
-        }
-
-        @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor remove(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.a.c.remove(str);
-                return this;
-            }
-            return (SharedPreferences.Editor) invokeL.objValue;
-        }
-
-        public /* synthetic */ b(sv svVar, a aVar) {
-            this(svVar);
         }
     }
 
-    public sv(String str) {
-        Interceptable interceptable = $ic;
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sv.f();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements pv.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(int i, View view2, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), view2, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = view2;
+            this.c = i2;
+        }
+
+        @Override // com.baidu.tieba.pv.e
+        public void a(ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                layoutParams.gravity = 81;
+                layoutParams.bottomMargin = this.a;
+                sv.k(this.b, viewGroup, this.c, layoutParams, R.anim.obfuscated_res_0x7f010125);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements ov.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ov.a a;
+
+        public d(ov.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.ov.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ov.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                sv.f();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ View b;
+
+        /* loaded from: classes5.dex */
+        public class a implements Animation.AnimationListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e a;
+
+            /* renamed from: com.baidu.tieba.sv$e$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class RunnableC0415a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public RunnableC0415a(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.a.getParent() == null) {
+                        return;
+                    }
+                    ((ViewGroup) this.a.a.a.getParent()).removeView(this.a.a.a);
+                }
+            }
+
+            /* loaded from: classes5.dex */
+            public class b implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
+                public b(a aVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = aVar;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    View view2;
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.a.a.b) == null || view2.getParent() == null || !(this.a.a.b.getParent() instanceof ViewGroup)) {
+                        return;
+                    }
+                    ((ViewGroup) this.a.a.b.getParent()).removeView(this.a.a.b);
+                }
+            }
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = eVar;
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationEnd(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                    if (this.a.a.getParent() instanceof ViewGroup) {
+                        this.a.a.post(new RunnableC0415a(this));
+                    }
+                    View view2 = this.a.b;
+                    if (view2 != null) {
+                        view2.post(new b(this));
+                    }
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                }
+            }
+        }
+
+        public e(View view2, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, view3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = view3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.obfuscated_res_0x7f010126);
+                loadAnimation.setAnimationListener(new a(this));
+                this.a.startAnimation(loadAnimation);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448317354, "Lcom/baidu/tieba/sv;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = str;
-        this.c = uv.e(str);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448317354, "Lcom/baidu/tieba/sv;");
+        }
     }
 
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    public static View d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.c.contains(str) : invokeL.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = new b(this, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+                return null;
             }
-            return this.b;
+            return activity.getWindow().getDecorView().findViewById(16908290);
         }
-        return (SharedPreferences.Editor) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getAll() : (Map) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? this.c.getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) ? this.c.getFloat(str, f) : invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) ? this.c.getInt(str, i) : invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) ? this.c.getLong(str, j) : invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public String getString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? this.c.getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) ? this.c.getStringSet(str, set) : (Set) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onSharedPreferenceChangeListener) == null) {
-            this.c.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (sv.class) {
+                if (a != null) {
+                    a.post(new e(a, c));
+                    a.removeCallbacks(b);
+                    a = null;
+                    b = null;
+                    c = null;
+                }
+            }
         }
     }
 
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public static void g(Activity activity, CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, ov.a aVar, mt mtVar) {
+        View d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onSharedPreferenceChangeListener) == null) {
-            this.c.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{activity, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, aVar, mtVar}) == null) || (d2 = d(activity)) == null) {
+            return;
         }
+        activity.getResources();
+        Context context = d2.getContext();
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070645);
+        if (mtVar != null) {
+            dimension = mtVar.a();
+        }
+        pv.b(context, charSequence, i, charSequence2, i2, str, str2, str3, str4, str5, str6, new c(dimension, d2, i3), new d(aVar));
+    }
+
+    public static void i(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, Animation animation) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, animation}) == null) || view2 == null || view3 == null) {
+            return;
+        }
+        Context context = view2.getContext();
+        if (view3.getParent() instanceof ViewGroup) {
+            ((ViewGroup) view3.getParent()).removeView(view3);
+        }
+        view3.setClickable(true);
+        if (view2 instanceof ViewGroup) {
+            view2.post(new a(view2, context, view3, layoutParams, animation));
+            if (b == null) {
+                b = new b();
+            }
+            view2.postDelayed(b, i * 1000);
+        }
+    }
+
+    public static void k(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, Integer.valueOf(i2)}) == null) || view2 == null || view3 == null) {
+            return;
+        }
+        i(view2, view3, i, layoutParams, AnimationUtils.loadAnimation(view2.getContext(), i2));
     }
 }

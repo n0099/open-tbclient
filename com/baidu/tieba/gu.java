@@ -1,74 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.meter.TaskMeterData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Map;
-import kotlin.TypeCastException;
-import kotlin.Unit;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.io.CloseableKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class gu {
+public final class gu extends zt<TaskMeterData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bu a;
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Map<String, Object> a(byte[] bArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gu(bu buVar) {
+        super(buVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr.length == 0) {
-                return MapsKt__MapsKt.emptyMap();
-            }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                Object readObject = objectInputStream.readObject();
-                if (readObject != null) {
-                    Map<String, Object> map = (Map) readObject;
-                    CloseableKt.closeFinally(objectInputStream, null);
-                    CloseableKt.closeFinally(byteArrayInputStream, null);
-                    return map;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
-            } catch (Throwable th) {
-                try {
-                    throw th;
-                } catch (Throwable th2) {
-                    CloseableKt.closeFinally(byteArrayInputStream, th);
-                    throw th2;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {buVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((bu) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Map) invokeL.objValue;
+        this.a = buVar;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final byte[] b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, map)) != null) {
-            return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zt
+    /* renamed from: c */
+    public TaskMeterData a(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        int optInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                jSONObject = new JSONObject(str);
+                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                zt a = this.a.a("ui");
+                String optString = jSONObject.optString("ui");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData == null) {
+                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+                }
+                return new TaskMeterData(optInt, taskUIData);
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return new TaskMeterData(0, null, 3, null);
+            }
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeObject(map);
-            Unit unit = Unit.INSTANCE;
-            CloseableKt.closeFinally(objectOutputStream, null);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
-            CloseableKt.closeFinally(byteArrayOutputStream, null);
-            Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
-            return byteArray;
-        } finally {
-        }
+        return (TaskMeterData) invokeL.objValue;
     }
 }

@@ -1,115 +1,75 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 /* loaded from: classes3.dex */
-public class dg0<T> {
+public class dg0 extends se1<en0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
 
-    public dg0(T t) {
+    /* loaded from: classes3.dex */
+    public class a implements en0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(dg0 dg0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dg0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.en0
+        public void c(String str, dn0 dn0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, dn0Var) == null) {
+                s51.a().c(str, dn0Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.en0
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                s51.a().d(str);
+            }
+        }
+    }
+
+    public dg0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = t;
     }
 
-    public T a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.se1
+    /* renamed from: a */
+    public en0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
-    }
-
-    public byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                return byteArrayOutputStream.toByteArray();
-            } else if (t instanceof File) {
-                return s01.g((File) t);
-            } else {
-                if (t instanceof byte[]) {
-                    return (byte[]) t;
-                }
-                return null;
-            }
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public Class<?> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getClass() : (Class) invokeV.objValue;
-    }
-
-    public boolean d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? (this.a instanceof File) && System.currentTimeMillis() - ((File) this.a).lastModified() > j : invokeJ.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        boolean delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                if (!((Bitmap) t).isRecycled()) {
-                    ((Bitmap) this.a).recycle();
-                }
-            } else if (t instanceof File) {
-                delete = ((File) t).delete();
-                this.a = null;
-                return delete;
-            }
-            delete = true;
-            this.a = null;
-            return delete;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                return ((Bitmap) t).getByteCount();
-            }
-            if (t instanceof File) {
-                return (int) ((File) t).length();
-            }
-            if (t instanceof byte[]) {
-                return ((byte[]) t).length;
-            }
-            return 1;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (en0) invokeV.objValue;
     }
 }

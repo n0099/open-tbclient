@@ -24,14 +24,14 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.e9;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.t95;
-import com.baidu.tieba.tg;
-import com.baidu.tieba.w95;
-import com.baidu.tieba.x95;
-import com.baidu.tieba.z95;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.bc5;
+import com.baidu.tieba.ec5;
+import com.baidu.tieba.fc5;
+import com.baidu.tieba.hc5;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.s9;
+import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,6 +46,7 @@ public class IntentConfig extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
     public static final String AT_SELECT_LIST_DATA = "at_select_list_data";
+    public static final String BJH_POST_ID = "bjh_post_id";
     public static final String CALL_FROM = "call_from";
     public static final String CARD_TYPE = "card_type";
     public static final String CLOSE = "close";
@@ -255,7 +256,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            tg.unbindService(this.a.mContext, this.a.mClientConnection);
+            hh.unbindService(this.a.mContext, this.a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -308,8 +309,8 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        e9<?> b2 = i9.b(context);
-        x95 tbPageInfo = b2 instanceof w95 ? ((w95) b2).getTbPageInfo() : null;
+        s9<?> b2 = w9.b(context);
+        fc5 tbPageInfo = b2 instanceof ec5 ? ((ec5) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -336,14 +337,14 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        t95 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        bc5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
         ArrayList<String> c = currentVisiblePageExtra == null ? null : currentVisiblePageExtra.c();
         if (ListUtils.isEmpty(c)) {
             return;
         }
         if (currentVisiblePageExtra != null) {
             TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-            s75.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+            aa5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
         }
         this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c);
     }
@@ -353,8 +354,8 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.mIntent == null) {
             return;
         }
-        e9<?> b2 = i9.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof z95 ? (ArrayList) ((z95) b2).getNextPageSourceKeyList() : null;
+        s9<?> b2 = w9.b(this.mContext);
+        ArrayList<String> arrayList = b2 instanceof hc5 ? (ArrayList) ((hc5) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -557,7 +558,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            tg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            hh.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -583,7 +584,7 @@ public class IntentConfig extends OrmObject {
             setComponentClass(cls);
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            tg.bindService(this.mContext, intent, this.mClientConnection, 1);
+            hh.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -638,7 +639,7 @@ public class IntentConfig extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.mIntent == null || (context = this.mContext) == null) {
             return;
         }
-        t95 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+        bc5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
         ArrayList<String> buildNextPageSourceKeyList = TbPageExtraHelper.buildNextPageSourceKeyList(currentVisiblePageExtra == null ? null : currentVisiblePageExtra.d(), str);
         if (ListUtils.isEmpty(buildNextPageSourceKeyList)) {
             return;

@@ -3,11 +3,11 @@ package com.baidu.tieba.homepage.topic.topictab.model;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bb;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.r37;
+import com.baidu.tieba.pb;
+import com.baidu.tieba.y47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r37 a;
-    public bb b;
-    public bb c;
+    public y47 a;
+    public pb b;
+    public pb c;
     public boolean d;
 
-    public void A(r37 r37Var) {
+    public void A(y47 y47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, r37Var) == null) {
-            this.a = r37Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, y47Var) == null) {
+            this.a = y47Var;
         }
     }
 
@@ -72,10 +72,10 @@ public class TopicModel extends BdBaseModel {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (!pi.A()) {
-                r37 r37Var = this.a;
-                if (r37Var != null) {
-                    r37Var.j(-1, null);
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                y47 y47Var = this.a;
+                if (y47Var != null) {
+                    y47Var.j(-1, null);
                 }
             } else if (this.d) {
             } else {

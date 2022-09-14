@@ -132,7 +132,7 @@ public class da implements Comparable<da> {
                 JSONArray jSONArray = new JSONArray();
                 Iterator<cq> it = this.f201a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m241a());
+                    jSONArray.put(it.next().m242a());
                 }
                 jSONObject.put("ah", jSONArray);
             }

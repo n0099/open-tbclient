@@ -184,9 +184,9 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0034 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0029 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0035 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v10, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
     /* JADX WARN: Type inference failed for: r1v11 */

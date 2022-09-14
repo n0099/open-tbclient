@@ -13,15 +13,15 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij0;
-import com.baidu.tieba.pi0;
+import com.baidu.tieba.rk0;
+import com.baidu.tieba.yj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements ij0<DefaultDownloadViewLP> {
+public class DefaultDownloadViewLP extends FrameLayout implements rk0<DefaultDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerDownloadView a;
@@ -65,7 +65,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements ij0<DefaultDow
         bannerDownloadView.setText(str);
     }
 
-    @Override // com.baidu.tieba.ij0
+    @Override // com.baidu.tieba.rk0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -80,23 +80,23 @@ public class DefaultDownloadViewLP extends FrameLayout implements ij0<DefaultDow
     public void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d4, this);
-            setBackgroundResource(R.color.obfuscated_res_0x7f060886);
-            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f091441);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05eb, this);
+            setBackgroundResource(R.color.obfuscated_res_0x7f060898);
+            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f091465);
         }
     }
 
     public void d(boolean z) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0915c2)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0915eb)) == null) {
             return;
         }
         findViewById.setVisibility(z ? 0 : 8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ij0
+    @Override // com.baidu.tieba.rk0
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -110,13 +110,13 @@ public class DefaultDownloadViewLP extends FrameLayout implements ij0<DefaultDow
         }
     }
 
-    @Override // com.baidu.tieba.ij0
-    public void update(String str, @NonNull pi0 pi0Var) {
+    @Override // com.baidu.tieba.rk0
+    public void update(String str, @NonNull yj0 yj0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, pi0Var) == null) {
-            if (pi0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0ba4) + str;
-                setProgress(pi0Var.i);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, yj0Var) == null) {
+            if (yj0Var.c == AdDownloadStatus.DOWNLOADING) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0bbd) + str;
+                setProgress(yj0Var.i);
             } else {
                 setProgress(0.0f);
             }

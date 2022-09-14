@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.an;
-import com.baidu.tieba.ig;
-import com.baidu.tieba.m55;
+import com.baidu.tieba.on;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,35 +35,35 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof an)) {
-            an anVar = (an) obj;
-            if (anVar.u()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof on)) {
+            on onVar = (on) obj;
+            if (onVar.u()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                anVar.A(i);
-                anVar.z(i2);
-                m55.k().f(str, anVar);
-                ig.l(true, System.currentTimeMillis() - currentTimeMillis);
+                onVar.A(i);
+                onVar.z(i2);
+                u75.k().f(str, onVar);
+                wg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
-    public an getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            an o = m55.k().o(str);
+            on o = u75.k().o(str);
             if (z) {
-                ig.i(o != null, System.currentTimeMillis() - currentTimeMillis);
+                wg.i(o != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return o;
         }
-        return (an) invokeCommon.objValue;
+        return (on) invokeCommon.objValue;
     }
 }

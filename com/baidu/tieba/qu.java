@@ -2,12 +2,9 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.pu;
+import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
@@ -30,30 +27,32 @@ public final class qu implements pu {
     }
 
     @Override // com.baidu.tieba.pu
-    public void a(SubTaskState subTaskState) {
-        bu d;
+    public void a(String str) {
+        BDPTask t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            pu.a.c(this, subTaskState);
-            au v = BDPTask.m.v();
-            if (v == null || (d = v.d()) == null) {
-                return;
-            }
-            d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (t = BDPTask.m.t()) == null) {
+            return;
         }
+        t.C(str);
     }
 
     @Override // com.baidu.tieba.pu
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
+    public void b(String str, UniqueId uniqueId) {
+        BDPTask t;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? pu.a.b(this, taskInfo, i) : invokeLI.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) || (t = BDPTask.m.t()) == null) {
+            return;
+        }
+        t.G(str, uniqueId);
     }
 
-    public void c(SubTaskState subTaskState) {
+    @Override // com.baidu.tieba.pu
+    public void c(String str, String str2) {
+        BDPTask t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            pu.a.a(this, subTaskState);
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (t = BDPTask.m.t()) == null) {
+            return;
         }
+        t.u0(str, str2);
     }
 }

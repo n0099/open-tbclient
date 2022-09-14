@@ -1,72 +1,64 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ZoneRight.DataReq;
-import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes6.dex */
-public class uo6 implements x85 {
+public class uo6 extends gx<bp6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public String c;
-    public int d;
-    public int e;
+    public final CardItemRecentUpdateLayout f;
 
-    public uo6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uo6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new CardItemRecentUpdateLayout(context);
     }
 
-    @Override // com.baidu.tieba.z85
-    public Object g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            ye5.c(builder, true, false, true);
-            builder.forum_id = Long.valueOf(pg.g(this.c, 0L));
-            builder.thread_id = Long.valueOf(this.b);
-            builder.req_type = Integer.valueOf(this.d == 1 ? 2 : 1);
-            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.w85
-    public HashMap<String, Object> v() {
+    @Override // com.baidu.tieba.gx
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w85
-    public HashMap<String, String> x() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
-        return (HashMap) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wx
+    /* renamed from: p */
+    public void a(bp6 bp6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bp6Var) == null) {
+            this.f.setData(bp6Var.c());
+        }
     }
 }

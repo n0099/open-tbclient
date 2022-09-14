@@ -1,58 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public final class ww1 extends lw1<TextView, yw1> {
+public class ww1 extends ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RectF a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ww1(@Nullable Context context, @NonNull yw1 yw1Var) {
-        super(context, yw1Var);
+    public ww1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, yw1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (mw1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pw1
-    @NonNull
-    /* renamed from: Z */
-    public TextView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ew1
+    public void a(fw1 fw1Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new TextView(context) : (TextView) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || (rectF = this.a) == null) {
+            return;
+        }
+        fw1Var.f.addRect(rectF, Path.Direction.CW);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lw1
-    /* renamed from: a0 */
-    public void X(@NonNull TextView textView, @NonNull yw1 yw1Var) {
+    @Override // com.baidu.tieba.ew1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, yw1Var) == null) {
-            Y(textView, yw1Var, 16);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = pg3.g((float) jSONArray.optDouble(0));
+                    int g2 = pg3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + pg3.g((float) jSONArray.optDouble(2)), g2 + pg3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (ij1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

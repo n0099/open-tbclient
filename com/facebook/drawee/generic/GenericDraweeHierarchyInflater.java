@@ -6,12 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.R;
 import com.facebook.drawee.drawable.AutoRotateDrawable;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
@@ -118,7 +118,7 @@ public class GenericDraweeHierarchyInflater {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, attributeSet)) == null) ? inflateBuilder(context, attributeSet).build() : (GenericDraweeHierarchy) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:153:0x0233  */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x022e  */
     /* JADX WARN: Type inference failed for: r4v0 */
     /* JADX WARN: Type inference failed for: r4v15 */
     /* JADX WARN: Type inference failed for: r4v4, types: [boolean, int] */
@@ -140,7 +140,7 @@ public class GenericDraweeHierarchyInflater {
             Context context2 = context;
             ?? r4 = 0;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040025, R.attr.obfuscated_res_0x7f04005c, R.attr.obfuscated_res_0x7f04015b, R.attr.obfuscated_res_0x7f04015f, R.attr.obfuscated_res_0x7f040160, R.attr.obfuscated_res_0x7f0402a8, R.attr.obfuscated_res_0x7f0402c6, R.attr.obfuscated_res_0x7f0402c7, R.attr.obfuscated_res_0x7f0402cf, R.attr.obfuscated_res_0x7f0402d1, R.attr.obfuscated_res_0x7f0402d2, R.attr.obfuscated_res_0x7f0402d3, R.attr.obfuscated_res_0x7f040332, R.attr.obfuscated_res_0x7f040333, R.attr.obfuscated_res_0x7f04034b, R.attr.obfuscated_res_0x7f04034c, R.attr.obfuscated_res_0x7f04034d, R.attr.obfuscated_res_0x7f04034e, R.attr.obfuscated_res_0x7f04034f, R.attr.obfuscated_res_0x7f040357, R.attr.obfuscated_res_0x7f040358, R.attr.obfuscated_res_0x7f040359, R.attr.obfuscated_res_0x7f04035a, R.attr.obfuscated_res_0x7f04035c, R.attr.obfuscated_res_0x7f04035e, R.attr.obfuscated_res_0x7f04035f, R.attr.obfuscated_res_0x7f040360, R.attr.obfuscated_res_0x7f040361, R.attr.obfuscated_res_0x7f040489});
+                TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, R.styleable.GenericDraweeHierarchy);
                 try {
                     int indexCount = obtainStyledAttributes.getIndexCount();
                     int i4 = 0;

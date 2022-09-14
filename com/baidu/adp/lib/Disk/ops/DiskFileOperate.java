@@ -3,9 +3,9 @@ package com.baidu.adp.lib.Disk.ops;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.og;
-import com.baidu.tieba.wb;
-import com.baidu.tieba.xb;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.kc;
+import com.baidu.tieba.lc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public class DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Action mAction;
-    public xb.b mCustomOperate;
+    public lc.b mCustomOperate;
     public volatile byte[] mData;
     public String mDesName;
     public String mDesPath;
@@ -214,7 +214,7 @@ public class DiskFileOperate {
     public boolean asyncCall() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? wb.f().a(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? kc.f().a(this) : invokeV.booleanValue;
     }
 
     public String buildDesPath() {
@@ -271,7 +271,7 @@ public class DiskFileOperate {
     public boolean call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? wb.f().call(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? kc.f().call(this) : invokeV.booleanValue;
     }
 
     public void callback(boolean z) {
@@ -283,7 +283,7 @@ public class DiskFileOperate {
     public void cancelAsyncCall() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            wb.f().d(this);
+            kc.f().d(this);
         }
     }
 
@@ -316,10 +316,10 @@ public class DiskFileOperate {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mAction : (Action) invokeV.objValue;
     }
 
-    public xb.b getCustomOperate() {
+    public lc.b getCustomOperate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCustomOperate : (xb.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCustomOperate : (lc.b) invokeV.objValue;
     }
 
     public byte[] getData() {
@@ -424,14 +424,14 @@ public class DiskFileOperate {
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             synchronized (this) {
                 if (this.mOutputStream != null) {
-                    og.d(this.mOutputStream);
+                    ch.d(this.mOutputStream);
                     this.mOutputStream = null;
                 }
             }
         }
     }
 
-    public void setCustomOperate(xb.b bVar) {
+    public void setCustomOperate(lc.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, bVar) == null) {
             this.mCustomOperate = bVar;

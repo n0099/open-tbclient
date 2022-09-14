@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.a18;
-import com.baidu.tieba.kt7;
+import com.baidu.tieba.h28;
 import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.vu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a18 a;
+    public h28 a;
     public PbModel b;
     public int c;
 
@@ -38,7 +38,7 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new a18();
+        this.a = new h28();
         this.c = 0;
     }
 
@@ -55,16 +55,16 @@ public class VideoPbViewModel extends ViewModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (MutableLiveData) invokeV.objValue;
     }
 
-    public kt7 c() {
+    public vu7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : (kt7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : (vu7) invokeV.objValue;
     }
 
-    public kt7 d() {
+    public vu7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (kt7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (vu7) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
@@ -150,7 +150,7 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.g().getValue() == null) {
             return;
         }
-        kt7 c1 = this.b.c1(this.a.g().getValue());
+        vu7 c1 = this.b.c1(this.a.g().getValue());
         if (c1 != null) {
             this.a.k().addLast(this.a.b());
             this.a.o(c1);
@@ -163,7 +163,7 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void q() {
-        kt7 pollLast;
+        vu7 pollLast;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (pollLast = this.a.k().pollLast()) == null) {
             return;
@@ -176,7 +176,7 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void r(ThreadData threadData) {
-        kt7 c1;
+        vu7 c1;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null || (c1 = this.b.c1(threadData)) == null) {
             return;
@@ -190,27 +190,27 @@ public class VideoPbViewModel extends ViewModel {
         this.a.s(true);
     }
 
-    public void s(kt7 kt7Var, int i) {
+    public void s(vu7 vu7Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, kt7Var, i) == null) || i < this.c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, vu7Var, i) == null) || i < this.c) {
             return;
         }
         this.c = i;
-        this.a.p(kt7Var);
-        if (kt7Var != null) {
-            a18 a18Var = this.a;
+        this.a.p(vu7Var);
+        if (vu7Var != null) {
+            h28 h28Var = this.a;
             boolean z = true;
-            if (kt7Var.s() != 1 && !kt7Var.i0()) {
+            if (vu7Var.s() != 1 && !vu7Var.i0()) {
                 z = false;
             }
-            a18Var.q(z);
+            h28Var.q(z);
         }
     }
 
-    public void t(kt7 kt7Var, int i) {
+    public void t(vu7 vu7Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048595, this, kt7Var, i) == null) && i == 3) {
-            this.a.o(kt7Var);
+        if ((interceptable == null || interceptable.invokeLI(1048595, this, vu7Var, i) == null) && i == 3) {
+            this.a.o(vu7Var);
         }
     }
 

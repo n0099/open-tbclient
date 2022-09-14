@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ih0 implements mh0 {
+public class ih0 extends p71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lh0 f;
-    public final nh0 g;
-    public final oh0 h;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    public ih0() {
-        nh0 nh0Var;
-        oh0 oh0Var;
+    public ih0(AdBaseModel adBaseModel, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adBaseModel, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,199 +33,67 @@ public class ih0 implements mh0 {
                 return;
             }
         }
-        this.f = eh0.c().a();
-        synchronized (eh0.class) {
-            nh0Var = (nh0) ServiceManager.getService(nh0.b);
-            nh0Var = nh0Var == null ? nh0.c : nh0Var;
+        this.a = adBaseModel;
+        this.b = view2;
+    }
+
+    @Override // com.baidu.tieba.p71
+    public void a(String str) {
+        AdBaseModel adBaseModel;
+        po0 po0Var;
+        ko0 ko0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (adBaseModel = this.a) == null || (po0Var = adBaseModel.f) == null || TextUtils.isEmpty(po0Var.d)) {
+            return;
         }
-        this.g = nh0Var;
-        synchronized (eh0.class) {
-            oh0Var = (oh0) ServiceManager.getService(oh0.d);
-            oh0Var = oh0Var == null ? oh0.e : oh0Var;
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
+        clogBuilder.j(str);
+        lo0 lo0Var = adBaseModel.m;
+        if (lo0Var != null && (ko0Var = lo0Var.f) != null) {
+            clogBuilder.v(ko0Var.a);
         }
-        this.h = oh0Var;
+        clogBuilder.p(adBaseModel.f.d);
+        uz0.b(clogBuilder);
     }
 
-    @Override // com.baidu.tieba.lh0
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.p71
+    public void b(@NonNull vo0 vo0Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f.a() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vo0Var) == null) {
+            if (vo0Var.c) {
+                vh0.b(vo0Var.a);
+                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
+            }
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.lh0
-    public String b() {
-        InterceptResult invokeV;
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        po0 po0Var;
+        ko0 ko0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.b() : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) || adBaseModel == null || (po0Var = adBaseModel.f) == null || TextUtils.isEmpty(po0Var.d)) {
+            return;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(logType);
+        clogBuilder.j(str);
+        lo0 lo0Var = adBaseModel.m;
+        if (lo0Var != null && (ko0Var = lo0Var.f) != null) {
+            clogBuilder.v(ko0Var.a);
+        }
+        clogBuilder.p(adBaseModel.f.d);
+        uz0.b(clogBuilder);
     }
 
-    @Override // com.baidu.tieba.lh0
-    public String c() {
-        InterceptResult invokeV;
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f.c() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f.d() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh0
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h.e() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh0
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h.f() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.g() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nh0
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g.h() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f.i() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f.j() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f.k() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f.l() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f.m() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f.n() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f.o() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f.p() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String packageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f.packageName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh0
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.h.q() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    @NonNull
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f.r() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f.s() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f.t() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh0
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.h.u() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh0
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.h.v() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f.w() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f.x() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lh0
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f.y() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
     }
 }

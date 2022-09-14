@@ -14,12 +14,12 @@ import androidx.annotation.StyleRes;
 import androidx.core.util.Preconditions;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
@@ -68,7 +68,7 @@ public final class CalendarItemStyle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             Preconditions.checkArgument(i != 0, "Cannot create a CalendarItemStyle with a styleResId of 0");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16843191, 16843192, 16843193, 16843194, R.attr.obfuscated_res_0x7f040365, R.attr.obfuscated_res_0x7f04036e, R.attr.obfuscated_res_0x7f04036f, R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f040377, R.attr.obfuscated_res_0x7f04037b});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, R.styleable.MaterialCalendarItem);
             Rect rect = new Rect(obtainStyledAttributes.getDimensionPixelOffset(0, 0), obtainStyledAttributes.getDimensionPixelOffset(2, 0), obtainStyledAttributes.getDimensionPixelOffset(1, 0), obtainStyledAttributes.getDimensionPixelOffset(3, 0));
             ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, 4);
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 9);

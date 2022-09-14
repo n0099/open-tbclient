@@ -1,53 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class in4 implements LayoutInflater.Factory {
-    public static /* synthetic */ Interceptable $ic;
+public class in4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 2;
+    public static int c = 3;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
+    public static int g = 4;
+    public static int h = 5;
+    public static int i = 6;
+    public static int j = 7;
+    public static int k = 8;
+    public static int l = 9;
+    public static jn4 m;
     public transient /* synthetic */ FieldHolder $fh;
-    public kn4 a;
 
-    public in4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859258, "Lcom/baidu/tieba/in4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947859258, "Lcom/baidu/tieba/in4;");
+                return;
             }
         }
+        m = new jn4();
     }
 
-    public void a(kn4 kn4Var) {
+    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kn4Var) == null) {
-            this.a = kn4Var;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
+            kn4 kn4Var = new kn4();
+            kn4Var.a = i2;
+            kn4Var.b = i3;
+            kn4Var.c = str;
+            kn4Var.d = str2;
+            kn4Var.e = str3;
+            kn4Var.f = i4;
+            m.a(kn4Var);
         }
-    }
-
-    @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
-            if (this.a == null) {
-                this.a = new kn4();
-            }
-            this.a.j(str, context, attributeSet);
-            return null;
-        }
-        return (View) invokeLLL.objValue;
     }
 }

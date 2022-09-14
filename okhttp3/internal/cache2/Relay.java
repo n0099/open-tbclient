@@ -2,7 +2,6 @@ package okhttp3.internal.cache2;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -279,7 +278,7 @@ public final class Relay {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, source, byteString, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
             Relay relay = new Relay(randomAccessFile, source, 0L, byteString, j);
             randomAccessFile.setLength(0L);
             relay.writeHeader(PREFIX_DIRTY, -1L, -1L);
@@ -292,7 +291,7 @@ public final class Relay {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
             FileOperator fileOperator = new FileOperator(randomAccessFile.getChannel());
             Buffer buffer = new Buffer();
             fileOperator.read(0L, buffer, 32L);

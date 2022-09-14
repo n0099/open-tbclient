@@ -1,48 +1,41 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.tieba.b84;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.d83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import okhttp3.Headers;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ok3<T> extends pk3 {
+public class ok3 extends v43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public ResponseCallback<T> f;
-    public int g;
-    public b84.a h;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback<String> {
+    public class a implements rh3<b83<d83.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public final /* synthetic */ ok3 b;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ ok3 d;
 
-        public a(ok3 ok3Var) {
+        public a(ok3 ok3Var, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ok3Var};
+                Object[] objArr = {ok3Var, context, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,201 +45,94 @@ public class ok3<T> extends pk3 {
                     return;
                 }
             }
-            this.b = ok3Var;
+            this.d = ok3Var;
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(b83<d83.e> b83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (vj3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
-                }
-                if (TextUtils.equals(str, "recovery")) {
-                    if (!bk3.l().m().b()) {
-                        this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
-                        return;
-                    }
-                    bk3.l().m().a();
-                    this.b.i(true);
-                    this.b.p();
-                    return;
-                }
-                bk3.l().m().k();
-                ok3 ok3Var = this.b;
-                if (!ok3Var.a) {
-                    if (ok3Var.f != null) {
-                        this.b.f.onSuccess(this.a, i);
-                        this.b.g = 0;
-                    }
-                } else if (ok3Var.b == 1) {
-                    ak3.a(MimeTypes.BASE_TYPE_APPLICATION);
-                    if (this.b.f != null) {
-                        this.b.f.onSuccess(this.a, i);
-                    }
-                    this.b.g = 0;
-                } else if (ok3.m(ok3Var) >= 3) {
-                    ResponseCallback responseCallback = this.b.f;
-                    responseCallback.onFail(new IOException("request fail : " + this.a));
-                    this.b.g = 0;
-                } else {
-                    ok3 ok3Var2 = this.b;
-                    ok3Var2.q(ok3Var2.d, this.b.e, this.b.f);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
+                this.d.k(b83Var, this.a, this.b, this.c);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (vj3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
-                }
-                if (this.b.f != null) {
-                    this.b.f.onFail(exc);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                Headers headers = response.headers();
-                String str = headers.get("Bdtls");
-                if (headers != null && TextUtils.equals(str, "recovery")) {
-                    bk3.l().m().s(0);
-                    return "recovery";
-                }
-                ok3 ok3Var = this.b;
-                if (!ok3Var.a) {
-                    if (ok3Var.f != null) {
-                        this.a = (T) this.b.f.parseResponse(response, i);
-                        return "";
-                    }
-                    return "";
-                }
-                ResponseBody body = response.body();
-                String g = this.b.g(body.bytes());
-                if (vj3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
-                }
-                if (this.b.b == 1) {
-                    Buffer buffer = new Buffer();
-                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
-                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    if (this.b.f != null) {
-                        this.a = (T) this.b.f.parseResponse(build, i);
-                    }
-                }
-                return g;
-            }
-            return (String) invokeLI.objValue;
         }
     }
 
-    public ok3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ok3(v33 v33Var) {
+        super(v33Var, "/swanAPI/getBDUSS");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = null;
-        this.e = null;
-        this.f = null;
     }
 
-    public static /* synthetic */ int m(ok3 ok3Var) {
-        int i = ok3Var.g;
-        ok3Var.g = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.pk3
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pk3
-    public void e(IOException iOException) {
-        ResponseCallback<T> responseCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f) == null) {
-            return;
-        }
-        responseCallback.onFail(iOException);
-    }
-
-    @Override // com.baidu.tieba.pk3
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (vj3.a) {
-                Log.d("BDTLS", "onRequestError=" + i);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
             }
-            ResponseCallback<T> responseCallback = this.f;
-            if (responseCallback != null) {
-                responseCallback.onFail(new Exception("request error  code : " + i));
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
+            } else if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                return false;
+            } else {
+                y23Var.e0().g(context, "mapp_i_get_bduss", new a(this, context, callbackHandler, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pk3
-    public void h(byte[] bArr) {
+    public final void k(b83<d83.e> b83Var, Context context, CallbackHandler callbackHandler, String str) {
+        JSONObject wrapCallbackParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            String str = this.d;
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/json");
-            if (this.a) {
-                hashMap.put("Bdtls", "Bdtls");
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var, context, callbackHandler, str) == null) {
+            if (!w73.h(b83Var)) {
+                w73.q(b83Var, callbackHandler, str);
+                return;
             }
-            if (vj3.a) {
-                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
+            String i = zi3.i(context);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", i);
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            } catch (JSONException e) {
+                if (v43.b) {
+                    e.printStackTrace();
+                }
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
             }
-            c63 a2 = hk2.q().a();
-            PostByteRequest.PostByteRequestBuilder postByteRequest = c84.g().postByteRequest();
-            b84.a aVar = this.h;
-            if (aVar != null) {
-                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
-            }
-            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
+            callbackHandler.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
         }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q(this.d, this.e, this.f);
-        }
-    }
-
-    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, responseCallback) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.d = str;
-        this.e = str2;
-        this.f = responseCallback;
-        if (vj3.a) {
-            Log.d("BDTLS", "requestPost url=" + str);
-            Log.d("BDTLS", "requestPost body=" + str2);
-        }
-        a(this.e);
     }
 }

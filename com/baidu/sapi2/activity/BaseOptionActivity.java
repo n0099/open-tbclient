@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.pass.permissions.PermissionsCallback;
@@ -239,7 +238,6 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             this.enterTimeMills = System.currentTimeMillis();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -361,7 +359,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1084, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10a1, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

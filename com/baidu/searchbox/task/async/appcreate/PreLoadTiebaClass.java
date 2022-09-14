@@ -6,9 +6,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
-import com.baidu.tieba.ej4;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.ze5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.el4;
+import com.baidu.tieba.gh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,10 +43,10 @@ public class PreLoadTiebaClass extends LaunchTask {
                 Class.forName("com.baidu.tieba.im.memorycache.ImMemoryCacheRegister");
             } catch (ClassNotFoundException unused) {
             }
-            ej4.w();
+            el4.w();
             ItemCardHelper.i();
-            ze5.b();
-            ri.y(TbadkCoreApplication.getInst());
+            gh5.b();
+            ej.y(TbadkCoreApplication.getInst());
         }
     }
 

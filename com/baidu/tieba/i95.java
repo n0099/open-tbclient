@@ -1,44 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.d95;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
-public abstract class i95<D, S extends d95> extends l95<D, S> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int e;
+public interface i95 {
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final i95 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i95(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, viewEventCenter};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (i95) ServiceManager.getService(serviceReference);
     }
 
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
-    }
+    boolean a(@NonNull String str);
+
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
 }

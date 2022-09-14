@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +113,7 @@ public class dj implements LoggerInterface {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:87:0x017e -> B:128:0x0183). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m267a() {
+    public void m268a() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         File file;
@@ -152,7 +151,7 @@ public class dj implements LoggerInterface {
             if (!file2.exists() || file2.isDirectory()) {
                 file2.createNewFile();
             }
-            randomAccessFile = new RandomAccessFile(file2, rw.c);
+            randomAccessFile = new RandomAccessFile(file2, "rw");
             try {
                 fileLock = randomAccessFile.getChannel().lock();
                 try {

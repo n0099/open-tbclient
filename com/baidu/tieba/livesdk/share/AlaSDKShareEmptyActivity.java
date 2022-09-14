@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.qg7;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.ui;
+import com.baidu.tieba.yh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public qg7 m;
+    public yh7 m;
 
     /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -150,9 +150,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 this.a.E1();
                 if (this.a.l != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE);
-                    statisticItem.addParam("obj_type", this.a.l.Y);
+                    statisticItem.addParam("obj_type", this.a.l.Z);
                     statisticItem.addParam(TiebaStatic.Params.TIEBA_PARAMS, "copylink");
-                    statisticItem.addParam("room_id", this.a.l.X);
+                    statisticItem.addParam("room_id", this.a.l.Y);
                     statisticItem.eventStat();
                 }
             }
@@ -181,21 +181,21 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ShareItem shareItem = new ShareItem();
-            shareItem.u = this.a;
-            shareItem.v = this.b;
+            shareItem.v = this.a;
+            shareItem.w = this.b;
             if (!StringUtils.isNull(this.c)) {
                 if (this.c.startsWith("file://")) {
-                    shareItem.A = this.c.substring(7);
+                    shareItem.B = this.c.substring(7);
                 } else {
-                    shareItem.y = Uri.parse(this.c);
+                    shareItem.z = Uri.parse(this.c);
                 }
             }
-            shareItem.w = this.d;
-            shareItem.t = this.g;
-            shareItem.w0 = this.h;
-            shareItem.C = this.i;
-            shareItem.X = this.j;
-            shareItem.Y = this.k;
+            shareItem.x = this.d;
+            shareItem.u = this.g;
+            shareItem.x0 = this.h;
+            shareItem.D = this.i;
+            shareItem.Y = this.j;
+            shareItem.Z = this.k;
             return shareItem;
         }
         return (ShareItem) invokeV.objValue;
@@ -216,18 +216,18 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (shareItem = this.l) == null) {
             return;
         }
-        gi.a(shareItem.w);
-        ri.N(getApplicationContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0451));
+        ui.a(shareItem.x);
+        ej.N(getApplicationContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0455));
     }
 
     public final void F1() {
-        qg7 qg7Var;
+        yh7 yh7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (qg7Var = this.m) != null) {
-            if (ListUtils.isEmpty(qg7Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (yh7Var = this.m) != null) {
+            if (ListUtils.isEmpty(yh7Var.b())) {
                 this.m.c();
             }
-            this.m.e(pg.g(this.g, 0L), this.i, this.l);
+            this.m.e(dh.g(this.g, 0L), this.i, this.l);
         }
     }
 
@@ -245,19 +245,19 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         shareDialogConfig.setOnDismissListener(new a(this));
         if (TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.i)) {
             if (this.j > 0) {
-                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f1132, R.drawable.obfuscated_res_0x7f0809c8, new c(this));
+                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e3, new c(this));
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE_PANEL);
                 statisticItem.addParam("room_id", this.j);
                 statisticItem.addParam("obj_type", this.k);
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0249, R.drawable.obfuscated_res_0x7f080901, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f024d, R.drawable.obfuscated_res_0x7f08091d, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        qg7 qg7Var = this.m;
-        if (qg7Var != null) {
-            qg7Var.c();
+        yh7 yh7Var = this.m;
+        if (yh7Var != null) {
+            yh7Var.c();
         }
     }
 
@@ -279,7 +279,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new qg7(getPageContext());
+            this.m = new yh7(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");
@@ -325,9 +325,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            qg7 qg7Var = this.m;
-            if (qg7Var != null) {
-                qg7Var.d();
+            yh7 yh7Var = this.m;
+            if (yh7Var != null) {
+                yh7Var.d();
             }
         }
     }

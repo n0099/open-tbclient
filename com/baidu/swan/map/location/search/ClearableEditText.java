@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.pg3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        b = re3.g(10.0f);
+        b = pg3.g(10.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,7 +71,7 @@ public class ClearableEditText extends AppCompatEditText {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080195);
+            this.a = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080196);
         }
     }
 

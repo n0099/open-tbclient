@@ -11,9 +11,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oz2;
-import com.baidu.tieba.re3;
-import com.baidu.tieba.sz2;
+import com.baidu.tieba.m13;
+import com.baidu.tieba.pg3;
+import com.baidu.tieba.q13;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class BdTimePicker extends LinearLayout {
     public Paint o;
 
     /* loaded from: classes2.dex */
-    public class a implements sz2 {
+    public class a implements q13 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTimePicker a;
@@ -66,7 +66,7 @@ public class BdTimePicker extends LinearLayout {
             this.a = bdTimePicker;
         }
 
-        @Override // com.baidu.tieba.sz2
+        @Override // com.baidu.tieba.q13
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -78,7 +78,7 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements sz2 {
+    public class b implements q13 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTimePicker a;
@@ -101,7 +101,7 @@ public class BdTimePicker extends LinearLayout {
             this.a = bdTimePicker;
         }
 
-        @Override // com.baidu.tieba.sz2
+        @Override // com.baidu.tieba.q13
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -152,13 +152,13 @@ public class BdTimePicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d4, this);
-            this.l = re3.f(context, this.l);
-            this.m = re3.f(context, 16.0f);
-            this.n = re3.f(context, 14.0f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d6, this);
+            this.l = pg3.f(context, this.l);
+            this.m = pg3.f(context, 16.0f);
+            this.n = pg3.f(context, 14.0f);
             j();
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092198);
-            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092613);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921ec);
+            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092671);
             this.c = wheelView3d;
             wheelView3d.setLineSpacingMultiplier(3.0f);
             this.c.setCenterTextSize(this.m);
@@ -171,7 +171,7 @@ public class BdTimePicker extends LinearLayout {
             this.c.setDividerType(WheelView3d.DividerType.FILL);
             this.c.setDividerColor(0);
             this.c.setOnItemSelectedListener(new a(this));
-            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092614);
+            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092672);
             this.d = wheelView3d2;
             wheelView3d2.setLineSpacingMultiplier(3.0f);
             this.d.setCenterTextSize(this.m);
@@ -230,7 +230,7 @@ public class BdTimePicker extends LinearLayout {
         while (true) {
             int i2 = this.g;
             if (i > i2) {
-                this.c.setAdapter(new oz2(this.f, i2));
+                this.c.setAdapter(new m13(this.f, i2));
                 k(this.c, this.f, this.g);
                 setHour(this.a);
                 return;
@@ -260,7 +260,7 @@ public class BdTimePicker extends LinearLayout {
         while (true) {
             int i2 = this.i;
             if (i > i2) {
-                this.d.setAdapter(new oz2(this.h, i2));
+                this.d.setAdapter(new m13(this.h, i2));
                 k(this.d, this.h, this.i);
                 setMinute(this.b);
                 return;

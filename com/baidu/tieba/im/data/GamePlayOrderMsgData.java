@@ -6,8 +6,8 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.ya7;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.ec7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -321,7 +321,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
             }
             GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(msgInfo.content, GamePlayOrderMsgData.class);
             if (gamePlayOrderMsgData != null) {
-                if (pg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                if (dh.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                     longValue = msgInfo.userId.longValue();
                 } else {
                     longValue = msgInfo.toUid.longValue();
@@ -329,7 +329,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
                 gamePlayOrderMsgData.setGid(longValue);
                 gamePlayOrderMsgData.setUser_id(msgInfo.userId.longValue());
                 gamePlayOrderMsgData.setLast(z);
-                gamePlayOrderMsgData.setMid(ya7.a(msgInfo.msgId.longValue()));
+                gamePlayOrderMsgData.setMid(ec7.a(msgInfo.msgId.longValue()));
             }
             return gamePlayOrderMsgData;
         }

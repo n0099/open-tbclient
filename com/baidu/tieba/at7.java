@@ -1,50 +1,90 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewStub;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.bt7;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+import com.baidu.tieba.wp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbContent;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes3.dex */
-public class at7 {
+public abstract class at7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView a;
-    public TextView b;
-    public TbRichTextView c;
-    public ViewStub d;
-    public View e;
-    public ImageView f;
-    public View g;
-    public bt7.a h;
+    public TbPageContext a;
+    public BaseActivity b;
+    public bt7 c;
+    public BdAsyncTask<?, ?, ?> d;
+    public ct7 e;
+    public String f;
+    public View.OnClickListener g;
+    public final wp4.a h;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Post a;
-        public final /* synthetic */ at7 b;
+        public final /* synthetic */ at7 a;
 
-        public a(at7 at7Var, Post post) {
+        public a(at7 at7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {at7Var, post};
+                Object[] objArr = {at7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.n(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends WebAuthListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SocialType a;
+        public final /* synthetic */ at7 b;
+
+        public b(at7 at7Var, SocialType socialType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at7Var, socialType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,26 +95,130 @@ public class at7 {
                 }
             }
             this.b = at7Var;
-            this.a = post;
+            this.a = socialType;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Post post;
+        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
+        public void beforeSuccess(SapiAccount sapiAccount) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (post = this.a) == null || post.id == null || this.b.h == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
+                this.b.l();
             }
-            this.b.h.a(String.valueOf(this.a.id));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
+                this.b.b.closeLoadingDialog();
+                BaseActivity baseActivity = this.b.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13e0), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
+                this.b.f();
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), this.b.f, this.a.name().toLowerCase());
+            }
         }
     }
 
-    public at7(ViewStub viewStub, bt7.a aVar) {
+    /* loaded from: classes3.dex */
+    public class c implements wp4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ at7 a;
+
+        public c(at7 at7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = at7Var;
+        }
+
+        @Override // com.baidu.tieba.wp4.a
+        public void a(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+                this.a.b.closeLoadingDialog();
+                this.a.b.showToast(str2);
+            }
+        }
+
+        @Override // com.baidu.tieba.wp4.a
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.l();
+            }
+        }
+
+        @Override // com.baidu.tieba.wp4.a
+        public void c(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                this.a.b.closeLoadingDialog();
+                this.a.e(accountData);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public d(at7 at7Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {at7Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yp4.g(this.a);
+                qw4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
+        }
+    }
+
+    public at7(TbPageContext tbPageContext, bt7 bt7Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewStub, aVar};
+            Object[] objArr = {tbPageContext, bt7Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,65 +228,154 @@ public class at7 {
                 return;
             }
         }
-        this.d = viewStub;
-        this.h = aVar;
+        this.g = new a(this);
+        this.h = new c(this);
+        this.a = tbPageContext;
+        if (tbPageContext.getPageActivity() instanceof BaseActivity) {
+            this.b = (BaseActivity) tbPageContext.getPageActivity();
+        }
+        this.c = bt7Var;
+        this.f = str;
+        bt7Var.d(this.g);
     }
 
-    public final void b() {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            View inflate = this.d.inflate();
-            this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090615);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090617);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090614);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090618);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090616);
-            this.c.setTextSize(TbConfig.getContentSize());
-            c();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.setResult(i, new Intent());
+            this.b.finish();
         }
     }
 
-    public void c() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            TbRichTextView tbRichTextView = this.c;
-            if (tbRichTextView != null) {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            new LoginActivityConfig(this.b, true, 25061).start();
+        }
+    }
+
+    public final void e(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            h(accountData);
+            qw4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            TbadkCoreApplication.getInst().onUserChanged(this.b.getIntent());
+            c(-1);
+            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.d;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
+                }
+                this.d = wp4.b().a(session.username, session.bduss, "", null, this.h);
+                return;
+            }
+            this.b.closeLoadingDialog();
+            c(0);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            m(SocialType.QQ_SSO);
+        }
+    }
+
+    public final void h(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
+            jh.a().c(new d(this, accountData));
+            qw4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            TbadkCoreApplication.setCurrentAccount(accountData, this.a.getPageActivity());
+            lo4.g(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.c.b(z);
+        }
+    }
+
+    public abstract void j(ct7 ct7Var);
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c.e(z);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.b.getLoadingDialog() == null || !this.b.getLoadingDialog().c()) {
+                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f106a));
+                if (this.b.getLoadingDialog() != null) {
+                    this.b.getLoadingDialog().f(false);
+                    this.b.getLoadingDialog().g(false);
+                }
             }
         }
     }
 
-    public void d(boolean z) {
-        View view2;
+    public final void m(SocialType socialType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (view2 = this.e) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048586, this, socialType) == null) {
+            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
         }
-        view2.setVisibility(z ? 0 : 8);
     }
 
-    public boolean update(Post post, User user) {
-        InterceptResult invokeLL;
-        List<PbContent> list;
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
-            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
-                b();
-                d(true);
-                this.b.setText(user.name_show);
-                this.f.setOnClickListener(new a(this, post));
-                this.a.K(user.portrait, 12, false);
-                this.c.setVisibility(0);
-                this.c.setText(TbRichTextView.X(post.content, false));
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09042f) {
+                this.b.finish();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09045b) {
+                this.b.finish();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b21) {
+                g();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09266b) {
+                o();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09266e) {
+                p();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0926f1) {
+                q();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091565) {
+                d();
             }
-            d(false);
-            return false;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            m(SocialType.WEIXIN);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            m(SocialType.SINA_WEIBO_SSO);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            m(SocialType.YY);
+        }
     }
 }

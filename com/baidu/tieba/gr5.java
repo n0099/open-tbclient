@@ -1,18 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.nio.charset.Charset;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class gr5 {
+public class gr5 implements cn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<SdkLiveInfoData> a;
+
+    /* loaded from: classes4.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bv1 a;
+
+        public a(gr5 gr5Var, bv1 bv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gr5Var, bv1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bv1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            }
+        }
+    }
 
     public gr5() {
         Interceptable interceptable = $ic;
@@ -28,20 +70,11 @@ public class gr5 {
         }
     }
 
-    public void a(JSONObject jSONObject, String str) {
-        JSONArray optJSONArray;
+    @Override // com.baidu.tieba.cn2
+    public void a(Context context, bv1 bv1Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("live_list")) == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.a = new ArrayList<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                sdkLiveInfoData.fromJson(optJSONObject, str);
-                this.a.add(sdkLiveInfoData);
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, bv1Var) == null) && (context instanceof Activity)) {
+            DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, fr5.class, new Bundle(), new a(this, bv1Var));
         }
     }
 }

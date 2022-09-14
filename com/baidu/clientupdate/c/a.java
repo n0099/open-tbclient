@@ -18,13 +18,13 @@ import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.clientupdate.d.j;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-import com.tencent.open.SocialConstants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -438,10 +438,10 @@ public final class a {
                 if (h != null) {
                     bVar.a("utm", h);
                 }
-                bVar.a("osname", l);
-                bVar.a(SocialConstants.PARAM_TYPE_ID, m);
+                bVar.a(BaiduIdentityManager.PARAM_OSNAME, l);
+                bVar.a("typeid", m);
                 bVar.a("from", n);
-                bVar.a("osbranch", this.o);
+                bVar.a(BaiduIdentityManager.PARAM_OSBRANCH, this.o);
                 bVar.a("cfrom", this.p);
                 bVar.a("ignore", this.q);
                 bVar.a("time", this.r);

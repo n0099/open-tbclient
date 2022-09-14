@@ -25,16 +25,16 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj0;
-import com.baidu.tieba.dn0;
-import com.baidu.tieba.iy0;
-import com.baidu.tieba.kn0;
-import com.baidu.tieba.mn0;
-import com.baidu.tieba.ng0;
-import com.baidu.tieba.on0;
-import com.baidu.tieba.pi0;
-import com.baidu.tieba.q01;
-import com.baidu.tieba.vm0;
+import com.baidu.tieba.ap0;
+import com.baidu.tieba.g21;
+import com.baidu.tieba.ho0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.po0;
+import com.baidu.tieba.uz0;
+import com.baidu.tieba.vh0;
+import com.baidu.tieba.wo0;
+import com.baidu.tieba.yj0;
+import com.baidu.tieba.yo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public TextView f;
     public TextView g;
     public NadMiniVideoDownloadView h;
-    public cj0 i;
+    public lk0 i;
     public View.OnClickListener j;
     public View.OnClickListener k;
     public c l;
@@ -62,7 +62,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public View p;
     public AdImageView q;
     public AdImageView r;
-    public on0 s;
+    public ap0 s;
     public SimpleAdInfoView t;
     public LinearLayout u;
     public AdImageView v;
@@ -107,16 +107,16 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mn0 a;
+        public final /* synthetic */ yo0 a;
         public final /* synthetic */ AdBaseModel b;
         public final /* synthetic */ PortraitVideoTailView c;
 
-        public b(PortraitVideoTailView portraitVideoTailView, mn0 mn0Var, AdBaseModel adBaseModel) {
+        public b(PortraitVideoTailView portraitVideoTailView, yo0 yo0Var, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {portraitVideoTailView, mn0Var, adBaseModel};
+                Object[] objArr = {portraitVideoTailView, yo0Var, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,7 +127,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 }
             }
             this.c = portraitVideoTailView;
-            this.a = mn0Var;
+            this.a = yo0Var;
             this.b = adBaseModel;
         }
 
@@ -135,8 +135,8 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ng0.d(this.a.t, this.c.getContext(), null);
-                iy0.b(new ClogBuilder().y(ClogBuilder.LogType.FREE_CLICK).p(this.b.f.d).j("morebtn"));
+                vh0.d(this.a.t, this.c.getContext(), null);
+                uz0.b(new ClogBuilder().y(ClogBuilder.LogType.FREE_CLICK).p(this.b.f.d).j("morebtn"));
             }
         }
     }
@@ -166,16 +166,16 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         }
     }
 
-    public static boolean b(on0 on0Var) {
+    public static boolean b(ap0 ap0Var) {
         InterceptResult invokeL;
-        on0.b bVar;
-        on0.a aVar;
+        ap0.b bVar;
+        ap0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, on0Var)) == null) {
-            if (on0Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ap0Var)) == null) {
+            if (ap0Var == null) {
                 return false;
             }
-            return (TextUtils.isEmpty(on0Var.f) && TextUtils.isEmpty(on0Var.d) && ((bVar = on0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = on0Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+            return (TextUtils.isEmpty(ap0Var.f) && TextUtils.isEmpty(ap0Var.d) && ((bVar = ap0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = ap0Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -183,22 +183,22 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     private void setMoreButton(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, adBaseModel) == null) {
-            mn0 mn0Var = adBaseModel.j.f;
-            if (mn0Var != null && !TextUtils.isEmpty(mn0Var.r) && !TextUtils.isEmpty(mn0Var.s)) {
+            yo0 yo0Var = adBaseModel.j.f;
+            if (yo0Var != null && !TextUtils.isEmpty(yo0Var.r) && !TextUtils.isEmpty(yo0Var.s)) {
                 this.u.setVisibility(0);
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setCornerRadius(q01.c.a(getContext(), 17.0f));
-                gradientDrawable.setStroke(2, ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060852));
+                gradientDrawable.setCornerRadius(g21.c.a(getContext(), 17.0f));
+                gradientDrawable.setStroke(2, ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060864));
                 this.u.setBackground(gradientDrawable);
-                this.u.setOnClickListener(new b(this, mn0Var, adBaseModel));
-                if (!TextUtils.isEmpty(mn0Var.r)) {
-                    this.v.g(mn0Var.r);
+                this.u.setOnClickListener(new b(this, yo0Var, adBaseModel));
+                if (!TextUtils.isEmpty(yo0Var.r)) {
+                    this.v.g(yo0Var.r);
                     this.v.setVisibility(0);
                 }
-                if (TextUtils.isEmpty(mn0Var.s)) {
+                if (TextUtils.isEmpty(yo0Var.s)) {
                     return;
                 }
-                this.w.setText(mn0Var.s);
+                this.w.setText(yo0Var.s);
                 this.w.setVisibility(0);
                 return;
             }
@@ -215,20 +215,20 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             String str2 = adBaseModel.j.f.c;
             String str3 = adBaseModel.f.c;
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092058) {
+            if (id == R.id.obfuscated_res_0x7f0920a8) {
                 str = "tail_avatar";
-            } else if (id == R.id.obfuscated_res_0x7f092062) {
+            } else if (id == R.id.obfuscated_res_0x7f0920b2) {
                 str = "tail_name";
-            } else if (id == R.id.obfuscated_res_0x7f090668) {
+            } else if (id == R.id.obfuscated_res_0x7f09067b) {
                 str2 = adBaseModel.j.f.d;
                 str = NativeConstants.ID_BUTTON;
             } else {
-                str = id == R.id.obfuscated_res_0x7f092063 ? "tail_tag" : id == R.id.obfuscated_res_0x7f0900d6 ? "tail_score" : id == R.id.obfuscated_res_0x7f092061 ? "tail_title" : id == R.id.obfuscated_res_0x7f09205d ? "tail_popularity" : "hot";
+                str = id == R.id.obfuscated_res_0x7f0920b3 ? "tail_tag" : id == R.id.obfuscated_res_0x7f0900d6 ? "tail_score" : id == R.id.obfuscated_res_0x7f0920b1 ? "tail_title" : id == R.id.obfuscated_res_0x7f0920ad ? "tail_popularity" : "hot";
             }
             if ((TextUtils.isEmpty(str2) || "__BTN_SCHEME__".equals(str2)) ? false : true) {
                 str3 = str2;
             }
-            ng0.c(str3, getContext());
+            vh0.c(str3, getContext());
             i(ClogBuilder.LogType.CLICK, str, adBaseModel);
             c cVar = this.l;
             if (cVar != null) {
@@ -240,7 +240,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public void d() {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f09205f)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0920af)) == null) {
             return;
         }
         findViewById.setVisibility(8);
@@ -257,31 +257,31 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f4, this);
-            setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060848));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060b, this);
+            setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06085a));
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             layoutParams.height = -1;
             layoutParams.width = -1;
             setLayoutParams(layoutParams);
-            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f092058);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092062);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092063);
+            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0920a8);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b3);
             this.e = findViewById(R.id.obfuscated_res_0x7f0900d6);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092060);
-            this.d = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f09205e);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f09205d);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092061);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09205f);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09205a);
-            this.o = findViewById(R.id.obfuscated_res_0x7f092059);
-            this.p = findViewById(R.id.obfuscated_res_0x7f090668);
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090685);
-            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09030c);
-            NadMiniVideoDownloadView nadMiniVideoDownloadView = (NadMiniVideoDownloadView) findViewById(R.id.obfuscated_res_0x7f09205c);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b0);
+            this.d = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0920ae);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ad);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b1);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920af);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0920aa);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0920a9);
+            this.p = findViewById(R.id.obfuscated_res_0x7f09067b);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090698);
+            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090314);
+            NadMiniVideoDownloadView nadMiniVideoDownloadView = (NadMiniVideoDownloadView) findViewById(R.id.obfuscated_res_0x7f0920ac);
             this.h = nadMiniVideoDownloadView;
             nadMiniVideoDownloadView.setTextSize(12.0f);
-            this.h.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060849));
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dca).getIntrinsicHeight();
+            this.h.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06085b));
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080de9).getIntrinsicHeight();
             ViewGroup.LayoutParams layoutParams2 = this.d.getLayoutParams();
             layoutParams2.width = -2;
             layoutParams2.height = intrinsicHeight;
@@ -296,44 +296,44 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             this.p.setOnClickListener(this);
             this.n.setOnClickListener(this);
             this.h.setOnClickListener(this);
-            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09152f);
-            this.v = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091530);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f091531);
+            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091558);
+            this.v = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091559);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09155a);
             setOnClickListener(null);
         }
     }
 
     public final boolean g(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
-        kn0 kn0Var;
+        wo0 wo0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f == null || (kn0Var = adBaseModel.j) == null || kn0Var.f == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f == null || (wo0Var = adBaseModel.j) == null || wo0Var.f == null) ? false : true : invokeL.booleanValue;
     }
 
     public final void h(AdBaseModel adBaseModel) {
-        dn0 dn0Var;
+        po0 po0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, adBaseModel) == null) || adBaseModel == null || (dn0Var = adBaseModel.f) == null || TextUtils.isEmpty(dn0Var.d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, adBaseModel) == null) || adBaseModel == null || (po0Var = adBaseModel.f) == null || TextUtils.isEmpty(po0Var.d)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(ClogBuilder.LogType.VIDEO_LP_PV);
         clogBuilder.u(ClogBuilder.Page.PAGE_VIDEO_LANDING);
         clogBuilder.p(adBaseModel.f.d);
-        iy0.b(clogBuilder);
+        uz0.b(clogBuilder);
     }
 
     public final void i(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        dn0 dn0Var;
+        po0 po0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, logType, str, adBaseModel) == null) || adBaseModel == null || (dn0Var = adBaseModel.f) == null || TextUtils.isEmpty(dn0Var.d)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, logType, str, adBaseModel) == null) || adBaseModel == null || (po0Var = adBaseModel.f) == null || TextUtils.isEmpty(po0Var.d)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(logType);
         clogBuilder.j(str);
         clogBuilder.p(adBaseModel.f.d);
-        iy0.b(clogBuilder);
+        uz0.b(clogBuilder);
     }
 
     public void j(@NonNull AdBaseModel adBaseModel) {
@@ -343,39 +343,39 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 setVisibility(8);
                 return;
             }
-            mn0 mn0Var = adBaseModel.j.f;
-            if (mn0Var != null) {
+            yo0 yo0Var = adBaseModel.j.f;
+            if (yo0Var != null) {
                 f(getContext());
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06082d));
-                int a2 = q01.c.a(getContext(), 8.0f);
+                gradientDrawable.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06083f));
+                int a2 = g21.c.a(getContext(), 8.0f);
                 gradientDrawable.setCornerRadius(a2);
                 this.p.setBackground(gradientDrawable);
                 this.h.setCornerRadius(a2);
                 this.h.setBackground(gradientDrawable);
-                this.h.setProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f060847));
+                this.h.setProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f060859));
                 setVisibility(0);
-                if (!TextUtils.isEmpty(mn0Var.b)) {
-                    this.a.g(mn0Var.b);
+                if (!TextUtils.isEmpty(yo0Var.b)) {
+                    this.a.g(yo0Var.b);
                     this.a.setVisibility(0);
                 } else {
                     this.a.setVisibility(8);
                 }
-                if (TextUtils.isEmpty(mn0Var.a)) {
+                if (TextUtils.isEmpty(yo0Var.a)) {
                     this.b.setVisibility(8);
                 } else {
-                    this.b.setText(mn0Var.a, TextView.BufferType.NORMAL);
+                    this.b.setText(yo0Var.a, TextView.BufferType.NORMAL);
                     this.b.setVisibility(0);
                 }
-                if (TextUtils.isEmpty(mn0Var.g)) {
+                if (TextUtils.isEmpty(yo0Var.g)) {
                     this.c.setVisibility(8);
                 } else {
                     this.c.setVisibility(0);
-                    this.c.setText(mn0Var.g);
+                    this.c.setText(yo0Var.g);
                 }
-                on0 on0Var = this.s;
-                if (on0Var != null) {
-                    float f = (float) on0Var.e;
+                ap0 ap0Var = this.s;
+                if (ap0Var != null) {
+                    float f = (float) ap0Var.e;
                     if (f <= 0.0f) {
                         this.e.setVisibility(8);
                     } else {
@@ -386,36 +386,36 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 } else {
                     this.e.setVisibility(8);
                 }
-                if (TextUtils.isEmpty(mn0Var.i)) {
+                if (TextUtils.isEmpty(yo0Var.i)) {
                     this.n.setVisibility(8);
                 } else {
                     this.n.setVisibility(0);
-                    this.n.setText(mn0Var.i);
+                    this.n.setText(yo0Var.i);
                 }
-                if (TextUtils.isEmpty(mn0Var.h)) {
+                if (TextUtils.isEmpty(yo0Var.h)) {
                     this.f.setVisibility(8);
                 } else {
                     this.f.setVisibility(0);
-                    this.f.setText(mn0Var.h, TextView.BufferType.NORMAL);
+                    this.f.setText(yo0Var.h, TextView.BufferType.NORMAL);
                 }
                 if (adBaseModel.d && adBaseModel.h.a == AdOperator.TYPE.DOWNLOAD) {
                     this.p.setVisibility(8);
-                    vm0 vm0Var = adBaseModel.l;
-                    if (vm0Var != null && vm0Var.e) {
+                    ho0 ho0Var = adBaseModel.l;
+                    if (ho0Var != null && ho0Var.e) {
                         this.h.setVisibility(0);
-                        this.i = new cj0(pi0.c(adBaseModel), this.h);
+                        this.i = new lk0(yj0.c(adBaseModel), this.h);
                     } else {
                         this.h.setVisibility(8);
                         this.i = null;
                     }
                 } else {
                     this.p.setVisibility(0);
-                    if (TextUtils.isEmpty(mn0Var.e)) {
-                        this.g.setText(mn0Var.e);
+                    if (TextUtils.isEmpty(yo0Var.e)) {
+                        this.g.setText(yo0Var.e);
                     } else {
-                        this.g.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b7c));
+                        this.g.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b95));
                     }
-                    this.q.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dbe));
+                    this.q.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080ddd));
                     this.h.setVisibility(8);
                     if (this.i != null) {
                         this.i = null;
@@ -448,15 +448,15 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             AdBaseModel adBaseModel = (AdBaseModel) getTag();
-            if (view2.getId() == R.id.obfuscated_res_0x7f09205f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0920af) {
                 View.OnClickListener onClickListener = this.j;
                 if (onClickListener != null) {
                     onClickListener.onClick(view2);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09205c) {
-                cj0 cj0Var = this.i;
-                if (cj0Var != null) {
-                    cj0Var.m();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920ac) {
+                lk0 lk0Var = this.i;
+                if (lk0Var != null) {
+                    lk0Var.m();
                 }
             } else {
                 c(adBaseModel, view2);
@@ -468,10 +468,10 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         }
     }
 
-    public void setAdInfo(on0 on0Var) {
+    public void setAdInfo(ap0 ap0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, on0Var) == null) {
-            this.s = on0Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ap0Var) == null) {
+            this.s = ap0Var;
         }
     }
 
@@ -496,9 +496,9 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         }
     }
 
-    public void setPlayerProgressHandler(NadVideoAdOverContainer.d dVar) {
+    public void setPlayerProgressHandler(NadVideoAdOverContainer.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) {
         }
     }
 

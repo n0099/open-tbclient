@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c3, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -69,7 +69,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
                 this.f.clearAnimation();
                 this.f.startAnimation(this.l);
             }
-            this.h.setText(R.string.obfuscated_res_0x7f0f01b0);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01b2);
         }
     }
 
@@ -94,7 +94,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
             this.f.clearAnimation();
             this.f.setVisibility(4);
             this.g.setVisibility(0);
-            this.h.setText(R.string.obfuscated_res_0x7f0f01af);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01b1);
         }
     }
 
@@ -104,7 +104,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.f.clearAnimation();
             this.f.startAnimation(this.k);
-            this.h.setText(R.string.obfuscated_res_0x7f0f01b1);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01b3);
         }
     }
 
@@ -113,7 +113,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.f.clearAnimation();
-            this.h.setText(R.string.obfuscated_res_0x7f0f01b0);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01b2);
         }
     }
 
@@ -130,12 +130,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091abd);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091abb);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091abe);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abf);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ac1);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091ac3);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091afd);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afb);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091afe);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091aff);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b01);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b03);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

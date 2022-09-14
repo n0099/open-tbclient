@@ -16,7 +16,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebSettingsImpl extends WebSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

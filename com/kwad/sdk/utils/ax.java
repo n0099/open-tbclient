@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ax {
     public static final SimpleDateFormat aon = new SimpleDateFormat("MM/dd", Locale.US);
     public static final SimpleDateFormat aoo = new SimpleDateFormat("yyyy/MM/dd", Locale.US);

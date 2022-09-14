@@ -594,7 +594,7 @@ public abstract class a extends com.kwad.components.ad.reward.presenter.a implem
                 public final void a(m mVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, mVar) == null) {
-                        com.kwad.components.core.c.a.a.a(new a.C0569a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(1).a(new a.b(this, mVar) { // from class: com.kwad.components.ad.reward.presenter.c.a.9.1
+                        com.kwad.components.core.c.a.a.a(new a.C0574a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(1).a(new a.b(this, mVar) { // from class: com.kwad.components.ad.reward.presenter.c.a.9.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ m tg;
@@ -663,7 +663,7 @@ public abstract class a extends com.kwad.components.ad.reward.presenter.a implem
                 public final void id() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.components.core.c.a.a.a(new a.C0569a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.c.a.10.1
+                        com.kwad.components.core.c.a.a.a(new a.C0574a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.c.a.10.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass10 ti;

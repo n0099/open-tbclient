@@ -30,7 +30,7 @@ public class StringU {
             }
         }
         try {
-            boolean h = ni.d().h("stringu", 2);
+            boolean h = bj.d().h("stringu", 2);
             a = h;
             if (h) {
                 a("stringu_so_load_success", null);

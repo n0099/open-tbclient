@@ -1,29 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.videoplayer.SwanVideoView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface yh4 {
-    void a();
+public class yh4<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
-
-    void c(SwanVideoView swanVideoView);
-
-    void d(boolean z);
-
-    void onBufferingUpdate(int i);
-
-    void onError(int i, int i2, String str);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onVideoSizeChanged(int i, int i2);
+    public abstract T a();
 }

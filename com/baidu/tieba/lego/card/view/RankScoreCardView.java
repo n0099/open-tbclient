@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be7;
-import com.baidu.tieba.gk8;
-import com.baidu.tieba.kb5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.hf7;
 import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.oe7;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.td5;
+import com.baidu.tieba.uf7;
+import com.baidu.tieba.ul8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gk8.c(this.b.i, this.a.getD2Scheme());
+                ul8.c(this.b.i, this.a.getD2Scheme());
             }
         }
     }
@@ -109,7 +109,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                oe7 a = oe7.a();
+                uf7 a = uf7.a();
                 RankScoreCard rankScoreCard = this.a;
                 a.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
             }
@@ -169,7 +169,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                 return;
             }
         }
-        this.w = ri.k(tbPageContext.getPageActivity());
+        this.w = ej.k(tbPageContext.getPageActivity());
         this.x = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8) * 2;
     }
 
@@ -212,7 +212,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public void t(RankScoreCard rankScoreCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rankScoreCard, i) == null) {
-            kb5.a(this.i, getRootView());
+            td5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0106);
@@ -287,7 +287,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.t, be7.a[i]);
+                    SkinManager.setBackgroundColor(this.t, hf7.a[i]);
                     this.t.setText(rankScoreCard.getRank() + "");
                 }
             }
@@ -300,17 +300,17 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b2, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (RelativeLayout) l(linearLayout, R.id.obfuscated_res_0x7f091c0a);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d6f);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f090780);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090781);
-            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091c18);
-            this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091988);
-            this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0912ab);
-            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091bda);
-            this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f090448);
+            this.n = (RelativeLayout) l(linearLayout, R.id.obfuscated_res_0x7f091c53);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091dbd);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f090797);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090798);
+            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091c63);
+            this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0919c5);
+            this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0912c9);
+            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091c21);
+            this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f090456);
             return this.m;
         }
         return (View) invokeV.objValue;

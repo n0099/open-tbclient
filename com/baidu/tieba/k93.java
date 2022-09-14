@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.g93;
+import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class k93 extends ProviderDelegation {
+public class k93 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,35 +33,64 @@ public abstract class k93 extends ProviderDelegation {
                 return;
             }
         }
-        a = kh1.a;
+        a = ij1.a;
+        b = fm2.g0().u() * 1024;
     }
 
-    public k93() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public abstract Bundle c(j93 j93Var);
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public final Bundle execCall(Bundle bundle) {
+    public static boolean a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            if (bundle.isEmpty()) {
-                return Bundle.EMPTY;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length > b : invokeL.booleanValue;
+    }
+
+    public static boolean b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (c()) {
+                boolean a2 = a(str);
+                if (a2) {
+                    d(str);
+                }
+                return a2;
             }
-            return c(j93.b(bundle));
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b > 0 : invokeV.booleanValue;
+    }
+
+    public static void d(@NonNull String str) {
+        y23 b0;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (b0 = y23.b0()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            vn2.a W = b0.W();
+            SwanCoreVersion M = lo2.U().M();
+            int k = b0.k();
+            jSONObject.putOpt("scheme", W.W());
+            jSONObject.putOpt("swanjs", dc3.i(M, k));
+            if (str != null && str.length() > 1024) {
+                jSONObject.putOpt("params", str.substring(0, 1024));
+            }
+            g93.b bVar = new g93.b(10020);
+            bVar.j(sg3.n().e());
+            bVar.i(jSONObject.toString());
+            bVar.h(b0.getAppId());
+            bVar.m();
+            yz1.k("SwanAppParamChecker", "10020, params: " + str);
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
     }
 }

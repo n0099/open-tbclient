@@ -15,7 +15,6 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -106,7 +105,7 @@ public class d {
         if (TextUtils.isEmpty(str6)) {
             str6 = String.valueOf(System.currentTimeMillis() / 1000);
         }
-        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, str6);
+        hashMap.put("ts", str6);
         hashMap.put("pn", str);
         hashMap.put("pv", PushManager.TAG);
         if (!TextUtils.isEmpty(str4)) {
@@ -124,7 +123,7 @@ public class d {
         if ("notification_service_message".equals(str)) {
             return;
         }
-        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get(TimeDisplaySetting.TIME_DISPLAY_SETTING)).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
+        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
     }
 
     public static boolean a(Context context, Map<String, String> map) {

@@ -7,8 +7,8 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.R;
+/* loaded from: classes8.dex */
 public class DividerView extends View {
     public static int ORIENTATION_HORIZONTAL = 0;
     public static int ORIENTATION_VERTICAL = 1;
@@ -22,7 +22,7 @@ public class DividerView extends View {
 
     public DividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040397, R.attr.obfuscated_res_0x7f040398, R.attr.obfuscated_res_0x7f040399, R.attr.obfuscated_res_0x7f04039a, R.attr.obfuscated_res_0x7f0403ae}, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.ksad_DividerView, 0, 0);
         try {
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 5);
             int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(2, 5);

@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class x76 {
+public class x76 extends se1<i95> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<cn> b;
-    public b c;
-    public w76 d;
 
     /* loaded from: classes6.dex */
-    public class a implements zn {
+    public class a implements i95 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x76 a;
 
         public a(x76 x76Var) {
             Interceptable interceptable = $ic;
@@ -42,70 +37,101 @@ public class x76 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = x76Var;
         }
 
-        @Override // com.baidu.tieba.zn
-        public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.i95
+        public boolean a(@NonNull String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof a86)) {
-                a86 a86Var = (a86) pnVar;
-                if (this.a.c != null) {
-                    this.a.c.a(a86Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", a86Var.a()).param("obj_locate", 2));
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? e86.k().m(str) : invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.i95
+        @NonNull
+        public String b(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? e86.k().j(str) : (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.i95
+        @NonNull
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x76.c : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.i95
+        @NonNull
+        public String d(@NonNull String str, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+                e86 k = e86.k();
+                boolean q = k.q(str);
+                boolean r = k.r(str);
+                String g = k.g(str, z);
+                if (g == null) {
+                    g = "";
                 }
+                return (q || r) ? g : e(k.h(str), g);
             }
+            return (String) invokeLZ.objValue;
+        }
+
+        @Override // com.baidu.tieba.i95
+        @NonNull
+        public String e(@NonNull String str, @NonNull String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                return x76.b + File.separator + str + File.separator + str2;
+            }
+            return (String) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(a86 a86Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253330, "Lcom/baidu/tieba/x76;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948253330, "Lcom/baidu/tieba/x76;");
+                return;
+            }
+        }
+        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        b = a + File.separator + ".emotions";
+        c = a + File.separator + ".collect";
     }
 
-    public x76(Context context) {
+    public x76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
     }
 
-    public List<cn> b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.se1
+    /* renamed from: c */
+    public i95 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            w76 w76Var = new w76(this.a, a86.e);
-            this.d = w76Var;
-            w76Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
-        }
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (i95) invokeV.objValue;
     }
 }

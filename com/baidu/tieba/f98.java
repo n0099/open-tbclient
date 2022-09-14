@@ -1,130 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class f98 {
+public class f98 extends v06<c88> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public HashMap<String, Integer> c;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public TextView l;
+    public c88 m;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(f98 f98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
-            }
-        }
-    }
-
-    public f98() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f98(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            HashMap<String, Integer> hashMap = this.c;
-            if (hashMap == null || uri == null) {
-                return false;
-            }
-            return hashMap.containsKey(uri.getHost());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a) {
-                i98.f();
-            }
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        boolean z = this.a;
-        this.a = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1;
-        this.b = jSONObject.optInt("p2p_config", 0) == 1;
-        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
-        if (optJSONArray != null) {
-            this.c = new HashMap<>();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                String optString = optJSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    this.c.put(optString, 0);
-                }
-            }
-        }
-        if (this.a) {
-            i98.f();
-            if (z) {
                 return;
             }
-            Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
-            intent.putExtra("pcdn", true);
-            TbadkCoreApplication.getInst().getContext().startService(intent);
-            sg.a().postDelayed(new a(this), 3000L);
         }
+        View h = h();
+        this.i = h;
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09056d);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09056b);
+        this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09056c);
+    }
+
+    @Override // com.baidu.tieba.v06
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ac : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.v06
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+        if (this.m.a == null) {
+            SkinManager.setImageResource(this.j, R.drawable.icon_shen_mine);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v06
+    /* renamed from: r */
+    public void i(c88 c88Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, c88Var) == null) || c88Var == null) {
+            return;
+        }
+        this.m = c88Var;
+        String str = c88Var.a;
+        if (str != null) {
+            this.j.K(str, 10, false);
+        }
+        this.k.setText(c88Var.b);
+        this.l.setText(c88Var.c);
     }
 }

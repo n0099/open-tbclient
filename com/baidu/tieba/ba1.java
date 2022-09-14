@@ -1,75 +1,57 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.ArrayMap;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.perf.signal.register.NativeSignalCapture;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ba1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bundle a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            for (String str : map.keySet()) {
-                bundle.putString(str, map.get(str));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638135, "Lcom/baidu/tieba/ba1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return bundle;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947638135, "Lcom/baidu/tieba/ba1;");
+                return;
+            }
         }
-        return (Bundle) invokeL.objValue;
+        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
     }
 
-    public static JSONObject b(Map<String, String> map) {
-        InterceptResult invokeL;
+    public static void a(z91 z91Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                jSONObject.put(str, map.get(str));
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(65537, null, z91Var) == null) {
+            NativeSignalCapture.addANRListener(z91Var);
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public static <K, V> Map<K, V> c() {
-        InterceptResult invokeV;
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new ArrayMap();
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.registerANR(i);
             }
-            return new HashMap();
         }
-        return (Map) invokeV.objValue;
     }
 
-    public static Map<String, String> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            Map<String, String> c = c();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next)) {
-                        c.put(next, jSONObject.optString(next));
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            NativeSignalCapture.clearANRListener();
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.unRegisterANR();
             }
-            return c;
         }
-        return (Map) invokeL.objValue;
     }
 }

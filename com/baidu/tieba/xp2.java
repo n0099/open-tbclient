@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class xp2 extends cq2 {
+public final class xp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<wp2> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,67 +29,145 @@ public class xp2 extends cq2 {
                 return;
             }
         }
-        boolean z = kh1.a;
+        a = new ArrayList<>();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xp2(String str) {
-        super(str);
+    public static void a(wp2 wp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, wp2Var) == null) || wp2Var == null || a.contains(wp2Var)) {
+            return;
+        }
+        a.add(wp2Var);
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wp2 wp2Var = a.get(size);
+                if (wp2Var != null) {
+                    wp2Var.onDestroy();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.cq2
-    public boolean a(sp2 sp2Var, up2 up2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, a13 a13Var) {
-        InterceptResult invokeCommon;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{sp2Var, up2Var, context, unitedSchemeEntity, callbackHandler, a13Var})) == null) {
-            ay1.i("video", "open, video id:" + up2Var.j + " slave id: " + up2Var.c);
-            sp2Var.l();
-            d(sp2Var, up2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeCommon.booleanValue;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            wp2 wp2Var = a.get(size);
+            if (wp2Var != null && TextUtils.equals(str, wp2Var.b())) {
+                wp2Var.onDestroy();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.cq2
-    public sp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public static wp2 e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            yn2 f = zn2.f(str, str2, str3);
-            if (f == null) {
-                return new sp2(context, up2.h(jSONObject, new up2()));
-            }
-            if (f.i() instanceof sp2) {
-                return (sp2) f.i();
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wp2 wp2Var = a.get(size);
+                if (wp2Var != null && TextUtils.equals(str, wp2Var.c())) {
+                    return wp2Var;
+                }
             }
             return null;
         }
-        return (sp2) invokeLLLLL.objValue;
+        return (wp2) invokeL.objValue;
     }
 
-    public final void d(sp2 sp2Var, up2 up2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public static wp2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, sp2Var, up2Var, unitedSchemeEntity, callbackHandler) == null) {
-            sp2Var.o(up2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wp2 wp2Var = a.get(size);
+                if (wp2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, wp2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, wp2Var.f())) || TextUtils.equals(str3, wp2Var.c())))) {
+                    return wp2Var;
+                }
+            }
+            return null;
         }
+        return (wp2) invokeLLL.objValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wp2 wp2Var = a.get(size);
+                if (wp2Var != null && TextUtils.equals(str, wp2Var.b()) && wp2Var.onBackPressed()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wp2 wp2Var = a.get(size);
+                if (wp2Var != null) {
+                    wp2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            wp2 wp2Var = a.get(size);
+            if (wp2Var != null && TextUtils.equals(str, wp2Var.b())) {
+                wp2Var.k(z);
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                wp2 wp2Var = a.get(size);
+                if (wp2Var != null) {
+                    wp2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(wp2 wp2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65547, null, wp2Var) == null) || wp2Var == null) {
+            return;
+        }
+        a.remove(wp2Var);
     }
 }

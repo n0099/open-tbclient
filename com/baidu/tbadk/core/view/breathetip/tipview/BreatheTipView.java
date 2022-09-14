@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.ns4;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +48,7 @@ public class BreatheTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = new TextView(context);
             this.b = new TextView(context);
-            int f = ri.f(context, R.dimen.M_W_X007);
+            int f = ej.f(context, R.dimen.M_W_X007);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 1;
             layoutParams.leftMargin = f;
@@ -60,31 +60,31 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = f;
             layoutParams2.rightMargin = f;
             addView(this.b, layoutParams2);
-            ns4 d = ns4.d(this.a);
+            uu4 d = uu4.d(this.a);
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X02);
-            ns4 d2 = ns4.d(this.b);
+            uu4 d2 = uu4.d(this.b);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
         }
     }
 
-    public void setData(kv4 kv4Var) {
+    public void setData(ux4 ux4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kv4Var) == null) {
-            int i = kv4Var.g;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ux4Var) == null) {
+            int i = ux4Var.g;
             if (i < 0) {
                 i = -2;
             }
-            int i2 = kv4Var.h;
+            int i2 = ux4Var.h;
             setLayoutParams(new LinearLayout.LayoutParams(i, i2 >= 0 ? i2 : -2));
-            this.a.setText(kv4Var.a);
-            SkinManager.setViewTextColor(this.a, kv4Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = kv4Var.f;
-            this.b.setText(kv4Var.b);
-            SkinManager.setViewTextColor(this.b, kv4Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = kv4Var.f + ri.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, kv4Var.e);
+            this.a.setText(ux4Var.a);
+            SkinManager.setViewTextColor(this.a, ux4Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ux4Var.f;
+            this.b.setText(ux4Var.b);
+            SkinManager.setViewTextColor(this.b, ux4Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = ux4Var.f + ej.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, ux4Var.e);
         }
     }
 

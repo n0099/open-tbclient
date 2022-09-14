@@ -1,186 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.OperationApplicationException;
-import android.content.UriMatcher;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.Configuration;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.CancellationSignal;
-import android.os.ParcelFileDescriptor;
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class sc1 {
+public class sc1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentProvider a;
-    public final int b;
-    public final int c;
+    public List<PayChannelEntity> a;
+    public Context b;
 
-    public sc1(int i, int i2) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public TextView b;
+        public ImageView c;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a0b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a0f);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a10);
+        }
+    }
+
+    public sc1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        this.c = i2;
+        this.b = context;
     }
 
-    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public PayChannelEntity getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            int size = arrayList.size();
-            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
-            for (int i = 0; i < size; i++) {
-                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i < 0 || i >= this.a.size()) {
+                return null;
             }
-            return contentProviderResultArr;
+            return this.a.get(i);
         }
-        return (ContentProviderResult[]) invokeL.objValue;
+        return (PayChannelEntity) invokeI.objValue;
     }
 
-    public void b(ContentProvider contentProvider) {
+    public void b(List<PayChannelEntity> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
-            this.a = contentProvider;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            notifyDataSetChanged();
         }
     }
 
-    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
-        InterceptResult invokeILL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
-            int length = contentValuesArr.length;
-            for (ContentValues contentValues : contentValuesArr) {
-                insert(i, uri, contentValues);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<PayChannelEntity> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            return length;
+            return list.size();
         }
-        return invokeILL.intValue;
+        return invokeV.intValue;
     }
 
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
-        return (Bundle) invokeLLL.objValue;
+        return invokeI.longValue;
     }
 
-    public boolean d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public abstract int delete(int i, Uri uri, String str, String[] strArr);
-
-    public void e(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048582, this, uri, i) == null) && Binder.getCallingUid() != Process.myUid()) {
-            throw new SecurityException();
-        }
-    }
-
-    public abstract void f(UriMatcher uriMatcher, String str);
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
-    }
-
-    public abstract String getType(int i, Uri uri);
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void i(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
-        }
-    }
-
-    public abstract Uri insert(int i, Uri uri, ContentValues contentValues);
-
-    public abstract boolean j();
-
-    public AssetFileDescriptor k(int i, Uri uri, String str) throws FileNotFoundException {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048591, this, i, uri, str)) == null) {
-            m(i, uri, str);
-            throw null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            PayChannelEntity item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0236, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
+            }
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                sa1.b().a(aVar.a, item.getIcon());
+                aVar.b.setText(item.getDisplayName());
+                if (item.getIsSelected() == 1) {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080450);
+                } else {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f081268);
+                }
+            }
+            return view2;
         }
-        return (AssetFileDescriptor) invokeILL.objValue;
+        return (View) invokeILL.objValue;
     }
-
-    public AssetFileDescriptor l(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
-            k(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeCommon.objValue;
-    }
-
-    public ParcelFileDescriptor m(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048593, this, i, uri, str)) == null) {
-            throw new FileNotFoundException("No files supported by provider at " + uri);
-        }
-        return (ParcelFileDescriptor) invokeILL.objValue;
-    }
-
-    public abstract Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
-
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) ? query(i, uri, strArr, str, strArr2, str2) : (Cursor) invokeCommon.objValue;
-    }
-
-    public abstract int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 }

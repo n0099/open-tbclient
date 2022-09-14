@@ -1,141 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.TextureMapView;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes4.dex */
-public class j64 extends pw1<TextureMapView, mn2> {
+public class j64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
-    public String j;
-    public boolean k;
-    @NonNull
-    public TextureMapView l;
-    public Context m;
-    public List<i64> n;
-    public List<h64> o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j64(@NonNull Context context, @NonNull mn2 mn2Var) {
-        super(context, mn2Var);
+    /* loaded from: classes4.dex */
+    public static class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            }
+        }
+    }
+
+    public static Map<String, String> a(@NonNull y23 y23Var, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, mn2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (qw1) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, y23Var, i, str)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, y23Var.O());
+            treeMap.put("to_app_key", str);
+            treeMap.put("source", String.valueOf(i));
+            treeMap.put("timestamp", c());
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : treeMap.keySet()) {
+                sb.append(str2);
+                sb.append("=");
+                sb.append((String) treeMap.get(str2));
+                sb.append("&");
+            }
+            sb.append("dsb9Ao44");
+            treeMap.put("sign", ej4.d(sb.toString().getBytes(), false));
+            return treeMap;
+        }
+        return (Map) invokeLIL.objValue;
+    }
+
+    public static void b(int i, @NonNull ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
+            y23 M = y23.M();
+            if (M == null) {
+                responseCallback.onFail(new Exception("framework error: swan app is null."));
                 return;
             }
-        }
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.i = mn2Var.c;
-        this.j = mn2Var.b;
-        String str = mn2Var.d;
-        this.m = context;
-        this.l = new TextureMapView(context);
-        this.k = mn2Var.r;
-    }
-
-    public static j64 K(Context context, mn2 mn2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, mn2Var)) == null) {
-            if (context == null || mn2Var == null || !mn2Var.isValid()) {
-                return null;
-            }
-            return new j64(context, mn2Var);
-        }
-        return (j64) invokeLL.objValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (i64 i64Var : this.n) {
-                this.l.removeView(i64Var.e);
-            }
-            this.n.clear();
-            for (h64 h64Var : this.o) {
-                this.l.removeView(h64Var.b);
-            }
-            this.o.clear();
-            this.l.getMap().clear();
+            M.i0().getRequest().cookieManager(fm2.q().a()).url(pz3.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
         }
     }
 
-    public h64 G(View view2) {
-        InterceptResult invokeL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            for (h64 h64Var : this.o) {
-                if (h64Var.b == view2) {
-                    return h64Var;
-                }
-            }
-            return null;
-        }
-        return (h64) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
     }
 
-    @Nullable
-    public i64 H(Marker marker) {
-        InterceptResult invokeL;
+    public static void d(int i, String str) {
+        y23 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
-            for (i64 i64Var : this.n) {
-                if (marker == i64Var.b) {
-                    return i64Var;
-                }
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (M = y23.M()) == null) {
+            return;
         }
-        return (i64) invokeL.objValue;
-    }
-
-    public List<i64> I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            for (i64 i64Var : this.n) {
-                un2 un2Var = i64Var.a;
-                if (un2Var != null && TextUtils.equals(str, un2Var.a)) {
-                    arrayList.add(i64Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pw1
-    @NonNull
-    /* renamed from: J */
-    public TextureMapView v(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? this.l : (TextureMapView) invokeL.objValue;
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(fm2.q().a())).url(pz3.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
     }
 }

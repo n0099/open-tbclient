@@ -1,172 +1,197 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ms9 extends os9 {
+public final class ms9<M extends Message<M, B>, B extends Message.a<M, B>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h;
-    public String i;
+    public final WireField.Label a;
+    public final String b;
+    public final int c;
+    public final String d;
+    public final String e;
+    public final boolean f;
+    public final Field g;
+    public final Field h;
+    public final Method i;
+    public ProtoAdapter<?> j;
+    public ProtoAdapter<?> k;
+    public ProtoAdapter<Object> l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ms9() {
-        super(Framedata.Opcode.CLOSING);
+    public ms9(WireField wireField, Field field, Class<B> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wireField, field, cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        r("");
-        q(1000);
+        this.a = wireField.label();
+        this.b = field.getName();
+        this.c = wireField.tag();
+        this.d = wireField.keyAdapter();
+        this.e = wireField.adapter();
+        this.f = wireField.redacted();
+        this.g = field;
+        this.h = c(cls, this.b);
+        this.i = d(cls, this.b, field.getType());
     }
 
-    @Override // com.baidu.tieba.qs9, org.java_websocket.framing.Framedata
-    public ByteBuffer a() {
+    public static Field c(Class<?> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            try {
+                return cls.getField(str);
+            } catch (NoSuchFieldException unused) {
+                throw new AssertionError("No builder field " + cls.getName() + "." + str);
+            }
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method d(Class<?> cls, String str, Class<?> cls2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
+            try {
+                return cls.getMethod(str, cls2);
+            } catch (NoSuchMethodException unused) {
+                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
+            }
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public ProtoAdapter<Object> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == 1005) {
-                return gt9.a();
+            ProtoAdapter<Object> protoAdapter = this.l;
+            if (protoAdapter != null) {
+                return protoAdapter;
             }
-            return super.a();
+            if (f()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
+                this.l = newMapAdapter;
+                return newMapAdapter;
+            }
+            ProtoAdapter<?> withLabel = i().withLabel(this.a);
+            this.l = withLabel;
+            return withLabel;
         }
-        return (ByteBuffer) invokeV.objValue;
+        return (ProtoAdapter) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.os9, com.baidu.tieba.qs9
-    public void h() throws InvalidDataException {
+    public Object b(M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.h();
-            if (this.h == 1007 && this.i == null) {
-                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
+            try {
+                return this.g.get(m);
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
             }
-            if (this.h == 1005 && this.i.length() > 0) {
-                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
+        }
+        return invokeL.objValue;
+    }
+
+    public Object e(B b) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
+            try {
+                return this.h.get(b);
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
             }
-            int i = this.h;
-            if (i > 1015 && i < 3000) {
-                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
+        }
+        return invokeL.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.d.isEmpty() : invokeV.booleanValue;
+    }
+
+    public ProtoAdapter<?> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ProtoAdapter<?> protoAdapter = this.k;
+            if (protoAdapter != null) {
+                return protoAdapter;
             }
-            int i2 = this.h;
-            if (i2 == 1006 || i2 == 1015 || i2 == 1005 || i2 > 4999 || i2 < 1000 || i2 == 1004) {
-                throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
+            this.k = protoAdapter2;
+            return protoAdapter2;
+        }
+        return (ProtoAdapter) invokeV.objValue;
+    }
+
+    public void h(B b, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
+            try {
+                if (this.a.isOneOf()) {
+                    this.i.invoke(b, obj);
+                } else {
+                    this.h.set(b, obj);
+                }
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new AssertionError(e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qs9
-    public void j(ByteBuffer byteBuffer) {
+    public ProtoAdapter<?> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            this.h = 1005;
-            this.i = "";
-            byteBuffer.mark();
-            if (byteBuffer.remaining() == 0) {
-                this.h = 1000;
-            } else if (byteBuffer.remaining() == 1) {
-                this.h = 1002;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ProtoAdapter<?> protoAdapter = this.j;
+            if (protoAdapter != null) {
+                return protoAdapter;
+            }
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
+            this.j = protoAdapter2;
+            return protoAdapter2;
+        }
+        return (ProtoAdapter) invokeV.objValue;
+    }
+
+    public void j(B b, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
+            if (this.a.isRepeated()) {
+                ((List) e(b)).add(obj);
+            } else if (!this.d.isEmpty()) {
+                ((Map) e(b)).putAll((Map) obj);
             } else {
-                if (byteBuffer.remaining() >= 2) {
-                    ByteBuffer allocate = ByteBuffer.allocate(4);
-                    allocate.position(2);
-                    allocate.putShort(byteBuffer.getShort());
-                    allocate.position(0);
-                    this.h = allocate.getInt();
-                }
-                byteBuffer.reset();
-                try {
-                    int position = byteBuffer.position();
-                    try {
-                        byteBuffer.position(byteBuffer.position() + 2);
-                        this.i = ht9.e(byteBuffer);
-                        byteBuffer.position(position);
-                    } catch (IllegalArgumentException unused) {
-                        throw new InvalidDataException(1007);
-                    }
-                } catch (InvalidDataException unused2) {
-                    this.h = 1007;
-                    this.i = null;
-                }
+                h(b, obj);
             }
         }
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.h = i;
-            if (i == 1015) {
-                this.h = 1005;
-                this.i = "";
-            }
-            s();
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.i = str;
-            s();
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            byte[] f = ht9.f(this.i);
-            ByteBuffer allocate = ByteBuffer.allocate(4);
-            allocate.putInt(this.h);
-            allocate.position(2);
-            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
-            allocate2.put(allocate);
-            allocate2.put(f);
-            allocate2.rewind();
-            super.j(allocate2);
-        }
-    }
-
-    @Override // com.baidu.tieba.qs9
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return super.toString() + "code: " + this.h;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,96 +1,250 @@
 package com.baidu.tieba;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes5.dex */
-public class pb4 extends ea4<vb4> {
+public class pb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ag4 b;
+    public static final String c;
+    public static final Uri d;
+    public static final Uri e;
+    public static final Uri f;
+    public static final Uri g;
+    public static final Uri h;
+    public static final Uri i;
+    public static final Uri j;
+    public static UriMatcher k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pb4(String str, t84 t84Var, ec4 ec4Var) {
-        super(t84Var, ec4Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056263, "Lcom/baidu/tieba/pb4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948056263, "Lcom/baidu/tieba/pb4;");
+                return;
+            }
+        }
+        b = ag4.c();
+        c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+        d = Uri.parse("content://" + c + "/framework");
+        e = Uri.parse("content://" + c + "/swan_app");
+        f = Uri.parse("content://" + c + "/pkg_main");
+        g = Uri.parse("content://" + c + "/pkg_sub");
+        h = Uri.parse("content://" + c + "/" + ETAG.KEY_EXTENSION);
+        i = Uri.parse("content://" + c + "/swan_plugin");
+        j = Uri.parse("content://" + c + "/so_lib");
+        UriMatcher uriMatcher = new UriMatcher(-1);
+        k = uriMatcher;
+        uriMatcher.addURI(c, "framework", 2);
+        k.addURI(c, "pkg_main", 0);
+        k.addURI(c, "pkg_sub", 1);
+        k.addURI(c, ETAG.KEY_EXTENSION, 3);
+        k.addURI(c, "swan_app", 4);
+        k.addURI(c, "swan_plugin", 5);
+        k.addURI(c, "so_lib", 7);
+    }
+
+    public pb4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, t84Var, ec4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((t84) objArr2[0], (ec4) objArr2[1]);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.ea4
-    public String h() {
+    public SQLiteOpenHelper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ob4.a() : (SQLiteOpenHelper) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: v */
-    public boolean f(vb4 vb4Var) {
+    public final String b(Uri uri) {
         InterceptResult invokeL;
-        List<y94> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vb4Var)) == null) {
-            if (vb4Var == null || (list = vb4Var.a) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            int match = k.match(uri);
+            if (match != 0) {
+                if (match != 1) {
+                    if (match != 2) {
+                        if (match != 3) {
+                            if (match != 4) {
+                                if (match != 5) {
+                                    if (match != 7) {
+                                        return null;
+                                    }
+                                    return "so_lib";
+                                }
+                                return "swan_plugin";
+                            }
+                            return "swan_app";
+                        }
+                        return ETAG.KEY_EXTENSION;
+                    }
+                    return "framework";
+                }
+                return "pkg_sub";
             }
-            for (y94 y94Var : list) {
-                if (!y94Var.a()) {
-                    return false;
+            return "pkg_main";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public Cursor c(@NonNull Uri uri, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, str)) == null) {
+            if (!TextUtils.isEmpty(b(uri))) {
+                try {
+                    return a().getReadableDatabase().rawQuery(str, null);
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#rawQuery error", e2);
                 }
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: w */
-    public s94 t(vb4 vb4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vb4Var)) == null) {
-            this.a.E();
-            ge4 ge4Var = new ge4();
-            p(vb4Var.a, ge4Var);
-            if (ge4Var.n() == 0) {
-                this.a.F();
-                return null;
-            }
-            this.a.G(ge4Var);
-            ja4.d(vb4Var, this.a);
             return null;
         }
-        return (s94) invokeL.objValue;
+        return (Cursor) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ea4
-    /* renamed from: x */
-    public vb4 u(JSONObject jSONObject) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, uri, str, strArr)) == null) {
+            String b2 = b(uri);
+            if (TextUtils.isEmpty(b2)) {
+                return 0;
+            }
+            ag4 ag4Var = b;
+            ag4Var.i("PMSDBProvider", "#delete tableName=" + b2 + " selection=" + str);
+            try {
+                int delete = a().getWritableDatabase().delete(b2, str, strArr);
+                if (delete > 0) {
+                    this.a.getContentResolver().notifyChange(uri, null);
+                }
+                return delete;
+            } catch (SQLException e2) {
+                b.g("PMSDBProvider", "#delete error", e2);
+                return 0;
+            }
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Nullable
+    public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? fe4.i(this.d, jSONObject) : (vb4) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, contentValues)) == null) {
+            String b2 = b(uri);
+            if (!TextUtils.isEmpty(b2) && contentValues != null) {
+                ag4 ag4Var = b;
+                ag4Var.i("PMSDBProvider", "#insert values=" + contentValues);
+                try {
+                    long insertWithOnConflict = a().getWritableDatabase().insertWithOnConflict(b2, null, contentValues, 5);
+                    if (insertWithOnConflict > 0) {
+                        Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
+                        this.a.getContentResolver().notifyChange(withAppendedId, null);
+                        return withAppendedId;
+                    }
+                    return uri;
+                } catch (SQLException e2) {
+                    b.g("PMSDBProvider", "#insert error", e2);
+                }
+            }
+            return null;
+        }
+        return (Uri) invokeLL.objValue;
+    }
+
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
+            if (uri.getQueryParameter("rawQuery") != null) {
+                return c(uri, str);
+            }
+            String b2 = b(uri);
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            try {
+                return a().getReadableDatabase().query(b2, strArr, str, strArr2, null, null, str2, null);
+            } catch (SQLException e2) {
+                b.g("PMSDBProvider", "#query error", e2);
+                return null;
+            }
+        }
+        return (Cursor) invokeLLLLL.objValue;
+    }
+
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
+            String b2 = b(uri);
+            if (TextUtils.isEmpty(b2)) {
+                return 0;
+            }
+            ag4 ag4Var = b;
+            ag4Var.i("PMSDBProvider", "#update tableName=" + b2 + " selection=" + str);
+            try {
+                int update = a().getWritableDatabase().update(b2, contentValues, str, strArr);
+                if (update > 0) {
+                    this.a.getContentResolver().notifyChange(uri, null);
+                }
+                return update;
+            } catch (SQLException e2) {
+                b.g("PMSDBProvider", "#update error", e2);
+                return 0;
+            }
+        }
+        return invokeLLLL.intValue;
     }
 }

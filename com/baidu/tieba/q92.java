@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class q92 {
+public final class q92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -24,24 +30,57 @@ public class q92 {
                 return;
             }
         }
-        boolean z = kh1.a;
-        a = b("swan_clean_pkg_opt", 0);
+        b = ij1.a;
+        fm2.g0().getSwitch("swan_slave_ready", false);
+        c = false;
     }
 
-    public static boolean a() {
+    public q92() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static zc2 a(q92 q92Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, q92Var)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + q92Var);
+            }
+            TreeMap treeMap = new TreeMap();
+            treeMap.put("slaveId", q92Var.a);
+            return new zc2("SlaveReady", treeMap);
+        }
+        return (zc2) invokeL.objValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
+            }
+            return c;
+        }
+        return invokeV.booleanValue;
     }
 
-    public static boolean b(String str, int i) {
-        InterceptResult invokeLI;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            hk2.g0().getSwitch(str, i);
-            ay1.k("CleanPkgSwitcher", str + " value from AB : " + i);
-            return i == 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
         }
-        return invokeLI.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

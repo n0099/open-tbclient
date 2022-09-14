@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b<T extends b> {
     public static final String a = "b";
     public static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
@@ -62,7 +62,7 @@ public class b<T extends b> {
     public g y;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$2  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] a;
 
@@ -92,7 +92,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a<T extends a> {
         public String b;
         public Object c;
@@ -118,8 +118,8 @@ public class b<T extends b> {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0638b<T extends C0638b> {
+    /* loaded from: classes8.dex */
+    public static class C0643b<T extends C0643b> {
         public int b;
         public String c;
         public Object d;
@@ -134,7 +134,7 @@ public class b<T extends b> {
         public HashMap<String, String> j = new HashMap<>();
         public HashMap<String, String> k = new HashMap<>();
 
-        public C0638b(String str) {
+        public C0643b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
@@ -154,7 +154,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c<T extends c> {
         public String b;
         public Object c;
@@ -192,7 +192,7 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d<T extends d> {
         public int b;
         public String c;
@@ -265,7 +265,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C0638b c0638b) {
+    public b(C0643b c0643b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -284,19 +284,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c0638b.b;
-        this.c = c0638b.a;
-        this.e = c0638b.c;
-        this.g = c0638b.d;
-        this.i = c0638b.i;
-        this.F = c0638b.e;
-        this.H = c0638b.g;
-        this.G = c0638b.f;
-        this.I = c0638b.h;
-        this.m = c0638b.j;
-        this.n = c0638b.k;
-        this.J = c0638b.l;
-        this.K = c0638b.m;
+        this.b = c0643b.b;
+        this.c = c0643b.a;
+        this.e = c0643b.c;
+        this.g = c0643b.d;
+        this.i = c0643b.i;
+        this.F = c0643b.e;
+        this.H = c0643b.g;
+        this.G = c0643b.f;
+        this.I = c0643b.h;
+        this.m = c0643b.j;
+        this.n = c0643b.k;
+        this.J = c0643b.l;
+        this.K = c0643b.m;
     }
 
     public b(c cVar) {

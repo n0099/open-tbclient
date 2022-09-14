@@ -1,126 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class h56 implements pn {
+public final class h56 extends l46 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public int b;
-    public int c;
-    public boolean d;
+    public x36 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774752, "Lcom/baidu/tieba/h56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774752, "Lcom/baidu/tieba/h56;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public h56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h56(i46 context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((i46) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public static h56 b(i15 i15Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.r0
+    public void c(o0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, i15Var)) == null) {
-            h56 h56Var = new h56();
-            h56Var.a = i15Var.b;
-            h56Var.b = i15Var.d;
-            h56Var.c = i15Var.e;
-            return h56Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
         }
-        return (h56) invokeL.objValue;
     }
 
-    public static h56 c(ManageInfo manageInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l46
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            h56 h56Var = new h56();
-            ItemData itemData = new ItemData();
-            h56Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            h56Var.b = manageInfo.item_source.intValue();
-            return h56Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (h56) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public h56 clone() {
+    public final x36 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            h56 h56Var = new h56();
-            h56Var.a = this.a;
-            h56Var.b = this.b;
-            h56Var.c = this.c;
-            h56Var.d = this.d;
-            return h56Var;
-        }
-        return (h56) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (x36) invokeV.objValue;
     }
 
-    public boolean f(h56 h56Var) {
-        InterceptResult invokeL;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h56Var)) == null) {
-            boolean z = this.b == h56Var.b && this.c == h56Var.c;
-            ItemData itemData3 = this.a;
-            boolean equals = (itemData3 == null || (itemData2 = h56Var.a) == null) ? false : itemData3.pkgName.equals(itemData2.pkgName);
-            ItemData itemData4 = this.a;
-            return z && equals && ((itemData4 == null || (itemData = h56Var.a) == null || (apkDetail = itemData4.apkDetail) == null || (apkDetail2 = itemData.apkDetail) == null) ? false : apkDetail.version_code.equals(apkDetail2.version_code));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            x36 x36Var = this.e;
+            if (x36Var != null) {
+                x36 c = i().c();
+                if (c.j() != x36Var.j() || c.g() != x36Var.g()) {
+                    BdLog.w("DanmakuEngine [Config] density from " + c.j() + " to " + x36Var.j());
+                    x36Var.G();
+                    x36Var.I();
+                    x36Var.F();
+                    x36Var.C();
+                }
+                if (!(c.v() == x36Var.v())) {
+                    BdLog.w("DanmakuEngine [Config] textSizeScale change from " + c.v() + " to " + x36Var.v());
+                    x36Var.I();
+                    x36Var.F();
+                    x36Var.G();
+                    x36Var.C();
+                }
+                if (c.w() != x36Var.w()) {
+                    x36Var.J();
+                }
+                if (!(c.u() == x36Var.u()) || c.e() != x36Var.e()) {
+                    x36Var.F();
+                    x36Var.J();
+                    x36Var.I();
+                }
+                if (c.n().size() != x36Var.n().size() || c.l() != x36Var.l()) {
+                    x36Var.D();
+                }
+                i().h(x36Var);
+            }
+            this.e = null;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void m(x36 danmakuConfig) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
+            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
+            this.e = danmakuConfig;
+        }
+    }
+
+    @Override // com.baidu.tieba.r0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            l();
+        }
     }
 }

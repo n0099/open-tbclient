@@ -21,11 +21,11 @@ import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm;
-import com.baidu.tieba.cm;
-import com.baidu.tieba.fg;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.qi;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.pm;
+import com.baidu.tieba.qm;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.tg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class ViewHelper {
     public static final int TYPE_DOWN = 2;
     public static final int TYPE_MIDDLE = 1;
     public static final int TYPE_UP = 0;
-    public static fg<Integer, Integer> cachedSkinInViews = null;
+    public static tg<Integer, Integer> cachedSkinInViews = null;
     public static Context mAppContext = null;
     public static boolean mIsNeedInit = false;
     public static int mMore_color = -1;
@@ -83,7 +83,7 @@ public class ViewHelper {
                 return;
             }
         }
-        cachedSkinInViews = new fg<>(500);
+        cachedSkinInViews = new tg<>(500);
         mAppContext = null;
     }
 
@@ -286,7 +286,7 @@ public class ViewHelper {
                                 ViewHelper.setTextColor((CheckBox) view2, this.val$skinType);
                                 return false;
                             } else if (ViewHelper.SIDE_BAR_CONTENT.equals(tag)) {
-                                ((TextView) view2).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003f8 : R.style.obfuscated_res_0x7f1003f7);
+                                ((TextView) view2).setTextAppearance(TbadkCoreApplication.getInst().getApp(), this.val$isNight ? R.style.obfuscated_res_0x7f1003f9 : R.style.obfuscated_res_0x7f1003f8);
                                 return false;
                             } else if (ViewHelper.MORE_UP.equals(tag)) {
                                 if (view2 instanceof RadioButton) {
@@ -403,7 +403,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) || context == null) {
             return;
         }
-        hu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        qw4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -413,7 +413,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65562, null, context) == null) || context == null) {
             return;
         }
-        hu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        qw4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
@@ -443,20 +443,20 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) || context == null) {
             return;
         }
-        hu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        qw4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
         checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
         checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
         checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
         LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
-        if (!qi.isEmpty(str)) {
+        if (!dj.isEmpty(str)) {
             loginActivityConfig.setFrom(str);
         }
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(cm.a);
+            requestParams.setRunType(qm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new bm("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+            requestParams.addChannel(new pm("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
             PmsManager.getInstance().execute(requestParams);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));

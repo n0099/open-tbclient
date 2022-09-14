@@ -5,13 +5,13 @@ import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hk2;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.fm2;
+import com.baidu.tieba.pg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,26 +45,26 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.n = true;
-        this.o = hk2.M().a();
+        this.o = fm2.M().a();
         j();
         setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(re3.f(getContext(), 5.0f));
+        setCompoundDrawablePadding(pg3.f(getContext(), 5.0f));
         b(0);
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b8));
-            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e9));
-            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9), 0, re3.f(getContext(), 11.0f), re3.f(getContext(), 11.0f));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9));
+            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ea));
+            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ba), 0, pg3.f(getContext(), 11.0f), pg3.f(getContext(), 11.0f));
         }
     }
 
     public void k() {
         boolean a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = hk2.M().a())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = fm2.M().a())) {
             return;
         }
         j();

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tieba.ap8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,7 +187,7 @@ public class RawLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041c, R.attr.obfuscated_res_0x7f0405aa, R.attr.obfuscated_res_0x7f04063e, R.attr.obfuscated_res_0x7f040641});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.RawLayout);
             String string = obtainStyledAttributes.getString(1);
             if (string == null) {
                 string = "horizontal";
@@ -672,7 +672,7 @@ public class RawLayout extends ViewGroup {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041c, R.attr.obfuscated_res_0x7f0405aa, R.attr.obfuscated_res_0x7f04063e, R.attr.obfuscated_res_0x7f040641});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.RawLayout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
             if (((LinearLayout.LayoutParams) this).gravity == -1) {

@@ -1,440 +1,270 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.wifi.SupplicantState;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiInfo;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.ArrayList;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes6.dex */
-public class xb3 extends ub3 {
+public class xb3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile xb3 i;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vb3 h;
+    public wb3 a;
+    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements vb3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public tf3<ac3<zb3>> a;
-        public WifiConfiguration b;
-        public boolean c;
-        public final Handler d;
-        public final Lock e;
-        public final Runnable f;
-        public final rb3 g;
-        public final /* synthetic */ xb3 h;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.e.lock();
-                    try {
-                        if (this.a.a != null) {
-                            this.a.h.g(12003, "connection timeout", null, this.a.a);
-                        }
-                        this.a.l();
-                    } finally {
-                        this.a.e.unlock();
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.xb3$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0456b implements rb3 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public C0456b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.sb3
-            public void a(WifiInfo wifiInfo) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
-                    if (wifiInfo == null) {
-                        wifiInfo = this.a.h.b.getConnectionInfo();
-                    }
-                    this.a.e.lock();
-                    try {
-                        if (this.a.b != null && this.a.a != null && TextUtils.equals(wifiInfo.getSSID(), this.a.b.SSID)) {
-                            this.a.h.g(0, "success", new zb3(wifiInfo, cc3.a(bc3.b(this.a.h.a, this.a.h.b, wifiInfo))), this.a.a);
-                            this.a.l();
-                        }
-                    } finally {
-                        this.a.e.unlock();
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.rb3
-            public void onError(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    this.a.e.lock();
-                    if (i == 1) {
-                        try {
-                            if (this.a.a != null) {
-                                if (this.a.c) {
-                                    this.a.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, this.a.a);
-                                } else {
-                                    this.a.h.g(12013, "wifi config unavailable", null, this.a.a);
-                                }
-                                this.a.l();
-                            }
-                        } finally {
-                            this.a.e.unlock();
-                        }
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ tf3 a;
-            public final /* synthetic */ yb3 b;
-            public final /* synthetic */ b c;
-
-            public c(b bVar, tf3 tf3Var, yb3 yb3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, tf3Var, yb3Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = tf3Var;
-                this.b = yb3Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                int addNetwork;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (Build.VERSION.SDK_INT >= 29) {
-                        this.c.h.g(12001, "not support", null, this.a);
-                    } else if (!this.c.h.l()) {
-                        this.c.h.g(12000, "not init", null, this.a);
-                    } else if (!this.c.h.b.isWifiEnabled()) {
-                        this.c.h.g(12005, "wifi is not on", null, this.a);
-                    } else if (!ue3.K(this.c.h.a)) {
-                        this.c.h.g(12006, "LBS is not on", null, this.a);
-                    } else if (ContextCompat.checkSelfPermission(this.c.h.a, com.kuaishou.weapon.p0.h.g) == 0) {
-                        this.c.e.lock();
-                        try {
-                            if (this.c.a == null) {
-                                this.c.a = this.a;
-                                this.c.e.unlock();
-                                this.c.b = bc3.a(this.b);
-                                if (this.c.b != null) {
-                                    if (!TextUtils.isEmpty(this.c.b.preSharedKey) && bc3.e(this.c.b.preSharedKey).length() < 8) {
-                                        b bVar = this.c;
-                                        bVar.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, bVar.a);
-                                        this.c.l();
-                                        return;
-                                    }
-                                    WifiInfo connectionInfo = this.c.h.b.getConnectionInfo();
-                                    if (connectionInfo != null && connectionInfo.getSupplicantState() != SupplicantState.COMPLETED) {
-                                        connectionInfo = null;
-                                    }
-                                    boolean z = false;
-                                    if (connectionInfo != null && !TextUtils.equals(connectionInfo.getSSID(), "<unknown ssid>") && TextUtils.equals(this.c.b.SSID, connectionInfo.getSSID()) && (TextUtils.isEmpty(this.c.b.BSSID) || (!TextUtils.isEmpty(this.c.b.BSSID) && TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())))) {
-                                        xb3 xb3Var = this.c.h;
-                                        xb3Var.g(0, "success", new zb3(connectionInfo, cc3.a(bc3.b(xb3Var.a, xb3Var.b, connectionInfo))), this.a);
-                                        this.c.l();
-                                        return;
-                                    }
-                                    xb3 xb3Var2 = this.c.h;
-                                    WifiConfiguration c = bc3.c(xb3Var2.a, xb3Var2.b, this.b);
-                                    if (c != null) {
-                                        this.c.b.networkId = c.networkId;
-                                    }
-                                    if (this.c.b.networkId > -1) {
-                                        b bVar2 = this.c;
-                                        addNetwork = bVar2.h.b.updateNetwork(bVar2.b);
-                                        if (addNetwork < 0 && c != null && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, c.BSSID)) {
-                                            this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                            this.c.l();
-                                            return;
-                                        } else if (connectionInfo != null && addNetwork == connectionInfo.getNetworkId() && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())) {
-                                            this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                            this.c.l();
-                                            return;
-                                        }
-                                    } else {
-                                        b bVar3 = this.c;
-                                        addNetwork = bVar3.h.b.addNetwork(bVar3.b);
-                                    }
-                                    this.c.c = addNetwork >= 0;
-                                    if (addNetwork < 0 && this.c.b.networkId > -1) {
-                                        addNetwork = this.c.b.networkId;
-                                    }
-                                    if (addNetwork >= 0) {
-                                        this.c.d.postDelayed(this.c.f, 16000L);
-                                        z = this.c.h.b.enableNetwork(addNetwork, true);
-                                        this.c.h.b.saveConfiguration();
-                                    }
-                                    if (z) {
-                                        return;
-                                    }
-                                    this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                    this.c.l();
-                                    return;
-                                }
-                                this.c.h.g(12008, "invalid ssid", null, this.a);
-                                this.c.l();
-                                return;
-                            }
-                            this.c.h.g(12004, "is connecting", null, this.a);
-                        } finally {
-                            this.c.e.unlock();
-                        }
-                    } else {
-                        this.c.h.g(12012, "no location permission", null, this.a);
-                    }
-                }
-            }
-        }
-
-        public b(xb3 xb3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948294560, "Lcom/baidu/tieba/xb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.h = xb3Var;
-            this.d = new Handler(Looper.getMainLooper());
-            this.e = new ReentrantLock();
-            this.f = new a(this);
-            C0456b c0456b = new C0456b(this);
-            this.g = c0456b;
-            xb3Var.c.setConnectListener(c0456b);
-        }
-
-        @Override // com.baidu.tieba.vb3
-        public void a(yb3 yb3Var, tf3<ac3<zb3>> tf3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, yb3Var, tf3Var) == null) || tf3Var == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948294560, "Lcom/baidu/tieba/xb3;");
                 return;
             }
-            ud3.k(new c(this, tf3Var, yb3Var), "connectWifi");
         }
-
-        public final void l() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.e.lock();
-                try {
-                    this.d.removeCallbacks(this.f);
-                    this.b = null;
-                    this.a = null;
-                } finally {
-                    this.e.unlock();
-                }
-            }
-        }
+        c = ij1.a;
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements vb3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xb3 a;
-
-        public c(xb3 xb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xb3Var;
-        }
-
-        @Override // com.baidu.tieba.vb3
-        public void a(yb3 yb3Var, tf3<ac3<zb3>> tf3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, yb3Var, tf3Var) == null) || tf3Var == null) {
-                return;
-            }
-            this.a.g(12001, "not support", null, tf3Var);
-        }
-
-        public /* synthetic */ c(xb3 xb3Var, a aVar) {
-            this(xb3Var);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xb3(Context context) {
-        super(context);
+    public xb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT < 29) {
-            this.h = new b(this);
-        } else {
-            this.h = new c(this, null);
-        }
+        this.a = null;
     }
 
-    public static xb3 s(@NonNull Context context) {
-        InterceptResult invokeL;
+    public synchronized void a(tb3 tb3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (i == null) {
-                synchronized (xb3.class) {
-                    if (i == null) {
-                        i = new xb3(context);
+        if (interceptable == null || interceptable.invokeL(1048576, this, tb3Var) == null) {
+            synchronized (this) {
+                if (tb3Var != null) {
+                    if (!TextUtils.isEmpty(tb3Var.a) && !TextUtils.isEmpty(tb3Var.c) && !TextUtils.isEmpty(tb3Var.b)) {
+                        if (tb3Var.e == -1) {
+                            return;
+                        }
+                        SQLiteDatabase f = f();
+                        if (f == null) {
+                            return;
+                        }
+                        if (c) {
+                            Log.d("SwanCookieDatabase", "addCookie cookie=" + tb3Var.toString());
+                        }
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("domain", tb3Var.a);
+                        contentValues.put("path", tb3Var.b);
+                        contentValues.put("name", tb3Var.c);
+                        contentValues.put("value", tb3Var.d);
+                        contentValues.put("expires", Long.valueOf(tb3Var.e));
+                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(tb3Var.f));
+                        f.insert("cookies", null, contentValues);
                     }
                 }
             }
-            return i;
         }
-        return (xb3) invokeL.objValue;
     }
 
-    public static void u() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || i == null) {
-            return;
-        }
-        i.h();
-        i = null;
-    }
-
-    @Override // com.baidu.tieba.vb3
-    public void a(yb3 yb3Var, tf3<ac3<zb3>> tf3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, yb3Var, tf3Var) == null) || tf3Var == null) {
-            return;
-        }
-        if (yb3Var != null && yb3Var.e) {
-            t();
-            g(0, "success", null, tf3Var);
-            return;
-        }
-        this.h.a(yb3Var, tf3Var);
-    }
-
-    public final void t() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.settings.WIFI_SETTINGS");
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "clearExpiredCookies");
+                }
+                f.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
             }
-            this.a.startActivity(intent);
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    return;
+                }
+                try {
+                    if (c) {
+                        Log.d("SwanCookieDatabase", "close");
+                    }
+                    this.a.close();
+                    this.a = null;
+                    this.b = true;
+                } catch (Exception e) {
+                    yz1.k("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public synchronized void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3);
+                }
+                f.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
+            }
+        }
+    }
+
+    public synchronized ArrayList<tb3> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c) {
+                    Log.d("SwanCookieDatabase", "getCookiesForDomain baseDomain=" + str);
+                }
+                ArrayList<tb3> arrayList = new ArrayList<>();
+                if (TextUtils.isEmpty(str)) {
+                    return arrayList;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return arrayList;
+                }
+                Cursor query = f.query("cookies", new String[]{"_id", "domain", "path", "name", "value", "expires", ClientCookie.SECURE_ATTR}, "(domain GLOB '*' || ?)", new String[]{str}, null, null, null);
+                if (query == null) {
+                    return arrayList;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                if (query.moveToFirst()) {
+                    int columnIndex = query.getColumnIndex("domain");
+                    int columnIndex2 = query.getColumnIndex("path");
+                    int columnIndex3 = query.getColumnIndex("name");
+                    int columnIndex4 = query.getColumnIndex("value");
+                    int columnIndex5 = query.getColumnIndex("expires");
+                    int columnIndex6 = query.getColumnIndex(ClientCookie.SECURE_ATTR);
+                    do {
+                        tb3 tb3Var = new tb3();
+                        tb3Var.a = query.getString(columnIndex);
+                        tb3Var.b = query.getString(columnIndex2);
+                        tb3Var.c = query.getString(columnIndex3);
+                        tb3Var.d = query.getString(columnIndex4);
+                        if (query.isNull(columnIndex5)) {
+                            tb3Var.e = -1L;
+                        } else {
+                            tb3Var.e = query.getLong(columnIndex5);
+                        }
+                        tb3Var.f = query.getShort(columnIndex6) != 0;
+                        tb3Var.i = 1;
+                        if (tb3Var.e > currentTimeMillis) {
+                            arrayList.add(tb3Var);
+                            if (c) {
+                                Log.d("SwanCookieDatabase", "getCookiesForDomain cookie=" + tb3Var.toString());
+                            }
+                        }
+                    } while (query.moveToNext());
+                    ar2.a(query);
+                    return arrayList;
+                }
+                ar2.a(query);
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final SQLiteDatabase f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b) {
+                return null;
+            }
+            wb3 wb3Var = this.a;
+            if (wb3Var != null) {
+                return wb3Var.getWritableDatabase();
+            }
+            String appId = x23.K().getAppId();
+            if (!x23.K().E()) {
+                yz1.k("SwanCookieDatabase", "getSQLiteDatabase currentAppId =" + appId);
+                return null;
+            }
+            String t = ga3.t(x23.K().q());
+            yz1.k("SwanCookieDatabase", "initDbHelper name =" + t);
+            wb3 wb3Var2 = new wb3(fm2.c(), t);
+            this.a = wb3Var2;
+            return wb3Var2.getWritableDatabase();
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public synchronized void g(Runnable runnable) {
+        String str;
+        String stackTraceString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                try {
+                    f.beginTransaction();
+                    runnable.run();
+                    f.setTransactionSuccessful();
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e);
+                        yz1.k(str, stackTraceString);
+                    }
+                } catch (Exception e2) {
+                    yz1.k("SwanCookieDatabase", Log.getStackTraceString(e2));
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e3) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e3);
+                        yz1.k(str, stackTraceString);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                f();
+            }
         }
     }
 }

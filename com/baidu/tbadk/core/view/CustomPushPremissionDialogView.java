@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ri;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,42 +66,42 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0207, this);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090743);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d020b, this);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090759);
             this.b = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.b.setFrame(0);
             SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f110049);
             this.b.playAnimation();
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090746);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09075c);
             this.a = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.c = findViewById(R.id.obfuscated_res_0x7f090742);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090758);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                this.d = findViewById(R.id.obfuscated_res_0x7f090279);
-                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(ri.f(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, ri.f(getContext(), R.dimen.tbds22)).into(this.d);
+                this.d = findViewById(R.id.obfuscated_res_0x7f090281);
+                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(ej.f(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, ej.f(getContext(), R.dimen.tbds22)).into(this.d);
                 ViewGroup.LayoutParams layoutParams2 = this.c.getLayoutParams();
-                layoutParams2.width = ri.f(context, R.dimen.tbds774);
+                layoutParams2.width = ej.f(context, R.dimen.tbds774);
                 this.c.setLayoutParams(layoutParams2);
                 TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.c);
             } else {
-                TBSelector.makeDrawableSelector().setShape(0).radius(ri.f(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.c);
+                TBSelector.makeDrawableSelector().setShape(0).radius(ej.f(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.c);
             }
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090744);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09075a);
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f52));
-            rv4 rv4Var = new rv4();
-            rv4Var.r(R.color.CAM_X0105);
-            this.e.setConfig(rv4Var);
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f6f));
+            by4 by4Var = new by4();
+            by4Var.r(R.color.CAM_X0105);
+            this.e.setConfig(by4Var);
             this.e.k();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090745);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09075b);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
-            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f54));
-            rv4 rv4Var2 = new rv4();
-            rv4Var2.p(R.color.CAM_X0302);
-            this.f.setConfig(rv4Var2);
+            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f71));
+            by4 by4Var2 = new by4();
+            by4Var2.p(R.color.CAM_X0302);
+            this.f.setConfig(by4Var2);
         }
     }
 

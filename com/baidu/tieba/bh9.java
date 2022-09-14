@@ -1,64 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class bh9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Handler a;
-    public static final Set<String> b;
+    public static final AtomicBoolean a;
+    public static HashMap<Integer, Boolean> b;
+    public static HashMap<Integer, Long> c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                SharedPreferences sharedPreferences = li9.a;
-                sharedPreferences.edit().clear().apply();
-                sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
-                bh9.b.clear();
-                sendEmptyMessageDelayed(101, bh9.a());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -73,26 +33,71 @@ public class bh9 {
                 return;
             }
         }
-        b = new HashSet();
-        a = new a(Looper.getMainLooper());
+        a = new AtomicBoolean(false);
+        b = new HashMap<>();
+        c = new HashMap<>();
     }
 
-    public static long a() {
+    public static long a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (c.containsKey(Integer.valueOf(i))) {
+                return c.get(Integer.valueOf(i)).longValue();
+            }
+            return Long.MAX_VALUE;
+        }
+        return invokeI.longValue;
+    }
+
+    public static SharedPreferences b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getSharedPreferences("CONFIG_RUNTIME", 0) : (SharedPreferences) invokeL.objValue;
+    }
+
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (bh9.class) {
+                if (!a.get()) {
+                    SharedPreferences b2 = b(context);
+                    Iterator<Integer> it = ch9.a.iterator();
+                    while (it.hasNext()) {
+                        int intValue = it.next().intValue();
+                        HashMap<Integer, Long> hashMap = c;
+                        Integer valueOf = Integer.valueOf(intValue);
+                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
+                        HashMap<Integer, Boolean> hashMap2 = b;
+                        Integer valueOf2 = Integer.valueOf(intValue);
+                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
+                    }
+                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
+                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
+                    a.set(true);
+                }
+            }
+        }
+    }
+
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (b.containsKey(Integer.valueOf(i))) {
+                return b.get(Integer.valueOf(i)).booleanValue();
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            long timeInMillis = calendar.getTimeInMillis();
-            calendar.add(6, 1);
-            calendar.set(11, 0);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
-            if (timeInMillis2 < 0) {
-                return 0L;
-            }
-            return timeInMillis2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return false;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 }

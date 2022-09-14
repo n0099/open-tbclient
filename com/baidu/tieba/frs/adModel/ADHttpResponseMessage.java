@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.uh6;
+import com.baidu.tieba.zi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int has_more;
-    public List<uh6> list;
+    public List<zi6> list;
     public long offset;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.has_more : invokeV.intValue;
     }
 
-    public List<uh6> getList() {
+    public List<zi6> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.list : (List) invokeV.objValue;
@@ -82,15 +82,15 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
-            uh6 uh6Var = new uh6();
-            uh6Var.s(getADListResIdl.data.ad_list.get(i2));
+            zi6 zi6Var = new zi6();
+            zi6Var.s(getADListResIdl.data.ad_list.get(i2));
             if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                uh6Var.t(true);
+                zi6Var.t(true);
             } else {
-                uh6Var.t(false);
+                zi6Var.t(false);
             }
-            if (uh6Var.r() == 0 || uh6Var.r() == 2) {
-                this.list.add(uh6Var);
+            if (zi6Var.r() == 0 || zi6Var.r() == 2) {
+                this.list.add(zi6Var);
             }
         }
         this.has_more = getADListResIdl.data.has_more.intValue();

@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.c.b;
 
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public final boolean a;
     public final LinkedList<Long> b;

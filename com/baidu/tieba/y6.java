@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b4;
+import com.baidu.tieba.c4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y6 extends u6 implements v6 {
+public class y6 extends v6 implements w6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c4 h;
+    public b4 h;
 
     public y6() {
         Interceptable interceptable = $ic;
@@ -27,46 +27,44 @@ public class y6 extends u6 implements v6 {
         }
     }
 
-    public void o(c4 c4Var) {
+    public void o(b4 b4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c4Var) == null) {
-            this.h = c4Var;
-            if (c4Var != null) {
-                j(c4Var.c());
-                h(c4Var.b());
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, b4Var) == null) {
+            this.h = b4Var;
+            j(b4Var.n());
+            h(b4Var.k());
         }
     }
 
-    public v6 p(k3 k3Var) {
+    public y6 p(l3 l3Var) {
         InterceptResult invokeL;
-        a4 a4Var;
+        b4 b4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k3Var)) == null) {
-            c4 c4Var = this.h;
-            if (c4Var instanceof b4.a) {
-                a4Var = new b4.b((b4.a) c4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3Var)) == null) {
+            b4 b4Var2 = this.h;
+            if (b4Var2 instanceof c4.b) {
+                b4Var = new c4.b((c4.b) b4Var2);
             } else {
-                a4Var = new a4(c4Var);
+                b4Var = new b4(b4Var2);
             }
-            a4Var.u(k3Var);
-            a4Var.z(a(), k());
-            x6 x6Var = new x6(a4Var);
-            x6Var.b(l());
-            x6Var.c(g());
-            x6Var.f(i());
-            x6Var.d(e());
-            return x6Var;
+            b4Var.u(l3Var);
+            b4Var.z(a(), k());
+            y6 y6Var = new y6(b4Var);
+            y6Var.b(l());
+            y6Var.c(g());
+            y6Var.f(i());
+            y6Var.d(e());
+            return y6Var;
         }
-        return (v6) invokeL.objValue;
+        return (y6) invokeL.objValue;
     }
 
-    public y6(c4 c4Var) {
+    public y6(b4 b4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c4Var};
+            Object[] objArr = {b4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,27 +74,6 @@ public class y6 extends u6 implements v6 {
                 return;
             }
         }
-        o(c4Var);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y6(y6 y6Var) {
-        super(y6Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y6Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((v6) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        o(y6Var.h);
+        o(b4Var);
     }
 }

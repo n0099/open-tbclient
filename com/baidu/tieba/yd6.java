@@ -1,46 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import android.view.View;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.forumSquare.adapter.LeftAdapter;
+import com.baidu.tbadk.core.util.RemoveFansController;
+import com.baidu.tieba.jy8;
+import com.baidu.tieba.xd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class yd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public RelativeLayout b;
-    public k65 c;
-    public RecyclerView d;
-    public LinearLayoutManager e;
-    public LeftAdapter f;
-    public BdTypeRecyclerView g;
-    public LinearLayoutManager h;
-    public PbListView i;
-    public ud6 j;
-    public BdListView.p k;
-    public BdListView.p l;
-    public final View m;
+    public TbPageContext a;
+    public RemoveFansController b;
+    public xd6 c;
+    public q38 d;
+    public jy8 e;
+    public e f;
 
     /* loaded from: classes6.dex */
-    public class a implements BdListView.p {
+    public class a implements xd6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yd6 a;
@@ -63,26 +46,134 @@ public class yd6 {
             this.a = yd6Var;
         }
 
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
+        @Override // com.baidu.tieba.xd6.b
+        public void a(int i, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.b(i, str, z, 0, 0L);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements RemoveFansController.IResultCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yd6 a;
+
+        public b(yd6 yd6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yd6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yd6Var;
+        }
+
+        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
+        public void onResultCallBack(int i, String str, long j, boolean z) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) || this.a.f == null) {
+                return;
+            }
+            this.a.f.b(i, str, z, 1, j);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements jy8.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yd6 a;
+
+        public c(yd6 yd6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yd6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yd6Var;
+        }
+
+        @Override // com.baidu.tieba.jy8.d
+        public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.g != null) {
-                    this.a.g.stopScroll();
+                this.a.d.dismiss();
+                if (this.a.f != null) {
+                    this.a.f.a();
                 }
-                if (this.a.k != null) {
-                    this.a.k.onScrollToBottom();
-                }
+                this.a.c.d();
             }
         }
     }
 
-    public yd6(TbPageContext tbPageContext, View view2) {
+    /* loaded from: classes6.dex */
+    public class d implements jy8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yd6 a;
+
+        public d(yd6 yd6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yd6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yd6Var;
+        }
+
+        @Override // com.baidu.tieba.jy8.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.d == null) {
+                return;
+            }
+            this.a.d.dismiss();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a();
+
+        void b(int i, String str, boolean z, int i2, long j);
+    }
+
+    public yd6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,291 +183,63 @@ public class yd6 {
                 return;
             }
         }
-        this.l = new a(this);
         this.a = tbPageContext;
-        this.m = view2;
-        h();
-        g();
+        xd6 xd6Var = new xd6(tbPageContext, bdUniqueId);
+        this.c = xd6Var;
+        xd6Var.e(new a(this));
+        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
+        this.b = removeFansController;
+        removeFansController.setResultCallBack(new b(this));
     }
 
-    public Pair<Integer, Integer> c() {
-        InterceptResult invokeV;
+    public void d() {
+        jy8 jy8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int firstVisiblePosition = this.g.getFirstVisiblePosition();
-            View childAt = this.g.getChildAt(0);
-            return new Pair<>(Integer.valueOf(firstVisiblePosition), Integer.valueOf(childAt != null ? childAt.getTop() : 0));
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (jy8Var = this.e) == null) {
+            return;
         }
-        return (Pair) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.g() : (String) invokeV.objValue;
+        jy8Var.e();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g.setNextPage(null);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
         }
     }
 
-    public void f() {
-        k65 k65Var;
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (k65Var = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.b.removeFans(j);
         }
-        k65Var.dettachView(this.b);
-        this.c = null;
     }
 
-    public final void g() {
+    public void g(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.a.getPageActivity());
-            this.e = linearLayoutManager;
-            this.d.setLayoutManager(linearLayoutManager);
-            LeftAdapter leftAdapter = new LeftAdapter(this.a.getPageActivity());
-            this.f = leftAdapter;
-            this.d.setAdapter(leftAdapter);
-            this.j = new ud6(this.a, this.g);
-            LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this.a.getPageActivity());
-            this.h = linearLayoutManager2;
-            this.g.setLayoutManager(linearLayoutManager2);
-            this.g.setFadingEdgeLength(0);
-            this.g.setOverScrollMode(2);
-            this.g.setOnSrollToBottomListener(this.l);
-            PbListView pbListView = new PbListView(this.a.getPageActivity());
-            this.i = pbListView;
-            pbListView.b();
-            this.i.p(R.color.CAM_X0205);
-            this.i.t(ri.f(this.a.getPageActivity(), R.dimen.tbds182));
-            this.i.x();
-            this.i.G(R.dimen.tbfontsize33);
-            this.i.E(SkinManager.getColor(R.color.CAM_X0107));
-            this.i.A(R.color.CAM_X0110);
-            this.i.s();
+        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
+            this.f = eVar;
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f091bee);
-            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091c4e);
-            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091c50);
-        }
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            k65 k65Var = this.c;
-            if (k65Var != null) {
-                return k65Var.isViewAttached();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                jy8 jy8Var = new jy8(this.a.getContext());
+                this.e = jy8Var;
+                jy8Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f043c));
+                ArrayList arrayList = new ArrayList();
+                jy8.b bVar = new jy8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0436), this.e);
+                bVar.h(new c(this));
+                arrayList.add(bVar);
+                this.e.g(new d(this));
+                this.e.f(arrayList);
+                q38 q38Var = new q38(this.a.getPageActivity(), this.e.b());
+                this.d = q38Var;
+                q38Var.a(0.7f);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g.setNextPage(this.i);
-            this.i.j();
-            this.i.b().setPadding(0, ri.f(this.a.getPageActivity(), R.dimen.tbds62), 0, ri.f(this.a.getPageActivity(), R.dimen.tbds362));
-            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c0));
-            this.i.f();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g.setNextPage(this.i);
-            this.i.j();
-            this.i.b().setPadding(0, 0, 0, 0);
-            this.i.N();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.g.setNextPage(this.i);
-            this.i.j();
-            this.i.b().setPadding(0, 0, 0, 0);
-            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dda));
-            this.i.f();
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            ud6 ud6Var = this.j;
-            if (ud6Var != null) {
-                ud6Var.b();
-            }
-            LeftAdapter leftAdapter = this.f;
-            if (leftAdapter != null) {
-                leftAdapter.notifyDataSetChanged();
-            }
-            PbListView pbListView = this.i;
-            if (pbListView != null) {
-                pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
-                this.i.d(i);
-            }
-            k65 k65Var = this.c;
-            if (k65Var != null) {
-                k65Var.onChangeSkinType();
-            }
-        }
-    }
-
-    public void n(int i, int i2) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) || (bdTypeRecyclerView = this.g) == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || i > this.g.getCount() - 1) {
-            return;
-        }
-        ((LinearLayoutManager) this.g.getLayoutManager()).scrollToPositionWithOffset(i, i2);
-    }
-
-    public void o(String str, List<String> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048588, this, str, list, z) == null) {
-            int position = ListUtils.getPosition(list, str);
-            this.f.j(position, list);
-            if (z) {
-                z(position);
-            }
-        }
-    }
-
-    public void p(List<pn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            q(list, 0);
-        }
-    }
-
-    public void q(List<pn> list, int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, list, i) == null) {
-            if (ListUtils.isEmpty(list)) {
-                r();
-                return;
-            }
-            if (i > 0) {
-                Pair<Integer, Integer> c = c();
-                int intValue = ((Integer) c.first).intValue();
-                int intValue2 = ((Integer) c.second).intValue();
-                int i2 = intValue - i;
-                if (this.h != null && (bdTypeRecyclerView = this.g) != null) {
-                    bdTypeRecyclerView.z();
-                    this.h.scrollToPositionWithOffset(i2, intValue2);
-                    this.g.A();
-                }
-            }
-            this.j.c(list);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            yn ynVar = new yn();
-            ynVar.a = this.a.getString(R.string.obfuscated_res_0x7f0f06c1);
-            ynVar.b = R.drawable.new_pic_emotion_06;
-            arrayList.add(ynVar);
-            this.j.c(arrayList);
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d.setVisibility(i);
-            this.g.setVisibility(i);
-        }
-    }
-
-    public void t(LeftAdapter.b bVar) {
-        LeftAdapter leftAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) || (leftAdapter = this.f) == null) {
-            return;
-        }
-        leftAdapter.k(bVar);
-    }
-
-    public void u(RecyclerView.OnScrollListener onScrollListener) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, onScrollListener) == null) || (bdTypeRecyclerView = this.g) == null) {
-            return;
-        }
-        bdTypeRecyclerView.removeOnScrollListener(onScrollListener);
-        this.g.addOnScrollListener(onScrollListener);
-    }
-
-    public void v(BdListView.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, pVar) == null) {
-            this.k = pVar;
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.g.setVisibility(i);
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || str == null) {
-            return;
-        }
-        int f = this.f.f(str);
-        this.f.l(f);
-        z(f);
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || i()) {
-            return;
-        }
-        if (this.c == null) {
-            k65 k65Var = new k65(this.a.getPageActivity());
-            this.c = k65Var;
-            k65Var.s(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
-        }
-        this.c.onChangeSkinType();
-        this.c.attachView(this.b, z);
-    }
-
-    public final void z(int i) {
-        RecyclerView recyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && (recyclerView = this.d) != null && (recyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
-            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.d.getLayoutManager();
-            if (i < 0) {
-                i = 0;
-            } else if (i > this.f.getItemCount() - 1) {
-                i = this.f.getItemCount() - 1;
-            }
-            linearLayoutManager.scrollToPositionWithOffset(i, 0);
+            this.d.show();
         }
     }
 }

@@ -1,125 +1,83 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ls8 {
+public class ls8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public ms8 b;
+    public DressItemData c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947953560, "Lcom/baidu/tieba/ls8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ls8(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947953560, "Lcom/baidu/tieba/ls8;");
-        }
-    }
-
-    public static boolean a(InputStream inputStream, String str, xa9 xa9Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, xa9Var)) == null) {
-            try {
-                double size = inputStream instanceof FileInputStream ? ((FileInputStream) inputStream).getChannel().size() : 0.0d;
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (xa9Var != null && size != 0.0d) {
-                        xa9Var.c((int) ((i / size) * 100.0d));
-                    } else if (xa9Var != null && size == 0.0d) {
-                        xa9Var.c(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, dressItemData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLLL.booleanValue;
+        this.a = tbPageContext;
+        this.c = dressItemData;
+        this.b = new ms8(tbPageContext);
     }
 
-    public static boolean b(String str, String str2, xa9 xa9Var) throws IOException {
-        InterceptResult invokeLLL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, xa9Var)) == null) ? a(new FileInputStream(str), str2, xa9Var) : invokeLLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = pg.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = pg.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = pg.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = pg.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return videoFileInfo;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return null;
         }
-        return (VideoFileInfo) invokeL.objValue;
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            this.b.d(this.c);
+            this.a.getLayoutMode().k(this.b.a());
+            return this.b.a();
+        }
+        return (View) invokeILL.objValue;
     }
 }

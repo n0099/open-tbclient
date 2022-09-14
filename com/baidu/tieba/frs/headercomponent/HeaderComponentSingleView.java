@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ns4;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.do6;
+import com.baidu.tieba.uu4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.wm6;
-import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentSingleView extends FrameLayout implements xm6 {
+public class HeaderComponentSingleView extends FrameLayout implements do6 {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public static final int n;
@@ -50,7 +50,7 @@ public class HeaderComponentSingleView extends FrameLayout implements xm6 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public wm6 j;
+    public co6 j;
     public LiveFuseForumData k;
     public TbImageAutoSwitch.b l;
 
@@ -233,17 +233,17 @@ public class HeaderComponentSingleView extends FrameLayout implements xm6 {
         h();
     }
 
-    @Override // com.baidu.tieba.xm6
+    @Override // com.baidu.tieba.do6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int childCount = this.d.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                ns4 d = ns4.d((TextView) this.d.getChildAt(i));
+                uu4 d = uu4.d((TextView) this.d.getChildAt(i));
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
             }
-            ns4.d(this.b).v(R.color.CAM_X0108);
+            uu4.d(this.b).v(R.color.CAM_X0108);
             i();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
@@ -253,21 +253,21 @@ public class HeaderComponentSingleView extends FrameLayout implements xm6 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            ns4 d2 = ns4.d(this.f);
+            uu4 d2 = uu4.d(this.f);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
         }
     }
 
-    @Override // com.baidu.tieba.xm6
-    public void b(List<LiveFuseForumData> list, wm6 wm6Var) {
+    @Override // com.baidu.tieba.do6
+    public void b(List<LiveFuseForumData> list, co6 co6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, wm6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, co6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = wm6Var;
+        this.j = co6Var;
         List<String> list2 = liveFuseForumData.title;
         if (!ListUtils.isEmpty(list2)) {
             int size = list2.size();
@@ -277,7 +277,7 @@ public class HeaderComponentSingleView extends FrameLayout implements xm6 {
                 textView.setLines(1);
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 textView.setText(list2.get(i));
-                ns4 d = ns4.d(textView);
+                uu4 d = uu4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 d.z(R.dimen.T_X06);
@@ -308,33 +308,33 @@ public class HeaderComponentSingleView extends FrameLayout implements xm6 {
         }
         a();
         setOnClickListener(new b(this));
-        wm6 wm6Var2 = this.j;
-        if (wm6Var2 != null) {
-            wm6Var2.a(1, this.k);
+        co6 co6Var2 = this.j;
+        if (co6Var2 != null) {
+            co6Var2.a(1, this.k);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0314, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0319, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090690);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906a4);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09069a);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090692);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090691);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090695);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906ae);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906a6);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906a5);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906a9);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090698);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ac);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -342,7 +342,7 @@ public class HeaderComponentSingleView extends FrameLayout implements xm6 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090694);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906a8);
             this.h = tbImageAutoSwitch;
             int i = m;
             tbImageAutoSwitch.l(4, i, i, n);

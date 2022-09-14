@@ -38,12 +38,12 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.UiThread;
 import androidx.collection.SimpleArrayMap;
-import androidx.core.R$id;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -523,10 +523,10 @@ public class ViewCompat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-                UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R$id.tag_unhandled_key_event_manager);
+                UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R.id.obfuscated_res_0x7f09208d);
                 if (unhandledKeyEventManager == null) {
                     UnhandledKeyEventManager unhandledKeyEventManager2 = new UnhandledKeyEventManager();
-                    view2.setTag(R$id.tag_unhandled_key_event_manager, unhandledKeyEventManager2);
+                    view2.setTag(R.id.obfuscated_res_0x7f09208d, unhandledKeyEventManager2);
                     return unhandledKeyEventManager2;
                 }
                 return unhandledKeyEventManager;
@@ -575,7 +575,7 @@ public class ViewCompat {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, keyEvent)) == null) {
-                ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_unhandled_key_listeners);
+                ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f09208e);
                 if (arrayList != null) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
                         if (((OnUnhandledKeyEventListenerCompat) arrayList.get(size)).onUnhandledKeyEvent(view2, keyEvent)) {
@@ -714,7 +714,7 @@ public class ViewCompat {
         sNextGeneratedId = new AtomicInteger(1);
         sViewPropertyAnimatorMap = null;
         sAccessibilityDelegateCheckFailed = false;
-        ACCESSIBILITY_ACTIONS_RESOURCE_IDS = new int[]{R$id.accessibility_custom_action_0, R$id.accessibility_custom_action_1, R$id.accessibility_custom_action_2, R$id.accessibility_custom_action_3, R$id.accessibility_custom_action_4, R$id.accessibility_custom_action_5, R$id.accessibility_custom_action_6, R$id.accessibility_custom_action_7, R$id.accessibility_custom_action_8, R$id.accessibility_custom_action_9, R$id.accessibility_custom_action_10, R$id.accessibility_custom_action_11, R$id.accessibility_custom_action_12, R$id.accessibility_custom_action_13, R$id.accessibility_custom_action_14, R$id.accessibility_custom_action_15, R$id.accessibility_custom_action_16, R$id.accessibility_custom_action_17, R$id.accessibility_custom_action_18, R$id.accessibility_custom_action_19, R$id.accessibility_custom_action_20, R$id.accessibility_custom_action_21, R$id.accessibility_custom_action_22, R$id.accessibility_custom_action_23, R$id.accessibility_custom_action_24, R$id.accessibility_custom_action_25, R$id.accessibility_custom_action_26, R$id.accessibility_custom_action_27, R$id.accessibility_custom_action_28, R$id.accessibility_custom_action_29, R$id.accessibility_custom_action_30, R$id.accessibility_custom_action_31};
+        ACCESSIBILITY_ACTIONS_RESOURCE_IDS = new int[]{R.id.obfuscated_res_0x7f090031, R.id.obfuscated_res_0x7f090032, R.id.obfuscated_res_0x7f09003d, R.id.obfuscated_res_0x7f090048, R.id.obfuscated_res_0x7f09004b, R.id.obfuscated_res_0x7f09004c, R.id.obfuscated_res_0x7f09004d, R.id.obfuscated_res_0x7f09004e, R.id.obfuscated_res_0x7f09004f, R.id.obfuscated_res_0x7f090050, R.id.obfuscated_res_0x7f090033, R.id.obfuscated_res_0x7f090034, R.id.obfuscated_res_0x7f090035, R.id.obfuscated_res_0x7f090036, R.id.obfuscated_res_0x7f090037, R.id.obfuscated_res_0x7f090038, R.id.obfuscated_res_0x7f090039, R.id.obfuscated_res_0x7f09003a, R.id.obfuscated_res_0x7f09003b, R.id.obfuscated_res_0x7f09003c, R.id.obfuscated_res_0x7f09003e, R.id.obfuscated_res_0x7f09003f, R.id.obfuscated_res_0x7f090040, R.id.obfuscated_res_0x7f090041, R.id.obfuscated_res_0x7f090042, R.id.obfuscated_res_0x7f090043, R.id.obfuscated_res_0x7f090044, R.id.obfuscated_res_0x7f090045, R.id.obfuscated_res_0x7f090046, R.id.obfuscated_res_0x7f090047, R.id.obfuscated_res_0x7f090049, R.id.obfuscated_res_0x7f09004a};
         sAccessibilityPaneVisibilityManager = new AccessibilityPaneVisibilityManager();
     }
 
@@ -735,7 +735,7 @@ public class ViewCompat {
     public static AccessibilityViewProperty<Boolean> accessibilityHeadingProperty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new AccessibilityViewProperty<Boolean>(R$id.tag_accessibility_heading, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f092034, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -815,10 +815,10 @@ public class ViewCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, view2, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R$id.tag_unhandled_key_listeners);
+                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f09208e);
                 if (simpleArrayMap == null) {
                     simpleArrayMap = new SimpleArrayMap();
-                    view2.setTag(R$id.tag_unhandled_key_listeners, simpleArrayMap);
+                    view2.setTag(R.id.obfuscated_res_0x7f09208e, simpleArrayMap);
                 }
                 View.OnUnhandledKeyEventListener onUnhandledKeyEventListener = new View.OnUnhandledKeyEventListener(onUnhandledKeyEventListenerCompat) { // from class: androidx.core.view.ViewCompat.2
                     public static /* synthetic */ Interceptable $ic;
@@ -854,10 +854,10 @@ public class ViewCompat {
                 view2.addOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
                 return;
             }
-            ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_unhandled_key_listeners);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f09208e);
             if (arrayList == null) {
                 arrayList = new ArrayList();
-                view2.setTag(R$id.tag_unhandled_key_listeners, arrayList);
+                view2.setTag(R.id.obfuscated_res_0x7f09208e, arrayList);
             }
             arrayList.add(onUnhandledKeyEventListenerCompat);
             if (arrayList.size() == 1) {
@@ -1231,10 +1231,10 @@ public class ViewCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, view2)) == null) {
-            ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_accessibility_actions);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f092032);
             if (arrayList == null) {
                 ArrayList arrayList2 = new ArrayList();
-                view2.setTag(R$id.tag_accessibility_actions, arrayList2);
+                view2.setTag(R.id.obfuscated_res_0x7f092032, arrayList2);
                 return arrayList2;
             }
             return arrayList;
@@ -2123,7 +2123,7 @@ public class ViewCompat {
     public static AccessibilityViewProperty<CharSequence> paneTitleProperty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65646, null)) == null) ? new AccessibilityViewProperty<CharSequence>(R$id.tag_accessibility_pane_title, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.4
+        return (interceptable == null || (invokeV = interceptable.invokeV(65646, null)) == null) ? new AccessibilityViewProperty<CharSequence>(R.id.obfuscated_res_0x7f092035, CharSequence.class, 8, 28) { // from class: androidx.core.view.ViewCompat.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2250,14 +2250,14 @@ public class ViewCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65654, null, view2, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R$id.tag_unhandled_key_listeners);
+                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R.id.obfuscated_res_0x7f09208e);
                 if (simpleArrayMap == null || (onUnhandledKeyEventListener = (View.OnUnhandledKeyEventListener) simpleArrayMap.get(onUnhandledKeyEventListenerCompat)) == null) {
                     return;
                 }
                 view2.removeOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
                 return;
             }
-            ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_unhandled_key_listeners);
+            ArrayList arrayList = (ArrayList) view2.getTag(R.id.obfuscated_res_0x7f09208e);
             if (arrayList != null) {
                 arrayList.remove(onUnhandledKeyEventListenerCompat);
                 if (arrayList.size() == 0) {
@@ -2337,7 +2337,7 @@ public class ViewCompat {
     public static AccessibilityViewProperty<Boolean> screenReaderFocusableProperty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65661, null)) == null) ? new AccessibilityViewProperty<Boolean>(R$id.tag_screen_reader_focusable, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.3
+        return (interceptable == null || (invokeV = interceptable.invokeV(65661, null)) == null) ? new AccessibilityViewProperty<Boolean>(R.id.obfuscated_res_0x7f09207d, Boolean.class, 28) { // from class: androidx.core.view.ViewCompat.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

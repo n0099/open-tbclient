@@ -1,46 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.File;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qs8 {
+public class qs8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public VlogEditManager b;
-    public int c;
-    public int d;
-    public TextWordsEntity.TextStyleEntity e;
-    public TextWordsEntity.TextFontEntity f;
-    public int g;
-    public String h;
+    public List<Object> a;
+    public TbPageContext<?> b;
+    public ps8 c;
 
-    public qs8(Context context, VlogEditManager vlogEditManager) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BubbleItemView b;
+        public BubbleItemView c;
+        public View d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public qs8(TbPageContext<?> tbPageContext, ps8 ps8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, vlogEditManager};
+            Object[] objArr = {tbPageContext, ps8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,164 +62,122 @@ public class qs8 {
                 return;
             }
         }
-        this.g = -1;
-        this.h = "";
-        this.a = context;
-        this.b = vlogEditManager;
+        this.b = tbPageContext;
+        this.c = ps8Var;
     }
 
-    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
-        TextWordsEntity.TextStyleEntity textStyleEntity2;
-        TextWordsEntity.TextFontEntity textFontEntity2;
+    public void a(List<Object> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) == null) || multiMediaData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
         }
-        if (108 == i && TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", pc9.l(R.string.obfuscated_res_0x7f0f1499));
-        }
-        if (this.g != -1 && !TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", str);
-        }
-        if (textStyleEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
-        } else {
-            try {
-                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
-                if (!TextUtils.isEmpty(ext)) {
-                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
-                } else {
-                    textStyleEntity2 = this.e;
-                }
-                textStyleEntity = textStyleEntity2;
-            } catch (JSONException e) {
-                BdLog.e(e);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<Object> list = this.a;
+            if (list != null) {
+                return list.size();
             }
+            return 0;
         }
-        if (textFontEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
-        } else {
-            try {
-                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
-                if (!TextUtils.isEmpty(ext2)) {
-                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
-                } else {
-                    textFontEntity2 = this.f;
-                }
-                textFontEntity = textFontEntity2;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<Object> list = this.a;
+            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
+                return null;
             }
+            return this.a.get(i);
         }
-        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
-        String videoTmpDir = FileHelper.getVideoTmpDir();
-        String str2 = System.currentTimeMillis() + ".jpg";
-        Bitmap h = ns8.d().h(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
-        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
-            FileUtils.delete(new File(multiMediaData.path));
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
         }
-        FileUtils.saveBitmap2PNG(videoTmpDir, str2, h, 100);
-        multiMediaData.path = videoTmpDir + File.separator + str2;
-        int i2 = multiMediaData.width;
-        int i3 = multiMediaData.height;
-        multiMediaData.width = h.getWidth();
-        int height = h.getHeight();
-        multiMediaData.height = height;
-        if (this.g == -1) {
-            multiMediaData.scaleType = "adaptive";
-            multiMediaData.type = 0;
-            multiMediaData.start = this.b.getCurrentPlayTime();
-            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
-            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
-            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.addCoverStickerData(multiMediaData);
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? getItem(i) instanceof List ? 1 : 0 : invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            Object item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else if (getItemViewType(i) == 0) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012d, viewGroup, false);
+                aVar = new a();
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d00);
+                view2.setTag(aVar);
             } else {
-                this.b.addStickerData(multiMediaData, this.h);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016a, viewGroup, false);
+                aVar = new a();
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038b);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038c);
+                aVar.d = view2.findViewById(R.id.divider_line);
+                view2.setTag(aVar);
             }
-        } else {
-            float f = multiMediaData.x + (i2 / 2.0f);
-            float f2 = multiMediaData.y + (i3 / 2.0f);
-            multiMediaData.x = f - (multiMediaData.width / 2.0f);
-            multiMediaData.y = f2 - (height / 2.0f);
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.replaceCoverStickerData(multiMediaData);
-            } else {
-                this.b.replaceStickerData(this.g, multiMediaData, this.h);
+            if (item != null) {
+                if (getItemViewType(i) == 0) {
+                    aVar.a.setText(item.toString());
+                } else {
+                    List list = (List) item;
+                    aVar.b.e((DressItemData) list.get(0));
+                    aVar.b.setController(this.c);
+                    aVar.b.setFromBubbleGroup(true);
+                    if (list.size() > 1) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.c.setController(this.c);
+                        aVar.c.setFromBubbleGroup(true);
+                    } else {
+                        aVar.c.f();
+                    }
+                    if (getItem(i + 1) instanceof List) {
+                        aVar.d.setVisibility(8);
+                    } else {
+                        aVar.d.setVisibility(0);
+                    }
+                }
             }
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
-        h.recycle();
+        return (View) invokeILL.objValue;
     }
 
-    public void b(MultiMediaData multiMediaData) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) || multiMediaData == null || TextUtils.isEmpty(multiMediaData.path)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 2;
         }
-        FileUtils.delete(new File(multiMediaData.path));
-    }
-
-    public void c(@NonNull List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setUpEditLayer("cover_sticker");
-            this.b.addCoverStickerDataList(list);
-            for (MultiMediaData multiMediaData : list) {
-                e(0);
-                a(116, null, multiMediaData, null, null);
-            }
-        }
-    }
-
-    public boolean d(MultiMediaData multiMediaData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
-            if (multiMediaData == null) {
-                return false;
-            }
-            String ext = multiMediaData.getExt("text");
-            if (TextUtils.isEmpty(ext)) {
-                return false;
-            }
-            return ext.equals(pc9.l(R.string.obfuscated_res_0x7f0f1499));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void f(TextWordsEntity.TextFontEntity textFontEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, textFontEntity) == null) {
-            this.f = textFontEntity;
-        }
-    }
-
-    public void g(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, textStyleEntity) == null) {
-            this.e = textStyleEntity;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void i(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            this.c = i;
-            this.d = i2;
-        }
+        return invokeV.intValue;
     }
 }

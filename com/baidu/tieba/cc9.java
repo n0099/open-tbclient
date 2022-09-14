@@ -1,58 +1,76 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class cc9 {
+public final class cc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+    /* loaded from: classes3.dex */
+    public static class a extends vb9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return invokeLF.floatValue;
+
+        @Override // com.baidu.tieba.vb9
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (yb9.a(com.baidu.ubs.analytics.d.a.b)) {
+                    for (File file : cc9.a(com.baidu.ubs.analytics.d.a.b)) {
+                        if (fb9.c(fb9.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
+                            yb9.b(file.getPath());
+                        }
+                    }
+                }
+                if (yb9.a(com.baidu.ubs.analytics.d.a.c)) {
+                    for (File file2 : cc9.a(com.baidu.ubs.analytics.d.a.c)) {
+                        if (!file2.getName().equals(tb9.e()) && fb9.c(fb9.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
+                            yb9.b(file2.getPath());
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public static int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
+    public static /* synthetic */ List a(String str) {
+        ArrayList arrayList = new ArrayList();
+        File[] listFiles = new File(str).listFiles();
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length; i++) {
+                String name = listFiles[i].getName();
+                if (name.endsWith("txt") || name.endsWith("log")) {
+                    arrayList.add(listFiles[i]);
+                }
             }
         }
-        return invokeLI.intValue;
+        return arrayList;
     }
 
-    public static long c(String str, long j) {
-        InterceptResult invokeLJ;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            ub9.a(new a());
         }
-        return invokeLJ.longValue;
     }
 }

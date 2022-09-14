@@ -1,176 +1,71 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class tq9 {
+public class tq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public boolean e;
 
-    public tq9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948189997, "Lcom/baidu/tieba/tq9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948189997, "Lcom/baidu/tieba/tq9;");
                 return;
             }
         }
-        this.c = 1.0f;
-        this.d = 1.0f;
+        b = new Object();
     }
 
-    public final boolean a() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.floatValue;
-    }
-
-    public final float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.floatValue;
-    }
-
-    public final float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public final float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.floatValue;
-    }
-
-    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) || f == 0.0f || f2 == 0.0f || f3 == 0.0f || f4 == 0.0f) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a != null) {
+                return a;
+            }
+            synchronized (b) {
+                if (a != null) {
+                    return a;
+                }
+                a = b(kq9.getContext().provideContext());
+                return a;
+            }
         }
-        g();
-        float f5 = (f - f3) / 2.0f;
-        float f6 = (f2 - f4) / 2.0f;
-        float f7 = f3 / f4;
-        float f8 = f / f2;
-        float f9 = f2 / f4;
-        float f10 = f / f3;
-        switch (sq9.$EnumSwitchMapping$0[scaleType.ordinal()]) {
-            case 1:
-                this.a = f5;
-                this.b = f6;
-                return;
-            case 2:
-                if (f7 > f8) {
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    this.a = (f - (f3 * f9)) / 2.0f;
-                    return;
-                }
-                this.e = true;
-                this.c = f10;
-                this.d = f10;
-                this.b = (f2 - (f4 * f10)) / 2.0f;
-                return;
-            case 3:
-                if (f3 < f && f4 < f2) {
-                    this.a = f5;
-                    this.b = f6;
-                    return;
-                } else if (f7 > f8) {
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    this.b = (f2 - (f4 * f10)) / 2.0f;
-                    return;
-                } else {
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    this.a = (f - (f3 * f9)) / 2.0f;
-                    return;
-                }
-            case 4:
-                if (f7 > f8) {
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    this.b = (f2 - (f4 * f10)) / 2.0f;
-                    return;
-                }
-                this.e = false;
-                this.c = f9;
-                this.d = f9;
-                this.a = (f - (f3 * f9)) / 2.0f;
-                return;
-            case 5:
-                if (f7 > f8) {
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    return;
-                }
-                this.e = false;
-                this.c = f9;
-                this.d = f9;
-                return;
-            case 6:
-                if (f7 > f8) {
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    this.b = f2 - (f4 * f10);
-                    return;
-                }
-                this.e = false;
-                this.c = f9;
-                this.d = f9;
-                this.a = f - (f3 * f9);
-                return;
-            case 7:
-                Math.max(f10, f9);
-                this.e = f10 > f9;
-                this.c = f10;
-                this.d = f9;
-                return;
-            default:
-                this.e = true;
-                this.c = f10;
-                this.d = f10;
-                return;
-        }
+        return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 1.0f;
-            this.d = 1.0f;
-            this.e = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
+                return null;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 }

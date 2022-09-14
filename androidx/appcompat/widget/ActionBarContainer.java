@@ -11,11 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$id;
-import androidx.appcompat.R$styleable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,8 +125,8 @@ public class ActionBarContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
-            this.mActionBarView = findViewById(R$id.action_bar);
-            this.mContextView = findViewById(R$id.action_context_bar);
+            this.mActionBarView = findViewById(R.id.obfuscated_res_0x7f09005b);
+            this.mContextView = findViewById(R.id.obfuscated_res_0x7f090064);
         }
     }
 
@@ -417,18 +416,18 @@ public class ActionBarContainer extends FrameLayout {
             }
         }
         ViewCompat.setBackground(this, new ActionBarBackgroundDrawable(this));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ActionBar);
-        this.mBackground = obtainStyledAttributes.getDrawable(R$styleable.ActionBar_background);
-        this.mStackedBackground = obtainStyledAttributes.getDrawable(R$styleable.ActionBar_backgroundStacked);
-        this.mHeight = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ActionBar_height, -1);
-        boolean z = true;
-        if (getId() == R$id.split_action_bar) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, androidx.appcompat.R.styleable.ActionBar);
+        boolean z = false;
+        this.mBackground = obtainStyledAttributes.getDrawable(0);
+        this.mStackedBackground = obtainStyledAttributes.getDrawable(2);
+        this.mHeight = obtainStyledAttributes.getDimensionPixelSize(13, -1);
+        if (getId() == R.id.obfuscated_res_0x7f091f37) {
             this.mIsSplit = true;
-            this.mSplitBackground = obtainStyledAttributes.getDrawable(R$styleable.ActionBar_backgroundSplit);
+            this.mSplitBackground = obtainStyledAttributes.getDrawable(1);
         }
         obtainStyledAttributes.recycle();
-        if (!this.mIsSplit ? this.mBackground != null || this.mStackedBackground != null : this.mSplitBackground != null) {
-            z = false;
+        if (!this.mIsSplit ? !(this.mBackground != null || this.mStackedBackground != null) : this.mSplitBackground == null) {
+            z = true;
         }
         setWillNotDraw(z);
     }

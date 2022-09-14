@@ -16,14 +16,14 @@ import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class EnumC0089a {
         public static /* synthetic */ Interceptable $ic;
         public static final EnumC0089a a;
@@ -86,7 +86,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

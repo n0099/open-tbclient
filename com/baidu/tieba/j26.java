@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,50 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class j26 {
+public class j26 extends k26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
-    public static final j26 g;
+    public static final BdUniqueId N0;
+    public static final BdUniqueId O0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k26 a;
-    public boolean b;
-    public int c;
-    public CacheManager d;
-    public int e;
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final j26 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? j26.g : (j26) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -72,14 +31,16 @@ public final class j26 {
                 return;
             }
         }
-        f = new a(null);
-        g = new j26();
+        N0 = BdUniqueId.gen();
+        O0 = BdUniqueId.gen();
     }
 
-    public j26() {
+    public j26(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,145 +50,55 @@ public final class j26 {
                 return;
             }
         }
-        this.a = new k26();
+        this.a = threadData;
     }
 
-    public final j26 b(int i, int i2, int i3, boolean z, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
-            synchronized (this) {
-                this.a.a(i, i2, i3, z, i4);
-                this.e = h(this.a.c());
-            }
-            return this;
-        }
-        return (j26) invokeCommon.objValue;
-    }
-
-    public final void d() {
-        CacheManager i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                int i2 = this.c - 1;
-                this.c = i2;
-                if (i2 <= 0 && this.b && (i = i()) != null) {
-                    i.l(this);
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c <= 0) {
-                    n();
-                } else {
-                    this.b = true;
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.a.b();
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final k26 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            k26 k26Var = this.a;
-            if ((Intrinsics.areEqual(k26Var.c(), v36.b()) || k26Var.c().isRecycled()) ? false : true) {
-                return k26Var;
-            }
-            return null;
-        }
-        return (k26) invokeV.objValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final int h(Bitmap bitmap) {
+    public static boolean W(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
-            if (bitmap == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
             }
-            if (Build.VERSION.SDK_INT >= 19) {
-                return bitmap.getAllocationByteCount();
+            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
+                return true;
             }
-            return bitmap.getRowBytes() * bitmap.getHeight();
+            return threadData.getThreadType() == 67 && threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().friendRoomStatus == 2;
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public final CacheManager i() {
+    public StatisticItem Z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem f = f(str);
+            f.delete("obj_type");
+            f.delete("obj_type");
+            f.param("obj_type", 3);
+            return f;
+        }
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.k26, com.baidu.tieba.c26, com.baidu.tieba.lq4
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (CacheManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
     }
 
-    public final int j() {
+    @Override // com.baidu.tieba.k26, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.e() : invokeV.intValue;
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.f() : invokeV.intValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.c++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData != null && threadData.getThreadType() == 67) {
+                return O0;
             }
+            return N0;
         }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
-                    BdLog.e(Intrinsics.stringPlus("DanmakuEngineDrawingCache recycle called must on cache thread but now on ", Thread.currentThread().getName()));
-                }
-                if (this.c > 0) {
-                    return;
-                }
-                this.b = false;
-                this.a.g();
-                this.e = 0;
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void o(CacheManager cacheManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cacheManager) == null) {
-            this.d = cacheManager;
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -9,8 +9,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.kz2;
+import com.baidu.tieba.hj1;
+import com.baidu.tieba.i13;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,7 +162,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
             if (this.d && drawable != null) {
-                this.f = kz2.b(drawable, this.g, this.a, this.b, this.c);
+                this.f = i13.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.f = drawable;
             }
@@ -177,13 +177,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.c = i;
         Drawable drawable = this.e;
-        if (drawable instanceof kz2) {
-            ((kz2) drawable).d(i);
+        if (drawable instanceof i13) {
+            ((i13) drawable).d(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof kz2) {
-                ((kz2) drawable2).d(i);
+            if (drawable2 instanceof i13) {
+                ((i13) drawable2).d(i);
             }
         }
         if (this.b > 0) {
@@ -198,13 +198,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.b = i;
         Drawable drawable = this.e;
-        if (drawable instanceof kz2) {
-            ((kz2) drawable).e(i);
+        if (drawable instanceof i13) {
+            ((i13) drawable).e(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof kz2) {
-                ((kz2) drawable2).e(i);
+            if (drawable2 instanceof i13) {
+                ((i13) drawable2).e(i);
             }
         }
         invalidate();
@@ -217,13 +217,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.a = i;
         Drawable drawable = this.e;
-        if (drawable instanceof kz2) {
-            ((kz2) drawable).f(i);
+        if (drawable instanceof i13) {
+            ((i13) drawable).f(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof kz2) {
-                ((kz2) drawable2).f(i);
+            if (drawable2 instanceof i13) {
+                ((i13) drawable2).f(i);
             }
         }
     }
@@ -233,11 +233,11 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) {
             if (bitmap != null) {
-                kz2 kz2Var = new kz2(bitmap, this.a, this.b, this.c);
-                this.e = kz2Var;
+                i13 i13Var = new i13(bitmap, this.a, this.b, this.c);
+                this.e = i13Var;
                 ImageView.ScaleType scaleType = this.g;
                 if (scaleType != null) {
-                    kz2Var.h(scaleType);
+                    i13Var.h(scaleType);
                 }
             } else {
                 this.e = null;
@@ -251,7 +251,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
             if (drawable != null) {
-                this.e = kz2.b(drawable, this.g, this.a, this.b, this.c);
+                this.e = i13.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.e = null;
             }
@@ -267,19 +267,19 @@ public class SwanAppRoundedImageView extends ImageView {
         this.d = z;
         if (z) {
             Drawable drawable = this.f;
-            if (drawable instanceof kz2) {
-                ((kz2) drawable).h(this.g);
-                ((kz2) this.f).f(this.a);
-                ((kz2) this.f).e(this.b);
-                ((kz2) this.f).d(this.c);
+            if (drawable instanceof i13) {
+                ((i13) drawable).h(this.g);
+                ((i13) this.f).f(this.a);
+                ((i13) this.f).e(this.b);
+                ((i13) this.f).d(this.c);
             } else {
                 setBackgroundDrawable(drawable);
             }
         } else {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof kz2) {
-                ((kz2) drawable2).e(0);
-                ((kz2) this.f).f(0.0f);
+            if (drawable2 instanceof i13) {
+                ((i13) drawable2).e(0);
+                ((i13) this.f).f(0.0f);
             }
         }
         invalidate();
@@ -307,12 +307,12 @@ public class SwanAppRoundedImageView extends ImageView {
                 break;
         }
         Drawable drawable = this.e;
-        if ((drawable instanceof kz2) && ((kz2) drawable).c() != scaleType) {
-            ((kz2) this.e).h(scaleType);
+        if ((drawable instanceof i13) && ((i13) drawable).c() != scaleType) {
+            ((i13) this.e).h(scaleType);
         }
         Drawable drawable2 = this.f;
-        if ((drawable2 instanceof kz2) && ((kz2) drawable2).c() != scaleType) {
-            ((kz2) this.f).h(scaleType);
+        if ((drawable2 instanceof i13) && ((i13) drawable2).c() != scaleType) {
+            ((i13) this.f).h(scaleType);
         }
         setWillNotCacheDrawing(true);
         requestLayout();
@@ -359,7 +359,7 @@ public class SwanAppRoundedImageView extends ImageView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ab, R.attr.obfuscated_res_0x7f0405d8}, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, hj1.RoundedImageView, i, 0);
         int i4 = obtainStyledAttributes.getInt(0, -1);
         if (i4 >= 0) {
             setScaleType(h[i4]);

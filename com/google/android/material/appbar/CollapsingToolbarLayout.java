@@ -23,7 +23,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.R$style;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -53,9 +52,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 public class CollapsingToolbarLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100332 = 2131755826;
+    public static final int DEF_STYLE_RES = 2131755827;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final CollapsingTextHelper collapsingTextHelper;
@@ -295,10 +292,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
-            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(R.id.obfuscated_res_0x7f09256b);
+            ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(R.id.obfuscated_res_0x7f0925c7);
             if (viewOffsetHelper == null) {
                 ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-                view2.setTag(R.id.obfuscated_res_0x7f09256b, viewOffsetHelper2);
+                view2.setTag(R.id.obfuscated_res_0x7f0925c7, viewOffsetHelper2);
                 return viewOffsetHelper2;
             }
             return viewOffsetHelper;
@@ -1001,7 +998,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CollapsingToolbarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100332), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1025,7 +1022,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         CollapsingTextHelper collapsingTextHelper = new CollapsingTextHelper(this);
         this.collapsingTextHelper = collapsingTextHelper;
         collapsingTextHelper.setTextSizeInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040167, R.attr.obfuscated_res_0x7f040168, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040294, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f040297, R.attr.obfuscated_res_0x7f040298, R.attr.obfuscated_res_0x7f040299, R.attr.obfuscated_res_0x7f04029a, R.attr.obfuscated_res_0x7f0404c4, R.attr.obfuscated_res_0x7f0405ea, R.attr.obfuscated_res_0x7f0405ec, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f040714, R.attr.obfuscated_res_0x7f040716, R.attr.obfuscated_res_0x7f040725}, i, obfuscated_res_0x7f100332, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.CollapsingToolbarLayout, i, DEF_STYLE_RES, new int[0]);
         this.collapsingTextHelper.setExpandedTextGravity(obtainStyledAttributes.getInt(3, BadgeDrawable.BOTTOM_START));
         this.collapsingTextHelper.setCollapsedTextGravity(obtainStyledAttributes.getInt(0, 8388627));
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(4, 0);
@@ -1048,7 +1045,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         this.collapsingTitleEnabled = obtainStyledAttributes.getBoolean(15, true);
         setTitle(obtainStyledAttributes.getText(14));
         this.collapsingTextHelper.setExpandedTextAppearance(R.style.obfuscated_res_0x7f1001f8);
-        this.collapsingTextHelper.setCollapsedTextAppearance(R$style.obfuscated_res_0x7f1001dc);
+        this.collapsingTextHelper.setCollapsedTextAppearance(R.style.obfuscated_res_0x7f1001dc);
         if (obtainStyledAttributes.hasValue(9)) {
             this.collapsingTextHelper.setExpandedTextAppearance(obtainStyledAttributes.getResourceId(9, 0));
         }
@@ -1153,7 +1150,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
             this.collapseMode = 0;
             this.parallaxMult = 0.5f;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f040412});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.CollapsingToolbarLayout_Layout);
             this.collapseMode = obtainStyledAttributes.getInt(0, 0);
             setParallaxMultiplier(obtainStyledAttributes.getFloat(1, 0.5f));
             obtainStyledAttributes.recycle();

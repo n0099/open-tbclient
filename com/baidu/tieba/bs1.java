@@ -1,39 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import org.json.JSONArray;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bs1 extends zr1 {
+public class bs1 extends br1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View f;
+    public int g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ bs1 c;
+        public final /* synthetic */ bs1 a;
 
-        public a(bs1 bs1Var, JSONArray jSONArray, String str) {
+        public a(bs1 bs1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bs1Var, jSONArray, str};
+                Object[] objArr = {bs1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,70 +43,62 @@ public class bs1 extends zr1 {
                     return;
                 }
             }
-            this.c = bs1Var;
-            this.a = jSONArray;
-            this.b = str;
+            this.a = bs1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.b, this.c.D(this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ bs1 c;
-
-        public b(bs1 bs1Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bs1Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
                     return;
                 }
-            }
-            this.c = bs1Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.b, this.c.B(this.a));
+                if (this.a.g - height <= 180) {
+                    if (height - this.a.g > 180) {
+                        HashMap hashMap = new HashMap();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("height", 0);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        hashMap.put("data", jSONObject.toString());
+                        lo2.U().u(new zc2("keyboardHeightChange", hashMap));
+                        this.a.g = height;
+                        return;
+                    }
+                    return;
+                }
+                HashMap hashMap2 = new HashMap();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("height", pg3.O(this.a.g - height));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                hashMap2.put("data", jSONObject2.toString());
+                lo2.U().u(new zc2("keyboardHeightChange", hashMap2));
+                this.a.g = height;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bs1(@NonNull bp1 bp1Var) {
-        super(bp1Var);
+    public bs1(@NonNull zq1 zq1Var) {
+        super(zq1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bp1Var};
+            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bp1) newInitContext.callArgs[0]);
+                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -114,125 +106,75 @@ public class bs1 extends zr1 {
         }
     }
 
-    public at1 A(String str) {
-        InterceptResult invokeL;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#checkAppInstalled", false);
-            Pair<at1, JSONObject> s = s(str);
-            at1 at1Var = (at1) s.first;
-            if (at1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("name");
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString) && optJSONArray == null) {
-                    ay1.c("CheckAppInstallApi", "parameter error");
-                    return new at1(201, "parameter error");
-                }
-                boolean z = optJSONArray == null;
-                if (TextUtils.isEmpty(optString2)) {
-                    if (z) {
-                        return B(optString);
-                    }
-                    return D(optJSONArray);
-                }
-                if (z) {
-                    z(optString, optString2);
-                } else {
-                    C(optJSONArray, optString2);
-                }
-                return at1.f();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = lo2.U().getActivity();
+            if (activity == null) {
+                yz1.c("SoftKeyboardApi", "activity is null");
+                return;
             }
-            return at1Var;
-        }
-        return (at1) invokeL.objValue;
-    }
-
-    public final at1 B(String str) {
-        InterceptResult invokeL;
-        PackageInfo packageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                packageInfo = getContext().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                ay1.o("CheckAppInstallApi", str + " cannot be found");
-                packageInfo = null;
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
             }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (packageInfo != null) {
-                    jSONObject.put("hasApp", true);
-                    jSONObject.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
-                } else {
-                    jSONObject.put("hasApp", false);
-                }
-                return new at1(0, "success", jSONObject);
-            } catch (JSONException e) {
-                ay1.d("CheckAppInstallApi", "internal error: " + e.getMessage(), e);
-                return new at1(1001, "internal error: " + e.getMessage());
-            }
-        }
-        return (at1) invokeL.objValue;
-    }
-
-    public final void C(JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONArray, str) == null) {
-            ud3.f().execute(new a(this, jSONArray, str));
         }
     }
 
-    public final at1 D(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                try {
-                    String string = jSONArray.getString(i);
-                    if (!TextUtils.isEmpty(string)) {
-                        jSONObject.put(string, E(string));
-                    }
-                } catch (JSONException e) {
-                    ay1.d("CheckAppInstallApi", "internal error: " + e.getMessage(), e);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
             }
-            return new at1(0, "success", jSONObject);
+            this.h = null;
+            this.g = 0;
         }
-        return (at1) invokeL.objValue;
     }
 
-    public final boolean E(String str) {
-        InterceptResult invokeL;
-        PackageInfo packageInfo;
+    public yu1 C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            try {
-                packageInfo = getContext().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                ay1.o("CheckAppInstallApi", str + " cannot be found");
-                packageInfo = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#startKeyboardHeightChange", false);
+            if (y23.b0() == null) {
+                return new yu1(1001, "swan app is null");
             }
-            return packageInfo != null;
+            A();
+            return yu1.f();
         }
-        return invokeL.booleanValue;
+        return (yu1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dp1
+    public yu1 D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (y23.b0() == null) {
+                return new yu1(1001, "swan app is null");
+            }
+            B();
+            return yu1.f();
+        }
+        return (yu1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.br1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.br1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "CheckAppInstallApi" : (String) invokeV.objValue;
-    }
-
-    public final void z(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            ud3.f().execute(new b(this, str, str2));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.media.Image;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y;
+import com.baidu.tieba.a0;
 import com.baidu.tieba.z;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ArImage extends y {
+public class ArImage extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Session a;
     public long b;
 
     /* loaded from: classes7.dex */
-    public class a extends z {
+    public class a extends a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long a;

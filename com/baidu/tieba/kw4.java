@@ -1,130 +1,74 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ReplacementSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kw4 extends ReplacementSpan {
+public class kw4 extends cw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public Drawable e;
-    public Drawable f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
+    public aw4 c;
 
-    public kw4(int i, int i2, int i3, int i4, int i5, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kw4(aw4 aw4Var) {
+        super(aw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
+            Object[] objArr = {aw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((aw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = R.drawable.icon_pure_evaluation_star24_n;
-        this.b = R.color.CAM_X0112;
-        this.c = R.drawable.icon_pure_evaluation_star24_n;
-        this.d = R.color.CAM_X0305;
-        this.m = 5;
-        this.n = i;
-        this.g = i2;
-        this.h = i3;
-        this.i = i4;
-        this.k = i5;
-        this.o = z;
+        this.c = aw4Var;
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.cw4
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
-            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        int dimenPixelSize;
-        int i6;
+    @dw4(isAsync = false, value = "showShareDialog")
+    public void showShareDialog(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            a();
-            this.j = (int) paint.getTextSize();
-            int i7 = ((int) f) + this.k;
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            int i8 = 0;
-            if (ps4.b(charSequence)) {
-                ps4.a(fontMetricsInt, (int) paint.getTextSize());
-                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-            } else {
-                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
-            }
-            int max = dimenPixelSize + fontMetricsInt.ascent + i4 + Math.max(0, ((this.j - this.h) / 2) + (this.o ? (i5 - i4) / 2 : 0));
-            while (true) {
-                i6 = this.n;
-                if (i8 >= i6) {
-                    break;
-                }
-                Drawable drawable = this.f;
-                if (drawable != null) {
-                    int i9 = this.h;
-                    drawable.setBounds(i7, max, i7 + i9, i9 + max);
-                    this.f.draw(canvas);
-                    i7 += this.g + this.h;
-                }
-                i8++;
-            }
-            while (i6 < this.m) {
-                Drawable drawable2 = this.e;
-                if (drawable2 != null) {
-                    int i10 = this.h;
-                    drawable2.setBounds(i7, max, i7 + i10, i10 + max);
-                    this.e.draw(canvas);
-                    i7 += this.g + this.h;
-                }
-                i6++;
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int i3 = this.m;
-            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
-            this.l = i4;
-            return i4;
+        String optString = jSONObject.optString("title");
+        String optString2 = jSONObject.optString("content");
+        String optString3 = jSONObject.optString("imgUrl");
+        String optString4 = jSONObject.optString("shareUrl");
+        ShareItem shareItem = new ShareItem();
+        shareItem.v = optString;
+        shareItem.w = optString2;
+        if (optString3 == null) {
+            shareItem.z = null;
+        } else {
+            shareItem.z = Uri.parse(optString3);
         }
-        return invokeCommon.intValue;
+        shareItem.x = optString4;
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
+        shareDialogConfig.setIsSupportNightMode(true);
+        shareDialogConfig.setIsCopyLink(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

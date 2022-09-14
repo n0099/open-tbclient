@@ -21,13 +21,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.R$attr;
-import androidx.appcompat.R$id;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.cursoradapter.widget.ResourceCursorAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,7 +94,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view2.findViewById(16908309);
             this.mIcon1 = (ImageView) view2.findViewById(16908295);
             this.mIcon2 = (ImageView) view2.findViewById(16908296);
-            this.mIconRefine = (ImageView) view2.findViewById(R$id.edit_query);
+            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090880);
         }
     }
 
@@ -152,7 +151,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, charSequence)) == null) {
             if (this.mUrlColor == null) {
                 TypedValue typedValue = new TypedValue();
-                this.mContext.getTheme().resolveAttribute(R$attr.textColorSearchUrl, typedValue, true);
+                this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0406e8, typedValue, true);
                 this.mUrlColor = this.mContext.getResources().getColorStateList(typedValue.resourceId);
             }
             SpannableString spannableString = new SpannableString(charSequence);
@@ -617,7 +616,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, cursor, viewGroup)) == null) {
             View newView = super.newView(context, cursor, viewGroup);
             newView.setTag(new ChildViewCache(newView));
-            ((ImageView) newView.findViewById(R$id.edit_query)).setImageResource(this.mCommitIconResId);
+            ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090880)).setImageResource(this.mCommitIconResId);
             return newView;
         }
         return (View) invokeLLL.objValue;

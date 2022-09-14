@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -59,7 +58,7 @@ public class H5OpenActivity extends Activity implements B2 {
         if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) && this.e) {
             e1.a(this).a(new f1(this.d), i, str2).a();
             this.e = false;
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f15a8), 0).show();
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f15c8), 0).show();
         }
     }
 
@@ -123,7 +122,7 @@ public class H5OpenActivity extends Activity implements B2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d090f);
+            setContentView(R.layout.obfuscated_res_0x7f0d092e);
             try {
                 this.d = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
             } catch (Exception e) {
@@ -131,7 +130,6 @@ public class H5OpenActivity extends Activity implements B2 {
             }
             if (this.d == null) {
                 finish();
-                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             this.b = new AdvancedWebView(this);
@@ -142,8 +140,8 @@ public class H5OpenActivity extends Activity implements B2 {
             } catch (JSONException unused) {
             }
             a.a();
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092630);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09262f);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09268e);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09268d);
             this.a = frameLayout;
             frameLayout.removeAllViews();
             try {
@@ -158,16 +156,16 @@ public class H5OpenActivity extends Activity implements B2 {
             Info info = this.d;
             if (info == null || TextUtils.isEmpty(info.getOph5Url())) {
                 Info info2 = this.d;
-                if (info2 != null && !TextUtils.isEmpty(info2.getOpen()) && !StringUtil.NULL_STRING.equals(this.d.getOpen())) {
-                    advancedWebView = this.b;
-                    open = this.d.getOpen();
+                if (info2 == null || TextUtils.isEmpty(info2.getOpen()) || StringUtil.NULL_STRING.equals(this.d.getOpen())) {
+                    return;
                 }
-                LogUtil.logActivity(this, "onCreate");
+                advancedWebView = this.b;
+                open = this.d.getOpen();
+            } else {
+                advancedWebView = this.b;
+                open = this.d.getOph5Url();
             }
-            advancedWebView = this.b;
-            open = this.d.getOph5Url();
             advancedWebView.loadUrl(open);
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

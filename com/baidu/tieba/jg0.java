@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Service
 /* loaded from: classes4.dex */
-public class jg0 {
+public class jg0 extends wh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public final int[] b;
-    public int c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
 
     public jg0() {
         Interceptable interceptable = $ic;
@@ -30,52 +27,26 @@ public class jg0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new int[]{0, 0};
-        this.b = new int[]{0, 0};
-        this.c = 0;
-        this.h = 0L;
-    }
-
-    public void a(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.d = currentTimeMillis;
-                if (this.h == 0) {
-                    this.h = currentTimeMillis;
-                }
-                this.a[0] = (int) motionEvent.getRawX();
-                this.a[1] = (int) motionEvent.getRawY();
-            } else if (action != 1) {
-                if (action != 2) {
-                    return;
-                }
-                this.c++;
-            } else {
-                this.c = 0;
-                this.e = System.currentTimeMillis();
-                this.b[0] = (int) motionEvent.getRawX();
-                this.b[1] = (int) motionEvent.getRawY();
-                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
-                    this.g++;
-                    this.f += Math.max(0L, this.e - this.d);
-                }
             }
         }
     }
 
-    public int[] b() {
+    @Override // com.baidu.tieba.wh0
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.b;
-            return new int[]{iArr[0], iArr[1]};
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pcharge" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wh0
+    public boolean b(@NonNull Context context, @NonNull ai0 ai0Var, @Nullable Map<String, Object> map, @Nullable ei0 ei0Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ai0Var, map, ei0Var)) == null) {
+            super.b(context, ai0Var, map, ei0Var);
+            vh0.e((String) lz0.b(ai0Var.d(), "lp_cmd"), context, map, ei0Var);
+            return true;
         }
-        return (int[]) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

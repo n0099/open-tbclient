@@ -191,9 +191,12 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 return getTopActivity();
             }
             for (int i = size - 1; i >= 0; i--) {
-                WeakReference<Activity> weakReference = this.mActivityStack.get(i);
-                if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
-                    return activity;
+                try {
+                    WeakReference<Activity> weakReference = this.mActivityStack.get(i);
+                    if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
+                        return activity;
+                    }
+                } catch (Exception unused) {
                 }
             }
             return null;

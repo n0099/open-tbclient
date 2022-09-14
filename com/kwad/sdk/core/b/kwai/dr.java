@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.util.BaiduActiveStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -18,7 +19,7 @@ public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k
         kVar.Yy = jSONObject.optLong("dns_cost");
         kVar.Yz = jSONObject.optLong("connect_establish_start");
         kVar.YA = jSONObject.optLong("connect_establish_cost");
-        kVar.YB = jSONObject.optLong("request_start");
+        kVar.YB = jSONObject.optLong(BaiduActiveStatistic.UBC_VALUE_REQUEST_START);
         kVar.YC = jSONObject.optLong("request_cost");
         kVar.YD = jSONObject.optLong("request_size");
         kVar.YE = jSONObject.optLong("response_start");
@@ -84,7 +85,7 @@ public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k
         }
         long j8 = kVar.YB;
         if (j8 != 0) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "request_start", j8);
+            com.kwad.sdk.utils.r.putValue(jSONObject, BaiduActiveStatistic.UBC_VALUE_REQUEST_START, j8);
         }
         long j9 = kVar.YC;
         if (j9 != 0) {

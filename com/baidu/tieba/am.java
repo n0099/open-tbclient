@@ -1,65 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.pm.Signature;
+import android.util.Base64;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
-public class am {
+public final class am {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
-            Field b = b(obj, str);
-            Object[] objArr2 = (Object[]) b.get(obj);
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
-            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
-            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
-            b.set(obj, objArr3);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448299777, "Lcom/baidu/tieba/am;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448299777, "Lcom/baidu/tieba/am;");
         }
     }
 
-    public static Field b(Object obj, String str) throws NoSuchFieldException {
-        InterceptResult invokeLL;
+    public static byte[] a(Signature[] signatureArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Field declaredField = cls.getDeclaredField(str);
-                    if (!declaredField.isAccessible()) {
-                        declaredField.setAccessible(true);
-                    }
-                    return declaredField;
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
+            if (signatureArr != null) {
+                int i = 0;
+                for (Signature signature : signatureArr) {
+                    i += signature.toByteArray().length;
                 }
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                for (Signature signature2 : signatureArr) {
+                    byte[] byteArray = signature2.toByteArray();
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
+                }
+                return bArr;
             }
-            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+            return null;
         }
-        return (Field) invokeLL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static Method c(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
-        InterceptResult invokeLLL;
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        NoSuchAlgorithmException e;
+        String str;
+        byte[] digest;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr != null) {
                 try {
-                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-                    if (!declaredMethod.isAccessible()) {
-                        declaredMethod.setAccessible(true);
-                    }
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
+                    digest = MessageDigest.getInstance("MD5").digest(bArr);
+                } catch (NoSuchAlgorithmException e2) {
+                    e = e2;
+                    str = null;
                 }
+                if (digest != null) {
+                    str = Base64.encodeToString(digest, 0);
+                    if (str != null) {
+                        try {
+                            str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
+                        } catch (NoSuchAlgorithmException e3) {
+                            e = e3;
+                            if (BdLog.isDebugMode()) {
+                                e.printStackTrace();
+                            }
+                            return str;
+                        }
+                    }
+                    return str;
+                }
+                return null;
             }
-            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
+            return null;
         }
-        return (Method) invokeLLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, signatureArr)) == null) {
+            if (signatureArr == null || (a = a(signatureArr)) == null) {
+                return null;
+            }
+            return b(a);
+        }
+        return (String) invokeL.objValue;
     }
 }

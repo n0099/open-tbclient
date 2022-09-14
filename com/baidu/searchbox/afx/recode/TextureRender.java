@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
@@ -120,6 +121,7 @@ public class TextureRender {
         return invokeIL.intValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static void saveFrame(String str, int i, int i2) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
@@ -172,6 +174,7 @@ public class TextureRender {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void changeFragmentShader(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -184,6 +187,7 @@ public class TextureRender {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
@@ -230,6 +234,7 @@ public class TextureRender {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTextureID : invokeV.intValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void surfaceCreated() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

@@ -1,147 +1,220 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
-import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ho5 {
+public class ho5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static ho5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public final HttpMessageListener b;
+    public BaseActivity a;
+    public boolean b;
+    public List<AccountData> c;
+    public View.OnClickListener d;
 
     /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ho5 a;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ho5 ho5Var, int i) {
-            super(i);
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+
+        public b(ho5 ho5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ho5Var, Integer.valueOf(i)};
+                Object[] objArr = {ho5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = ho5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage instanceof SplashHttpResponse) {
-                    SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
-                    if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                        if (this.a.a != null) {
-                            this.a.a.b(splashHttpResponse.getResultMsg());
-                            return;
-                        }
-                        return;
-                    }
-                    BdLog.e("Response of splash has error");
-                    if (this.a.a != null) {
-                        this.a.a.a(splashHttpResponse.getResultMsg());
-                        return;
-                    }
-                    return;
-                }
-                BdLog.e("Not response of splash request");
-            }
+        public /* synthetic */ b(ho5 ho5Var, a aVar) {
+            this(ho5Var);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(String str);
-
-        void b(String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830459, "Lcom/baidu/tieba/ho5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947830459, "Lcom/baidu/tieba/ho5;");
-                return;
-            }
-        }
-        c = new ho5();
-    }
-
-    public ho5() {
+    public ho5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
+        this.a = baseActivity;
+        this.c = null;
+        this.b = false;
+        this.d = onClickListener;
     }
 
-    public static String b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void b(List<AccountData> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics" : (String) invokeV.objValue;
-    }
-
-    public static ho5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c : (ho5) invokeV.objValue;
-    }
-
-    public void e(TbPageContext<?> tbPageContext, b bVar, AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, bVar, adInfo) == null) {
-            this.a = bVar;
-            this.b.setTag(tbPageContext.getUniqueId());
-            MessageManager.getInstance().registerListener(this.b);
-            SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.c = list;
         }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<AccountData> list = this.c;
+            return (list != null ? list.size() : 0) + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List<AccountData> list = this.c;
+            if (list == null || i < 0 || i >= list.size()) {
+                return null;
+            }
+            return this.c.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? getItemId(i) >= 0 ? 0 : 1 : invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            try {
+                try {
+                    if (view2 == null) {
+                        if (getItemViewType(i) == 0) {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090051);
+                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090071);
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090789);
+                            bVar.d = textView;
+                            uu4.d(textView).v(R.color.CAM_X0105);
+                            bVar.d.setOnClickListener(this.d);
+                            view2.setTag(bVar);
+                            uu4.d(bVar.a).v(R.color.CAM_X0105);
+                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
+                        } else {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090124);
+                            view2.setTag(bVar);
+                            uu4.d(bVar.b).v(R.color.CAM_X0302);
+                        }
+                    } else {
+                        bVar = (b) view2.getTag();
+                    }
+                    if (getItemViewType(i) == 0) {
+                        AccountData accountData = (AccountData) getItem(i);
+                        bVar.c.setVisibility(8);
+                        bVar.d.setVisibility(8);
+                        bVar.d.setTag(accountData);
+                        if (accountData != null) {
+                            bVar.a.setText(accountData.getAccountNameShow());
+                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
+                                bVar.c.setVisibility(0);
+                            }
+                            if (this.b) {
+                                bVar.d.setVisibility(0);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+                return view2;
+            } finally {
+                uu4.d(view2).f(R.color.CAM_X0205);
+            }
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
     }
 }

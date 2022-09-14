@@ -7,6 +7,7 @@ import com.baidu.appsearchlib.NASLib;
 import com.baidu.bdhttpdns.BDHttpDns;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ColdStartStatsUtil;
@@ -15,20 +16,20 @@ import com.baidu.tbadk.core.util.ICDNProblemUploader;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.tieba.b25;
-import com.baidu.tieba.cb8;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.hb8;
-import com.baidu.tieba.hm8;
-import com.baidu.tieba.im8;
-import com.baidu.tieba.jx4;
-import com.baidu.tieba.ke5;
-import com.baidu.tieba.pa;
-import com.baidu.tieba.qf;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.un4;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.z8;
+import com.baidu.tieba.db;
+import com.baidu.tieba.eg;
+import com.baidu.tieba.fd5;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.k45;
+import com.baidu.tieba.kc8;
+import com.baidu.tieba.lg5;
+import com.baidu.tieba.n9;
+import com.baidu.tieba.pc8;
+import com.baidu.tieba.rg5;
+import com.baidu.tieba.tz4;
+import com.baidu.tieba.vn8;
+import com.baidu.tieba.wn8;
+import com.baidu.tieba.xp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +57,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initICDN() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            qf.e = UseHttpdnsSdkSwitch.isOn();
+            eg.e = UseHttpdnsSdkSwitch.isOn();
             if (UseHttpdnsSdkSwitch.isOn()) {
                 BDHttpDns h = BDHttpDns.h(TbadkCoreApplication.getInst().getApplicationContext());
                 h.m(false);
@@ -70,7 +71,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                 h.n(true, true);
                 h.k(BDHttpDns.CachePolicy.POLICY_TOLERANT);
                 if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    sg.a().postDelayed(new Runnable(this, h) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.3
+                    gh.a().postDelayed(new Runnable(this, h) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InitLaunchAsyncTask this$0;
@@ -111,21 +112,21 @@ public class InitLaunchAsyncTask extends LaunchTask {
             if (TbadkCoreApplication.getInst().isMainProcess(true) && ICDNIPDirectConnect.getInstance() != null) {
                 ICDNIPDirectConnect.getInstance().init();
             }
-            wa5.b().n(System.currentTimeMillis() - currentTimeMillis);
+            fd5.b().n(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
     private void initQuickWebViewManager() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            cb8.q().u();
+            kc8.q().u();
         }
     }
 
     private void setServiceOnCreateCallBack() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            BdBaseService.setServiceOnCreateCallBack(new pa(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2
+            BdBaseService.setServiceOnCreateCallBack(new db(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchAsyncTask this$0;
@@ -148,11 +149,11 @@ public class InitLaunchAsyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.pa
+                @Override // com.baidu.tieba.db
                 public void onServiceCreate() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ke5.e().c(new ke5.b(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
+                        rg5.e().c(new rg5.b(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -175,7 +176,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                 this.this$1 = this;
                             }
 
-                            @Override // com.baidu.tieba.ke5.b
+                            @Override // com.baidu.tieba.rg5.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
@@ -198,56 +199,58 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
-            hb8.g().j();
-            b25.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
+            pc8.g().j();
+            k45.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
-            jx4.c();
-            un4.t().C();
-            ee5.m().s(TbadkCoreApplication.getInst());
+            tz4.c();
+            xp4.s().A();
+            lg5.m().s(TbadkCoreApplication.getInst());
             initICDN();
             initQuickWebViewManager();
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 TbadkApplication.getInst().updateSignAlarm();
                 TbadkApplication.getInst().initLikeForum();
                 TbadkApplication.getInst().initSignedForum();
-                long currentTimeMillis = System.currentTimeMillis();
-                NASLib.setCallBack(new NASLib.NASCallBack(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ InitLaunchAsyncTask this$0;
+                if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    NASLib.setCallBack(new NASLib.NASCallBack(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ InitLaunchAsyncTask this$0;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // com.baidu.appsearchlib.NASLib.NASCallBack
+                        public void callback(String str, String str2) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, str2) == null) {
+                                UrlManager.getInstance().dealOneLink(null, new String[]{str2});
                             }
                         }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.baidu.appsearchlib.NASLib.NASCallBack
-                    public void callback(String str, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, str2) == null) {
-                            UrlManager.getInstance().dealOneLink(null, new String[]{str2});
-                        }
-                    }
-                });
-                wa5.b().q(System.currentTimeMillis() - currentTimeMillis);
+                    });
+                    fd5.b().q(System.currentTimeMillis() - currentTimeMillis);
+                }
             }
             EmotionUtil.statisticsEmotionGroupNums();
             ColdStartStatsUtil.startUBCStats(TbadkCoreApplication.getInst().isMainProcess(false));
             if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                wa5.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
+                fd5.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
             }
         }
     }
@@ -272,9 +275,9 @@ public class InitLaunchAsyncTask extends LaunchTask {
     public void intReadThreadHistory() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new im8(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new hm8(300);
-            z8.g().s(TbadkApplication.getInst());
+            TbadkApplication.getInst().mReadThreadHistory = new wn8(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new vn8(300);
+            n9.g().s(TbadkApplication.getInst());
         }
     }
 }

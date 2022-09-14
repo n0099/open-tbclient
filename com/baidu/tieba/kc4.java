@@ -1,13 +1,41 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface kc4 {
-    @Nullable
-    JSONObject a(@Nullable ic4<JSONObject> ic4Var);
+public abstract class kc4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    JSONArray b(@Nullable ic4<JSONArray> ic4Var);
+    public kc4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public abstract ad4 a();
+
+    public abstract boolean b(ad4 ad4Var);
+
+    public abstract void c(boolean z);
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "task=" + a();
+        }
+        return (String) invokeV.objValue;
+    }
 }

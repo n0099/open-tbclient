@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.ko5;
-import com.baidu.tieba.sn5;
+import com.baidu.tieba.dq5;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.wq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -187,7 +187,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            sn5 b = sn5.b(ko5.f());
+            dq5 b = dq5.b(wq5.f());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

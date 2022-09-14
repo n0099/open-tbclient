@@ -1,148 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qe0 implements le0 {
+public class qe0 extends xe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public le0 a;
 
-    public qe0() {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    a aVar = new a();
+                    aVar.a = jSONObject.optString("name");
+                    aVar.b = jSONObject.optString("path");
+                    aVar.c = jSONObject.optString(PackageTable.MD5);
+                    return aVar;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qe0(re0 re0Var) {
+        super(re0Var.b, re0Var.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {re0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (File) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new oe0();
     }
 
-    @Override // com.baidu.tieba.le0
-    public long a() {
-        InterceptResult invokeV;
+    public static boolean t(File file) {
+        InterceptResult invokeL;
+        File file2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.a.b(i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            try {
+                file2 = new File(file, "files.json");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (file2.exists()) {
+                FileInputStream fileInputStream = new FileInputStream(file2);
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str = new String(bArr);
+                fileInputStream.close();
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray("files");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        arrayList.add(a.a(optJSONArray.getString(i)));
+                    }
+                    return u(file, arrayList);
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.le0
-    public int c(int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeIIL;
+    public static boolean u(File file, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
+        File file2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, map)) == null) ? this.a.c(i, i2, map) : invokeIIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public int d(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaTrack, i, map)) == null) ? this.a.d(mediaTrack, i, map) : invokeLIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public void e(List<MediaTrack> list, Map<String, ShaderConfig> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, map) == null) {
-            this.a.e(list, map);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() <= 0) {
+                return false;
+            }
+            try {
+                Iterator<a> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    a next = it.next();
+                    String str = next.b;
+                    if (TextUtils.isEmpty(str)) {
+                        file2 = new File(file, next.a);
+                    } else {
+                        file2 = new File(file, str + File.separator + next.a);
+                    }
+                    if (!file2.exists()) {
+                        return false;
+                    }
+                    String a2 = te0.a(file2.getAbsolutePath());
+                    boolean equals = TextUtils.equals(a2, next.c);
+                    if (!equals) {
+                        xe0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.le0
-    public int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.xe0
+    public boolean i(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) ? this.a.f(mediaTrack, i, i2, map) : invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public void g(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            this.a.g(i, j);
-        }
-    }
-
-    @Override // com.baidu.tieba.le0
-    public int h(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, mediaSegment, i, map)) == null) ? this.a.h(mediaSegment, i, map) : invokeLIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public int i(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaTrack, i, map)) == null) ? this.a.i(mediaTrack, i, map) : invokeLIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.a.j(context);
-        }
-    }
-
-    @Override // com.baidu.tieba.le0
-    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) ? this.a.k(i, fArr, fArr2, i2, i3, f) : invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public List<MediaTrack> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.l() : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) ? this.a.m(i, fArr, fArr2, i2, i3, i4, map) : invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.le0
-    public void n(List<MediaTrack> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.a.n(list);
-        }
-    }
-
-    @Override // com.baidu.tieba.le0
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.release();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? t(file) : invokeL.booleanValue;
     }
 }

@@ -13,15 +13,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.ob6;
+import com.baidu.tieba.ed6;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class EmotionCategoryAdapter extends cn<ob6, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends qn<ed6, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,13 +63,13 @@ public class EmotionCategoryAdapter extends cn<ob6, EmotionCategoryViewHolder> {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.a) == null) {
                 return;
             }
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908c1);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090882);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090891);
-            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0545));
+            this.b = (TextView) view2.findViewById(R.id.emotion_title);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090897);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908a6);
+            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0551));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09059f);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f0905ae);
         }
 
         public void b(int i) {
@@ -103,13 +103,13 @@ public class EmotionCategoryAdapter extends cn<ob6, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: s */
     public EmotionCategoryViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d024a, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d024e, viewGroup, false));
             emotionCategoryViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }
@@ -117,11 +117,11 @@ public class EmotionCategoryAdapter extends cn<ob6, EmotionCategoryViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ob6 ob6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ed6 ed6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ob6Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.getView() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ed6Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.getView() : (View) invokeCommon.objValue;
     }
 }

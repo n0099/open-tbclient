@@ -1,81 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumAndTopicViewHolder;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h18 extends cn<eu7, VideoPbEnterForumAndTopicViewHolder> {
+public class h18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h18(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14349");
+            statisticItem.param("tid", str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("post_id", str3);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, eu7 eu7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        t(i, view2, viewGroup, eu7Var, videoPbEnterForumAndTopicViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public VideoPbEnterForumAndTopicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = ri.f(this.mContext, R.dimen.M_W_X007);
-            layoutParams.topMargin = ri.f(this.mContext, R.dimen.M_W_X004);
-            layoutParams.rightMargin = ri.f(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = ri.f(this.mContext, R.dimen.M_W_X004);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoPbEnterForumAndTopicViewHolder(this.mContext, frameLayout);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14348");
+            statisticItem.param("tid", str2);
+            statisticItem.param("uid", str3);
+            statisticItem.param("post_id", str4);
+            statisticItem.param("pid", str4);
+            statisticItem.param("fname", str5);
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
-        return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, eu7 eu7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eu7Var, videoPbEnterForumAndTopicViewHolder})) == null) {
-            if (eu7Var != null) {
-                videoPbEnterForumAndTopicViewHolder.setData(eu7Var.a);
-            }
-            videoPbEnterForumAndTopicViewHolder.a();
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

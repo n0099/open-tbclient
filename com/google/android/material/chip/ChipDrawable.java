@@ -398,7 +398,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i, "chip");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = R.style.obfuscated_res_0x7f10035e;
+                styleAttribute = R.style.obfuscated_res_0x7f10035f;
             }
             return createFromAttributes(context, parseDrawableXml, R.attr.obfuscated_res_0x7f04014a, styleAttribute);
         }
@@ -597,7 +597,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65562, this, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f04015c, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f04032a, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f0406ea, R.attr.obfuscated_res_0x7f0406f2}, i, i2, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, com.google.android.material.R.styleable.Chip, i, i2, new int[0]);
             this.isShapeThemingEnabled = obtainStyledAttributes.hasValue(36);
             setChipSurfaceColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 23));
             setChipBackgroundColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 10));

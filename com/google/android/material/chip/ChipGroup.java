@@ -35,9 +35,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class ChipGroup extends FlowLayout {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100360 = 2131755872;
+    public static final int DEF_STYLE_RES = 2131755873;
     public transient /* synthetic */ FieldHolder $fh;
     @IdRes
     public int checkedId;
@@ -703,7 +701,7 @@ public class ChipGroup extends FlowLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChipGroup(Context context, AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100360), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -724,7 +722,7 @@ public class ChipGroup extends FlowLayout {
         this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
         this.checkedId = -1;
         this.protectFromCheckedChange = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04062a, R.attr.obfuscated_res_0x7f04062b}, i, obfuscated_res_0x7f100360, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, com.google.android.material.R.styleable.ChipGroup, i, DEF_STYLE_RES, new int[0]);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
         setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));

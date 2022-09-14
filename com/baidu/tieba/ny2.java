@@ -1,211 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.az2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ny2 {
+public class ny2 extends ly2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static ny2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public HashMap<String, oy2> b;
-    public List<String> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018722, "Lcom/baidu/tieba/ny2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements oj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jy2 a;
+        public final /* synthetic */ k42 b;
+
+        public a(ny2 ny2Var, jy2 jy2Var, k42 k42Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny2Var, jy2Var, k42Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948018722, "Lcom/baidu/tieba/ny2;");
-                return;
+            this.a = jy2Var;
+            this.b = k42Var;
+        }
+
+        @Override // com.baidu.tieba.oj1
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                qy2.b("obtain address failure, errCode = " + i);
+                this.b.a(this.a);
             }
         }
-        d = kh1.a;
+
+        @Override // com.baidu.tieba.oj1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                qy2.b("obtain address success");
+                jy2 jy2Var = this.a;
+                jy2Var.d = true;
+                if (jSONObject != null) {
+                    jy2Var.e = jSONObject.toString();
+                }
+                this.b.a(this.a);
+            }
+        }
     }
 
     public ny2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.my2
+    public yu1 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return null;
+        }
+        return (yu1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.my2
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "mapp_choose_address" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.my2
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginAddressFunPage" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ly2
+    public void p(SwanAppActivity swanAppActivity, String str, iy2 iy2Var, k83 k83Var, k42<jy2> k42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, iy2Var, k83Var, k42Var) == null) {
+            jy2 jy2Var = new jy2(iy2Var.f);
+            jy2Var.a = iy2Var.e;
+            if (k83Var != null && k83Var.j.a() != 10003) {
+                qy2.b("obtain address detail");
+                fm2.j0().a(swanAppActivity, str, str, new a(this, jy2Var, k42Var));
                 return;
             }
+            qy2.b("user denied");
+            k42Var.a(jy2Var);
         }
-        this.b = new HashMap<>();
-        this.c = new ArrayList();
-    }
-
-    public static ny2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (ny2.class) {
-                    if (e == null) {
-                        e = new ny2();
-                    }
-                }
-            }
-            return e;
-        }
-        return (ny2) invokeV.objValue;
-    }
-
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
-        oy2 oy2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, oy2> hashMap = this.b;
-            if (hashMap == null || (oy2Var = hashMap.get(str)) == null) {
-                return null;
-            }
-            return oy2Var.a();
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.c;
-            return list != null && list.size() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "get emoji info from " + str);
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String E = ch4.E(new File(str + File.separator + "emoji.json"));
-                if (TextUtils.isEmpty(E)) {
-                    if (d) {
-                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
-                        return;
-                    }
-                    return;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
-                    if (optJSONArray == null) {
-                        return;
-                    }
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    if (optJSONObject == null) {
-                        return;
-                    }
-                    String optString = optJSONObject.optString("package_icon");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.c.clear();
-                    this.b.clear();
-                    if (optJSONArray2 != null) {
-                        int length = optJSONArray2.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
-                            String optString2 = jSONObject.optString("id");
-                            String optString3 = jSONObject.optString("text");
-                            String optString4 = jSONObject.optString("icon");
-                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
-                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.c.add(optString3);
-                                this.b.put(optString3, new oy2(optString2, optString3, decodeFile));
-                            }
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (d) {
-                Log.d("EmojiInfoManager", "文件路径错误");
-            }
-        }
-    }
-
-    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLL;
-        Object aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
-            }
-            SpannableString spannableString = new SpannableString(charSequence);
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            while (matcher.find()) {
-                String group = matcher.group();
-                int start = matcher.start();
-                Bitmap a = c().a(group);
-                if (a == null) {
-                    break;
-                }
-                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
-                if (createScaledBitmap != null) {
-                    if (textView instanceof EditText) {
-                        aVar = new az2.b(context.getApplicationContext(), createScaledBitmap);
-                    } else {
-                        aVar = new az2.a(context.getApplicationContext(), createScaledBitmap);
-                    }
-                    spannableString.setSpan(aVar, start, group.length() + start, 33);
-                }
-            }
-            return spannableString;
-        }
-        return (SpannableString) invokeLLL.objValue;
     }
 }

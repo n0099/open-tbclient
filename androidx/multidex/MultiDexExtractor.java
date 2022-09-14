@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,7 +104,7 @@ public final class MultiDexExtractor implements Closeable {
         this.dexDir = file2;
         this.sourceCrc = getZipCrc(file);
         File file3 = new File(file2, LOCK_FILENAME);
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file3, rw.c);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
         this.lockRaf = randomAccessFile;
         try {
             this.lockChannel = randomAccessFile.getChannel();

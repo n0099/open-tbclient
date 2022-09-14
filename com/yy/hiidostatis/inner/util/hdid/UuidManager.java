@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.provider.Settings;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +121,7 @@ public class UuidManager {
                 if (!(context instanceof Application)) {
                     context = context.getApplicationContext();
                 }
-                String string = Settings.System.getString(context.getContentResolver(), SETTING_KEY);
+                String string = ApiReplaceUtil.getString(context.getContentResolver(), SETTING_KEY);
                 if (string != null) {
                     return Coder.decryptDES(string, MAGIC_KEY);
                 }

@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class it0 {
+public class it0 extends yx0<ht0> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ht0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ht0 a() {
-        InterceptResult invokeV;
-        ht0 ht0Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public it0() {
+        super(10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (it0.class) {
-                if (a == null) {
-                    a = new ht0();
-                }
-                ht0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return ht0Var;
         }
-        return (ht0) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wx0
+    /* renamed from: e */
+    public ht0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ht0() : (ht0) invokeV.objValue;
     }
 }

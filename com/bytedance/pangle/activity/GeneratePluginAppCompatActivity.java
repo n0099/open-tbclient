@@ -56,7 +56,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -695,7 +694,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         if (interceptable == null || interceptable.invokeL(1048657, this, bundle) == null) {
             this.mProxyActivity.zeusSuperOnCreate(bundle);
             com.bytedance.pangle.res.b.a(getLayoutInflater());
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 

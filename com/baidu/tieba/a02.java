@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import android.os.Bundle;
 /* loaded from: classes3.dex */
 public interface a02 {
-    boolean n();
+    void a(Bundle bundle);
 
-    boolean t(boolean z);
+    void b(Bundle bundle);
+
+    String c();
 }

@@ -318,7 +318,7 @@ public class av implements au, InvocationHandler {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("mdid:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m90a("mdid:" + str);
         }
     }
 

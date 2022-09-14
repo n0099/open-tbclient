@@ -38,7 +38,7 @@ public final class ah {
             Cif cif = new Cif();
             try {
                 it.a(cif, bArr);
-                return a(u.m680a((Context) xMPushService), xMPushService, cif);
+                return a(u.m681a((Context) xMPushService), xMPushService, cif);
             } catch (iz e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
@@ -62,7 +62,7 @@ public final class ah {
                 cif.f628a.f559c = str.substring(str.indexOf("/") + 1);
                 flVar.a(it.a(cif), tVar.c);
                 flVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m89a("try send mi push message. packagename:" + cif.f633b + " action:" + cif.f626a);
+                com.xiaomi.channel.commonutils.logger.b.m90a("try send mi push message. packagename:" + cif.f633b + " action:" + cif.f626a);
                 return flVar;
             } catch (NullPointerException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -140,33 +140,33 @@ public final class ah {
     }
 
     public static void a(XMPushService xMPushService) {
-        t m680a;
+        t m681a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, xMPushService) == null) || (m680a = u.m680a(xMPushService.getApplicationContext())) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, xMPushService) == null) || (m681a = u.m681a(xMPushService.getApplicationContext())) == null) {
             return;
         }
-        bg.b a = u.m680a(xMPushService.getApplicationContext()).a(xMPushService);
-        com.xiaomi.channel.commonutils.logger.b.m89a("prepare account. " + a.f934a);
+        bg.b a = u.m681a(xMPushService.getApplicationContext()).a(xMPushService);
+        com.xiaomi.channel.commonutils.logger.b.m90a("prepare account. " + a.f934a);
         a(xMPushService, a);
         bg.a().a(a);
-        bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m680a));
-        a(xMPushService, m680a, 172800);
+        bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m681a));
+        a(xMPushService, m681a, 172800);
     }
 
     public static void a(XMPushService xMPushService, Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, cif) == null) {
             db.a(cif.b(), xMPushService.getApplicationContext(), cif, -1);
-            fw m589a = xMPushService.m589a();
-            if (m589a == null) {
+            fw m590a = xMPushService.m590a();
+            if (m590a == null) {
                 throw new gh("try send msg while connection is null.");
             }
-            if (!m589a.m356a()) {
+            if (!m590a.m357a()) {
                 throw new gh("Don't support XMPP connection.");
             }
-            fl a = a(u.m680a((Context) xMPushService), xMPushService, cif);
+            fl a = a(u.m681a((Context) xMPushService), xMPushService, cif);
             if (a != null) {
-                m589a.b(a);
+                m590a.b(a);
             }
         }
     }
@@ -190,16 +190,16 @@ public final class ah {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             db.a(str, xMPushService.getApplicationContext(), bArr);
-            fw m589a = xMPushService.m589a();
-            if (m589a == null) {
+            fw m590a = xMPushService.m590a();
+            if (m590a == null) {
                 throw new gh("try send msg while connection is null.");
             }
-            if (!m589a.m356a()) {
+            if (!m590a.m357a()) {
                 throw new gh("Don't support XMPP connection.");
             }
             fl a = a(xMPushService, bArr);
             if (a != null) {
-                m589a.b(a);
+                m590a.b(a);
             } else {
                 x.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }

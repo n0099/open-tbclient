@@ -1,76 +1,17 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import java.io.IOException;
-import java.io.OutputStream;
 /* loaded from: classes3.dex */
-public abstract class c49 extends OutputStream {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public IOException a;
-    public boolean b;
-    public boolean c;
+public interface c49 {
+    void A();
 
-    public c49() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c();
 
-    public void a() throws IOException {
-        IOException iOException;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.a) != null) {
-            throw iOException;
-        }
-    }
+    void d(String str);
 
-    public void c() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.c) {
-                if (this.b) {
-                    throw new IOException("Stream has been closed.");
-                }
-                return;
-            }
-            a();
-            throw new IOException("Writing after request completed.");
-        }
-    }
+    void finish();
 
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-        }
-    }
+    void setResult(int i);
 
-    public abstract void e() throws IOException;
+    void w0(int i, boolean z);
 
-    public abstract UploadDataProvider f();
-
-    public abstract void g() throws IOException;
-
-    public void h(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-            this.a = iOException;
-            this.c = true;
-        }
-    }
+    void x();
 }

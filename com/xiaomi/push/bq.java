@@ -35,12 +35,12 @@ public class bq extends al.a {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m94a().isEventUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m95a().isEventUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a  reason: collision with other method in class */
-    public String mo207a() {
+    public String mo208a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100886" : (String) invokeV.objValue;
@@ -53,7 +53,7 @@ public class bq extends al.a {
             try {
                 if (a()) {
                     com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + " begin upload event");
-                    com.xiaomi.clientreport.manager.a.a(this.a).m96b();
+                    com.xiaomi.clientreport.manager.a.a(this.a).m97b();
                 }
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);

@@ -24,9 +24,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class MaterialCheckBox extends AppCompatCheckBox {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100361 = 2131755873;
+    public static final int DEF_STYLE_RES = 2131755874;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -142,7 +140,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100361), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +158,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04074e}, i, obfuscated_res_0x7f100361, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.MaterialCheckBox, i, DEF_STYLE_RES, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
             CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }

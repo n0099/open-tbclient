@@ -1,19 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-import com.baidu.swan.apps.view.SwanAppErrorDialog;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.swan.facade.requred.webview.LoadingActivity;
-import com.baidu.tieba.b72;
-import com.baidu.tieba.un3;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.cpu.booster.utils.CpuType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,192 +13,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 /* loaded from: classes6.dex */
-public class wn3 implements un3.b {
+public class wn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final SparseArray<on3> a;
+    public static CpuType b;
+    public static int c;
+    public static pn3 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnClickListener {
+    public static class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c72 a;
-        public final /* synthetic */ wn3 b;
 
-        public a(wn3 wn3Var, c72 c72Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn3Var, c72Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = wn3Var;
-            this.a = c72Var;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) || -2 == i) {
-                return;
-            }
-            this.b.j();
-            this.b.l(this.a);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements tf3<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c72 a;
-        public final /* synthetic */ wn3 b;
-
-        /* loaded from: classes6.dex */
-        public class a implements b72.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Boolean a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, Boolean bool) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, bool};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                String name = file.getName();
+                if (name.startsWith("cpu")) {
+                    int length = name.length();
+                    for (int i = 3; i < length; i++) {
+                        if (!Character.isDigit(name.charAt(i))) {
+                            return false;
+                        }
                     }
+                    return true;
                 }
-                this.b = bVar;
-                this.a = bool;
+                return false;
             }
-
-            @Override // com.baidu.tieba.b72.e
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.b;
-                    bVar.b.i(this.a, bVar.a);
-                }
-            }
-        }
-
-        public b(wn3 wn3Var, c72 c72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn3Var, c72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wn3Var;
-            this.a = c72Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                if (wn3.b) {
-                    Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
-                }
-                if (!bool.booleanValue()) {
-                    this.b.i(bool, this.a);
-                } else {
-                    SwanAppInitHelper.doWebViewInit(z03.K(), new a(this, bool));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(wn3 wn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                Intent intent = new Intent(appContext, LoadingActivity.class);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.putExtra("so_lib_name", ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-                jd3.g(appContext, intent);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(wn3 wn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                z03.K().p("loading_hide");
-            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -223,111 +83,286 @@ public class wn3 implements un3.b {
                 return;
             }
         }
-        b = kh1.a;
+        a = new SparseArray<>();
+        c = -1;
     }
 
-    public wn3() {
+    public static on3 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            on3 on3Var = a.get(i);
+            if (on3Var != null) {
+                return on3Var;
+            }
+            try {
+                on3 on3Var2 = new on3(i, k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_min_freq"), k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq"));
+                a.put(i, on3Var2);
+                return on3Var2;
+            } catch (Exception unused) {
+                return new on3(i, -1, -1);
             }
         }
-        this.a = false;
+        return (on3) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.un3.b
-    public xd4 a() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new aj4() : (xd4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File[] listFiles = new File("/sys/devices/system/cpu").listFiles(new a());
+            if (listFiles == null || listFiles.length <= 0) {
+                return -1;
+            }
+            return listFiles.length;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.un3.b
-    public void b(boolean z, c72 c72Var) {
+    public static int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, c72Var) == null) {
-            if (this.a) {
-                if (!z) {
-                    j();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(str);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                String readLine = bufferedReader.readLine();
+                bufferedReader.close();
+                int d2 = d(readLine);
+                fileInputStream.close();
+                return d2;
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            int indexOf = str.indexOf(45);
+            if (indexOf == -1) {
+                if (TextUtils.isDigitsOnly(str)) {
+                    return m(str) + 1;
                 }
-                l(c72Var);
-            } else if (z) {
-                l(c72Var);
-            } else {
-                k(new a(this, c72Var));
+                return -1;
             }
+            int m = m(str.substring(indexOf + 1));
+            if (m != -1) {
+                return m + 1;
+            }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.un3.b
-    public Bitmap d() {
+    public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            int i = c;
+            if (i != -1) {
+                return i;
+            }
+            int c2 = c("/sys/devices/system/cpu/possible");
+            if (c2 != -1) {
+                c = c2;
+                return c2;
+            }
+            int c3 = c("/sys/devices/system/cpu/present");
+            if (c3 != -1) {
+                c = c3;
+                return c3;
+            }
+            int b2 = b();
+            if (b2 == -1) {
+                b2 = Math.max(Runtime.getRuntime().availableProcessors(), 1);
+            }
+            c = b2;
+            return b2;
         }
-        return (Bitmap) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void h() {
+    public static pn3 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            z03.M().post(new d(this));
-        }
-    }
-
-    public final void i(Boolean bool, c72 c72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, bool, c72Var) == null) {
-            this.a = false;
-            h();
-            if (c72Var != null) {
-                if (bool.booleanValue()) {
-                    c72Var.onSuccess();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            pn3 pn3Var = d;
+            if (pn3Var != null) {
+                return pn3Var;
+            }
+            int e = e();
+            if (e <= 0) {
+                return new pn3();
+            }
+            if (e == 1) {
+                pn3 pn3Var2 = new pn3();
+                pn3Var2.h = false;
+                pn3Var2.a = e;
+                pn3Var2.l = a(0);
+                d = pn3Var2;
+                return pn3Var2;
+            }
+            ArrayList<on3> arrayList = new ArrayList(e);
+            for (int i = 0; i < e; i++) {
+                arrayList.add(a(i));
+            }
+            SparseArray sparseArray = new SparseArray();
+            SparseIntArray sparseIntArray = new SparseIntArray();
+            ArrayList arrayList2 = new ArrayList();
+            for (on3 on3Var : arrayList) {
+                int i2 = on3Var.c;
+                if (sparseArray.get(i2) != null) {
+                    sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
                 } else {
-                    c72Var.onFail();
+                    sparseArray.put(i2, on3Var);
+                    arrayList2.add(on3Var);
+                    sparseIntArray.put(i2, 1);
                 }
             }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            z03.M().post(new c(this));
-        }
-    }
-
-    public void k(DialogInterface.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            BaseActivityDialog.e r = SwanAppErrorDialog.r();
-            r.B(R.string.obfuscated_res_0x7f0f01de);
-            r.u(R.string.obfuscated_res_0x7f0f01dd);
-            r.w(R.string.obfuscated_res_0x7f0f01db, onClickListener);
-            r.z(R.string.obfuscated_res_0x7f0f01dc, onClickListener);
-            r.D();
-        }
-    }
-
-    public final void l(c72 c72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, c72Var) == null) {
-            this.a = true;
-            if (b) {
-                Log.i("SailorSoDownloadAdapter", "startDownload: ");
+            Collections.sort(arrayList2);
+            pn3 pn3Var3 = new pn3();
+            pn3Var3.a = e;
+            boolean z = arrayList2.size() > 1;
+            pn3Var3.h = z;
+            if (!z) {
+                pn3Var3.l = (on3) (arrayList2.size() <= 0 ? arrayList.get(0) : arrayList2.get(0));
+                d = pn3Var3;
+                return pn3Var3;
             }
-            pa2 pa2Var = pa2.d;
-            qa2 qa2Var = new qa2();
-            qa2Var.h(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, new b(this, c72Var));
-            pa2Var.C(qa2Var);
+            pn3Var3.j = (on3) arrayList2.get(0);
+            pn3Var3.c = ((on3) arrayList2.get(0)).a;
+            pn3Var3.b = sparseIntArray.get(pn3Var3.j.c);
+            pn3Var3.i = (on3) arrayList2.get(1);
+            pn3Var3.e = ((on3) arrayList2.get(1)).a;
+            pn3Var3.d = sparseIntArray.get(pn3Var3.i.c);
+            if (arrayList2.size() > 2) {
+                pn3Var3.k = (on3) arrayList2.get(2);
+                pn3Var3.g = ((on3) arrayList2.get(2)).a;
+                pn3Var3.f = sparseIntArray.get(pn3Var3.k.c);
+            }
+            d = pn3Var3;
+            return pn3Var3;
         }
+        return (pn3) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String a2 = yn3.a("ro.board.platform");
+            if (TextUtils.isEmpty(a2)) {
+                a2 = Build.HARDWARE;
+            }
+            return a2 != null ? a2.trim() : a2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static CpuType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            CpuType cpuType = b;
+            return cpuType != null ? cpuType : i(g());
+        }
+        return (CpuType) invokeV.objValue;
+    }
+
+    public static CpuType i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                CpuType cpuType = CpuType.Unknown;
+                b = cpuType;
+                return cpuType;
+            }
+            String lowerCase = str.toLowerCase();
+            if (!lowerCase.startsWith("kirin") && !lowerCase.startsWith("hi")) {
+                if (!lowerCase.startsWith("qcom") && !lowerCase.startsWith("kona") && !lowerCase.startsWith("lahaina") && !lowerCase.startsWith("msm") && !lowerCase.startsWith("sdm") && !lowerCase.startsWith("apq") && !lowerCase.startsWith("sm")) {
+                    if (lowerCase.startsWith("mt")) {
+                        CpuType cpuType2 = CpuType.Mtk;
+                        b = cpuType2;
+                        return cpuType2;
+                    }
+                    CpuType cpuType3 = CpuType.Unknown;
+                    b = cpuType3;
+                    return cpuType3;
+                }
+                CpuType cpuType4 = CpuType.QualComm;
+                b = cpuType4;
+                return cpuType4;
+            }
+            CpuType cpuType5 = CpuType.Hisilicon;
+            b = cpuType5;
+            return cpuType5;
+        }
+        return (CpuType) invokeL.objValue;
+    }
+
+    public static int j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            return k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq");
+        }
+        return invokeI.intValue;
+    }
+
+    public static int k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.canRead()) {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                    String readLine = bufferedReader.readLine();
+                    bufferedReader.close();
+                    return m(l(readLine));
+                } catch (Exception unused) {
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (str == null) {
+                return str;
+            }
+            int length = str.length();
+            int i = 0;
+            while (i < length && Character.isDigit(str.charAt(i))) {
+                i++;
+            }
+            return str.substring(0, i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeL.intValue;
     }
 }

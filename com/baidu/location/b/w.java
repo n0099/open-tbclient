@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.Jni;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -315,7 +314,7 @@ public class w {
                                     return -2;
                                 }
                             }
-                            RandomAccessFile randomAccessFile = new RandomAccessFile(j, rw.c);
+                            RandomAccessFile randomAccessFile = new RandomAccessFile(j, "rw");
                             if (randomAccessFile.length() < 1) {
                                 randomAccessFile.close();
                                 return -3;
@@ -482,7 +481,7 @@ public class w {
                     if (!file.exists()) {
                         d(str);
                     }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                     randomAccessFile.seek(4L);
                     int readInt = randomAccessFile.readInt();
                     int readInt2 = randomAccessFile.readInt();
@@ -539,7 +538,7 @@ public class w {
                 file = new File(str);
                 if (!file.exists()) {
                 }
-                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, rw.c);
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
                 randomAccessFile2.seek(4L);
                 int readInt6 = randomAccessFile2.readInt();
                 int readInt22 = randomAccessFile2.readInt();
@@ -567,7 +566,7 @@ public class w {
             if (z) {
                 return;
             }
-            RandomAccessFile randomAccessFile22 = new RandomAccessFile(file, rw.c);
+            RandomAccessFile randomAccessFile22 = new RandomAccessFile(file, "rw");
             randomAccessFile22.seek(4L);
             int readInt62 = randomAccessFile22.readInt();
             int readInt222 = randomAccessFile22.readInt();
@@ -761,7 +760,7 @@ public class w {
             File file = new File(str);
             if (file.exists()) {
                 try {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                     randomAccessFile.seek(8L);
                     int readInt = randomAccessFile.readInt();
                     int readInt2 = randomAccessFile.readInt();
@@ -850,7 +849,7 @@ public class w {
                 if (!file.createNewFile()) {
                     file = null;
                 }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(32);
                 randomAccessFile.writeInt(2048);
@@ -872,7 +871,7 @@ public class w {
             String str = null;
             if (file.exists()) {
                 try {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, rw.c);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                     randomAccessFile.seek(20L);
                     int readInt = randomAccessFile.readInt();
                     if (readInt > 128) {
@@ -894,7 +893,7 @@ public class w {
             File file2 = new File(h);
             if (file2.exists()) {
                 try {
-                    RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, rw.c);
+                    RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, "rw");
                     randomAccessFile2.seek(20L);
                     int readInt2 = randomAccessFile2.readInt();
                     if (readInt2 > 256) {
@@ -916,7 +915,7 @@ public class w {
             File file3 = new File(i);
             if (file3.exists()) {
                 try {
-                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(file3, rw.c);
+                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(file3, "rw");
                     randomAccessFile3.seek(20L);
                     int readInt3 = randomAccessFile3.readInt();
                     if (readInt3 > 512) {

@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class la5 {
+public class la5 implements u95<HotEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public int b;
-    public Long c;
-    public int d;
-    public String e;
-    public String f;
-    public int g;
-    public Long h;
-    public int i;
 
     public la5() {
         Interceptable interceptable = $ic;
@@ -33,12 +26,20 @@ public class la5 {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.u95
+    /* renamed from: a */
+    public boolean onEvent(HotEvent hotEvent) {
+        InterceptResult invokeL;
+        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "YYPayResult{amount=" + this.a + ", appid=" + this.b + ", currencyAmount=" + this.c + ", currencyType=" + this.d + ", expand='" + this.e + "', orderId='" + this.f + "', status=" + this.g + ", uid=" + this.h + ", usedChannel=" + this.i + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
+            if (hotEvent == null || (hotEventData = hotEvent.hotEventData) == null) {
+                return false;
+            }
+            t25.g(hotEventData);
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

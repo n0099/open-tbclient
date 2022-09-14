@@ -1,26 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.adp.framework.message.Message;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Deprecated
 /* loaded from: classes3.dex */
-public interface d9<T> {
-    Context getContext();
+public class d9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    T getOrignalPage();
-
-    Activity getPageActivity();
-
-    Resources getResources();
-
-    String getString(int i);
-
-    BdUniqueId getUniqueId();
-
-    void registerListener(MessageListener<?> messageListener);
-
-    void sendMessage(Message<?> message);
+    @Deprecated
+    public static void a(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, th) == null) {
+        }
+    }
 }

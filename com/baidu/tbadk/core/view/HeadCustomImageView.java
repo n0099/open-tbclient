@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lj8;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,8 +65,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = ri.f(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = ej.f(TbadkApplication.getInst(), R.dimen.tbds118);
         c(context);
     }
 
@@ -106,14 +106,14 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.n = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0385, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038a, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
-            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d16);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d15);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d13);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d14);
-            int f = ri.f(context, R.dimen.tbds90);
+            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d31);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d30);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d2e);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d2f);
+            int f = ej.f(context, R.dimen.tbds90);
             this.e = f;
             this.d.setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
             RoundRelativeLayout roundRelativeLayout = this.c;
@@ -253,7 +253,7 @@ public class HeadCustomImageView extends RelativeLayout {
             return;
         }
         this.a.setDefaultBgResource(R.color.transparent);
-        this.a.setBackgroundColor(lj8.a(lj8.f(str), 0.3f));
+        this.a.setBackgroundColor(zk8.a(zk8.f(str), 0.3f));
     }
 
     public void setHeadImageBackgroundResource(String str) {
@@ -360,8 +360,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = ri.f(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = ej.f(TbadkApplication.getInst(), R.dimen.tbds118);
         c(context);
     }
 
@@ -385,8 +385,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = ri.f(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = ej.f(TbadkApplication.getInst(), R.dimen.tbds118);
         c(context);
     }
 }

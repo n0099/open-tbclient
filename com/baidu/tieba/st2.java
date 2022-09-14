@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,37 +11,61 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class st2 {
+public abstract class st2 {
     public static /* synthetic */ Interceptable $ic;
-    public static rt2 a;
-    public static final rt2 b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public double a;
+    public Set<Integer> b;
 
     /* loaded from: classes5.dex */
-    public static class a implements rt2 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public static st2 a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? b(str, 0.5d) : (st2) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.rt2
-        public void onPayResult(int i, String str) {
+        public static st2 b(String str, double d) {
+            InterceptResult invokeCommon;
+            char c;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Double.valueOf(d)})) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode == -2129978548) {
+                    if (str.equals("simple_parser")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else if (hashCode != -585839565) {
+                    if (hashCode == 544848403 && str.equals("hsv_parser")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("solid_parser")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            return new ut2();
+                        }
+                        return new vt2();
+                    }
+                    return new tt2(d);
+                }
+                return new ut2();
             }
+            return (st2) invokeCommon.objValue;
         }
     }
 
@@ -54,24 +82,61 @@ public class st2 {
                 return;
             }
         }
-        b = new a();
+        c = ij1.a;
     }
 
-    public static rt2 a() {
-        InterceptResult invokeV;
+    public st2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            rt2 rt2Var = a;
-            return rt2Var == null ? b : rt2Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (rt2) invokeV.objValue;
+        this.a = 1.0d;
     }
 
-    public static void b(rt2 rt2Var) {
+    public abstract boolean a(Bitmap bitmap, Rect rect);
+
+    public boolean b(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, rt2Var) == null) || a == rt2Var) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (bitmap == null || rect == null || rect.top < 0 || rect.bottom < 0 || rect.left < 0 || rect.right < 0) {
+                return false;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = rect.top;
+            int i2 = rect.bottom;
+            if (i >= i2 || i2 > height) {
+                return false;
+            }
+            int i3 = rect.left;
+            int i4 = rect.right;
+            return i3 < i4 && i4 <= width;
         }
-        a = rt2Var;
+        return invokeLL.booleanValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Set<Integer> set = this.b;
+            if (set == null) {
+                this.b = new TreeSet();
+            } else {
+                set.clear();
+            }
+            if (c) {
+                Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
+            }
+            this.b.add(Integer.valueOf(i));
+        }
     }
 }

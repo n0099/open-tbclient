@@ -14,13 +14,13 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.appcompat.R$attr;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import androidx.core.widget.TintableCompoundDrawablesView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -411,7 +411,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.buttonStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04012a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -1,64 +1,67 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Locale;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes4.dex */
-public final class jg1 {
+public class jg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
-            try {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                byte[] bArr3 = new byte[16];
-                for (int i = 0; i < 16; i++) {
-                    bArr3[i] = 0;
-                }
-                cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                byte[] doFinal = cipher.doFinal(bArr2);
-                byte[] e = pg1.e(bArr2);
-                byte[] bArr4 = new byte[doFinal.length + e.length];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
-                return bArr4;
-            } catch (Throwable th) {
-                lg1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
                 return null;
             }
+            return (c(str).booleanValue() || d(str).booleanValue()) ? str.split("\\?")[0] : str;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
-        InterceptResult invokeLLZ;
+    public static HttpURLConnection b(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
-            try {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                byte[] bArr3 = new byte[16];
-                for (int i = 0; i < 16; i++) {
-                    bArr3[i] = 0;
-                }
-                cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                if (z) {
-                    byte[] bArr4 = new byte[bArr2.length - 16];
-                    System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
-                    bArr2 = bArr4;
-                }
-                return cipher.doFinal(bArr2);
-            } catch (Throwable unused) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, url)) == null) {
+            if (url.getProtocol().toLowerCase().equals("https")) {
+                ig1.a();
+                return (HttpsURLConnection) url.openConnection();
             }
+            return (HttpURLConnection) url.openConnection();
         }
-        return (byte[]) invokeLLZ.objValue;
+        return (HttpURLConnection) invokeL.objValue;
+    }
+
+    public static Boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP) : (Boolean) invokeL.objValue;
+    }
+
+    public static Boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS) : (Boolean) invokeL.objValue;
+    }
+
+    public static Boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            boolean z = false;
+            if (str != null && str.trim().toLowerCase(Locale.getDefault()).indexOf(str2) == 0) {
+                z = true;
+            }
+            return Boolean.valueOf(z);
+        }
+        return (Boolean) invokeLL.objValue;
     }
 }

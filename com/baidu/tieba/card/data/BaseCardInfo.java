@@ -3,8 +3,8 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.io;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.Cdo;
+import com.baidu.tieba.wo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements pn {
+public abstract class BaseCardInfo implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,7 +22,7 @@ public abstract class BaseCardInfo implements pn {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public io trigger;
+    public wo trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -110,13 +110,13 @@ public abstract class BaseCardInfo implements pn {
         this.mSupportType = SupportType.NONE;
     }
 
-    public io getTrigger() {
+    public wo getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (io) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (wo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pn
+    @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,10 +178,10 @@ public abstract class BaseCardInfo implements pn {
         }
     }
 
-    public void setTrigger(io ioVar) {
+    public void setTrigger(wo woVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ioVar) == null) {
-            this.trigger = ioVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, woVar) == null) {
+            this.trigger = woVar;
         }
     }
 }

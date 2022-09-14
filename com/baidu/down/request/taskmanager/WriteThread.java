@@ -10,7 +10,6 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
-import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +74,7 @@ public class WriteThread implements Runnable {
             File file2 = new File(abstractTask.mFilePath);
             abstractTask.mFile = file2;
             abstractTask.mFilename = file2.getName();
-            return new RandomAccessFile(abstractTask.mFilePath, rw.c);
+            return new RandomAccessFile(abstractTask.mFilePath, "rw");
         }
         return (RandomAccessFile) invokeL.objValue;
     }
@@ -159,9 +158,9 @@ public class WriteThread implements Runnable {
         r0.put(com.baidu.down.request.db.DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
         com.baidu.down.request.taskmanager.TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(r0, "_id=?", new java.lang.String[]{java.lang.String.valueOf(r5.mDownloadId)});
      */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x0349 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x02b4 A[Catch: all -> 0x0346, TryCatch #5 {all -> 0x0346, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0308 A[Catch: all -> 0x0346, TRY_LEAVE, TryCatch #5 {all -> 0x0346, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x034a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x02b4 A[Catch: all -> 0x0347, TryCatch #6 {all -> 0x0347, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0308 A[Catch: all -> 0x0347, TRY_LEAVE, TryCatch #6 {all -> 0x0347, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.

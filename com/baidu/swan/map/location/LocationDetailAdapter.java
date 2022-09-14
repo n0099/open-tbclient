@@ -8,8 +8,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l64;
-import com.baidu.tieba.m64;
+import com.baidu.tieba.k84;
+import com.baidu.tieba.l84;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public RecyclerView b;
-    public List<m64> c;
-    public l64 d;
+    public List<l84> c;
+    public k84 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, l64 l64Var, boolean z) {
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, k84 k84Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, l64Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, recyclerView, k84Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
         this.b = recyclerView;
         this.a = context;
-        this.d = l64Var;
+        this.d = k84Var;
         this.e = z;
     }
 
@@ -67,13 +67,13 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (m64 m64Var : this.c) {
-                m64Var.b = false;
+            for (l84 l84Var : this.c) {
+                l84Var.b = false;
             }
         }
     }
 
-    public void g(List<m64> list, String str) {
+    public void g(List<l84> list, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, str) == null) || list == null) {
             return;
@@ -88,7 +88,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<m64> list = this.c;
+            List<l84> list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -122,14 +122,14 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i != 101) {
-                return new LocationDetailViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0084, viewGroup, false), this, this.d);
+                return new LocationDetailViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0086, viewGroup, false), this, this.d);
             }
-            return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0083, viewGroup, false));
+            return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0085, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void setData(List<m64> list) {
+    public void setData(List<l84> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             g(list, null);
@@ -137,19 +137,19 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, l64 l64Var) {
-        this(context, recyclerView, l64Var, true);
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, k84 k84Var) {
+        this(context, recyclerView, k84Var, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, l64Var};
+            Object[] objArr = {context, recyclerView, k84Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (RecyclerView) objArr2[1], (l64) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                this((Context) objArr2[0], (RecyclerView) objArr2[1], (k84) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

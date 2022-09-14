@@ -9,7 +9,6 @@ import com.baidu.android.pushservice.frequency.b;
 import com.baidu.android.pushservice.g.c;
 import com.baidu.android.pushservice.g.e;
 import com.baidu.android.pushservice.i.m;
-import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -118,7 +117,6 @@ public class ViNotifyActivity extends Activity {
             } catch (Exception unused) {
             }
             finish();
-            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

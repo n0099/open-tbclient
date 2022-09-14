@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes4.dex */
-public class jp4 {
+public class jp4 implements LayoutInflater.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public fp4 c;
+    public lp4 a;
 
     public jp4() {
         Interceptable interceptable = $ic;
@@ -26,41 +26,28 @@ public class jp4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lp4Var) == null) {
+            this.a = lp4Var;
+        }
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
+            if (this.a == null) {
+                this.a = new lp4();
+            }
+            this.a.j(str, context, attributeSet);
+            return null;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new fp4();
-        ArrayList<ip4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        if (str3 == null) {
-            str3 = "";
-        }
-        String str4 = this.b;
-        ip4 ip4Var = new ip4(str3, str4 != null ? str4 : "", null);
-        ip4Var.t(true);
-        arrayList.add(ip4Var);
-        this.c.g(arrayList);
+        return (View) invokeLLL.objValue;
     }
 }

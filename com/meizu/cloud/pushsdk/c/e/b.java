@@ -16,7 +16,7 @@ public class b {
     public HashMap<String, Object> c;
     public HashMap<String, String> d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public Context a = null;
 

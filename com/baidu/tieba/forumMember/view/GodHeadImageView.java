@@ -11,6 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.un5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,7 +126,7 @@ public class GodHeadImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04029d, R.attr.obfuscated_res_0x7f04029e, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f040626});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, un5.GodHeadImageView);
                 this.g = obtainStyledAttributes.getDimensionPixelSize(0, i);
                 this.f = obtainStyledAttributes.getInteger(2, this.e);
                 this.d = obtainStyledAttributes.getInteger(3, this.c);
@@ -171,7 +172,7 @@ public class GodHeadImageView extends FrameLayout {
                 SkinManager.setImageResource(this.b, R.drawable.pic_shen_avatar_square);
             } else {
                 this.a.setIsRound(true);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f08032b);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080332);
             }
         }
     }

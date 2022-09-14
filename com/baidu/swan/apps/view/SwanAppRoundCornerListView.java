@@ -12,8 +12,8 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh1;
-import com.baidu.tieba.re3;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.pg3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +46,8 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f = kh1.a;
-        g = re3.h(11.0f);
+        f = ij1.a;
+        g = pg3.h(11.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

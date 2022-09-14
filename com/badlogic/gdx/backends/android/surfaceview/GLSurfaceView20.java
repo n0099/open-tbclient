@@ -14,8 +14,8 @@ import android.view.inputmethod.InputConnection;
 import com.badlogic.gdx.Input;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.e3;
-import com.baidu.tieba.i3;
+import com.baidu.tieba.f3;
+import com.baidu.tieba.j3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
     public static String c = "GL2JNIView";
     public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i3 a;
+    public final j3 a;
     public Input.OnscreenKeyboardType b;
 
     /* loaded from: classes.dex */
@@ -274,13 +274,13 @@ public class GLSurfaceView20 extends GLSurfaceView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GLSurfaceView20(Context context, i3 i3Var, int i) {
+    public GLSurfaceView20(Context context, j3 j3Var, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, i3Var, Integer.valueOf(i)};
+            Object[] objArr = {context, j3Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -293,7 +293,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
         }
         this.b = Input.OnscreenKeyboardType.Default;
         d = i;
-        this.a = i3Var;
+        this.a = j3Var;
         b(false, 16, 0);
     }
 
@@ -332,7 +332,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorInfo)) == null) {
             if (editorInfo != null) {
                 editorInfo.imeOptions |= LaunchTaskConstants.OTHER_PROCESS;
-                editorInfo.inputType = e3.c(this.b);
+                editorInfo.inputType = f3.c(this.b);
             }
             return new a(this, this, false);
         }
@@ -351,25 +351,25 @@ public class GLSurfaceView20 extends GLSurfaceView {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            i3.a a2 = this.a.a(i, i2);
+            j3.a a2 = this.a.a(i, i2);
             setMeasuredDimension(a2.a, a2.b);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GLSurfaceView20(Context context, i3 i3Var) {
-        this(context, i3Var, 2);
+    public GLSurfaceView20(Context context, j3 j3Var) {
+        this(context, j3Var, 2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, i3Var};
+            Object[] objArr = {context, j3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (i3) objArr2[1], ((Integer) objArr2[2]).intValue());
+                this((Context) objArr2[0], (j3) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

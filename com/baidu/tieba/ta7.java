@@ -1,29 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
-public class ta7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    @NonNull
-    public static ArrayList<MetaData> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921689, p77.class);
-            if (runTask != null && runTask.getData() != null) {
-                return ((p77) runTask.getData()).b();
-            }
-            return new ArrayList<>();
-        }
-        return (ArrayList) invokeV.objValue;
-    }
+public interface ta7 {
+    void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap);
 }

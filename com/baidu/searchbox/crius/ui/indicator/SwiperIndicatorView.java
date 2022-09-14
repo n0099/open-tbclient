@@ -108,7 +108,7 @@ public class SwiperIndicatorView extends View {
             paint.setStyle(Paint.Style.FILL);
             int indicatorDefaultColor = getIndicatorDefaultColor();
             if (indicatorDefaultColor == Integer.MAX_VALUE) {
-                this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0606e7));
+                this.mPaint.setColor(getResources().getColor(R.color.crius_swipe_indicator_default));
             } else {
                 this.mPaint.setColor(indicatorDefaultColor);
             }
@@ -207,7 +207,7 @@ public class SwiperIndicatorView extends View {
                     if (i == this.mCurrentIndex) {
                         int indicateSelectedColor = getIndicateSelectedColor();
                         if (indicateSelectedColor == Integer.MAX_VALUE) {
-                            this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606e8));
+                            this.mPaint.setColor(getContext().getResources().getColor(R.color.crius_swipe_indicator_selected));
                         } else {
                             this.mPaint.setColor(indicateSelectedColor);
                         }
@@ -221,7 +221,7 @@ public class SwiperIndicatorView extends View {
                     } else {
                         int indicatorDefaultColor = getIndicatorDefaultColor();
                         if (indicatorDefaultColor == Integer.MAX_VALUE) {
-                            this.mPaint.setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0606e7));
+                            this.mPaint.setColor(getContext().getResources().getColor(R.color.crius_swipe_indicator_default));
                         } else {
                             this.mPaint.setColor(indicatorDefaultColor);
                         }
@@ -248,7 +248,7 @@ public class SwiperIndicatorView extends View {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             if (mode != 1073741824) {
-                size = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ed);
+                size = getResources().getDimensionPixelSize(R.dimen.crius_swiper_indicator_height);
             }
             if (isSelectedDrawRectangle()) {
                 float f = this.mIndicatorAttrs.indicatorItemSelectedWidth * this.mDensity;

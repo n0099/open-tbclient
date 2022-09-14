@@ -1,32 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public abstract class xv3 {
+public class xv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xv3() {
+    public static boolean a(View view2, et2 et2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, et2Var)) == null) {
+            pk1 W = lo2.U().W();
+            return W != null && W.c(view2, et2Var);
         }
+        return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public abstract File a();
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            pk1 W = lo2.U().W();
+            return (W == null || !W.b() || W.h()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    public abstract void b(@NonNull String str, long j);
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            pk1 W = lo2.U().W();
+            return W != null && W.d(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            pk1 W = lo2.U().W();
+            if (W == null) {
+                return false;
+            }
+            if (W.h()) {
+                SwanAppActivity activity = lo2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                W.g(false);
+            }
+            return W.removeView(view2);
+        }
+        return invokeL.booleanValue;
+    }
 }

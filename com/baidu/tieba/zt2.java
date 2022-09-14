@@ -1,186 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zt2 {
+public final class zt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final List<xt2> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Map<String, HybridUbcFlow>> a;
-    public final Map<String, tf3<HybridUbcFlow>> b;
-    public final tf3<HybridUbcFlow> c;
 
-    /* loaded from: classes6.dex */
-    public class a implements tf3<HybridUbcFlow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zt2 a;
-
-        public a(zt2 zt2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948371409, "Lcom/baidu/tieba/zt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zt2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = zt2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tf3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-                this.a.g(hybridUbcFlow.p);
-            }
-        }
-    }
-
-    public zt2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948371409, "Lcom/baidu/tieba/zt2;");
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.c = new a(this);
+        a = y23.v;
+        b = Arrays.asList(new xt2());
     }
 
-    public final HybridUbcFlow a(String str) {
-        InterceptResult invokeL;
+    public static JSONObject a() throws JSONException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.H("callback_on_submit", this.c);
-            tf3<HybridUbcFlow> tf3Var = this.b.get(str);
-            if (tf3Var != null) {
-                tf3Var.a(hybridUbcFlow);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
+            if (a) {
+                yz1.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
             }
-            return hybridUbcFlow;
+            c(jSONObject);
+            if (a) {
+                yz1.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
+            }
+            return jSONObject;
         }
-        return (HybridUbcFlow) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public HybridUbcFlow b(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public static JSONObject b() {
+        JSONObject jSONObject;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c(str, "default") : (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public HybridUbcFlow c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map == null) {
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                jSONObject = a();
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                    yz1.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
                 }
-                return map.get(str2);
+                jSONObject = null;
             }
+            return jSONObject != null ? jSONObject : new JSONObject();
         }
-        return (HybridUbcFlow) invokeLL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public zt2 d(String str, tf3<HybridUbcFlow> tf3Var) {
-        InterceptResult invokeLL;
+    public static void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, tf3Var)) == null) {
-            synchronized (this.b) {
-                this.b.put(str, tf3Var);
-            }
-            return this;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || jSONObject == null || jSONObject.length() == 0) {
+            return;
         }
-        return (zt2) invokeLL.objValue;
-    }
-
-    public synchronized HybridUbcFlow e(String str) {
-        InterceptResult invokeL;
-        HybridUbcFlow f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                f = f(str, "default");
-            }
-            return f;
-        }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public synchronized HybridUbcFlow f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            synchronized (this) {
-                synchronized (this.a) {
-                    Map<String, HybridUbcFlow> map = this.a.get(str);
-                    if (map == null) {
-                        HashMap hashMap = new HashMap();
-                        HybridUbcFlow a2 = a(str);
-                        hashMap.put(str2, a2);
-                        this.a.put(str, hashMap);
-                        return a2;
-                    }
-                    HybridUbcFlow hybridUbcFlow = map.get(str2);
-                    if (hybridUbcFlow == null) {
-                        hybridUbcFlow = a(str);
-                        map.put(str2, hybridUbcFlow);
-                    }
-                    return hybridUbcFlow;
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            for (xt2 xt2Var : b) {
+                if (xt2Var.a(keys.next())) {
+                    keys.remove();
                 }
             }
         }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public zt2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.a) {
-                this.a.remove(str);
-            }
-            return this;
-        }
-        return (zt2) invokeL.objValue;
-    }
-
-    public zt2 h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map != null) {
-                    map.remove(str2);
-                }
-            }
-            return this;
-        }
-        return (zt2) invokeLL.objValue;
     }
 }

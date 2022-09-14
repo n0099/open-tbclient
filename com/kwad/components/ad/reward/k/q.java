@@ -47,7 +47,7 @@ public final class q extends p {
             }
         }
         this.we = i;
-        this.wc = R.layout.obfuscated_res_0x7f0d0452;
+        this.wc = R.layout.obfuscated_res_0x7f0d0456;
         this.wd = false;
     }
 
@@ -126,16 +126,16 @@ public final class q extends p {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110f);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110d);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110e);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091116);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110c);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091111);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091108);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091110);
-        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091107);
-        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091109);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09112d);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09112b);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09112c);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091134);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09112a);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09112f);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091126);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09112e);
+        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091125);
+        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091127);
     }
 
     @Override // com.kwad.components.ad.reward.k.p
@@ -149,6 +149,6 @@ public final class q extends p {
     public final int jc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f09110a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f091128 : invokeV.intValue;
     }
 }

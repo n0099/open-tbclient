@@ -1,56 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
 public interface g01 {
 
     /* loaded from: classes4.dex */
-    public static final class a implements g01 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
 
-        public a() {
+        public a(long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = j;
+            this.b = i;
         }
 
-        @Override // com.baidu.tieba.g01
-        public <T> T a(Class<T> clazz) {
-            InterceptResult invokeL;
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, clazz)) == null) {
-                Intrinsics.checkNotNullParameter(clazz, "clazz");
-                return null;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
             }
-            return (T) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.g01
-        public void b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-            }
+            return (String) invokeV.objValue;
         }
     }
 
-    <T> T a(Class<T> cls);
+    a a(n01 n01Var, e01... e01VarArr);
 
-    void b(Context context);
+    void beginTransaction();
+
+    int delete(n01 n01Var, e01... e01VarArr);
+
+    void endTransaction();
+
+    Cursor query(s01 s01Var);
+
+    void setTransactionSuccessful();
+
+    int update(n01 n01Var, e01... e01VarArr);
 }

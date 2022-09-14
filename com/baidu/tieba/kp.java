@@ -1,25 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.tieba.jp;
+import com.baidu.tieba.lp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class kp {
+public class kp implements jp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final long b;
+    public final BDHttpDns.e a;
+    public final BDHttpDns b;
+    public final lp c;
 
-    public kp(float f, long j) {
+    public kp(Context context, BDHttpDns.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Long.valueOf(j)};
+            Object[] objArr = {context, eVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,57 +33,42 @@ public final class kp {
                 return;
             }
         }
-        this.a = f;
-        this.b = j;
+        this.a = eVar;
+        BDHttpDns h = BDHttpDns.h(context);
+        this.b = h;
+        this.c = h.d();
     }
 
-    public final float a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jp.a
+    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof kp) {
-                    kp kpVar = (kp) obj;
-                    if (Float.compare(this.a, kpVar.a) == 0) {
-                        if (this.b == kpVar.b) {
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
+            if (i == -1) {
+                np.a("Async resolve failed, host(%s), dns resolve failed", str);
+                BDHttpDns.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
                 }
-                return false;
+            } else if (i != 0) {
+                np.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
+            } else {
+                Object[] objArr = new Object[4];
+                objArr[0] = str;
+                objArr[1] = arrayList != null ? arrayList.toString() : null;
+                objArr[2] = arrayList2 != null ? arrayList2.toString() : null;
+                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
+                np.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                lp.a aVar = new lp.a();
+                aVar.i(60L);
+                aVar.h(System.currentTimeMillis() / 1000);
+                aVar.f(arrayList);
+                aVar.g(arrayList2);
+                this.c.e(str, aVar);
+                BDHttpDns.e eVar2 = this.a;
+                if (eVar2 != null) {
+                    eVar2.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                }
             }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.b;
-            return (Float.floatToIntBits(this.a) * 31) + ((int) (j ^ (j >>> 32)));
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "TaskSingleProcess(curRate=" + this.a + ", total=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
     }
 }

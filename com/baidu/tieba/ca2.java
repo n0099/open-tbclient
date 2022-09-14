@@ -1,68 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj2;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ca2 implements z92 {
+public class ca2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
-    public ca2() {
+    public static void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL(c());
+            } catch (Exception e) {
+                e.getStackTrace();
             }
         }
-        this.a = new String[]{i83.w(), i83.y(), f52.c()};
     }
 
-    @Override // com.baidu.tieba.z92
-    public ArraySet<String> a() {
+    public static void b(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
+                sQLiteDatabase.execSQL("CREATE TRIGGER delete_old_swan_history AFTER INSERT ON ai_apps_history WHEN (select count(*) from ai_apps_history)>200 BEGIN  DELETE FROM ai_apps_history WHERE _id IN (SELECT _id FROM  ai_apps_history ORDER BY visit_time LIMIT (SELECT count(*) -200 FROM ai_apps_history)); END;");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = ch4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
-            }
-            if (kh1.a) {
-                b(arraySet);
-            }
-            ay1.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final void b(ArraySet<String> arraySet) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) == null) || arraySet == null) {
-            return;
-        }
-        String[] strArr = {rb2.b().getAbsolutePath(), ha3.c().getAbsolutePath(), wj2.b.d(), pd3.b(), zj2.k(), xu2.b()};
-        for (int i = 0; i < 6; i++) {
-            String K = ch4.K(strArr[i]);
-            if (!TextUtils.isEmpty(K)) {
-                arraySet.add(K);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0,app_name TEXT,app_icon TEXT,frame_type INTEGER,sync_state INTEGER,pay_protected INTEGER,app_type TEXT,app_key TEXT,version_code TEXT);" : (String) invokeV.objValue;
     }
 }

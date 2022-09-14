@@ -1,32 +1,38 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class j73 {
+public class j73 extends v43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements rh3<b83<JSONObject>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c83 a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
 
-        public a(c83 c83Var) {
+        public a(j73 j73Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c83Var};
+                Object[] objArr = {j73Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,75 +42,94 @@ public final class j73 {
                     return;
                 }
             }
-            this.a = c83Var;
+            this.a = callbackHandler;
+            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rh3
+        /* renamed from: b */
+        public void a(b83<JSONObject> b83Var) {
+            JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h73.k("934", this.a.f());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836163, "Lcom/baidu/tieba/j73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836163, "Lcom/baidu/tieba/j73;");
-                return;
-            }
-        }
-        a = kh1.a;
-    }
-
-    public static void a(c83 c83Var, xl2 xl2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, c83Var, xl2Var) == null) || c83Var == null || xl2Var == null) {
-            return;
-        }
-        c83Var.a = t73.n(xl2Var.G());
-        c83Var.f = xl2Var.H();
-        c83Var.c = xl2Var.T();
-        c83Var.a("swan", fa3.h(xl2Var.G()));
-        c83Var.a("appversion", xl2Var.v1());
-        c83Var.a("thirdversion", xl2Var.w1());
-        c83Var.b(t73.k(xl2Var.W()));
-        c83Var.d(xl2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-    }
-
-    public static void b(d83 d83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, d83Var) == null) {
-            if (d83Var == null) {
-                if (a) {
-                    Log.w("SwanAppFuncUbc", "event is null");
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
+                if (b83Var.c() && fr1.y(b83Var.a)) {
+                    JSONObject optJSONObject = b83Var.a.optJSONObject("data");
+                    if (optJSONObject.optBoolean(TiebaStatic.LogFields.RESULT)) {
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
+                    } else {
+                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
+                    }
+                } else {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(b83Var.b());
+                    gm2.j().g(this.a, wrapCallbackParams.toString());
                 }
-                return;
+                this.a.handleSchemeDispatchCallback(this.b, wrapCallbackParams.toString());
             }
-            c83 c83Var = new c83();
-            c83Var.f = d83Var.f;
-            c83Var.a = d83Var.a;
-            c83Var.g = d83Var.g;
-            c83Var.c = d83Var.c;
-            c83Var.b = d83Var.b;
-            c83Var.e = d83Var.e;
-            c83Var.e(d83Var.c());
-            c(c83Var);
         }
     }
 
-    public static void c(c83 c83Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j73(v33 v33Var) {
+        super(v33Var, "/swanAPI/checkSession");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, c83Var) == null) {
-            ud3.j(new a(c83Var), "SwanAppFuncClickUBC");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.v43
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
+            if (y23Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                gm2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+                return false;
+            }
+            String O = y23Var.O();
+            if (TextUtils.isEmpty(O)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key");
+                gm2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                gm2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                gm2.j().g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+                return false;
+            } else if (!y23Var.N().e(context)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
+                gm2.j().g(callbackHandler, unitedSchemeEntity.result.toString());
+                return true;
+            } else {
+                e83 g = x23.K().x().a().b().g((Activity) context, O);
+                g.q("checkSession");
+                g.o(new a(this, callbackHandler, optString));
+                g.call();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
     }
 }

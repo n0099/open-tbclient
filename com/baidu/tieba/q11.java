@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface q11 {
-    void load(String str) throws Throwable;
-
-    void loadLibrary(String str) throws Throwable;
+    void a(JSONObject jSONObject);
 }

@@ -21,9 +21,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci5;
-import com.baidu.tieba.ei5;
-import com.baidu.tieba.fi5;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.ok5;
+import com.baidu.tieba.pk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public abstract class LoadingLayout extends FrameLayout implements ci5 {
+public abstract class LoadingLayout extends FrameLayout implements mk5 {
     public static /* synthetic */ Interceptable $ic;
     public static final Interpolator l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,30 +132,30 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
         this.g = mode;
         this.h = orientation;
         if (a.a[orientation.ordinal()] != 1) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0850, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086b, this);
         } else {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084f, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086a, this);
         }
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909cf);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909e3);
         this.a = frameLayout;
-        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091ac6);
-        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091ac4);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ac5);
-        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091ac2);
+        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091b06);
+        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091b04);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b05);
+        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091b02);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         if (a.b[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f46);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f47);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f48);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f63);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f64);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f65);
         } else {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f46);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f47);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f48);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f63);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f64);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f65);
         }
         if (typedArray.hasValue(7) && (drawable = typedArray.getDrawable(7)) != null) {
-            fi5.b(this, drawable);
+            pk5.b(this, drawable);
         }
         if (typedArray.hasValue(9)) {
             TypedValue typedValue = new TypedValue();
@@ -178,13 +178,13 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
             if (typedArray.hasValue(5)) {
                 drawable2 = typedArray.getDrawable(5);
             } else if (typedArray.hasValue(6)) {
-                ei5.a("ptrDrawableTop", "ptrDrawableStart");
+                ok5.a("ptrDrawableTop", "ptrDrawableStart");
                 drawable2 = typedArray.getDrawable(6);
             }
         } else if (typedArray.hasValue(4)) {
             drawable2 = typedArray.getDrawable(4);
         } else if (typedArray.hasValue(3)) {
-            ei5.a("ptrDrawableBottom", "ptrDrawableEnd");
+            ok5.a("ptrDrawableBottom", "ptrDrawableEnd");
             drawable2 = typedArray.getDrawable(3);
         }
         setLoadingDrawable(drawable2 == null ? SkinManager.getDrawable(getDefaultDrawableResId()) : drawable2);
@@ -359,7 +359,7 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
         }
     }
 
-    @Override // com.baidu.tieba.ci5
+    @Override // com.baidu.tieba.mk5
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
@@ -367,7 +367,7 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
         }
     }
 
-    @Override // com.baidu.tieba.ci5
+    @Override // com.baidu.tieba.mk5
     public final void setLoadingDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
@@ -377,7 +377,7 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
         }
     }
 
-    @Override // com.baidu.tieba.ci5
+    @Override // com.baidu.tieba.mk5
     public void setPullLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, charSequence) == null) {
@@ -385,7 +385,7 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
         }
     }
 
-    @Override // com.baidu.tieba.ci5
+    @Override // com.baidu.tieba.mk5
     public void setRefreshingLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) {
@@ -393,7 +393,7 @@ public abstract class LoadingLayout extends FrameLayout implements ci5 {
         }
     }
 
-    @Override // com.baidu.tieba.ci5
+    @Override // com.baidu.tieba.mk5
     public void setReleaseLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, charSequence) == null) {

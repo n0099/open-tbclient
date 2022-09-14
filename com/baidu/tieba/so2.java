@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class so2 {
+public class so2 implements po2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
+    @Nullable
+    public ga2 a;
 
     public so2() {
         Interceptable interceptable = $ic;
@@ -27,52 +23,42 @@ public class so2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 3;
-        this.b = true;
-        this.d = "back";
-        this.e = 60;
     }
 
-    public static so2 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void a() {
+        u42 W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            so2 so2Var = new so2();
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    int length = optJSONArray.length();
-                    int i = 0;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        String optString = optJSONArray.optString(i2);
-                        char c = 65535;
-                        int hashCode = optString.hashCode();
-                        if (hashCode != -1367751899) {
-                            if (hashCode == 92896879 && optString.equals("album")) {
-                                c = 0;
-                            }
-                        } else if (optString.equals("camera")) {
-                            c = 1;
-                        }
-                        if (c == 0) {
-                            i |= 1;
-                        } else if (c == 1) {
-                            i |= 2;
-                        }
-                    }
-                    so2Var.a = i;
-                }
-                so2Var.b = jSONObject.optBoolean("compressed", true);
-                int optInt = jSONObject.optInt("maxDuration", 60);
-                so2Var.e = optInt <= 60 ? optInt : 60;
-                so2Var.d = jSONObject.optString("camera");
-                so2Var.c = jSONObject.optString("cb");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ga2 ga2Var = this.a;
+            if ((ga2Var == null || ga2Var.isDestroyed()) && (W = s92.U().W()) != null && (W.f() instanceof ga2)) {
+                this.a = (ga2) W.f();
             }
-            return so2Var;
         }
-        return (so2) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.po2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            ga2 ga2Var = this.a;
+            if (ga2Var != null) {
+                ga2Var.suspendTimer();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.po2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            ga2 ga2Var = this.a;
+            if (ga2Var != null) {
+                ga2Var.continueTimer();
+            }
+        }
     }
 }

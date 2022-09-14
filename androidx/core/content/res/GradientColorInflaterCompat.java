@@ -12,7 +12,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.core.R$styleable;
+import androidx.core.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,20 +89,20 @@ public final class GradientColorInflaterCompat {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, resources, xmlPullParser, attributeSet, theme)) == null) {
             String name = xmlPullParser.getName();
             if (name.equals(NativeConstants.GRADIENT)) {
-                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.GradientColor);
-                float namedFloat = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "startX", R$styleable.GradientColor_android_startX, 0.0f);
-                float namedFloat2 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "startY", R$styleable.GradientColor_android_startY, 0.0f);
-                float namedFloat3 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "endX", R$styleable.GradientColor_android_endX, 0.0f);
-                float namedFloat4 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "endY", R$styleable.GradientColor_android_endY, 0.0f);
-                float namedFloat5 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "centerX", R$styleable.GradientColor_android_centerX, 0.0f);
-                float namedFloat6 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "centerY", R$styleable.GradientColor_android_centerY, 0.0f);
-                int namedInt = TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "type", R$styleable.GradientColor_android_type, 0);
-                int namedColor = TypedArrayUtils.getNamedColor(obtainAttributes, xmlPullParser, "startColor", R$styleable.GradientColor_android_startColor, 0);
+                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.GradientColor);
+                float namedFloat = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "startX", 8, 0.0f);
+                float namedFloat2 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "startY", 9, 0.0f);
+                float namedFloat3 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "endX", 10, 0.0f);
+                float namedFloat4 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "endY", 11, 0.0f);
+                float namedFloat5 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "centerX", 3, 0.0f);
+                float namedFloat6 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "centerY", 4, 0.0f);
+                int namedInt = TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "type", 2, 0);
+                int namedColor = TypedArrayUtils.getNamedColor(obtainAttributes, xmlPullParser, "startColor", 0, 0);
                 boolean hasAttribute = TypedArrayUtils.hasAttribute(xmlPullParser, "centerColor");
-                int namedColor2 = TypedArrayUtils.getNamedColor(obtainAttributes, xmlPullParser, "centerColor", R$styleable.GradientColor_android_centerColor, 0);
-                int namedColor3 = TypedArrayUtils.getNamedColor(obtainAttributes, xmlPullParser, "endColor", R$styleable.GradientColor_android_endColor, 0);
-                int namedInt2 = TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "tileMode", R$styleable.GradientColor_android_tileMode, 0);
-                float namedFloat7 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "gradientRadius", R$styleable.GradientColor_android_gradientRadius, 0.0f);
+                int namedColor2 = TypedArrayUtils.getNamedColor(obtainAttributes, xmlPullParser, "centerColor", 7, 0);
+                int namedColor3 = TypedArrayUtils.getNamedColor(obtainAttributes, xmlPullParser, "endColor", 1, 0);
+                int namedInt2 = TypedArrayUtils.getNamedInt(obtainAttributes, xmlPullParser, "tileMode", 6, 0);
+                float namedFloat7 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "gradientRadius", 5, 0.0f);
                 obtainAttributes.recycle();
                 ColorStops checkColors = checkColors(inflateChildElements(resources, xmlPullParser, attributeSet, theme), namedColor, namedColor3, hasAttribute, namedColor2);
                 if (namedInt != 1) {
@@ -121,7 +121,7 @@ public final class GradientColorInflaterCompat {
         return (Shader) invokeLLLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0088, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0080, code lost:
         throw new org.xmlpull.v1.XmlPullParserException(r9.getPositionDescription() + ": <item> tag requires a 'color' attribute and a 'offset' attribute!");
      */
     /*
@@ -140,14 +140,14 @@ public final class GradientColorInflaterCompat {
                 if (next == 1 || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
                     break;
                 } else if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
-                    TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.GradientColorItem);
-                    boolean hasValue = obtainAttributes.hasValue(R$styleable.GradientColorItem_android_color);
-                    boolean hasValue2 = obtainAttributes.hasValue(R$styleable.GradientColorItem_android_offset);
+                    TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.GradientColorItem);
+                    boolean hasValue = obtainAttributes.hasValue(0);
+                    boolean hasValue2 = obtainAttributes.hasValue(1);
                     if (!hasValue || !hasValue2) {
                         break;
                     }
-                    int color = obtainAttributes.getColor(R$styleable.GradientColorItem_android_color, 0);
-                    float f = obtainAttributes.getFloat(R$styleable.GradientColorItem_android_offset, 0.0f);
+                    int color = obtainAttributes.getColor(0, 0);
+                    float f = obtainAttributes.getFloat(1, 0.0f);
                     obtainAttributes.recycle();
                     arrayList2.add(Integer.valueOf(color));
                     arrayList.add(Float.valueOf(f));

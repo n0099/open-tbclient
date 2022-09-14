@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qi;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,11 +78,11 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (qi.isEmpty(str)) {
+            if (dj.isEmpty(str)) {
                 return str;
             }
             if (str.indexOf("_client_version=") < 0) {
-                if (qi.isEmpty(Uri.parse(str).getQuery())) {
+                if (dj.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();
@@ -102,7 +102,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                ri.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f159b));
+                ej.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15bb));
                 return false;
             }
             return true;
